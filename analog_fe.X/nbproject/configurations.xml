@@ -12,6 +12,10 @@
               <itemPath>../src/config/default/peripheral/adc/plib_adc_common.h</itemPath>
               <itemPath>../src/config/default/peripheral/adc/plib_adc1.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="ccp" displayName="ccp" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/ccp/plib_ccp_common.h</itemPath>
+              <itemPath>../src/config/default/peripheral/ccp/plib_sccp1.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="clk" displayName="clk" projectFiles="true">
               <itemPath>../src/config/default/peripheral/clk/plib_clk.h</itemPath>
               <itemPath>../src/config/default/peripheral/clk/plib_clk_common.h</itemPath>
@@ -59,6 +63,7 @@
           <itemPath>analog_fe_default/components/spi1.yml</itemPath>
           <itemPath>analog_fe_default/components/spi2.yml</itemPath>
           <itemPath>analog_fe_default/components/spi3.yml</itemPath>
+          <itemPath>analog_fe_default/components/sccp1.yml</itemPath>
           <itemPath>analog_fe_default/components/timer1.yml</itemPath>
           <itemPath>analog_fe_default/components/adc1.yml</itemPath>
           <itemPath>analog_fe_default/components/core.yml</itemPath>
@@ -87,6 +92,9 @@
             <logicalFolder name="adc" displayName="adc" projectFiles="true">
               <itemPath>../src/config/default/peripheral/adc/plib_adc2.c</itemPath>
               <itemPath>../src/config/default/peripheral/adc/plib_adc1.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="ccp" displayName="ccp" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/ccp/plib_sccp1.c</itemPath>
             </logicalFolder>
             <logicalFolder name="clk" displayName="clk" projectFiles="true">
               <itemPath>../src/config/default/peripheral/clk/plib_clk.c</itemPath>

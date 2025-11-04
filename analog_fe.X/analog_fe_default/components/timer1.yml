@@ -35,7 +35,7 @@ data:
       - children:
         - attributes:
             id: timer1
-            value: '49'
+            value: '49999'
           type: Dynamic
         type: Values
       type: Long
@@ -67,7 +67,7 @@ data:
       - children:
         - attributes:
             id: timer1
-            value: '49'
+            value: '49999'
           type: Dynamic
         type: Values
       type: Hex
@@ -78,7 +78,7 @@ data:
       - children:
         - attributes:
             id: timer1
-            value: '500'
+            value: '500000'
           type: Dynamic
         type: Values
       type: Long
@@ -88,7 +88,7 @@ data:
       children:
       - children:
         - attributes:
-            value: nanosecond
+            value: microsecond
           type: User
         type: Values
       type: Combo
@@ -101,13 +101,13 @@ data:
             id: label
           children:
           - type: Value
-            value: Time in nanosecond
+            value: Time in microsecond
           type: String
         - attributes:
             id: max
           children:
           - type: Value
-            value: '4.2949673E10'
+            value: '4.2949672E7'
           type: Float
         type: Attributes
       - children:

@@ -11,17 +11,18 @@ modules:
 - amp3
 - core
 - dfp
+- sccp1
 - spi1
 - spi2
 - spi3
 - timer1
 generatedFileHashHistoryMap:
 - file: ../src/config/default/definitions.h
-  hash: a6a692203d12dd1a2d3e27cd0179b2b48fd2c80cc35d0b48bbf07b9fa5943f4d
+  hash: 019224c56aaa5a0d61650c2beeafc13cb1c5c5e0b60f558d4ae3ec53bb1c7038
 - file: ../src/config/default/device.h
   hash: ae9334f1f1a7868eb3f27a0a2a9100a31af74d1fd227d97e20cc04d39e272e05
 - file: ../src/config/default/initialization.c
-  hash: 40a0d9b43993c3f6fe1d1d0e54ed0227ce26c3c8b1ae6143b8b7b72845e0d906
+  hash: 571dd2da09ae8e946aae84384a45745ae4b2719414033e30275ae7fc4df20b51
 - file: ../src/config/default/interrupts.c
   hash: 9a4ff9139806c72461e6000033f3ded4f76fb6f0d2f87e54ce9a7886b6a873a1
 - file: ../src/config/default/interrupts.h
@@ -36,6 +37,12 @@ generatedFileHashHistoryMap:
   hash: ff222e68c6275356d95e2b635e46d9bcf43fc82a321e4213eac8251e3b899a80
 - file: ../src/config/default/peripheral/adc/plib_adc_common.h
   hash: 37be837a266291ef4b7ff4cd28a73c3f939ef8ed94ff865b6d38e6d986bc0f09
+- file: ../src/config/default/peripheral/ccp/plib_ccp_common.h
+  hash: efad9e78df8ac23820abac663ab42b1a0989b2784987341cf3b90a041c13eb08
+- file: ../src/config/default/peripheral/ccp/plib_sccp1.c
+  hash: 2f53e51f1b6b9365f5fc2c4ee8b7a510e3cfdbe9f84358257db7eb545899ce0d
+- file: ../src/config/default/peripheral/ccp/plib_sccp1.h
+  hash: 6e815694541e1e1396f4d8488229415ff0da39c668f84aebcfd8858acba740b0
 - file: ../src/config/default/peripheral/clk/plib_clk.c
   hash: da8ded06d314986b3d1d4a15a6b0bb4c67bdaa4b270fa41be786b2e10f9a25a9
 - file: ../src/config/default/peripheral/clk/plib_clk.h
@@ -75,9 +82,9 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h
   hash: 4e997ee2119b82472aad6910255c6ce24a7238f2a895edc971711f88cd31b482
 - file: ../src/config/default/peripheral/tmr/plib_tmr1.c
-  hash: 505ab5aeb65ac13c9540e175778987895071c1e019526f43e3f8cab878b7b25d
+  hash: 243d43b5f1fd41af2042951650f4a0eea39f0d24b5bf9e81094de1ec806fda05
 - file: ../src/config/default/peripheral/tmr/plib_tmr1.h
-  hash: 639d718a50fa04b4f7cc7192ed67b5dae1708eff0450dcf5bb249b6cc588174a
+  hash: ba8e87892153f2917bb53c44430b10cf143a84fc61cc5f78e39c1d19909241d8
 - file: ../src/config/default/peripheral/tmr/plib_tmr_common.h
   hash: 44b6cc078ef9ff1c11aba2c53e3392130fbbeec10fd80022ca490d1b9d6d61fe
 - file: ../src/config/default/stdio/xc32_monitor.c

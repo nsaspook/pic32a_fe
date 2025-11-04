@@ -72,7 +72,7 @@ void TMR1_Initialize(void)
     TMR1 = 0x0UL;
 
     /*Set period */
-    PR1 = 0x31UL; /* Decimal Equivalent 49 */
+    PR1 = 0xc34fUL; /* Decimal Equivalent 49999 */
 
     tmr1Obj.tickCounter = 0;
     tmr1Obj.callback_fn = NULL;
