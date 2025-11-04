@@ -1,0 +1,149 @@
+configVersion: 1.0.0
+componentName: adc1
+coreVersion: 5.8.3
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: adc1
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: adc1
+          x: '152'
+          y: '252'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    ADC_CLOCK_FREQUENCY:
+      attributes:
+        id: ADC_CLOCK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: adc1
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: String
+    AD_CON__MODE:
+      attributes:
+        id: AD_CON__MODE
+      children:
+      - children:
+        - attributes:
+            id: adc1
+            value: '0x2'
+          type: Dynamic
+        type: Values
+      type: String
+    CONVERSION_TIME:
+      attributes:
+        id: CONVERSION_TIME
+      children:
+      - children:
+        - attributes:
+            id: adc1
+            value: '0.04'
+          type: Dynamic
+        type: Values
+      type: String
+    TAD_CORE:
+      attributes:
+        id: TAD_CORE
+      children:
+      - children:
+        - attributes:
+            id: adc1
+            value: '0.02'
+          type: Dynamic
+        type: Values
+      type: String
+    resolutionBit:
+      attributes:
+        id: resolutionBit
+      children:
+      - children:
+        - attributes:
+            id: adc1
+            value: '12'
+          type: Dynamic
+        type: Values
+      type: String
+    regPorSet:
+      attributes:
+        id: regPorSet
+      children:
+      - children:
+        - attributes:
+            id: adc1
+            value: |2
+                  AD1CON = 0x4A0000UL;
+                  AD1DATAOVR = 0x0UL;
+                  AD1STAT = 0x0UL;
+                  AD1CMPSTAT = 0x0UL;
+                  AD1CH0CON = 0x0UL;
+                  AD1CH0DATA = 0x0UL;
+                  AD1CH0CNT = 0x0UL;
+                  AD1CH0CMPLO = 0x0UL;
+                  AD1CH0CMPHI = 0x0UL;
+          type: Dynamic
+        type: Values
+      type: String
+    isChannelSelected:
+      attributes:
+        id: isChannelSelected
+      children:
+      - children:
+        - attributes:
+            id: adc1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    ch0ChannelPosPin:
+      attributes:
+        id: ch0ChannelPosPin
+      children:
+      - children:
+        - attributes:
+            id: adc1
+            value: AN0
+          type: Dynamic
+        type: Values
+      type: String
+    channelIntEnable:
+      attributes:
+        id: channelIntEnable
+      children:
+      - children:
+        - attributes:
+            id: adc1
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    ch0channelUsed:
+      attributes:
+        id: ch0channelUsed
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+  userData: {}

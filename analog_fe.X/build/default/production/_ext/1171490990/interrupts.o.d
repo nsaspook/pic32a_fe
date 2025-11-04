@@ -1,0 +1,20 @@
+build/default/production/_ext/1171490990/interrupts.o:  \
+ ../src/config/default/interrupts.c  \
+../src/config/default/interrupts.h  \
+ ../src/config/default/definitions.h  \
+ ../src/config/default/peripheral/spi/spi_host/plib_spi3_host.h  \
+ ../src/config/default/device.h  \
+ ../src/config/default/toolchain_specifics.h  \
+ ../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h  \
+ ../src/config/default/peripheral/opa/plib_opa3.h  \
+ ../src/config/default/peripheral/opa/plib_opa_common.h  \
+ ../src/config/default/peripheral/clk/plib_clk.h  \
+ ../src/config/default/peripheral/clk/plib_clk_common.h  \
+ ../src/config/default/peripheral/gpio/plib_gpio.h  \
+ ../src/config/default/peripheral/intc/plib_intc.h  \
+ ../src/config/default/peripheral/adc/plib_adc2.h  \
+ ../src/config/default/peripheral/adc/plib_adc_common.h  \
+ ../src/config/default/peripheral/adc/plib_adc1.h  \
+ ../src/config/default/peripheral/spi/spi_host/plib_spi2_host.h  \
+ ../src/config/default/peripheral/spi/spi_host/plib_spi1_host.h  \
+ ../src/config/default/peripheral/opa/plib_opa1.h 

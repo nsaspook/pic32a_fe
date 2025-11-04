@@ -1,0 +1,140 @@
+configVersion: 1.0.0
+componentName: spi3
+coreVersion: 5.8.3
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: spi3
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: spi3
+          x: '591'
+          y: '51'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    CALCULATED_SPEED:
+      attributes:
+        id: CALCULATED_SPEED
+      children:
+      - children:
+        - attributes:
+            id: spi3
+            value: '8000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CLIENT_SELECT:
+      attributes:
+        id: CLIENT_SELECT
+      children:
+      - children:
+        - attributes:
+            id: spi3
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SPI_CON1__CKE:
+      attributes:
+        id: SPI_CON1__CKE
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SPI_CON1__CKP:
+      attributes:
+        id: SPI_CON1__CKP
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SPI_CON1__MSTEN:
+      attributes:
+        id: SPI_CON1__MSTEN
+      children:
+      - children:
+        - attributes:
+            id: spi3
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    SPI_BRG_VALUE:
+      attributes:
+        id: SPI_BRG_VALUE
+      children:
+      - children:
+        - attributes:
+            id: spi3
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    REQUESTED_SPEED:
+      attributes:
+        id: REQUESTED_SPEED
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '8000000'
+          type: Integer
+        - attributes:
+            id: min
+          children:
+          - type: Value
+            value: '488'
+          type: Integer
+        type: Attributes
+      - children:
+        - attributes:
+            value: '8000000'
+          type: User
+        type: Values
+      type: Integer
+    SPI_Clock_Frequency:
+      attributes:
+        id: SPI_Clock_Frequency
+      children:
+      - children:
+        - attributes:
+            id: spi3
+            value: '16000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    SPI_CON1__MCLKEN:
+      attributes:
+        id: SPI_CON1__MCLKEN
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+  userData: {}
