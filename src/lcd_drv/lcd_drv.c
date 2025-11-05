@@ -1,4 +1,8 @@
 #include "lcd_drv.h"
+#include <stddef.h>                     // Defines NULL
+#include <stdbool.h>                    // Defines true
+#include <stdlib.h>                     // Defines EXIT_FAILURE
+#include "definitions.h"                // SYS function prototypes
 
 /*
  * This 'driver'is a merge of two  libs so it's a bit of a jumble
@@ -10,13 +14,14 @@
  * uses SPI1 with a 15MHz clock for the LCD chip. 
  */
 
+static volatile bool time_done = false;
+
 static void delay_us(uint32_t);
 
 static uint32_t delay_freq = 0;
 
 void init_lcd_drv(LCD_DVR_STATE init_type)
 {
-	delay_freq = CORETIMER_FrequencyGet() / 1000000;
 	switch (init_type) {
 	case D_MISC:
 	case D_BLANK:
@@ -30,6 +35,7 @@ void init_lcd_drv(LCD_DVR_STATE init_type)
 		delay_us(IS_DELAYPOWERUP); // > 400ms power up delay
 		lcd_init();
 		OledInit();
+		RLED_Set();
 		OledSetCharUpdate(0); // manual LCD screen updates for speed
 		OledMoveTo(bmp_x, bmp_y); // position image
 		OledPutBmp(bmp_size, bmp_size, (uint8_t *) foo_map); // upload bitmap image from C array
@@ -41,15 +47,25 @@ void init_lcd_drv(LCD_DVR_STATE init_type)
 
 }
 
+/* This function is called after period expires */
+void SCCP1_Callback_InterruptHandler(uint32_t status, uintptr_t context)
+{
+	time_done = true;
+}
+
 /*
  * microsecond busy wait delay, 90 seconds MAX
- * Careful, uses core timer
  */
 void delay_us(uint32_t us)
 {
-	// Convert microseconds us into how many clock ticks it will take
-	us *= delay_freq; // Core Timer updates every 2 ticks
-	_CP0_SET_COUNT(0); // Set Core Timer count to 0
-	while (us > _CP0_GET_COUNT()) {
-	}; // Wait until Core Timer count reaches the number we calculated earlier
+	if (us == 0) {
+		return;
+	}
+	time_done = false;
+	SCCP1_TimerCallbackRegister(SCCP1_Callback_InterruptHandler, (uintptr_t) NULL);
+	SCCP1_Timer32bitPeriodSet(us);
+	SCCP1_TimerStart();
+	while (!time_done) {
+	};
+	SCCP1_TimerStop();
 }

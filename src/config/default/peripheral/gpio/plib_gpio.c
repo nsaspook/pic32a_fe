@@ -65,10 +65,16 @@
 void GPIO_Initialize ( void )
 {
      /*PORTB Initialization */
+    LATB = 0xc00U; /* Initial Latch Value */
+    CNPUB= 0x800U; /* Pull-Up Enable */
+    TRISB = 0x7ffU; /* Direction Control */
      /*PORTC Initialization */
-    LATC = 0x3U; /* Initial Latch Value */
-    CNPUC= 0x3U; /* Pull-Up Enable */
-    TRISC = 0xffcU; /* Direction Control */
+    LATC = 0x5U; /* Initial Latch Value */
+    CNPUC= 0x5U; /* Pull-Up Enable */
+    TRISC = 0xffaU; /* Direction Control */
+     /*PORTD Initialization */
+    LATD = 0x0U; /* Initial Latch Value */
+    TRISD = 0x1ffeU; /* Direction Control */
 
     /* Unlock system for PPS configuration */
     PINS_PPSUnlock();

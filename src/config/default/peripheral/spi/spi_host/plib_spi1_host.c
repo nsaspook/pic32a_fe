@@ -100,7 +100,7 @@ void SPI1_Initialize ( void )
     IFS2bits.SPI1TXIF = 0U;
 
     /* BAUD Rate register Setup */
-    SPI1BRG = 0x2UL;
+    SPI1BRG = 0x1UL;
 
     SPI1CON1 = (SPI1CON1_MSTEN_HOST_MODE
             |SPI1CON1_CKP_IDLE_HIGH_ACTIVE_LOW

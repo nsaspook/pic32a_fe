@@ -53,6 +53,7 @@
 #include "plib_sccp1.h"
 #include "interrupts.h"
 
+static volatile CCP_TIMER_OBJECT sccp1Obj;
 
 
 void SCCP1_TimerInitialize(void)
@@ -60,7 +61,7 @@ void SCCP1_TimerInitialize(void)
     /* Disable Timer */
     CCP1CON1 &= ~_CCP1CON1_ON_MASK;
 
-    CCP1CON1 = 0x9f0020;
+    CCP1CON1 = 0x400120;
 
     CCP1CON2 = 0x0;
 
@@ -70,8 +71,9 @@ void SCCP1_TimerInitialize(void)
     CCP1TMR = 0x0;
 
     /*Set period */
-    CCP1PR = 9U;
+    CCP1PR = 999U;
 
+    IEC1 |= _IEC1_CCT1IE_MASK;
 
 }
 
@@ -105,6 +107,39 @@ uint32_t SCCP1_Timer32bitCounterGet(void)
 
 uint32_t SCCP1_TimerFrequencyGet(void)
 {
-    return (100000000);
+    return (1000000);
 }
 
+void __attribute__((used)) CCT1_InterruptHandler (void)
+{
+    /* Additional local variable to prevent MISRA C violations (Rule 13.x) */
+    uintptr_t context = sccp1Obj.context;
+    uint32_t status = IFS1bits.CCT1IF;
+    IFS1 &= ~_IFS1_CCT1IF_MASK;
+
+    if((sccp1Obj.callback_fn != NULL))
+    {
+        sccp1Obj.callback_fn(status, context);
+    }
+}
+
+
+void SCCP1_TimerInterruptEnable(void)
+{
+
+    IEC1 |= _IEC1_CCT1IE_MASK;
+}
+
+
+void SCCP1_TimerInterruptDisable(void)
+{
+    IEC1 &= ~_IEC1_CCT1IE_MASK;
+}
+
+
+void SCCP1_TimerCallbackRegister( CCP_TIMER_CALLBACK callback_fn, uintptr_t context )
+{
+    /* Save callback_fn and context in local memory */
+    sccp1Obj.callback_fn = callback_fn;
+    sccp1Obj.context = context;
+}

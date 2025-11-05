@@ -57,6 +57,7 @@
 // *****************************************************************************
 // *****************************************************************************
 void T1_InterruptHandler( void );
+void CCT1_InterruptHandler( void );
 void SPI1RX_InterruptHandler( void );
 void SPI1TX_InterruptHandler( void );
 void SPI1E_InterruptHandler( void );
@@ -66,6 +67,8 @@ void SPI2E_InterruptHandler( void );
 void SPI3RX_InterruptHandler( void );
 void SPI3TX_InterruptHandler( void );
 void SPI3E_InterruptHandler( void );
+void DMA0_InterruptHandler( void );
+void DMA1_InterruptHandler( void );
 
 
 

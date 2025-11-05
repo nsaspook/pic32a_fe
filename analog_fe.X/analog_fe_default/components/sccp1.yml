@@ -35,7 +35,7 @@ data:
       - children:
         - attributes:
             id: sccp1
-            value: '10420256'
+            value: '4194592'
           type: Dynamic
         type: Values
       type: Hex
@@ -45,7 +45,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '20'
+            value: '0'
           type: User
         type: Values
       type: KeyValueSet
@@ -65,7 +65,7 @@ data:
       children:
       - children:
         - attributes:
-            value: 'true'
+            value: 'false'
           type: User
         type: Values
       type: Boolean
@@ -123,7 +123,7 @@ data:
       - children:
         - attributes:
             id: sccp1
-            value: '9'
+            value: '999'
           type: Dynamic
         type: Values
       type: Long
@@ -133,7 +133,7 @@ data:
       children:
       - children:
         - attributes:
-            value: 'false'
+            value: 'true'
           type: User
         type: Values
       type: Boolean
@@ -146,7 +146,7 @@ data:
             id: max
           children:
           - type: Value
-            value: '4.2949673E10'
+            value: '4294967.5'
           type: Float
         type: Attributes
       - children:
@@ -165,4 +165,66 @@ data:
           type: User
         type: Values
       type: Combo
+    CCP_CCPCON1_OPS:
+      attributes:
+        id: CCP_CCPCON1_OPS
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CCP_CCPCON1_ONESHOT:
+      attributes:
+        id: CCP_CCPCON1_ONESHOT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CCP_CLOCK_FREQ:
+      attributes:
+        id: CCP_CLOCK_FREQ
+      children:
+      - children:
+        - attributes:
+            id: sccp1
+            value: '1000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CCP_PRESCALER_VALUE:
+      attributes:
+        id: CCP_PRESCALER_VALUE
+      children:
+      - children:
+        - attributes:
+            id: sccp1
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CCP_CCPCON1_TMRPS:
+      attributes:
+        id: CCP_CCPCON1_TMRPS
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CCP_CCPCON1_CLKSEL:
+      attributes:
+        id: CCP_CCPCON1_CLKSEL
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
   userData: {}

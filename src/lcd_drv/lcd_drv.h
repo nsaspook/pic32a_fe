@@ -38,10 +38,15 @@ extern "C" {
 #endif
 #ifdef __32MZ1025W104132__X
 #include "../src/config/default/peripheral/spi/spi_master/plib_spi_master_common.h"
-#include "../src/config/default/peripheral/gpio/plib_gpio.h"ww
+#include "../src/config/default/peripheral/gpio/plib_gpio.h"
 #include "../src/config/default/peripheral/dmac/plib_dmac.h"
 #include "../src/config/default/peripheral/coretimer/plib_coretimer.h"
 #endif
+	
+#include "../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h"
+#include "../src/config/default/peripheral/gpio/plib_gpio.h"
+#include "../src/config/default/peripheral/dma/plib_dma.h"
+	
 #include "display_type.h"
 #include "eadog.h"
 #include "dogm-graphic.h"
@@ -58,7 +63,7 @@ extern "C" {
 #define	BANK1		0xA000A000	// bank 1 frame buffer memory address
 #define	BANK2		0x80030000	// bank 2 frame buffer memory address
 
-#define LCD_DRIVER	"V1.003" 
+#define LCD_DRIVER	"V1.004" 
 #define LCD_ALIAS	"EADOG LCD"
 
 	typedef enum {

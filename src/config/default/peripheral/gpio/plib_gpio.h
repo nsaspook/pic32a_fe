@@ -56,23 +56,41 @@
 // Section: Data types and constants
 
 
-/*** Macros for CSB pin ***/
-#define CSB_Set()               (_LATC0 = 1U)
-#define CSB_Clear()             (_LATC0 = 0U)
-#define CSB_Toggle()            (_LATC0 ^= 1U)
-#define CSB_OutputEnable()      (_TRISC0 = 0U)
-#define CSB_InputEnable()       (_TRISC0 = 1U)
-#define CSB_Get()               ((PORTC >> 0) & 0x1)
-#define CSB_PIN                 GPIO_PIN_RC0
+/*** Macros for DIS_CS pin ***/
+#define DIS_CS_Set()               (_LATB11 = 1U)
+#define DIS_CS_Clear()             (_LATB11 = 0U)
+#define DIS_CS_Toggle()            (_LATB11 ^= 1U)
+#define DIS_CS_OutputEnable()      (_TRISB11 = 0U)
+#define DIS_CS_InputEnable()       (_TRISB11 = 1U)
+#define DIS_CS_Get()               ((PORTB >> 11) & 0x1)
+#define DIS_CS_PIN                 GPIO_PIN_RB11
 
-/*** Macros for RS pin ***/
-#define RS_Set()               (_LATC1 = 1U)
-#define RS_Clear()             (_LATC1 = 0U)
-#define RS_Toggle()            (_LATC1 ^= 1U)
-#define RS_OutputEnable()      (_TRISC1 = 0U)
-#define RS_InputEnable()       (_TRISC1 = 1U)
-#define RS_Get()               ((PORTC >> 1) & 0x1)
-#define RS_PIN                 GPIO_PIN_RC1
+/*** Macros for DIS_RESET pin ***/
+#define DIS_RESET_Set()               (_LATC0 = 1U)
+#define DIS_RESET_Clear()             (_LATC0 = 0U)
+#define DIS_RESET_Toggle()            (_LATC0 ^= 1U)
+#define DIS_RESET_OutputEnable()      (_TRISC0 = 0U)
+#define DIS_RESET_InputEnable()       (_TRISC0 = 1U)
+#define DIS_RESET_Get()               ((PORTC >> 0) & 0x1)
+#define DIS_RESET_PIN                 GPIO_PIN_RC0
+
+/*** Macros for DIS_MODE pin ***/
+#define DIS_MODE_Set()               (_LATC2 = 1U)
+#define DIS_MODE_Clear()             (_LATC2 = 0U)
+#define DIS_MODE_Toggle()            (_LATC2 ^= 1U)
+#define DIS_MODE_OutputEnable()      (_TRISC2 = 0U)
+#define DIS_MODE_InputEnable()       (_TRISC2 = 1U)
+#define DIS_MODE_Get()               ((PORTC >> 2) & 0x1)
+#define DIS_MODE_PIN                 GPIO_PIN_RC2
+
+/*** Macros for RLED pin ***/
+#define RLED_Set()               (_LATD0 = 1U)
+#define RLED_Clear()             (_LATD0 = 0U)
+#define RLED_Toggle()            (_LATD0 ^= 1U)
+#define RLED_OutputEnable()      (_TRISD0 = 0U)
+#define RLED_InputEnable()       (_TRISD0 = 1U)
+#define RLED_Get()               ((PORTD >> 0) & 0x1)
+#define RLED_PIN                 GPIO_PIN_RD0
     
 #define   GPIO_PORT_A (0U)
 #define   GPIO_PORT_B (1U)

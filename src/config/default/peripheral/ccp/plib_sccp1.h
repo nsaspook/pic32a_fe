@@ -84,6 +84,11 @@ uint32_t SCCP1_Timer32bitCounterGet(void);
 
 uint32_t SCCP1_TimerFrequencyGet(void);
 
+void SCCP1_TimerInterruptEnable(void);
+
+void SCCP1_TimerInterruptDisable(void);
+
+void SCCP1_TimerCallbackRegister( CCP_TIMER_CALLBACK callback_fn, uintptr_t context );
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility

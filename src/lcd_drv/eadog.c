@@ -44,56 +44,6 @@ static void send_lcd_data(uint8_t);
 static void send_lcd_cmd(uint8_t);
 static volatile uint8_t NOPER = 0;
 
-void SPI1_Initialize_internal(void)
-{
-	uint32_t rdata = 0U;
-
-	/* Disable SPI1 Interrupts */
-	IEC1CLR = 0x8;
-	IEC1CLR = 0x10;
-	IEC1CLR = 0x20;
-
-	/* STOP and Reset the SPI */
-	SPI1CON = 0;
-
-	/* Clear the Receiver buffer */
-	rdata = SPI1BUF;
-	rdata = rdata;
-
-	/* Clear SPI1 Interrupt flags */
-	IFS1CLR = 0x8;
-	IFS1CLR = 0x10;
-	IFS1CLR = 0x20;
-
-	/* BAUD Rate register Setup */
-	SPI1BRG = 1;
-
-	/* CLear the Overflow */
-	SPI1STATCLR = _SPI1STAT_SPIROV_MASK;
-
-	/*
-	MSTEN = 1
-	CKP = 0
-	CKE = 1
-	MODE<32,16> = 0
-	ENHBUF = 1
-	MSSEN = 0
-	MCLKSEL = 0
-	 */
-	SPI1CONSET = (SPI1_CON_MSSEN | SPI1_CON_MCLKSEL | SPI1_CON_ENHBUF | SPI1_CON_MODE_32_MODE_16 | SPI1_CON_CKE | SPI1_CON_CKP | SPI1_CON_MSTEN | SPI1_CON_SMP);
-
-	/* Enable transmit interrupt when transmit buffer is completely empty (STXISEL = '01') */
-	/* Enable receive interrupt when the receive buffer is not empty (SRXISEL = '01') */
-	SPI1CONSET = 0x00000005;
-
-	/* Initialize global variables */
-	spi1Obj.transferIsBusy = false;
-	spi1Obj.callback = NULL;
-
-	/* Enable SPI1 */
-	SPI1CONSET = _SPI1CON_ON_MASK;
-}
-
 void ReSet_SetLow(void)
 {
 	wait_lcd_done();

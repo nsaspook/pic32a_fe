@@ -11,10 +11,15 @@ build/default/production/_ext/1171490990/initialization.o:  \
  ../src/config/default/peripheral/clk/plib_clk_common.h  \
  ../src/config/default/peripheral/gpio/plib_gpio.h  \
  ../src/config/default/peripheral/intc/plib_intc.h  \
+ ../src/config/default/peripheral/dma/plib_dma.h  \
  ../src/config/default/peripheral/adc/plib_adc2.h  \
  ../src/config/default/peripheral/adc/plib_adc_common.h  \
  ../src/config/default/peripheral/adc/plib_adc1.h  \
+ ../src/config/default/peripheral/tmr/plib_tmr1.h  \
+ ../src/config/default/peripheral/tmr/plib_tmr_common.h  \
  ../src/config/default/peripheral/spi/spi_host/plib_spi2_host.h  \
  ../src/config/default/peripheral/spi/spi_host/plib_spi1_host.h  \
  ../src/config/default/peripheral/opa/plib_opa1.h  \
+ ../src/config/default/peripheral/ccp/plib_sccp1.h  \
+ ../src/config/default/peripheral/ccp/plib_ccp_common.h  \
  ../src/config/default/device.h 

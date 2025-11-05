@@ -256,6 +256,37 @@
 //CLOCK CLKONxCON FRACDIV set
 #define CLK9DIV_FRACDIV_SET(value)          ((uint32_t)(_CLK9DIV_FRACDIV_MASK & ((uint32_t)(value) << _CLK9DIV_FRACDIV_POSITION))) 
 
+//CLOCK CLKxCON NOSC options
+#define CLK12CON_NOSC_PGC          ((uint32_t)(_CLK12CON_NOSC_MASK & ((uint32_t)(0) << _CLK12CON_NOSC_POSITION))) 
+#define CLK12CON_NOSC_FRC          ((uint32_t)(_CLK12CON_NOSC_MASK & ((uint32_t)(1) << _CLK12CON_NOSC_POSITION))) 
+#define CLK12CON_NOSC_BFRC          ((uint32_t)(_CLK12CON_NOSC_MASK & ((uint32_t)(2) << _CLK12CON_NOSC_POSITION))) 
+#define CLK12CON_NOSC_POSC          ((uint32_t)(_CLK12CON_NOSC_MASK & ((uint32_t)(3) << _CLK12CON_NOSC_POSITION))) 
+#define CLK12CON_NOSC_LPRC          ((uint32_t)(_CLK12CON_NOSC_MASK & ((uint32_t)(4) << _CLK12CON_NOSC_POSITION))) 
+#define CLK12CON_NOSC_PLL1_FOUT          ((uint32_t)(_CLK12CON_NOSC_MASK & ((uint32_t)(5) << _CLK12CON_NOSC_POSITION))) 
+#define CLK12CON_NOSC_PLL2_FOUT          ((uint32_t)(_CLK12CON_NOSC_MASK & ((uint32_t)(6) << _CLK12CON_NOSC_POSITION))) 
+#define CLK12CON_NOSC_PLL1_VCO          ((uint32_t)(_CLK12CON_NOSC_MASK & ((uint32_t)(7) << _CLK12CON_NOSC_POSITION))) 
+#define CLK12CON_NOSC_PLL2_VCO          ((uint32_t)(_CLK12CON_NOSC_MASK & ((uint32_t)(8) << _CLK12CON_NOSC_POSITION))) 
+#define CLK12CON_NOSC_REFI1          ((uint32_t)(_CLK12CON_NOSC_MASK & ((uint32_t)(9) << _CLK12CON_NOSC_POSITION))) 
+#define CLK12CON_NOSC_REFI2          ((uint32_t)(_CLK12CON_NOSC_MASK & ((uint32_t)(10) << _CLK12CON_NOSC_POSITION))) 
+
+//CLOCK CLKxCON BOSC options
+#define CLK12CON_BOSC_PGC          ((uint32_t)(_CLK12CON_BOSC_MASK & ((uint32_t)(0) << _CLK12CON_BOSC_POSITION))) 
+#define CLK12CON_BOSC_FRC          ((uint32_t)(_CLK12CON_BOSC_MASK & ((uint32_t)(1) << _CLK12CON_BOSC_POSITION))) 
+#define CLK12CON_BOSC_BFRC          ((uint32_t)(_CLK12CON_BOSC_MASK & ((uint32_t)(2) << _CLK12CON_BOSC_POSITION))) 
+#define CLK12CON_BOSC_POSC          ((uint32_t)(_CLK12CON_BOSC_MASK & ((uint32_t)(3) << _CLK12CON_BOSC_POSITION))) 
+#define CLK12CON_BOSC_LPRC          ((uint32_t)(_CLK12CON_BOSC_MASK & ((uint32_t)(4) << _CLK12CON_BOSC_POSITION))) 
+#define CLK12CON_BOSC_PLL1_FOUT          ((uint32_t)(_CLK12CON_BOSC_MASK & ((uint32_t)(5) << _CLK12CON_BOSC_POSITION))) 
+#define CLK12CON_BOSC_PLL2_FOUT          ((uint32_t)(_CLK12CON_BOSC_MASK & ((uint32_t)(6) << _CLK12CON_BOSC_POSITION))) 
+#define CLK12CON_BOSC_PLL1_VCO          ((uint32_t)(_CLK12CON_BOSC_MASK & ((uint32_t)(7) << _CLK12CON_BOSC_POSITION))) 
+#define CLK12CON_BOSC_PLL2_VCO          ((uint32_t)(_CLK12CON_BOSC_MASK & ((uint32_t)(8) << _CLK12CON_BOSC_POSITION))) 
+#define CLK12CON_BOSC_REFI1          ((uint32_t)(_CLK12CON_BOSC_MASK & ((uint32_t)(9) << _CLK12CON_BOSC_POSITION))) 
+#define CLK12CON_BOSC_REFI2          ((uint32_t)(_CLK12CON_BOSC_MASK & ((uint32_t)(10) << _CLK12CON_BOSC_POSITION))) 
+
+//CLOCK CLKxCON INTDIV set
+#define CLK12DIV_INTDIV_SET(value)          ((uint32_t)(_CLK12DIV_INTDIV_MASK & ((uint32_t)(value) << _CLK12DIV_INTDIV_POSITION))) 
+//CLOCK CLKONxCON FRACDIV set
+#define CLK12DIV_FRACDIV_SET(value)          ((uint32_t)(_CLK12DIV_FRACDIV_MASK & ((uint32_t)(value) << _CLK12DIV_FRACDIV_POSITION))) 
+
 
 #define PLL1FOUT_SOURCE         5U
 #define PLL2VCODIV_SOURCE       8U 
@@ -274,15 +305,16 @@ void CLOCK_Initialize(void)
         Clock Generator 3 frequency                     : 8.0 MHz
         Clock Generator 6 frequency                     : 200.0 MHz
         Clock Generator 9 frequency                     : 16.0 MHz
+        Clock Generator 12 frequency                     : 1.0 MHz
         
         PLL 1 frequency                                 : 200.0 MHz
         PLL 1 VCO Out frequency                         : 800.0 MHz
-        PLL 2 frequency                                 : 500.0 MHz
-        PLL 2 VCO Out frequency                         : 1000.0 MHz
+        PLL 2 frequency                                 : 533.333333 MHz
+        PLL 2 VCO Out frequency                         : 800.0 MHz
 
     */
     //Primary oscillator settings 
-    OSCCFGbits.POSCMD = 1U;
+    OSCCFGbits.POSCMD = 0U;
     OSCCTRLbits.POSCEN = 1U;
     while(OSCCTRLbits.POSCRDY == 0U){};
     
@@ -336,9 +368,9 @@ void CLOCK_Initialize(void)
                 |PLL2CON_NOSC_POSC
                 |PLL2CON_BOSC_BFRC);
     PLL2DIV = (PLL2DIV_PLLPRE_SET(1)
-                 |PLL2DIV_PLLFBDIV_SET(250)
-                 |PLL2DIV_POSTDIV1_SET(2)
-                 |PLL2DIV_POSTDIV2_SET(2));
+                 |PLL2DIV_PLLFBDIV_SET(200)
+                 |PLL2DIV_POSTDIV1_SET(3)
+                 |PLL2DIV_POSTDIV2_SET(1));
     //Enable PLL Input and Feedback Divider update
     PLL2CONbits.PLLSWEN = 1U;
 #ifndef __MPLAB_DEBUGGER_SIMULATOR 
@@ -434,6 +466,26 @@ void CLOCK_Initialize(void)
 #ifndef __MPLAB_DEBUGGER_SIMULATOR    
     //Wait for clock switching complete
     while(CLK9CONbits.OSWEN == 1U){};
+#endif
+
+    //Clock Generator 12 settings
+    CLK12CON = (_CLK12CON_ON_MASK
+                |_CLK12CON_OE_MASK
+                |CLK12CON_NOSC_POSC
+                |CLK12CON_BOSC_BFRC);
+    CLK12DIV = (CLK12DIV_INTDIV_SET(4)
+                 |CLK12DIV_FRACDIV_SET(0));
+    //Enable divide factors
+    CLK12CONbits.DIVSWEN = 1U; 
+#ifndef __MPLAB_DEBUGGER_SIMULATOR
+    //Wait for divide factors to get updated
+    while(CLK12CONbits.DIVSWEN == 1U){};
+#endif
+    //Enable clock switching
+    CLK12CONbits.OSWEN = 1U;
+#ifndef __MPLAB_DEBUGGER_SIMULATOR    
+    //Wait for clock switching complete
+    while(CLK12CONbits.OSWEN == 1U){};
 #endif
 
 }

@@ -28,7 +28,7 @@
  * END CONFIG BLOCK
  *****************************************************************************/
 
-extern volatile uint8_t __attribute__((coherent)) rgbOledBmp_page[];
+extern volatile uint8_t rgbOledBmp_page[];
 
 extern void ReSet_SetLow(void);
 extern void ReSet_SetHigh(void);
