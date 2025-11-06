@@ -2043,34 +2043,34 @@ W = angled&lt;p&gt;
 </net>
 <net name="SDO1" class="0">
 <segment>
-<pinref part="U1" gate="A" pin="RP42/IOMD10/SDO2/IOMF10/PCI19/RC9"/>
-<wire x1="294.64" y1="-30.48" x2="309.88" y2="-30.48" width="0.1524" layer="91"/>
-<junction x="294.64" y="-30.48"/>
-<junction x="309.88" y="-30.48"/>
-<label x="317.5" y="-30.48" size="1.778" layer="95"/>
-</segment>
-<segment>
 <wire x1="132.08" y1="-71.12" x2="147.32" y2="-71.12" width="0.1524" layer="91"/>
 <pinref part="GLCD" gate="1" pin="2"/>
 <junction x="132.08" y="-71.12"/>
 <junction x="147.32" y="-71.12"/>
 <label x="152.4" y="-71.12" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="294.64" y1="10.16" x2="309.88" y2="10.16" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="RP59/RD10"/>
+<junction x="294.64" y="10.16"/>
+<junction x="309.88" y="10.16"/>
+<label x="317.5" y="10.16" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="SCK1" class="0">
-<segment>
-<pinref part="U1" gate="A" pin="RP27/SCK2/RB10"/>
-<wire x1="76.2" y1="-30.48" x2="60.96" y2="-30.48" width="0.1524" layer="91"/>
-<junction x="76.2" y="-30.48"/>
-<junction x="60.96" y="-30.48"/>
-<label x="50.8" y="-30.48" size="1.778" layer="95"/>
-</segment>
 <segment>
 <wire x1="147.32" y1="-68.58" x2="132.08" y2="-68.58" width="0.1524" layer="91"/>
 <pinref part="GLCD" gate="1" pin="3"/>
 <junction x="132.08" y="-68.58"/>
 <junction x="147.32" y="-68.58"/>
 <label x="152.4" y="-68.58" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="309.88" y1="43.18" x2="294.64" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="RP61/PCI21/RD12"/>
+<junction x="294.64" y="43.18"/>
+<junction x="309.88" y="43.18"/>
+<label x="317.5" y="43.18" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DIS_MODE" class="0">
@@ -2091,18 +2091,18 @@ W = angled&lt;p&gt;
 </net>
 <net name="DIS_CS" class="0">
 <segment>
-<pinref part="U1" gate="A" pin="RP28/SDI2/RB11"/>
-<wire x1="76.2" y1="-33.02" x2="60.96" y2="-33.02" width="0.1524" layer="91"/>
-<junction x="76.2" y="-33.02"/>
-<junction x="60.96" y="-33.02"/>
-<label x="50.8" y="-33.02" size="1.778" layer="95"/>
-</segment>
-<segment>
 <wire x1="147.32" y1="-63.5" x2="132.08" y2="-63.5" width="0.1524" layer="91"/>
 <pinref part="GLCD" gate="1" pin="5"/>
 <junction x="132.08" y="-63.5"/>
 <junction x="147.32" y="-63.5"/>
 <label x="152.4" y="-63.5" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="309.88" y1="40.64" x2="294.64" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="RP60/RD11"/>
+<junction x="294.64" y="40.64"/>
+<junction x="309.88" y="40.64"/>
+<label x="317.5" y="40.64" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DIS_RESET" class="0">
@@ -2136,6 +2136,13 @@ W = angled&lt;p&gt;
 <junction x="218.44" y="-73.66"/>
 <label x="205.74" y="-73.66" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="60.96" y1="-33.02" x2="76.2" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="RP28/SDI2/RB11"/>
+<junction x="76.2" y="-33.02"/>
+<junction x="60.96" y="-33.02"/>
+<label x="50.8" y="-33.02" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="SDO2" class="0">
 <segment>
@@ -2152,6 +2159,13 @@ W = angled&lt;p&gt;
 <junction x="218.44" y="-71.12"/>
 <label x="205.74" y="-71.12" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="309.88" y1="-30.48" x2="294.64" y2="-30.48" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="RP42/IOMD10/SDO2/IOMF10/PCI19/RC9"/>
+<junction x="294.64" y="-30.48"/>
+<junction x="309.88" y="-30.48"/>
+<label x="317.5" y="-30.48" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="SCK2" class="0">
 <segment>
@@ -2167,6 +2181,13 @@ W = angled&lt;p&gt;
 <junction x="203.2" y="-68.58"/>
 <junction x="218.44" y="-68.58"/>
 <label x="205.74" y="-68.58" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="60.96" y1="-30.48" x2="76.2" y2="-30.48" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="RP27/SCK2/RB10"/>
+<junction x="76.2" y="-30.48"/>
+<junction x="60.96" y="-30.48"/>
+<label x="50.8" y="-30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SRAM_CS" class="0">

@@ -67,7 +67,7 @@
 #pragma config FDEVOPT_ALTI2C1 = OFF            // Primary I2C1 pins are used
 #pragma config FDEVOPT_ALTI2C2 = OFF            // Primary I2C2 pins are used
 #pragma config FDEVOPT_BISTDIS = OFF            // RAM test after reset is enabled
-#pragma config FDEVOPT_SPI2PIN = OFF            // SPI2 pins are selected by peripheral pin selection feature
+#pragma config FDEVOPT_SPI2PIN = ON            // SPI2 uses direct connections with specified device pins
 
 // FWDT
 #pragma config FWDT_WINDIS = ON            // Watchdog Timer operates in Non-Window mode

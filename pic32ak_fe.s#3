@@ -1858,6 +1858,8 @@ W = angled&lt;p&gt;
 <classes>
 <class number="0" name="default" width="0" drill="0">
 </class>
+<class number="1" name="current" width="0.2032" drill="0">
+</class>
 </classes>
 <parts>
 <part name="U1" library="pic32A" deviceset="PIC32AK1216GC41064-E/PT" device=""/>
@@ -1888,7 +1890,7 @@ W = angled&lt;p&gt;
 <busses>
 </busses>
 <nets>
-<net name="VDD" class="0">
+<net name="VDD" class="1">
 <segment>
 <pinref part="GLCD" gate="1" pin="7"/>
 <wire x1="132.08" y1="-58.42" x2="152.4" y2="-58.42" width="0.1524" layer="91"/>
@@ -1946,7 +1948,7 @@ W = angled&lt;p&gt;
 <label x="317.5" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="VSS" class="0">
+<net name="VSS" class="1">
 <segment>
 <pinref part="GLCD" gate="1" pin="8"/>
 <wire x1="132.08" y1="-55.88" x2="147.32" y2="-55.88" width="0.1524" layer="91"/>

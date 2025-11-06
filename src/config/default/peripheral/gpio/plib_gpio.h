@@ -65,15 +65,6 @@
 #define SRAM_CS_Get()               ((PORTB >> 4) & 0x1)
 #define SRAM_CS_PIN                 GPIO_PIN_RB4
 
-/*** Macros for DIS_CS pin ***/
-#define DIS_CS_Set()               (_LATB11 = 1U)
-#define DIS_CS_Clear()             (_LATB11 = 0U)
-#define DIS_CS_Toggle()            (_LATB11 ^= 1U)
-#define DIS_CS_OutputEnable()      (_TRISB11 = 0U)
-#define DIS_CS_InputEnable()       (_TRISB11 = 1U)
-#define DIS_CS_Get()               ((PORTB >> 11) & 0x1)
-#define DIS_CS_PIN                 GPIO_PIN_RB11
-
 /*** Macros for DIS_RESET pin ***/
 #define DIS_RESET_Set()               (_LATC0 = 1U)
 #define DIS_RESET_Clear()             (_LATC0 = 0U)
@@ -100,6 +91,15 @@
 #define RLED_InputEnable()       (_TRISD0 = 1U)
 #define RLED_Get()               ((PORTD >> 0) & 0x1)
 #define RLED_PIN                 GPIO_PIN_RD0
+
+/*** Macros for DIS_CS pin ***/
+#define DIS_CS_Set()               (_LATD11 = 1U)
+#define DIS_CS_Clear()             (_LATD11 = 0U)
+#define DIS_CS_Toggle()            (_LATD11 ^= 1U)
+#define DIS_CS_OutputEnable()      (_TRISD11 = 0U)
+#define DIS_CS_InputEnable()       (_TRISD11 = 1U)
+#define DIS_CS_Get()               ((PORTD >> 11) & 0x1)
+#define DIS_CS_PIN                 GPIO_PIN_RD11
     
 #define   GPIO_PORT_A (0U)
 #define   GPIO_PORT_B (1U)

@@ -897,7 +897,7 @@ data:
         type: Attributes
       - children:
         - attributes:
-            value: '27'
+            value: '32'
           type: User
         type: Values
       type: KeyValueSet
@@ -928,13 +928,13 @@ data:
             id: visible
           children:
           - type: Value
-            value: 'false'
+            value: 'true'
           type: Boolean
         type: Attributes
       - children:
         - attributes:
             id: core
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -953,7 +953,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '22'
+            value: '15'
           type: Dynamic
         type: Values
       type: KeyValueSet
@@ -972,7 +972,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '27'
+            value: '32'
           type: Dynamic
         type: Values
       type: KeyValueSet
@@ -1012,7 +1012,7 @@ data:
         type: Attributes
       - children:
         - attributes:
-            value: '19'
+            value: '30'
           type: User
         type: Values
       type: KeyValueSet
@@ -1034,16 +1034,6 @@ data:
           type: User
         type: Values
       type: KeyValueSet
-    BSP_PIN_34_FUNCTION_TYPE:
-      attributes:
-        id: BSP_PIN_34_FUNCTION_TYPE
-      children:
-      - children:
-        - attributes:
-            value: SDO1
-          type: User
-        type: Values
-      type: String
     USE_PPS_INPUT_1:
       attributes:
         id: USE_PPS_INPUT_1
@@ -1117,12 +1107,12 @@ data:
             id: visible
           children:
           - type: Value
-            value: 'true'
+            value: 'false'
           type: Boolean
         type: Attributes
       - children:
         - attributes:
-            value: 'true'
+            value: 'false'
           type: User
         type: Values
       type: Boolean
@@ -1162,26 +1152,6 @@ data:
           type: User
         type: Values
       type: KeyValueSet
-    BSP_PIN_31_FUNCTION_TYPE:
-      attributes:
-        id: BSP_PIN_31_FUNCTION_TYPE
-      children:
-      - children:
-        - attributes:
-            value: SCK1
-          type: User
-        type: Values
-      type: String
-    BSP_PIN_31_FUNCTION_NAME:
-      attributes:
-        id: BSP_PIN_31_FUNCTION_NAME
-      children:
-      - children:
-        - attributes:
-            value: ''
-          type: User
-        type: Values
-      type: String
     GPIO_CHANNEL_B_CONFIG:
       attributes:
         id: GPIO_CHANNEL_B_CONFIG
@@ -1200,20 +1170,10 @@ data:
       - children:
         - attributes:
             id: core
-            value: '2031'
+            value: '4079'
           type: Dynamic
         type: Values
       type: Hex
-    BSP_PIN_31_DIR:
-      attributes:
-        id: BSP_PIN_31_DIR
-      children:
-      - children:
-        - attributes:
-            value: ''
-          type: User
-        type: Values
-      type: String
     SYS_PORT_B_LAT:
       attributes:
         id: SYS_PORT_B_LAT
@@ -1221,20 +1181,10 @@ data:
       - children:
         - attributes:
             id: core
-            value: '3088'
+            value: '16'
           type: Dynamic
         type: Values
       type: Hex
-    BSP_PIN_31_LAT:
-      attributes:
-        id: BSP_PIN_31_LAT
-      children:
-      - children:
-        - attributes:
-            value: High
-          type: User
-        type: Values
-      type: String
     SYS_PORT_B_CNPU:
       attributes:
         id: SYS_PORT_B_CNPU
@@ -1242,20 +1192,10 @@ data:
       - children:
         - attributes:
             id: core
-            value: '2064'
+            value: '16'
           type: Dynamic
         type: Values
       type: Hex
-    BSP_PIN_31_PU:
-      attributes:
-        id: BSP_PIN_31_PU
-      children:
-      - children:
-        - attributes:
-            value: ''
-          type: User
-        type: Values
-      type: String
     GPIO_CHANNEL_C_CONFIG:
       attributes:
         id: GPIO_CHANNEL_C_CONFIG
@@ -2852,7 +2792,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '8190'
+            value: '6142'
           type: Dynamic
         type: Values
       type: Hex
@@ -2873,7 +2813,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0'
+            value: '2048'
           type: Dynamic
         type: Values
       type: Hex
@@ -2961,56 +2901,6 @@ data:
           type: User
         type: Values
       type: Combo
-    BSP_PIN_32_FUNCTION_TYPE:
-      attributes:
-        id: BSP_PIN_32_FUNCTION_TYPE
-      children:
-      - children:
-        - attributes:
-            value: GPIO
-          type: User
-        type: Values
-      type: String
-    BSP_PIN_32_FUNCTION_NAME:
-      attributes:
-        id: BSP_PIN_32_FUNCTION_NAME
-      children:
-      - children:
-        - attributes:
-            value: DIS_CS
-          type: User
-        type: Values
-      type: String
-    BSP_PIN_32_DIR:
-      attributes:
-        id: BSP_PIN_32_DIR
-      children:
-      - children:
-        - attributes:
-            value: Out
-          type: User
-        type: Values
-      type: String
-    BSP_PIN_32_LAT:
-      attributes:
-        id: BSP_PIN_32_LAT
-      children:
-      - children:
-        - attributes:
-            value: High
-          type: User
-        type: Values
-      type: String
-    BSP_PIN_32_PU:
-      attributes:
-        id: BSP_PIN_32_PU
-      children:
-      - children:
-        - attributes:
-            value: 'True'
-          type: User
-        type: Values
-      type: String
     BSP_PIN_37_FUNCTION_TYPE:
       attributes:
         id: BSP_PIN_37_FUNCTION_TYPE
@@ -3080,13 +2970,13 @@ data:
             id: visible
           children:
           - type: Value
-            value: 'true'
+            value: 'false'
           type: Boolean
         type: Attributes
       - children:
         - attributes:
             id: core
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -3128,16 +3018,6 @@ data:
           type: Dynamic
         type: Values
       type: KeyValueSet
-    BSP_PIN_45_FUNCTION_TYPE:
-      attributes:
-        id: BSP_PIN_45_FUNCTION_TYPE
-      children:
-      - children:
-        - attributes:
-            value: SCK2
-          type: User
-        type: Values
-      type: String
     USE_PPS_INPUT_3:
       attributes:
         id: USE_PPS_INPUT_3
@@ -3147,12 +3027,12 @@ data:
             id: visible
           children:
           - type: Value
-            value: 'true'
+            value: 'false'
           type: Boolean
         type: Attributes
       - children:
         - attributes:
-            value: 'true'
+            value: 'false'
           type: User
         type: Values
       type: Boolean
@@ -3192,16 +3072,6 @@ data:
           type: User
         type: Values
       type: KeyValueSet
-    BSP_PIN_36_FUNCTION_TYPE:
-      attributes:
-        id: BSP_PIN_36_FUNCTION_TYPE
-      children:
-      - children:
-        - attributes:
-            value: SDI2
-          type: User
-        type: Values
-      type: String
     USE_PPS_OUTPUT_4:
       attributes:
         id: USE_PPS_OUTPUT_4
@@ -3215,6 +3085,10 @@ data:
           type: Boolean
         type: Attributes
       - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
         - attributes:
             value: 'true'
           type: User
@@ -3347,6 +3221,288 @@ data:
           type: User
         type: Values
       type: String
+    BSP_PIN_63_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_63_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SCK1
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_31_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_31_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SCK-2
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_62_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_62_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_62_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_62_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: DIS_CS
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_62_DIR:
+      attributes:
+        id: BSP_PIN_62_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_62_LAT:
+      attributes:
+        id: BSP_PIN_62_LAT
+      children:
+      - children:
+        - attributes:
+            value: High
+          type: User
+        type: Values
+      type: String
+    SYS_PORT_D_CNPU:
+      attributes:
+        id: SYS_PORT_D_CNPU
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '2048'
+          type: Dynamic
+        type: Values
+      type: Hex
+    BSP_PIN_62_PU:
+      attributes:
+        id: BSP_PIN_62_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_32_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_32_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SDI-2
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_50_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_50_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SDO1
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_34_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_34_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SDO-2
+          type: User
+        type: Values
+      type: String
+    FUSE_CONFIG_CODE_GEN:
+      attributes:
+        id: FUSE_CONFIG_CODE_GEN
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: |2
+
+              // FCP
+              #pragma config FCP_CP = OFF            // Memory protection is disabled
+              #pragma config FCP_CRC = OFF            // CRC is disabled
+              #pragma config FCP_WPUCA = OFF            // Protection is disabled
+
+              // FICD
+              #pragma config FICD_JTAGEN = ON            // JTAG is enabled
+
+              // FDEVOPT
+              #pragma config FDEVOPT_ALTI2C1 = OFF            // Primary I2C1 pins are used
+              #pragma config FDEVOPT_ALTI2C2 = OFF            // Primary I2C2 pins are used
+              #pragma config FDEVOPT_BISTDIS = OFF            // RAM test after reset is enabled
+              #pragma config FDEVOPT_SPI2PIN = ON            // SPI2 uses direct connections with specified device pins
+
+              // FWDT
+              #pragma config FWDT_WINDIS = ON            // Watchdog Timer operates in Non-Window mode
+              #pragma config FWDT_SWDTMPS = PS2147483648            // Sleep Mode Watchdog Timer Post Scaler select bits
+              #pragma config FWDT_RCLKSEL = BFRC256            // WDT Run Mode uses BFRC:256
+              #pragma config FWDT_RWDTPS = PS2147483648            // Run Mode Watchdog Timer Post Scaler select bits
+              #pragma config FWDT_WDTWIN = WIN25            // WDT Window is 25% of WDT period
+              #pragma config FWDT_WDTEN = SW            // WDT is controlled by software, use WDTCON.ON bit
+              #pragma config FWDT_WDTRSTEN = ON            // WDT event generates a reset
+
+              // FPR0CTRL
+              #pragma config FPR0CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR0CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR0CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR0CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR0CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR0CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR0ST
+              #pragma config FPR0ST_START = 0x0UL            // Region start address bits
+
+              // FPR0END
+              #pragma config FPR0END_END = 0x0UL            // Region end address bits
+
+              // FPR1CTRL
+              #pragma config FPR1CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR1CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR1CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR1CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR1CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR1CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR1ST
+              #pragma config FPR1ST_START = 0x0UL            // Region start address bits
+
+              // FPR1END
+              #pragma config FPR1END_END = 0x0UL            // Region end address bits
+
+              // FPR2CTRL
+              #pragma config FPR2CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR2CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR2CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR2CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR2CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR2CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR2ST
+              #pragma config FPR2ST_START = 0x0UL            // Region start address bits
+
+              // FPR2END
+              #pragma config FPR2END_END = 0x0UL            // Region end address bits
+
+              // FPR3CTRL
+              #pragma config FPR3CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR3CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR3CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR3CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR3CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR3CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR3ST
+              #pragma config FPR3ST_START = 0x0UL            // Region start address bits
+
+              // FPR3END
+              #pragma config FPR3END_END = 0x0UL            // Region end address bits
+
+              // FPR4CTRL
+              #pragma config FPR4CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR4CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR4CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR4CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR4CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR4CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR4ST
+              #pragma config FPR4ST_START = 0x0UL            // Region start address bits
+
+              // FPR4END
+              #pragma config FPR4END_END = 0x0UL            // Region end address bits
+
+              // FPR5CTRL
+              #pragma config FPR5CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR5CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR5CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR5CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR5CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR5CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR5ST
+              #pragma config FPR5ST_START = 0x0UL            // Region start address bits
+
+              // FPR5END
+              #pragma config FPR5END_END = 0x0UL            // Region end address bits
+
+              // FPR6CTRL
+              #pragma config FPR6CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR6CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR6CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR6CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR6CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR6CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR6ST
+              #pragma config FPR6ST_START = 0x0UL            // Region start address bits
+
+              // FPR6END
+              #pragma config FPR6END_END = 0x0UL            // Region end address bits
+
+              // FPR7CTRL
+              #pragma config FPR7CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR7CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR7CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR7CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR7CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR7CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR7ST
+              #pragma config FPR7ST_START = 0x0UL            // Region start address bits
+
+              // FPR7END
+              #pragma config FPR7END_END = 0x0UL            // Region end address bits
+
+              // FIRT
+              #pragma config FIRT_IRT = OFF            // Immutable root of trust (IRT) regions are disabled
+
+              // FSECDBG
+              #pragma config FSECDBG_SECDBG = OFF            // Secure debug is disabled
+
+              // FPED
+              #pragma config FPED_ICSPPED = OFF            // ICSP can program and erase
+
+              // FEPUCB
+              #pragma config FEPUCB_EPUCB = 0xffffffffUL            // UCB erase protection bits
+
+              // FWPUCB
+              #pragma config FWPUCB_WPUCB = 0xffffffffUL            // UCB write protection bits
+          type: Dynamic
+        type: Values
+      type: String
+    CONFIG_FDEVOPT_SPI2PIN:
+      attributes:
+        id: CONFIG_FDEVOPT_SPI2PIN
+      children:
+      - children:
+        - attributes:
+            value: 'ON'
+          type: User
+        type: Values
+      type: Combo
   userData:
     children:
     - attributes:
