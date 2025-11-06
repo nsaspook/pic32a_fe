@@ -56,6 +56,15 @@
 // Section: Data types and constants
 
 
+/*** Macros for SRAM_CS pin ***/
+#define SRAM_CS_Set()               (_LATB4 = 1U)
+#define SRAM_CS_Clear()             (_LATB4 = 0U)
+#define SRAM_CS_Toggle()            (_LATB4 ^= 1U)
+#define SRAM_CS_OutputEnable()      (_TRISB4 = 0U)
+#define SRAM_CS_InputEnable()       (_TRISB4 = 1U)
+#define SRAM_CS_Get()               ((PORTB >> 4) & 0x1)
+#define SRAM_CS_PIN                 GPIO_PIN_RB4
+
 /*** Macros for DIS_CS pin ***/
 #define DIS_CS_Set()               (_LATB11 = 1U)
 #define DIS_CS_Clear()             (_LATB11 = 0U)

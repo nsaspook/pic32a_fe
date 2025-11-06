@@ -281,9 +281,9 @@ void SYS_Initialize ( void* data )
 
 	GPIO_Initialize();
 
+OPA3_Initialize();
 	SPI3_Initialize();
 
-OPA3_Initialize();
     DMA_Initialize();
 
 	ADC2_Initialize();
@@ -295,9 +295,9 @@ OPA3_Initialize();
 
 	SPI2_Initialize();
 
+OPA1_Initialize();
 	SPI1_Initialize();
 
-OPA1_Initialize();
     SCCP1_TimerInitialize();
 
 
