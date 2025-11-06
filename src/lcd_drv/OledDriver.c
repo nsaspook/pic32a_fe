@@ -186,7 +186,6 @@ void OledInit(void)
 	DMA_ChannelCallbackRegister(DMA_CHANNEL_0, SPI1DmaChannelHandler_State, 0); // end of LCD buffer transfer interrupt function
 #endif
 	DMA_ChannelCallbackRegister(DMA_CHANNEL_1, CBDmaChannelHandler, 0); // end of buffer clear transfer interrupt function
-//	SPI1CON1bits.ENHBUF = true; // enable FIFO
 #endif
 
 	/* Clear the display.
@@ -541,7 +540,7 @@ void SPI1DmaChannelHandler_State(DMA_TRANSFER_EVENT event, uintptr_t contextHand
 	switch (dstate) {
 	case D_init:
 		ipag = 0;
-		if (disp_frame) { // select flipper buffer
+		if (disp_frame) { // select flipper buffer, only one page with PIC32A
 			pb = rgbOledBmp0;
 		} else {
 			pb = rgbOledBmp0;
@@ -552,7 +551,7 @@ void SPI1DmaChannelHandler_State(DMA_TRANSFER_EVENT event, uintptr_t contextHand
 		dstate = D_buffer;
 		lcd_moveto_xy(ipag, 0); // calculate address data nibbles and store in rgbOledBmp_page array
 		/*
-		 * DMAC_ChannelCallbackRegister and SPI setup in OledInit
+		 * DMA_ChannelCallbackRegister and SPI setup in OledInit
 		 */
 		LCD_CMD();
 		DMA_ChannelTransfer(DMA_CHANNEL_0, (const void *) rgbOledBmp_page, (const void*) &SPI1BUF, (size_t) 4);
