@@ -66,12 +66,12 @@ void GPIO_Initialize ( void )
 {
      /*PORTB Initialization */
     LATB = 0x10U; /* Initial Latch Value */
-    CNPUB= 0x10U; /* Pull-Up Enable */
+    CNPUB= 0x810U; /* Pull-Up Enable */
     TRISB = 0xfefU; /* Direction Control */
-    ANSELB= 0x36fU; /* Digital Mode Enable */
+    ANSELB= 0x3efU; /* Digital Mode Enable */
      /*PORTC Initialization */
     LATC = 0x5U; /* Initial Latch Value */
-    CNPUC= 0x5U; /* Pull-Up Enable */
+    CNPUC= 0x105U; /* Pull-Up Enable */
     TRISC = 0xffaU; /* Direction Control */
      /*PORTD Initialization */
     LATD = 0x800U; /* Initial Latch Value */
@@ -84,12 +84,15 @@ void GPIO_Initialize ( void )
  /* PPS Input Mapping */
     RPINR10bits.SCK1R = 61;
     RPINR10bits.SDI1R = 41;
+    RPINR11bits.SCK2R = 27;
+    RPINR11bits.SDI2R = 28;
 
  /* PPS Output Mapping */
     RPOR15bits.RP61R = 14;
     RPOR14bits.RP59R = 13;
     RPOR6bits.RP27R = 14;
-    RPOR5bits.RP24R = 16;
+    RPOR6bits.RP27R = 17;
+    RPOR10bits.RP42R = 16;
 
     /* Lock back the system after PPS configuration */
     PINS_PPSLock();

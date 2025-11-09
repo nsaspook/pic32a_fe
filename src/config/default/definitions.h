@@ -48,17 +48,14 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
-#include "peripheral/opa/plib_opa3.h"
 #include "peripheral/spi/spi_host/plib_spi3_host.h"
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/gpio/plib_gpio.h"
 #include "peripheral/intc/plib_intc.h"
 #include "peripheral/dma/plib_dma.h"
 #include "peripheral/adc/plib_adc2.h"
-#include "peripheral/adc/plib_adc1.h"
 #include "peripheral/tmr/plib_tmr1.h"
 #include "peripheral/spi/spi_host/plib_spi2_host.h"
-#include "peripheral/opa/plib_opa1.h"
 #include "peripheral/spi/spi_host/plib_spi1_host.h"
 #include "peripheral/ccp/plib_sccp1.h"
 

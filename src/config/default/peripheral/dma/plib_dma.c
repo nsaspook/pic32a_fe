@@ -89,6 +89,27 @@
 #define DMA1CH_DAMODE_INCREMENTED          ((uint32_t)(_DMA1CH_DAMODE_MASK & ((uint32_t)(1) << _DMA1CH_DAMODE_POSITION)))
 #define DMA1CH_DAMODE_DECREMENTED          ((uint32_t)(_DMA1CH_DAMODE_MASK & ((uint32_t)(2) << _DMA1CH_DAMODE_POSITION)))
 
+//SPI DMAxCH Data Size Selection options
+#define DMA5CH_SIZE_ONE_BYTE_WORD          ((uint32_t)(_DMA5CH_SIZE_MASK & ((uint32_t)(0) << _DMA5CH_SIZE_POSITION)))
+#define DMA5CH_SIZE_16_BIT_WORD          ((uint32_t)(_DMA5CH_SIZE_MASK & ((uint32_t)(1) << _DMA5CH_SIZE_POSITION)))
+#define DMA5CH_SIZE_32_BIT_WORD          ((uint32_t)(_DMA5CH_SIZE_MASK & ((uint32_t)(2) << _DMA5CH_SIZE_POSITION)))
+
+//SPI DMAxCH Transfer Mode Selection options
+#define DMA5CH_TRMODE_ONE_SHOT          ((uint32_t)(_DMA5CH_TRMODE_MASK & ((uint32_t)(0) << _DMA5CH_TRMODE_POSITION)))
+#define DMA5CH_TRMODE_REPEATED_ONE_SHOT          ((uint32_t)(_DMA5CH_TRMODE_MASK & ((uint32_t)(1) << _DMA5CH_TRMODE_POSITION)))
+#define DMA5CH_TRMODE_CONTINUOUS          ((uint32_t)(_DMA5CH_TRMODE_MASK & ((uint32_t)(2) << _DMA5CH_TRMODE_POSITION)))
+#define DMA5CH_TRMODE_REPEATED_CONTINUOUS          ((uint32_t)(_DMA5CH_TRMODE_MASK & ((uint32_t)(3) << _DMA5CH_TRMODE_POSITION)))
+
+// DMAxCH Source Address Mode Selection Options
+#define DMA5CH_SAMODE_UNCHANGED          ((uint32_t)(_DMA5CH_SAMODE_MASK & ((uint32_t)(0) << _DMA5CH_SAMODE_POSITION)))
+#define DMA5CH_SAMODE_INCREMENTED          ((uint32_t)(_DMA5CH_SAMODE_MASK & ((uint32_t)(1) << _DMA5CH_SAMODE_POSITION)))
+#define DMA5CH_SAMODE_DECREMENTED          ((uint32_t)(_DMA5CH_SAMODE_MASK & ((uint32_t)(2) << _DMA5CH_SAMODE_POSITION)))
+
+// DMAxCH Destination Address Mode Selection Options
+#define DMA5CH_DAMODE_UNCHANGED          ((uint32_t)(_DMA5CH_DAMODE_MASK & ((uint32_t)(0) << _DMA5CH_DAMODE_POSITION)))
+#define DMA5CH_DAMODE_INCREMENTED          ((uint32_t)(_DMA5CH_DAMODE_MASK & ((uint32_t)(1) << _DMA5CH_DAMODE_POSITION)))
+#define DMA5CH_DAMODE_DECREMENTED          ((uint32_t)(_DMA5CH_DAMODE_MASK & ((uint32_t)(2) << _DMA5CH_DAMODE_POSITION)))
+
 
 // Section: Global Data
 
@@ -110,6 +131,10 @@ void DMA_Initialize( void )
     dmaChannelObj[DMA_CHANNEL_1].inUse      =    false;
     dmaChannelObj[DMA_CHANNEL_1].callback   =    NULL;
     dmaChannelObj[DMA_CHANNEL_1].context    =    0U;
+
+    dmaChannelObj[DMA_CHANNEL_5].inUse      =    false;
+    dmaChannelObj[DMA_CHANNEL_5].callback   =    NULL;
+    dmaChannelObj[DMA_CHANNEL_5].context    =    0U;
 
 
     DMALOW = 0x4000UL;
@@ -136,6 +161,17 @@ void DMA_Initialize( void )
          | _DMA1CH_DONEEN_MASK);
 
     DMA1SEL = (uint32_t)0x5c << _DMA1SEL_CHSEL_POSITION;
+    DMA5CH = ( _DMA5CH_RELOADC_MASK
+         | _DMA5CH_RELOADD_MASK
+         | _DMA5CH_RELOADS_MASK
+         |DMA5CH_SAMODE_INCREMENTED
+         | DMA5CH_DAMODE_UNCHANGED
+         | DMA5CH_TRMODE_REPEATED_CONTINUOUS
+         | DMA5CH_SIZE_ONE_BYTE_WORD
+         | _DMA5CH_DONEEN_MASK
+         | _DMA5CH_HALFEN_MASK);
+
+    DMA5SEL = (uint32_t)0x9 << _DMA5SEL_CHSEL_POSITION;
 
     /* Enable DMA channel interrupts */
     // Clearing Channel 0 Interrupt Flag;
@@ -146,6 +182,10 @@ void DMA_Initialize( void )
     _DMA1IF = 0U;
     // Enabling Channel 1 Interrupt
     _DMA1IE = 1U;
+    // Clearing Channel 5 Interrupt Flag;
+    _DMA5IF = 0U;
+    // Enabling Channel 5 Interrupt
+    _DMA5IE = 1U;
 
 }
 
@@ -160,11 +200,17 @@ void DMA_Deinitialize( void )
     _DMA1IF = 0U;
     // disabling Channel 1 Interrupt
     _DMA1IE = 0U;
+    // Clearing Channel 5 Interrupt Flag;
+    _DMA5IF = 0U;
+    // disabling Channel 5 Interrupt
+    _DMA5IE = 0U;
 
     //Disable DMA Channel 0
     DMA0CHbits.CHEN = 0U;
     //Disable DMA Channel 1
     DMA1CHbits.CHEN = 0U;
+    //Disable DMA Channel 5
+    DMA5CHbits.CHEN = 0U;
     /* Disable the DMA module */
     DMACONbits.ON = 0U;
 
@@ -193,6 +239,15 @@ void DMA_Deinitialize( void )
     DMA1CNT = 0x1UL;
     DMA1MSK = 0x0UL;
     DMA1PAT = 0x0UL;
+
+    DMA5CH = 0x0UL;
+    DMA5SEL = 0x0UL;
+    DMA5STAT = 0x0UL;
+    DMA5SRC = 0x0UL;
+    DMA5DST = 0x0UL;
+    DMA5CNT = 0x1UL;
+    DMA5MSK = 0x0UL;
+    DMA5PAT = 0x0UL;
 
 
 }
@@ -230,6 +285,18 @@ bool DMA_ChannelTransfer(DMA_CHANNEL channel, const void *srcAddr, const void *d
                 DMA1CHbits.CHEN = 1;
                 break;
 
+            case DMA_CHANNEL_5:
+                DMA5SRC = (uint32_t)XsrcAddr;
+                DMA5DST = (uint32_t)XdestAddr;
+                DMA5CNT = blockSize;
+                dmaChannelObj[channel].inUse = true;
+                returnStatus = true;
+
+                //Enable DMA Channel 5
+                DMA5CHbits.CHEN = 1;
+                DMA5CHbits.CHREQ = 1U;
+                break;
+
             default:
                 /* Invalid channel, do nothing */
                 break;
@@ -259,6 +326,14 @@ void DMA_ChannelPatternMatchSetup(DMA_CHANNEL channel, uint32_t patternMatchMask
         DMA1CHbits.MATCHEN = 1U;
         break;
 
+        case DMA_CHANNEL_5:
+        DMA5MSK = patternMatchMask;
+        DMA5PAT = patternMatchData;
+
+        /* Enable Pattern Match */
+        DMA5CHbits.MATCHEN = 1U;
+        break;
+
         default:
             /* Invalid channel, do nothing */
             break;
@@ -276,6 +351,11 @@ void DMA_ChannelEnable(DMA_CHANNEL channel)
 
         case DMA_CHANNEL_1:
             DMA1CHbits.CHEN = 1U;
+            dmaChannelObj[channel].inUse = true;
+            break;
+
+        case DMA_CHANNEL_5:
+            DMA5CHbits.CHEN = 1U;
             dmaChannelObj[channel].inUse = true;
             break;
 
@@ -299,6 +379,11 @@ void DMA_ChannelDisable (DMA_CHANNEL channel)
             dmaChannelObj[channel].inUse = false;
             break;
 
+        case DMA_CHANNEL_5:
+            DMA5CHbits.CHEN = 0U;
+            dmaChannelObj[channel].inUse = false;
+            break;
+
         default:
             /* Invalid channel, do nothing */
             break;
@@ -317,6 +402,10 @@ void DMA_ChannelPatternMatchEnable(DMA_CHANNEL channel)
             DMA1CHbits.MATCHEN = 1U;
             break;
 
+        case DMA_CHANNEL_5:
+            DMA5CHbits.MATCHEN = 1U;
+            break;
+
         default:
             /* Invalid channel, do nothing */
             break;
@@ -333,6 +422,10 @@ void DMA_ChannelPatternMatchDisable(DMA_CHANNEL channel)
 
         case DMA_CHANNEL_1:
             DMA1CHbits.MATCHEN = 0U;
+            break;
+
+        case DMA_CHANNEL_5:
+            DMA5CHbits.MATCHEN = 0U;
             break;
 
         default:
@@ -354,6 +447,10 @@ bool DMA_IsSoftwareRequestPending(DMA_CHANNEL channel)
                 status = (DMA1CHbits.CHREQ != 0U);
                 break;
 
+        case DMA_CHANNEL_5:
+                status = (DMA5CHbits.CHREQ != 0U);
+                break;
+
         default:
             /* Invalid channel, do nothing */
             break;
@@ -373,6 +470,10 @@ void DMA_ChannelSoftwareTriggerEnable(DMA_CHANNEL channel)
             DMA1CHbits.CHREQ = 1U;
             break;
 
+        case DMA_CHANNEL_5:
+            DMA5CHbits.CHREQ = 1U;
+            break;
+
         default:
             /* Invalid channel, do nothing */
             break;
@@ -390,6 +491,10 @@ uint32_t DMA_ChannelGetTransferredCount(DMA_CHANNEL channel)
 
         case DMA_CHANNEL_1:
             count = DMA1CNT;
+            break;
+
+        case DMA_CHANNEL_5:
+            count = DMA5CNT;
             break;
 
         default:
@@ -424,6 +529,16 @@ bool DMA_ChannelIsBusy (DMA_CHANNEL channel)
             }
             break;
 
+        case DMA_CHANNEL_5:
+            if (DMA5STATbits.DONE == 0U)
+            {
+                if (dmaChannelObj[5].inUse)
+                {
+                    busy_check = true;
+                }
+            }
+            break;
+
         default:
             /* Invalid channel, do nothing */
             break;
@@ -442,6 +557,10 @@ DMA_CHANNEL_CONFIG DMA_ChannelSettingsGet(DMA_CHANNEL channel)
 
         case DMA_CHANNEL_1:
             setting = DMA1CH;
+            break;
+
+        case DMA_CHANNEL_5:
+            setting = DMA5CH;
             break;
 
         default:
@@ -464,6 +583,11 @@ bool DMA_ChannelSettingsSet(DMA_CHANNEL channel, DMA_CHANNEL_CONFIG setting)
 
         case DMA_CHANNEL_1:
             DMA1CH = setting;
+            status = true;
+            break;
+
+        case DMA_CHANNEL_5:
+            DMA5CH = setting;
             status = true;
             break;
 
@@ -562,6 +686,53 @@ void __attribute__((used)) DMA1_InterruptHandler (void)
         dmaEvent = DMA_TRANSFER_EVENT_HALF_COMPLETE;
         DMA1STATbits.HALF = 0U;
         dmaChannelObj[1].inUse = false;
+    }
+    else
+    {
+        // nothing to process
+    }
+
+    if((chanObj->callback != NULL) && (dmaEvent != DMA_TRANSFER_EVENT_NONE))
+    {
+        uintptr_t context = chanObj->context;
+
+        chanObj->callback(dmaEvent, context);
+    }
+}
+void __attribute__((used)) DMA5_InterruptHandler (void)
+{
+    volatile DMA_CHANNEL_OBJECT *chanObj;
+    DMA_TRANSFER_EVENT dmaEvent = DMA_TRANSFER_EVENT_NONE;
+
+    /* Clear the interrupt flag*/
+    _DMA5IF = 0U;
+
+    /* Find out the channel object */
+    chanObj = &dmaChannelObj[5];
+
+    if(DMA5STATbits.OVERRUN == 1U)
+    {
+        dmaEvent = DMA_OVERRUN_ERROR;
+        DMA5STATbits.OVERRUN = 0;
+        dmaChannelObj[5].inUse = false;
+    }
+    else if(DMA5STATbits.MATCH == 1U)
+    {
+        dmaEvent = DMA_PATTERN_MATCH;
+        DMA5STATbits.MATCH = 0U;
+        dmaChannelObj[5].inUse = false;
+    }
+    else if(DMA5STATbits.DONE == 1U)
+    {
+        dmaEvent = DMA_TRANSFER_EVENT_COMPLETE;
+        DMA5STATbits.DONE = 0U;
+        dmaChannelObj[5].inUse = false;
+    }
+    else if(DMA5STATbits.HALF == 1U)
+    {
+        dmaEvent = DMA_TRANSFER_EVENT_HALF_COMPLETE;
+        DMA5STATbits.HALF = 0U;
+        dmaChannelObj[5].inUse = false;
     }
     else
     {

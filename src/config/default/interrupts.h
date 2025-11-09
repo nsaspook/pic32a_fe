@@ -69,6 +69,7 @@ void SPI3TX_InterruptHandler( void );
 void SPI3E_InterruptHandler( void );
 void DMA0_InterruptHandler( void );
 void DMA1_InterruptHandler( void );
+void DMA5_InterruptHandler( void );
 
 
 

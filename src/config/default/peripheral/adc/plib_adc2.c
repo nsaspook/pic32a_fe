@@ -58,42 +58,42 @@
 //ADC AD2CON RPTCNT set
 #define AD2CON_RPTCNT_SET(value)              ((uint32_t)(_AD2CON_RPTCNT_MASK & ((uint32_t)(value) << _AD2CON_RPTCNT_POSITION))) 
 
-//ADC AD2CH1CON MODE options
-#define AD2CH1CON_MODE_SINGLE_SAMPLE          ((uint32_t)(_AD2CH1CON_MODE_MASK & ((uint32_t)(0) << _AD2CH1CON_MODE_POSITION))) 
-#define AD2CH1CON_MODE_WINDOW          ((uint32_t)(_AD2CH1CON_MODE_MASK & ((uint32_t)(1) << _AD2CH1CON_MODE_POSITION))) 
-#define AD2CH1CON_MODE_INTEGRATION          ((uint32_t)(_AD2CH1CON_MODE_MASK & ((uint32_t)(2) << _AD2CH1CON_MODE_POSITION))) 
-#define AD2CH1CON_MODE_OVERSAMPLING          ((uint32_t)(_AD2CH1CON_MODE_MASK & ((uint32_t)(3) << _AD2CH1CON_MODE_POSITION))) 
+//ADC AD2CH4CON MODE options
+#define AD2CH4CON_MODE_SINGLE_SAMPLE          ((uint32_t)(_AD2CH4CON_MODE_MASK & ((uint32_t)(0) << _AD2CH4CON_MODE_POSITION))) 
+#define AD2CH4CON_MODE_WINDOW          ((uint32_t)(_AD2CH4CON_MODE_MASK & ((uint32_t)(1) << _AD2CH4CON_MODE_POSITION))) 
+#define AD2CH4CON_MODE_INTEGRATION          ((uint32_t)(_AD2CH4CON_MODE_MASK & ((uint32_t)(2) << _AD2CH4CON_MODE_POSITION))) 
+#define AD2CH4CON_MODE_OVERSAMPLING          ((uint32_t)(_AD2CH4CON_MODE_MASK & ((uint32_t)(3) << _AD2CH4CON_MODE_POSITION))) 
 
-//ADC AD2CH1CON ACCNUM options
-#define AD2CH1CON_ACCNUM_4_SAMPLES          ((uint32_t)(_AD2CH1CON_ACCNUM_MASK & ((uint32_t)(0) << _AD2CH1CON_ACCNUM_POSITION))) 
-#define AD2CH1CON_ACCNUM_16_SAMPLES          ((uint32_t)(_AD2CH1CON_ACCNUM_MASK & ((uint32_t)(1) << _AD2CH1CON_ACCNUM_POSITION))) 
-#define AD2CH1CON_ACCNUM_64_SAMPLES          ((uint32_t)(_AD2CH1CON_ACCNUM_MASK & ((uint32_t)(2) << _AD2CH1CON_ACCNUM_POSITION))) 
-#define AD2CH1CON_ACCNUM_256_SAMPLES          ((uint32_t)(_AD2CH1CON_ACCNUM_MASK & ((uint32_t)(3) << _AD2CH1CON_ACCNUM_POSITION))) 
+//ADC AD2CH4CON ACCNUM options
+#define AD2CH4CON_ACCNUM_4_SAMPLES          ((uint32_t)(_AD2CH4CON_ACCNUM_MASK & ((uint32_t)(0) << _AD2CH4CON_ACCNUM_POSITION))) 
+#define AD2CH4CON_ACCNUM_16_SAMPLES          ((uint32_t)(_AD2CH4CON_ACCNUM_MASK & ((uint32_t)(1) << _AD2CH4CON_ACCNUM_POSITION))) 
+#define AD2CH4CON_ACCNUM_64_SAMPLES          ((uint32_t)(_AD2CH4CON_ACCNUM_MASK & ((uint32_t)(2) << _AD2CH4CON_ACCNUM_POSITION))) 
+#define AD2CH4CON_ACCNUM_256_SAMPLES          ((uint32_t)(_AD2CH4CON_ACCNUM_MASK & ((uint32_t)(3) << _AD2CH4CON_ACCNUM_POSITION))) 
 
-//ADC AD2CH1CON TRG2SRC set
-#define AD2CH1CON_TRG2SRC_SET(value)              ((uint32_t)(_AD2CH1CON_TRG2SRC_MASK & ((uint32_t)(value) << _AD2CH1CON_TRG2SRC_POSITION))) 
+//ADC AD2CH4CON TRG2SRC set
+#define AD2CH4CON_TRG2SRC_SET(value)              ((uint32_t)(_AD2CH4CON_TRG2SRC_MASK & ((uint32_t)(value) << _AD2CH4CON_TRG2SRC_POSITION))) 
 
-//ADC AD2CH1CON CMPMOD options
-#define AD2CH1CON_CMPMOD_DISABLED          ((uint32_t)(_AD2CH1CON_CMPMOD_MASK & ((uint32_t)(0) << _AD2CH1CON_CMPMOD_POSITION))) 
-#define AD2CH1CON_CMPMOD_OUT_OF_BOUNDS          ((uint32_t)(_AD2CH1CON_CMPMOD_MASK & ((uint32_t)(1) << _AD2CH1CON_CMPMOD_POSITION))) 
-#define AD2CH1CON_CMPMOD_IN_BOUNDS          ((uint32_t)(_AD2CH1CON_CMPMOD_MASK & ((uint32_t)(2) << _AD2CH1CON_CMPMOD_POSITION))) 
-#define AD2CH1CON_CMPMOD_GRATER_THAN          ((uint32_t)(_AD2CH1CON_CMPMOD_MASK & ((uint32_t)(3) << _AD2CH1CON_CMPMOD_POSITION))) 
-#define AD2CH1CON_CMPMOD_LESS_THAN_OR_EQUAL          ((uint32_t)(_AD2CH1CON_CMPMOD_MASK & ((uint32_t)(4) << _AD2CH1CON_CMPMOD_POSITION))) 
+//ADC AD2CH4CON CMPMOD options
+#define AD2CH4CON_CMPMOD_DISABLED          ((uint32_t)(_AD2CH4CON_CMPMOD_MASK & ((uint32_t)(0) << _AD2CH4CON_CMPMOD_POSITION))) 
+#define AD2CH4CON_CMPMOD_OUT_OF_BOUNDS          ((uint32_t)(_AD2CH4CON_CMPMOD_MASK & ((uint32_t)(1) << _AD2CH4CON_CMPMOD_POSITION))) 
+#define AD2CH4CON_CMPMOD_IN_BOUNDS          ((uint32_t)(_AD2CH4CON_CMPMOD_MASK & ((uint32_t)(2) << _AD2CH4CON_CMPMOD_POSITION))) 
+#define AD2CH4CON_CMPMOD_GRATER_THAN          ((uint32_t)(_AD2CH4CON_CMPMOD_MASK & ((uint32_t)(3) << _AD2CH4CON_CMPMOD_POSITION))) 
+#define AD2CH4CON_CMPMOD_LESS_THAN_OR_EQUAL          ((uint32_t)(_AD2CH4CON_CMPMOD_MASK & ((uint32_t)(4) << _AD2CH4CON_CMPMOD_POSITION))) 
 
-//ADC AD2CH1CON PINSEL set
-#define AD2CH1CON_PINSEL_SET(value)              ((uint32_t)(_AD2CH1CON_PINSEL_MASK & ((uint32_t)(value) << _AD2CH1CON_PINSEL_POSITION))) 
+//ADC AD2CH4CON PINSEL set
+#define AD2CH4CON_PINSEL_SET(value)              ((uint32_t)(_AD2CH4CON_PINSEL_MASK & ((uint32_t)(value) << _AD2CH4CON_PINSEL_POSITION))) 
 
-//ADC AD2CH1CON NINSEL set
-#define AD2CH1CON_NINSEL_SET(value)              ((uint32_t)(_AD2CH1CON_NINSEL_MASK & ((uint32_t)(value) << _AD2CH1CON_NINSEL_POSITION))) 
+//ADC AD2CH4CON NINSEL set
+#define AD2CH4CON_NINSEL_SET(value)              ((uint32_t)(_AD2CH4CON_NINSEL_MASK & ((uint32_t)(value) << _AD2CH4CON_NINSEL_POSITION))) 
 
-//ADC AD2CH1CON SAMC set
-#define AD2CH1CON_SAMC_SET(value)              ((uint32_t)(_AD2CH1CON_SAMC_MASK & ((uint32_t)(value) << _AD2CH1CON_SAMC_POSITION))) 
+//ADC AD2CH4CON SAMC set
+#define AD2CH4CON_SAMC_SET(value)              ((uint32_t)(_AD2CH4CON_SAMC_MASK & ((uint32_t)(value) << _AD2CH4CON_SAMC_POSITION))) 
 
-//ADC AD2CH1CON TRG1SRC set
-#define AD2CH1CON_TRG1SRC_SET(value)              ((uint32_t)(_AD2CH1CON_TRG1SRC_MASK & ((uint32_t)(value) << _AD2CH1CON_TRG1SRC_POSITION))) 
+//ADC AD2CH4CON TRG1SRC set
+#define AD2CH4CON_TRG1SRC_SET(value)              ((uint32_t)(_AD2CH4CON_TRG1SRC_MASK & ((uint32_t)(value) << _AD2CH4CON_TRG1SRC_POSITION))) 
 
-//ADC AD2CH1CNT CNT set
-#define AD2CH1CNT_CNT_SET(value)              ((uint32_t)(_AD2CH1CNT_CNT_MASK & ((uint32_t)(value) << _AD2CH1CNT_CNT_POSITION))) 
+//ADC AD2CH4CNT CNT set
+#define AD2CH4CNT_CNT_SET(value)              ((uint32_t)(_AD2CH4CNT_CNT_MASK & ((uint32_t)(value) << _AD2CH4CNT_CNT_POSITION))) 
 
 
 // Section: File specific functions
@@ -123,17 +123,17 @@ void ADC2_Initialize(void)
     //Clear CMP status
     AD2CMPSTAT = 0x0U;
     
-    AD2CH1CON = (AD2CH1CON_MODE_SINGLE_SAMPLE
-                            |AD2CH1CON_ACCNUM_4_SAMPLES
-                            |AD2CH1CON_TRG2SRC_SET(0)
-                            |AD2CH1CON_CMPMOD_DISABLED
-                            |AD2CH1CON_PINSEL_SET(0)
-                            |AD2CH1CON_NINSEL_SET(0)
-                            |AD2CH1CON_SAMC_SET(0)
-                            |AD2CH1CON_TRG1SRC_SET(0));
-    AD2CH1CNT = AD2CH1CNT_CNT_SET(0);
-    AD2CH1CMPLO = 0X0UL;
-    AD2CH1CMPHI = 0X0UL;
+    AD2CH4CON = (AD2CH4CON_MODE_SINGLE_SAMPLE
+                            |AD2CH4CON_ACCNUM_4_SAMPLES
+                            |AD2CH4CON_TRG2SRC_SET(0)
+                            |AD2CH4CON_CMPMOD_DISABLED
+                            |AD2CH4CON_PINSEL_SET(4)
+                            |AD2CH4CON_NINSEL_SET(0)
+                            |AD2CH4CON_SAMC_SET(0)
+                            |AD2CH4CON_TRG1SRC_SET(1));
+    AD2CH4CNT = AD2CH4CNT_CNT_SET(0);
+    AD2CH4CMPLO = 0X0UL;
+    AD2CH4CMPHI = 0X0UL;
     
     
     //Mode change to run mode and enable ADC
@@ -147,20 +147,20 @@ void ADC2_Deinitialize(void)
     
     ADC2_Disable();
     
-    dummy = AD2CH1DATA;
+    dummy = AD2CH4DATA;
     (void)dummy;
-    _AD2CH1IF = 0U;
-    _AD2CH1IE = 0U;
+    _AD2CH4IF = 0U;
+    _AD2CH4IE = 0U;
     
     AD2CON = 0x4A0000UL;
     AD2DATAOVR = 0x0UL;
     AD2STAT = 0x0UL;
     AD2CMPSTAT = 0x0UL;
-    AD2CH1CON = 0x0UL;
-    AD2CH1DATA = 0x0UL;
-    AD2CH1CNT = 0x0UL;
-    AD2CH1CMPLO = 0x0UL;
-    AD2CH1CMPHI = 0x0UL;
+    AD2CH4CON = 0x0UL;
+    AD2CH4DATA = 0x0UL;
+    AD2CH4CNT = 0x0UL;
+    AD2CH4CMPLO = 0x0UL;
+    AD2CH4CMPHI = 0x0UL;
 
     
 }
@@ -197,8 +197,8 @@ void ADC2_PWMTriggerSourceSet(ADC2_CHANNEL channel, ADC2_PWM_INSTANCE pwmInstanc
     adcTriggerValue= ADC2_TriggerSourceValueGet(pwmInstance, triggerNumber);
     switch(channel)
     {
-        case ADC2_CHANNEL1:
-                AD2CH1CONbits.TRG1SRC = (uint8_t)adcTriggerValue;
+        case ADC2_CHANNEL4:
+                AD2CH4CONbits.TRG1SRC = (uint8_t)adcTriggerValue;
                 break;
         default:
                 /*Do Nothing*/

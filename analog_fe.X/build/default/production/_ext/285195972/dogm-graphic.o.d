@@ -3,11 +3,9 @@ build/default/production/_ext/285195972/dogm-graphic.o:  \
 ../src/lcd_drv/dogm-graphic.h  \
  ../src/lcd_drv/lcd_drv.h  \
 ../src/config/default/definitions.h  \
- ../src/config/default/peripheral/opa/plib_opa3.h  \
+ ../src/config/default/peripheral/spi/spi_host/plib_spi3_host.h  \
  ../src/config/default/device.h  \
  ../src/config/default/toolchain_specifics.h  \
- ../src/config/default/peripheral/opa/plib_opa_common.h  \
- ../src/config/default/peripheral/spi/spi_host/plib_spi3_host.h  \
  ../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h  \
  ../src/config/default/peripheral/clk/plib_clk.h  \
  ../src/config/default/peripheral/clk/plib_clk_common.h  \
@@ -16,11 +14,9 @@ build/default/production/_ext/285195972/dogm-graphic.o:  \
  ../src/config/default/peripheral/dma/plib_dma.h  \
  ../src/config/default/peripheral/adc/plib_adc2.h  \
  ../src/config/default/peripheral/adc/plib_adc_common.h  \
- ../src/config/default/peripheral/adc/plib_adc1.h  \
  ../src/config/default/peripheral/tmr/plib_tmr1.h  \
  ../src/config/default/peripheral/tmr/plib_tmr_common.h  \
  ../src/config/default/peripheral/spi/spi_host/plib_spi2_host.h  \
- ../src/config/default/peripheral/opa/plib_opa1.h  \
  ../src/config/default/peripheral/spi/spi_host/plib_spi1_host.h  \
  ../src/config/default/peripheral/ccp/plib_sccp1.h  \
  ../src/config/default/peripheral/ccp/plib_ccp_common.h  \

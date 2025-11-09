@@ -66,7 +66,7 @@
 */
 typedef enum
 {
-    ADC2_CHANNEL1 = 1U,   
+    ADC2_CHANNEL4 = 4U,   
     ADC2_MAX_CHANNELS = 1
 } ADC2_CHANNEL;
 
@@ -146,8 +146,8 @@ inline static void ADC2_ChannelSoftwareTriggerEnable(ADC2_CHANNEL channel)
 {
     switch(channel)
     {
-        case ADC2_CHANNEL1:
-                AD2SWTRGbits.CH1TRG = 0x1U;
+        case ADC2_CHANNEL4:
+                AD2SWTRGbits.CH4TRG = 0x1U;
                 break;
         default:
                 /*Do Nothing*/
@@ -169,8 +169,8 @@ inline static uint32_t ADC2_ChannelResultGet(ADC2_CHANNEL channel)
 
     switch(channel)
     {
-        case ADC2_CHANNEL1:
-                result = AD2CH1DATA;
+        case ADC2_CHANNEL4:
+                result = AD2CH4DATA;
                 break;
         default:
                 /*Do Nothing*/
@@ -195,8 +195,8 @@ inline static bool ADC2_ChannelResultIsReady(ADC2_CHANNEL channel)
 
     switch(channel)
     {
-        case ADC2_CHANNEL1:
-                status = AD2STATbits.CH1RDY == 1U;
+        case ADC2_CHANNEL4:
+                status = AD2STATbits.CH4RDY == 1U;
                 break;
         default:
                 /*Do Nothing*/
@@ -214,8 +214,8 @@ inline static void ADC2_ChannelResultInterruptEnable(ADC2_CHANNEL channel)
 {
     switch(channel)
     {
-        case ADC2_CHANNEL1:
-                IEC5bits.AD2CH1IE = 1;
+        case ADC2_CHANNEL4:
+                IEC6bits.AD2CH4IE = 1;
                 break;
         default:
                 /*Do Nothing*/
@@ -232,8 +232,8 @@ inline static void ADC2_ChannelResultInterruptDisable(ADC2_CHANNEL channel)
 {
     switch(channel)
     {
-        case ADC2_CHANNEL1:
-                IEC5bits.AD2CH1IE = 0;
+        case ADC2_CHANNEL4:
+                IEC6bits.AD2CH4IE = 0;
                 break;
         default:
                 /*Do Nothing*/
@@ -253,8 +253,8 @@ inline static void ADC2_ChannelResultFlagClear(ADC2_CHANNEL channel)
 {
     switch(channel)
     {
-        case ADC2_CHANNEL1:
-                IFS5bits.AD2CH1IF = 0;
+        case ADC2_CHANNEL4:
+                IFS6bits.AD2CH4IF = 0;
                 break;
         default:
                 /*Do Nothing*/
@@ -273,12 +273,12 @@ inline static bool ADC2_CompareStatusGet(ADC2_CHANNEL channel)
     bool status = false;
     switch(channel)
     {
-        case ADC2_CHANNEL1:
-                status = AD2CMPSTATbits.CH1CMP == 1U;
+        case ADC2_CHANNEL4:
+                status = AD2CMPSTATbits.CH4CMP == 1U;
                 //Clear status flag
-                AD2CMPSTATbits.CH1CMP = 0U;
-                //clear the CMP 1 interrupt flag
-                IFS5bits.AD2CMP1IF = 0U;
+                AD2CMPSTATbits.CH4CMP = 0U;
+                //clear the CMP 4 interrupt flag
+                IFS6bits.AD2CMP4IF = 0U;
                 break;
         default:
                 /*Do Nothing*/
@@ -297,8 +297,8 @@ inline static void ADC2_IndividualChannelInterruptPrioritySet(ADC2_CHANNEL chann
 {
 	switch(channel)
 	{
-		case ADC2_CHANNEL1:
-				_AD2CH1IP = (uint8_t)priorityValue;
+		case ADC2_CHANNEL4:
+				_AD2CH4IP = (uint8_t)priorityValue;
 				break;
 		default:
                 /*Do Nothing*/

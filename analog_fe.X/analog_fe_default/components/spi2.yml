@@ -109,8 +109,18 @@ data:
       children:
       - children:
         - attributes:
-            value: '20000000'
+            value: '25000000'
           type: User
         type: Values
       type: Integer
+    SPI_INTERRUPT_MODE:
+      attributes:
+        id: SPI_INTERRUPT_MODE
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
   userData: {}

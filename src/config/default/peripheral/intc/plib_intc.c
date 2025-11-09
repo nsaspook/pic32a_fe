@@ -60,6 +60,7 @@ void INTC_Initialize( void )
     IPC8bits.SPI3EIP = 1;
     IPC9bits.DMA0IP = 1;
     IPC9bits.DMA1IP = 1;
+    IPC13bits.DMA5IP = 1;
 
 
 }

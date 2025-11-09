@@ -32,6 +32,7 @@
 
 #include "lcd_drv/lcd_drv.h"
 #include "timers.h"
+#include "is66.h"
 
 static char buffer[256];
 volatile uint16_t tickCount[TMR_COUNT];
@@ -59,16 +60,25 @@ int main(void)
 	eaDogM_WriteStringAtPos(15, 0, buffer);
 	OledUpdate();
 	StartTimer(TMR_TEST, 2);
+	SRAM_CS_Clear();
+	SPI2_WriteRead((void *) iss_read_id, sizeof(iss_read_id), iss_read_id_buffer, sizeof(iss_read_id));
+	while (!TimerDone(TMR_TEST)) {
+	};
+	SRAM_CS_Set();
+	ADC_DMA_init();
+
+	StartTimer(TMR_TEST, 2);
 	while (true) {
-		static uint32_t loops=0;
+		static uint32_t loops = 0;
 		/* Maintain state machines of all polled MPLAB Harmony modules. */
 		SYS_Tasks();
 		RLED_Toggle();
 		if (TimerDone(TMR_TEST)) {
-			snprintf(buffer, 255, "Running  %u ",loops++);
+			snprintf(buffer, 255, "Running %u %X%X%X  %u %u", loops++, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6], adc_result, AD1STATbits.CH6RDY);
 			eaDogM_WriteStringAtPos(1, 0, buffer);
 			OledUpdate();
 			StartTimer(TMR_TEST, 2);
+			ADC_DMA_write();
 		}
 	}
 

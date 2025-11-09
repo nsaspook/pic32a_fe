@@ -1,5 +1,5 @@
-build/default/production/_ext/1360937237/main.o:  \
-../src/main.c  \
+build/default/production/_ext/1360937237/is66.o:  \
+../src/is66.c  \
  ../src/config/default/definitions.h  \
  ../src/config/default/peripheral/spi/spi_host/plib_spi3_host.h  \
  ../src/config/default/device.h  \
@@ -30,5 +30,4 @@ build/default/production/_ext/1360937237/main.o:  \
  ../src/lcd_drv/OledDriver.h  \
 ../src/lcd_drv/OledChar.h  \
  ../src/lcd_drv/OledGrph.h  \
-../src/timers.h  \
-../src/is66.h 
+../src/timers.h 
