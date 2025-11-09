@@ -9,21 +9,22 @@ modules:
 - core
 - dfp
 - sccp1
+- sccp2
 - spi1
 - spi2
 - spi3
 - timer1
 generatedFileHashHistoryMap:
 - file: ../src/config/default/definitions.h
-  hash: c86f285b5b4e1475ecf5af7f170b5503fbdf400a70ec13680b5b8157c060cb93
+  hash: 6cc632bef3ff500363dd1a4c7e728878223148eb64b729d3e78026d72569656c
 - file: ../src/config/default/device.h
   hash: ae9334f1f1a7868eb3f27a0a2a9100a31af74d1fd227d97e20cc04d39e272e05
 - file: ../src/config/default/initialization.c
-  hash: fccdb87262259ddd2d5556fcbed657788b062b992f605b8d52a1b79942fdfd07
+  hash: cad0ed7ffe7dd988ead3f71a0bc787125dac979c704950f92af33056b3efaa0d
 - file: ../src/config/default/interrupts.c
-  hash: 49d386eabdd921032e8fb83462714f1cc011bb9f91c9f485fa672fd6640ed672
+  hash: be1790bd2ac033ff7393e954619cd2d1fe994eccfcdc2b3d4eb24278941ec67f
 - file: ../src/config/default/interrupts.h
-  hash: 3eefd18ba13d5902cbc00a645acf81c60c91179476f0d89f2b625c6d05a6502c
+  hash: 349343063b000663e7c4cc6fe2711a7feeb56533e37f5ae7b3e522b2301b2e21
 - file: ../src/config/default/peripheral/adc/plib_adc2.c
   hash: 5f6ad125c62a2d85e9945854001f4e9cd472d98071759ad2b70f800bc5bbf9a3
 - file: ../src/config/default/peripheral/adc/plib_adc2.h
@@ -36,6 +37,10 @@ generatedFileHashHistoryMap:
   hash: 415bc648021a5ab1e6a1786ad08e4fb6ef3d6121b88cdef38e76a54f4b8c33f7
 - file: ../src/config/default/peripheral/ccp/plib_sccp1.h
   hash: 9e3fd407f99bae5efd4f9e1fac57627fbaa2297047c0a0a55daf732d537ae88f
+- file: ../src/config/default/peripheral/ccp/plib_sccp2.c
+  hash: d30d157e2e7382de0e744a7cc5451f992e7784943a20d6ed9326a5462ff7e251
+- file: ../src/config/default/peripheral/ccp/plib_sccp2.h
+  hash: 7d9d0ab0ecccef0ad0f681b6146dfe5dc34fda60a40e150aebbaf306238f0827
 - file: ../src/config/default/peripheral/clk/plib_clk.c
   hash: 534e7a30929f7db6f098e0dda1c86383be117159a2cd5ec06997f8778e820fa2
 - file: ../src/config/default/peripheral/clk/plib_clk.h
@@ -43,15 +48,15 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/peripheral/clk/plib_clk_common.h
   hash: 18bde5830d90758c560fba06b3d1ab3aefe87412eaedfed10a20b55ed18cb872
 - file: ../src/config/default/peripheral/dma/plib_dma.c
-  hash: 34dff66fe8737b885b97bfac1e9971d421c3febb8b71d288cc2b471a59fc4e7c
+  hash: f68c3a50fda6a5431a5d20553fac032a651d5ab48112075ee2173897ad336ac5
 - file: ../src/config/default/peripheral/dma/plib_dma.h
   hash: 0598ac71c369908f3b53e78d90a7ab4deb87d12b07bc0a411c2cff4e8963324c
 - file: ../src/config/default/peripheral/gpio/plib_gpio.c
-  hash: 47bb65748818bc87971bbe9566e76dc64d4be3768ae7fc24a6cab95f96772257
+  hash: 14ba939579eb99bd903fda5eac4ba7e1e648f8c1b1309453d6bbc5085b185d96
 - file: ../src/config/default/peripheral/gpio/plib_gpio.h
-  hash: c5bcc8c7f55f37dfff8a3f64acfb8694c8f6c17c3cf8c8f93b18d4def569958f
+  hash: 6c1ef128c3fd0d499d9ddaa916d5c196edcaf7ec83d10a22066d5eb88687a673
 - file: ../src/config/default/peripheral/intc/plib_intc.c
-  hash: 3e9d3047c65b4c9e33bc665a22ef7de21cdaf648ecad9a819f56edf0b59f9c47
+  hash: 75c03655c3f72ded99c7a0365d2339ed752161883691f62f3cc16cc8dc3c784c
 - file: ../src/config/default/peripheral/intc/plib_intc.h
   hash: 0564f0ee0ba838e065edc667db20250a5dbea83eb542b265c08a63aca3efd1f3
 - file: ../src/config/default/peripheral/spi/spi_host/plib_spi1_host.c

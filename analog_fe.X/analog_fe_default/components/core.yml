@@ -192,20 +192,21 @@ data:
         - attributes:
             id: core
             value: |-
-              IPC6bits.T1IP = 4;
+              IPC6bits.T1IP = 2;
                   IPC6bits.CCT1IP = 5;
+                  IPC6bits.CCT2IP = 6;
                   IPC7bits.SPI1RXIP = 1;
                   IPC8bits.SPI1TXIP = 1;
                   IPC8bits.SPI1EIP = 1;
-                  IPC8bits.SPI2RXIP = 1;
-                  IPC8bits.SPI2TXIP = 1;
+                  IPC8bits.SPI2RXIP = 3;
+                  IPC8bits.SPI2TXIP = 3;
                   IPC8bits.SPI2EIP = 1;
                   IPC8bits.SPI3RXIP = 1;
                   IPC8bits.SPI3TXIP = 1;
                   IPC8bits.SPI3EIP = 1;
                   IPC9bits.DMA0IP = 1;
                   IPC9bits.DMA1IP = 1;
-                  IPC13bits.DMA5IP = 1;
+                  IPC13bits.DMA5IP = 5;
           type: Dynamic
         type: Values
       type: String
@@ -2748,7 +2749,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '6142'
+            value: '5630'
           type: Dynamic
         type: Values
       type: Hex
@@ -2843,7 +2844,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '2'
           type: User
         type: Values
       type: Combo
@@ -3662,7 +3663,7 @@ data:
             value: '3'
           type: Dynamic
         - attributes:
-            value: '0'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -3683,6 +3684,9 @@ data:
             id: core
             value: '2'
           type: Dynamic
+        - attributes:
+            value: '2'
+          type: User
         type: Values
       type: KeyValueSet
     DMA5_CH__SAMODE:
@@ -3807,6 +3811,138 @@ data:
             value: 'true'
           type: Boolean
         type: Attributes
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    BSP_PIN_49_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_49_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_49_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_49_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: TP0
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_49_DIR:
+      attributes:
+        id: BSP_PIN_49_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    INTC_51_ENABLE:
+      attributes:
+        id: INTC_51_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: sccp2
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_51_HANDLER_LOCK:
+      attributes:
+        id: INTC_51_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: sccp2
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_51_PRIORITY:
+      attributes:
+        id: INTC_51_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
+      type: Combo
+    INTC_110_PRIORITY:
+      attributes:
+        id: INTC_110_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
+      type: Combo
+    INTC_66_PRIORITY:
+      attributes:
+        id: INTC_66_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: Combo
+    INTC_67_PRIORITY:
+      attributes:
+        id: INTC_67_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: Combo
+    INTC_51_ENABLE_CONTEXT:
+      attributes:
+        id: INTC_51_ENABLE_CONTEXT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    INTC_66_ENABLE_CONTEXT:
+      attributes:
+        id: INTC_66_ENABLE_CONTEXT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    INTC_67_ENABLE_CONTEXT:
+      attributes:
+        id: INTC_67_ENABLE_CONTEXT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    INTC_110_ENABLE_CONTEXT:
+      attributes:
+        id: INTC_110_ENABLE_CONTEXT
+      children:
       - children:
         - attributes:
             value: 'true'

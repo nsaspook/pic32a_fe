@@ -1,26 +1,7 @@
-/*******************************************************************************
-  Main Source File
-
-  Company:
-    Microchip Technology Inc.
-
-  File Name:
-    main.c
-
-  Summary:
-    This file contains the "main" function for a project.
-
-  Description:
-    This file contains the "main" function for a project.  The
-    "main" function calls the "SYS_Initialize" function to initialize the state
-    machines of all modules in the system
- *******************************************************************************/
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: Included Files
-// *****************************************************************************
-// *****************************************************************************
+/*
+ * PIC32A analog sensor demo design
+ * testing code to design a PCB from
+ */
 
 #include <stddef.h>                     // Defines NULL
 #include <stdbool.h>                    // Defines true
@@ -36,11 +17,6 @@
 
 static char buffer[256];
 volatile uint16_t tickCount[TMR_COUNT];
-// *****************************************************************************
-// *****************************************************************************
-// Section: Main Entry Point
-// *****************************************************************************
-// *****************************************************************************
 
 int main(void)
 {
@@ -49,25 +25,32 @@ int main(void)
 
 	TMR1_CallbackRegister(timer_ms_tick, 0);
 	TMR1_InterruptEnable();
-	TMR1_Start(); // software timers counter
+	TMR1_Start(); // software timers hardware time-base
 
+	/*
+	 * setup GLCD background update tasks
+	 */
 	init_lcd_drv(D_INIT);
 	OledClearBuffer();
 	wait_lcd_done();
-
 
 	snprintf(buffer, 255, "Testing PIC32AK   ");
 	eaDogM_WriteStringAtPos(15, 0, buffer);
 	OledUpdate();
 	StartTimer(TMR_TEST, 2);
+	/*
+	 * read the iss66 chip ID register
+	 * will convert to a proper ID function later, now it's just for display
+	 */
 	SRAM_CS_Clear();
 	SPI2_WriteRead((void *) iss_read_id, sizeof(iss_read_id), iss_read_id_buffer, sizeof(iss_read_id));
 	while (!TimerDone(TMR_TEST)) {
 	};
 	SRAM_CS_Set();
-	ADC_DMA_init();
+	ADC_DMA_init(); // setup background ADC data tasks
 
-	StartTimer(TMR_TEST, 2);
+	StartTimer(TMR_TEST, 2); // GLCD screen updates every 2ms
+	SCCP2_TimerStart(); // ADC timer start
 	while (true) {
 		static uint32_t loops = 0;
 		/* Maintain state machines of all polled MPLAB Harmony modules. */
@@ -78,7 +61,6 @@ int main(void)
 			eaDogM_WriteStringAtPos(1, 0, buffer);
 			OledUpdate();
 			StartTimer(TMR_TEST, 2);
-			ADC_DMA_write();
 		}
 	}
 

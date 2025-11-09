@@ -294,6 +294,8 @@ void SYS_Initialize ( void* data )
 
 	SPI1_Initialize();
 
+    SCCP2_TimerInitialize();
+
     SCCP1_TimerInitialize();
 
 

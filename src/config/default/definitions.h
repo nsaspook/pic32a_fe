@@ -57,6 +57,7 @@
 #include "peripheral/tmr/plib_tmr1.h"
 #include "peripheral/spi/spi_host/plib_spi2_host.h"
 #include "peripheral/spi/spi_host/plib_spi1_host.h"
+#include "peripheral/ccp/plib_sccp2.h"
 #include "peripheral/ccp/plib_sccp1.h"
 
 // DOM-IGNORE-BEGIN

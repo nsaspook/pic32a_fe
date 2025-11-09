@@ -76,7 +76,7 @@ void GPIO_Initialize ( void )
      /*PORTD Initialization */
     LATD = 0x800U; /* Initial Latch Value */
     CNPUD= 0x800U; /* Pull-Up Enable */
-    TRISD = 0x17feU; /* Direction Control */
+    TRISD = 0x15feU; /* Direction Control */
 
     /* Unlock system for PPS configuration */
     PINS_PPSUnlock();

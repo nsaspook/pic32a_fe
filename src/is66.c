@@ -1,3 +1,6 @@
+/*
+ * is66 setup and R/W functions
+ */
 #include <xc.h>
 #include <stddef.h>                     // Defines NULL
 #include <stdbool.h>                    // Defines true
@@ -7,38 +10,75 @@
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 
-#include "lcd_drv/lcd_drv.h"
-#include "timers.h"
+//#define USE_SRAM
+//#define DMA_HALF
 
-uint8_t iss_adc_write[4] = {0x02, 0x00, 0x00, 0x00};
-uint32_t adc_result = 0;
+volatile uint8_t iss_adc_write[8] = {0x02, 0x00, 0x00, 0x00}; // 1024 bytes in each address page for sequential writes
+uint8_t sram_adc_write[8];
+volatile uint32_t adc_result = 0;
 
+/*
+ * setup the iss66 command buffer and DMA the data to the chip
+ */
 void ADC_DMA_write(void)
 {
-	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_write, (const void*) &SPI2BUF, (size_t) 4);
-	while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
-	};
+	TP0_Set(); // timing GPIO trace
+#ifndef USE_SRAM
+	SRAM_CS_Clear();
+#endif
 
+#ifndef USE_SRAM
+	TP0_Clear();
+	TP0_Set();
 	AD1SWTRGbits.CH6TRG = 1;
-	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) &AD1CH6DATA, (const void*) &SPI2BUF, (size_t) 4);
+	while (AD1STATbits.CH6RDY == 0);
+	TP0_Clear();
+	TP0_Set();
+	adc_result = AD1CH6DATA;
+	memcpy((void *) &iss_adc_write[4], (const void *) &adc_result, 4);
+	iss_adc_write[3]++; // write 256 bytes into chip sram
+
 	while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
 	};
+	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_write, (const void*) &SPI2BUF, (size_t) 6);
+#endif
+
+#ifndef USE_SRAM
 	SRAM_CS_Set();
-	adc_result = AD1CH6DATA;
+#endif
+	TP0_Clear();
 };
 
+/*
+ * iss66 data reads using DMA
+ * on the todo list
+ */
 void ADC_DMA_read(void)
 {
 
 };
 
+/*
+ * DMA event callback processor
+ * not being used, only for testing for now
+ */
 void SPI2DmaChannelHandler_State(DMA_TRANSFER_EVENT event, uintptr_t contextHandle)
 {
+#ifdef DMA_HALF
 	if (event == DMA_TRANSFER_EVENT_HALF_COMPLETE) {
 		adc_result = AD1CH6DATA;
 		AD1SWTRGbits.CH6TRG = 1;
 		while (AD1STATbits.CH6RDY == 0);
 	}
+#endif
+}
+
+/*
+ * Time trigger for ADC conversion and iss66 data writes
+ */
+void SCCP2_Callback_InterruptHandler(uint32_t status, uintptr_t context)
+{
+	ADC_DMA_write();
 }
 
 void ADC_DMA_init(void)
@@ -48,7 +88,7 @@ void ADC_DMA_init(void)
 	// Software trigger will start a conversion.
 	AD1CH6CONbits.TRG1SRC = 1;
 	AD1CH6CONbits.TRG2SRC = 0;
-	// Use a differential input.
+	// Use a single-ended input.
 	AD1CH6CONbits.DIFF = 0;
 	// Select the AN6 analog positive input/pin for the signal.
 	AD1CH6CONbits.PINSEL = 6;
@@ -60,7 +100,7 @@ void ADC_DMA_init(void)
 	AD1CONbits.ON = 1;
 	// Wait when ADC will be ready/calibrated.
 	while (AD1CONbits.ADRDY == 0);
-	
+
 	// Trigger channel #6 in software and wait for the result.
 	AD1SWTRGbits.CH6TRG = 1;
 	// Wait for a conversion ready flag.
@@ -68,6 +108,11 @@ void ADC_DMA_init(void)
 	// Read result. It will clear the conversion ready flag.
 	adc_result = AD1CH6DATA;
 
+	/*
+	 * setup the DMA and timer background tasks
+	 */
 	DMA_ChannelCallbackRegister(DMA_CHANNEL_5, SPI2DmaChannelHandler_State, 0);
+	SCCP2_TimerCallbackRegister(SCCP2_Callback_InterruptHandler, (uintptr_t) NULL);
+	SCCP2_Timer32bitPeriodSet(350); // 3.5us timer interrupts
 
 }

@@ -16,18 +16,6 @@ build/default/production/_ext/1360937237/is66.o:  \
  ../src/config/default/peripheral/tmr/plib_tmr_common.h  \
  ../src/config/default/peripheral/spi/spi_host/plib_spi2_host.h  \
  ../src/config/default/peripheral/spi/spi_host/plib_spi1_host.h  \
- ../src/config/default/peripheral/ccp/plib_sccp1.h  \
+ ../src/config/default/peripheral/ccp/plib_sccp2.h  \
  ../src/config/default/peripheral/ccp/plib_ccp_common.h  \
- ../src/lcd_drv/lcd_drv.h  \
- ../src/../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h  \
- ../src/../src/config/default/peripheral/gpio/plib_gpio.h  \
- ../src/../src/config/default/peripheral/dma/plib_dma.h  \
- ../src/lcd_drv/display_type.h  \
-../src/lcd_drv/eadog.h  \
- ../src/lcd_drv/lcd_drv.h  \
-../src/lcd_drv/dogm-graphic.h  \
-../src/timers.h  \
- ../src/lcd_drv/OledDriver.h  \
-../src/lcd_drv/OledChar.h  \
- ../src/lcd_drv/OledGrph.h  \
-../src/timers.h 
+ ../src/config/default/peripheral/ccp/plib_sccp1.h 

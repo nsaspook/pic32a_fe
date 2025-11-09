@@ -83,6 +83,15 @@
 #define DIS_MODE_Get()               ((PORTC >> 2) & 0x1)
 #define DIS_MODE_PIN                 GPIO_PIN_RC2
 
+/*** Macros for TP0 pin ***/
+#define TP0_Set()               (_LATD9 = 1U)
+#define TP0_Clear()             (_LATD9 = 0U)
+#define TP0_Toggle()            (_LATD9 ^= 1U)
+#define TP0_OutputEnable()      (_TRISD9 = 0U)
+#define TP0_InputEnable()       (_TRISD9 = 1U)
+#define TP0_Get()               ((PORTD >> 9) & 0x1)
+#define TP0_PIN                 GPIO_PIN_RD9
+
 /*** Macros for RLED pin ***/
 #define RLED_Set()               (_LATD0 = 1U)
 #define RLED_Clear()             (_LATD0 = 0U)
