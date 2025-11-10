@@ -13,6 +13,7 @@
 
 #include "lcd_drv/lcd_drv.h"
 #include "timers.h"
+#include "samples.h"
 #include "is66.h"
 
 static char buffer[256];
@@ -57,7 +58,7 @@ int main(void)
 		SYS_Tasks();
 		RLED_Toggle();
 		if (TimerDone(TMR_TEST)) {
-			snprintf(buffer, 255, "Running %u %X%X%X  %u %u", loops++, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6], adc_result, AD1STATbits.CH6RDY);
+			snprintf(buffer, 255, "S%u T%u ID%X%X%X V%u   ", loops++, total_sample_triggers, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6], adc_result);
 			eaDogM_WriteStringAtPos(1, 0, buffer);
 			OledUpdate();
 			StartTimer(TMR_TEST, 2);

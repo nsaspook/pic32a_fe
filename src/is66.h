@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   is66.h
  * Author: root
  *
@@ -19,10 +19,11 @@ extern "C" {
 
 	const uint8_t iss_read_id[7] = {0x9F};
 	uint8_t iss_read_id_buffer[7];
-	
+
 	extern volatile uint8_t iss_adc_write[8];
-	extern volatile uint32_t adc_result;
-	
+	extern volatile uint32_t adc_result, total_sample_triggers;
+	extern volatile uint16_t sram_addr, *sram_addr_ptr;
+
 	void ADC_DMA_write(void);
 	void ADC_DMA_read(void);
 	void ADC_DMA_init(void);

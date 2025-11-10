@@ -32,4 +32,5 @@ build/default/production/_ext/1360937237/main.o:  \
 ../src/lcd_drv/OledChar.h  \
  ../src/lcd_drv/OledGrph.h  \
 ../src/timers.h  \
+../src/samples.h  \
 ../src/is66.h 

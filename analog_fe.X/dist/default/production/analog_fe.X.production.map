@@ -148,110 +148,110 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text                     0x800480              0x1a54          0x1a54  (6740)
-/tmp/ccatNa92.s.scn1      0x801ed4               0x514           0x514  (1300)
-/tmp/ccf6LDBa.s.scn1      0x8023e8               0x300           0x300  (768)
+/tmp/ccJFy93L.s.scn1      0x801ed4               0x514           0x514  (1300)
+/tmp/ccOWSBlk.s.scn1      0x8023e8               0x300           0x300  (768)
 .text.CLOCK_Initialize    0x8026e8               0x2bc           0x2bc  (700)
-.text.OledPutBmp          0x8029a4               0x24c           0x24c  (588)
-.dinit                    0x802bf0               0x240           0x240  (576)
-.text.SPI2_WriteRead      0x802e30               0x1bc           0x1bc  (444)
-.text.SPI1_WriteRead      0x802fec               0x1bc           0x1bc  (444)
-.text.main                0x8031a8               0x15c           0x15c  (348)
-.text.SPI3RX_InterruptHandler  0x803304               0x140           0x140  (320)
-.text.SPI2RX_InterruptHandler  0x803444               0x140           0x140  (320)
-.text.SPI1RX_InterruptHandler  0x803584               0x140           0x140  (320)
-.text.INTC_Initialize     0x8036c4                0xf4            0xf4  (244)
-.text.SPI1DmaChannelHandler_State  0x8037b8                0xec            0xec  (236)
-.text.DMA1_InterruptHandler  0x8038a4                0xe8            0xe8  (232)
-.text.DMA5_InterruptHandler  0x80398c                0xe8            0xe8  (232)
-.text.GPIO_Initialize     0x803a74                0xdc            0xdc  (220)
-.text.DMA0_InterruptHandler  0x803b50                0xd8            0xd8  (216)
-.text.ADC_DMA_init        0x803c28                0xc4            0xc4  (196)
-.text.lcd_clear_area      0x803cec                0xb8            0xb8  (184)
-.text.lcd_init            0x803da4                0xac            0xac  (172)
-.text.DMA_ChannelTransfer  0x803e50                0xa4            0xa4  (164)
-.text.DMA_Initialize      0x803ef4                0x9c            0x9c  (156)
-.text.ADC_DMA_write       0x803f90                0x98            0x98  (152)
-.text.SPI_FIFO_Fill       0x804028               0x1b0           0x1b0  (432)
-.text.DMA_ChannelIsBusy   0x8041d8                0x8c            0x8c  (140)
-.text.OledMoveTo          0x804264                0x84            0x84  (132)
-.text.OledSetDrawMode     0x8042e8                0x7c            0x7c  (124)
-.text.init_lcd_drv        0x804364                0x78            0x78  (120)
-.text.OledDvrInit         0x8043dc                0x74            0x74  (116)
-.text.SPI3TX_InterruptHandler  0x804450                0x70            0x70  (112)
-.text.SPI2TX_InterruptHandler  0x8044c0                0x70            0x70  (112)
-.text.SPI1TX_InterruptHandler  0x804530                0x70            0x70  (112)
-.text.SPI3E_InterruptHandler  0x8045a0                0x64            0x64  (100)
-.text.SPI2E_InterruptHandler  0x804604                0x64            0x64  (100)
-.text.SPI1E_InterruptHandler  0x804668                0x64            0x64  (100)
-.text.OledDrawGlyph       0x8046cc                0x60            0x60  (96)
-.text.ADC2_Initialize     0x80472c                0x50            0x50  (80)
-.text.SPI2_Initialize     0x80477c                0x48            0x48  (72)
-.text.SPI1_Initialize     0x8047c4                0x48            0x48  (72)
-.text.lcd_moveto_xy       0x80480c                0x48            0x48  (72)
-.text.SPI3_Initialize     0x804854                0x44            0x44  (68)
-.text.T1_InterruptHandler  0x804898                0x44            0x44  (68)
-.text.timer_ms_tick       0x8048dc                0x44            0x44  (68)
-/tmp/ccyfuOwB.s.scn1      0x804920                0x40            0x40  (64)
-.text.OledSetCursor       0x804960                0x40            0x40  (64)
-.text.OledPutString       0x8049a0                0x40            0x40  (64)
-.text.SCCP1_TimerInitialize  0x8049e0                0x3c            0x3c  (60)
-.text.delay_us            0x804a1c                0x3c            0x3c  (60)
-.text.OledAdvanceCursor   0x804a58                0x3c            0x3c  (60)
-.text.lcd_command_s       0x804a94                0x3c            0x3c  (60)
-.text.SYS_Initialize      0x804ad0                0x38            0x38  (56)
-.text.lcd_clear_area_xy   0x804b08                0x38            0x38  (56)
-.text.CCT1_InterruptHandler  0x804b40                0x34            0x34  (52)
-.text.SCCP2_TimerInitialize  0x804b74                0x34            0x34  (52)
-.text.CCT2_InterruptHandler  0x804ba8                0x34            0x34  (52)
-.text.TMR1_Initialize     0x804bdc                0x30            0x30  (48)
-.text.wait_lcd_done       0x804c0c                0x30            0x30  (48)
-.text.OledClearBuffer     0x804c3c                0x30            0x30  (48)
-/tmp/ccAwKGRM.s.scn1      0x804c6c                0x30            0x30  (48)
-.text.OledInit            0x804c9c                0x2c            0x2c  (44)
-.text.lcd_move_xy         0x804cc8                0x2c            0x2c  (44)
-.text.lcd_data            0x804cf4                0x28            0x28  (40)
-.text.TimerDone           0x804d1c                0x24            0x24  (36)
-.text.WaitMs              0x804d40                0x24            0x24  (36)
-.text.eaDogM_WriteStringAtPos  0x804d64                0x20            0x20  (32)
-.text.lcd_command         0x804d84                0x20            0x20  (32)
-.text.DMA_ChannelCallbackRegister  0x804da4                0x1c            0x1c  (28)
-.text.SPI1_Exchange8bit   0x804dc0                0x1c            0x1c  (28)
-.text.OledClampXco        0x804ddc                0x1c            0x1c  (28)
-.text.OledClampYco        0x804df8                0x1c            0x1c  (28)
-.text.OledSetCharUpdate   0x804e14                0x18            0x18  (24)
-.text.OledUpdate          0x804e2c                0x14            0x14  (20)
-.text.OledRopSet          0x804e40                0x14            0x14  (20)
-.text.lcd_inc_page        0x804e54                0x14            0x14  (20)
-.text.lcd_inc_column      0x804e68                0x14            0x14  (20)
-.text.StartTimer          0x804e7c                0x14            0x14  (20)
-.text.SCCP1_TimerStop     0x804e90                0x10            0x10  (16)
-.text.TMR1_CallbackRegister  0x804ea0                0x10            0x10  (16)
-.text.OledClear           0x804eb0                0x10            0x10  (16)
-.text.SCCP1_TimerCallbackRegister  0x804ec0                 0xc             0xc  (12)
-.text.SCCP2_TimerCallbackRegister  0x804ecc                 0xc             0xc  (12)
-.text.SPI1_Write          0x804ed8                 0xc             0xc  (12)
-.text.RS_SetLow           0x804ee4                 0xc             0xc  (12)
-.text.RS_SetHigh          0x804ef0                 0xc             0xc  (12)
-.text.CSB_SetLow          0x804efc                 0xc             0xc  (12)
-.text.CSB_SetHigh         0x804f08                 0xc             0xc  (12)
-.text.OledRopOr           0x804f14                 0xc             0xc  (12)
-.text.OledRopAnd          0x804f20                 0xc             0xc  (12)
-.text.OledRopXor          0x804f2c                 0xc             0xc  (12)
-.text.SCCP1_Callback_InterruptHandler  0x804f38                 0xc             0xc  (12)
-.text.SCCP1_TimerStart    0x804f44                 0x8             0x8  (8)
-.text.SCCP1_Timer32bitPeriodSet  0x804f4c                 0x8             0x8  (8)
-.text.SCCP2_TimerStart    0x804f54                 0x8             0x8  (8)
-.text.SCCP2_Timer32bitPeriodSet  0x804f5c                 0x8             0x8  (8)
-.text.TMR1_Start          0x804f64                 0x8             0x8  (8)
-.text.TMR1_InterruptEnable  0x804f6c                 0x8             0x8  (8)
-.text.write               0x804f74                 0x8             0x8  (8)
-.text.TRAPS_halt_on_error  0x804f7c                 0x8             0x8  (8)
-/tmp/ccAwKGRM.s.scn2      0x804f84                 0x8             0x8  (8)
-.text.SCCP2_Callback_InterruptHandler  0x804f8c                 0x8             0x8  (8)
-.text.CBDmaChannelHandler  0x804f94                 0x4             0x4  (4)
-.text.SPI2DmaChannelHandler_State  0x804f98                 0x4             0x4  (4)
+.dinit                    0x8029a4               0x268           0x268  (616)
+.text.OledPutBmp          0x802c0c               0x24c           0x24c  (588)
+.text.SPI2_WriteRead      0x802e58               0x1bc           0x1bc  (444)
+.text.SPI1_WriteRead      0x803014               0x1bc           0x1bc  (444)
+.text.main                0x8031d0               0x150           0x150  (336)
+.text.SPI3RX_InterruptHandler  0x803320               0x140           0x140  (320)
+.text.SPI2RX_InterruptHandler  0x803460               0x140           0x140  (320)
+.text.SPI1RX_InterruptHandler  0x8035a0               0x140           0x140  (320)
+.text.INTC_Initialize     0x8036e0                0xf4            0xf4  (244)
+.text.SPI1DmaChannelHandler_State  0x8037d4                0xec            0xec  (236)
+.text.DMA1_InterruptHandler  0x8038c0                0xe8            0xe8  (232)
+.text.DMA5_InterruptHandler  0x8039a8                0xe8            0xe8  (232)
+.text.GPIO_Initialize     0x803a90                0xdc            0xdc  (220)
+.text.DMA0_InterruptHandler  0x803b6c                0xd8            0xd8  (216)
+.text.ADC_DMA_write       0x803c44                0xc4            0xc4  (196)
+.text.ADC_DMA_init        0x803d08                0xc4            0xc4  (196)
+.text.lcd_clear_area      0x803dcc                0xb8            0xb8  (184)
+.text.lcd_init            0x803e84                0xac            0xac  (172)
+.text.DMA_ChannelTransfer  0x803f30                0xa4            0xa4  (164)
+.text.DMA_Initialize      0x803fd4                0x9c            0x9c  (156)
+.text.SPI_FIFO_Fill       0x804070               0x1b0           0x1b0  (432)
+.text.DMA_ChannelIsBusy   0x804220                0x8c            0x8c  (140)
+.text.OledMoveTo          0x8042ac                0x84            0x84  (132)
+.text.OledSetDrawMode     0x804330                0x7c            0x7c  (124)
+.text.init_lcd_drv        0x8043ac                0x78            0x78  (120)
+.text.OledDvrInit         0x804424                0x74            0x74  (116)
+.text.SPI3TX_InterruptHandler  0x804498                0x70            0x70  (112)
+.text.SPI2TX_InterruptHandler  0x804508                0x70            0x70  (112)
+.text.SPI1TX_InterruptHandler  0x804578                0x70            0x70  (112)
+.text.SPI3E_InterruptHandler  0x8045e8                0x64            0x64  (100)
+.text.SPI2E_InterruptHandler  0x80464c                0x64            0x64  (100)
+.text.SPI1E_InterruptHandler  0x8046b0                0x64            0x64  (100)
+.text.OledDrawGlyph       0x804714                0x60            0x60  (96)
+.text.ADC2_Initialize     0x804774                0x50            0x50  (80)
+.text.SPI2_Initialize     0x8047c4                0x48            0x48  (72)
+.text.SPI1_Initialize     0x80480c                0x48            0x48  (72)
+.text.lcd_moveto_xy       0x804854                0x48            0x48  (72)
+.text.SPI3_Initialize     0x80489c                0x44            0x44  (68)
+.text.T1_InterruptHandler  0x8048e0                0x44            0x44  (68)
+.text.timer_ms_tick       0x804924                0x44            0x44  (68)
+/tmp/ccfwNzI1.s.scn1      0x804968                0x40            0x40  (64)
+.text.OledSetCursor       0x8049a8                0x40            0x40  (64)
+.text.OledPutString       0x8049e8                0x40            0x40  (64)
+.text.SCCP1_TimerInitialize  0x804a28                0x3c            0x3c  (60)
+.text.delay_us            0x804a64                0x3c            0x3c  (60)
+.text.OledAdvanceCursor   0x804aa0                0x3c            0x3c  (60)
+.text.lcd_command_s       0x804adc                0x3c            0x3c  (60)
+.text.SYS_Initialize      0x804b18                0x38            0x38  (56)
+.text.lcd_clear_area_xy   0x804b50                0x38            0x38  (56)
+.text.CCT1_InterruptHandler  0x804b88                0x34            0x34  (52)
+.text.SCCP2_TimerInitialize  0x804bbc                0x34            0x34  (52)
+.text.CCT2_InterruptHandler  0x804bf0                0x34            0x34  (52)
+.text.TMR1_Initialize     0x804c24                0x30            0x30  (48)
+.text.wait_lcd_done       0x804c54                0x30            0x30  (48)
+.text.OledClearBuffer     0x804c84                0x30            0x30  (48)
+.text.OledInit            0x804cb4                0x2c            0x2c  (44)
+.text.lcd_move_xy         0x804ce0                0x2c            0x2c  (44)
+/tmp/ccjt3TRT.s.scn1      0x804d0c                0x2c            0x2c  (44)
+.text.lcd_data            0x804d38                0x28            0x28  (40)
+.text.TimerDone           0x804d60                0x24            0x24  (36)
+.text.WaitMs              0x804d84                0x24            0x24  (36)
+.text.eaDogM_WriteStringAtPos  0x804da8                0x20            0x20  (32)
+.text.lcd_command         0x804dc8                0x20            0x20  (32)
+.text.DMA_ChannelCallbackRegister  0x804de8                0x1c            0x1c  (28)
+.text.SPI1_Exchange8bit   0x804e04                0x1c            0x1c  (28)
+.text.OledClampXco        0x804e20                0x1c            0x1c  (28)
+.text.OledClampYco        0x804e3c                0x1c            0x1c  (28)
+.text.OledSetCharUpdate   0x804e58                0x18            0x18  (24)
+.text.OledUpdate          0x804e70                0x14            0x14  (20)
+.text.OledRopSet          0x804e84                0x14            0x14  (20)
+.text.lcd_inc_page        0x804e98                0x14            0x14  (20)
+.text.lcd_inc_column      0x804eac                0x14            0x14  (20)
+.text.StartTimer          0x804ec0                0x14            0x14  (20)
+.text.SCCP1_TimerStop     0x804ed4                0x10            0x10  (16)
+.text.TMR1_CallbackRegister  0x804ee4                0x10            0x10  (16)
+.text.OledClear           0x804ef4                0x10            0x10  (16)
+.text.SCCP1_TimerCallbackRegister  0x804f04                 0xc             0xc  (12)
+.text.SCCP2_TimerCallbackRegister  0x804f10                 0xc             0xc  (12)
+.text.SPI1_Write          0x804f1c                 0xc             0xc  (12)
+.text.RS_SetLow           0x804f28                 0xc             0xc  (12)
+.text.RS_SetHigh          0x804f34                 0xc             0xc  (12)
+.text.CSB_SetLow          0x804f40                 0xc             0xc  (12)
+.text.CSB_SetHigh         0x804f4c                 0xc             0xc  (12)
+.text.OledRopOr           0x804f58                 0xc             0xc  (12)
+.text.OledRopAnd          0x804f64                 0xc             0xc  (12)
+.text.OledRopXor          0x804f70                 0xc             0xc  (12)
+.text.SCCP1_Callback_InterruptHandler  0x804f7c                 0xc             0xc  (12)
+.text.SCCP1_TimerStart    0x804f88                 0x8             0x8  (8)
+.text.SCCP1_Timer32bitPeriodSet  0x804f90                 0x8             0x8  (8)
+.text.SCCP2_TimerStart    0x804f98                 0x8             0x8  (8)
+.text.SCCP2_Timer32bitPeriodSet  0x804fa0                 0x8             0x8  (8)
+.text.TMR1_Start          0x804fa8                 0x8             0x8  (8)
+.text.TMR1_InterruptEnable  0x804fb0                 0x8             0x8  (8)
+.text.write               0x804fb8                 0x8             0x8  (8)
+.text.TRAPS_halt_on_error  0x804fc0                 0x8             0x8  (8)
+/tmp/ccjt3TRT.s.scn2      0x804fc8                 0x8             0x8  (8)
+.text.SCCP2_Callback_InterruptHandler  0x804fd0                 0x8             0x8  (8)
+.text.CBDmaChannelHandler  0x804fd8                 0x4             0x4  (4)
+.text.SPI2DmaChannelHandler_State  0x804fdc                 0x4             0x4  (4)
 
-                   Total "program" memory used (bytes):         0x4f98  (20376) 15%
+                   Total "program" memory used (bytes):         0x4fdc  (20444) 15%
 
 
 "data" Memory  [Origin = 0x4000, Length = 0x4000]
@@ -279,31 +279,34 @@ section                    address      alignment gaps    total length  (dec)
 .nbss.xchOledMax            0x4050                   0             0x4  (4)
 .nbss.ychOledCur            0x4054                   0             0x4  (4)
 .nbss.xchOledCur            0x4058                   0             0x4  (4)
-.nbss.loops.14177           0x405c                   0             0x4  (4)
-.nbss.adc_result            0x4060                   0             0x4  (4)
-.nbss.clrOledCur            0x4064                   0             0x2  (2)
-.nbss.disp_frame            0x4066                   0             0x2  (2)
-.nbss.time_done             0x4068                   0             0x2  (2)
-.nbss.lcd_current_column    0x406a                   0             0x2  (2)
-.nbss.lcd_current_page      0x406c                   0             0x2  (2)
-.bss.rgbOledBmp0            0x406e                   0           0xf00  (3840)
-.bss.rgbOledFontUser        0x4f6e                   0           0x100  (256)
-.bss.buffer                 0x506e                   0           0x100  (256)
-.bss.dmaChannelObj          0x5170                   0            0x48  (72)
-.bss.spi3Obj                0x51b8                   0            0x28  (40)
-.bss.spi2Obj                0x51e0                   0            0x28  (40)
-.bss.spi1Obj                0x5208                   0            0x28  (40)
-.bss.failsafe_stack.12810    0x5230                   0            0x20  (32)
-.data                       0x5250                   0            0x20  (32)
-.bss.tickCount              0x5270                   0            0x12  (18)
-.bss.tmr1Obj                0x5284                   0             0xc  (12)
-.bss.iss_read_id_buffer     0x5290                   0             0x8  (8)
-.data.iss_adc_write         0x5298                   0             0x8  (8)
-.bss.rgbOledBmp_page        0x52a0                   0             0x6  (6)
-.bss.rgbOledBmp_blank       0x52a6                   0             0x4  (4)
-.bss                        0x52ac                   0             0x4  (4)
+.nbss.loops.14180           0x405c                   0             0x4  (4)
+.ndata.sram_addr_ptr        0x4060                   0             0x4  (4)
+.nbss.total_sample_triggers    0x4064                   0             0x4  (4)
+.nbss.adc_result            0x4068                   0             0x4  (4)
+.nbss.clrOledCur            0x406c                   0             0x2  (2)
+.nbss.disp_frame            0x406e                   0             0x2  (2)
+.nbss.time_done             0x4070                   0             0x2  (2)
+.nbss.lcd_current_column    0x4072                   0             0x2  (2)
+.nbss.lcd_current_page      0x4074                   0             0x2  (2)
+.nbss.sram_addr             0x4076                   0             0x2  (2)
+.bss.rgbOledBmp0            0x4078                   0           0xf00  (3840)
+.bss.rgbOledFontUser        0x4f78                   0           0x100  (256)
+.bss.buffer                 0x5078                   0           0x100  (256)
+.bss.dmaChannelObj          0x5178                   0            0x48  (72)
+.bss.spi3Obj                0x51c0                   0            0x28  (40)
+.bss.spi2Obj                0x51e8                   0            0x28  (40)
+.bss.spi1Obj                0x5210                   0            0x28  (40)
+.bss.failsafe_stack.12810    0x5238                   0            0x20  (32)
+.data                       0x5258                   0            0x20  (32)
+.bss.tickCount              0x5278                   0            0x12  (18)
+.bss.tmr1Obj                0x528c                   0             0xc  (12)
+.bss.iss_read_id_buffer     0x5298                   0             0x8  (8)
+.data.iss_adc_write         0x52a0                   0             0x8  (8)
+.bss.rgbOledBmp_page        0x52a8                   0             0x6  (6)
+.bss.rgbOledBmp_blank       0x52ae                   0             0x4  (4)
+.bss                        0x52b4                   0             0x4  (4)
 
-                      Total "data" memory used (bytes):         0x12aa  (4778) 29%
+                      Total "data" memory used (bytes):         0x12b4  (4788) 29%
 
 
 Dynamic Memory Usage
@@ -311,9 +314,9 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                       0x52b0                              0x2d50  (11600)
+stack                       0x52b8                              0x2d48  (11592)
 
-                        Maximum dynamic memory (bytes):         0x2d50  (11600)
+                        Maximum dynamic memory (bytes):         0x2d48  (11592)
 
 
 Interrupt Handlers:
@@ -359,43 +362,49 @@ External Symbols in Data Memory (by address):
                     0x4050                  _xchOledMax
                     0x4054                  _ychOledCur
                     0x4058                  _xchOledCur
-                    0x4060                  _adc_result
-                    0x4064                  _clrOledCur
-                    0x4066                  _disp_frame
-                    0x406a                  _lcd_current_column
-                    0x406c                  _lcd_current_page
-                    0x406e                  _rgbOledBmp0
-                    0x4f6e                  _rgbOledFontUser
-                    0x5270                  _tickCount
-                    0x5290                  _iss_read_id_buffer
-                    0x5298                  _iss_adc_write
-                    0x52a0                  _rgbOledBmp_page
-                    0x52ac                  ___errno_val
+                    0x4060                  _sram_addr_ptr
+                    0x4064                  _total_sample_triggers
+                    0x4068                  _adc_result
+                    0x406c                  _clrOledCur
+                    0x406e                  _disp_frame
+                    0x4072                  _lcd_current_column
+                    0x4074                  _lcd_current_page
+                    0x4076                  _sram_addr
+                    0x4078                  _rgbOledBmp0
+                    0x4f78                  _rgbOledFontUser
+                    0x5278                  _tickCount
+                    0x5298                  _iss_read_id_buffer
+                    0x52a0                  _iss_adc_write
+                    0x52a8                  _rgbOledBmp_page
+                    0x52b4                  ___errno_val
 
 External Symbols in Data Memory (by name):
 
-                    0x52ac                  ___errno_val
-                    0x4060                  _adc_result
+                    0x52b4                  ___errno_val
+                    0x4068                  _adc_result
                     0x4034                  _bnOledCur
-                    0x4064                  _clrOledCur
-                    0x4066                  _disp_frame
+                    0x406c                  _clrOledCur
+                    0x406e                  _disp_frame
                     0x4028                  _dxcoOledFontCur
                     0x4024                  _dycoOledFontCur
                     0x402c                  _fOledCharUpdate
-                    0x5298                  _iss_adc_write
-                    0x5290                  _iss_read_id_buffer
-                    0x406a                  _lcd_current_column
-                    0x406c                  _lcd_current_page
+                    0x52a0                  _iss_adc_write
+                    0x5298                  _iss_read_id_buffer
+                    0x4072                  _lcd_current_column
+                    0x4074                  _lcd_current_page
                     0x4044                  _modOledCur
                     0x4038                  _pbOledCur
                     0x4020                  _pbOledFontCur
                     0x401c                  _pbOledFontUser
                     0x4030                  _pbOledPatCur
                     0x4048                  _pfnDoRop
-                    0x406e                  _rgbOledBmp0
-                    0x52a0                  _rgbOledBmp_page
-                    0x4f6e                  _rgbOledFontUser
-                    0x5270                  _tickCount
+                    0x4078                  _rgbOledBmp0
+                    0x52a8                  _rgbOledBmp_page
+                    0x4f78                  _rgbOledFontUser
+                    0x4076                  _sram_addr
+                    0x4060                  _sram_addr_ptr
+                    0x5278                  _tickCount
+                    0x4064                  _total_sample_triggers
                     0x4058                  _xchOledCur
                     0x4050                  _xchOledMax
                     0x4040                  _xcoOledCur
@@ -454,180 +463,180 @@ External Symbols in Program Memory (by address):
                   0x801ed4                  _foo_map
                   0x8023e8                  _rgbOledFont0
                   0x8026e8                  _CLOCK_Initialize
-                  0x8029a4                  _OledPutBmp
-                  0x802e30                  _SPI2_WriteRead
-                  0x802fec                  _SPI1_WriteRead
-                  0x8031a8                  _main
-                  0x803304                  _SPI3RX_InterruptHandler
-                  0x803444                  _SPI2RX_InterruptHandler
-                  0x803584                  _SPI1RX_InterruptHandler
-                  0x8036c4                  _INTC_Initialize
-                  0x8037b8                  _SPI1DmaChannelHandler_State
-                  0x8038a4                  _DMA1_InterruptHandler
-                  0x80398c                  _DMA5_InterruptHandler
-                  0x803a74                  _GPIO_Initialize
-                  0x803b50                  _DMA0_InterruptHandler
-                  0x803c28                  _ADC_DMA_init
-                  0x803cec                  _lcd_clear_area
-                  0x803da4                  _lcd_init
-                  0x803e50                  _DMA_ChannelTransfer
-                  0x803ef4                  _DMA_Initialize
-                  0x803f90                  _ADC_DMA_write
-                  0x8041d8                  _DMA_ChannelIsBusy
-                  0x804264                  _OledMoveTo
-                  0x8042e8                  _OledSetDrawMode
-                  0x804364                  _init_lcd_drv
-                  0x8043dc                  _OledDvrInit
-                  0x804450                  _SPI3TX_InterruptHandler
-                  0x8044c0                  _SPI2TX_InterruptHandler
-                  0x804530                  _SPI1TX_InterruptHandler
-                  0x8045a0                  _SPI3E_InterruptHandler
-                  0x804604                  _SPI2E_InterruptHandler
-                  0x804668                  _SPI1E_InterruptHandler
-                  0x8046cc                  _OledDrawGlyph
-                  0x80472c                  _ADC2_Initialize
-                  0x80477c                  _SPI2_Initialize
-                  0x8047c4                  _SPI1_Initialize
-                  0x80480c                  _lcd_moveto_xy
-                  0x804854                  _SPI3_Initialize
-                  0x804898                  _T1_InterruptHandler
-                  0x8048dc                  _timer_ms_tick
-                  0x804920                  _rgbFillPat
-                  0x804960                  _OledSetCursor
-                  0x8049a0                  _OledPutString
-                  0x8049e0                  _SCCP1_TimerInitialize
-                  0x804a58                  _OledAdvanceCursor
-                  0x804a94                  _lcd_command_s
-                  0x804ad0                  _SYS_Initialize
-                  0x804b08                  _lcd_clear_area_xy
-                  0x804b40                  _CCT1_InterruptHandler
-                  0x804b74                  _SCCP2_TimerInitialize
-                  0x804ba8                  _CCT2_InterruptHandler
-                  0x804bdc                  _TMR1_Initialize
-                  0x804c0c                  _wait_lcd_done
-                  0x804c3c                  _OledClearBuffer
-                  0x804c9c                  _OledInit
-                  0x804cc8                  _lcd_move_xy
-                  0x804cf4                  _lcd_data
-                  0x804d1c                  _TimerDone
-                  0x804d40                  _WaitMs
-                  0x804d64                  _eaDogM_WriteStringAtPos
-                  0x804d84                  _lcd_command
-                  0x804da4                  _DMA_ChannelCallbackRegister
-                  0x804dc0                  _SPI1_Exchange8bit
-                  0x804ddc                  _OledClampXco
-                  0x804df8                  _OledClampYco
-                  0x804e14                  _OledSetCharUpdate
-                  0x804e2c                  _OledUpdate
-                  0x804e40                  _OledRopSet
-                  0x804e54                  _lcd_inc_page
-                  0x804e68                  _lcd_inc_column
-                  0x804e7c                  _StartTimer
-                  0x804e90                  _SCCP1_TimerStop
-                  0x804ea0                  _TMR1_CallbackRegister
-                  0x804eb0                  _OledClear
-                  0x804ec0                  _SCCP1_TimerCallbackRegister
-                  0x804ecc                  _SCCP2_TimerCallbackRegister
-                  0x804ed8                  _SPI1_Write
-                  0x804ee4                  _RS_SetLow
-                  0x804ef0                  _RS_SetHigh
-                  0x804efc                  _CSB_SetLow
-                  0x804f08                  _CSB_SetHigh
-                  0x804f14                  _OledRopOr
-                  0x804f20                  _OledRopAnd
-                  0x804f2c                  _OledRopXor
-                  0x804f38                  _SCCP1_Callback_InterruptHandler
-                  0x804f44                  _SCCP1_TimerStart
-                  0x804f4c                  _SCCP1_Timer32bitPeriodSet
-                  0x804f54                  _SCCP2_TimerStart
-                  0x804f5c                  _SCCP2_Timer32bitPeriodSet
-                  0x804f64                  _TMR1_Start
-                  0x804f6c                  _TMR1_InterruptEnable
-                  0x804f74                  _write
-                  0x804f84                  _iss_read_id
-                  0x804f8c                  _SCCP2_Callback_InterruptHandler
-                  0x804f94                  _CBDmaChannelHandler
-                  0x804f98                  _SPI2DmaChannelHandler_State
+                  0x802c0c                  _OledPutBmp
+                  0x802e58                  _SPI2_WriteRead
+                  0x803014                  _SPI1_WriteRead
+                  0x8031d0                  _main
+                  0x803320                  _SPI3RX_InterruptHandler
+                  0x803460                  _SPI2RX_InterruptHandler
+                  0x8035a0                  _SPI1RX_InterruptHandler
+                  0x8036e0                  _INTC_Initialize
+                  0x8037d4                  _SPI1DmaChannelHandler_State
+                  0x8038c0                  _DMA1_InterruptHandler
+                  0x8039a8                  _DMA5_InterruptHandler
+                  0x803a90                  _GPIO_Initialize
+                  0x803b6c                  _DMA0_InterruptHandler
+                  0x803c44                  _ADC_DMA_write
+                  0x803d08                  _ADC_DMA_init
+                  0x803dcc                  _lcd_clear_area
+                  0x803e84                  _lcd_init
+                  0x803f30                  _DMA_ChannelTransfer
+                  0x803fd4                  _DMA_Initialize
+                  0x804220                  _DMA_ChannelIsBusy
+                  0x8042ac                  _OledMoveTo
+                  0x804330                  _OledSetDrawMode
+                  0x8043ac                  _init_lcd_drv
+                  0x804424                  _OledDvrInit
+                  0x804498                  _SPI3TX_InterruptHandler
+                  0x804508                  _SPI2TX_InterruptHandler
+                  0x804578                  _SPI1TX_InterruptHandler
+                  0x8045e8                  _SPI3E_InterruptHandler
+                  0x80464c                  _SPI2E_InterruptHandler
+                  0x8046b0                  _SPI1E_InterruptHandler
+                  0x804714                  _OledDrawGlyph
+                  0x804774                  _ADC2_Initialize
+                  0x8047c4                  _SPI2_Initialize
+                  0x80480c                  _SPI1_Initialize
+                  0x804854                  _lcd_moveto_xy
+                  0x80489c                  _SPI3_Initialize
+                  0x8048e0                  _T1_InterruptHandler
+                  0x804924                  _timer_ms_tick
+                  0x804968                  _rgbFillPat
+                  0x8049a8                  _OledSetCursor
+                  0x8049e8                  _OledPutString
+                  0x804a28                  _SCCP1_TimerInitialize
+                  0x804aa0                  _OledAdvanceCursor
+                  0x804adc                  _lcd_command_s
+                  0x804b18                  _SYS_Initialize
+                  0x804b50                  _lcd_clear_area_xy
+                  0x804b88                  _CCT1_InterruptHandler
+                  0x804bbc                  _SCCP2_TimerInitialize
+                  0x804bf0                  _CCT2_InterruptHandler
+                  0x804c24                  _TMR1_Initialize
+                  0x804c54                  _wait_lcd_done
+                  0x804c84                  _OledClearBuffer
+                  0x804cb4                  _OledInit
+                  0x804ce0                  _lcd_move_xy
+                  0x804d38                  _lcd_data
+                  0x804d60                  _TimerDone
+                  0x804d84                  _WaitMs
+                  0x804da8                  _eaDogM_WriteStringAtPos
+                  0x804dc8                  _lcd_command
+                  0x804de8                  _DMA_ChannelCallbackRegister
+                  0x804e04                  _SPI1_Exchange8bit
+                  0x804e20                  _OledClampXco
+                  0x804e3c                  _OledClampYco
+                  0x804e58                  _OledSetCharUpdate
+                  0x804e70                  _OledUpdate
+                  0x804e84                  _OledRopSet
+                  0x804e98                  _lcd_inc_page
+                  0x804eac                  _lcd_inc_column
+                  0x804ec0                  _StartTimer
+                  0x804ed4                  _SCCP1_TimerStop
+                  0x804ee4                  _TMR1_CallbackRegister
+                  0x804ef4                  _OledClear
+                  0x804f04                  _SCCP1_TimerCallbackRegister
+                  0x804f10                  _SCCP2_TimerCallbackRegister
+                  0x804f1c                  _SPI1_Write
+                  0x804f28                  _RS_SetLow
+                  0x804f34                  _RS_SetHigh
+                  0x804f40                  _CSB_SetLow
+                  0x804f4c                  _CSB_SetHigh
+                  0x804f58                  _OledRopOr
+                  0x804f64                  _OledRopAnd
+                  0x804f70                  _OledRopXor
+                  0x804f7c                  _SCCP1_Callback_InterruptHandler
+                  0x804f88                  _SCCP1_TimerStart
+                  0x804f90                  _SCCP1_Timer32bitPeriodSet
+                  0x804f98                  _SCCP2_TimerStart
+                  0x804fa0                  _SCCP2_Timer32bitPeriodSet
+                  0x804fa8                  _TMR1_Start
+                  0x804fb0                  _TMR1_InterruptEnable
+                  0x804fb8                  _write
+                  0x804fc8                  _iss_read_id
+                  0x804fd0                  _SCCP2_Callback_InterruptHandler
+                  0x804fd8                  _CBDmaChannelHandler
+                  0x804fdc                  _SPI2DmaChannelHandler_State
 
 External Symbols in Program Memory (by name):
 
-                  0x80472c                  _ADC2_Initialize
-                  0x803c28                  _ADC_DMA_init
-                  0x803f90                  _ADC_DMA_write
-                  0x804f94                  _CBDmaChannelHandler
-                  0x804b40                  _CCT1_InterruptHandler
-                  0x804ba8                  _CCT2_InterruptHandler
+                  0x804774                  _ADC2_Initialize
+                  0x803d08                  _ADC_DMA_init
+                  0x803c44                  _ADC_DMA_write
+                  0x804fd8                  _CBDmaChannelHandler
+                  0x804b88                  _CCT1_InterruptHandler
+                  0x804bf0                  _CCT2_InterruptHandler
                   0x8026e8                  _CLOCK_Initialize
-                  0x804f08                  _CSB_SetHigh
-                  0x804efc                  _CSB_SetLow
-                  0x803b50                  _DMA0_InterruptHandler
-                  0x8038a4                  _DMA1_InterruptHandler
-                  0x80398c                  _DMA5_InterruptHandler
-                  0x804da4                  _DMA_ChannelCallbackRegister
-                  0x8041d8                  _DMA_ChannelIsBusy
-                  0x803e50                  _DMA_ChannelTransfer
-                  0x803ef4                  _DMA_Initialize
-                  0x803a74                  _GPIO_Initialize
-                  0x8036c4                  _INTC_Initialize
-                  0x804a58                  _OledAdvanceCursor
-                  0x804ddc                  _OledClampXco
-                  0x804df8                  _OledClampYco
-                  0x804eb0                  _OledClear
-                  0x804c3c                  _OledClearBuffer
-                  0x8046cc                  _OledDrawGlyph
-                  0x8043dc                  _OledDvrInit
-                  0x804c9c                  _OledInit
-                  0x804264                  _OledMoveTo
-                  0x8029a4                  _OledPutBmp
-                  0x8049a0                  _OledPutString
-                  0x804f20                  _OledRopAnd
-                  0x804f14                  _OledRopOr
-                  0x804e40                  _OledRopSet
-                  0x804f2c                  _OledRopXor
-                  0x804e14                  _OledSetCharUpdate
-                  0x804960                  _OledSetCursor
-                  0x8042e8                  _OledSetDrawMode
-                  0x804e2c                  _OledUpdate
-                  0x804ef0                  _RS_SetHigh
-                  0x804ee4                  _RS_SetLow
-                  0x804f38                  _SCCP1_Callback_InterruptHandler
-                  0x804f4c                  _SCCP1_Timer32bitPeriodSet
-                  0x804ec0                  _SCCP1_TimerCallbackRegister
-                  0x8049e0                  _SCCP1_TimerInitialize
-                  0x804f44                  _SCCP1_TimerStart
-                  0x804e90                  _SCCP1_TimerStop
-                  0x804f8c                  _SCCP2_Callback_InterruptHandler
-                  0x804f5c                  _SCCP2_Timer32bitPeriodSet
-                  0x804ecc                  _SCCP2_TimerCallbackRegister
-                  0x804b74                  _SCCP2_TimerInitialize
-                  0x804f54                  _SCCP2_TimerStart
-                  0x8037b8                  _SPI1DmaChannelHandler_State
-                  0x804668                  _SPI1E_InterruptHandler
-                  0x803584                  _SPI1RX_InterruptHandler
-                  0x804530                  _SPI1TX_InterruptHandler
-                  0x804dc0                  _SPI1_Exchange8bit
-                  0x8047c4                  _SPI1_Initialize
-                  0x804ed8                  _SPI1_Write
-                  0x802fec                  _SPI1_WriteRead
-                  0x804f98                  _SPI2DmaChannelHandler_State
-                  0x804604                  _SPI2E_InterruptHandler
-                  0x803444                  _SPI2RX_InterruptHandler
-                  0x8044c0                  _SPI2TX_InterruptHandler
-                  0x80477c                  _SPI2_Initialize
-                  0x802e30                  _SPI2_WriteRead
-                  0x8045a0                  _SPI3E_InterruptHandler
-                  0x803304                  _SPI3RX_InterruptHandler
-                  0x804450                  _SPI3TX_InterruptHandler
-                  0x804854                  _SPI3_Initialize
-                  0x804ad0                  _SYS_Initialize
-                  0x804e7c                  _StartTimer
-                  0x804898                  _T1_InterruptHandler
-                  0x804ea0                  _TMR1_CallbackRegister
-                  0x804bdc                  _TMR1_Initialize
-                  0x804f6c                  _TMR1_InterruptEnable
-                  0x804f64                  _TMR1_Start
-                  0x804d1c                  _TimerDone
-                  0x804d40                  _WaitMs
+                  0x804f4c                  _CSB_SetHigh
+                  0x804f40                  _CSB_SetLow
+                  0x803b6c                  _DMA0_InterruptHandler
+                  0x8038c0                  _DMA1_InterruptHandler
+                  0x8039a8                  _DMA5_InterruptHandler
+                  0x804de8                  _DMA_ChannelCallbackRegister
+                  0x804220                  _DMA_ChannelIsBusy
+                  0x803f30                  _DMA_ChannelTransfer
+                  0x803fd4                  _DMA_Initialize
+                  0x803a90                  _GPIO_Initialize
+                  0x8036e0                  _INTC_Initialize
+                  0x804aa0                  _OledAdvanceCursor
+                  0x804e20                  _OledClampXco
+                  0x804e3c                  _OledClampYco
+                  0x804ef4                  _OledClear
+                  0x804c84                  _OledClearBuffer
+                  0x804714                  _OledDrawGlyph
+                  0x804424                  _OledDvrInit
+                  0x804cb4                  _OledInit
+                  0x8042ac                  _OledMoveTo
+                  0x802c0c                  _OledPutBmp
+                  0x8049e8                  _OledPutString
+                  0x804f64                  _OledRopAnd
+                  0x804f58                  _OledRopOr
+                  0x804e84                  _OledRopSet
+                  0x804f70                  _OledRopXor
+                  0x804e58                  _OledSetCharUpdate
+                  0x8049a8                  _OledSetCursor
+                  0x804330                  _OledSetDrawMode
+                  0x804e70                  _OledUpdate
+                  0x804f34                  _RS_SetHigh
+                  0x804f28                  _RS_SetLow
+                  0x804f7c                  _SCCP1_Callback_InterruptHandler
+                  0x804f90                  _SCCP1_Timer32bitPeriodSet
+                  0x804f04                  _SCCP1_TimerCallbackRegister
+                  0x804a28                  _SCCP1_TimerInitialize
+                  0x804f88                  _SCCP1_TimerStart
+                  0x804ed4                  _SCCP1_TimerStop
+                  0x804fd0                  _SCCP2_Callback_InterruptHandler
+                  0x804fa0                  _SCCP2_Timer32bitPeriodSet
+                  0x804f10                  _SCCP2_TimerCallbackRegister
+                  0x804bbc                  _SCCP2_TimerInitialize
+                  0x804f98                  _SCCP2_TimerStart
+                  0x8037d4                  _SPI1DmaChannelHandler_State
+                  0x8046b0                  _SPI1E_InterruptHandler
+                  0x8035a0                  _SPI1RX_InterruptHandler
+                  0x804578                  _SPI1TX_InterruptHandler
+                  0x804e04                  _SPI1_Exchange8bit
+                  0x80480c                  _SPI1_Initialize
+                  0x804f1c                  _SPI1_Write
+                  0x803014                  _SPI1_WriteRead
+                  0x804fdc                  _SPI2DmaChannelHandler_State
+                  0x80464c                  _SPI2E_InterruptHandler
+                  0x803460                  _SPI2RX_InterruptHandler
+                  0x804508                  _SPI2TX_InterruptHandler
+                  0x8047c4                  _SPI2_Initialize
+                  0x802e58                  _SPI2_WriteRead
+                  0x8045e8                  _SPI3E_InterruptHandler
+                  0x803320                  _SPI3RX_InterruptHandler
+                  0x804498                  _SPI3TX_InterruptHandler
+                  0x80489c                  _SPI3_Initialize
+                  0x804b18                  _SYS_Initialize
+                  0x804ec0                  _StartTimer
+                  0x8048e0                  _T1_InterruptHandler
+                  0x804ee4                  _TMR1_CallbackRegister
+                  0x804c24                  _TMR1_Initialize
+                  0x804fb0                  _TMR1_InterruptEnable
+                  0x804fa8                  _TMR1_Start
+                  0x804d60                  _TimerDone
+                  0x804d84                  _WaitMs
                   0x8005e4                  __CCT1Interrupt
                   0x80063c                  __CCT2Interrupt
                   0x8008bc                  __DMA0Interrupt
@@ -669,31 +678,31 @@ External Symbols in Program Memory (by name):
                   0x800004                  __ivt_0
                   0x800480                  __resetPRI
                   0x801c58                  _atoi
-                  0x804d64                  _eaDogM_WriteStringAtPos
+                  0x804da8                  _eaDogM_WriteStringAtPos
                   0x801ed4                  _foo_map
-                  0x804364                  _init_lcd_drv
-                  0x804f84                  _iss_read_id
-                  0x803cec                  _lcd_clear_area
-                  0x804b08                  _lcd_clear_area_xy
-                  0x804d84                  _lcd_command
-                  0x804a94                  _lcd_command_s
-                  0x804cf4                  _lcd_data
-                  0x804e68                  _lcd_inc_column
-                  0x804e54                  _lcd_inc_page
-                  0x803da4                  _lcd_init
-                  0x804cc8                  _lcd_move_xy
-                  0x80480c                  _lcd_moveto_xy
-                  0x8031a8                  _main
+                  0x8043ac                  _init_lcd_drv
+                  0x804fc8                  _iss_read_id
+                  0x803dcc                  _lcd_clear_area
+                  0x804b50                  _lcd_clear_area_xy
+                  0x804dc8                  _lcd_command
+                  0x804adc                  _lcd_command_s
+                  0x804d38                  _lcd_data
+                  0x804eac                  _lcd_inc_column
+                  0x804e98                  _lcd_inc_page
+                  0x803e84                  _lcd_init
+                  0x804ce0                  _lcd_move_xy
+                  0x804854                  _lcd_moveto_xy
+                  0x8031d0                  _main
                   0x80184c                  _memcpy
                   0x801868                  _memset
-                  0x804920                  _rgbFillPat
+                  0x804968                  _rgbFillPat
                   0x8023e8                  _rgbOledFont0
                   0x800c74                  _strlen
-                  0x8048dc                  _timer_ms_tick
+                  0x804924                  _timer_ms_tick
                   0x801cc0                  _tolower
                   0x801cd0                  _toupper
-                  0x804c0c                  _wait_lcd_done
-                  0x804f74                  _write
+                  0x804c54                  _wait_lcd_done
+                  0x804fb8                  _write
 
 Discarded input sections
 
@@ -926,7 +935,7 @@ Discarded input sections
                     0x0000         0x5c build/default/production/_ext/285195972/OledDriver.o
  .text.OledPutBuffer
                     0x0000         0x14 build/default/production/_ext/285195972/OledDriver.o
- /tmp/ccb44dhg.s.scn1
+ /tmp/ccNWfU6P.s.scn1
                     0x0000         0x54 build/default/production/_ext/285195972/OledDriver.o
  .text.lcd_version
                     0x0000         0x30 build/default/production/_ext/285195972/OledDriver.o
@@ -1731,7 +1740,7 @@ __FWPUCB
  .comment           0x1186         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
  .comment           0x11e2         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
 
-.debug_info         0x0000      0x12f47
+.debug_info         0x0000      0x12e0e
  *(.debug_info)
  .debug_info        0x0000       0x118a build/default/production/_ext/60163342/plib_adc2.o
  .debug_info        0x118a        0x7f4 build/default/production/_ext/60165246/plib_sccp1.o
@@ -1757,14 +1766,14 @@ __FWPUCB
  .debug_info        0xf985        0x676 build/default/production/_ext/285195972/lcd_drv.o
  .debug_info        0xfffb        0x654 build/default/production/_ext/285195972/OledChar.o
  .debug_info        0x1064f        0x9f0 build/default/production/_ext/285195972/dogm-graphic.o
- .debug_info        0x1103f        0xaf6 build/default/production/_ext/1360937237/main.o
- .debug_info        0x11b35        0x47f build/default/production/_ext/1360937237/timers.o
- .debug_info        0x11fb4        0xf47 build/default/production/_ext/1360937237/is66.o
- .debug_info        0x12efb         0x26 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_info        0x12f21         0x26 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_info        0x1103f        0x909 build/default/production/_ext/1360937237/main.o
+ .debug_info        0x11948        0x47f build/default/production/_ext/1360937237/timers.o
+ .debug_info        0x11dc7        0xffb build/default/production/_ext/1360937237/is66.o
+ .debug_info        0x12dc2         0x26 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_info        0x12de8         0x26 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev       0x0000       0x2865
+.debug_abbrev       0x0000       0x28ae
  *(.debug_abbrev)
  .debug_abbrev      0x0000        0x1e2 build/default/production/_ext/60163342/plib_adc2.o
  .debug_abbrev      0x01e2        0x17d build/default/production/_ext/60165246/plib_sccp1.o
@@ -1792,11 +1801,11 @@ __FWPUCB
  .debug_abbrev      0x221f        0x1c5 build/default/production/_ext/285195972/dogm-graphic.o
  .debug_abbrev      0x23e4        0x194 build/default/production/_ext/1360937237/main.o
  .debug_abbrev      0x2578        0x140 build/default/production/_ext/1360937237/timers.o
- .debug_abbrev      0x26b8        0x185 build/default/production/_ext/1360937237/is66.o
- .debug_abbrev      0x283d         0x14 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_abbrev      0x2851         0x14 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_abbrev      0x26b8        0x1ce build/default/production/_ext/1360937237/is66.o
+ .debug_abbrev      0x2886         0x14 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_abbrev      0x289a         0x14 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
 
-.debug_line         0x0000       0x5d57
+.debug_line         0x0000       0x5d74
  *(.debug_line)
  .debug_line        0x0000        0x285 build/default/production/_ext/60163342/plib_adc2.o
  .debug_line        0x0285        0x287 build/default/production/_ext/60165246/plib_sccp1.o
@@ -1822,11 +1831,11 @@ __FWPUCB
  .debug_line        0x4f77        0x1d2 build/default/production/_ext/285195972/lcd_drv.o
  .debug_line        0x5149        0x297 build/default/production/_ext/285195972/OledChar.o
  .debug_line        0x53e0        0x2b7 build/default/production/_ext/285195972/dogm-graphic.o
- .debug_line        0x5697        0x283 build/default/production/_ext/1360937237/main.o
- .debug_line        0x591a        0x12d build/default/production/_ext/1360937237/timers.o
- .debug_line        0x5a47        0x262 build/default/production/_ext/1360937237/is66.o
- .debug_line        0x5ca9         0x5e /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_line        0x5d07         0x50 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_line        0x5697        0x27a build/default/production/_ext/1360937237/main.o
+ .debug_line        0x5911        0x12d build/default/production/_ext/1360937237/timers.o
+ .debug_line        0x5a3e        0x288 build/default/production/_ext/1360937237/is66.o
+ .debug_line        0x5cc6         0x5e /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_line        0x5d24         0x50 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
 
 .debug_frame        0x0000       0x1558
  *(.debug_frame)
@@ -1887,7 +1896,7 @@ __FWPUCB
  .debug_str         0x0869         0x52 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
  .debug_str         0x08bb         0x4f /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
 
-.debug_loc          0x0000       0x3b2a
+.debug_loc          0x0000       0x3b3d
  *(.debug_loc)
  .debug_loc         0x0000        0x114 build/default/production/_ext/60163342/plib_adc2.o
  .debug_loc         0x0114         0x2b build/default/production/_ext/60165246/plib_sccp1.o
@@ -1911,7 +1920,7 @@ __FWPUCB
  .debug_loc         0x3508        0x47c build/default/production/_ext/285195972/dogm-graphic.o
  .debug_loc         0x3984         0x74 build/default/production/_ext/1360937237/main.o
  .debug_loc         0x39f8         0xf0 build/default/production/_ext/1360937237/timers.o
- .debug_loc         0x3ae8         0x42 build/default/production/_ext/1360937237/is66.o
+ .debug_loc         0x3ae8         0x55 build/default/production/_ext/1360937237/is66.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -5060,117 +5069,135 @@ __c30_signature
                     0x4058          0x4 build/default/production/_ext/285195972/OledChar.o
                     0x4058                  _xchOledCur
 
-.nbss.loops.14177
+.nbss.loops.14180
                     0x405c          0x4
- .nbss.loops.14177
+ .nbss.loops.14180
                     0x405c          0x4 build/default/production/_ext/1360937237/main.o
 
-.nbss.adc_result
+.ndata.sram_addr_ptr
                     0x4060          0x4
- .nbss.adc_result
+ .ndata.sram_addr_ptr
                     0x4060          0x4 build/default/production/_ext/1360937237/is66.o
-                    0x4060                  _adc_result
+                    0x4060                  _sram_addr_ptr
+
+.nbss.total_sample_triggers
+                    0x4064          0x4
+ .nbss.total_sample_triggers
+                    0x4064          0x4 build/default/production/_ext/1360937237/is66.o
+                    0x4064                  _total_sample_triggers
+
+.nbss.adc_result
+                    0x4068          0x4
+ .nbss.adc_result
+                    0x4068          0x4 build/default/production/_ext/1360937237/is66.o
+                    0x4068                  _adc_result
 
 .nbss.clrOledCur
-                    0x4064          0x2
+                    0x406c          0x2
  .nbss.clrOledCur
-                    0x4064          0x2 build/default/production/_ext/285195972/OledDriver.o
-                    0x4064                  _clrOledCur
+                    0x406c          0x2 build/default/production/_ext/285195972/OledDriver.o
+                    0x406c                  _clrOledCur
 
 .nbss.disp_frame
-                    0x4066          0x2
+                    0x406e          0x2
  .nbss.disp_frame
-                    0x4066          0x2 build/default/production/_ext/285195972/OledDriver.o
-                    0x4066                  _disp_frame
+                    0x406e          0x2 build/default/production/_ext/285195972/OledDriver.o
+                    0x406e                  _disp_frame
 
 .nbss.time_done
-                    0x4068          0x2
+                    0x4070          0x2
  .nbss.time_done
-                    0x4068          0x2 build/default/production/_ext/285195972/lcd_drv.o
+                    0x4070          0x2 build/default/production/_ext/285195972/lcd_drv.o
 
 .nbss.lcd_current_column
-                    0x406a          0x2
+                    0x4072          0x2
  .nbss.lcd_current_column
-                    0x406a          0x2 build/default/production/_ext/285195972/dogm-graphic.o
-                    0x406a                  _lcd_current_column
+                    0x4072          0x2 build/default/production/_ext/285195972/dogm-graphic.o
+                    0x4072                  _lcd_current_column
 
 .nbss.lcd_current_page
-                    0x406c          0x2
+                    0x4074          0x2
  .nbss.lcd_current_page
-                    0x406c          0x2 build/default/production/_ext/285195972/dogm-graphic.o
-                    0x406c                  _lcd_current_page
+                    0x4074          0x2 build/default/production/_ext/285195972/dogm-graphic.o
+                    0x4074                  _lcd_current_page
+
+.nbss.sram_addr
+                    0x4076          0x2
+ .nbss.sram_addr
+                    0x4076          0x2 build/default/production/_ext/1360937237/is66.o
+                    0x4076                  _sram_addr
 
 .bss.rgbOledBmp0
-                    0x406e        0xf00
+                    0x4078        0xf00
  .bss.rgbOledBmp0
-                    0x406e        0xf00 build/default/production/_ext/285195972/OledDriver.o
-                    0x406e                  _rgbOledBmp0
+                    0x4078        0xf00 build/default/production/_ext/285195972/OledDriver.o
+                    0x4078                  _rgbOledBmp0
 
 .bss.rgbOledFontUser
-                    0x4f6e        0x100
+                    0x4f78        0x100
  .bss.rgbOledFontUser
-                    0x4f6e        0x100 build/default/production/_ext/285195972/OledChar.o
-                    0x4f6e                  _rgbOledFontUser
+                    0x4f78        0x100 build/default/production/_ext/285195972/OledChar.o
+                    0x4f78                  _rgbOledFontUser
 
-.bss.buffer         0x506e        0x100
- .bss.buffer        0x506e        0x100 build/default/production/_ext/1360937237/main.o
+.bss.buffer         0x5078        0x100
+ .bss.buffer        0x5078        0x100 build/default/production/_ext/1360937237/main.o
 
 .bss.dmaChannelObj
-                    0x5170         0x48
+                    0x5178         0x48
  .bss.dmaChannelObj
-                    0x5170         0x48 build/default/production/_ext/60166502/plib_dma.o
+                    0x5178         0x48 build/default/production/_ext/60166502/plib_dma.o
 
-.bss.spi3Obj        0x51b8         0x28
- .bss.spi3Obj       0x51b8         0x28 build/default/production/_ext/1868329136/plib_spi3_host.o
+.bss.spi3Obj        0x51c0         0x28
+ .bss.spi3Obj       0x51c0         0x28 build/default/production/_ext/1868329136/plib_spi3_host.o
 
-.bss.spi2Obj        0x51e0         0x28
- .bss.spi2Obj       0x51e0         0x28 build/default/production/_ext/1868329136/plib_spi2_host.o
+.bss.spi2Obj        0x51e8         0x28
+ .bss.spi2Obj       0x51e8         0x28 build/default/production/_ext/1868329136/plib_spi2_host.o
 
-.bss.spi1Obj        0x5208         0x28
- .bss.spi1Obj       0x5208         0x28 build/default/production/_ext/1868329136/plib_spi1_host.o
+.bss.spi1Obj        0x5210         0x28
+ .bss.spi1Obj       0x5210         0x28 build/default/production/_ext/1868329136/plib_spi1_host.o
 
 .bss.failsafe_stack.12810
-                    0x5230         0x20
+                    0x5238         0x20
  .bss.failsafe_stack.12810
-                    0x5230         0x20 build/default/production/_ext/1171490990/traps.o
+                    0x5238         0x20 build/default/production/_ext/1171490990/traps.o
 
-.data               0x5250         0x20
- .data              0x5250         0x20 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
+.data               0x5258         0x20
+ .data              0x5258         0x20 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
 
-.bss.tickCount      0x5270         0x12
+.bss.tickCount      0x5278         0x12
  .bss.tickCount
-                    0x5270         0x12 build/default/production/_ext/1360937237/main.o
-                    0x5270                  _tickCount
+                    0x5278         0x12 build/default/production/_ext/1360937237/main.o
+                    0x5278                  _tickCount
 
-.bss.tmr1Obj        0x5284          0xc
- .bss.tmr1Obj       0x5284          0xc build/default/production/_ext/60181895/plib_tmr1.o
+.bss.tmr1Obj        0x528c          0xc
+ .bss.tmr1Obj       0x528c          0xc build/default/production/_ext/60181895/plib_tmr1.o
 
 .bss.iss_read_id_buffer
-                    0x5290          0x8
+                    0x5298          0x8
  .bss.iss_read_id_buffer
-                    0x5290          0x8 build/default/production/_ext/1360937237/main.o
-                    0x5290                  _iss_read_id_buffer
+                    0x5298          0x8 build/default/production/_ext/1360937237/main.o
+                    0x5298                  _iss_read_id_buffer
 
 .data.iss_adc_write
-                    0x5298          0x8
+                    0x52a0          0x8
  .data.iss_adc_write
-                    0x5298          0x8 build/default/production/_ext/1360937237/is66.o
-                    0x5298                  _iss_adc_write
+                    0x52a0          0x8 build/default/production/_ext/1360937237/is66.o
+                    0x52a0                  _iss_adc_write
 
 .bss.rgbOledBmp_page
-                    0x52a0          0x6
+                    0x52a8          0x6
  .bss.rgbOledBmp_page
-                    0x52a0          0x6 build/default/production/_ext/285195972/OledDriver.o
-                    0x52a0                  _rgbOledBmp_page
+                    0x52a8          0x6 build/default/production/_ext/285195972/OledDriver.o
+                    0x52a8                  _rgbOledBmp_page
 
 .bss.rgbOledBmp_blank
-                    0x52a6          0x4
+                    0x52ae          0x4
  .bss.rgbOledBmp_blank
-                    0x52a6          0x4 build/default/production/_ext/285195972/OledDriver.o
+                    0x52ae          0x4 build/default/production/_ext/285195972/OledDriver.o
 
-.bss                0x52ac          0x4
- .bss               0x52ac          0x4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__errno_location.GENERIC-32PIC-AK_o)
-                    0x52ac                  ___errno_val
+.bss                0x52b4          0x4
+ .bss               0x52b4          0x4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__errno_location.GENERIC-32PIC-AK_o)
+                    0x52b4                  ___errno_val
 
 __ivt_0           0x800004        0x47c
  __ivt_0          0x800004        0x47c __ivt_0
@@ -5331,15 +5358,15 @@ __ivt_0           0x800004        0x47c
 .config_WPUCA     0x7f3000          0x4
  .config_WPUCA    0x7f3000          0x4 build/default/production/_ext/1171490990/initialization.o
 
-/tmp/ccatNa92.s.scn1
+/tmp/ccJFy93L.s.scn1
                   0x801ed4        0x514
- /tmp/ccatNa92.s.scn1
+ /tmp/ccJFy93L.s.scn1
                   0x801ed4        0x514 build/default/production/_ext/285195972/foo.o
                   0x801ed4                  _foo_map
 
-/tmp/ccf6LDBa.s.scn1
+/tmp/ccOWSBlk.s.scn1
                   0x8023e8        0x300
- /tmp/ccf6LDBa.s.scn1
+ /tmp/ccOWSBlk.s.scn1
                   0x8023e8        0x300 build/default/production/_ext/285195972/ChrFont0.o
                   0x8023e8                  _rgbOledFont0
 
@@ -5349,584 +5376,584 @@ __ivt_0           0x800004        0x47c
                   0x8026e8        0x2bc build/default/production/_ext/60165520/plib_clk.o
                   0x8026e8                  _CLOCK_Initialize
 
-.text.OledPutBmp
-                  0x8029a4        0x24c
- .text.OledPutBmp
-                  0x8029a4        0x24c build/default/production/_ext/285195972/OledGrph.o
-                  0x8029a4                  _OledPutBmp
+.dinit            0x8029a4        0x268
+ .dinit           0x8029a4        0x268 data_init
 
-.dinit            0x802bf0        0x240
- .dinit           0x802bf0        0x240 data_init
+.text.OledPutBmp
+                  0x802c0c        0x24c
+ .text.OledPutBmp
+                  0x802c0c        0x24c build/default/production/_ext/285195972/OledGrph.o
+                  0x802c0c                  _OledPutBmp
 
 .text.SPI2_WriteRead
-                  0x802e30        0x1bc
+                  0x802e58        0x1bc
  .text.SPI2_WriteRead
-                  0x802e30        0x1bc build/default/production/_ext/1868329136/plib_spi2_host.o
-                  0x802e30                  _SPI2_WriteRead
+                  0x802e58        0x1bc build/default/production/_ext/1868329136/plib_spi2_host.o
+                  0x802e58                  _SPI2_WriteRead
 
 .text.SPI1_WriteRead
-                  0x802fec        0x1bc
+                  0x803014        0x1bc
  .text.SPI1_WriteRead
-                  0x802fec        0x1bc build/default/production/_ext/1868329136/plib_spi1_host.o
-                  0x802fec                  _SPI1_WriteRead
+                  0x803014        0x1bc build/default/production/_ext/1868329136/plib_spi1_host.o
+                  0x803014                  _SPI1_WriteRead
 
-.text.main        0x8031a8        0x15c
- .text.main       0x8031a8        0x15c build/default/production/_ext/1360937237/main.o
-                  0x8031a8                  _main
+.text.main        0x8031d0        0x150
+ .text.main       0x8031d0        0x150 build/default/production/_ext/1360937237/main.o
+                  0x8031d0                  _main
 
 .text.SPI3RX_InterruptHandler
-                  0x803304        0x140
+                  0x803320        0x140
  .text.SPI3RX_InterruptHandler
-                  0x803304        0x140 build/default/production/_ext/1868329136/plib_spi3_host.o
-                  0x803304                  _SPI3RX_InterruptHandler
+                  0x803320        0x140 build/default/production/_ext/1868329136/plib_spi3_host.o
+                  0x803320                  _SPI3RX_InterruptHandler
 
 .text.SPI2RX_InterruptHandler
-                  0x803444        0x140
+                  0x803460        0x140
  .text.SPI2RX_InterruptHandler
-                  0x803444        0x140 build/default/production/_ext/1868329136/plib_spi2_host.o
-                  0x803444                  _SPI2RX_InterruptHandler
+                  0x803460        0x140 build/default/production/_ext/1868329136/plib_spi2_host.o
+                  0x803460                  _SPI2RX_InterruptHandler
 
 .text.SPI1RX_InterruptHandler
-                  0x803584        0x140
+                  0x8035a0        0x140
  .text.SPI1RX_InterruptHandler
-                  0x803584        0x140 build/default/production/_ext/1868329136/plib_spi1_host.o
-                  0x803584                  _SPI1RX_InterruptHandler
+                  0x8035a0        0x140 build/default/production/_ext/1868329136/plib_spi1_host.o
+                  0x8035a0                  _SPI1RX_InterruptHandler
 
 .text.INTC_Initialize
-                  0x8036c4         0xf4
+                  0x8036e0         0xf4
  .text.INTC_Initialize
-                  0x8036c4         0xf4 build/default/production/_ext/1865312166/plib_intc.o
-                  0x8036c4                  _INTC_Initialize
+                  0x8036e0         0xf4 build/default/production/_ext/1865312166/plib_intc.o
+                  0x8036e0                  _INTC_Initialize
 
 .text.SPI1DmaChannelHandler_State
-                  0x8037b8         0xec
+                  0x8037d4         0xec
  .text.SPI1DmaChannelHandler_State
-                  0x8037b8         0xec build/default/production/_ext/285195972/OledDriver.o
-                  0x8037b8                  _SPI1DmaChannelHandler_State
+                  0x8037d4         0xec build/default/production/_ext/285195972/OledDriver.o
+                  0x8037d4                  _SPI1DmaChannelHandler_State
 
 .text.DMA1_InterruptHandler
-                  0x8038a4         0xe8
+                  0x8038c0         0xe8
  .text.DMA1_InterruptHandler
-                  0x8038a4         0xe8 build/default/production/_ext/60166502/plib_dma.o
-                  0x8038a4                  _DMA1_InterruptHandler
+                  0x8038c0         0xe8 build/default/production/_ext/60166502/plib_dma.o
+                  0x8038c0                  _DMA1_InterruptHandler
 
 .text.DMA5_InterruptHandler
-                  0x80398c         0xe8
+                  0x8039a8         0xe8
  .text.DMA5_InterruptHandler
-                  0x80398c         0xe8 build/default/production/_ext/60166502/plib_dma.o
-                  0x80398c                  _DMA5_InterruptHandler
+                  0x8039a8         0xe8 build/default/production/_ext/60166502/plib_dma.o
+                  0x8039a8                  _DMA5_InterruptHandler
 
 .text.GPIO_Initialize
-                  0x803a74         0xdc
+                  0x803a90         0xdc
  .text.GPIO_Initialize
-                  0x803a74         0xdc build/default/production/_ext/1865254177/plib_gpio.o
-                  0x803a74                  _GPIO_Initialize
+                  0x803a90         0xdc build/default/production/_ext/1865254177/plib_gpio.o
+                  0x803a90                  _GPIO_Initialize
 
 .text.DMA0_InterruptHandler
-                  0x803b50         0xd8
+                  0x803b6c         0xd8
  .text.DMA0_InterruptHandler
-                  0x803b50         0xd8 build/default/production/_ext/60166502/plib_dma.o
-                  0x803b50                  _DMA0_InterruptHandler
-
-.text.ADC_DMA_init
-                  0x803c28         0xc4
- .text.ADC_DMA_init
-                  0x803c28         0xc4 build/default/production/_ext/1360937237/is66.o
-                  0x803c28                  _ADC_DMA_init
-
-.text.lcd_clear_area
-                  0x803cec         0xb8
- .text.lcd_clear_area
-                  0x803cec         0xb8 build/default/production/_ext/285195972/dogm-graphic.o
-                  0x803cec                  _lcd_clear_area
-
-.text.lcd_init    0x803da4         0xac
- .text.lcd_init
-                  0x803da4         0xac build/default/production/_ext/285195972/dogm-graphic.o
-                  0x803da4                  _lcd_init
-
-.text.DMA_ChannelTransfer
-                  0x803e50         0xa4
- .text.DMA_ChannelTransfer
-                  0x803e50         0xa4 build/default/production/_ext/60166502/plib_dma.o
-                  0x803e50                  _DMA_ChannelTransfer
-
-.text.DMA_Initialize
-                  0x803ef4         0x9c
- .text.DMA_Initialize
-                  0x803ef4         0x9c build/default/production/_ext/60166502/plib_dma.o
-                  0x803ef4                  _DMA_Initialize
+                  0x803b6c         0xd8 build/default/production/_ext/60166502/plib_dma.o
+                  0x803b6c                  _DMA0_InterruptHandler
 
 .text.ADC_DMA_write
-                  0x803f90         0x98
+                  0x803c44         0xc4
  .text.ADC_DMA_write
-                  0x803f90         0x98 build/default/production/_ext/1360937237/is66.o
-                  0x803f90                  _ADC_DMA_write
+                  0x803c44         0xc4 build/default/production/_ext/1360937237/is66.o
+                  0x803c44                  _ADC_DMA_write
+
+.text.ADC_DMA_init
+                  0x803d08         0xc4
+ .text.ADC_DMA_init
+                  0x803d08         0xc4 build/default/production/_ext/1360937237/is66.o
+                  0x803d08                  _ADC_DMA_init
+
+.text.lcd_clear_area
+                  0x803dcc         0xb8
+ .text.lcd_clear_area
+                  0x803dcc         0xb8 build/default/production/_ext/285195972/dogm-graphic.o
+                  0x803dcc                  _lcd_clear_area
+
+.text.lcd_init    0x803e84         0xac
+ .text.lcd_init
+                  0x803e84         0xac build/default/production/_ext/285195972/dogm-graphic.o
+                  0x803e84                  _lcd_init
+
+.text.DMA_ChannelTransfer
+                  0x803f30         0xa4
+ .text.DMA_ChannelTransfer
+                  0x803f30         0xa4 build/default/production/_ext/60166502/plib_dma.o
+                  0x803f30                  _DMA_ChannelTransfer
+
+.text.DMA_Initialize
+                  0x803fd4         0x9c
+ .text.DMA_Initialize
+                  0x803fd4         0x9c build/default/production/_ext/60166502/plib_dma.o
+                  0x803fd4                  _DMA_Initialize
 
 .text.SPI_FIFO_Fill
-                  0x804028        0x1b0
+                  0x804070        0x1b0
  .text.SPI_FIFO_Fill
-                  0x804028         0x90 build/default/production/_ext/1868329136/plib_spi3_host.o
+                  0x804070         0x90 build/default/production/_ext/1868329136/plib_spi3_host.o
  .text.SPI_FIFO_Fill
-                  0x8040b8         0x90 build/default/production/_ext/1868329136/plib_spi2_host.o
+                  0x804100         0x90 build/default/production/_ext/1868329136/plib_spi2_host.o
  .text.SPI_FIFO_Fill
-                  0x804148         0x90 build/default/production/_ext/1868329136/plib_spi1_host.o
+                  0x804190         0x90 build/default/production/_ext/1868329136/plib_spi1_host.o
 
 .text.DMA_ChannelIsBusy
-                  0x8041d8         0x8c
+                  0x804220         0x8c
  .text.DMA_ChannelIsBusy
-                  0x8041d8         0x8c build/default/production/_ext/60166502/plib_dma.o
-                  0x8041d8                  _DMA_ChannelIsBusy
+                  0x804220         0x8c build/default/production/_ext/60166502/plib_dma.o
+                  0x804220                  _DMA_ChannelIsBusy
 
 .text.OledMoveTo
-                  0x804264         0x84
+                  0x8042ac         0x84
  .text.OledMoveTo
-                  0x804264         0x84 build/default/production/_ext/285195972/OledGrph.o
-                  0x804264                  _OledMoveTo
+                  0x8042ac         0x84 build/default/production/_ext/285195972/OledGrph.o
+                  0x8042ac                  _OledMoveTo
 
 .text.OledSetDrawMode
-                  0x8042e8         0x7c
+                  0x804330         0x7c
  .text.OledSetDrawMode
-                  0x8042e8         0x7c build/default/production/_ext/285195972/OledGrph.o
-                  0x8042e8                  _OledSetDrawMode
+                  0x804330         0x7c build/default/production/_ext/285195972/OledGrph.o
+                  0x804330                  _OledSetDrawMode
 
 .text.init_lcd_drv
-                  0x804364         0x78
+                  0x8043ac         0x78
  .text.init_lcd_drv
-                  0x804364         0x78 build/default/production/_ext/285195972/lcd_drv.o
-                  0x804364                  _init_lcd_drv
+                  0x8043ac         0x78 build/default/production/_ext/285195972/lcd_drv.o
+                  0x8043ac                  _init_lcd_drv
 
 .text.OledDvrInit
-                  0x8043dc         0x74
+                  0x804424         0x74
  .text.OledDvrInit
-                  0x8043dc         0x74 build/default/production/_ext/285195972/OledDriver.o
-                  0x8043dc                  _OledDvrInit
+                  0x804424         0x74 build/default/production/_ext/285195972/OledDriver.o
+                  0x804424                  _OledDvrInit
 
 .text.SPI3TX_InterruptHandler
-                  0x804450         0x70
+                  0x804498         0x70
  .text.SPI3TX_InterruptHandler
-                  0x804450         0x70 build/default/production/_ext/1868329136/plib_spi3_host.o
-                  0x804450                  _SPI3TX_InterruptHandler
+                  0x804498         0x70 build/default/production/_ext/1868329136/plib_spi3_host.o
+                  0x804498                  _SPI3TX_InterruptHandler
 
 .text.SPI2TX_InterruptHandler
-                  0x8044c0         0x70
+                  0x804508         0x70
  .text.SPI2TX_InterruptHandler
-                  0x8044c0         0x70 build/default/production/_ext/1868329136/plib_spi2_host.o
-                  0x8044c0                  _SPI2TX_InterruptHandler
+                  0x804508         0x70 build/default/production/_ext/1868329136/plib_spi2_host.o
+                  0x804508                  _SPI2TX_InterruptHandler
 
 .text.SPI1TX_InterruptHandler
-                  0x804530         0x70
+                  0x804578         0x70
  .text.SPI1TX_InterruptHandler
-                  0x804530         0x70 build/default/production/_ext/1868329136/plib_spi1_host.o
-                  0x804530                  _SPI1TX_InterruptHandler
+                  0x804578         0x70 build/default/production/_ext/1868329136/plib_spi1_host.o
+                  0x804578                  _SPI1TX_InterruptHandler
 
 .text.SPI3E_InterruptHandler
-                  0x8045a0         0x64
+                  0x8045e8         0x64
  .text.SPI3E_InterruptHandler
-                  0x8045a0         0x64 build/default/production/_ext/1868329136/plib_spi3_host.o
-                  0x8045a0                  _SPI3E_InterruptHandler
+                  0x8045e8         0x64 build/default/production/_ext/1868329136/plib_spi3_host.o
+                  0x8045e8                  _SPI3E_InterruptHandler
 
 .text.SPI2E_InterruptHandler
-                  0x804604         0x64
+                  0x80464c         0x64
  .text.SPI2E_InterruptHandler
-                  0x804604         0x64 build/default/production/_ext/1868329136/plib_spi2_host.o
-                  0x804604                  _SPI2E_InterruptHandler
+                  0x80464c         0x64 build/default/production/_ext/1868329136/plib_spi2_host.o
+                  0x80464c                  _SPI2E_InterruptHandler
 
 .text.SPI1E_InterruptHandler
-                  0x804668         0x64
+                  0x8046b0         0x64
  .text.SPI1E_InterruptHandler
-                  0x804668         0x64 build/default/production/_ext/1868329136/plib_spi1_host.o
-                  0x804668                  _SPI1E_InterruptHandler
+                  0x8046b0         0x64 build/default/production/_ext/1868329136/plib_spi1_host.o
+                  0x8046b0                  _SPI1E_InterruptHandler
 
 .text.OledDrawGlyph
-                  0x8046cc         0x60
+                  0x804714         0x60
  .text.OledDrawGlyph
-                  0x8046cc         0x60 build/default/production/_ext/285195972/OledChar.o
-                  0x8046cc                  _OledDrawGlyph
+                  0x804714         0x60 build/default/production/_ext/285195972/OledChar.o
+                  0x804714                  _OledDrawGlyph
 
 .text.ADC2_Initialize
-                  0x80472c         0x50
+                  0x804774         0x50
  .text.ADC2_Initialize
-                  0x80472c         0x50 build/default/production/_ext/60163342/plib_adc2.o
-                  0x80472c                  _ADC2_Initialize
+                  0x804774         0x50 build/default/production/_ext/60163342/plib_adc2.o
+                  0x804774                  _ADC2_Initialize
 
 .text.SPI2_Initialize
-                  0x80477c         0x48
+                  0x8047c4         0x48
  .text.SPI2_Initialize
-                  0x80477c         0x48 build/default/production/_ext/1868329136/plib_spi2_host.o
-                  0x80477c                  _SPI2_Initialize
+                  0x8047c4         0x48 build/default/production/_ext/1868329136/plib_spi2_host.o
+                  0x8047c4                  _SPI2_Initialize
 
 .text.SPI1_Initialize
-                  0x8047c4         0x48
+                  0x80480c         0x48
  .text.SPI1_Initialize
-                  0x8047c4         0x48 build/default/production/_ext/1868329136/plib_spi1_host.o
-                  0x8047c4                  _SPI1_Initialize
+                  0x80480c         0x48 build/default/production/_ext/1868329136/plib_spi1_host.o
+                  0x80480c                  _SPI1_Initialize
 
 .text.lcd_moveto_xy
-                  0x80480c         0x48
+                  0x804854         0x48
  .text.lcd_moveto_xy
-                  0x80480c         0x48 build/default/production/_ext/285195972/dogm-graphic.o
-                  0x80480c                  _lcd_moveto_xy
+                  0x804854         0x48 build/default/production/_ext/285195972/dogm-graphic.o
+                  0x804854                  _lcd_moveto_xy
 
 .text.SPI3_Initialize
-                  0x804854         0x44
+                  0x80489c         0x44
  .text.SPI3_Initialize
-                  0x804854         0x44 build/default/production/_ext/1868329136/plib_spi3_host.o
-                  0x804854                  _SPI3_Initialize
+                  0x80489c         0x44 build/default/production/_ext/1868329136/plib_spi3_host.o
+                  0x80489c                  _SPI3_Initialize
 
 .text.T1_InterruptHandler
-                  0x804898         0x44
+                  0x8048e0         0x44
  .text.T1_InterruptHandler
-                  0x804898         0x44 build/default/production/_ext/60181895/plib_tmr1.o
-                  0x804898                  _T1_InterruptHandler
+                  0x8048e0         0x44 build/default/production/_ext/60181895/plib_tmr1.o
+                  0x8048e0                  _T1_InterruptHandler
 
 .text.timer_ms_tick
-                  0x8048dc         0x44
+                  0x804924         0x44
  .text.timer_ms_tick
-                  0x8048dc         0x44 build/default/production/_ext/1360937237/timers.o
-                  0x8048dc                  _timer_ms_tick
+                  0x804924         0x44 build/default/production/_ext/1360937237/timers.o
+                  0x804924                  _timer_ms_tick
 
-/tmp/ccyfuOwB.s.scn1
-                  0x804920         0x40
- /tmp/ccyfuOwB.s.scn1
-                  0x804920         0x40 build/default/production/_ext/285195972/FillPat.o
-                  0x804920                  _rgbFillPat
+/tmp/ccfwNzI1.s.scn1
+                  0x804968         0x40
+ /tmp/ccfwNzI1.s.scn1
+                  0x804968         0x40 build/default/production/_ext/285195972/FillPat.o
+                  0x804968                  _rgbFillPat
 
 .text.OledSetCursor
-                  0x804960         0x40
+                  0x8049a8         0x40
  .text.OledSetCursor
-                  0x804960         0x40 build/default/production/_ext/285195972/OledChar.o
-                  0x804960                  _OledSetCursor
+                  0x8049a8         0x40 build/default/production/_ext/285195972/OledChar.o
+                  0x8049a8                  _OledSetCursor
 
 .text.OledPutString
-                  0x8049a0         0x40
+                  0x8049e8         0x40
  .text.OledPutString
-                  0x8049a0         0x40 build/default/production/_ext/285195972/OledChar.o
-                  0x8049a0                  _OledPutString
+                  0x8049e8         0x40 build/default/production/_ext/285195972/OledChar.o
+                  0x8049e8                  _OledPutString
 
 .text.SCCP1_TimerInitialize
-                  0x8049e0         0x3c
+                  0x804a28         0x3c
  .text.SCCP1_TimerInitialize
-                  0x8049e0         0x3c build/default/production/_ext/60165246/plib_sccp1.o
-                  0x8049e0                  _SCCP1_TimerInitialize
+                  0x804a28         0x3c build/default/production/_ext/60165246/plib_sccp1.o
+                  0x804a28                  _SCCP1_TimerInitialize
 
-.text.delay_us    0x804a1c         0x3c
+.text.delay_us    0x804a64         0x3c
  .text.delay_us
-                  0x804a1c         0x3c build/default/production/_ext/285195972/lcd_drv.o
+                  0x804a64         0x3c build/default/production/_ext/285195972/lcd_drv.o
 
 .text.OledAdvanceCursor
-                  0x804a58         0x3c
+                  0x804aa0         0x3c
  .text.OledAdvanceCursor
-                  0x804a58         0x3c build/default/production/_ext/285195972/OledChar.o
-                  0x804a58                  _OledAdvanceCursor
+                  0x804aa0         0x3c build/default/production/_ext/285195972/OledChar.o
+                  0x804aa0                  _OledAdvanceCursor
 
 .text.lcd_command_s
-                  0x804a94         0x3c
+                  0x804adc         0x3c
  .text.lcd_command_s
-                  0x804a94         0x3c build/default/production/_ext/285195972/dogm-graphic.o
-                  0x804a94                  _lcd_command_s
+                  0x804adc         0x3c build/default/production/_ext/285195972/dogm-graphic.o
+                  0x804adc                  _lcd_command_s
 
 .text.SYS_Initialize
-                  0x804ad0         0x38
+                  0x804b18         0x38
  .text.SYS_Initialize
-                  0x804ad0         0x38 build/default/production/_ext/1171490990/initialization.o
-                  0x804ad0                  _SYS_Initialize
+                  0x804b18         0x38 build/default/production/_ext/1171490990/initialization.o
+                  0x804b18                  _SYS_Initialize
 
 .text.lcd_clear_area_xy
-                  0x804b08         0x38
+                  0x804b50         0x38
  .text.lcd_clear_area_xy
-                  0x804b08         0x38 build/default/production/_ext/285195972/dogm-graphic.o
-                  0x804b08                  _lcd_clear_area_xy
+                  0x804b50         0x38 build/default/production/_ext/285195972/dogm-graphic.o
+                  0x804b50                  _lcd_clear_area_xy
 
 .text.CCT1_InterruptHandler
-                  0x804b40         0x34
+                  0x804b88         0x34
  .text.CCT1_InterruptHandler
-                  0x804b40         0x34 build/default/production/_ext/60165246/plib_sccp1.o
-                  0x804b40                  _CCT1_InterruptHandler
+                  0x804b88         0x34 build/default/production/_ext/60165246/plib_sccp1.o
+                  0x804b88                  _CCT1_InterruptHandler
 
 .text.SCCP2_TimerInitialize
-                  0x804b74         0x34
+                  0x804bbc         0x34
  .text.SCCP2_TimerInitialize
-                  0x804b74         0x34 build/default/production/_ext/60165246/plib_sccp2.o
-                  0x804b74                  _SCCP2_TimerInitialize
+                  0x804bbc         0x34 build/default/production/_ext/60165246/plib_sccp2.o
+                  0x804bbc                  _SCCP2_TimerInitialize
 
 .text.CCT2_InterruptHandler
-                  0x804ba8         0x34
+                  0x804bf0         0x34
  .text.CCT2_InterruptHandler
-                  0x804ba8         0x34 build/default/production/_ext/60165246/plib_sccp2.o
-                  0x804ba8                  _CCT2_InterruptHandler
+                  0x804bf0         0x34 build/default/production/_ext/60165246/plib_sccp2.o
+                  0x804bf0                  _CCT2_InterruptHandler
 
 .text.TMR1_Initialize
-                  0x804bdc         0x30
+                  0x804c24         0x30
  .text.TMR1_Initialize
-                  0x804bdc         0x30 build/default/production/_ext/60181895/plib_tmr1.o
-                  0x804bdc                  _TMR1_Initialize
+                  0x804c24         0x30 build/default/production/_ext/60181895/plib_tmr1.o
+                  0x804c24                  _TMR1_Initialize
 
 .text.wait_lcd_done
-                  0x804c0c         0x30
+                  0x804c54         0x30
  .text.wait_lcd_done
-                  0x804c0c         0x30 build/default/production/_ext/285195972/OledDriver.o
-                  0x804c0c                  _wait_lcd_done
+                  0x804c54         0x30 build/default/production/_ext/285195972/OledDriver.o
+                  0x804c54                  _wait_lcd_done
 
 .text.OledClearBuffer
-                  0x804c3c         0x30
+                  0x804c84         0x30
  .text.OledClearBuffer
-                  0x804c3c         0x30 build/default/production/_ext/285195972/OledDriver.o
-                  0x804c3c                  _OledClearBuffer
+                  0x804c84         0x30 build/default/production/_ext/285195972/OledDriver.o
+                  0x804c84                  _OledClearBuffer
 
-/tmp/ccAwKGRM.s.scn1
-                  0x804c6c         0x30
- /tmp/ccAwKGRM.s.scn1
-                  0x804c6c         0x30 build/default/production/_ext/1360937237/main.o
-
-.text.OledInit    0x804c9c         0x2c
+.text.OledInit    0x804cb4         0x2c
  .text.OledInit
-                  0x804c9c         0x2c build/default/production/_ext/285195972/OledDriver.o
-                  0x804c9c                  _OledInit
+                  0x804cb4         0x2c build/default/production/_ext/285195972/OledDriver.o
+                  0x804cb4                  _OledInit
 
 .text.lcd_move_xy
-                  0x804cc8         0x2c
+                  0x804ce0         0x2c
  .text.lcd_move_xy
-                  0x804cc8         0x2c build/default/production/_ext/285195972/dogm-graphic.o
-                  0x804cc8                  _lcd_move_xy
+                  0x804ce0         0x2c build/default/production/_ext/285195972/dogm-graphic.o
+                  0x804ce0                  _lcd_move_xy
 
-.text.lcd_data    0x804cf4         0x28
+/tmp/ccjt3TRT.s.scn1
+                  0x804d0c         0x2c
+ /tmp/ccjt3TRT.s.scn1
+                  0x804d0c         0x2c build/default/production/_ext/1360937237/main.o
+
+.text.lcd_data    0x804d38         0x28
  .text.lcd_data
-                  0x804cf4         0x28 build/default/production/_ext/285195972/dogm-graphic.o
-                  0x804cf4                  _lcd_data
+                  0x804d38         0x28 build/default/production/_ext/285195972/dogm-graphic.o
+                  0x804d38                  _lcd_data
 
 .text.TimerDone
-                  0x804d1c         0x24
+                  0x804d60         0x24
  .text.TimerDone
-                  0x804d1c         0x24 build/default/production/_ext/1360937237/timers.o
-                  0x804d1c                  _TimerDone
+                  0x804d60         0x24 build/default/production/_ext/1360937237/timers.o
+                  0x804d60                  _TimerDone
 
-.text.WaitMs      0x804d40         0x24
- .text.WaitMs     0x804d40         0x24 build/default/production/_ext/1360937237/timers.o
-                  0x804d40                  _WaitMs
+.text.WaitMs      0x804d84         0x24
+ .text.WaitMs     0x804d84         0x24 build/default/production/_ext/1360937237/timers.o
+                  0x804d84                  _WaitMs
 
 .text.eaDogM_WriteStringAtPos
-                  0x804d64         0x20
+                  0x804da8         0x20
  .text.eaDogM_WriteStringAtPos
-                  0x804d64         0x20 build/default/production/_ext/285195972/eadog.o
-                  0x804d64                  _eaDogM_WriteStringAtPos
+                  0x804da8         0x20 build/default/production/_ext/285195972/eadog.o
+                  0x804da8                  _eaDogM_WriteStringAtPos
 
 .text.lcd_command
-                  0x804d84         0x20
+                  0x804dc8         0x20
  .text.lcd_command
-                  0x804d84         0x20 build/default/production/_ext/285195972/dogm-graphic.o
-                  0x804d84                  _lcd_command
+                  0x804dc8         0x20 build/default/production/_ext/285195972/dogm-graphic.o
+                  0x804dc8                  _lcd_command
 
 .text.DMA_ChannelCallbackRegister
-                  0x804da4         0x1c
+                  0x804de8         0x1c
  .text.DMA_ChannelCallbackRegister
-                  0x804da4         0x1c build/default/production/_ext/60166502/plib_dma.o
-                  0x804da4                  _DMA_ChannelCallbackRegister
+                  0x804de8         0x1c build/default/production/_ext/60166502/plib_dma.o
+                  0x804de8                  _DMA_ChannelCallbackRegister
 
 .text.SPI1_Exchange8bit
-                  0x804dc0         0x1c
+                  0x804e04         0x1c
  .text.SPI1_Exchange8bit
-                  0x804dc0         0x1c build/default/production/_ext/285195972/eadog.o
-                  0x804dc0                  _SPI1_Exchange8bit
+                  0x804e04         0x1c build/default/production/_ext/285195972/eadog.o
+                  0x804e04                  _SPI1_Exchange8bit
 
 .text.OledClampXco
-                  0x804ddc         0x1c
+                  0x804e20         0x1c
  .text.OledClampXco
-                  0x804ddc         0x1c build/default/production/_ext/285195972/OledGrph.o
-                  0x804ddc                  _OledClampXco
+                  0x804e20         0x1c build/default/production/_ext/285195972/OledGrph.o
+                  0x804e20                  _OledClampXco
 
 .text.OledClampYco
-                  0x804df8         0x1c
+                  0x804e3c         0x1c
  .text.OledClampYco
-                  0x804df8         0x1c build/default/production/_ext/285195972/OledGrph.o
-                  0x804df8                  _OledClampYco
+                  0x804e3c         0x1c build/default/production/_ext/285195972/OledGrph.o
+                  0x804e3c                  _OledClampYco
 
 .text.OledSetCharUpdate
-                  0x804e14         0x18
+                  0x804e58         0x18
  .text.OledSetCharUpdate
-                  0x804e14         0x18 build/default/production/_ext/285195972/OledChar.o
-                  0x804e14                  _OledSetCharUpdate
+                  0x804e58         0x18 build/default/production/_ext/285195972/OledChar.o
+                  0x804e58                  _OledSetCharUpdate
 
 .text.OledUpdate
-                  0x804e2c         0x14
+                  0x804e70         0x14
  .text.OledUpdate
-                  0x804e2c         0x14 build/default/production/_ext/285195972/OledDriver.o
-                  0x804e2c                  _OledUpdate
+                  0x804e70         0x14 build/default/production/_ext/285195972/OledDriver.o
+                  0x804e70                  _OledUpdate
 
 .text.OledRopSet
-                  0x804e40         0x14
+                  0x804e84         0x14
  .text.OledRopSet
-                  0x804e40         0x14 build/default/production/_ext/285195972/OledGrph.o
-                  0x804e40                  _OledRopSet
+                  0x804e84         0x14 build/default/production/_ext/285195972/OledGrph.o
+                  0x804e84                  _OledRopSet
 
 .text.lcd_inc_page
-                  0x804e54         0x14
+                  0x804e98         0x14
  .text.lcd_inc_page
-                  0x804e54         0x14 build/default/production/_ext/285195972/dogm-graphic.o
-                  0x804e54                  _lcd_inc_page
+                  0x804e98         0x14 build/default/production/_ext/285195972/dogm-graphic.o
+                  0x804e98                  _lcd_inc_page
 
 .text.lcd_inc_column
-                  0x804e68         0x14
+                  0x804eac         0x14
  .text.lcd_inc_column
-                  0x804e68         0x14 build/default/production/_ext/285195972/dogm-graphic.o
-                  0x804e68                  _lcd_inc_column
+                  0x804eac         0x14 build/default/production/_ext/285195972/dogm-graphic.o
+                  0x804eac                  _lcd_inc_column
 
 .text.StartTimer
-                  0x804e7c         0x14
+                  0x804ec0         0x14
  .text.StartTimer
-                  0x804e7c         0x14 build/default/production/_ext/1360937237/timers.o
-                  0x804e7c                  _StartTimer
+                  0x804ec0         0x14 build/default/production/_ext/1360937237/timers.o
+                  0x804ec0                  _StartTimer
 
 .text.SCCP1_TimerStop
-                  0x804e90         0x10
+                  0x804ed4         0x10
  .text.SCCP1_TimerStop
-                  0x804e90         0x10 build/default/production/_ext/60165246/plib_sccp1.o
-                  0x804e90                  _SCCP1_TimerStop
+                  0x804ed4         0x10 build/default/production/_ext/60165246/plib_sccp1.o
+                  0x804ed4                  _SCCP1_TimerStop
 
 .text.TMR1_CallbackRegister
-                  0x804ea0         0x10
+                  0x804ee4         0x10
  .text.TMR1_CallbackRegister
-                  0x804ea0         0x10 build/default/production/_ext/60181895/plib_tmr1.o
-                  0x804ea0                  _TMR1_CallbackRegister
+                  0x804ee4         0x10 build/default/production/_ext/60181895/plib_tmr1.o
+                  0x804ee4                  _TMR1_CallbackRegister
 
 .text.OledClear
-                  0x804eb0         0x10
+                  0x804ef4         0x10
  .text.OledClear
-                  0x804eb0         0x10 build/default/production/_ext/285195972/OledDriver.o
-                  0x804eb0                  _OledClear
+                  0x804ef4         0x10 build/default/production/_ext/285195972/OledDriver.o
+                  0x804ef4                  _OledClear
 
 .text.SCCP1_TimerCallbackRegister
-                  0x804ec0          0xc
+                  0x804f04          0xc
  .text.SCCP1_TimerCallbackRegister
-                  0x804ec0          0xc build/default/production/_ext/60165246/plib_sccp1.o
-                  0x804ec0                  _SCCP1_TimerCallbackRegister
+                  0x804f04          0xc build/default/production/_ext/60165246/plib_sccp1.o
+                  0x804f04                  _SCCP1_TimerCallbackRegister
 
 .text.SCCP2_TimerCallbackRegister
-                  0x804ecc          0xc
+                  0x804f10          0xc
  .text.SCCP2_TimerCallbackRegister
-                  0x804ecc          0xc build/default/production/_ext/60165246/plib_sccp2.o
-                  0x804ecc                  _SCCP2_TimerCallbackRegister
+                  0x804f10          0xc build/default/production/_ext/60165246/plib_sccp2.o
+                  0x804f10                  _SCCP2_TimerCallbackRegister
 
 .text.SPI1_Write
-                  0x804ed8          0xc
+                  0x804f1c          0xc
  .text.SPI1_Write
-                  0x804ed8          0xc build/default/production/_ext/1868329136/plib_spi1_host.o
-                  0x804ed8                  _SPI1_Write
+                  0x804f1c          0xc build/default/production/_ext/1868329136/plib_spi1_host.o
+                  0x804f1c                  _SPI1_Write
 
 .text.RS_SetLow
-                  0x804ee4          0xc
+                  0x804f28          0xc
  .text.RS_SetLow
-                  0x804ee4          0xc build/default/production/_ext/285195972/eadog.o
-                  0x804ee4                  _RS_SetLow
+                  0x804f28          0xc build/default/production/_ext/285195972/eadog.o
+                  0x804f28                  _RS_SetLow
 
 .text.RS_SetHigh
-                  0x804ef0          0xc
+                  0x804f34          0xc
  .text.RS_SetHigh
-                  0x804ef0          0xc build/default/production/_ext/285195972/eadog.o
-                  0x804ef0                  _RS_SetHigh
+                  0x804f34          0xc build/default/production/_ext/285195972/eadog.o
+                  0x804f34                  _RS_SetHigh
 
 .text.CSB_SetLow
-                  0x804efc          0xc
+                  0x804f40          0xc
  .text.CSB_SetLow
-                  0x804efc          0xc build/default/production/_ext/285195972/eadog.o
-                  0x804efc                  _CSB_SetLow
+                  0x804f40          0xc build/default/production/_ext/285195972/eadog.o
+                  0x804f40                  _CSB_SetLow
 
 .text.CSB_SetHigh
-                  0x804f08          0xc
+                  0x804f4c          0xc
  .text.CSB_SetHigh
-                  0x804f08          0xc build/default/production/_ext/285195972/eadog.o
-                  0x804f08                  _CSB_SetHigh
+                  0x804f4c          0xc build/default/production/_ext/285195972/eadog.o
+                  0x804f4c                  _CSB_SetHigh
 
 .text.OledRopOr
-                  0x804f14          0xc
+                  0x804f58          0xc
  .text.OledRopOr
-                  0x804f14          0xc build/default/production/_ext/285195972/OledGrph.o
-                  0x804f14                  _OledRopOr
+                  0x804f58          0xc build/default/production/_ext/285195972/OledGrph.o
+                  0x804f58                  _OledRopOr
 
 .text.OledRopAnd
-                  0x804f20          0xc
+                  0x804f64          0xc
  .text.OledRopAnd
-                  0x804f20          0xc build/default/production/_ext/285195972/OledGrph.o
-                  0x804f20                  _OledRopAnd
+                  0x804f64          0xc build/default/production/_ext/285195972/OledGrph.o
+                  0x804f64                  _OledRopAnd
 
 .text.OledRopXor
-                  0x804f2c          0xc
+                  0x804f70          0xc
  .text.OledRopXor
-                  0x804f2c          0xc build/default/production/_ext/285195972/OledGrph.o
-                  0x804f2c                  _OledRopXor
+                  0x804f70          0xc build/default/production/_ext/285195972/OledGrph.o
+                  0x804f70                  _OledRopXor
 
 .text.SCCP1_Callback_InterruptHandler
-                  0x804f38          0xc
+                  0x804f7c          0xc
  .text.SCCP1_Callback_InterruptHandler
-                  0x804f38          0xc build/default/production/_ext/285195972/lcd_drv.o
-                  0x804f38                  _SCCP1_Callback_InterruptHandler
+                  0x804f7c          0xc build/default/production/_ext/285195972/lcd_drv.o
+                  0x804f7c                  _SCCP1_Callback_InterruptHandler
 
 .text.SCCP1_TimerStart
-                  0x804f44          0x8
+                  0x804f88          0x8
  .text.SCCP1_TimerStart
-                  0x804f44          0x8 build/default/production/_ext/60165246/plib_sccp1.o
-                  0x804f44                  _SCCP1_TimerStart
+                  0x804f88          0x8 build/default/production/_ext/60165246/plib_sccp1.o
+                  0x804f88                  _SCCP1_TimerStart
 
 .text.SCCP1_Timer32bitPeriodSet
-                  0x804f4c          0x8
+                  0x804f90          0x8
  .text.SCCP1_Timer32bitPeriodSet
-                  0x804f4c          0x8 build/default/production/_ext/60165246/plib_sccp1.o
-                  0x804f4c                  _SCCP1_Timer32bitPeriodSet
+                  0x804f90          0x8 build/default/production/_ext/60165246/plib_sccp1.o
+                  0x804f90                  _SCCP1_Timer32bitPeriodSet
 
 .text.SCCP2_TimerStart
-                  0x804f54          0x8
+                  0x804f98          0x8
  .text.SCCP2_TimerStart
-                  0x804f54          0x8 build/default/production/_ext/60165246/plib_sccp2.o
-                  0x804f54                  _SCCP2_TimerStart
+                  0x804f98          0x8 build/default/production/_ext/60165246/plib_sccp2.o
+                  0x804f98                  _SCCP2_TimerStart
 
 .text.SCCP2_Timer32bitPeriodSet
-                  0x804f5c          0x8
+                  0x804fa0          0x8
  .text.SCCP2_Timer32bitPeriodSet
-                  0x804f5c          0x8 build/default/production/_ext/60165246/plib_sccp2.o
-                  0x804f5c                  _SCCP2_Timer32bitPeriodSet
+                  0x804fa0          0x8 build/default/production/_ext/60165246/plib_sccp2.o
+                  0x804fa0                  _SCCP2_Timer32bitPeriodSet
 
 .text.TMR1_Start
-                  0x804f64          0x8
+                  0x804fa8          0x8
  .text.TMR1_Start
-                  0x804f64          0x8 build/default/production/_ext/60181895/plib_tmr1.o
-                  0x804f64                  _TMR1_Start
+                  0x804fa8          0x8 build/default/production/_ext/60181895/plib_tmr1.o
+                  0x804fa8                  _TMR1_Start
 
 .text.TMR1_InterruptEnable
-                  0x804f6c          0x8
+                  0x804fb0          0x8
  .text.TMR1_InterruptEnable
-                  0x804f6c          0x8 build/default/production/_ext/60181895/plib_tmr1.o
-                  0x804f6c                  _TMR1_InterruptEnable
+                  0x804fb0          0x8 build/default/production/_ext/60181895/plib_tmr1.o
+                  0x804fb0                  _TMR1_InterruptEnable
 
-.text.write       0x804f74          0x8
- .text.write      0x804f74          0x8 build/default/production/_ext/163028504/xc32_monitor.o
-                  0x804f74                  _write
+.text.write       0x804fb8          0x8
+ .text.write      0x804fb8          0x8 build/default/production/_ext/163028504/xc32_monitor.o
+                  0x804fb8                  _write
 
 .text.TRAPS_halt_on_error
-                  0x804f7c          0x8
+                  0x804fc0          0x8
  .text.TRAPS_halt_on_error
-                  0x804f7c          0x8 build/default/production/_ext/1171490990/traps.o
-                  0x804f7c                  _TRAPS_halt_on_error
+                  0x804fc0          0x8 build/default/production/_ext/1171490990/traps.o
+                  0x804fc0                  _TRAPS_halt_on_error
 
-/tmp/ccAwKGRM.s.scn2
-                  0x804f84          0x8
- /tmp/ccAwKGRM.s.scn2
-                  0x804f84          0x8 build/default/production/_ext/1360937237/main.o
-                  0x804f84                  _iss_read_id
+/tmp/ccjt3TRT.s.scn2
+                  0x804fc8          0x8
+ /tmp/ccjt3TRT.s.scn2
+                  0x804fc8          0x8 build/default/production/_ext/1360937237/main.o
+                  0x804fc8                  _iss_read_id
 
 .text.SCCP2_Callback_InterruptHandler
-                  0x804f8c          0x8
+                  0x804fd0          0x8
  .text.SCCP2_Callback_InterruptHandler
-                  0x804f8c          0x8 build/default/production/_ext/1360937237/is66.o
-                  0x804f8c                  _SCCP2_Callback_InterruptHandler
+                  0x804fd0          0x8 build/default/production/_ext/1360937237/is66.o
+                  0x804fd0                  _SCCP2_Callback_InterruptHandler
 
 .text.CBDmaChannelHandler
-                  0x804f94          0x4
+                  0x804fd8          0x4
  .text.CBDmaChannelHandler
-                  0x804f94          0x4 build/default/production/_ext/285195972/OledDriver.o
-                  0x804f94                  _CBDmaChannelHandler
+                  0x804fd8          0x4 build/default/production/_ext/285195972/OledDriver.o
+                  0x804fd8                  _CBDmaChannelHandler
 
 .text.SPI2DmaChannelHandler_State
-                  0x804f98          0x4
+                  0x804fdc          0x4
  .text.SPI2DmaChannelHandler_State
-                  0x804f98          0x4 build/default/production/_ext/1360937237/is66.o
-                  0x804f98                  _SPI2DmaChannelHandler_State
+                  0x804fdc          0x4 build/default/production/_ext/1360937237/is66.o
+                  0x804fdc                  _SPI2DmaChannelHandler_State

@@ -13,30 +13,55 @@
 //#define USE_SRAM
 //#define DMA_HALF
 
+#define MAX_ISS66_SAMPLES	32768
+
 volatile uint8_t iss_adc_write[8] = {0x02, 0x00, 0x00, 0x00}; // 1024 bytes in each address page for sequential writes
 uint8_t sram_adc_write[8];
-volatile uint32_t adc_result = 0;
+volatile uint32_t adc_result = 0, total_sample_triggers = 0;
+volatile uint16_t sram_addr = 0, *sram_addr_ptr = (volatile uint16_t *) & iss_adc_write[2];
+
+/*
+ * swap16 for iss66 addresses
+ * The htonx() functions converts the unsigned integer from host byte order to network byte order
+ * as used on the Internet
+ */
+static inline uint16_t htons(uint16_t x)
+{
+	return((x >> 8) & 0x00FFUL) | ((x << 8) & 0xFF00UL);
+}
+
+static inline uint32_t htonl(uint32_t x)
+{
+	return((x >> 24) & 0x000000FFUL) | ((x << 24) & 0xFF000000UL) |
+		((x >> 8) & 0x0000FF00UL) | ((x << 8) & 0x00FF0000UL);
+}
 
 /*
  * setup the iss66 command buffer and DMA the data to the chip
  */
 void ADC_DMA_write(void)
 {
-	TP0_Set(); // timing GPIO trace
+	//	TP0_Set(); // timing GPIO trace
 #ifndef USE_SRAM
 	SRAM_CS_Clear();
 #endif
 
 #ifndef USE_SRAM
-	TP0_Clear();
-	TP0_Set();
+	//	TP0_Clear();
+	//	TP0_Set();
 	AD1SWTRGbits.CH6TRG = 1;
 	while (AD1STATbits.CH6RDY == 0);
-	TP0_Clear();
-	TP0_Set();
+	//	TP0_Clear();
+	//	TP0_Set();
 	adc_result = AD1CH6DATA;
 	memcpy((void *) &iss_adc_write[4], (const void *) &adc_result, 4);
-	iss_adc_write[3] += 2; // write 256 bytes into chip sram as 16-bit integers
+	//	iss_adc_write[3] += 2; // write 256 bytes into chip sram as 16-bit integers
+	*sram_addr_ptr = htons(sram_addr);
+	if ((sram_addr += 2) >= MAX_ISS66_SAMPLES) {
+		sram_addr = 0;
+		total_sample_triggers++;
+		TP0_Toggle();
+	};
 
 	while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
 	};
@@ -46,7 +71,7 @@ void ADC_DMA_write(void)
 #ifndef USE_SRAM
 	SRAM_CS_Set();
 #endif
-	TP0_Clear();
+	//	TP0_Clear();
 };
 
 /*
