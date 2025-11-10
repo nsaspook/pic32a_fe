@@ -36,7 +36,7 @@ void ADC_DMA_write(void)
 	TP0_Set();
 	adc_result = AD1CH6DATA;
 	memcpy((void *) &iss_adc_write[4], (const void *) &adc_result, 4);
-	iss_adc_write[3]++; // write 256 bytes into chip sram
+	iss_adc_write[3] += 2; // write 256 bytes into chip sram as 16-bit integers
 
 	while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
 	};

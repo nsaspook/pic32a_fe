@@ -206,7 +206,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.TMR1_Initialize     0x804bdc                0x30            0x30  (48)
 .text.wait_lcd_done       0x804c0c                0x30            0x30  (48)
 .text.OledClearBuffer     0x804c3c                0x30            0x30  (48)
-/tmp/ccM9xJKk.s.scn1      0x804c6c                0x30            0x30  (48)
+/tmp/ccAwKGRM.s.scn1      0x804c6c                0x30            0x30  (48)
 .text.OledInit            0x804c9c                0x2c            0x2c  (44)
 .text.lcd_move_xy         0x804cc8                0x2c            0x2c  (44)
 .text.lcd_data            0x804cf4                0x28            0x28  (40)
@@ -246,7 +246,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.TMR1_InterruptEnable  0x804f6c                 0x8             0x8  (8)
 .text.write               0x804f74                 0x8             0x8  (8)
 .text.TRAPS_halt_on_error  0x804f7c                 0x8             0x8  (8)
-/tmp/ccM9xJKk.s.scn2      0x804f84                 0x8             0x8  (8)
+/tmp/ccAwKGRM.s.scn2      0x804f84                 0x8             0x8  (8)
 .text.SCCP2_Callback_InterruptHandler  0x804f8c                 0x8             0x8  (8)
 .text.CBDmaChannelHandler  0x804f94                 0x4             0x4  (4)
 .text.SPI2DmaChannelHandler_State  0x804f98                 0x4             0x4  (4)
@@ -1796,7 +1796,7 @@ __FWPUCB
  .debug_abbrev      0x283d         0x14 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
  .debug_abbrev      0x2851         0x14 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
 
-.debug_line         0x0000       0x5d5a
+.debug_line         0x0000       0x5d57
  *(.debug_line)
  .debug_line        0x0000        0x285 build/default/production/_ext/60163342/plib_adc2.o
  .debug_line        0x0285        0x287 build/default/production/_ext/60165246/plib_sccp1.o
@@ -1824,9 +1824,9 @@ __FWPUCB
  .debug_line        0x53e0        0x2b7 build/default/production/_ext/285195972/dogm-graphic.o
  .debug_line        0x5697        0x283 build/default/production/_ext/1360937237/main.o
  .debug_line        0x591a        0x12d build/default/production/_ext/1360937237/timers.o
- .debug_line        0x5a47        0x265 build/default/production/_ext/1360937237/is66.o
- .debug_line        0x5cac         0x5e /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_line        0x5d0a         0x50 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_line        0x5a47        0x262 build/default/production/_ext/1360937237/is66.o
+ .debug_line        0x5ca9         0x5e /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_line        0x5d07         0x50 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
 
 .debug_frame        0x0000       0x1558
  *(.debug_frame)
@@ -5674,9 +5674,9 @@ __ivt_0           0x800004        0x47c
                   0x804c3c         0x30 build/default/production/_ext/285195972/OledDriver.o
                   0x804c3c                  _OledClearBuffer
 
-/tmp/ccM9xJKk.s.scn1
+/tmp/ccAwKGRM.s.scn1
                   0x804c6c         0x30
- /tmp/ccM9xJKk.s.scn1
+ /tmp/ccAwKGRM.s.scn1
                   0x804c6c         0x30 build/default/production/_ext/1360937237/main.o
 
 .text.OledInit    0x804c9c         0x2c
@@ -5907,9 +5907,9 @@ __ivt_0           0x800004        0x47c
                   0x804f7c          0x8 build/default/production/_ext/1171490990/traps.o
                   0x804f7c                  _TRAPS_halt_on_error
 
-/tmp/ccM9xJKk.s.scn2
+/tmp/ccAwKGRM.s.scn2
                   0x804f84          0x8
- /tmp/ccM9xJKk.s.scn2
+ /tmp/ccAwKGRM.s.scn2
                   0x804f84          0x8 build/default/production/_ext/1360937237/main.o
                   0x804f84                  _iss_read_id
 
