@@ -35,7 +35,7 @@ int main(void)
 	OledClearBuffer();
 	wait_lcd_done();
 
-	snprintf(buffer, 255, "Testing PIC32AK   ");
+	snprintf(buffer, 255, "DEV%X REV%X U%X%X   ", *(uint32_t*) 0x7C2000, *(uint32_t*) 0x7C2004, *(uint32_t*) 0x7F2BE0, *(uint32_t*) 0x7F2BE4);
 	eaDogM_WriteStringAtPos(15, 0, buffer);
 	OledUpdate();
 	StartTimer(TMR_TEST, 2);
