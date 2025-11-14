@@ -1,0 +1,66 @@
+(Japanese_coding: sjis)
+(function "ECS_2081952"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2022-02-04-07:00:09)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "05085C102KAT2A")
+)
+
+
+(pinAssign "ECS_2081952"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2022-02-04-07:00:09)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_2081952")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "05085C102KAT2A")
+)
+
+
+(part "05085C102KAT2A"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2022-02-04-07:00:09)
+    (utime 2023-03-07-16:10:32)
+    (packageRef "05085C102KAT2A")
+    (pinAssignRef "ECS_2081952")
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "NO")
+    (property "refDesPrefix" "C")
+    (property "description" "Cap Ceramic 0.001uF 50V X7R 10% Wide Terminal SMD 0508 125C Embossed T/R")
+    (property "Mouser_Part_Number" "581-05085C102KAT2A")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/AVX/05085C102KAT2A?qs=bvr9a6HSd9Vjw0t4sQ1KPQ%3D%3D")
+    (property "Manufacturer_Name" "Kyocera AVX")
+    (property "Manufacturer_Part_Number" "05085C102KAT2A")
+    (property "Datasheet_Link" "https://datasheets.kyocera-avx.com/LICC.pdf")
+    (property "compAreaTopHeight" 0.76)
+)
+
+

@@ -2,24 +2,24 @@ EAGLE AutoRouter Statistics:
 
 Job           : /ldrv/pic32a_fe/pic32ak_fe.brd
 
-Start at      : 09:25:49 (11/6/25)
-End at        : 09:26:28 (11/6/25)
-Elapsed time  : 00:00:37
+Start at      : 15:58:36 (11/13/25)
+End at        : 15:58:49 (11/13/25)
+Elapsed time  : 00:00:11
 
-Signals       :    12   RoutingGrid: 3 mil  Layers: 4
-Connections   :    29   predefined:  6 ( 5 Vias )
+Signals       :    17   RoutingGrid: 3 mil  Layers: 4
+Connections   :    79   predefined:  78 ( 27 Vias )
 
-Router memory :   22287912
+Router memory :   23300232
 
 Passname          : TopRouter     Route Optimize1 Optimize2 Optimize3 Optimize4
 
-Time per pass     :  00:00:14  00:00:01  00:00:05  00:00:05  00:00:06  00:00:06
+Time per pass     :  00:00:09  00:00:00  00:00:01  00:00:00  00:00:01  00:00:00
 Number of Ripups  :         0         0         0         0         0         0
 max. Level        :         0         0         0         0         0         0
 max. Total        :         0         0         0         0         0         0
 
-Routed            :        22        23        11        15        18        18
-Vias              :         0         1         5         8        11        11
-Resolution        :    96.6 %   100.0 %    58.6 %    72.4 %    82.8 %    82.8 %
+Routed            :         1         1         1         1         1         1
+Vias              :         0         0         0         0         0         0
+Resolution        :   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
 
-Final             : 82.8% finished
+Final             : 100.0% finished

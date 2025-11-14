@@ -148,8 +148,8 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text                     0x800480              0x1a54          0x1a54  (6740)
-/tmp/ccJFy93L.s.scn1      0x801ed4               0x514           0x514  (1300)
-/tmp/ccOWSBlk.s.scn1      0x8023e8               0x300           0x300  (768)
+/tmp/cczyLjqx.s.scn1      0x801ed4               0x514           0x514  (1300)
+/tmp/cci3JJKW.s.scn1      0x8023e8               0x300           0x300  (768)
 .text.CLOCK_Initialize    0x8026e8               0x2bc           0x2bc  (700)
 .dinit                    0x8029a4               0x268           0x268  (616)
 .text.OledPutBmp          0x802c0c               0x24c           0x24c  (588)
@@ -191,7 +191,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.SPI3_Initialize     0x8048d4                0x44            0x44  (68)
 .text.T1_InterruptHandler  0x804918                0x44            0x44  (68)
 .text.timer_ms_tick       0x80495c                0x44            0x44  (68)
-/tmp/ccfwNzI1.s.scn1      0x8049a0                0x40            0x40  (64)
+/tmp/ccyfYEr4.s.scn1      0x8049a0                0x40            0x40  (64)
 .text.OledSetCursor       0x8049e0                0x40            0x40  (64)
 .text.OledPutString       0x804a20                0x40            0x40  (64)
 .text.SCCP1_TimerInitialize  0x804a60                0x3c            0x3c  (60)
@@ -206,7 +206,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.TMR1_Initialize     0x804c5c                0x30            0x30  (48)
 .text.wait_lcd_done       0x804c8c                0x30            0x30  (48)
 .text.OledClearBuffer     0x804cbc                0x30            0x30  (48)
-/tmp/cc7zgwz2.s.scn1      0x804cec                0x30            0x30  (48)
+/tmp/cc3QCoIB.s.scn1      0x804cec                0x30            0x30  (48)
 .text.OledInit            0x804d1c                0x2c            0x2c  (44)
 .text.lcd_move_xy         0x804d48                0x2c            0x2c  (44)
 .text.lcd_data            0x804d74                0x28            0x28  (40)
@@ -246,7 +246,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.TMR1_InterruptEnable  0x804fec                 0x8             0x8  (8)
 .text.write               0x804ff4                 0x8             0x8  (8)
 .text.TRAPS_halt_on_error  0x804ffc                 0x8             0x8  (8)
-/tmp/cc7zgwz2.s.scn2      0x805004                 0x8             0x8  (8)
+/tmp/cc3QCoIB.s.scn2      0x805004                 0x8             0x8  (8)
 .text.SCCP2_Callback_InterruptHandler  0x80500c                 0x8             0x8  (8)
 .text.CBDmaChannelHandler  0x805014                 0x4             0x4  (4)
 .text.SPI2DmaChannelHandler_State  0x805018                 0x4             0x4  (4)
@@ -935,7 +935,7 @@ Discarded input sections
                     0x0000         0x5c build/default/production/_ext/285195972/OledDriver.o
  .text.OledPutBuffer
                     0x0000         0x14 build/default/production/_ext/285195972/OledDriver.o
- /tmp/ccNWfU6P.s.scn1
+ /tmp/cc4i3AmD.s.scn1
                     0x0000         0x54 build/default/production/_ext/285195972/OledDriver.o
  .text.lcd_version
                     0x0000         0x30 build/default/production/_ext/285195972/OledDriver.o
@@ -5358,15 +5358,15 @@ __ivt_0           0x800004        0x47c
 .config_WPUCA     0x7f3000          0x4
  .config_WPUCA    0x7f3000          0x4 build/default/production/_ext/1171490990/initialization.o
 
-/tmp/ccJFy93L.s.scn1
+/tmp/cczyLjqx.s.scn1
                   0x801ed4        0x514
- /tmp/ccJFy93L.s.scn1
+ /tmp/cczyLjqx.s.scn1
                   0x801ed4        0x514 build/default/production/_ext/285195972/foo.o
                   0x801ed4                  _foo_map
 
-/tmp/ccOWSBlk.s.scn1
+/tmp/cci3JJKW.s.scn1
                   0x8023e8        0x300
- /tmp/ccOWSBlk.s.scn1
+ /tmp/cci3JJKW.s.scn1
                   0x8023e8        0x300 build/default/production/_ext/285195972/ChrFont0.o
                   0x8023e8                  _rgbOledFont0
 
@@ -5613,9 +5613,9 @@ __ivt_0           0x800004        0x47c
                   0x80495c         0x44 build/default/production/_ext/1360937237/timers.o
                   0x80495c                  _timer_ms_tick
 
-/tmp/ccfwNzI1.s.scn1
+/tmp/ccyfYEr4.s.scn1
                   0x8049a0         0x40
- /tmp/ccfwNzI1.s.scn1
+ /tmp/ccyfYEr4.s.scn1
                   0x8049a0         0x40 build/default/production/_ext/285195972/FillPat.o
                   0x8049a0                  _rgbFillPat
 
@@ -5701,9 +5701,9 @@ __ivt_0           0x800004        0x47c
                   0x804cbc         0x30 build/default/production/_ext/285195972/OledDriver.o
                   0x804cbc                  _OledClearBuffer
 
-/tmp/cc7zgwz2.s.scn1
+/tmp/cc3QCoIB.s.scn1
                   0x804cec         0x30
- /tmp/cc7zgwz2.s.scn1
+ /tmp/cc3QCoIB.s.scn1
                   0x804cec         0x30 build/default/production/_ext/1360937237/main.o
 
 .text.OledInit    0x804d1c         0x2c
@@ -5934,9 +5934,9 @@ __ivt_0           0x800004        0x47c
                   0x804ffc          0x8 build/default/production/_ext/1171490990/traps.o
                   0x804ffc                  _TRAPS_halt_on_error
 
-/tmp/cc7zgwz2.s.scn2
+/tmp/cc3QCoIB.s.scn2
                   0x805004          0x8
- /tmp/cc7zgwz2.s.scn2
+ /tmp/cc3QCoIB.s.scn2
                   0x805004          0x8 build/default/production/_ext/1360937237/main.o
                   0x805004                  _iss_read_id
 
