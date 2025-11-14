@@ -2,24 +2,24 @@ EAGLE AutoRouter Statistics:
 
 Job           : /ldrv/pic32a_fe/pic32ak_fe.brd
 
-Start at      : 19:03:51 (11/13/25)
-End at        : 19:04:15 (11/13/25)
-Elapsed time  : 00:00:19
+Start at      : 14:35:49 (11/14/25)
+End at        : 14:36:27 (11/14/25)
+Elapsed time  : 00:00:36
 
-Signals       :    27   RoutingGrid: 6.25 mil  Layers: 4
-Connections   :    99   predefined:  21 ( 5 Vias )
+Signals       :    31   RoutingGrid: 3 mil  Layers: 4
+Connections   :   147   predefined:  144 ( 48 Vias )
 
-Router memory :   5494528
+Router memory :   23654544
 
-Passname          :     Route Optimize1 Optimize2 Optimize3 Optimize4
+Passname          : TopRouter     Route Optimize1 Optimize2 Optimize3 Optimize4 Optimize5 Optimize6 Optimize7 Optimize8
 
-Time per pass     :  00:00:06  00:00:03  00:00:03  00:00:03  00:00:04
-Number of Ripups  :         5         0         0         0         0
-max. Level        :         1         0         0         0         0
-max. Total        :        32         0         0         0         0
+Time per pass     :  00:00:26  00:00:00  00:00:01  00:00:02  00:00:01  00:00:01  00:00:01  00:00:01  00:00:02  00:00:01
+Number of Ripups  :         0         0         0         0         0         0         0         0         0         0
+max. Level        :         0         0         0         0         0         0         0         0         0         0
+max. Total        :         0         0         0         0         0         0         0         0         0         0
 
-Routed            :        78        78        78        78        78
-Vias              :        69        64        62        63        68
-Resolution        :   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
+Routed            :         3         3         3         3         3         3         3         3         3         3
+Vias              :         0         0         2         2         2         2         2         2         2         2
+Resolution        :   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
 
 Final             : 100.0% finished

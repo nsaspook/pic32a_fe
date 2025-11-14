@@ -20,6 +20,10 @@
               <itemPath>../src/config/default/peripheral/clk/plib_clk.h</itemPath>
               <itemPath>../src/config/default/peripheral/clk/plib_clk_common.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="cmp_dac" displayName="cmp_dac" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/cmp_dac/plib_cmp_common.h</itemPath>
+              <itemPath>../src/config/default/peripheral/cmp_dac/plib_cmp1.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="dma" displayName="dma" projectFiles="true">
               <itemPath>../src/config/default/peripheral/dma/plib_dma.h</itemPath>
             </logicalFolder>
@@ -28,6 +32,10 @@
             </logicalFolder>
             <logicalFolder name="intc" displayName="intc" projectFiles="true">
               <itemPath>../src/config/default/peripheral/intc/plib_intc.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="opa" displayName="opa" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/opa/plib_opa_common.h</itemPath>
+              <itemPath>../src/config/default/peripheral/opa/plib_opa2.h</itemPath>
             </logicalFolder>
             <logicalFolder name="spi" displayName="spi" projectFiles="true">
               <logicalFolder name="spi_host" displayName="spi_host" projectFiles="true">
@@ -61,6 +69,7 @@
                      displayName="analog_fe_default"
                      projectFiles="true">
         <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>analog_fe_default/components/amp2.yml</itemPath>
           <itemPath>analog_fe_default/components/spi1.yml</itemPath>
           <itemPath>analog_fe_default/components/spi2.yml</itemPath>
           <itemPath>analog_fe_default/components/spi3.yml</itemPath>
@@ -70,6 +79,7 @@
           <itemPath>analog_fe_default/components/core.yml</itemPath>
           <itemPath>analog_fe_default/components/adc2.yml</itemPath>
           <itemPath>analog_fe_default/components/dfp.yml</itemPath>
+          <itemPath>analog_fe_default/components/cmp_dac1.yml</itemPath>
         </logicalFolder>
         <itemPath>analog_fe_default/mcc-config.mc4</itemPath>
       </logicalFolder>
@@ -99,6 +109,9 @@
             <logicalFolder name="clk" displayName="clk" projectFiles="true">
               <itemPath>../src/config/default/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="cmp_dac" displayName="cmp_dac" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/cmp_dac/plib_cmp1.c</itemPath>
+            </logicalFolder>
             <logicalFolder name="dma" displayName="dma" projectFiles="true">
               <itemPath>../src/config/default/peripheral/dma/plib_dma.c</itemPath>
             </logicalFolder>
@@ -107,6 +120,9 @@
             </logicalFolder>
             <logicalFolder name="intc" displayName="intc" projectFiles="true">
               <itemPath>../src/config/default/peripheral/intc/plib_intc.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="opa" displayName="opa" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/opa/plib_opa2.c</itemPath>
             </logicalFolder>
             <logicalFolder name="spi" displayName="spi" projectFiles="true">
               <logicalFolder name="spi_host" displayName="spi_host" projectFiles="true">
@@ -193,6 +209,7 @@
       <C32>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="cast-align" value="false"/>
         <property key="code-model" value="default"/>
         <property key="const-model" value="default"/>
@@ -221,7 +238,7 @@
         <property key="oXC16gcc-sfr-warn" value="false"/>
         <property key="oXC16gcc-smar-io-lvl" value="1"/>
         <property key="oXC16gcc-smart-io-fmt" value=""/>
-        <property key="optimization-level" value="-O1"/>
+        <property key="optimization-level" value="-O2"/>
         <property key="place-data-into-section" value="true"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>

@@ -226,6 +226,37 @@
 #define CLK6DIV_FRACDIV_SET(value)          ((uint32_t)(_CLK6DIV_FRACDIV_MASK & ((uint32_t)(value) << _CLK6DIV_FRACDIV_POSITION))) 
 
 //CLOCK CLKxCON NOSC options
+#define CLK7CON_NOSC_PGC          ((uint32_t)(_CLK7CON_NOSC_MASK & ((uint32_t)(0) << _CLK7CON_NOSC_POSITION))) 
+#define CLK7CON_NOSC_FRC          ((uint32_t)(_CLK7CON_NOSC_MASK & ((uint32_t)(1) << _CLK7CON_NOSC_POSITION))) 
+#define CLK7CON_NOSC_BFRC          ((uint32_t)(_CLK7CON_NOSC_MASK & ((uint32_t)(2) << _CLK7CON_NOSC_POSITION))) 
+#define CLK7CON_NOSC_POSC          ((uint32_t)(_CLK7CON_NOSC_MASK & ((uint32_t)(3) << _CLK7CON_NOSC_POSITION))) 
+#define CLK7CON_NOSC_LPRC          ((uint32_t)(_CLK7CON_NOSC_MASK & ((uint32_t)(4) << _CLK7CON_NOSC_POSITION))) 
+#define CLK7CON_NOSC_PLL1_FOUT          ((uint32_t)(_CLK7CON_NOSC_MASK & ((uint32_t)(5) << _CLK7CON_NOSC_POSITION))) 
+#define CLK7CON_NOSC_PLL2_FOUT          ((uint32_t)(_CLK7CON_NOSC_MASK & ((uint32_t)(6) << _CLK7CON_NOSC_POSITION))) 
+#define CLK7CON_NOSC_PLL1_VCO          ((uint32_t)(_CLK7CON_NOSC_MASK & ((uint32_t)(7) << _CLK7CON_NOSC_POSITION))) 
+#define CLK7CON_NOSC_PLL2_VCO          ((uint32_t)(_CLK7CON_NOSC_MASK & ((uint32_t)(8) << _CLK7CON_NOSC_POSITION))) 
+#define CLK7CON_NOSC_REFI1          ((uint32_t)(_CLK7CON_NOSC_MASK & ((uint32_t)(9) << _CLK7CON_NOSC_POSITION))) 
+#define CLK7CON_NOSC_REFI2          ((uint32_t)(_CLK7CON_NOSC_MASK & ((uint32_t)(10) << _CLK7CON_NOSC_POSITION))) 
+
+//CLOCK CLKxCON BOSC options
+#define CLK7CON_BOSC_PGC          ((uint32_t)(_CLK7CON_BOSC_MASK & ((uint32_t)(0) << _CLK7CON_BOSC_POSITION))) 
+#define CLK7CON_BOSC_FRC          ((uint32_t)(_CLK7CON_BOSC_MASK & ((uint32_t)(1) << _CLK7CON_BOSC_POSITION))) 
+#define CLK7CON_BOSC_BFRC          ((uint32_t)(_CLK7CON_BOSC_MASK & ((uint32_t)(2) << _CLK7CON_BOSC_POSITION))) 
+#define CLK7CON_BOSC_POSC          ((uint32_t)(_CLK7CON_BOSC_MASK & ((uint32_t)(3) << _CLK7CON_BOSC_POSITION))) 
+#define CLK7CON_BOSC_LPRC          ((uint32_t)(_CLK7CON_BOSC_MASK & ((uint32_t)(4) << _CLK7CON_BOSC_POSITION))) 
+#define CLK7CON_BOSC_PLL1_FOUT          ((uint32_t)(_CLK7CON_BOSC_MASK & ((uint32_t)(5) << _CLK7CON_BOSC_POSITION))) 
+#define CLK7CON_BOSC_PLL2_FOUT          ((uint32_t)(_CLK7CON_BOSC_MASK & ((uint32_t)(6) << _CLK7CON_BOSC_POSITION))) 
+#define CLK7CON_BOSC_PLL1_VCO          ((uint32_t)(_CLK7CON_BOSC_MASK & ((uint32_t)(7) << _CLK7CON_BOSC_POSITION))) 
+#define CLK7CON_BOSC_PLL2_VCO          ((uint32_t)(_CLK7CON_BOSC_MASK & ((uint32_t)(8) << _CLK7CON_BOSC_POSITION))) 
+#define CLK7CON_BOSC_REFI1          ((uint32_t)(_CLK7CON_BOSC_MASK & ((uint32_t)(9) << _CLK7CON_BOSC_POSITION))) 
+#define CLK7CON_BOSC_REFI2          ((uint32_t)(_CLK7CON_BOSC_MASK & ((uint32_t)(10) << _CLK7CON_BOSC_POSITION))) 
+
+//CLOCK CLKxCON INTDIV set
+#define CLK7DIV_INTDIV_SET(value)          ((uint32_t)(_CLK7DIV_INTDIV_MASK & ((uint32_t)(value) << _CLK7DIV_INTDIV_POSITION))) 
+//CLOCK CLKONxCON FRACDIV set
+#define CLK7DIV_FRACDIV_SET(value)          ((uint32_t)(_CLK7DIV_FRACDIV_MASK & ((uint32_t)(value) << _CLK7DIV_FRACDIV_POSITION))) 
+
+//CLOCK CLKxCON NOSC options
 #define CLK9CON_NOSC_PGC          ((uint32_t)(_CLK9CON_NOSC_MASK & ((uint32_t)(0) << _CLK9CON_NOSC_POSITION))) 
 #define CLK9CON_NOSC_FRC          ((uint32_t)(_CLK9CON_NOSC_MASK & ((uint32_t)(1) << _CLK9CON_NOSC_POSITION))) 
 #define CLK9CON_NOSC_BFRC          ((uint32_t)(_CLK9CON_NOSC_MASK & ((uint32_t)(2) << _CLK9CON_NOSC_POSITION))) 
@@ -304,6 +335,7 @@ void CLOCK_Initialize(void)
         Clock Generator 2 frequency                     : 8.0 MHz
         Clock Generator 3 frequency                     : 8.0 MHz
         Clock Generator 6 frequency                     : 200.0 MHz
+        Clock Generator 7 frequency                     : 8.0 MHz
         Clock Generator 9 frequency                     : 31.23856 MHz
         Clock Generator 12 frequency                     : 1.0 MHz
         
@@ -446,6 +478,18 @@ void CLOCK_Initialize(void)
 #ifndef __MPLAB_DEBUGGER_SIMULATOR    
     //Wait for clock switching complete
     while(CLK6CONbits.OSWEN == 1U){};
+#endif
+
+    //Clock Generator 7 settings
+    CLK7CON = (_CLK7CON_ON_MASK
+                |_CLK7CON_OE_MASK
+                |CLK7CON_NOSC_POSC
+                |CLK7CON_BOSC_BFRC);
+    //Enable clock switching
+    CLK7CONbits.OSWEN = 1U;
+#ifndef __MPLAB_DEBUGGER_SIMULATOR    
+    //Wait for clock switching complete
+    while(CLK7CONbits.OSWEN == 1U){};
 #endif
 
     //Clock Generator 9 settings

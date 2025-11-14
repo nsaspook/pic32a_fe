@@ -127,7 +127,7 @@ void ADC2_Initialize(void)
                             |AD2CH4CON_ACCNUM_4_SAMPLES
                             |AD2CH4CON_TRG2SRC_SET(0)
                             |AD2CH4CON_CMPMOD_DISABLED
-                            |AD2CH4CON_PINSEL_SET(4)
+                            |AD2CH4CON_PINSEL_SET(7)
                             |AD2CH4CON_NINSEL_SET(0)
                             |AD2CH4CON_SAMC_SET(0)
                             |AD2CH4CON_TRG1SRC_SET(1));

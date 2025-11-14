@@ -10,11 +10,14 @@
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 
+#define __has_builtin			// use Built-in Byte Swap Functions
+
 //#define USE_SRAM
 //#define DMA_HALF
 
 #define MAX_ISS66_SAMPLES	32768
 
+static const uint32_t retrigger_time = 280;
 volatile uint8_t iss_adc_write[8] = {0x02, 0x00, 0x00, 0x00}; // 1024 bytes in each address page for sequential writes
 uint8_t sram_adc_write[8];
 volatile uint32_t adc_result = 0, total_sample_triggers = 0;
@@ -41,22 +44,25 @@ static inline uint32_t htonl(uint32_t x)
  */
 void ADC_DMA_write(void)
 {
-	//	TP0_Set(); // timing GPIO trace
 #ifndef USE_SRAM
 	SRAM_CS_Clear();
 #endif
 
 #ifndef USE_SRAM
-	//	TP0_Clear();
-	//	TP0_Set();
 	AD1SWTRGbits.CH6TRG = 1;
 	while (AD1STATbits.CH6RDY == 0);
-	//	TP0_Clear();
-	//	TP0_Set();
 	adc_result = AD1CH6DATA;
 	memcpy((void *) &iss_adc_write[4], (const void *) &adc_result, 4);
-	//	iss_adc_write[3] += 2; // write 256 bytes into chip sram as 16-bit integers
+
+#if defined __has_builtin
+#if __has_builtin (__builtin_bswap16)
+	*sram_addr_ptr = __builtin_bswap16(sram_addr);
+#else
 	*sram_addr_ptr = htons(sram_addr);
+#endif
+#else
+	*sram_addr_ptr = htons(sram_addr);
+#endif
 	if ((sram_addr += 2) >= MAX_ISS66_SAMPLES) {
 		sram_addr = 0;
 		total_sample_triggers++;
@@ -71,7 +77,6 @@ void ADC_DMA_write(void)
 #ifndef USE_SRAM
 	SRAM_CS_Set();
 #endif
-	//	TP0_Clear();
 };
 
 /*
@@ -138,6 +143,6 @@ void ADC_DMA_init(void)
 	 */
 	DMA_ChannelCallbackRegister(DMA_CHANNEL_5, SPI2DmaChannelHandler_State, 0);
 	SCCP2_TimerCallbackRegister(SCCP2_Callback_InterruptHandler, (uintptr_t) NULL);
-	SCCP2_Timer32bitPeriodSet(350); // 3.5us timer interrupts
+	SCCP2_Timer32bitPeriodSet(retrigger_time); //  close to 3.5us timer interrupts 
 
 }
