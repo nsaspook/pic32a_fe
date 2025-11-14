@@ -1858,6 +1858,8 @@ W = angled&lt;p&gt;
 <classes>
 <class number="0" name="default" width="0" drill="0">
 </class>
+<class number="1" name="current" width="0.2032" drill="0">
+</class>
 </classes>
 <parts>
 <part name="U1" library="pic32A" deviceset="PIC32AK1216GC41064-E/PT" device=""/>
@@ -1879,16 +1881,16 @@ W = angled&lt;p&gt;
 <attribute name="NAME" x="123.19" y="-47.498" size="1.778" layer="95"/>
 </instance>
 <instance part="VSS1" gate="G$1" x="147.32" y="-53.34" smashed="yes" rot="R180">
-<attribute name="VALUE" x="149.86" y="-48.26" size="1.778" layer="96" rot="R270"/>
+<attribute name="VALUE" x="149.86" y="-53.34" size="1.778" layer="96"/>
 </instance>
 <instance part="VDD1" gate="G$1" x="152.4" y="-55.88" smashed="yes">
-<attribute name="VALUE" x="149.86" y="-58.42" size="1.778" layer="96" rot="R90"/>
+<attribute name="VALUE" x="160.02" y="-55.88" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="VDD" class="0">
+<net name="VDD" class="1">
 <segment>
 <pinref part="GLCD" gate="1" pin="7"/>
 <wire x1="132.08" y1="-58.42" x2="152.4" y2="-58.42" width="0.1524" layer="91"/>
@@ -1946,7 +1948,7 @@ W = angled&lt;p&gt;
 <label x="317.5" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="VSS" class="0">
+<net name="VSS" class="1">
 <segment>
 <pinref part="GLCD" gate="1" pin="8"/>
 <wire x1="132.08" y1="-55.88" x2="147.32" y2="-55.88" width="0.1524" layer="91"/>
@@ -2002,6 +2004,102 @@ W = angled&lt;p&gt;
 <junction x="294.64" y="33.02"/>
 <junction x="309.88" y="33.02"/>
 <label x="317.5" y="33.02" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SDI1" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="RP41/IOMD11/IOMF11/PCI20/RC8"/>
+<wire x1="294.64" y1="-33.02" x2="309.88" y2="-33.02" width="0.1524" layer="91"/>
+<junction x="294.64" y="-33.02"/>
+<junction x="309.88" y="-33.02"/>
+<label x="317.5" y="-33.02" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="132.08" y1="-73.66" x2="147.32" y2="-73.66" width="0.1524" layer="91"/>
+<pinref part="GLCD" gate="1" pin="1"/>
+<junction x="132.08" y="-73.66"/>
+<junction x="147.32" y="-73.66"/>
+<label x="152.4" y="-73.66" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SDO1" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="RP42/IOMD10/SDO2/IOMF10/PCI19/RC9"/>
+<wire x1="294.64" y1="-30.48" x2="309.88" y2="-30.48" width="0.1524" layer="91"/>
+<junction x="294.64" y="-30.48"/>
+<junction x="309.88" y="-30.48"/>
+<label x="317.5" y="-30.48" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="132.08" y1="-71.12" x2="147.32" y2="-71.12" width="0.1524" layer="91"/>
+<pinref part="GLCD" gate="1" pin="2"/>
+<junction x="132.08" y="-71.12"/>
+<junction x="147.32" y="-71.12"/>
+<label x="152.4" y="-71.12" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SCK1" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="RP27/SCK2/RB10"/>
+<wire x1="76.2" y1="-30.48" x2="60.96" y2="-30.48" width="0.1524" layer="91"/>
+<junction x="76.2" y="-30.48"/>
+<junction x="60.96" y="-30.48"/>
+<label x="50.8" y="-30.48" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="147.32" y1="-68.58" x2="132.08" y2="-68.58" width="0.1524" layer="91"/>
+<pinref part="GLCD" gate="1" pin="3"/>
+<junction x="132.08" y="-68.58"/>
+<junction x="147.32" y="-68.58"/>
+<label x="152.4" y="-68.58" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="DIS_MODE" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PGC3/RP35/PWM4H/RC2"/>
+<wire x1="294.64" y1="-12.7" x2="309.88" y2="-12.7" width="0.1524" layer="91"/>
+<junction x="294.64" y="-12.7"/>
+<junction x="309.88" y="-12.7"/>
+<label x="317.5" y="-12.7" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="132.08" y1="-66.04" x2="147.32" y2="-66.04" width="0.1524" layer="91"/>
+<pinref part="GLCD" gate="1" pin="4"/>
+<junction x="132.08" y="-66.04"/>
+<junction x="147.32" y="-66.04"/>
+<label x="152.4" y="-66.04" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="DIS_CS" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="RP28/SDI2/RB11"/>
+<wire x1="76.2" y1="-33.02" x2="60.96" y2="-33.02" width="0.1524" layer="91"/>
+<junction x="76.2" y="-33.02"/>
+<junction x="60.96" y="-33.02"/>
+<label x="50.8" y="-33.02" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="147.32" y1="-63.5" x2="132.08" y2="-63.5" width="0.1524" layer="91"/>
+<pinref part="GLCD" gate="1" pin="5"/>
+<junction x="132.08" y="-63.5"/>
+<junction x="147.32" y="-63.5"/>
+<label x="152.4" y="-63.5" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="DIS_RESET" class="0">
+<segment>
+<wire x1="132.08" y1="-60.96" x2="147.32" y2="-60.96" width="0.1524" layer="91"/>
+<pinref part="GLCD" gate="1" pin="6"/>
+<junction x="132.08" y="-60.96"/>
+<junction x="147.32" y="-60.96"/>
+<label x="152.4" y="-60.96" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="294.64" y1="-22.86" x2="309.88" y2="-22.86" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="OSCO/CLKO/RP33/IOMF5/RC0"/>
+<junction x="294.64" y="-22.86"/>
+<junction x="309.88" y="-22.86"/>
+<label x="317.5" y="-22.86" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

@@ -1,17 +1,17 @@
-Microchip Technology Inc, v v4.60 (B)
+Microchip Technology Inc, v v5.00 (B)
 
 Tool Name:
-  /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../bin/elf-ld
+  /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../bin/elf-ld
 
 Command:
   -p32AK1216GC41064 \
   --mdfp=/root/.mchp_packs/Microchip/PIC32AK-GC_DFP/1.1.53/xc32 \
   -o \
   dist/default/production/analog_fe.X.production.elf \
-  -L/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/.. \
+  -L/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/.. \
   -L/root/.mchp_packs/Microchip/PIC32AK-GC_DFP/1.1.53/xc32/bin/../support/PIC32A/gld \
-  -L/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib \
-  -L/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../support/PIC32A/gld \
+  -L/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib \
+  -L/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../support/PIC32A/gld \
   build/default/production/_ext/60163342/plib_adc2.o \
   build/default/production/_ext/60165246/plib_sccp1.o \
   build/default/production/_ext/60165246/plib_sccp2.o \
@@ -62,81 +62,81 @@ Command:
 Optional library libp32AK1216GC41064.a not found
 Archive member included to satisfy reference by file (symbol)
 
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt_start_mode_normal.AAMeo)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt_start_mode_normal.AAMeo)
                               (__crt_start_mode_normal)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt0_extendedaa.o)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt0_extendedaa.o)
                               (__resetPRI)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(data_init_extendedaa.o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt0_extendedaa.o) (__data_init_extended)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(data_init_extendedaa.o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt0_extendedaa.o) (__data_init_extended)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
                               build/default/production/_ext/1360937237/main.o (__snprintf_cdnopuxX)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(strlen.GENERIC-32PIC-AK_o)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(strlen.GENERIC-32PIC-AK_o)
                               build/default/production/_ext/285195972/eadog.o (_strlen)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___fmt_d_needed)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_o.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___fmt_o_needed)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_s.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___fmt_s_needed)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_u.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___fmt_u_needed)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___fmt_x_needed)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___vsnprintf)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o) (___pad)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(memcpy.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o) (_memcpy)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(memset.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o) (_memset)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o) (___cvt_u)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vfprintf.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o) (___vfprintf)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___fmt_d_needed)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_o.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___fmt_o_needed)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_s.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___fmt_s_needed)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_u.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___fmt_u_needed)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___fmt_x_needed)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___vsnprintf)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o) (___pad)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(memcpy.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o) (_memcpy)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(memset.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o) (_memset)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o) (___cvt_u)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vfprintf.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o) (___vfprintf)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
                               build/default/production/_ext/285195972/OledDriver.o (__printf_s)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o) (__stdout)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o) (___stdio_write_unbuffered)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o) (___stdio_close_rw)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_int.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___pop_int_needed)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_ptr.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___pop_ptr_needed)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(atoi.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o) (_atoi)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o) (_tolower)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o) (_toupper)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__errno_location.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o) (___errno_val)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o) (___pop_float)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o) (___io_init_needed)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o) (_lseek)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o) (___init_stdio_needed)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_file_needed.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o) (___io_file_needed)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(syscall_ret.GENERIC-32PIC-AK_o)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o) (___syscall_ret)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o) (___extendsfdf2)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo) (__funpack)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(close.AAMeo)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o) (_close)
-/ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
-                              /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o) (___udivdi3)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o) (__stdout)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o) (___stdio_write_unbuffered)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o) (___stdio_close_rw)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_int.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___pop_int_needed)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_ptr.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o) (___pop_ptr_needed)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(atoi.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o) (_atoi)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o) (_tolower)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o) (_toupper)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__errno_location.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o) (___errno_val)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o) (___pop_float)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o) (___io_init_needed)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o) (_lseek)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o) (___init_stdio_needed)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_file_needed.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o) (___io_file_needed)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(syscall_ret.GENERIC-32PIC-AK_o)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o) (___syscall_ret)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o) (___extendsfdf2)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo) (__funpack)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(close.AAMeo)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o) (_close)
+/ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
+                              /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o) (___udivdi3)
 
 
-xc32-ld  v4.60 (B)
+xc32-ld  v5.00 (B)
 
 Default Code Model: Small
 Default Data Model: Small
@@ -148,8 +148,8 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text                     0x800480              0x1a54          0x1a54  (6740)
-/tmp/cczyLjqx.s.scn1      0x801ed4               0x514           0x514  (1300)
-/tmp/cci3JJKW.s.scn1      0x8023e8               0x300           0x300  (768)
+/tmp/cc198evQ.s.scn1      0x801ed4               0x514           0x514  (1300)
+/tmp/ccHcD9yy.s.scn1      0x8023e8               0x300           0x300  (768)
 .text.CLOCK_Initialize    0x8026e8               0x2bc           0x2bc  (700)
 .dinit                    0x8029a4               0x268           0x268  (616)
 .text.OledPutBmp          0x802c0c               0x24c           0x24c  (588)
@@ -191,7 +191,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.SPI3_Initialize     0x8048d4                0x44            0x44  (68)
 .text.T1_InterruptHandler  0x804918                0x44            0x44  (68)
 .text.timer_ms_tick       0x80495c                0x44            0x44  (68)
-/tmp/ccyfYEr4.s.scn1      0x8049a0                0x40            0x40  (64)
+/tmp/ccGdzDMS.s.scn1      0x8049a0                0x40            0x40  (64)
 .text.OledSetCursor       0x8049e0                0x40            0x40  (64)
 .text.OledPutString       0x804a20                0x40            0x40  (64)
 .text.SCCP1_TimerInitialize  0x804a60                0x3c            0x3c  (60)
@@ -206,7 +206,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.TMR1_Initialize     0x804c5c                0x30            0x30  (48)
 .text.wait_lcd_done       0x804c8c                0x30            0x30  (48)
 .text.OledClearBuffer     0x804cbc                0x30            0x30  (48)
-/tmp/cc3QCoIB.s.scn1      0x804cec                0x30            0x30  (48)
+/tmp/ccsRtBFt.s.scn1      0x804cec                0x30            0x30  (48)
 .text.OledInit            0x804d1c                0x2c            0x2c  (44)
 .text.lcd_move_xy         0x804d48                0x2c            0x2c  (44)
 .text.lcd_data            0x804d74                0x28            0x28  (40)
@@ -246,7 +246,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.TMR1_InterruptEnable  0x804fec                 0x8             0x8  (8)
 .text.write               0x804ff4                 0x8             0x8  (8)
 .text.TRAPS_halt_on_error  0x804ffc                 0x8             0x8  (8)
-/tmp/cc3QCoIB.s.scn2      0x805004                 0x8             0x8  (8)
+/tmp/ccsRtBFt.s.scn2      0x805004                 0x8             0x8  (8)
 .text.SCCP2_Callback_InterruptHandler  0x80500c                 0x8             0x8  (8)
 .text.CBDmaChannelHandler  0x805014                 0x4             0x4  (4)
 .text.SPI2DmaChannelHandler_State  0x805018                 0x4             0x4  (4)
@@ -935,7 +935,7 @@ Discarded input sections
                     0x0000         0x5c build/default/production/_ext/285195972/OledDriver.o
  .text.OledPutBuffer
                     0x0000         0x14 build/default/production/_ext/285195972/OledDriver.o
- /tmp/cc4i3AmD.s.scn1
+ /tmp/ccAbJI8r.s.scn1
                     0x0000         0x54 build/default/production/_ext/285195972/OledDriver.o
  .text.lcd_version
                     0x0000         0x30 build/default/production/_ext/285195972/OledDriver.o
@@ -1104,7 +1104,7 @@ Discarded input sections
  .debug_aranges
                     0x0000         0x40 build/default/production/_ext/1360937237/gfx.o
  .debug_ranges      0x0000         0x30 build/default/production/_ext/1360937237/gfx.o
- .debug_line        0x0000        0x58e build/default/production/_ext/1360937237/gfx.o
+ .debug_line        0x0000        0x592 build/default/production/_ext/1360937237/gfx.o
  .debug_str         0x0000         0x23 build/default/production/_ext/1360937237/gfx.o
  .comment           0x0000         0x62 build/default/production/_ext/1360937237/gfx.o
  __c30_info         0x0000          0x0 build/default/production/_ext/1360937237/gfx.o
@@ -1122,181 +1122,181 @@ Discarded input sections
                     0x0000          0x4 build/default/production/_ext/1360937237/is66.o
  .bss.sram_adc_write
                     0x0000          0x8 build/default/production/_ext/1360937237/is66.o
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt_start_mode_normal.AAMeo)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt_start_mode_normal.AAMeo)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt_start_mode_normal.AAMeo)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt0_extendedaa.o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt0_extendedaa.o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt0_extendedaa.o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(data_init_extendedaa.o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(data_init_extendedaa.o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(data_init_extendedaa.o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt_start_mode_normal.AAMeo)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt_start_mode_normal.AAMeo)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt_start_mode_normal.AAMeo)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt0_extendedaa.o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt0_extendedaa.o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt0_extendedaa.o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(data_init_extendedaa.o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(data_init_extendedaa.o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(data_init_extendedaa.o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
  .libc.__sio_snprintf_doux
-                    0x0000         0x1c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(strlen.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(strlen.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(strlen.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_o.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_o.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_o.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_s.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_s.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_s.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_u.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_u.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_u.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
+                    0x0000         0x1c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(strlen.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(strlen.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(strlen.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_o.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_o.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_o.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_s.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_s.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_s.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_u.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_u.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_u.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
  .libc.__string_out
-                    0x0000         0x4c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
+                    0x0000         0x4c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
  .libc.__dummy_fmt3
-                    0x0000          0x4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
+                    0x0000          0x4 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
  .libc.__dummy_fmts
-                    0x0000          0x4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(memcpy.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(memcpy.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(memcpy.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(memset.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(memset.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(memset.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vfprintf.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vfprintf.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vfprintf.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
+                    0x0000          0x4 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(memcpy.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(memcpy.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(memcpy.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(memset.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(memset.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(memset.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vfprintf.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vfprintf.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vfprintf.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
  .libc.__wrap_printf
-                    0x0000         0x20 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
+                    0x0000         0x20 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
  .libc.__sio_printf_s
-                    0x0000          0x4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
- .comment           0x0000         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
+                    0x0000          0x4 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
+ .comment           0x0000         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x0000          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
- .data              0x0000         0x74 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
+                    0x0000          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_printf_s.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
+ .data              0x0000         0x74 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
  .libc.__dummy0
-                    0x0000          0x4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
- .libc.__dummy      0x0000          0x8 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
+                    0x0000          0x4 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
+ .libc.__dummy      0x0000          0x8 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
  .libc.__init_stdout
-                    0x0000         0x18 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
+                    0x0000         0x18 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
  __xc_reference_data
-                    0x0000          0x4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
- .comment           0x0000         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
+                    0x0000          0x4 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
+ .comment           0x0000         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x0000          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
+                    0x0000          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(stdout.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
  .libc.__stdio_close
-                    0x0000         0x80 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
+                    0x0000         0x80 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
  .libc.__stdio_close_rw
-                    0x0000         0xb0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
- .comment           0x0000         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
+                    0x0000         0xb0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
+ .comment           0x0000         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x0000          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_int.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_int.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_int.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_ptr.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_ptr.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_ptr.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(atoi.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(atoi.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(atoi.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
+                    0x0000          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__stdio_close.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_int.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_int.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_int.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_ptr.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_ptr.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_ptr.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(atoi.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(atoi.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(atoi.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
  .libc.__tolower_l
-                    0x0000          0x4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
+                    0x0000          0x4 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
  .libc.__toupper_l
-                    0x0000          0x4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__errno_location.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__errno_location.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o)
+                    0x0000          0x4 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__errno_location.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__errno_location.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o)
  __xc_reference_data
-                    0x0000          0x8 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o)
- .comment           0x0000         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o)
+                    0x0000          0x8 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o)
+ .comment           0x0000         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x0000          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o)
- .libc.__lseek      0x0000         0x10 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o)
- .comment           0x0000         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o)
+                    0x0000          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_init_needed.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o)
+ .libc.__lseek      0x0000         0x10 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o)
+ .comment           0x0000         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x0000          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
- .libc.__dummy      0x0000          0x4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
+                    0x0000          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(lseek.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
+ .libc.__dummy      0x0000          0x4 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
  .libc.__init_stdio
-                    0x0000          0xc /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
- .comment           0x0000         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
+                    0x0000          0xc /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
+ .comment           0x0000         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x0000          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_file_needed.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_file_needed.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_file_needed.GENERIC-32PIC-AK_o)
+                    0x0000          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__init_stdio.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_file_needed.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_file_needed.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_file_needed.GENERIC-32PIC-AK_o)
  __xc_reference_data
-                    0x0000          0x4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_file_needed.GENERIC-32PIC-AK_o)
- .comment           0x0000         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_file_needed.GENERIC-32PIC-AK_o)
+                    0x0000          0x4 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_file_needed.GENERIC-32PIC-AK_o)
+ .comment           0x0000         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_file_needed.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x0000          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__io_file_needed.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(syscall_ret.GENERIC-32PIC-AK_o)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(syscall_ret.GENERIC-32PIC-AK_o)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(syscall_ret.GENERIC-32PIC-AK_o)
+                    0x0000          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__io_file_needed.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(syscall_ret.GENERIC-32PIC-AK_o)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(syscall_ret.GENERIC-32PIC-AK_o)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(syscall_ret.GENERIC-32PIC-AK_o)
  .libc.__syscall_ret
-                    0x0000         0x20 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(syscall_ret.GENERIC-32PIC-AK_o)
- .comment           0x0000         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(syscall_ret.GENERIC-32PIC-AK_o)
+                    0x0000         0x20 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(syscall_ret.GENERIC-32PIC-AK_o)
+ .comment           0x0000         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(syscall_ret.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x0000          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(syscall_ret.GENERIC-32PIC-AK_o)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(close.AAMeo)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(close.AAMeo)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(close.AAMeo)
- .libc              0x0000          0x4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(close.AAMeo)
- .comment           0x0000         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(close.AAMeo)
+                    0x0000          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(syscall_ret.GENERIC-32PIC-AK_o)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(close.AAMeo)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(close.AAMeo)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(close.AAMeo)
+ .libc              0x0000          0x4 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(close.AAMeo)
+ .comment           0x0000         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(close.AAMeo)
  __c30_signature
-                    0x0000          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(close.AAMeo)
- .text              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
- .data              0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
- .bss               0x0000          0x0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
+                    0x0000          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(close.AAMeo)
+ .text              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
+ .data              0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
+ .bss               0x0000          0x0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
  .libm.__divdi3
-                    0x0000         0x60 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
+                    0x0000         0x60 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
  .libm.__moddi3
-                    0x0000         0x44 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
+                    0x0000         0x44 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
 
 Memory Configuration
 
@@ -1371,7 +1371,7 @@ LOAD build/default/production/_ext/1360937237/timers.o
 LOAD build/default/production/_ext/1360937237/is66.o
                     0x0001                  __MPLAB_BUILD = 0x1
 LOAD p32AK1216GC41064
-LOAD /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libfx-elf.a
+LOAD /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libfx-elf.a
                     0x7f3000                  __FCP = 0x7f3000
                     0x7f3010                  __FICD = 0x7f3010
                     0x7f3020                  __FDEVOPT = 0x7f3020
@@ -1417,10 +1417,10 @@ LOAD /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libfx-elf.a
 
 .text             0x800480       0x1a54
  *(.init)
- .init            0x800480         0xac /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt0_extendedaa.o)
+ .init            0x800480         0xac /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt0_extendedaa.o)
                   0x800480                  __resetPRI
                   0x800480                  __reset
- .init            0x80052c         0x60 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(data_init_extendedaa.o)
+ .init            0x80052c         0x60 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(data_init_extendedaa.o)
                   0x80052c                  __data_init
                   0x80052c                  __data_init_extended
  *(.user_init)
@@ -1496,94 +1496,94 @@ LOAD /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libfx-elf.a
  *(.libdsp)
  *(.lib*)
  .libpic30_crt_start_mode
-                  0x800c5c          0x4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt_start_mode_normal.AAMeo)
+                  0x800c5c          0x4 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt_start_mode_normal.AAMeo)
                   0x800c5c                  __crt_start_mode_normal
                   0x800c5c                  __crt_start_mode
  .libc.__wrap_snprintf
-                  0x800c60         0x14 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
+                  0x800c60         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
                   0x800c60                  __snprintf_cdnopuxX
                   0x800c60                  __dsnprintf_cdnopuxX
- .libc.strlen     0x800c74         0x6c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(strlen.GENERIC-32PIC-AK_o)
+ .libc.strlen     0x800c74         0x6c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(strlen.GENERIC-32PIC-AK_o)
                   0x800c74                  _strlen
- .libc.__fmt_d    0x800ce0        0x12c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o)
+ .libc.__fmt_d    0x800ce0        0x12c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o)
                   0x800ce0                  ___fmt_d
                   0x800ce0                  ___fmt_d_needed
- .libc.__fmt_o    0x800e0c         0xc4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_o.GENERIC-32PIC-AK_o)
+ .libc.__fmt_o    0x800e0c         0xc4 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_o.GENERIC-32PIC-AK_o)
                   0x800e0c                  ___fmt_o
                   0x800e0c                  ___fmt_o_needed
- .libc.__fmt_s    0x800ed0         0x88 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_s.GENERIC-32PIC-AK_o)
+ .libc.__fmt_s    0x800ed0         0x88 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_s.GENERIC-32PIC-AK_o)
                   0x800ed0                  ___fmt_s
                   0x800ed0                  ___fmt_0_needed
                   0x800ed0                  ___fmt_s_needed
- .libc.__fmt_u    0x800f58         0x8c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_u.GENERIC-32PIC-AK_o)
+ .libc.__fmt_u    0x800f58         0x8c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_u.GENERIC-32PIC-AK_o)
                   0x800f58                  ___fmt_u
                   0x800f58                  ___fmt_u_needed
- .libc.__fmt_x    0x800fe4        0x1cc /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o)
+ .libc.__fmt_x    0x800fe4        0x1cc /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o)
                   0x800fe4                  ___fmt_x
                   0x800fe4                  ___fmt_x_needed
  .libc.__vsnprintf
-                  0x8011b0         0x7c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o)
+                  0x8011b0         0x7c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o)
                   0x8011b0                  ___vsnprintf
- .libc.__pad      0x80122c         0xc4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
+ .libc.__pad      0x80122c         0xc4 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
                   0x80122c                  ___pad
  .libc.__dummy_fmt4
-                  0x8012f0          0x4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
+                  0x8012f0          0x4 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
                   0x8012f0                  ___fmt_a
                   0x8012f0                  ___fmt_fp
  .libc.__fmt_state
-                  0x8012f4         0x58 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
+                  0x8012f4         0x58 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
                   0x8012f4                  ___fmt_state
  .libc.__printf_core
-                  0x80134c        0x500 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
+                  0x80134c        0x500 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
                   0x80134c                  ___printf_core
- .libc.memcpy     0x80184c         0x1c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(memcpy.GENERIC-32PIC-AK_o)
+ .libc.memcpy     0x80184c         0x1c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(memcpy.GENERIC-32PIC-AK_o)
                   0x80184c                  _memcpy
- .libc.memset     0x801868         0x18 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(memset.GENERIC-32PIC-AK_o)
+ .libc.memset     0x801868         0x18 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(memset.GENERIC-32PIC-AK_o)
                   0x801868                  _memset
- .libc.__cvt_u    0x801880        0x10c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o)
+ .libc.__cvt_u    0x801880        0x10c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o)
                   0x801880                  ___cvt_u
  .libc.__vfprintf
-                  0x80198c         0x2c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vfprintf.GENERIC-32PIC-AK_o)
+                  0x80198c         0x2c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vfprintf.GENERIC-32PIC-AK_o)
                   0x80198c                  ___vfprintf
  .libc.__fwrite_min
-                  0x8019b8          0x8 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
+                  0x8019b8          0x8 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
                   0x8019b8                  ___fwrite
                   0x8019b8                  ___stdio_write
                   0x8019b8                  ___stdio_write_unbuffered
- .libc.__out      0x8019c0         0x74 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
+ .libc.__out      0x8019c0         0x74 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
                   0x8019c0                  ___out
                   0x8019c0                  ___out_needed
  .libc.__pop_int
-                  0x801a34        0x168 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_int.GENERIC-32PIC-AK_o)
+                  0x801a34        0x168 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_int.GENERIC-32PIC-AK_o)
                   0x801a34                  ___pop_int_needed
                   0x801a34                  ___pop_int
  .libc.__pop_ptr
-                  0x801b9c         0xbc /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_ptr.GENERIC-32PIC-AK_o)
+                  0x801b9c         0xbc /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_ptr.GENERIC-32PIC-AK_o)
                   0x801b9c                  ___pop_ptr_needed
                   0x801b9c                  ___pop_ptr
- .libc.atoi       0x801c58         0x68 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(atoi.GENERIC-32PIC-AK_o)
+ .libc.atoi       0x801c58         0x68 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(atoi.GENERIC-32PIC-AK_o)
                   0x801c58                  _atoi
- .libc.tolower    0x801cc0         0x10 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
+ .libc.tolower    0x801cc0         0x10 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
                   0x801cc0                  _tolower
- .libc.toupper    0x801cd0         0x14 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
+ .libc.toupper    0x801cd0         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
                   0x801cd0                  _toupper
  .libc.__pop_float
-                  0x801ce4         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
+                  0x801ce4         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
                   0x801ce4                  ___pop_float_needed
                   0x801ce4                  ___pop_float
  .libm.extendsfdf2
-                  0x801d40         0x64 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+                  0x801d40         0x64 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
                   0x801d40                  ___extendsfdf2
- .libm.funpack    0x801da4         0x50 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .libm.funpack    0x801da4         0x50 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
                   0x801da4                  __funpack
  .libm.__udivmoddi3
-                  0x801df4         0xd0 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
+                  0x801df4         0xd0 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
                   0x801df4                  ___udivmoddi3
  .libm.__udivdi3
-                  0x801ec4          0x8 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
+                  0x801ec4          0x8 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
                   0x801ec4                  ___udivdi3
  .libm.__umoddi3
-                  0x801ecc          0x8 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
+                  0x801ecc          0x8 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
                   0x801ecc                  ___umoddi3
 
 usercode
@@ -1717,28 +1717,28 @@ __FWPUCB
  .comment           0x0930         0x62 build/default/production/_ext/1360937237/main.o
  .comment           0x0992         0x62 build/default/production/_ext/1360937237/timers.o
  .comment           0x09f4         0x62 build/default/production/_ext/1360937237/is66.o
- .comment           0x0a56         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
- .comment           0x0ab2         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(strlen.GENERIC-32PIC-AK_o)
- .comment           0x0b0e         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o)
- .comment           0x0b6a         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_o.GENERIC-32PIC-AK_o)
- .comment           0x0bc6         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_s.GENERIC-32PIC-AK_o)
- .comment           0x0c22         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_u.GENERIC-32PIC-AK_o)
- .comment           0x0c7e         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o)
- .comment           0x0cda         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o)
- .comment           0x0d36         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
- .comment           0x0d92         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(memcpy.GENERIC-32PIC-AK_o)
- .comment           0x0dee         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(memset.GENERIC-32PIC-AK_o)
- .comment           0x0e4a         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o)
- .comment           0x0ea6         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vfprintf.GENERIC-32PIC-AK_o)
- .comment           0x0f02         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
- .comment           0x0f5e         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_int.GENERIC-32PIC-AK_o)
- .comment           0x0fba         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_ptr.GENERIC-32PIC-AK_o)
- .comment           0x1016         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(atoi.GENERIC-32PIC-AK_o)
- .comment           0x1072         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
- .comment           0x10ce         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
- .comment           0x112a         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__errno_location.GENERIC-32PIC-AK_o)
- .comment           0x1186         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
- .comment           0x11e2         0x5c /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
+ .comment           0x0a56         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
+ .comment           0x0ab2         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(strlen.GENERIC-32PIC-AK_o)
+ .comment           0x0b0e         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o)
+ .comment           0x0b6a         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_o.GENERIC-32PIC-AK_o)
+ .comment           0x0bc6         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_s.GENERIC-32PIC-AK_o)
+ .comment           0x0c22         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_u.GENERIC-32PIC-AK_o)
+ .comment           0x0c7e         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o)
+ .comment           0x0cda         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o)
+ .comment           0x0d36         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
+ .comment           0x0d92         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(memcpy.GENERIC-32PIC-AK_o)
+ .comment           0x0dee         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(memset.GENERIC-32PIC-AK_o)
+ .comment           0x0e4a         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o)
+ .comment           0x0ea6         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vfprintf.GENERIC-32PIC-AK_o)
+ .comment           0x0f02         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
+ .comment           0x0f5e         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_int.GENERIC-32PIC-AK_o)
+ .comment           0x0fba         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_ptr.GENERIC-32PIC-AK_o)
+ .comment           0x1016         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(atoi.GENERIC-32PIC-AK_o)
+ .comment           0x1072         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
+ .comment           0x10ce         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
+ .comment           0x112a         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__errno_location.GENERIC-32PIC-AK_o)
+ .comment           0x1186         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
+ .comment           0x11e2         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
 
 .debug_info         0x0000      0x12e2b
  *(.debug_info)
@@ -1769,8 +1769,8 @@ __FWPUCB
  .debug_info        0x1103f        0x926 build/default/production/_ext/1360937237/main.o
  .debug_info        0x11965        0x47f build/default/production/_ext/1360937237/timers.o
  .debug_info        0x11de4        0xffb build/default/production/_ext/1360937237/is66.o
- .debug_info        0x12ddf         0x26 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_info        0x12e05         0x26 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_info        0x12ddf         0x26 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_info        0x12e05         0x26 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev       0x0000       0x28ae
@@ -1802,40 +1802,40 @@ __FWPUCB
  .debug_abbrev      0x23e4        0x194 build/default/production/_ext/1360937237/main.o
  .debug_abbrev      0x2578        0x140 build/default/production/_ext/1360937237/timers.o
  .debug_abbrev      0x26b8        0x1ce build/default/production/_ext/1360937237/is66.o
- .debug_abbrev      0x2886         0x14 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_abbrev      0x289a         0x14 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_abbrev      0x2886         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_abbrev      0x289a         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
 
-.debug_line         0x0000       0x5d79
+.debug_line         0x0000       0x5de9
  *(.debug_line)
- .debug_line        0x0000        0x285 build/default/production/_ext/60163342/plib_adc2.o
- .debug_line        0x0285        0x287 build/default/production/_ext/60165246/plib_sccp1.o
- .debug_line        0x050c        0x287 build/default/production/_ext/60165246/plib_sccp2.o
- .debug_line        0x0793        0x3dc build/default/production/_ext/60165520/plib_clk.o
- .debug_line        0x0b6f        0x993 build/default/production/_ext/60166502/plib_dma.o
- .debug_line        0x1502        0x2ad build/default/production/_ext/1865254177/plib_gpio.o
- .debug_line        0x17af        0x308 build/default/production/_ext/1865312166/plib_intc.o
- .debug_line        0x1ab7        0x7ad build/default/production/_ext/1868329136/plib_spi3_host.o
- .debug_line        0x2264        0x7ad build/default/production/_ext/1868329136/plib_spi2_host.o
- .debug_line        0x2a11        0x7ad build/default/production/_ext/1868329136/plib_spi1_host.o
- .debug_line        0x31be        0x358 build/default/production/_ext/60181895/plib_tmr1.o
- .debug_line        0x3516         0xb8 build/default/production/_ext/163028504/xc32_monitor.o
- .debug_line        0x35ce        0x25f build/default/production/_ext/1171490990/initialization.o
- .debug_line        0x382d        0x1d5 build/default/production/_ext/1171490990/interrupts.o
- .debug_line        0x3a02        0x253 build/default/production/_ext/1171490990/traps.o
- .debug_line        0x3c55         0x77 build/default/production/_ext/285195972/ChrFont0.o
- .debug_line        0x3ccc         0x76 build/default/production/_ext/285195972/FillPat.o
- .debug_line        0x3d42        0x4a8 build/default/production/_ext/285195972/OledDriver.o
- .debug_line        0x41ea         0x7f build/default/production/_ext/285195972/foo.o
- .debug_line        0x4269        0x3f8 build/default/production/_ext/285195972/eadog.o
- .debug_line        0x4661        0x916 build/default/production/_ext/285195972/OledGrph.o
- .debug_line        0x4f77        0x1d2 build/default/production/_ext/285195972/lcd_drv.o
- .debug_line        0x5149        0x297 build/default/production/_ext/285195972/OledChar.o
- .debug_line        0x53e0        0x2b7 build/default/production/_ext/285195972/dogm-graphic.o
- .debug_line        0x5697        0x27f build/default/production/_ext/1360937237/main.o
- .debug_line        0x5916        0x12d build/default/production/_ext/1360937237/timers.o
- .debug_line        0x5a43        0x288 build/default/production/_ext/1360937237/is66.o
- .debug_line        0x5ccb         0x5e /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_line        0x5d29         0x50 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_line        0x0000        0x289 build/default/production/_ext/60163342/plib_adc2.o
+ .debug_line        0x0289        0x28b build/default/production/_ext/60165246/plib_sccp1.o
+ .debug_line        0x0514        0x28b build/default/production/_ext/60165246/plib_sccp2.o
+ .debug_line        0x079f        0x3e0 build/default/production/_ext/60165520/plib_clk.o
+ .debug_line        0x0b7f        0x997 build/default/production/_ext/60166502/plib_dma.o
+ .debug_line        0x1516        0x2b1 build/default/production/_ext/1865254177/plib_gpio.o
+ .debug_line        0x17c7        0x30c build/default/production/_ext/1865312166/plib_intc.o
+ .debug_line        0x1ad3        0x7b1 build/default/production/_ext/1868329136/plib_spi3_host.o
+ .debug_line        0x2284        0x7b1 build/default/production/_ext/1868329136/plib_spi2_host.o
+ .debug_line        0x2a35        0x7b1 build/default/production/_ext/1868329136/plib_spi1_host.o
+ .debug_line        0x31e6        0x35c build/default/production/_ext/60181895/plib_tmr1.o
+ .debug_line        0x3542         0xbc build/default/production/_ext/163028504/xc32_monitor.o
+ .debug_line        0x35fe        0x25f build/default/production/_ext/1171490990/initialization.o
+ .debug_line        0x385d        0x1d5 build/default/production/_ext/1171490990/interrupts.o
+ .debug_line        0x3a32        0x257 build/default/production/_ext/1171490990/traps.o
+ .debug_line        0x3c89         0x7b build/default/production/_ext/285195972/ChrFont0.o
+ .debug_line        0x3d04         0x7a build/default/production/_ext/285195972/FillPat.o
+ .debug_line        0x3d7e        0x4b0 build/default/production/_ext/285195972/OledDriver.o
+ .debug_line        0x422e         0x83 build/default/production/_ext/285195972/foo.o
+ .debug_line        0x42b1        0x400 build/default/production/_ext/285195972/eadog.o
+ .debug_line        0x46b1        0x91a build/default/production/_ext/285195972/OledGrph.o
+ .debug_line        0x4fcb        0x1d6 build/default/production/_ext/285195972/lcd_drv.o
+ .debug_line        0x51a1        0x29b build/default/production/_ext/285195972/OledChar.o
+ .debug_line        0x543c        0x2bb build/default/production/_ext/285195972/dogm-graphic.o
+ .debug_line        0x56f7        0x287 build/default/production/_ext/1360937237/main.o
+ .debug_line        0x597e        0x131 build/default/production/_ext/1360937237/timers.o
+ .debug_line        0x5aaf        0x28c build/default/production/_ext/1360937237/is66.o
+ .debug_line        0x5d3b         0x5e /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_line        0x5d99         0x50 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
 
 .debug_frame        0x0000       0x156c
  *(.debug_frame)
@@ -1893,8 +1893,8 @@ __FWPUCB
  .debug_str         0x06ec         0xeb build/default/production/_ext/1360937237/main.o
  .debug_str         0x07d7          0xd build/default/production/_ext/1360937237/timers.o
  .debug_str         0x07e4         0x85 build/default/production/_ext/1360937237/is66.o
- .debug_str         0x0869         0x52 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_str         0x08bb         0x4f /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_str         0x0869         0x52 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_str         0x08bb         0x4f /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
 
 .debug_loc          0x0000       0x3b85
  *(.debug_loc)
@@ -2012,9 +2012,9 @@ __FWPUCB
  .debug_aranges
                     0x09f0         0x40 build/default/production/_ext/1360937237/is66.o
  .debug_aranges
-                    0x0a30         0x20 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+                    0x0a30         0x20 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
  .debug_aranges
-                    0x0a50         0x20 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+                    0x0a50         0x20 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
                     0x0000                  PC = 0x0
                     0x0000                  _PC = 0x0
                     0x0000                  _PCbits = 0x0
@@ -4836,9 +4836,9 @@ __FWPUCB
                     0x1848                  SPI3 = 0x1848
                     0x1848                  _SPI3 = 0x1848
 START GROUP
-LOAD /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a
-LOAD /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libm-elf.a
-LOAD /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a
+LOAD /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a
+LOAD /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libm-elf.a
+LOAD /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a
 END GROUP
 OUTPUT(dist/default/production/analog_fe.X.production.elf elf32-pic30)
 LOAD __ivt_0
@@ -4902,57 +4902,57 @@ __c30_signature
  __c30_signature
                     0x009c          0x6 build/default/production/_ext/1360937237/is66.o
  __c30_signature
-                    0x00a2          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt0_extendedaa.o)
+                    0x00a2          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(crt0_extendedaa.o)
  __c30_signature
-                    0x00a8          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(data_init_extendedaa.o)
+                    0x00a8          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(data_init_extendedaa.o)
  __c30_signature
-                    0x00ae          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
+                    0x00ae          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__sio_snprintf_doux.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x00b4          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(strlen.GENERIC-32PIC-AK_o)
+                    0x00b4          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(strlen.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x00ba          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o)
+                    0x00ba          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_d.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x00c0          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_o.GENERIC-32PIC-AK_o)
+                    0x00c0          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_o.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x00c6          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_s.GENERIC-32PIC-AK_o)
+                    0x00c6          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_s.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x00cc          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_u.GENERIC-32PIC-AK_o)
+                    0x00cc          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_u.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x00d2          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o)
+                    0x00d2          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__fmt_x.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x00d8          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o)
+                    0x00d8          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vsnprintf.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x00de          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
+                    0x00de          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x00e4          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(memcpy.GENERIC-32PIC-AK_o)
+                    0x00e4          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(memcpy.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x00ea          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(memset.GENERIC-32PIC-AK_o)
+                    0x00ea          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(memset.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x00f0          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o)
+                    0x00f0          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__cvt_u.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x00f6          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vfprintf.GENERIC-32PIC-AK_o)
+                    0x00f6          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__int_vfprintf.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x00fc          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
+                    0x00fc          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__out.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x0102          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_int.GENERIC-32PIC-AK_o)
+                    0x0102          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_int.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x0108          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_ptr.GENERIC-32PIC-AK_o)
+                    0x0108          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_ptr.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x010e          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(atoi.GENERIC-32PIC-AK_o)
+                    0x010e          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(atoi.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x0114          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
+                    0x0114          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(tolower.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x011a          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
+                    0x011a          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(toupper.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x0120          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__errno_location.GENERIC-32PIC-AK_o)
+                    0x0120          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__errno_location.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x0126          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
+                    0x0126          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
  __c30_signature
-                    0x012c          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+                    0x012c          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
  __c30_signature
-                    0x0132          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+                    0x0132          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
  __c30_signature
-                    0x0138          0x6 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
+                    0x0138          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
 
 .nbss.sccp1Obj      0x4000          0x8
  .nbss.sccp1Obj
@@ -5162,7 +5162,7 @@ __c30_signature
                     0x5238         0x20 build/default/production/_ext/1171490990/traps.o
 
 .data               0x5258         0x20
- .data              0x5258         0x20 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
+ .data              0x5258         0x20 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__printf_core.GENERIC-32PIC-AK_o)
 
 .bss.tickCount      0x5278         0x12
  .bss.tickCount
@@ -5196,7 +5196,7 @@ __c30_signature
                     0x52ae          0x4 build/default/production/_ext/285195972/OledDriver.o
 
 .bss                0x52b4          0x4
- .bss               0x52b4          0x4 /ldrv/microchip/xc32/v4.60/pic32a/bin/bin/../../lib/libc99-elf.a(__errno_location.GENERIC-32PIC-AK_o)
+ .bss               0x52b4          0x4 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__errno_location.GENERIC-32PIC-AK_o)
                     0x52b4                  ___errno_val
 
 __ivt_0           0x800004        0x47c
@@ -5358,15 +5358,15 @@ __ivt_0           0x800004        0x47c
 .config_WPUCA     0x7f3000          0x4
  .config_WPUCA    0x7f3000          0x4 build/default/production/_ext/1171490990/initialization.o
 
-/tmp/cczyLjqx.s.scn1
+/tmp/cc198evQ.s.scn1
                   0x801ed4        0x514
- /tmp/cczyLjqx.s.scn1
+ /tmp/cc198evQ.s.scn1
                   0x801ed4        0x514 build/default/production/_ext/285195972/foo.o
                   0x801ed4                  _foo_map
 
-/tmp/cci3JJKW.s.scn1
+/tmp/ccHcD9yy.s.scn1
                   0x8023e8        0x300
- /tmp/cci3JJKW.s.scn1
+ /tmp/ccHcD9yy.s.scn1
                   0x8023e8        0x300 build/default/production/_ext/285195972/ChrFont0.o
                   0x8023e8                  _rgbOledFont0
 
@@ -5613,9 +5613,9 @@ __ivt_0           0x800004        0x47c
                   0x80495c         0x44 build/default/production/_ext/1360937237/timers.o
                   0x80495c                  _timer_ms_tick
 
-/tmp/ccyfYEr4.s.scn1
+/tmp/ccGdzDMS.s.scn1
                   0x8049a0         0x40
- /tmp/ccyfYEr4.s.scn1
+ /tmp/ccGdzDMS.s.scn1
                   0x8049a0         0x40 build/default/production/_ext/285195972/FillPat.o
                   0x8049a0                  _rgbFillPat
 
@@ -5701,9 +5701,9 @@ __ivt_0           0x800004        0x47c
                   0x804cbc         0x30 build/default/production/_ext/285195972/OledDriver.o
                   0x804cbc                  _OledClearBuffer
 
-/tmp/cc3QCoIB.s.scn1
+/tmp/ccsRtBFt.s.scn1
                   0x804cec         0x30
- /tmp/cc3QCoIB.s.scn1
+ /tmp/ccsRtBFt.s.scn1
                   0x804cec         0x30 build/default/production/_ext/1360937237/main.o
 
 .text.OledInit    0x804d1c         0x2c
@@ -5934,9 +5934,9 @@ __ivt_0           0x800004        0x47c
                   0x804ffc          0x8 build/default/production/_ext/1171490990/traps.o
                   0x804ffc                  _TRAPS_halt_on_error
 
-/tmp/cc3QCoIB.s.scn2
+/tmp/ccsRtBFt.s.scn2
                   0x805004          0x8
- /tmp/cc3QCoIB.s.scn2
+ /tmp/ccsRtBFt.s.scn2
                   0x805004          0x8 build/default/production/_ext/1360937237/main.o
                   0x805004                  _iss_read_id
 

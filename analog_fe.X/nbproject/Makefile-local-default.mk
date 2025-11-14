@@ -20,17 +20,17 @@ PATH:=/ldrv/microchip/mplabx/v6.25/mplab_platform/platform/../mplab_ide/modules/
 # Path to java used to run MPLAB X when this makefile was created
 MP_JAVA_PATH="/ldrv/microchip/mplabx/v6.25/sys/java/zulu8.80.0.17-ca-fx-jre8.0.422-linux_x64/bin/"
 OS_CURRENT="$(shell uname -s)"
-MP_CC="/ldrv/microchip/xc32/v4.60/bin/xc32-gcc"
-MP_CPPC="/ldrv/microchip/xc32/v4.60/bin/xc32-g++"
+MP_CC="/ldrv/opt/microchip/xc32/v5.00/bin/xc32-gcc"
+MP_CPPC="/ldrv/opt/microchip/xc32/v5.00/bin/xc32-g++"
 # MP_BC is not defined
-MP_AS="/ldrv/microchip/xc32/v4.60/bin/xc32-as"
-MP_LD="/ldrv/microchip/xc32/v4.60/bin/xc32-ld"
-MP_AR="/ldrv/microchip/xc32/v4.60/bin/xc32-ar"
+MP_AS="/ldrv/opt/microchip/xc32/v5.00/bin/xc32-as"
+MP_LD="/ldrv/opt/microchip/xc32/v5.00/bin/xc32-ld"
+MP_AR="/ldrv/opt/microchip/xc32/v5.00/bin/xc32-ar"
 DEP_GEN=${MP_JAVA_PATH}java -jar "/ldrv/microchip/mplabx/v6.25/mplab_platform/platform/../mplab_ide/modules/../../bin/extractobjectdependencies.jar"
-MP_CC_DIR="/ldrv/microchip/xc32/v4.60/bin"
-MP_CPPC_DIR="/ldrv/microchip/xc32/v4.60/bin"
+MP_CC_DIR="/ldrv/opt/microchip/xc32/v5.00/bin"
+MP_CPPC_DIR="/ldrv/opt/microchip/xc32/v5.00/bin"
 # MP_BC_DIR is not defined
-MP_AS_DIR="/ldrv/microchip/xc32/v4.60/bin"
-MP_LD_DIR="/ldrv/microchip/xc32/v4.60/bin"
-MP_AR_DIR="/ldrv/microchip/xc32/v4.60/bin"
+MP_AS_DIR="/ldrv/opt/microchip/xc32/v5.00/bin"
+MP_LD_DIR="/ldrv/opt/microchip/xc32/v5.00/bin"
+MP_AR_DIR="/ldrv/opt/microchip/xc32/v5.00/bin"
 DFP_DIR=/root/.mchp_packs/Microchip/PIC32AK-GC_DFP/1.1.53
