@@ -13935,7 +13935,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="TP4" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
 <part name="TP5" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
 <part name="TP6" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
-<part name="TP9" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-20" package3d_urn="urn:adsk.eagle:package:27950/1"/>
+<part name="TEST_P0" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-20" package3d_urn="urn:adsk.eagle:package:27950/1"/>
 <part name="TP10" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-20" package3d_urn="urn:adsk.eagle:package:27950/1"/>
 <part name="TP11" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-20" package3d_urn="urn:adsk.eagle:package:27950/1"/>
 <part name="TP12" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-20" package3d_urn="urn:adsk.eagle:package:27950/1"/>
@@ -14286,7 +14286,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <attribute name="NAME" x="224.79" y="87.884" size="1.778" layer="95" rot="R180"/>
 <attribute name="TP_SIGNAL_NAME" x="220.98" y="90.17" size="1.778" layer="97" rot="R90"/>
 </instance>
-<instance part="TP9" gate="G$1" x="256.54" y="111.76" smashed="yes" rot="R180">
+<instance part="TEST_P0" gate="G$1" x="256.54" y="111.76" smashed="yes" rot="R180">
 <attribute name="NAME" x="257.556" y="118.11" size="1.778" layer="95" rot="R270"/>
 <attribute name="TP_SIGNAL_NAME" x="255.27" y="114.3" size="1.778" layer="97" rot="R180"/>
 </instance>
@@ -15205,7 +15205,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="256.54" y="109.22"/>
 <junction x="256.54" y="93.98"/>
 <label x="256.54" y="101.6" size="1.778" layer="95" rot="R90"/>
-<pinref part="TP9" gate="G$1" pin="TP"/>
+<pinref part="TEST_P0" gate="G$1" pin="TP"/>
 </segment>
 </net>
 <net name="VIN_PWR" class="1">

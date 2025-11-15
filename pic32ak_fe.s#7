@@ -14496,7 +14496,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="VSS15" gate="G$1" pin="VSS"/>
 <pinref part="TP11" gate="G$1" pin="TP"/>
 <junction x="233.68" y="76.2"/>
-<pinref part="TP11" gate="G$1" pin="TP"/>
 </segment>
 <segment>
 <pinref part="LED2" gate="G$1" pin="C"/>
@@ -14703,13 +14702,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </segment>
 </net>
 <net name="SDI2" class="0">
-<segment>
-<pinref part="U1" gate="A" pin="RP40/RC7"/>
-<wire x1="294.64" y1="-25.4" x2="309.88" y2="-25.4" width="0.1524" layer="91"/>
-<label x="317.5" y="-25.4" size="1.778" layer="95"/>
-<junction x="294.64" y="-25.4"/>
-<junction x="309.88" y="-25.4"/>
-</segment>
 <segment>
 <wire x1="60.96" y1="-33.02" x2="76.2" y2="-33.02" width="0.1524" layer="91"/>
 <pinref part="U1" gate="A" pin="RP28/SDI2/RB11"/>

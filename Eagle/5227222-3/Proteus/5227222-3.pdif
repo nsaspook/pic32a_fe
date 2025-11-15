@@ -1,0 +1,125 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "5227222-3"
+   (description "Body Features: Body Material Finish Passivated | Body Plating Material Nickel | Body Material Polyester, PBT | Configuration Features: Number of Coaxial Contacts 1 | PCB Mount Orientation Vertical | Number of Positions 1 | Contact Features: RF Connector Center Contact Material Phosphor Bronze | RF Connector Center Contact Plating Thickness 889 MICIN | RF Connector Center Contact Underplating Material Nickel | RF Connector Center Contact Plating Material Gold | Dimensions: Profile Height from PCB 1.375 INCH ")
+   (family "CON")
+   (package "52272223")
+   (attribute "Datasheet Link" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1307191_BNC_Connectors&DocType=Catalog%20Section&DocLang=English&PartCntxt=5227222-3&DocFormat=pdf")
+   (attribute "Geometry.Height" "35.57mm")
+   (attribute "Mouser Part Number" "571-5227222-3")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/TE-Connectivity/5227222-3?qs=GSeC4G%252BEqEW87SYw9J0%252BtA%3D%3D")
+   (attribute "Manufacturer_Name" "TE Connectivity")
+   (attribute "Manufacturer_Part_Number" "5227222-3")
+   (gate
+    (symbol "5227222-3")
+    (pin "1" 1 PS)
+    (pin "2" 2 PS)
+   )
+  )
+  (symbol "5227222-3"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 600 100) (pt 600 -200) (pt 200 -200) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "52272223"
+   (units MM)
+   (layer TASM
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -7.38 -8.56)
+      (pt 7.38 -8.56)
+      (pt 7.38 7.32)
+      (pt -7.38 7.32)
+      (pt -7.38 -8.56))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -7.38 7.32)
+      (pt 7.38 7.32)
+      (pt 7.38 -8.56)
+      (pt -7.38 -8.56)
+      (pt -7.38 7.32))))
+   (layer OCCA
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -8.38 9.35)
+      (pt 8.38 9.35)
+      (pt 8.38 -9.56)
+      (pt -8.38 -9.56)
+      (pt -8.38 9.35))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -0.1 8.3)
+      (arc (pt -0.100 8.300) (pt -0.100 8.250) (pt 0.000 8.350) (start 180.0) (sweep 180.0))
+      (pt 0 8.3)
+      (arc (pt 0.000 8.300) (pt -0.100 8.250) (pt 0.000 8.350) (start 180.0) (sweep .0))
+      (pt -0.1 8.3)
+      (arc (pt -0.100 8.300) (pt -0.100 8.250) (pt 0.000 8.350) (start 180.0) (sweep 180.0))
+      (pt 0 8.3))))
+   (leg 1 (pt 0.000 0.000) (padstack 0))
+   (leg 2 (pt -2.540 0.000) (padstack 0))
+   (leg MH1 (pt 5.080 5.080) (padstack 3))
+   (leg MH2 (pt -5.080 -5.080) (padstack 4))
+   (padstack 0
+    (hole 0.97)
+    (plated true)
+    (pad (layer TCOP) (round 1.509))
+    (pad (layer INNER) (round 1.509))
+    (pad (layer BCOP) (round 1.509))
+   )
+   (padstack 3
+    (hole 2.09)
+    (plated false)
+    (pad (layer TCOP) (round 1.045))
+    (pad (layer INNER) (round 1.045))
+    (pad (layer BCOP) (round 1.045))
+   )
+   (padstack 4
+    (hole 2.09)
+    (plated false)
+    (pad (layer TCOP) (round 1.045))
+    (pad (layer INNER) (round 1.045))
+    (pad (layer BCOP) (round 1.045))
+   )
+   (model "5227222-3.stp"
+    (euler 0 0 180)
+    (offset 0.14000000059604645 -0.019999999552965164 35.34000015258789)
+   )
+  )
+ )
+)

@@ -1,0 +1,66 @@
+(Japanese_coding: sjis)
+(function "ECS_578179"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2019-08-23-12:57:03)
+    (utime 2024-12-15-23:07:50)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "5227222-3")
+)
+
+
+(pinAssign "ECS_578179"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2019-08-23-12:57:03)
+    (utime 2024-12-15-23:07:50)
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_578179")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "5227222-3")
+)
+
+
+(part "5227222-3"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2019-08-23-12:57:03)
+    (utime 2024-12-15-23:07:50)
+    (packageRef "5227222-3")
+    (pinAssignRef "ECS_578179")
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "YES")
+    (property "refDesPrefix" "J")
+    (property "description" "Body Features: Body Material Finish Passivated | Body Plating Material Nickel | Body Material Polyester, PBT | Configuration Features: Number of Coaxial Contacts 1 | PCB Mount Orientation Vertical | Number of Positions 1 | Contact Features: RF Connector Center Contact Material Phosphor Bronze | RF Connector Center Contact Plating Thickness 889 MICIN | RF Connector Center Contact Underplating Material Nickel | RF Connector Center Contact Plating Material Gold | Dimensions: Profile Height from PCB 1.375 INCH ")
+    (property "Mouser_Part_Number" "571-5227222-3")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/TE-Connectivity/5227222-3?qs=GSeC4G%252BEqEW87SYw9J0%252BtA%3D%3D")
+    (property "Manufacturer_Name" "TE Connectivity")
+    (property "Manufacturer_Part_Number" "5227222-3")
+    (property "Datasheet_Link" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1307191_BNC_Connectors&DocType=Catalog%20Section&DocLang=English&PartCntxt=5227222-3&DocFormat=pdf")
+    (property "compAreaTopHeight" 35.57)
+)
+
+
