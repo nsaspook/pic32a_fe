@@ -110,6 +110,69 @@
 #define RLED_Get()               ((PORTD >> 0) & 0x1)
 #define RLED_PIN                 GPIO_PIN_RD0
 
+/*** Macros for ISO1_S pin ***/
+#define ISO1_S_Set()               (_LATD1 = 1U)
+#define ISO1_S_Clear()             (_LATD1 = 0U)
+#define ISO1_S_Toggle()            (_LATD1 ^= 1U)
+#define ISO1_S_OutputEnable()      (_TRISD1 = 0U)
+#define ISO1_S_InputEnable()       (_TRISD1 = 1U)
+#define ISO1_S_Get()               ((PORTD >> 1) & 0x1)
+#define ISO1_S_PIN                 GPIO_PIN_RD1
+
+/*** Macros for DLED pin ***/
+#define DLED_Set()               (_LATD2 = 1U)
+#define DLED_Clear()             (_LATD2 = 0U)
+#define DLED_Toggle()            (_LATD2 ^= 1U)
+#define DLED_OutputEnable()      (_TRISD2 = 0U)
+#define DLED_InputEnable()       (_TRISD2 = 1U)
+#define DLED_Get()               ((PORTD >> 2) & 0x1)
+#define DLED_PIN                 GPIO_PIN_RD2
+
+/*** Macros for ISO3_O pin ***/
+#define ISO3_O_Set()               (_LATD3 = 1U)
+#define ISO3_O_Clear()             (_LATD3 = 0U)
+#define ISO3_O_Toggle()            (_LATD3 ^= 1U)
+#define ISO3_O_OutputEnable()      (_TRISD3 = 0U)
+#define ISO3_O_InputEnable()       (_TRISD3 = 1U)
+#define ISO3_O_Get()               ((PORTD >> 3) & 0x1)
+#define ISO3_O_PIN                 GPIO_PIN_RD3
+
+/*** Macros for ISO2_S pin ***/
+#define ISO2_S_Set()               (_LATD5 = 1U)
+#define ISO2_S_Clear()             (_LATD5 = 0U)
+#define ISO2_S_Toggle()            (_LATD5 ^= 1U)
+#define ISO2_S_OutputEnable()      (_TRISD5 = 0U)
+#define ISO2_S_InputEnable()       (_TRISD5 = 1U)
+#define ISO2_S_Get()               ((PORTD >> 5) & 0x1)
+#define ISO2_S_PIN                 GPIO_PIN_RD5
+
+/*** Macros for SW1 pin ***/
+#define SW1_Set()               (_LATD6 = 1U)
+#define SW1_Clear()             (_LATD6 = 0U)
+#define SW1_Toggle()            (_LATD6 ^= 1U)
+#define SW1_OutputEnable()      (_TRISD6 = 0U)
+#define SW1_InputEnable()       (_TRISD6 = 1U)
+#define SW1_Get()               ((PORTD >> 6) & 0x1)
+#define SW1_PIN                 GPIO_PIN_RD6
+
+/*** Macros for SW2 pin ***/
+#define SW2_Set()               (_LATD7 = 1U)
+#define SW2_Clear()             (_LATD7 = 0U)
+#define SW2_Toggle()            (_LATD7 ^= 1U)
+#define SW2_OutputEnable()      (_TRISD7 = 0U)
+#define SW2_InputEnable()       (_TRISD7 = 1U)
+#define SW2_Get()               ((PORTD >> 7) & 0x1)
+#define SW2_PIN                 GPIO_PIN_RD7
+
+/*** Macros for ISO4_O pin ***/
+#define ISO4_O_Set()               (_LATD4 = 1U)
+#define ISO4_O_Clear()             (_LATD4 = 0U)
+#define ISO4_O_Toggle()            (_LATD4 ^= 1U)
+#define ISO4_O_OutputEnable()      (_TRISD4 = 0U)
+#define ISO4_O_InputEnable()       (_TRISD4 = 1U)
+#define ISO4_O_Get()               ((PORTD >> 4) & 0x1)
+#define ISO4_O_PIN                 GPIO_PIN_RD4
+
 /*** Macros for DIS_CS pin ***/
 #define DIS_CS_Set()               (_LATD11 = 1U)
 #define DIS_CS_Clear()             (_LATD11 = 0U)

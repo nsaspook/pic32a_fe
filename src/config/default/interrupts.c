@@ -77,6 +77,9 @@ void _SPI3TXInterrupt (void);
 void _SPI3EInterrupt (void);
 void _DMA0Interrupt (void);
 void _DMA1Interrupt (void);
+void _U1RXInterrupt (void);
+void _U1TXInterrupt (void);
+void _U1EInterrupt (void);
 void _DMA5Interrupt (void);
 
 // Section: System Interrupt Vector definitions
@@ -149,6 +152,21 @@ void __attribute__ (( interrupt, no_auto_psv)) _DMA0Interrupt (void)
 void __attribute__ (( interrupt, no_auto_psv)) _DMA1Interrupt (void)
 {
     DMA1_InterruptHandler();
+}
+
+void __attribute__ (( interrupt, no_auto_psv)) _U1RXInterrupt (void)
+{
+    U1RX_InterruptHandler();
+}
+
+void __attribute__ (( interrupt, no_auto_psv)) _U1TXInterrupt (void)
+{
+    U1TX_InterruptHandler();
+}
+
+void __attribute__ (( interrupt, no_auto_psv)) _U1EInterrupt (void)
+{
+    U1E_InterruptHandler();
 }
 
 void __attribute__ (( interrupt, no_auto_psv, context)) _DMA5Interrupt (void)

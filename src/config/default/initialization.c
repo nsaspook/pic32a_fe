@@ -281,15 +281,17 @@ void SYS_Initialize ( void* data )
 
 	GPIO_Initialize();
 
-    QEI1_Initialize();
 	SPI3_Initialize();
 
     DMA_Initialize();
 
-	ADC2_Initialize();
-
     CMP1_Initialize();
 
+
+    QEI1_Initialize();
+	UART1_Initialize();
+
+	ADC2_Initialize();
 
     TMR1_Initialize();
 
