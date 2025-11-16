@@ -56,6 +56,15 @@
 // Section: Data types and constants
 
 
+/*** Macros for IMU_CS pin ***/
+#define IMU_CS_Set()               (_LATB3 = 1U)
+#define IMU_CS_Clear()             (_LATB3 = 0U)
+#define IMU_CS_Toggle()            (_LATB3 ^= 1U)
+#define IMU_CS_OutputEnable()      (_TRISB3 = 0U)
+#define IMU_CS_InputEnable()       (_TRISB3 = 1U)
+#define IMU_CS_Get()               ((PORTB >> 3) & 0x1)
+#define IMU_CS_PIN                 GPIO_PIN_RB3
+
 /*** Macros for SRAM_CS pin ***/
 #define SRAM_CS_Set()               (_LATB4 = 1U)
 #define SRAM_CS_Clear()             (_LATB4 = 0U)

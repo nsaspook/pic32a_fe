@@ -288,15 +288,15 @@ void SYS_Initialize ( void* data )
 
 	ADC2_Initialize();
 
-    TMR1_Initialize();
-
-
     CMP1_Initialize();
 
 
-	SPI2_Initialize();
+    TMR1_Initialize();
+
 
 OPA2_Initialize();
+	SPI2_Initialize();
+
 	SPI1_Initialize();
 
     SCCP2_TimerInitialize();

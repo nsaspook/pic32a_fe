@@ -1070,7 +1070,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '4079'
+            value: '4071'
           type: Dynamic
         type: Values
       type: Hex
@@ -1081,7 +1081,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '16'
+            value: '24'
           type: Dynamic
         type: Values
       type: Hex
@@ -1092,7 +1092,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '2064'
+            value: '2072'
           type: Dynamic
         type: Values
       type: Hex
@@ -3046,7 +3046,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '1007'
+            value: '229'
           type: Dynamic
         type: Values
       type: Hex
@@ -4273,6 +4273,345 @@ data:
     BSP_PIN_45_PU:
       attributes:
         id: BSP_PIN_45_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    USE_PPS_INPUT_8:
+      attributes:
+        id: USE_PPS_INPUT_8
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_INPUT_PIN_8:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_PIN_8
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '28'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_INPUT_FUNCTION_8:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_FUNCTION_8
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '28'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_21_MODE:
+      attributes:
+        id: BSP_PIN_21_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    USE_PPS_OUTPUT_5:
+      attributes:
+        id: USE_PPS_OUTPUT_5
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_FUNCTION_5:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_5
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '22'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_PIN_5:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_5
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '28'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_21_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_21_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SCK3
+          type: User
+        type: Values
+      type: String
+    USE_PPS_INPUT_9:
+      attributes:
+        id: USE_PPS_INPUT_9
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_INPUT_PIN_9:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_PIN_9
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '33'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_INPUT_FUNCTION_9:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_FUNCTION_9
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '27'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_23_MODE:
+      attributes:
+        id: BSP_PIN_23_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_23_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_23_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SDI3
+          type: User
+        type: Values
+      type: String
+    USE_PPS_OUTPUT_6:
+      attributes:
+        id: USE_PPS_OUTPUT_6
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_PIN_6:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_6
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '34'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_FUNCTION_6:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_6
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '44'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_24_MODE:
+      attributes:
+        id: BSP_PIN_24_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_24_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_24_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SDO3
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_27_MODE:
+      attributes:
+        id: BSP_PIN_27_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_27_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_27_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_27_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_27_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: IMU_CS
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_27_DIR:
+      attributes:
+        id: BSP_PIN_27_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_27_LAT:
+      attributes:
+        id: BSP_PIN_27_LAT
+      children:
+      - children:
+        - attributes:
+            value: High
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_27_PU:
+      attributes:
+        id: BSP_PIN_27_PU
       children:
       - children:
         - attributes:
