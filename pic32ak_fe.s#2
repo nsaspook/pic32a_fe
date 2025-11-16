@@ -14243,6 +14243,10 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <part name="VDD12" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VDD" device=""/>
 <part name="VSS29" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
 <part name="AC1" library="SCA3300-D01-1" deviceset="SCA3300-D01-1" device=""/>
+<part name="C21" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uf"/>
+<part name="C22" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uf"/>
+<part name="VSS30" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
+<part name="VSS31" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -14665,6 +14669,20 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <instance part="AC1" gate="G$1" x="279.4" y="-91.44" smashed="yes">
 <attribute name="NAME" x="311.15" y="-83.82" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="311.15" y="-86.36" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="C21" gate="G$1" x="350.52" y="-101.6" smashed="yes" rot="MR0">
+<attribute name="NAME" x="349.504" y="-100.965" size="1.778" layer="95" rot="MR0"/>
+<attribute name="VALUE" x="349.504" y="-105.791" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="C22" gate="G$1" x="246.38" y="-96.52" smashed="yes" rot="MR0">
+<attribute name="NAME" x="245.364" y="-95.885" size="1.778" layer="95" rot="MR0"/>
+<attribute name="VALUE" x="245.364" y="-100.711" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="VSS30" gate="G$1" x="350.52" y="-109.22" smashed="yes">
+<attribute name="VALUE" x="358.14" y="-109.22" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="VSS31" gate="G$1" x="246.38" y="-104.14" smashed="yes">
+<attribute name="VALUE" x="254" y="-104.14" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -15183,6 +15201,28 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <junction x="314.96" y="-101.6"/>
 <junction x="330.2" y="-101.6"/>
 <label x="332.74" y="-101.6" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="314.96" y1="-104.14" x2="330.2" y2="-104.14" width="0.1524" layer="91"/>
+<pinref part="AC1" gate="G$1" pin="EMC_GND"/>
+<junction x="314.96" y="-104.14"/>
+<junction x="330.2" y="-104.14"/>
+<label x="332.74" y="-104.14" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="264.16" y1="-96.52" x2="279.4" y2="-96.52" width="0.1524" layer="91"/>
+<pinref part="AC1" gate="G$1" pin="REERVED"/>
+<junction x="279.4" y="-96.52"/>
+<junction x="264.16" y="-96.52"/>
+<label x="256.54" y="-96.52" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="C21" gate="G$1" pin="2"/>
+<pinref part="VSS30" gate="G$1" pin="VSS"/>
+</segment>
+<segment>
+<pinref part="C22" gate="G$1" pin="2"/>
+<pinref part="VSS31" gate="G$1" pin="VSS"/>
 </segment>
 </net>
 <net name="SDI1" class="0">
@@ -15764,6 +15804,13 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <junction x="76.2" y="-20.32"/>
 <label x="48.26" y="-20.32" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="279.4" y1="-101.6" x2="264.16" y2="-101.6" width="0.1524" layer="91"/>
+<pinref part="AC1" gate="G$1" pin="CSB"/>
+<junction x="279.4" y="-101.6"/>
+<junction x="264.16" y="-101.6"/>
+<label x="254" y="-101.6" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="SCK3" class="0">
 <segment>
@@ -15794,6 +15841,7 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <pinref part="AC1" gate="G$1" pin="MISO"/>
 <junction x="279.4" y="-104.14"/>
 <junction x="264.16" y="-104.14"/>
+<label x="256.54" y="-104.14" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SDO3" class="0">
@@ -15809,6 +15857,25 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <pinref part="AC1" gate="G$1" pin="MOSI"/>
 <junction x="314.96" y="-91.44"/>
 <junction x="330.2" y="-91.44"/>
+<label x="332.74" y="-91.44" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="AC1" gate="G$1" pin="A_EXTC"/>
+<wire x1="279.4" y1="-93.98" x2="246.38" y2="-93.98" width="0.1524" layer="91"/>
+<junction x="279.4" y="-93.98"/>
+<junction x="246.38" y="-93.98"/>
+<pinref part="C22" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="AC1" gate="G$1" pin="D_EXTC"/>
+<wire x1="314.96" y1="-99.06" x2="350.52" y2="-99.06" width="0.1524" layer="91"/>
+<junction x="314.96" y="-99.06"/>
+<junction x="350.52" y="-99.06"/>
+<pinref part="C21" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>
