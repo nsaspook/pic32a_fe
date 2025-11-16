@@ -281,6 +281,7 @@ void SYS_Initialize ( void* data )
 
 	GPIO_Initialize();
 
+    QEI1_Initialize();
 	SPI3_Initialize();
 
     DMA_Initialize();

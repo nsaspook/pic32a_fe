@@ -2,6 +2,7 @@ build/default/production/_ext/1171490990/interrupts.o:  \
  ../src/config/default/interrupts.c  \
 ../src/config/default/interrupts.h  \
  ../src/config/default/definitions.h  \
+ ../src/config/default/peripheral/qei/plib_qei1.h  \
  ../src/config/default/peripheral/spi/spi_host/plib_spi3_host.h  \
  ../src/config/default/device.h  \
  ../src/config/default/toolchain_specifics.h  \

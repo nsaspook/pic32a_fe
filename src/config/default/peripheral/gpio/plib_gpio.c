@@ -71,7 +71,7 @@ void GPIO_Initialize ( void )
     ANSELB= 0x3efU; /* Digital Mode Enable */
      /*PORTC Initialization */
     LATC = 0x5U; /* Initial Latch Value */
-    CNPUC= 0x105U; /* Pull-Up Enable */
+    CNPUC= 0xd1dU; /* Pull-Up Enable */
     TRISC = 0xffaU; /* Direction Control */
      /*PORTD Initialization */
     LATD = 0x800U; /* Initial Latch Value */
@@ -86,6 +86,10 @@ void GPIO_Initialize ( void )
     RPINR10bits.SDI1R = 41;
     RPINR11bits.SCK2R = 27;
     RPINR11bits.SDI2R = 28;
+    RPINR7bits.QEIA1R = 43;
+    RPINR7bits.QEIB1R = 44;
+    RPINR7bits.QEIHOME1R = 36;
+    RPINR7bits.QEIINDX1R = 37;
 
  /* PPS Output Mapping */
     RPOR15bits.RP61R = 14;

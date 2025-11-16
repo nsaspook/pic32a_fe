@@ -100,12 +100,12 @@ void SPI3_Initialize ( void )
     IFS2bits.SPI3TXIF = 0U;
 
     /* BAUD Rate register Setup */
-    SPI3BRG = 0x0UL;
+    SPI3BRG = 0xbUL;
 
     SPI3CON1 = (SPI3CON1_MSTEN_HOST_MODE
             |SPI3CON1_CKP_IDLE_LOW_ACTIVE_HIGH
             |SPI3CON1_CKE_ACTIVE_TO_IDLE
-            |SPI3CON1_MCLKEN_CLOCK_GEN_9
+            |SPI3CON1_MCLKEN_UPB_CLOCK
             |_SPI3CON1_ENHBUF_MASK);
 
     /* Initialize global variables */

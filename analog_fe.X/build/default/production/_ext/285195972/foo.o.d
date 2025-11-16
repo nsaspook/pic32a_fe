@@ -2,6 +2,7 @@ build/default/production/_ext/285195972/foo.o:  \
 ../src/lcd_drv/foo.c  \
  ../src/lcd_drv/lcd_drv.h  \
 ../src/config/default/definitions.h  \
+ ../src/config/default/peripheral/qei/plib_qei1.h  \
  ../src/config/default/peripheral/spi/spi_host/plib_spi3_host.h  \
  ../src/config/default/device.h  \
  ../src/config/default/toolchain_specifics.h  \

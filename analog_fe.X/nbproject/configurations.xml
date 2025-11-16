@@ -37,6 +37,9 @@
               <itemPath>../src/config/default/peripheral/opa/plib_opa_common.h</itemPath>
               <itemPath>../src/config/default/peripheral/opa/plib_opa2.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="qei" displayName="qei" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/qei/plib_qei1.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="spi" displayName="spi" projectFiles="true">
               <logicalFolder name="spi_host" displayName="spi_host" projectFiles="true">
                 <itemPath>../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h</itemPath>
@@ -69,16 +72,17 @@
                      displayName="analog_fe_default"
                      projectFiles="true">
         <logicalFolder name="components" displayName="components" projectFiles="true">
-          <itemPath>analog_fe_default/components/amp2.yml</itemPath>
           <itemPath>analog_fe_default/components/spi1.yml</itemPath>
-          <itemPath>analog_fe_default/components/spi2.yml</itemPath>
           <itemPath>analog_fe_default/components/spi3.yml</itemPath>
-          <itemPath>analog_fe_default/components/sccp2.yml</itemPath>
           <itemPath>analog_fe_default/components/sccp1.yml</itemPath>
-          <itemPath>analog_fe_default/components/timer1.yml</itemPath>
-          <itemPath>analog_fe_default/components/core.yml</itemPath>
           <itemPath>analog_fe_default/components/adc2.yml</itemPath>
           <itemPath>analog_fe_default/components/dfp.yml</itemPath>
+          <itemPath>analog_fe_default/components/amp2.yml</itemPath>
+          <itemPath>analog_fe_default/components/spi2.yml</itemPath>
+          <itemPath>analog_fe_default/components/sccp2.yml</itemPath>
+          <itemPath>analog_fe_default/components/timer1.yml</itemPath>
+          <itemPath>analog_fe_default/components/core.yml</itemPath>
+          <itemPath>analog_fe_default/components/qei1.yml</itemPath>
           <itemPath>analog_fe_default/components/cmp_dac1.yml</itemPath>
         </logicalFolder>
         <itemPath>analog_fe_default/mcc-config.mc4</itemPath>
@@ -123,6 +127,9 @@
             </logicalFolder>
             <logicalFolder name="opa" displayName="opa" projectFiles="true">
               <itemPath>../src/config/default/peripheral/opa/plib_opa2.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="qei" displayName="qei" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/qei/plib_qei1.c</itemPath>
             </logicalFolder>
             <logicalFolder name="spi" displayName="spi" projectFiles="true">
               <logicalFolder name="spi_host" displayName="spi_host" projectFiles="true">
