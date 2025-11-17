@@ -92,6 +92,15 @@
 #define DIS_MODE_Get()               ((PORTC >> 2) & 0x1)
 #define DIS_MODE_PIN                 GPIO_PIN_RC2
 
+/*** Macros for TXDE pin ***/
+#define TXDE_Set()               (_LATC5 = 1U)
+#define TXDE_Clear()             (_LATC5 = 0U)
+#define TXDE_Toggle()            (_LATC5 ^= 1U)
+#define TXDE_OutputEnable()      (_TRISC5 = 0U)
+#define TXDE_InputEnable()       (_TRISC5 = 1U)
+#define TXDE_Get()               ((PORTC >> 5) & 0x1)
+#define TXDE_PIN                 GPIO_PIN_RC5
+
 /*** Macros for TP0 pin ***/
 #define TP0_Set()               (_LATD9 = 1U)
 #define TP0_Clear()             (_LATD9 = 0U)
