@@ -69,3 +69,15 @@ void delay_us(uint32_t us)
 	};
 	SCCP1_TimerStop();
 }
+
+void backlight_on(void)
+{
+	if (DIS_MODE_Get() == 1)
+		DIS_MODE_Clear();
+}
+
+void backlight_off(void)
+{
+	if (DIS_MODE_Get() == 0)
+		DIS_MODE_Set();
+}

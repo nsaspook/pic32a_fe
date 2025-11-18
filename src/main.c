@@ -62,6 +62,11 @@ int main(void)
 			eaDogM_WriteStringAtPos(1, 0, buffer);
 			OledUpdate();
 			StartTimer(TMR_TEST, 2);
+			if (adc_result > 1024) {
+				backlight_on();
+			} else {
+				backlight_off();
+			}
 		}
 	}
 

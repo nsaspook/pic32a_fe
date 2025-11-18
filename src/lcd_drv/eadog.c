@@ -126,7 +126,7 @@ void init_display(void)
  */
 static void send_lcd_data(const uint8_t data)
 {
-	RS_SetHigh();
+//	RS_SetHigh();
 	CSB_SetLow();
 	wdtdelay(IS_DELAYSHORT);
 	SPI1_Exchange8bit(data);
@@ -137,12 +137,12 @@ static void send_lcd_data(const uint8_t data)
  */
 static void send_lcd_cmd(const uint8_t cmd)
 {
-	RS_SetLow();
+//	RS_SetLow();
 	CSB_SetLow();
 	wdtdelay(IS_DELAYMED);
 	SPI1_Exchange8bit(cmd);
 	wdtdelay(IS_DELAYMED);
-	RS_SetHigh();
+//	RS_SetHigh();
 }
 
 /*
@@ -150,11 +150,11 @@ static void send_lcd_cmd(const uint8_t cmd)
  */
 static void send_lcd_cmd_long(const uint8_t cmd)
 {
-	RS_SetLow();
+//	RS_SetLow();
 	CSB_SetLow();
 	SPI1_Exchange8bit(cmd);
 	wdtdelay(IS_DELAYLONG);
-	RS_SetHigh();
+//	RS_SetHigh();
 }
 
 void eaDogM_WriteChr(const int8_t value)
@@ -187,7 +187,7 @@ void eaDogM_WriteString(char *strPtr)
 {
 	uint8_t i = strlen(strPtr);
 
-	RS_SetHigh();
+//	RS_SetHigh();
 	CSB_SetLow();
 
 	if (i > max_strlen) {

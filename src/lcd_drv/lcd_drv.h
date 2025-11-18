@@ -63,7 +63,7 @@ extern "C" {
 #define	BANK1		0xA000A000	// bank 1 frame buffer memory address
 #define	BANK2		0x80030000	// bank 2 frame buffer memory address
 
-#define LCD_DRIVER	"V1.004" 
+#define LCD_DRIVER	"V1.005" 
 #define LCD_ALIAS	"EADOG LCD"
 
 	typedef enum {
@@ -76,6 +76,8 @@ extern "C" {
 
 	void init_lcd_drv(LCD_DVR_STATE init_type);
 	void lcd_version(void);
+	void backlight_on(void);
+	void backlight_off(void);
 
 	extern const uint8_t foo_map[]; // image in flash array
 
