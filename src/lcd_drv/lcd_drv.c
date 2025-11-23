@@ -18,7 +18,7 @@ static volatile bool time_done = false;
 
 static void delay_us(uint32_t);
 
-static uint32_t delay_freq = 0;
+//static uint32_t delay_freq = 0;
 
 void init_lcd_drv(LCD_DVR_STATE init_type)
 {

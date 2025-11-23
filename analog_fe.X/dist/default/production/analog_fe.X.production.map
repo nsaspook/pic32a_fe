@@ -54,6 +54,7 @@ Command:
   --no-force-link \
   --smart-io \
   -Map=dist/default/production/analog_fe.X.production.map \
+  --report-mem \
   --memorysummary \
   dist/default/production/memoryfile.xml \
   -start-group \
@@ -152,8 +153,8 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text                     0x800480              0x1bb0          0x1bb0  (7088)
-/tmp/ccblV2kk.s.scn1      0x802030               0x514           0x514  (1300)
-/tmp/ccqIslyg.s.scn1      0x802544               0x300           0x300  (768)
+/tmp/cclOZHqF.s.scn1      0x802030               0x514           0x514  (1300)
+/tmp/cc4sx8Pf.s.scn1      0x802544               0x300           0x300  (768)
 .text.CLOCK_Initialize    0x802844               0x2d4           0x2d4  (724)
 .dinit                    0x802b18               0x28c           0x28c  (652)
 .text.OledPutBmp          0x802da4               0x244           0x244  (580)
@@ -200,7 +201,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.SYS_Initialize      0x80513c                0x48            0x48  (72)
 .text.CMP1_Initialize     0x805184                0x40            0x40  (64)
 .text.T1_InterruptHandler  0x8051c4                0x40            0x40  (64)
-/tmp/cclw1d0h.s.scn1      0x805204                0x40            0x40  (64)
+/tmp/ccyDs8Sc.s.scn1      0x805204                0x40            0x40  (64)
 .text.OledPutString       0x805244                0x40            0x40  (64)
 .text.SCCP1_TimerInitialize  0x805284                0x3c            0x3c  (60)
 .text.QEI1_Initialize     0x8052c0                0x3c            0x3c  (60)
@@ -214,7 +215,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.wait_lcd_done       0x805474                0x30            0x30  (48)
 .text.OledClearBuffer     0x8054a4                0x30            0x30  (48)
 .text.delay_us.part.0     0x8054d4                0x30            0x30  (48)
-/tmp/ccLQqi1s.s.scn1      0x805504                0x30            0x30  (48)
+/tmp/ccwRZap0.s.scn1      0x805504                0x30            0x30  (48)
 .text.OledInit            0x805534                0x28            0x28  (40)
 .text.lcd_data            0x80555c                0x24            0x24  (36)
 .text.TimerDone           0x805580                0x24            0x24  (36)
@@ -252,7 +253,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.TMR1_InterruptEnable  0x805790                 0x8             0x8  (8)
 .text.write               0x805798                 0x8             0x8  (8)
 .text.TRAPS_halt_on_error  0x8057a0                 0x8             0x8  (8)
-/tmp/ccLQqi1s.s.scn2      0x8057a8                 0x8             0x8  (8)
+/tmp/ccwRZap0.s.scn2      0x8057a8                 0x8             0x8  (8)
 .text.CBDmaChannelHandler  0x8057b0                 0x4             0x4  (4)
 .text.SPI2DmaChannelHandler_State  0x8057b4                 0x4             0x4  (4)
 .text.SCCP2_Callback_InterruptHandler  0x8057b8                 0x4             0x4  (4)
@@ -1013,7 +1014,7 @@ Discarded input sections
                     0x0000         0x60 build/default/production/_ext/285195972/OledDriver.o
  .text.OledPutBuffer
                     0x0000         0x10 build/default/production/_ext/285195972/OledDriver.o
- /tmp/ccRigIUP.s.scn1
+ /tmp/ccnMg33E.s.scn1
                     0x0000         0x54 build/default/production/_ext/285195972/OledDriver.o
  .text.lcd_version
                     0x0000         0x30 build/default/production/_ext/285195972/OledDriver.o
@@ -1849,7 +1850,7 @@ __FWPUCB
  .comment           0x130e         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-elf.a(__pop_float.GENERIC-32PIC-AK_o)
  .comment           0x136a         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
 
-.debug_info         0x0000      0x16aab
+.debug_info         0x0000      0x16a97
  *(.debug_info)
  .debug_info        0x0000       0x1194 build/default/production/_ext/60163342/plib_adc2.o
  .debug_info        0x1194        0x7f4 build/default/production/_ext/60165246/plib_sccp1.o
@@ -1876,17 +1877,17 @@ __FWPUCB
  .debug_info        0x110cb        0x23b build/default/production/_ext/285195972/foo.o
  .debug_info        0x11306       0x103b build/default/production/_ext/285195972/eadog.o
  .debug_info        0x12341        0xe78 build/default/production/_ext/285195972/OledGrph.o
- .debug_info        0x131b9        0x83c build/default/production/_ext/285195972/lcd_drv.o
- .debug_info        0x139f5        0x626 build/default/production/_ext/285195972/OledChar.o
- .debug_info        0x1401b        0xbb2 build/default/production/_ext/285195972/dogm-graphic.o
- .debug_info        0x14bcd        0x976 build/default/production/_ext/1360937237/main.o
- .debug_info        0x15543        0x52f build/default/production/_ext/1360937237/timers.o
- .debug_info        0x15a72        0xfed build/default/production/_ext/1360937237/is66.o
- .debug_info        0x16a5f         0x26 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_info        0x16a85         0x26 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_info        0x131b9        0x828 build/default/production/_ext/285195972/lcd_drv.o
+ .debug_info        0x139e1        0x626 build/default/production/_ext/285195972/OledChar.o
+ .debug_info        0x14007        0xbb2 build/default/production/_ext/285195972/dogm-graphic.o
+ .debug_info        0x14bb9        0x976 build/default/production/_ext/1360937237/main.o
+ .debug_info        0x1552f        0x52f build/default/production/_ext/1360937237/timers.o
+ .debug_info        0x15a5e        0xfed build/default/production/_ext/1360937237/is66.o
+ .debug_info        0x16a4b         0x26 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_info        0x16a71         0x26 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev       0x0000       0x347f
+.debug_abbrev       0x0000       0x346e
  *(.debug_abbrev)
  .debug_abbrev      0x0000        0x1fd build/default/production/_ext/60163342/plib_adc2.o
  .debug_abbrev      0x01fd        0x17d build/default/production/_ext/60165246/plib_sccp1.o
@@ -1913,14 +1914,14 @@ __FWPUCB
  .debug_abbrev      0x2360         0x6c build/default/production/_ext/285195972/foo.o
  .debug_abbrev      0x23cc        0x269 build/default/production/_ext/285195972/eadog.o
  .debug_abbrev      0x2635        0x30a build/default/production/_ext/285195972/OledGrph.o
- .debug_abbrev      0x293f        0x1e6 build/default/production/_ext/285195972/lcd_drv.o
- .debug_abbrev      0x2b25        0x1a4 build/default/production/_ext/285195972/OledChar.o
- .debug_abbrev      0x2cc9        0x28e build/default/production/_ext/285195972/dogm-graphic.o
- .debug_abbrev      0x2f57        0x194 build/default/production/_ext/1360937237/main.o
- .debug_abbrev      0x30eb        0x191 build/default/production/_ext/1360937237/timers.o
- .debug_abbrev      0x327c        0x1db build/default/production/_ext/1360937237/is66.o
- .debug_abbrev      0x3457         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_abbrev      0x346b         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_abbrev      0x293f        0x1d5 build/default/production/_ext/285195972/lcd_drv.o
+ .debug_abbrev      0x2b14        0x1a4 build/default/production/_ext/285195972/OledChar.o
+ .debug_abbrev      0x2cb8        0x28e build/default/production/_ext/285195972/dogm-graphic.o
+ .debug_abbrev      0x2f46        0x194 build/default/production/_ext/1360937237/main.o
+ .debug_abbrev      0x30da        0x191 build/default/production/_ext/1360937237/timers.o
+ .debug_abbrev      0x326b        0x1db build/default/production/_ext/1360937237/is66.o
+ .debug_abbrev      0x3446         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_abbrev      0x345a         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
 
 .debug_line         0x0000       0x7488
  *(.debug_line)
@@ -5523,15 +5524,15 @@ __ivt_0           0x800004        0x47c
 .config_WPUCA     0x7f3000          0x4
  .config_WPUCA    0x7f3000          0x4 build/default/production/_ext/1171490990/initialization.o
 
-/tmp/ccblV2kk.s.scn1
+/tmp/cclOZHqF.s.scn1
                   0x802030        0x514
- /tmp/ccblV2kk.s.scn1
+ /tmp/cclOZHqF.s.scn1
                   0x802030        0x514 build/default/production/_ext/285195972/foo.o
                   0x802030                  _foo_map
 
-/tmp/ccqIslyg.s.scn1
+/tmp/cc4sx8Pf.s.scn1
                   0x802544        0x300
- /tmp/ccqIslyg.s.scn1
+ /tmp/cc4sx8Pf.s.scn1
                   0x802544        0x300 build/default/production/_ext/285195972/ChrFont0.o
                   0x802544                  _rgbOledFont0
 
@@ -5808,9 +5809,9 @@ __ivt_0           0x800004        0x47c
                   0x8051c4         0x40 build/default/production/_ext/60181895/plib_tmr1.o
                   0x8051c4                  _T1_InterruptHandler
 
-/tmp/cclw1d0h.s.scn1
+/tmp/ccyDs8Sc.s.scn1
                   0x805204         0x40
- /tmp/cclw1d0h.s.scn1
+ /tmp/ccyDs8Sc.s.scn1
                   0x805204         0x40 build/default/production/_ext/285195972/FillPat.o
                   0x805204                  _rgbFillPat
 
@@ -5891,9 +5892,9 @@ __ivt_0           0x800004        0x47c
  .text.delay_us.part.0
                   0x8054d4         0x30 build/default/production/_ext/285195972/lcd_drv.o
 
-/tmp/ccLQqi1s.s.scn1
+/tmp/ccwRZap0.s.scn1
                   0x805504         0x30
- /tmp/ccLQqi1s.s.scn1
+ /tmp/ccwRZap0.s.scn1
                   0x805504         0x30 build/default/production/_ext/1360937237/main.o
 
 .text.OledInit    0x805534         0x28
@@ -6112,9 +6113,9 @@ __ivt_0           0x800004        0x47c
                   0x8057a0          0x8 build/default/production/_ext/1171490990/traps.o
                   0x8057a0                  _TRAPS_halt_on_error
 
-/tmp/ccLQqi1s.s.scn2
+/tmp/ccwRZap0.s.scn2
                   0x8057a8          0x8
- /tmp/ccLQqi1s.s.scn2
+ /tmp/ccwRZap0.s.scn2
                   0x8057a8          0x8 build/default/production/_ext/1360937237/main.o
                   0x8057a8                  _iss_read_id
 
