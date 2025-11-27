@@ -16,6 +16,7 @@
 //#define DMA_HALF
 
 #define MAX_ISS66_SAMPLES	32768
+#define CDOWN	8
 
 static const uint32_t retrigger_time = 280;
 volatile uint8_t iss_adc_write[8] = {0x02, 0x00, 0x00, 0x00}; // 1024 bytes in each address page for sequential writes
@@ -45,10 +46,6 @@ static inline uint32_t htonl(uint32_t x)
 void ADC_DMA_write(void)
 {
 #ifndef USE_SRAM
-	SRAM_CS_Clear();
-#endif
-
-#ifndef USE_SRAM
 	AD1SWTRGbits.CH6TRG = 1;
 	while (AD1STATbits.CH6RDY == 0);
 	adc_result = AD1CH6DATA;
@@ -71,11 +68,10 @@ void ADC_DMA_write(void)
 
 	while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
 	};
-	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_write, (const void*) &SPI2BUF, (size_t) 6);
-#endif
-
 #ifndef USE_SRAM
-	SRAM_CS_Set();
+	SRAM_CS_Clear(); // CS will bet set in DMA complete ISR
+#endif
+	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_write, (const void*) &SPI2BUF, (size_t) 6);
 #endif
 };
 
@@ -94,6 +90,7 @@ void ADC_DMA_read(void)
  */
 void SPI2DmaChannelHandler_State(DMA_TRANSFER_EVENT event, uintptr_t contextHandle)
 {
+	static uint32_t cdown = CDOWN;
 #ifdef DMA_HALF
 	if (event == DMA_TRANSFER_EVENT_HALF_COMPLETE) {
 		adc_result = AD1CH6DATA;
@@ -101,6 +98,13 @@ void SPI2DmaChannelHandler_State(DMA_TRANSFER_EVENT event, uintptr_t contextHand
 		while (AD1STATbits.CH6RDY == 0);
 	}
 #endif
+	if (event == DMA_TRANSFER_EVENT_COMPLETE) {
+#ifndef USE_SRAM
+		while (SPI2_IsTransmitterBusy() && --cdown != 0);
+		cdown = CDOWN;
+		SRAM_CS_Set();
+#endif
+	}
 }
 
 /*
@@ -144,5 +148,4 @@ void ADC_DMA_init(void)
 	DMA_ChannelCallbackRegister(DMA_CHANNEL_5, SPI2DmaChannelHandler_State, 0);
 	SCCP2_TimerCallbackRegister(SCCP2_Callback_InterruptHandler, (uintptr_t) NULL);
 	SCCP2_Timer32bitPeriodSet(retrigger_time); //  close to 3.5us timer interrupts 
-
 }

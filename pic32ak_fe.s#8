@@ -14247,6 +14247,11 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <part name="C22" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uf"/>
 <part name="VSS30" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
 <part name="VSS31" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
+<part name="C23" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="1000pf"/>
+<part name="C24" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uf"/>
+<part name="C25" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="10uf"/>
+<part name="VDD13" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VDD" device=""/>
+<part name="VSS32" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -14684,6 +14689,24 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <instance part="VSS31" gate="G$1" x="246.38" y="-104.14" smashed="yes">
 <attribute name="VALUE" x="254" y="-104.14" size="1.778" layer="96" rot="R180"/>
 </instance>
+<instance part="C23" gate="G$1" x="363.22" y="-99.06" smashed="yes" rot="R90">
+<attribute name="NAME" x="362.585" y="-98.044" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="367.411" y="-98.044" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="C24" gate="G$1" x="365.76" y="-86.36" smashed="yes" rot="MR90">
+<attribute name="NAME" x="366.395" y="-85.344" size="1.778" layer="95" rot="MR90"/>
+<attribute name="VALUE" x="361.569" y="-85.344" size="1.778" layer="96" rot="MR90"/>
+</instance>
+<instance part="C25" gate="G$1" x="365.76" y="-76.2" smashed="yes" rot="R270">
+<attribute name="NAME" x="366.395" y="-77.216" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="361.569" y="-77.216" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="VDD13" gate="G$1" x="360.68" y="-101.6" smashed="yes" rot="R180">
+<attribute name="VALUE" x="355.6" y="-104.14" size="1.778" layer="96"/>
+</instance>
+<instance part="VSS32" gate="G$1" x="368.3" y="-101.6" smashed="yes">
+<attribute name="VALUE" x="375.92" y="-101.6" size="1.778" layer="96" rot="R180"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -14882,6 +14905,17 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <junction x="264.16" y="-99.06"/>
 <junction x="279.4" y="-99.06"/>
 <label x="256.54" y="-99.06" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="C25" gate="G$1" pin="2"/>
+<pinref part="C23" gate="G$1" pin="1"/>
+<wire x1="360.68" y1="-76.2" x2="360.68" y2="-86.36" width="0.1524" layer="91"/>
+<pinref part="C24" gate="G$1" pin="2"/>
+<wire x1="360.68" y1="-86.36" x2="360.68" y2="-99.06" width="0.1524" layer="91"/>
+<junction x="360.68" y="-86.36"/>
+<pinref part="VDD13" gate="G$1" pin="VDD"/>
+<junction x="360.68" y="-99.06"/>
+<junction x="360.68" y="-76.2"/>
 </segment>
 </net>
 <net name="VSS" class="1">
@@ -15223,6 +15257,17 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <segment>
 <pinref part="C22" gate="G$1" pin="2"/>
 <pinref part="VSS31" gate="G$1" pin="VSS"/>
+</segment>
+<segment>
+<pinref part="C25" gate="G$1" pin="1"/>
+<pinref part="C23" gate="G$1" pin="2"/>
+<wire x1="368.3" y1="-76.2" x2="368.3" y2="-86.36" width="0.1524" layer="91"/>
+<pinref part="C24" gate="G$1" pin="1"/>
+<wire x1="368.3" y1="-86.36" x2="368.3" y2="-99.06" width="0.1524" layer="91"/>
+<junction x="368.3" y="-86.36"/>
+<pinref part="VSS32" gate="G$1" pin="VSS"/>
+<junction x="368.3" y="-99.06"/>
+<junction x="368.3" y="-76.2"/>
 </segment>
 </net>
 <net name="SDI1" class="0">
