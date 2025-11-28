@@ -76,7 +76,7 @@ void GPIO_Initialize ( void )
     CNPUC= 0xd1dU; /* Pull-Up Enable */
     TRISC = 0xfdaU; /* Direction Control */
      /*PORTD Initialization */
-    LATD = 0x800U; /* Initial Latch Value */
+    LATD = 0x804U; /* Initial Latch Value */
     CNPUD= 0x8d8U; /* Pull-Up Enable */
     TRISD = 0x15d8U; /* Direction Control */
 

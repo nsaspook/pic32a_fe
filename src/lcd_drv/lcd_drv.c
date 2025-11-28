@@ -35,7 +35,6 @@ void init_lcd_drv(LCD_DVR_STATE init_type)
 		delay_us(IS_DELAYPOWERUP); // > 400ms power up delay
 		lcd_init();
 		OledInit();
-		RLED_Set();
 		OledSetCharUpdate(0); // manual LCD screen updates for speed
 		OledMoveTo(bmp_x, bmp_y); // position image
 		OledPutBmp(bmp_size, bmp_size, (uint8_t *) foo_map); // upload bitmap image from C array

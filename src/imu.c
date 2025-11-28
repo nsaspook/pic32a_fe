@@ -177,9 +177,9 @@ void getAllData(sSensorData_t *accel, imu_cmd_t * imu)
 			}
 #ifdef SCA3300
 			x = sdata.scan.channels[SCA3300_ACC_X];
-			x = -x; // invert sign, no bit-twiddling
+//			x = -x; // invert sign, no bit-twiddling
 			y = sdata.scan.channels[SCA3300_ACC_Y];
-			y = -y; // invert sign
+//			y = -y; // invert sign
 			z = sdata.scan.channels[SCA3300_ACC_Z];
 			accel->sensortime = sdata.scan.ts; // time log each accel measurement from TIMER
 			accel->sensortemp = TEMPERATURE_OFFSET + (sdata.scan.channels[SCA3300_TEMP] / TEMPERATURE_RES);
@@ -226,6 +226,6 @@ const uint8_t * imu_string(imu_cmd_t * imu)
 			str_ptr = imu_name[imu->device];
 		}
 	}
-	return str_ptr; // return none string
+	return str_ptr; // return name string
 
 }

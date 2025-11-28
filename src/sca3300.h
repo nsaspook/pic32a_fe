@@ -27,7 +27,7 @@ extern "C" {
 #include "timers.h"
 //#include "canfd.h"
 
-#define SCA3300_DRIVER	"V1.006" 
+#define SCA3300_DRIVER	"V1.007" 
 
 #define SCA3300_ALIAS	"SCx3300"
 
@@ -58,6 +58,7 @@ extern "C" {
 #define	SCL3300_ANG_Z_32B	0x2C0000CB
 #define SCA3300_BANK0           0xFC000073
 #define SCA3300_BANK1           0xFC00016E
+#define SCA3300_READ_BANK       0x7C0000B3
 #define SCA3300_SERIAL1         0x640000A7
 #define SCA3300_SERIAL2         0x680000AD
 

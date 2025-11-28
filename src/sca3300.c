@@ -1,24 +1,18 @@
 #include "sca3300.h"
 
 static const char *build_date = __DATE__, *build_time = __TIME__;
-
-static uint8_t CRC8(uint8_t, uint8_t);
-
-static bool imu_cs(imu_cmd_t *);
-void imu_cs_cb(uintptr_t);
-
-void sca3300_cs_disable(imu_cmd_t *);
-
 static volatile bool time_done = false;
 
+static uint8_t CRC8(uint8_t, uint8_t);
+static bool imu_cs(imu_cmd_t *);
+void imu_cs_cb(uintptr_t);
+void sca3300_cs_disable(imu_cmd_t *);
 static void delay_us(uint32_t);
 
 /*
  * data from IMU query
  */
-struct sca3300_data sdata = {
-	//	.id = CAN_IMU_RAW,
-};
+struct sca3300_data sdata;
 
 // Calculate CRC for 24 MSB's of the 32 bit dword
 // (8 LSB's are the CRC field and are not included in CRC calculation)
@@ -85,11 +79,11 @@ bool sca3300_imu_transfer(imu_cmd_t * imu, uint32_t data)
 
 	StartTimer(TMR_CS, SCA3300_CHIP_CS_DELAY); // milliseconds
 	sca3300_cs_disable(imu);
-//	while (imu->run) { // wait until data has left the SPI buffer, run flag is set in SPI interrupt ISR
-//		if (TimerDone(TMR_CS)) {
-//			return false;
-//		}
-//	};
+	//	while (imu->run) { // wait until data has left the SPI buffer, run flag is set in SPI interrupt ISR
+	//		if (TimerDone(TMR_CS)) {
+	//			return false;
+	//		}
+	//	};
 
 	return true;
 }
@@ -184,21 +178,18 @@ bool sca3300_getid(void * imup)
 
 	if (imu) {
 		if (!imu->run) {
-			delay_us(SCA3300_CHIP_ID_DELAY); // sca3300 ID command spacing
 			sca3300_imu_transfer(imu, SCA3300_WHOAMI_32B);
-			if ((((imu->rbuf32[SCA3300_REC] >> 8)&0xffff) == SCA3300_WHOAMI_ID) || (angles = ((imu->rbuf32[SCA3300_REC] >> 8)&0xffff) == SCA3300_WHOAMI_ID_SCL)) {
+			delay_us(SCA3300_CHIP_ID_DELAY); // sca3300 ID command spacing
+			if ((((imu->rbuf32[SCA3300_REC] >> 8)&0xffff) == SCA3300_WHOAMI_ID_SCL)) {
 				if (sca3300_check_crc(imu, SCA3300_REC)) {
-					if (angles) { // SCL3300 detected
-						imu->angles = true; // SLC3300 mode
-						imu->device = IMU_SCL3300;
-						imu->acc_range = imu->acc_range_scl; // set to SCL ranges
-						sca3300_imu_transfer(imu, SCL3300_ANGLE); // enable angle data
-						delay_us(SCA3300_CHIP_MODE_DELAY);
-					}
+					imu->angles = true; // SLC3300 mode
+					imu->device = IMU_SCL3300;
+					imu->acc_range = imu->acc_range_scl; // set to SCL ranges
+					sca3300_imu_transfer(imu, SCL3300_ANGLE); // enable angle data
+					delay_us(SCA3300_CHIP_MODE_DELAY);
 					imu->online = true;
 					imu->rbuf32[SCA3300_REC] = 0;
 					imu->crc_error = false;
-					sca3300_getserial(imu);
 				} else {
 					imu->crc_error = true;
 				}
@@ -231,7 +222,7 @@ bool sca3300_getserial(void * imup)
 			if (sca3300_check_crc(imu, SCA3300_REC)) {
 				imu->serial2 = (imu->rbuf32[SCA3300_REC] >> 8)&0xffff;
 				gotserial = true;
-				board_serial_id = (imu->serial1 + (imu->serial2 << 16)) &0x1fffffff; // reduce to 29-bit id for CAN-CD address
+				board_serial_id = (imu->serial1 + (imu->serial2 << 16)) &0xffffffff;
 				imu->board_serial_id = board_serial_id;
 			}
 		}
@@ -245,60 +236,24 @@ bool sca3300_getserial(void * imup)
 void sca3300_set_spimode(void * imup)
 {
 	imu_cmd_t * imu = imup;
-	enum accel_g accel_range = SCA3300_MODE1;
 
-	//	set_imu_bits(); // set 8 or 32-bit SPI transfers
-//	SPI3CON1bits.ON = 0U;
-//	SPI3CON1bits.MODE32 = 1U;
-//	SPI3CON1bits.ENHBUF = 1U;
-//	SPI3CON2bits.WLENGTH = 0x1f;
-//	SPI3CON1bits.ON = 1U;
+	SPI3CON1bits.ON = 0U;
+	SPI3CON1bits.MODE32 = 1U; // 32-bit SPI transfers
+	SPI3CON1bits.ON = 1U;
 	if (imu) {
-		sca3300_getid(imu);
-		sca3300_getid(imu);
 		sca3300_imu_transfer(imu, SCA3300_SWRESET_32B); // chip software reset
 		delay_us(SCA3300_CHIP_SWR_DELAY);
-		switch (imu->acc_range) { // set the range variable
-		case range_15g:
-			accel_range = SCA3300_MODE3; // set to 1.5g full-scale, 70 Hz 1st order low pass filter
-			break;
-		case range_15gl:
-			accel_range = SCA3300_MODE4; // set to 1.5g full-scale, 10 Hz 1st order low pass filter
-			break;
-		case range_6g:
-			accel_range = SCA3300_MODE2; // set to 6g full-scale, 70 Hz 1st order low pass filter
-			break;
-		case range_3g:
-			accel_range = SCA3300_MODE1; // set to 3g full-scale, 70 Hz 1st order low pass filter
-			break;
-		case range_12g:
-			accel_range = SCL3300_MODE1; // set to 1.2g full-scale, 40 Hz 1st order low pass filter
-			break;
-		case range_24g:
-			accel_range = SCL3300_MODE2; // set to 2.4g full-scale, 70 Hz 1st order low pass filter
-			break;
-		case range_inc1:
-			accel_range = SCL3300_MODE3; // Inclination mode, 10 Hz 1st order low pass filter
-			break;
-		case range_inc2:
-			accel_range = SCL3300_MODE4; // Inclination mode low noise, 10 Hz 1st order low pass filter
-			break;
-		default:
-			if (imu->device == IMU_SCA3300) {
-				accel_range = SCA3300_MODE1; // set to 3g full-scale, 70 Hz 1st order low pass filter
-			} else {
-				accel_range = SCL3300_MODE1; // set to 1.2g full-scale, 40 Hz 1st order low pass filter
-			}
-			break;
-		}
-		sca3300_imu_transfer(imu, accel_range); // send the range command
+
+		sca3300_imu_transfer(imu, SCL3300_MODE4); // send the range command
 		delay_us(SCA3300_CHIP_MODE_DELAY);
-		sca3300_imu_transfer(imu, SCA3300_RS_32B);
+		sca3300_imu_transfer(imu, SCL3300_ANGLE);
+		delay_us(SCA3300_CHIP_MODE_DELAY);
 		sca3300_imu_transfer(imu, SCA3300_RS_32B);
 		sca3300_imu_transfer(imu, SCA3300_RS_32B);
 		sca3300_imu_transfer(imu, SCA3300_RS_32B);
 		imu->ss = (imu->rbuf32[SCA3300_REC] >> 8)&0xfff;
 		imu->rs = (imu->rbuf32[SCA3300_REC] >> 24)&0x3;
+		imu->init_good = true;
 	}
 }
 
@@ -318,7 +273,7 @@ bool imu_cs(imu_cmd_t * imu)
 			IMU_CS_Clear();
 			// set SPI receive complete callback
 #ifndef BNO086
-//			SPI3_CallbackRegister(imu_cs_cb, (uintptr_t) imu);
+			//			SPI3_CallbackRegister(imu_cs_cb, (uintptr_t) imu);
 #endif
 			break;
 		}
@@ -368,7 +323,7 @@ void imu_cs_cb(uintptr_t context)
 
 void sca3300_version(void)
 {
-	snprintf(imu_buffer, 255, "%s Driver %s %s %s", SCA3300_ALIAS, SCA3300_DRIVER, build_date, build_time);
+	snprintf(imu_buffer, 255, "%s Driver %s         %s %s         ", SCA3300_ALIAS, SCA3300_DRIVER, build_date, build_time);
 }
 
 /* This function is called after period expires */

@@ -95,10 +95,7 @@ void SPI3_Initialize ( void )
             |SPI3CON1_CKE_ACTIVE_TO_IDLE
             |SPI3CON1_MCLKEN_UPB_CLOCK
             |_SPI3CON1_ENHBUF_MASK);
-
-    SPI3CON1bits.MODE32 = 1U;
-//    SPI3CON2bits.WLENGTH = 0x1f;
-    
+  
     /* Enable SPI3 */
     SPI3CON1bits.ON = 1U;
 }
