@@ -35,7 +35,7 @@ data:
       - children:
         - attributes:
             id: spi3
-            value: '25000000'
+            value: '4166667'
           type: Dynamic
         type: Values
       type: Integer
@@ -88,7 +88,7 @@ data:
       - children:
         - attributes:
             id: spi3
-            value: '1'
+            value: '11'
           type: Dynamic
         type: Values
       type: Hex
@@ -98,7 +98,21 @@ data:
       children:
       - children:
         - attributes:
-            value: '20000000'
+            id: max
+          children:
+          - type: Value
+            value: '50000000'
+          type: Integer
+        - attributes:
+            id: min
+          children:
+          - type: Value
+            value: '3051'
+          type: Integer
+        type: Attributes
+      - children:
+        - attributes:
+            value: '4000000'
           type: User
         type: Values
       type: Integer
@@ -123,4 +137,24 @@ data:
           type: User
         type: Values
       type: KeyValueSet
+    SPI_DUMMY_DATA:
+      attributes:
+        id: SPI_DUMMY_DATA
+      children:
+      - children:
+        - attributes:
+            value: '268435455'
+          type: User
+        type: Values
+      type: Hex
+    SPI_INTERRUPT_MODE:
+      attributes:
+        id: SPI_INTERRUPT_MODE
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
   userData: {}

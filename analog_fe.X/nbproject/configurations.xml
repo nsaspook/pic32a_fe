@@ -68,6 +68,8 @@
       <itemPath>../src/timers.h</itemPath>
       <itemPath>../src/is66.h</itemPath>
       <itemPath>../src/samples.h</itemPath>
+      <itemPath>../src/sca3300.h</itemPath>
+      <itemPath>../src/imu.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -173,6 +175,8 @@
       <itemPath>../src/gfx.c</itemPath>
       <itemPath>../src/timers.c</itemPath>
       <itemPath>../src/is66.c</itemPath>
+      <itemPath>../src/sca3300.c</itemPath>
+      <itemPath>../src/imu.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -188,7 +192,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PK5Tool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>5.00</languageToolchainVersion>
+        <languageToolchainVersion>4.60</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <packs>
@@ -228,7 +232,7 @@
         <property key="cast-align" value="false"/>
         <property key="code-model" value="default"/>
         <property key="const-model" value="default"/>
-        <property key="data-model" value="default"/>
+        <property key="data-model" value="small-data"/>
         <property key="disable-instruction-scheduling" value="false"/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>

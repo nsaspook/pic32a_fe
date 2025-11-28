@@ -213,9 +213,6 @@ data:
                   IPC8bits.SPI2RXIP = 3;
                   IPC8bits.SPI2TXIP = 3;
                   IPC8bits.SPI2EIP = 1;
-                  IPC8bits.SPI3RXIP = 1;
-                  IPC8bits.SPI3TXIP = 1;
-                  IPC8bits.SPI3EIP = 1;
                   IPC9bits.DMA0IP = 1;
                   IPC9bits.DMA1IP = 1;
                   IPC11bits.U1RXIP = 1;
@@ -375,7 +372,7 @@ data:
       - children:
         - attributes:
             id: spi3
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -386,7 +383,7 @@ data:
       - children:
         - attributes:
             id: spi3
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -397,7 +394,7 @@ data:
       - children:
         - attributes:
             id: spi3
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -408,7 +405,7 @@ data:
       - children:
         - attributes:
             id: spi3
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -419,7 +416,7 @@ data:
       - children:
         - attributes:
             id: spi3
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -430,7 +427,7 @@ data:
       - children:
         - attributes:
             id: spi3
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -1084,7 +1081,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '24'
+            value: '26'
           type: Dynamic
         type: Values
       type: Hex
@@ -1095,7 +1092,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '2072'
+            value: '2584'
           type: Dynamic
         type: Values
       type: Hex
@@ -4315,7 +4312,7 @@ data:
         type: Attributes
       - children:
         - attributes:
-            value: '28'
+            value: '10'
           type: User
         type: Values
       type: KeyValueSet
@@ -4337,16 +4334,6 @@ data:
           type: User
         type: Values
       type: KeyValueSet
-    BSP_PIN_21_MODE:
-      attributes:
-        id: BSP_PIN_21_MODE
-      children:
-      - children:
-        - attributes:
-            value: DIGITAL
-          type: User
-        type: Values
-      type: String
     USE_PPS_OUTPUT_5:
       attributes:
         id: USE_PPS_OUTPUT_5
@@ -4404,16 +4391,6 @@ data:
           type: Dynamic
         type: Values
       type: KeyValueSet
-    BSP_PIN_21_FUNCTION_TYPE:
-      attributes:
-        id: BSP_PIN_21_FUNCTION_TYPE
-      children:
-      - children:
-        - attributes:
-            value: SCK3
-          type: User
-        type: Values
-      type: String
     USE_PPS_INPUT_9:
       attributes:
         id: USE_PPS_INPUT_9
@@ -4468,26 +4445,6 @@ data:
           type: User
         type: Values
       type: KeyValueSet
-    BSP_PIN_23_MODE:
-      attributes:
-        id: BSP_PIN_23_MODE
-      children:
-      - children:
-        - attributes:
-            value: DIGITAL
-          type: User
-        type: Values
-      type: String
-    BSP_PIN_23_FUNCTION_TYPE:
-      attributes:
-        id: BSP_PIN_23_FUNCTION_TYPE
-      children:
-      - children:
-        - attributes:
-            value: SDI3
-          type: User
-        type: Values
-      type: String
     USE_PPS_OUTPUT_6:
       attributes:
         id: USE_PPS_OUTPUT_6
@@ -5529,6 +5486,96 @@ data:
       - children:
         - attributes:
             value: PWM3L
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_24_PU:
+      attributes:
+        id: BSP_PIN_24_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_21_MODE:
+      attributes:
+        id: BSP_PIN_21_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_21_DIR:
+      attributes:
+        id: BSP_PIN_21_DIR
+      children:
+      - children:
+        - attributes:
+            value: ''
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_21_LAT:
+      attributes:
+        id: BSP_PIN_21_LAT
+      children:
+      - children:
+        - attributes:
+            value: High
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_21_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_21_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_21_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_21_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: GPIO_RB1
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_58_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_58_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SCK3
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_23_MODE:
+      attributes:
+        id: BSP_PIN_23_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_23_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_23_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SDI3
           type: User
         type: Values
       type: String

@@ -296,9 +296,9 @@ void SYS_Initialize ( void* data )
     TMR1_Initialize();
 
 
-OPA2_Initialize();
 	SPI2_Initialize();
 
+OPA2_Initialize();
 	SPI1_Initialize();
 
     SCCP2_TimerInitialize();

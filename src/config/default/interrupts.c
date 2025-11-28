@@ -72,9 +72,6 @@ void _SPI1EInterrupt (void);
 void _SPI2RXInterrupt (void);
 void _SPI2TXInterrupt (void);
 void _SPI2EInterrupt (void);
-void _SPI3RXInterrupt (void);
-void _SPI3TXInterrupt (void);
-void _SPI3EInterrupt (void);
 void _DMA0Interrupt (void);
 void _DMA1Interrupt (void);
 void _U1RXInterrupt (void);
@@ -127,21 +124,6 @@ void __attribute__ (( interrupt, no_auto_psv, context)) _SPI2TXInterrupt (void)
 void __attribute__ (( interrupt, no_auto_psv)) _SPI2EInterrupt (void)
 {
     SPI2E_InterruptHandler();
-}
-
-void __attribute__ (( interrupt, no_auto_psv)) _SPI3RXInterrupt (void)
-{
-    SPI3RX_InterruptHandler();
-}
-
-void __attribute__ (( interrupt, no_auto_psv)) _SPI3TXInterrupt (void)
-{
-    SPI3TX_InterruptHandler();
-}
-
-void __attribute__ (( interrupt, no_auto_psv)) _SPI3EInterrupt (void)
-{
-    SPI3E_InterruptHandler();
 }
 
 void __attribute__ (( interrupt, no_auto_psv)) _DMA0Interrupt (void)

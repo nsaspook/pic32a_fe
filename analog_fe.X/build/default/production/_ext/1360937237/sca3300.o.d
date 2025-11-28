@@ -1,8 +1,7 @@
-build/default/production/_ext/285195972/eadog.o:  \
-../src/lcd_drv/eadog.c  \
- ../src/lcd_drv/eadog.h  \
-../src/lcd_drv/lcd_drv.h  \
- ../src/config/default/definitions.h  \
+build/default/production/_ext/1360937237/sca3300.o:  \
+../src/sca3300.c  \
+ ../src/sca3300.h  \
+../src/config/default/definitions.h  \
  ../src/config/default/peripheral/spi/spi_host/plib_spi3_host.h  \
  ../src/config/default/device.h  \
  ../src/config/default/toolchain_specifics.h  \
@@ -28,12 +27,5 @@ build/default/production/_ext/285195972/eadog.o:  \
  ../src/config/default/peripheral/ccp/plib_sccp2.h  \
  ../src/config/default/peripheral/ccp/plib_ccp_common.h  \
  ../src/config/default/peripheral/ccp/plib_sccp1.h  \
- ../src/../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h  \
- ../src/../src/config/default/peripheral/gpio/plib_gpio.h  \
- ../src/../src/config/default/peripheral/dma/plib_dma.h  \
- ../src/lcd_drv/display_type.h  \
-../src/lcd_drv/dogm-graphic.h  \
- ../src/timers.h  \
-../src/lcd_drv/OledDriver.h  \
-../src/lcd_drv/OledChar.h  \
- ../src/lcd_drv/OledGrph.h 
+../src/imu.h  \
+ ../src/timers.h 

@@ -56,6 +56,15 @@
 // Section: Data types and constants
 
 
+/*** Macros for GPIO_RB1 pin ***/
+#define GPIO_RB1_Set()               (_LATB1 = 1U)
+#define GPIO_RB1_Clear()             (_LATB1 = 0U)
+#define GPIO_RB1_Toggle()            (_LATB1 ^= 1U)
+#define GPIO_RB1_OutputEnable()      (_TRISB1 = 0U)
+#define GPIO_RB1_InputEnable()       (_TRISB1 = 1U)
+#define GPIO_RB1_Get()               ((PORTB >> 1) & 0x1)
+#define GPIO_RB1_PIN                 GPIO_PIN_RB1
+
 /*** Macros for IMU_CS pin ***/
 #define IMU_CS_Set()               (_LATB3 = 1U)
 #define IMU_CS_Clear()             (_LATB3 = 0U)
