@@ -14118,6 +14118,115 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 </deviceset>
 </devicesets>
 </library>
+<library name="SFH6916">
+<description>&lt;Optocoupler DC-IN 4-CH Trans DC-OUT&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="SOIC127P700X230-16N">
+<description>&lt;b&gt;SSOP-16&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-3.2" y="4.445" dx="1.65" dy="0.65" layer="1"/>
+<smd name="2" x="-3.2" y="3.175" dx="1.65" dy="0.65" layer="1"/>
+<smd name="3" x="-3.2" y="1.905" dx="1.65" dy="0.65" layer="1"/>
+<smd name="4" x="-3.2" y="0.635" dx="1.65" dy="0.65" layer="1"/>
+<smd name="5" x="-3.2" y="-0.635" dx="1.65" dy="0.65" layer="1"/>
+<smd name="6" x="-3.2" y="-1.905" dx="1.65" dy="0.65" layer="1"/>
+<smd name="7" x="-3.2" y="-3.175" dx="1.65" dy="0.65" layer="1"/>
+<smd name="8" x="-3.2" y="-4.445" dx="1.65" dy="0.65" layer="1"/>
+<smd name="9" x="3.2" y="-4.445" dx="1.65" dy="0.65" layer="1"/>
+<smd name="10" x="3.2" y="-3.175" dx="1.65" dy="0.65" layer="1"/>
+<smd name="11" x="3.2" y="-1.905" dx="1.65" dy="0.65" layer="1"/>
+<smd name="12" x="3.2" y="-0.635" dx="1.65" dy="0.65" layer="1"/>
+<smd name="13" x="3.2" y="0.635" dx="1.65" dy="0.65" layer="1"/>
+<smd name="14" x="3.2" y="1.905" dx="1.65" dy="0.65" layer="1"/>
+<smd name="15" x="3.2" y="3.175" dx="1.65" dy="0.65" layer="1"/>
+<smd name="16" x="3.2" y="4.445" dx="1.65" dy="0.65" layer="1"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-4.275" y1="5.525" x2="4.275" y2="5.525" width="0.05" layer="51"/>
+<wire x1="4.275" y1="5.525" x2="4.275" y2="-5.525" width="0.05" layer="51"/>
+<wire x1="4.275" y1="-5.525" x2="-4.275" y2="-5.525" width="0.05" layer="51"/>
+<wire x1="-4.275" y1="-5.525" x2="-4.275" y2="5.525" width="0.05" layer="51"/>
+<wire x1="-2.2" y1="5.275" x2="2.2" y2="5.275" width="0.1" layer="51"/>
+<wire x1="2.2" y1="5.275" x2="2.2" y2="-5.275" width="0.1" layer="51"/>
+<wire x1="2.2" y1="-5.275" x2="-2.2" y2="-5.275" width="0.1" layer="51"/>
+<wire x1="-2.2" y1="-5.275" x2="-2.2" y2="5.275" width="0.1" layer="51"/>
+<wire x1="-2.2" y1="4.005" x2="-0.93" y2="5.275" width="0.1" layer="51"/>
+<wire x1="-2.025" y1="5.275" x2="2.025" y2="5.275" width="0.2" layer="21"/>
+<wire x1="2.025" y1="5.275" x2="2.025" y2="-5.275" width="0.2" layer="21"/>
+<wire x1="2.025" y1="-5.275" x2="-2.025" y2="-5.275" width="0.2" layer="21"/>
+<wire x1="-2.025" y1="-5.275" x2="-2.025" y2="5.275" width="0.2" layer="21"/>
+<wire x1="-4.025" y1="5.12" x2="-2.375" y2="5.12" width="0.2" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="SFH6916">
+<wire x1="5.08" y1="2.54" x2="20.32" y2="2.54" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-20.32" x2="20.32" y2="2.54" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-20.32" x2="5.08" y2="-20.32" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-20.32" width="0.254" layer="94"/>
+<text x="21.59" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="21.59" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="A_1" x="0" y="0" length="middle"/>
+<pin name="K_1" x="0" y="-2.54" length="middle"/>
+<pin name="A_2" x="0" y="-5.08" length="middle"/>
+<pin name="K_2" x="0" y="-7.62" length="middle"/>
+<pin name="A_3" x="0" y="-10.16" length="middle"/>
+<pin name="K_3" x="0" y="-12.7" length="middle"/>
+<pin name="A_4" x="0" y="-15.24" length="middle"/>
+<pin name="K_4" x="0" y="-17.78" length="middle"/>
+<pin name="C_4" x="25.4" y="0" length="middle" rot="R180"/>
+<pin name="E_4" x="25.4" y="-2.54" length="middle" rot="R180"/>
+<pin name="C_3" x="25.4" y="-5.08" length="middle" rot="R180"/>
+<pin name="E_3" x="25.4" y="-7.62" length="middle" rot="R180"/>
+<pin name="C_2" x="25.4" y="-10.16" length="middle" rot="R180"/>
+<pin name="E_2" x="25.4" y="-12.7" length="middle" rot="R180"/>
+<pin name="C_1" x="25.4" y="-15.24" length="middle" rot="R180"/>
+<pin name="E_1" x="25.4" y="-17.78" length="middle" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="SFH6916" prefix="IC">
+<description>&lt;b&gt;Optocoupler DC-IN 4-CH Trans DC-OUT&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="SFH6916" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOIC127P700X230-16N">
+<connects>
+<connect gate="G$1" pin="A_1" pad="1"/>
+<connect gate="G$1" pin="A_2" pad="3"/>
+<connect gate="G$1" pin="A_3" pad="5"/>
+<connect gate="G$1" pin="A_4" pad="7"/>
+<connect gate="G$1" pin="C_1" pad="10"/>
+<connect gate="G$1" pin="C_2" pad="12"/>
+<connect gate="G$1" pin="C_3" pad="14"/>
+<connect gate="G$1" pin="C_4" pad="16"/>
+<connect gate="G$1" pin="E_1" pad="9"/>
+<connect gate="G$1" pin="E_2" pad="11"/>
+<connect gate="G$1" pin="E_3" pad="13"/>
+<connect gate="G$1" pin="E_4" pad="15"/>
+<connect gate="G$1" pin="K_1" pad="2"/>
+<connect gate="G$1" pin="K_2" pad="4"/>
+<connect gate="G$1" pin="K_3" pad="6"/>
+<connect gate="G$1" pin="K_4" pad="8"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value="Optocoupler DC-IN 4-CH Trans DC-OUT" constant="no"/>
+<attribute name="HEIGHT" value="2.3mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Vishay" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="SFH6916" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="782-SFH6916" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/Vishay-Semiconductors/SFH6916?qs=xCMk%252BIHWTZMHOsdqeojy6Q%3D%3D" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -14254,6 +14363,11 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <part name="VSS32" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
 <part name="C26" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uf"/>
 <part name="VSS33" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
+<part name="IC2" library="SFH6916" deviceset="SFH6916" device=""/>
+<part name="ISO1_R" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="330 ohm"/>
+<part name="ISO1_R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="330 ohm"/>
+<part name="ISO1_R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="2.2k ohm"/>
+<part name="ISO1_R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="2.2k ohm"/>
 </parts>
 <sheets>
 <sheet>
@@ -14715,6 +14829,26 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 </instance>
 <instance part="VSS33" gate="G$1" x="350.52" y="-93.98" smashed="yes">
 <attribute name="VALUE" x="358.14" y="-93.98" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="IC2" gate="G$1" x="144.78" y="-96.52" smashed="yes">
+<attribute name="NAME" x="148.59" y="-91.44" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="156.21" y="-91.44" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="ISO1_R" gate="G$1" x="139.7" y="-96.52" smashed="yes" rot="R180">
+<attribute name="NAME" x="143.51" y="-90.3986" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="143.51" y="-93.218" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="ISO1_R1" gate="G$1" x="139.7" y="-101.6" smashed="yes" rot="R180">
+<attribute name="NAME" x="143.51" y="-95.4786" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="143.51" y="-98.298" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="ISO1_R3" gate="G$1" x="139.7" y="-106.68" smashed="yes" rot="R180">
+<attribute name="NAME" x="143.51" y="-100.5586" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="143.51" y="-103.378" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="ISO1_R2" gate="G$1" x="139.7" y="-111.76" smashed="yes" rot="R180">
+<attribute name="NAME" x="143.51" y="-105.6386" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="143.51" y="-108.458" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -15290,6 +15424,34 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <pinref part="C26" gate="G$1" pin="2"/>
 <pinref part="VSS33" gate="G$1" pin="VSS"/>
 <junction x="350.52" y="-91.44"/>
+</segment>
+<segment>
+<wire x1="127" y1="-99.06" x2="144.78" y2="-99.06" width="0.1524" layer="91"/>
+<pinref part="IC2" gate="G$1" pin="K_1"/>
+<junction x="144.78" y="-99.06"/>
+<junction x="127" y="-99.06"/>
+<label x="116.84" y="-99.06" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="127" y1="-104.14" x2="144.78" y2="-104.14" width="0.1524" layer="91"/>
+<pinref part="IC2" gate="G$1" pin="K_2"/>
+<junction x="144.78" y="-104.14"/>
+<junction x="127" y="-104.14"/>
+<label x="116.84" y="-104.14" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="170.18" y1="-109.22" x2="182.88" y2="-109.22" width="0.1524" layer="91"/>
+<pinref part="IC2" gate="G$1" pin="E_2"/>
+<junction x="170.18" y="-109.22"/>
+<junction x="182.88" y="-109.22"/>
+<label x="187.96" y="-109.22" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="170.18" y1="-114.3" x2="182.88" y2="-114.3" width="0.1524" layer="91"/>
+<pinref part="IC2" gate="G$1" pin="E_1"/>
+<junction x="170.18" y="-114.3"/>
+<junction x="182.88" y="-114.3"/>
+<label x="187.96" y="-114.3" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SDI1" class="0">
@@ -15943,6 +16105,142 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <junction x="314.96" y="-99.06"/>
 <junction x="350.52" y="-99.06"/>
 <pinref part="C21" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="A_1"/>
+<pinref part="ISO1_R" gate="G$1" pin="1"/>
+<junction x="144.78" y="-96.52"/>
+</segment>
+</net>
+<net name="ISO1_S" class="0">
+<segment>
+<pinref part="ISO1_R" gate="G$1" pin="2"/>
+<wire x1="134.62" y1="-96.52" x2="127" y2="-96.52" width="0.1524" layer="91"/>
+<junction x="127" y="-96.52"/>
+<junction x="134.62" y="-96.52"/>
+<label x="116.84" y="-96.52" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="A_2"/>
+<pinref part="ISO1_R1" gate="G$1" pin="1"/>
+<junction x="144.78" y="-101.6"/>
+</segment>
+</net>
+<net name="ISO2_S" class="0">
+<segment>
+<pinref part="ISO1_R1" gate="G$1" pin="2"/>
+<wire x1="134.62" y1="-101.6" x2="127" y2="-101.6" width="0.1524" layer="91"/>
+<junction x="134.62" y="-101.6"/>
+<junction x="127" y="-101.6"/>
+<label x="116.84" y="-101.6" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="A_3"/>
+<pinref part="ISO1_R3" gate="G$1" pin="1"/>
+<junction x="144.78" y="-106.68"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="A_4"/>
+<pinref part="ISO1_R2" gate="G$1" pin="1"/>
+<junction x="144.78" y="-111.76"/>
+</segment>
+</net>
+<net name="IOS3_P" class="0">
+<segment>
+<pinref part="ISO1_R3" gate="G$1" pin="2"/>
+<junction x="134.62" y="-106.68"/>
+<wire x1="134.62" y1="-106.68" x2="127" y2="-106.68" width="0.1524" layer="91"/>
+<junction x="127" y="-106.68"/>
+<label x="116.84" y="-106.68" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="ISO4_P" class="0">
+<segment>
+<pinref part="ISO1_R2" gate="G$1" pin="2"/>
+<wire x1="134.62" y1="-111.76" x2="127" y2="-111.76" width="0.1524" layer="91"/>
+<junction x="127" y="-111.76"/>
+<junction x="134.62" y="-111.76"/>
+<label x="116.84" y="-111.76" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="ISO3_N" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="K_3"/>
+<wire x1="144.78" y1="-109.22" x2="127" y2="-109.22" width="0.1524" layer="91"/>
+<junction x="127" y="-109.22"/>
+<junction x="144.78" y="-109.22"/>
+<label x="116.84" y="-109.22" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="ISO4_N" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="K_4"/>
+<wire x1="144.78" y1="-114.3" x2="127" y2="-114.3" width="0.1524" layer="91"/>
+<junction x="127" y="-114.3"/>
+<junction x="144.78" y="-114.3"/>
+<label x="116.84" y="-114.3" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="IOS1_P" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="C_4"/>
+<wire x1="170.18" y1="-96.52" x2="182.88" y2="-96.52" width="0.1524" layer="91"/>
+<junction x="170.18" y="-96.52"/>
+<junction x="182.88" y="-96.52"/>
+<label x="187.96" y="-96.52" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="IOS1_N" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="E_4"/>
+<wire x1="170.18" y1="-99.06" x2="182.88" y2="-99.06" width="0.1524" layer="91"/>
+<junction x="170.18" y="-99.06"/>
+<junction x="182.88" y="-99.06"/>
+<label x="187.96" y="-99.06" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="ISO2_P" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="C_3"/>
+<wire x1="170.18" y1="-101.6" x2="182.88" y2="-101.6" width="0.1524" layer="91"/>
+<junction x="170.18" y="-101.6"/>
+<junction x="182.88" y="-101.6"/>
+<label x="187.96" y="-101.6" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="IOS2_N" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="E_3"/>
+<wire x1="170.18" y1="-104.14" x2="182.88" y2="-104.14" width="0.1524" layer="91"/>
+<junction x="170.18" y="-104.14"/>
+<junction x="182.88" y="-104.14"/>
+<label x="187.96" y="-104.14" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="IOS3_O" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="C_2"/>
+<wire x1="170.18" y1="-106.68" x2="182.88" y2="-106.68" width="0.1524" layer="91"/>
+<junction x="170.18" y="-106.68"/>
+<junction x="182.88" y="-106.68"/>
+<label x="187.96" y="-106.68" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="IOS4_O" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="C_1"/>
+<wire x1="170.18" y1="-111.76" x2="182.88" y2="-111.76" width="0.1524" layer="91"/>
+<junction x="170.18" y="-111.76"/>
+<junction x="182.88" y="-111.76"/>
+<label x="187.96" y="-111.76" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

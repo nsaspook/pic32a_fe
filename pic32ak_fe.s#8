@@ -14252,6 +14252,8 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <part name="C25" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="10uf"/>
 <part name="VDD13" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VDD" device=""/>
 <part name="VSS32" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
+<part name="C26" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uf"/>
+<part name="VSS33" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -14707,6 +14709,13 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <instance part="VSS32" gate="G$1" x="368.3" y="-101.6" smashed="yes">
 <attribute name="VALUE" x="375.92" y="-101.6" size="1.778" layer="96" rot="R180"/>
 </instance>
+<instance part="C26" gate="G$1" x="350.52" y="-86.36" smashed="yes" rot="MR0">
+<attribute name="NAME" x="349.504" y="-85.725" size="1.778" layer="95" rot="MR0"/>
+<attribute name="VALUE" x="349.504" y="-90.551" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="VSS33" gate="G$1" x="350.52" y="-93.98" smashed="yes">
+<attribute name="VALUE" x="358.14" y="-93.98" size="1.778" layer="96" rot="R180"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -14916,6 +14925,13 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <pinref part="VDD13" gate="G$1" pin="VDD"/>
 <junction x="360.68" y="-99.06"/>
 <junction x="360.68" y="-76.2"/>
+</segment>
+<segment>
+<wire x1="335.28" y1="-83.82" x2="350.52" y2="-83.82" width="0.1524" layer="91"/>
+<pinref part="C26" gate="G$1" pin="1"/>
+<junction x="335.28" y="-83.82"/>
+<junction x="350.52" y="-83.82"/>
+<label x="337.82" y="-83.82" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VSS" class="1">
@@ -15253,6 +15269,7 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <segment>
 <pinref part="C21" gate="G$1" pin="2"/>
 <pinref part="VSS30" gate="G$1" pin="VSS"/>
+<junction x="350.52" y="-106.68"/>
 </segment>
 <segment>
 <pinref part="C22" gate="G$1" pin="2"/>
@@ -15268,6 +15285,11 @@ Source: &lt;a href="https://www.murata.com/~/media/webrenewal/products/sensor/ac
 <pinref part="VSS32" gate="G$1" pin="VSS"/>
 <junction x="368.3" y="-99.06"/>
 <junction x="368.3" y="-76.2"/>
+</segment>
+<segment>
+<pinref part="C26" gate="G$1" pin="2"/>
+<pinref part="VSS33" gate="G$1" pin="VSS"/>
+<junction x="350.52" y="-91.44"/>
 </segment>
 </net>
 <net name="SDI1" class="0">

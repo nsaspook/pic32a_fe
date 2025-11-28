@@ -15723,6 +15723,9 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <junction x="256.54" y="-68.58"/>
 <junction x="271.78" y="-68.58"/>
 <pinref part="TP4" gate="G$1" pin="TP"/>
+<pinref part="U2" gate="A" pin="SO/SIO1"/>
+<wire x1="271.78" y1="-68.58" x2="271.78" y2="-66.04" width="0.1524" layer="91"/>
+<junction x="271.78" y="-66.04"/>
 </segment>
 </net>
 <net name="SDO2" class="0">
