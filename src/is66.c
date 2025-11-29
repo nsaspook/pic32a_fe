@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
+#include "samples.h"
 
 #define __has_builtin			// use Built-in Byte Swap Functions
 
@@ -50,7 +51,7 @@ void ADC_DMA_write(void)
 	TP0_Set();
 	while (AD1STATbits.CH6RDY == 0);
 	TP0_Clear();
-	adc_result = AD1CH6DATA >> 1;
+	adc_result = AD1CH6DATA;
 	memcpy((void *) &iss_adc_write[4], (const void *) &adc_result, 4);
 
 #if defined __has_builtin
@@ -118,24 +119,32 @@ void ADC_DMA_init(void)
 {
 	// Select conversion mode on channel 6 to AN6
 	AD1CH6CONbits.MODE = 3; // 0 = single, 3 = oversample
+	AD2CH4CONbits.MODE = 3;
 	// Set number of conversions accumulated to 2 because of back-to-back.
-	AD1CH4CONbits.ACCNUM = 0;
+	AD1CH6CONbits.ACCNUM = 0;
+	AD2CH4CONbits.ACCNUM = 0;
 	// The oversampling if started cannot be interrupted
 	// by a high priority channels conversion requests.
-	AD1CH4CONbits.ACCBRST = 1;
+	AD1CH6CONbits.ACCBRST = 1;
+	AD2CH4CONbits.ACCBRST = 1;
 	// Software trigger will start a conversion.
 	AD1CH6CONbits.TRG1SRC = 1; // software
 	AD1CH6CONbits.TRG2SRC = 2; // back-to-back
+	AD2CH4CONbits.TRG1SRC = 1; // software
+	AD2CH4CONbits.TRG2SRC = 2;
 	// Use a single-ended input.
 	AD1CH6CONbits.DIFF = 0;
 	// Select the AN6 analog positive input/pin for the signal.
 	AD1CH6CONbits.PINSEL = 6;
 	// Select signal sampling time ( 0 = TADs = 6.25nS).
 	AD1CH6CONbits.SAMC = 1; // 12.5ns
+	AD2CH4CONbits.SAMC = 1;
 	// Enable repeat rate.
-	AD1CONbits.CALRATE = 3;
+	AD1CONbits.CALRATE = 1;
+	AD2CONbits.CALRATE = 1;
 	// Enable auto calibration.
 	AD1CONbits.ACALEN = 1;
+	AD2CONbits.ACALEN = 1;
 	// Set ADC to RUN mode.
 	AD1CONbits.MODE = 2;
 	// Enable ADC.

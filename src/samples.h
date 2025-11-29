@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   samples.h
  * Author: root
  *
@@ -19,7 +19,11 @@ extern "C" {
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 
+#define ADC1_SCALE	0.000402000f
+#define ADC2_SCALE	0.000402000f
 
+	extern bool SW1_SET, SW2_SET;
+	extern double adc1_scaled, adc2_scaled;
 
 #ifdef	__cplusplus
 }

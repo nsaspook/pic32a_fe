@@ -50,6 +50,8 @@
 /* ------------------------------------------------------------ */
 
 #include "lcd_drv.h"
+//#include <stdio.h>
+//#include <string.h>
 
 /* ------------------------------------------------------------ */
 /*				Local Symbol Definitions						*/
@@ -465,10 +467,11 @@ void OledClear(void)
 void CBDmaChannelHandler(DMA_TRANSFER_EVENT event, uintptr_t contextHandle)
 {
 	if (event == DMA_TRANSFER_EVENT_COMPLETE) {
-		//		DEBUGB0_Clear();
 	}
 }
-
+/*
+ * zero the display buffer
+ */
 void OledClearBuffer(void)
 {
 	uint8_t * pb;
@@ -479,18 +482,13 @@ void OledClearBuffer(void)
 		pb = rgbOledBmp0;
 	}
 
-#ifdef USE_DMA
 	/*
 	 * DMAC_ChannelCallbackRegister in OledInit
 	 */
 	while (dstate != D_idle) {
 	};
 	wait_lcd_done();
-	/* setup the source and destination parms */
-	DMA_ChannelTransfer(DMA_CHANNEL_1, (const void *) rgbOledBmp_blank, (const void*) pb, (size_t) 4);
-	DMA1CHbits.CHREQ = 1; // set to 1 to start the transfer
-#else
-#endif
+	memset(pb, 0, cbOledDispMax);
 }
 
 /* ------------------------------------------------------------ */

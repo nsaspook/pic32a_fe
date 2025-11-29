@@ -19,11 +19,14 @@
 #include "imu.h"
 
 static char buffer[256];
+bool SW1_SET = false, SW2_SET = false;
 volatile uint16_t tickCount[TMR_COUNT];
 uint32_t board_serial_id = 0x35A;
 sSensorData_t accel = {
 	.id = 1,
 };
+
+double adc1_scaled = 0.0f, adc2_scaled = 0.0f;
 
 #define DIS_TICKS	100
 #define IMU_TICKS	50
@@ -121,6 +124,17 @@ int main(void)
 			eaDogM_WriteStringAtPos(2, 0, buffer);
 			snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f, %d   ", accel.x, accel.y, accel.z, imu0.rs);
 			eaDogM_WriteStringAtPos(3, 0, buffer);
+			if (SW1_SET) {
+				adc1_scaled = adc_result*ADC1_SCALE;
+				AD2SWTRGbits.CH4TRG = 1;
+				while (AD2STATbits.CH4RDY == 0);
+				adc_result = AD2CH4DATA;
+				adc2_scaled = adc_result*ADC2_SCALE;
+				snprintf(buffer, 255, "ADC1 Voltage : %7.4f Volts", adc1_scaled);
+				eaDogM_WriteStringAtPos(5, 0, buffer);
+				snprintf(buffer, 255, "ADC2 Voltage : %7.4f Volts", adc2_scaled);
+				eaDogM_WriteStringAtPos(6, 0, buffer);
+			}
 		}
 
 		if (TimerDone(TMR_IMU_DATA)) {
@@ -129,6 +143,15 @@ int main(void)
 			imu0.update = false;
 			getAllData(&accel, &imu0); // convert data from the IMU chip
 			RLED_Toggle();
+		}
+
+		if (!SW1_Get()) {
+			OledClearBuffer();
+			SW1_SET = true;
+		}
+
+		if (!SW2_Get()) {
+			SW2_SET = true;
 		}
 	}
 
