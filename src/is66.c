@@ -47,8 +47,10 @@ void ADC_DMA_write(void)
 {
 #ifndef USE_SRAM
 	AD1SWTRGbits.CH6TRG = 1;
+	TP0_Set();
 	while (AD1STATbits.CH6RDY == 0);
-	adc_result = AD1CH6DATA;
+	TP0_Clear();
+	adc_result = AD1CH6DATA >> 1;
 	memcpy((void *) &iss_adc_write[4], (const void *) &adc_result, 4);
 
 #if defined __has_builtin
@@ -63,7 +65,7 @@ void ADC_DMA_write(void)
 	if ((sram_addr += 2) >= MAX_ISS66_SAMPLES) {
 		sram_addr = 0;
 		total_sample_triggers++;
-		TP0_Toggle();
+		//		TP0_Toggle();
 	};
 
 	while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
@@ -86,16 +88,13 @@ void ADC_DMA_read(void)
 
 /*
  * DMA event callback processor
- * not being used, only for testing for now
  */
 void SPI2DmaChannelHandler_State(DMA_TRANSFER_EVENT event, uintptr_t contextHandle)
 {
 	static uint32_t cdown = CDOWN;
 #ifdef DMA_HALF
 	if (event == DMA_TRANSFER_EVENT_HALF_COMPLETE) {
-		adc_result = AD1CH6DATA;
-		AD1SWTRGbits.CH6TRG = 1;
-		while (AD1STATbits.CH6RDY == 0);
+		// stuff
 	}
 #endif
 	if (event == DMA_TRANSFER_EVENT_COMPLETE) {
@@ -117,17 +116,26 @@ void SCCP2_Callback_InterruptHandler(uint32_t status, uintptr_t context)
 
 void ADC_DMA_init(void)
 {
-	// Select single conversion mode on channel 6 to AN6
-	AD1CH6CONbits.MODE = 0;
+	// Select conversion mode on channel 6 to AN6
+	AD1CH6CONbits.MODE = 3; // 0 = single, 3 = oversample
+	// Set number of conversions accumulated to 2 because of back-to-back.
+	AD1CH4CONbits.ACCNUM = 0;
+	// The oversampling if started cannot be interrupted
+	// by a high priority channels conversion requests.
+	AD1CH4CONbits.ACCBRST = 1;
 	// Software trigger will start a conversion.
-	AD1CH6CONbits.TRG1SRC = 1;
-	AD1CH6CONbits.TRG2SRC = 0;
+	AD1CH6CONbits.TRG1SRC = 1; // software
+	AD1CH6CONbits.TRG2SRC = 2; // back-to-back
 	// Use a single-ended input.
 	AD1CH6CONbits.DIFF = 0;
 	// Select the AN6 analog positive input/pin for the signal.
 	AD1CH6CONbits.PINSEL = 6;
-	// Select signal sampling time (0.5 TADs = 6.25nS).
-	AD1CH6CONbits.SAMC = 0;
+	// Select signal sampling time ( 0 = TADs = 6.25nS).
+	AD1CH6CONbits.SAMC = 1; // 12.5ns
+	// Enable repeat rate.
+	AD1CONbits.CALRATE = 3;
+	// Enable auto calibration.
+	AD1CONbits.ACALEN = 1;
 	// Set ADC to RUN mode.
 	AD1CONbits.MODE = 2;
 	// Enable ADC.
@@ -137,10 +145,12 @@ void ADC_DMA_init(void)
 
 	// Trigger channel #6 in software and wait for the result.
 	AD1SWTRGbits.CH6TRG = 1;
+	TP0_Set();
 	// Wait for a conversion ready flag.
 	while (AD1STATbits.CH6RDY == 0);
+	TP0_Clear();
 	// Read result. It will clear the conversion ready flag.
-	adc_result = AD1CH6DATA;
+	adc_result = AD1CH6DATA >> 1;
 
 	/*
 	 * setup the DMA and timer background tasks

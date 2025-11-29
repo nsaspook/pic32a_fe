@@ -113,11 +113,6 @@ int main(void)
 			eaDogM_WriteStringAtPos(0, 0, buffer);
 			OledUpdate();
 			StartTimer(TMR_TEST, DIS_TICKS);
-			if (adc_result > 1024) {
-				backlight_on();
-			} else {
-				backlight_off();
-			}
 			snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);
 			eaDogM_WriteStringAtPos(2, 0, buffer);
 			snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f, %d   ", accel.x, accel.y, accel.z, imu0.rs);
