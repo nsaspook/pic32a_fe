@@ -25,10 +25,10 @@ sSensorData_t accel = {
 	.id = 1,
 };
 
-#ifdef SCA3300
+#define DIS_TICKS	100
+#define IMU_TICKS	50
 
-#define PINS_PPSLock()           (RPCONbits.IOLOCK = 1)
-#define PINS_PPSUnlock()         (RPCONbits.IOLOCK = 0)
+#ifdef SCA3300
 
 /*
  * SCA3300-D01 instance
@@ -101,7 +101,8 @@ int main(void)
 	snprintf(buffer, 255, "%s, serial %X      ", imu_string(&imu0), imu0.board_serial_id);
 	eaDogM_WriteStringAtPos(1, 0, buffer);
 
-	StartTimer(TMR_TEST, 10); // GLCD screen updates every 2ms
+	StartTimer(TMR_TEST, DIS_TICKS); // GLCD screen updates every 2ms
+	StartTimer(TMR_IMU_DATA, IMU_TICKS); // IMU data updates every xms
 	SCCP2_TimerStart(); // ADC timer start
 
 	while (true) {
@@ -111,19 +112,23 @@ int main(void)
 			snprintf(buffer, 255, "S%u, SRAM-ID% X%X%X, V%u   ", total_sample_triggers, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6], adc_result);
 			eaDogM_WriteStringAtPos(0, 0, buffer);
 			OledUpdate();
-			StartTimer(TMR_TEST, 2);
+			StartTimer(TMR_TEST, DIS_TICKS);
 			if (adc_result > 1024) {
 				backlight_on();
 			} else {
 				backlight_off();
 			}
-			imu0.op.imu_getdata(&imu0);
-			imu0.update = false;
-			getAllData(&accel, &imu0); // convert data from the IMU chip
 			snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);
 			eaDogM_WriteStringAtPos(2, 0, buffer);
 			snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f, %d   ", accel.x, accel.y, accel.z, imu0.rs);
 			eaDogM_WriteStringAtPos(3, 0, buffer);
+		}
+
+		if (TimerDone(TMR_IMU_DATA)) {
+			StartTimer(TMR_IMU_DATA, IMU_TICKS);
+			imu0.op.imu_getdata(&imu0);
+			imu0.update = false;
+			getAllData(&accel, &imu0); // convert data from the IMU chip
 			RLED_Toggle();
 		}
 	}

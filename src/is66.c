@@ -18,7 +18,7 @@
 #define MAX_ISS66_SAMPLES	32768
 #define CDOWN	8
 
-static const uint32_t retrigger_time = 280;
+static const uint32_t retrigger_time = 350;
 volatile uint8_t iss_adc_write[8] = {0x02, 0x00, 0x00, 0x00}; // 1024 bytes in each address page for sequential writes
 uint8_t sram_adc_write[8];
 volatile uint32_t adc_result = 0, total_sample_triggers = 0;
@@ -147,5 +147,5 @@ void ADC_DMA_init(void)
 	 */
 	DMA_ChannelCallbackRegister(DMA_CHANNEL_5, SPI2DmaChannelHandler_State, 0);
 	SCCP2_TimerCallbackRegister(SCCP2_Callback_InterruptHandler, (uintptr_t) NULL);
-	SCCP2_Timer32bitPeriodSet(retrigger_time); //  close to 3.5us timer interrupts 
+	SCCP2_Timer32bitPeriodSet(retrigger_time); //  close to 3.5us timer interrupts
 }
