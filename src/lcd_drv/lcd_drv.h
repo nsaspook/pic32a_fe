@@ -62,8 +62,10 @@ extern "C" {
 #define bmp_size	100		// x,y size of image
 #define	BANK1		0xA000A000	// bank 1 frame buffer memory address
 #define	BANK2		0x80030000	// bank 2 frame buffer memory address
+#define YRAM		0x006000
+#define XRAM		0x004000
 
-#define LCD_DRIVER	"V1.005" 
+#define LCD_DRIVER	"V1.006" 
 #define LCD_ALIAS	"EADOG LCD"
 
 	typedef enum {

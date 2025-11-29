@@ -33,7 +33,7 @@ sSensorData_t accel = {
 /*
  * SCA3300-D01 instance
  */
-imu_cmd_t imu0 = {
+imu_cmd_t __attribute__((address(YRAM))) imu0 = {
 	.id = 3,
 	.tbuf32[SCA3300_TRM] = SCA3300_SWRESET_32B,
 	.online = false,
@@ -61,6 +61,10 @@ imu_cmd_t imu0 = {
 
 int main(void)
 {
+	RAMXECCCON = 0x00008000; // ECC enable
+	RAMYECCCON = 0x00008000;
+	PWBXECCCON = 0x00008000;
+	PWBYECCCON = 0x00008000;
 	/* Initialize all modules */
 	SYS_Initialize(NULL);
 
@@ -109,7 +113,7 @@ int main(void)
 		/* Maintain state machines of all polled MPLAB Harmony modules. */
 		SYS_Tasks();
 		if (TimerDone(TMR_TEST)) {
-			snprintf(buffer, 255, "S%u, SRAM-ID% X%X%X, V%u   ", total_sample_triggers, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6], adc_result);
+			snprintf(buffer, 255, "S%u, SRAM-ID% X%X%X, V%u", total_sample_triggers, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6], adc_result);
 			eaDogM_WriteStringAtPos(0, 0, buffer);
 			OledUpdate();
 			StartTimer(TMR_TEST, DIS_TICKS);
