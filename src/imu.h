@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   imu.h
  * Author: root
  *
@@ -16,15 +16,12 @@ extern "C" {
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include <math.h>
-//#include "imupic32mcj.h"
-//#include "bno086_reg.h"
-//#include "quat.h"
 
 #define SCA3300
-	
-#define IMU_DRIVER "V1.715" 
+
+#define IMU_DRIVER "V1.716"
 #ifdef BNO086
-#define IMU_ALIAS "BNO086 IMU"    
+#define IMU_ALIAS "BNO086 IMU"
 #else
 #define IMU_ALIAS "IMU"
 #endif
@@ -33,13 +30,13 @@ extern "C" {
 
 #define IMU_DATA_RAW_LEN  30
 #define IMU_DATA_BUFFER_INDEX  1
-	
+
 #define IMU_CS 0
 #define SCA_LOG_TIMEOUT 10 // 8
 
 	typedef struct _sSensorData_t {
 		const uint16_t id;
-//		sh2_Quaternion_t fusion;
+		//		sh2_Quaternion_t fusion;
 		double x; /**< X-axis sensor data */
 		double y; /**< Y-axis sensor data */
 		double z; /**< Z-axis sensor data */
@@ -62,6 +59,7 @@ extern "C" {
 		void (*info_ptr)(void);
 		void (*imu_set_spimode)(void *);
 		bool (*imu_getid)(void *);
+		bool (*imu_getserial)(void *);
 		bool (*imu_getdata)(void *);
 	} op_t;
 
@@ -165,7 +163,7 @@ extern "C" {
 	};
 
 	/*! Earth's gravity in m/s^2 */
-#define GRAVITY_EARTH   (9.80665f) 
+#define GRAVITY_EARTH   (9.80665f)
 	/*
 	 * device earth gravity range calibration scalars
 	 */

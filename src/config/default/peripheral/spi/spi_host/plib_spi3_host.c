@@ -88,7 +88,7 @@ void SPI3_Initialize ( void )
     SPI3CON1 = 0x00UL;
 
     /* BAUD Rate register Setup */
-    SPI3BRG = 0xbUL;
+    SPI3BRG = 0x5UL;
 
     SPI3CON1 = (SPI3CON1_MSTEN_HOST_MODE
             |SPI3CON1_CKP_IDLE_LOW_ACTIVE_HIGH

@@ -48,6 +48,7 @@ imu_cmd_t imu0 = {
 	.op.info_ptr = &sca3300_version,
 	.op.imu_set_spimode = &sca3300_set_spimode,
 	.op.imu_getid = &sca3300_getid,
+	.op.imu_getserial = &sca3300_getserial,
 	.op.imu_getdata = &sca3300_getdata,
 	.acc_range = range_inc2,
 	.acc_range_scl = range_inc2,
@@ -91,20 +92,19 @@ int main(void)
 	SRAM_CS_Set();
 	ADC_DMA_init(); // setup background ADC data tasks
 	/*
-	 * configure port if needed, detect sensor and config
+	 * configure SPI port for IMU if needed, detect sensor and config
 	 */
-	imu0.op.imu_set_spimode(&imu0); // setup the IMU chip for SPI comms, X updates per second @ selected G range
-	sca3300_getserial(&imu0);
+	imu0.op.imu_set_spimode(&imu0); // setup the IMU chip for SPI comms, X updates per second @ selected G range with tilt angles
+	imu0.op.imu_getserial(&imu0);
 	imu0.op.imu_getid(&imu0);
-	
+
 	snprintf(buffer, 255, "%s, serial %X      ", imu_string(&imu0), imu0.board_serial_id);
 	eaDogM_WriteStringAtPos(1, 0, buffer);
 
-	StartTimer(TMR_TEST, 50); // GLCD screen updates every 2ms
+	StartTimer(TMR_TEST, 10); // GLCD screen updates every 2ms
 	SCCP2_TimerStart(); // ADC timer start
 
 	while (true) {
-		static uint32_t loops = 0;
 		/* Maintain state machines of all polled MPLAB Harmony modules. */
 		SYS_Tasks();
 		if (TimerDone(TMR_TEST)) {
@@ -119,11 +119,12 @@ int main(void)
 			}
 			imu0.op.imu_getdata(&imu0);
 			imu0.update = false;
-			getAllData(&accel, &imu0); // convert data from the chip
-			snprintf(buffer, 255, "%6.2f,%6.2f,%6.2f,%5.1f", accel.xa, accel.ya, accel.za, accel.sensortemp);
+			getAllData(&accel, &imu0); // convert data from the IMU chip
+			snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);
 			eaDogM_WriteStringAtPos(2, 0, buffer);
-			snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f :%d %d", accel.x, accel.y, accel.z, imu0.acc_range, imu0.acc_range_scl);
+			snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f, %d   ", accel.x, accel.y, accel.z, imu0.rs);
 			eaDogM_WriteStringAtPos(3, 0, buffer);
+			RLED_Toggle();
 		}
 	}
 

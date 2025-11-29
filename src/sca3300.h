@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   sca3300.h
  * Author: nsasp
  *
@@ -22,13 +22,10 @@ extern "C" {
 #include <math.h>
 #include <stdio.h>
 #include "definitions.h"                // SYS function prototypes
-//#include "imupic32mcj.h"
 #include "imu.h"
 #include "timers.h"
-//#include "canfd.h"
 
-#define SCA3300_DRIVER	"V1.007" 
-
+#define SCA3300_DRIVER	"V1.007"
 #define SCA3300_ALIAS	"SCx3300"
 
 	/* Device commands and response */
@@ -42,8 +39,8 @@ extern "C" {
 #define	SCA3300_ACC_Y_32B	0x080000FD
 #define	SCA3300_ACC_Z_32B	0x0C0000FB
 #define SCA3300_TEMP_32B	0x140000EF
-#define SCA3300_MODE1		0xB400001F	
-#define SCA3300_MODE2		0xB4000102	
+#define SCA3300_MODE1		0xB400001F
+#define SCA3300_MODE2		0xB4000102
 #define SCA3300_MODE3		0xB4000225
 #define SCA3300_MODE4		0xB4000338
 #define SCL3300_MODE1		0xB400001F
@@ -73,7 +70,7 @@ extern "C" {
 	 */
 	void sca3300_set_spimode(void *);
 	bool sca3300_getid(void *);
-        bool sca3300_getserial(void *);
+	bool sca3300_getserial(void *);
 	bool sca3300_getdata(void *);
 	void sca3300_version(void);
 

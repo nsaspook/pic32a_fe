@@ -154,13 +154,6 @@ bool sca3300_getdata(void * imup)
 					sdata.scan.channels[SCL3300_ANG_Z] = ((imu->rbuf32[SCA3300_REC] >> 8)&0xffff); // Z data
 				};
 			}
-
-#ifdef __32MK0512MCJ048__
-			sdata.scan.ts = TMR9_CounterGet(); // load a clock time-stamp from timer9 32-bit counter, frequency 234,375KHz, 266.66 min roll-over
-#endif
-#ifdef __32MZ1025W104132__
-			sdata.scan.ts = TMR2_CounterGet(); // load a clock time-stamp from timer9 32-bit counter, frequency 234,375KHz, 266.66 min roll-over
-#endif
 		}
 		return imu->online;
 	} else {
@@ -174,7 +167,6 @@ bool sca3300_getdata(void * imup)
 bool sca3300_getid(void * imup)
 {
 	imu_cmd_t * imu = imup;
-	bool angles = false;
 
 	if (imu) {
 		if (!imu->run) {
@@ -188,10 +180,11 @@ bool sca3300_getid(void * imup)
 					sca3300_imu_transfer(imu, SCL3300_ANGLE); // enable angle data
 					delay_us(SCA3300_CHIP_MODE_DELAY);
 					imu->online = true;
-					imu->rbuf32[SCA3300_REC] = 0;
+					//					imu->rbuf32[SCA3300_REC] = 0;
 					imu->crc_error = false;
 				} else {
 					imu->crc_error = true;
+					imu->online = false;
 				}
 			} else {
 				imu->online = false;
@@ -268,13 +261,11 @@ bool imu_cs(imu_cmd_t * imu)
 		switch (imu->cs) {
 		case 0:
 		default:
-			delay_us(SCA3300_CHIP_CS_DELAY); // 
+			delay_us(SCA3300_CHIP_CS_DELAY); //
 			imu->run = true;
 			IMU_CS_Clear();
 			// set SPI receive complete callback
-#ifndef BNO086
 			//			SPI3_CallbackRegister(imu_cs_cb, (uintptr_t) imu);
-#endif
 			break;
 		}
 		return true;
@@ -299,8 +290,6 @@ void sca3300_cs_disable(imu_cmd_t * imu)
 	}
 }
 
-#ifndef BNO086
-
 /*
  * SPI interrupt completed callback
  * disables sca3300 CS and clears run flags
@@ -319,7 +308,6 @@ void imu_cs_cb(uintptr_t context)
 		}
 	}
 }
-#endif
 
 void sca3300_version(void)
 {
