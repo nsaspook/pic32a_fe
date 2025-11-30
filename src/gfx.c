@@ -1,5 +1,4 @@
 #include "gfx.h"
-//#include "hid.h"
 
 int32_t xa, ya, za;
 volatile double q0 = 1.0, q1 = 0.0, q2 = 0.0, q3 = 0.0; // quaternion of sensor frame relative to auxiliary frame
@@ -233,9 +232,9 @@ void LA_gfx(bool reset, bool redraw, uint32_t turns)
 	double xt = x + t * a * (y - x);
 	double yt = y + t * (x * (b - z) - y);
 	double zt = z + t * (x * y - c * z);
-	x = xt + q0;
-	y = yt + q1;
-	z = zt + q2;
+	x = xt; // + q0;
+	y = yt; // + q1;
+	z = zt; // + q2;
 #ifdef SHOW_STATS
 	xa = (x * 1.5) + 40;
 	ya = (z * 1.5) + 10; // xz plot

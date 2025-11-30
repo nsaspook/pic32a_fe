@@ -42,4 +42,6 @@ build/default/production/_ext/1360937237/main.o:  \
 ../src/samples.h  \
 ../src/is66.h  \
  ../src/sca3300.h  \
-../src/imu.h 
+../src/imu.h  \
+../src/gfx.h  \
+../src/lcd_drv/OledGrph.h 

@@ -17,6 +17,7 @@
 #include "is66.h"
 #include "sca3300.h"
 #include "imu.h"
+#include "gfx.h"
 
 static char buffer[256];
 bool SW1_SET = false, SW2_SET = false;
@@ -116,24 +117,41 @@ int main(void)
 		/* Maintain state machines of all polled MPLAB Harmony modules. */
 		SYS_Tasks();
 		if (TimerDone(TMR_TEST)) {
-			snprintf(buffer, 255, "S%u, SRAM-ID% X%X%X, V%u", total_sample_triggers, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6], adc_result);
-			eaDogM_WriteStringAtPos(0, 0, buffer);
-			OledUpdate();
-			StartTimer(TMR_TEST, DIS_TICKS);
-			snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);
-			eaDogM_WriteStringAtPos(2, 0, buffer);
-			snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f, %d   ", accel.x, accel.y, accel.z, imu0.rs);
-			eaDogM_WriteStringAtPos(3, 0, buffer);
-			if (SW1_SET) {
-				adc1_scaled = adc_result*ADC1_SCALE;
-				AD2SWTRGbits.CH4TRG = 1;
-				while (AD2STATbits.CH4RDY == 0);
-				adc_result = AD2CH4DATA;
-				adc2_scaled = adc_result*ADC2_SCALE;
-				snprintf(buffer, 255, "ADC1 Voltage : %7.4f Volts", adc1_scaled);
-				eaDogM_WriteStringAtPos(5, 0, buffer);
-				snprintf(buffer, 255, "ADC2 Voltage : %7.4f Volts", adc2_scaled);
-				eaDogM_WriteStringAtPos(6, 0, buffer);
+			if (!SW2_SET) {
+				StartTimer(TMR_TEST, DIS_TICKS);
+				snprintf(buffer, 255, "S%u, SRAM-ID% X%X%X, V%u", total_sample_triggers, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6], adc_result);
+				eaDogM_WriteStringAtPos(0, 0, buffer);
+
+				snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);
+				eaDogM_WriteStringAtPos(2, 0, buffer);
+				snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f, %d   ", accel.x, accel.y, accel.z, imu0.rs);
+				eaDogM_WriteStringAtPos(3, 0, buffer);
+				if (SW1_SET) {
+					uint16_t i = 1;
+					adc1_scaled = adc_result*ADC1_SCALE;
+					AD2SWTRGbits.CH4TRG = 1;
+					while (AD2STATbits.CH4RDY == 0);
+					adc_result = AD2CH4DATA;
+					adc2_scaled = adc_result*ADC2_SCALE;
+					snprintf(buffer, 255, "ADC1 Voltage : %7.4f Volts", adc1_scaled);
+					eaDogM_WriteStringAtPos(5, 0, buffer);
+					snprintf(buffer, 255, "ADC2 Voltage : %7.4f Volts", adc2_scaled);
+					eaDogM_WriteStringAtPos(6, 0, buffer);
+					LA_gfx(false, false, 0);
+					while ((i++ < 10)) {
+						// extra processing loop while waiting for clock time to expire
+						LA_gfx(false, false, 10);
+					}
+				}
+				OledUpdate();
+			} else {
+				OledClearBuffer();
+				snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);
+				eaDogM_WriteStringAtPos(0, 0, buffer);
+				snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f, %d   ", accel.x, accel.y, accel.z, imu0.rs);
+				eaDogM_WriteStringAtPos(1, 0, buffer);
+				vector_graph_fs();
+				OledUpdate();
 			}
 		}
 
@@ -142,16 +160,23 @@ int main(void)
 			imu0.op.imu_getdata(&imu0);
 			imu0.update = false;
 			getAllData(&accel, &imu0); // convert data from the IMU chip
+			q0 = accel.x / 1.0f;
+			q1 = accel.y / 1.0f;
+			q2 = accel.z / 1.0f;
+			q3 = q0;
 			RLED_Toggle();
 		}
 
 		if (!SW1_Get()) {
 			OledClearBuffer();
 			SW1_SET = true;
+			SW2_SET = false;
 		}
 
 		if (!SW2_Get()) {
+			OledClearBuffer();
 			SW2_SET = true;
+			SW1_SET = false;
 		}
 	}
 
