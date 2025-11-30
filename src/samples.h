@@ -19,7 +19,10 @@ extern "C" {
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 
-#define ADC1_SCALE	0.000402000f
+#define ADC1_D	0
+#define ADC2_D	1
+	
+#define ADC1_SCALE	0.000403900f
 #define ADC2_SCALE	0.000402000f
 
 	extern bool SW1_SET, SW2_SET;

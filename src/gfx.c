@@ -204,7 +204,6 @@ void LA_gfx(bool reset, bool redraw, uint32_t turns)
 	static double t = 0.01;
 	static uint32_t i = 0;
 
-	//	TP2_Set();
 	//Iterate and update x,y and z locations
 	//based upon the Lorenz equations
 	if (redraw) {
@@ -235,18 +234,13 @@ void LA_gfx(bool reset, bool redraw, uint32_t turns)
 	x = xt; // + q0;
 	y = yt; // + q1;
 	z = zt; // + q2;
-#ifdef SHOW_STATS
-	xa = (x * 1.5) + 40;
-	ya = (z * 1.5) + 10; // xz plot
-	//	ya = (y * 1.5) + 40; // xy plot
-#else
+
 	xa = (x * 2.5) + 120;
 	if (true) { // H.la_mod button in hid.h
 		ya = (z * 1.5) + 50; // xz plot
 	} else {
 		ya = (y * 1.5) + 40; // xy plot
 	}
-#endif
 	za = z;
 	OledMoveTo(xa, ya);
 	OledLineTo(xa + 1, ya + 1);

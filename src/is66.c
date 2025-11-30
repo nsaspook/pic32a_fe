@@ -19,11 +19,12 @@
 #define MAX_ISS66_SAMPLES	32768
 #define CDOWN	8
 
-static const uint32_t retrigger_time = 350;
+static const uint32_t retrigger_time = 400;
 volatile uint8_t iss_adc_write[8] = {0x02, 0x00, 0x00, 0x00}; // 1024 bytes in each address page for sequential writes
 uint8_t sram_adc_write[8];
-volatile uint32_t adc_result = 0, total_sample_triggers = 0;
+volatile uint32_t total_sample_triggers = 0;
 volatile uint16_t sram_addr = 0, *sram_addr_ptr = (volatile uint16_t *) & iss_adc_write[2];
+volatile uint16_t adc_result[2] = {0, 0};
 
 /*
  * swap16 for iss66 addresses
@@ -48,11 +49,13 @@ void ADC_DMA_write(void)
 {
 #ifndef USE_SRAM
 	AD1SWTRGbits.CH6TRG = 1;
+	AD2SWTRGbits.CH4TRG = 1;
 	TP0_Set();
-	while (AD1STATbits.CH6RDY == 0);
+	while (AD1STATbits.CH6RDY == 0 && AD2STATbits.CH4RDY == 0);
 	TP0_Clear();
-	adc_result = AD1CH6DATA;
-	memcpy((void *) &iss_adc_write[4], (const void *) &adc_result, 4);
+	adc_result[ADC1_D] = (uint16_t) AD1CH6DATA; // save as uint16_t data
+	adc_result[ADC2_D] = (uint16_t) AD2CH4DATA;
+	memcpy((void *) &iss_adc_write[4], (const void *) &adc_result[ADC1_D], 4);
 
 #if defined __has_builtin
 #if __has_builtin (__builtin_bswap16)
@@ -63,7 +66,7 @@ void ADC_DMA_write(void)
 #else
 	*sram_addr_ptr = htons(sram_addr);
 #endif
-	if ((sram_addr += 2) >= MAX_ISS66_SAMPLES) {
+	if ((sram_addr += 4) >= MAX_ISS66_SAMPLES) {
 		sram_addr = 0;
 		total_sample_triggers++;
 		//		TP0_Toggle();
@@ -74,7 +77,7 @@ void ADC_DMA_write(void)
 #ifndef USE_SRAM
 	SRAM_CS_Clear(); // CS will bet set in DMA complete ISR
 #endif
-	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_write, (const void*) &SPI2BUF, (size_t) 6);
+	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_write, (const void*) &SPI2BUF, (size_t) 8);
 #endif
 };
 
@@ -100,7 +103,7 @@ void SPI2DmaChannelHandler_State(DMA_TRANSFER_EVENT event, uintptr_t contextHand
 #endif
 	if (event == DMA_TRANSFER_EVENT_COMPLETE) {
 #ifndef USE_SRAM
-		while (SPI2_IsTransmitterBusy() && --cdown != 0);
+		while (SPI2_IsTransmitterBusy() && --cdown != 0); // SPI buffer empty timeout
 		cdown = CDOWN;
 		SRAM_CS_Set();
 #endif
@@ -159,7 +162,7 @@ void ADC_DMA_init(void)
 	while (AD1STATbits.CH6RDY == 0);
 	TP0_Clear();
 	// Read result. It will clear the conversion ready flag.
-	adc_result = AD1CH6DATA >> 1;
+	adc_result[ADC1_D] = AD1CH6DATA;
 
 	/*
 	 * setup the DMA and timer background tasks
