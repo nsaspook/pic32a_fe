@@ -83,7 +83,7 @@ data:
       - children:
         - attributes:
             id: uart1
-            value: '0x364'
+            value: '0xd9'
           type: Dynamic
         type: Values
       type: String
@@ -94,7 +94,7 @@ data:
       - children:
         - attributes:
             id: uart1
-            value: '115207.373'
+            value: '460829.493'
           type: Dynamic
         type: Values
       type: String
@@ -163,6 +163,16 @@ data:
       - children:
         - attributes:
             value: '256'
+          type: User
+        type: Values
+      type: Integer
+    baudRateVal:
+      attributes:
+        id: baudRateVal
+      children:
+      - children:
+        - attributes:
+            value: '460800'
           type: User
         type: Values
       type: Integer

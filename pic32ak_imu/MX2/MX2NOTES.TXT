@@ -1,0 +1,79 @@
+notes.txt
+These are working notes to help keep track of changes or things that
+should or could be done to MX2.
+
+
+#@MX2 file and program directorys
+There are two new directory that MX2 needs. The first is called \MX2SPOOL
+this is created when the spooler program begins for the first time.
+The second is called \MX2 these should be where all MX2 executable
+programs should be. All script file should now look at \MX2 for MX2
+programs that they need.
+
+#@mlimit
+Need a way to limit the amount that any one program can see with a
+malloc(-1). I could set up a trap handler to control the malloc but I will
+first try to allocate small 2 byte memory blocks to break up the memory
+block.
+
+#@crashs
+When MX2 crashes disk sectors that were being allocated for a file that did
+not close can be lost. Use of a program like "TUNEUP" can fix and get back
+the "LOST" sectors. Also some auto programs can cause problems with MX2
+I use GEMBOOT.PRG and the mitchtron CACHE.PRG. I have found that the
+L-CACHE.PRG causes lockup and random aborts.
+
+#@xmodem
+Need to take a look to see why the xmodem routines are messing up later
+I/O with the te command and CLI redirection to the AUX port.
+
+#@menu
+I have started to play with a backgound gem menu bar for the CLI. The
+program MENU sets up a menu bar that can be run in backgound with the
+"sys bp 1 menu" command. The program 'km' will terminate the MENU 
+program. Although it works it also totally screws up gem. It's safer run
+as just a regular program but it you don't care about running another gem
+program try it.
+
+#@WaitProcess MX2V220
+Procedure that waits for a memory location to change it's value.
+   WaitProcess(VAR id: INTEGER; VAR location: ADDRESS; VAR value,mask,msec: LONGCARD);
+This procedure puts the currentprocess to sleep then compares the contents
+at 'location' against 'value AND mask'. If they are the same then the
+process wakes up and is put in the scheduler ready list to be run. msec
+is the time the process will wait for the value in milliseconds if msec
+is set to 0 WaitProcess will never timeout.
+** NEED TO ADD TO JSM2 syscall.def
+
+#@submita&submitm
+Fixed submita and added submitm to utility programs. I forgot to use the
+xbios call to get the IOREC for the RS232 buffer.
+
+@#mx2.acc
+If you want to switch out of a GEM program back to the ALT cli with the
+ALT m hotkey you MUST turn off the MX2.ACC first. If you don't the AES
+will get very mixed up. When back in the GEM program you can turn the
+MX2.ACC back on to allow normal background program operation. This guy is
+causeing some problems I may have to redesign it again.
+
+@#spint control of spooler, network and xmodem
+spint 0 controls the spooler
+spint 1 controls both netaux and netmidi
+spint 2 controls the xmodem send and receive
+xr = xmodem receive  'xr -crc foo.bar' or 'xr -chk foo.bar'
+xt = xmodem send     'xt -crc foo.bar' or 'xr -chk foo.bar'
+xs = xmodem status   'xs'
+xa = xmodem abort    'xa'
+
+@#spints
+Spints in MX2 are similar to signals in UNIX. They are procedures that
+can be started by issueing a Trigger(x) call. A spint can also carry a
+memory location that can be used for shared memory between processes.
+The source files spooler.mod, sq.mod, lp.mod and killlp.mod are simple
+examples.
+spooler.mod uses the EnableSpint call to setup spint 0 to a procedure
+sq and a pointer to the variable spintcmd.
+sq.mod, lp.mod and killlp.mod use the SpintInfo and Trigger calls to
+communicate with the spooler.prg
+
+

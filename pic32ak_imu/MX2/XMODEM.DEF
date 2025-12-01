@@ -1,0 +1,25 @@
+
+(*              Copyright 1987 fred brooks LogicTek             *)
+(*                                                              *)
+(*                                                              *)
+(*   First Release                      12/8/87-FGB             *)
+(*                                                              *)
+
+DEFINITION MODULE XMODEM;
+FROM       Strings  IMPORT    String;
+VAR     xmodemerror     :       INTEGER; (* xmodem errors *)
+        xmodemabort     :       BOOLEAN; (* timeout or abort flag *)
+        crcmode         :       BOOLEAN; (* set crc or checksum *)
+        xfrname         :       String;
+        mdmPacketsSent          :       INTEGER;
+        mdmPacketsReceived      :       INTEGER;
+        mdmBadPackets           :       INTEGER;
+        mdmNakedPackets         :       INTEGER;
+        mdmBytesXferred         :       LONGCARD;
+        endblk                  :       INTEGER;
+
+PROCEDURE       xmodemrec(filename: ARRAY OF CHAR): BOOLEAN;
+PROCEDURE       xmodemsnd(filename: ARRAY OF CHAR): BOOLEAN;
+PROCEDURE       xmodemstat;
+
+END  XMODEM.

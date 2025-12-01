@@ -1,0 +1,1316 @@
+firmware/src/PetitModbus/PetitModbus.c:141:11: style: The scope of the variable 'Petit_i' can be reduced. [variableScope]
+ uint32_t Petit_i = 0;
+          ^
+firmware/src/PetitModbus/PetitModbus.c:184:10: style: The scope of the variable 'Petit_i' can be reduced. [variableScope]
+ uint8_t Petit_i = 0;
+         ^
+firmware/src/PetitModbus/PetitModbus.c:223:10: style: The scope of the variable 'Petit_i' can be reduced. [variableScope]
+ uint8_t Petit_i = 0;
+         ^
+firmware/src/PetitModbus/PetitModbus.c:224:11: style: The scope of the variable 'Petit_Value' can be reduced. [variableScope]
+ uint32_t Petit_Value = 0;
+          ^
+firmware/src/PetitModbus/PetitModbus.c:141:19: style: Variable 'Petit_i' is assigned a value that is never used. [unreadVariable]
+ uint32_t Petit_i = 0;
+                  ^
+firmware/src/PetitModbus/PetitModbus.c:184:18: style: Variable 'Petit_i' is assigned a value that is never used. [unreadVariable]
+ uint8_t Petit_i = 0;
+                 ^
+firmware/src/PetitModbus/PetitModbus.c:223:18: style: Variable 'Petit_i' is assigned a value that is never used. [unreadVariable]
+ uint8_t Petit_i = 0;
+                 ^
+firmware/src/PetitModbus/PetitModbus.c:224:23: style: Variable 'Petit_Value' is assigned a value that is never used. [unreadVariable]
+ uint32_t Petit_Value = 0;
+                      ^
+firmware/src/config/default/interrupts.c:98:6: error: There is an unknown macro here somewhere. Configuration is required. If __ISR is a macro then please configure it. [unknownMacro]
+void __ISR(_EXTERNAL_0_VECTOR, ipl3SRS) EXTERNAL_0_Handler (void)
+     ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:115:45: style:inconclusive: Function 'ADCHS_ModulesEnable' argument 1 names different: declaration 'modulesMask' definition 'moduleMask'. [funcArgNamesDifferent]
+void ADCHS_ModulesEnable (ADCHS_MODULE_MASK moduleMask)
+                                            ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.h:90:45: note: Function 'ADCHS_ModulesEnable' argument 1 names different: declaration 'modulesMask' definition 'moduleMask'.
+void ADCHS_ModulesEnable (ADCHS_MODULE_MASK modulesMask);
+                                            ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:115:45: note: Function 'ADCHS_ModulesEnable' argument 1 names different: declaration 'modulesMask' definition 'moduleMask'.
+void ADCHS_ModulesEnable (ADCHS_MODULE_MASK moduleMask)
+                                            ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:121:46: style:inconclusive: Function 'ADCHS_ModulesDisable' argument 1 names different: declaration 'modulesMask' definition 'moduleMask'. [funcArgNamesDifferent]
+void ADCHS_ModulesDisable (ADCHS_MODULE_MASK moduleMask)
+                                             ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.h:91:46: note: Function 'ADCHS_ModulesDisable' argument 1 names different: declaration 'modulesMask' definition 'moduleMask'.
+void ADCHS_ModulesDisable (ADCHS_MODULE_MASK modulesMask);
+                                             ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:121:46: note: Function 'ADCHS_ModulesDisable' argument 1 names different: declaration 'modulesMask' definition 'moduleMask'.
+void ADCHS_ModulesDisable (ADCHS_MODULE_MASK moduleMask)
+                                             ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:131:28: portability: Shifting signed 32-bit value by 31 bits is implementation-defined behaviour. See condition at line 129. [shiftTooManyBitsSigned]
+        ADCGIRQEN1 |= 0x01 << channel;
+                           ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:129:17: note: Assuming that condition 'channel<32U' is not redundant
+    if (channel < ADCHS_CHANNEL_32)
+                ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:131:28: note: Shift
+        ADCGIRQEN1 |= 0x01 << channel;
+                           ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:143:30: portability: Shifting signed 32-bit value by 31 bits is implementation-defined behaviour. See condition at line 141. [shiftTooManyBitsSigned]
+        ADCGIRQEN1 &= ~(0x01 << channel);
+                             ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:141:17: note: Assuming that condition 'channel<32U' is not redundant
+    if (channel < ADCHS_CHANNEL_32)
+                ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:143:30: note: Shift
+        ADCGIRQEN1 &= ~(0x01 << channel);
+                             ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:155:27: portability: Shifting signed 32-bit value by 31 bits is implementation-defined behaviour. See condition at line 153. [shiftTooManyBitsSigned]
+        ADCEIEN1 |= (0x01 << channel);
+                          ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:153:17: note: Assuming that condition 'channel<32U' is not redundant
+    if (channel < ADCHS_CHANNEL_32)
+                ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:155:27: note: Shift
+        ADCEIEN1 |= (0x01 << channel);
+                          ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:167:28: portability: Shifting signed 32-bit value by 31 bits is implementation-defined behaviour. See condition at line 165. [shiftTooManyBitsSigned]
+        ADCEIEN1 &= ~(0x01 << channel);
+                           ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:165:17: note: Assuming that condition 'channel<32U' is not redundant
+    if (channel < ADCHS_CHANNEL_32)
+                ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:167:28: note: Shift
+        ADCEIEN1 &= ~(0x01 << channel);
+                           ^
+firmware/src/config/default/peripheral/dmac/plib_dmac.c:464:25: style: The scope of the variable 'regs' can be reduced. [variableScope]
+    volatile uint32_t * regs;
+                        ^
+firmware/src/config/default/peripheral/rtcc/plib_rtcc.c:155:14: style: The scope of the variable 'dataDate' can be reduced. [variableScope]
+    uint32_t dataDate, dataTime;
+             ^
+firmware/src/config/default/peripheral/rtcc/plib_rtcc.c:155:24: style: The scope of the variable 'dataTime' can be reduced. [variableScope]
+    uint32_t dataDate, dataTime;
+                       ^
+firmware/src/config/default/peripheral/spi/plib_spi3.c:76:11: warning: Redundant assignment of 'rdata' to itself. [selfAssignment]
+    rdata = rdata;
+          ^
+firmware/src/config/default/peripheral/spi/plib_spi3.c:167:14: style: The scope of the variable 'dummyData' can be reduced. [variableScope]
+    uint32_t dummyData;
+             ^
+firmware/src/config/default/peripheral/spi/plib_spi3.c:321:14: style: The scope of the variable 'receivedData' can be reduced. [variableScope]
+    uint32_t receivedData = 0;
+             ^
+firmware/src/config/default/peripheral/spi/plib_spi3.c:76:11: style: Variable 'rdata' is assigned a value that is never used. [unreadVariable]
+    rdata = rdata;
+          ^
+firmware/src/config/default/peripheral/spi/plib_spi3.c:321:27: style: Variable 'receivedData' is assigned a value that is never used. [unreadVariable]
+    uint32_t receivedData = 0;
+                          ^
+firmware/src/config/default/peripheral/spi/spi_master/plib_spi3_master.c:76:11: warning: Redundant assignment of 'rdata' to itself. [selfAssignment]
+    rdata = rdata;
+          ^
+firmware/src/config/default/peripheral/spi/spi_master/plib_spi3_master.c:172:14: style: The scope of the variable 'dummyData' can be reduced. [variableScope]
+    uint32_t dummyData = 0U;
+             ^
+firmware/src/config/default/peripheral/spi/spi_master/plib_spi3_master.c:326:14: style: The scope of the variable 'receivedData' can be reduced. [variableScope]
+    uint32_t receivedData = 0;
+             ^
+firmware/src/config/default/peripheral/spi/spi_master/plib_spi3_master.c:76:11: style: Variable 'rdata' is assigned a value that is never used. [unreadVariable]
+    rdata = rdata;
+          ^
+firmware/src/config/default/peripheral/spi/spi_master/plib_spi3_master.c:172:24: style: Variable 'dummyData' is assigned a value that is never used. [unreadVariable]
+    uint32_t dummyData = 0U;
+                       ^
+firmware/src/config/default/peripheral/spi/spi_master/plib_spi3_master.c:326:27: style: Variable 'receivedData' is assigned a value that is never used. [unreadVariable]
+    uint32_t receivedData = 0;
+                          ^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:155:21: warning: Either the condition 'setup!=NULL' is redundant or there is possible null pointer dereference: setup. [nullPointerRedundantCheck]
+    uint32_t baud = setup->baudRate;
+                    ^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:161:15: note: Assuming that condition 'setup!=NULL' is not redundant
+    if (setup != NULL)
+              ^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:155:21: note: Null pointer dereference
+    uint32_t baud = setup->baudRate;
+                    ^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:156:14: style: The scope of the variable 'brgValHigh' can be reduced. [variableScope]
+    uint32_t brgValHigh = 0;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:157:14: style: The scope of the variable 'brgValLow' can be reduced. [variableScope]
+    uint32_t brgValLow = 0;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:158:14: style: The scope of the variable 'brgVal' can be reduced. [variableScope]
+    uint32_t brgVal = 0;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:159:14: style: The scope of the variable 'uartMode' can be reduced. [variableScope]
+    uint32_t uartMode;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:276:14: style: The scope of the variable 'nUnreadBytesAvailable' can be reduced. [variableScope]
+    uint32_t nUnreadBytesAvailable;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:305:14: style: The scope of the variable 'rdOutIndex' can be reduced. [variableScope]
+    uint32_t rdOutIndex;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:306:14: style: The scope of the variable 'rdInIndex' can be reduced. [variableScope]
+    uint32_t rdInIndex;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:442:14: style: The scope of the variable 'nFreeWrBufferCount' can be reduced. [variableScope]
+    uint32_t nFreeWrBufferCount;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:176:24: style: Unsigned expression 'brgValHigh' can't be negative so it is unnecessary to test it. [unsignedPositive]
+        if((brgValHigh >= 0) && (brgValHigh <= UINT16_MAX))
+                       ^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:181:29: style: Unsigned expression 'brgValLow' can't be negative so it is unnecessary to test it. [unsignedPositive]
+        else if ((brgValLow >= 0) && (brgValLow <= UINT16_MAX))
+                            ^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:156:25: style: Variable 'brgValHigh' is assigned a value that is never used. [unreadVariable]
+    uint32_t brgValHigh = 0;
+                        ^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:157:24: style: Variable 'brgValLow' is assigned a value that is never used. [unreadVariable]
+    uint32_t brgValLow = 0;
+                       ^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:168:14: style: The scope of the variable 'baud' can be reduced. [variableScope]
+    uint32_t baud;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:169:13: style: The scope of the variable 'brgValHigh' can be reduced. [variableScope]
+    int32_t brgValHigh = 0;
+            ^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:170:13: style: The scope of the variable 'brgValLow' can be reduced. [variableScope]
+    int32_t brgValLow = 0;
+            ^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:171:14: style: The scope of the variable 'brgVal' can be reduced. [variableScope]
+    uint32_t brgVal = 0;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:172:14: style: The scope of the variable 'uartMode' can be reduced. [variableScope]
+    uint32_t uartMode;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:317:14: style: The scope of the variable 'nUnreadBytesAvailable' can be reduced. [variableScope]
+    uint32_t nUnreadBytesAvailable;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:512:14: style: The scope of the variable 'nFreeWrBufferCount' can be reduced. [variableScope]
+    uint32_t nFreeWrBufferCount;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:169:24: style: Variable 'brgValHigh' is assigned a value that is never used. [unreadVariable]
+    int32_t brgValHigh = 0;
+                       ^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:170:23: style: Variable 'brgValLow' is assigned a value that is never used. [unreadVariable]
+    int32_t brgValLow = 0;
+                      ^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:168:14: style: The scope of the variable 'baud' can be reduced. [variableScope]
+    uint32_t baud;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:169:13: style: The scope of the variable 'brgValHigh' can be reduced. [variableScope]
+    int32_t brgValHigh = 0;
+            ^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:170:13: style: The scope of the variable 'brgValLow' can be reduced. [variableScope]
+    int32_t brgValLow = 0;
+            ^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:171:14: style: The scope of the variable 'brgVal' can be reduced. [variableScope]
+    uint32_t brgVal = 0;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:172:14: style: The scope of the variable 'uartMode' can be reduced. [variableScope]
+    uint32_t uartMode;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:317:14: style: The scope of the variable 'nUnreadBytesAvailable' can be reduced. [variableScope]
+    uint32_t nUnreadBytesAvailable;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:512:14: style: The scope of the variable 'nFreeWrBufferCount' can be reduced. [variableScope]
+    uint32_t nFreeWrBufferCount;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:169:24: style: Variable 'brgValHigh' is assigned a value that is never used. [unreadVariable]
+    int32_t brgValHigh = 0;
+                       ^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:170:23: style: Variable 'brgValLow' is assigned a value that is never used. [unreadVariable]
+    int32_t brgValLow = 0;
+                      ^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:168:14: style: The scope of the variable 'baud' can be reduced. [variableScope]
+    uint32_t baud;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:169:13: style: The scope of the variable 'brgValHigh' can be reduced. [variableScope]
+    int32_t brgValHigh = 0;
+            ^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:170:13: style: The scope of the variable 'brgValLow' can be reduced. [variableScope]
+    int32_t brgValLow = 0;
+            ^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:171:14: style: The scope of the variable 'brgVal' can be reduced. [variableScope]
+    uint32_t brgVal = 0;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:172:14: style: The scope of the variable 'uartMode' can be reduced. [variableScope]
+    uint32_t uartMode;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:317:14: style: The scope of the variable 'nUnreadBytesAvailable' can be reduced. [variableScope]
+    uint32_t nUnreadBytesAvailable;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:512:14: style: The scope of the variable 'nFreeWrBufferCount' can be reduced. [variableScope]
+    uint32_t nFreeWrBufferCount;
+             ^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:169:24: style: Variable 'brgValHigh' is assigned a value that is never used. [unreadVariable]
+    int32_t brgValHigh = 0;
+                       ^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:170:23: style: Variable 'brgValLow' is assigned a value that is never used. [unreadVariable]
+    int32_t brgValLow = 0;
+                      ^
+firmware/src/config/default/system/console/src/sys_console.c:320:13: error: va_list 'args' used before va_start() was called. [va_list_usedBeforeStarted]
+    va_list args = {0};
+            ^
+firmware/src/config/default/system/time/src/sys_time.c:395:25: warning: Either the condition 'tmrActive!=NULL' is redundant or there is possible null pointer dereference: tmrActive. [nullPointerRedundantCheck]
+        pendingCount += tmrActive->relativeTimePending;
+                        ^
+firmware/src/config/default/system/time/src/sys_time.c:389:27: note: Assuming that condition 'tmrActive!=NULL' is not redundant
+        while ((tmrActive != NULL) && (tmrActive != tmr))
+                          ^
+firmware/src/config/default/system/time/src/sys_time.c:395:25: note: Null pointer dereference
+        pendingCount += tmrActive->relativeTimePending;
+                        ^
+firmware/src/config/default/system/time/src/sys_time.c:408:13: warning: Either the condition 'tmrActive!=NULL' is redundant or there is possible null pointer dereference: tmrActive. [nullPointerRedundantCheck]
+        if (tmrActive->requestedTime >= pendingCount)
+            ^
+firmware/src/config/default/system/time/src/sys_time.c:389:27: note: Assuming that condition 'tmrActive!=NULL' is not redundant
+        while ((tmrActive != NULL) && (tmrActive != tmr))
+                          ^
+firmware/src/config/default/system/time/src/sys_time.c:408:13: note: Null pointer dereference
+        if (tmrActive->requestedTime >= pendingCount)
+            ^
+firmware/src/config/default/system/time/src/sys_time.c:249:9: style: Redundant initialization for 'tmr'. The initialized value is overwritten before it is read. [redundantInitialization]
+    tmr = counter->tmrActive;
+        ^
+firmware/src/config/default/system/time/src/sys_time.c:245:29: note: tmr is initialized
+    SYS_TIME_TIMER_OBJ* tmr = counter->tmrActive;
+                            ^
+firmware/src/config/default/system/time/src/sys_time.c:249:9: note: tmr is overwritten
+    tmr = counter->tmrActive;
+        ^
+firmware/src/config/default/system/time/src/sys_time.c:291:14: style: The scope of the variable 'total_time' can be reduced. [variableScope]
+    uint64_t total_time = 0;
+             ^
+firmware/src/config/default/system/time/src/sys_time.c:378:14: style: The scope of the variable 'pendingCount' can be reduced. [variableScope]
+    uint32_t pendingCount = 0;
+             ^
+firmware/src/config/default/system/time/src/sys_time.c:380:14: style: The scope of the variable 'hwTimerCurrentValue' can be reduced. [variableScope]
+    uint32_t hwTimerCurrentValue;
+             ^
+firmware/src/config/default/system/time/src/sys_time.c:452:10: style: The scope of the variable 'interruptState' can be reduced. [variableScope]
+    bool interruptState;
+         ^
+firmware/src/config/default/system/time/src/sys_time.c:586:14: style: The scope of the variable 'tmrObjIndex' can be reduced. [variableScope]
+    uint32_t tmrObjIndex = 0;
+             ^
+firmware/src/config/default/system/time/src/sys_time.c:980:14: style: The scope of the variable 'elapsedCount' can be reduced. [variableScope]
+    uint32_t elapsedCount;
+             ^
+firmware/src/faults.c:17:20: style:inconclusive: Boolean expression '!((PORTB>>4)&0x1)' is used in bitwise operation. Did you mean '||'? [bitwiseOnBoolean]
+ if (!PWMF15_Get() | !PWMF5_Get() | !PWMF6_Get() | !check_adc_ivref()) {
+                   ^
+firmware/src/faults.c:17:35: style:inconclusive: Boolean expression '!((PORTE>>13)&0x1)' is used in bitwise operation. Did you mean '||'? [bitwiseOnBoolean]
+ if (!PWMF15_Get() | !PWMF5_Get() | !PWMF6_Get() | !check_adc_ivref()) {
+                                  ^
+firmware/src/faults.c:17:50: style:inconclusive: Boolean expression '!check_adc_ivref()' is used in bitwise operation. Did you mean '||'? [bitwiseOnBoolean]
+ if (!PWMF15_Get() | !PWMF5_Get() | !PWMF6_Get() | !check_adc_ivref()) {
+                                                 ^
+firmware/src/faults.c:17:20: style: Boolean result is used in bitwise operation. Clarify expression with parentheses. [clarifyCondition]
+ if (!PWMF15_Get() | !PWMF5_Get() | !PWMF6_Get() | !check_adc_ivref()) {
+                   ^
+firmware/src/freqgen.c:294:16: warning: Either the condition 'y0_IndexNext>=256' is redundant or the array 'sineTable[256]' is accessed at index 256, which is out of bounds. [arrayIndexOutOfBoundsCond]
+ y0 = sineTable[y0_Index];
+               ^
+firmware/src/freqgen.c:284:19: note: Assuming that condition 'y0_IndexNext>=256' is not redundant
+ if (y0_IndexNext >= TABLE_SIZE) {
+                  ^
+firmware/src/freqgen.c:282:26: note: Assignment to 'y0_IndexNext=y0_Index+1'
+ y0_IndexNext = y0_Index + 1;
+                         ^
+firmware/src/freqgen.c:294:16: note: Array index out of bounds
+ y0 = sineTable[y0_Index];
+               ^
+firmware/src/freqgen.c:299:18: warning: Either the condition 'y0_IndexNext>=256' is redundant or the array 'cosineTable[256]' is accessed at index 256, which is out of bounds. [arrayIndexOutOfBoundsCond]
+ y0 = cosineTable[y0_Index];
+                 ^
+firmware/src/freqgen.c:284:19: note: Assuming that condition 'y0_IndexNext>=256' is not redundant
+ if (y0_IndexNext >= TABLE_SIZE) {
+                  ^
+firmware/src/freqgen.c:282:26: note: Assignment to 'y0_IndexNext=y0_Index+1'
+ y0_IndexNext = y0_Index + 1;
+                         ^
+firmware/src/freqgen.c:299:18: note: Array index out of bounds
+ y0 = cosineTable[y0_Index];
+                 ^
+firmware/src/freqgen.c:14:9: style: The scope of the variable 'H' can be reduced. [variableScope]
+ int I, H, j = 1;
+        ^
+firmware/src/main.c:602:126: style:inconclusive: Boolean expression 'dmt' is used in bitwise operation. Did you mean '||'? [bitwiseOnBoolean]
+    sprintf(buffer, "Q %4i:%i  F %i %i %i R %i A %i", POS3CNT, VEL3HLD, PWMF15_Get(), PWMF5_Get(), PWMF6_Get(), (bool) ~(dmt | wdt), check_adc_ivref());
+                                                                                                                             ^
+firmware/src/main.c:614:5: warning: %i in format string (no. 1) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    sprintf(buffer, "%4i:S %4i %4i %4i  ", V.TimeUsed, m35_2.sine_steps, m35_3.sine_steps, m35_4.sine_steps);
+    ^
+firmware/src/main.c:616:5: warning: %i in format string (no. 3) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    sprintf(buffer, "%4i:Drive    %4i F%2i %2i", m35_4.current, POS3CNT, V.fault_count, V.fault_ticks);
+    ^
+firmware/src/main.c:616:5: warning: %i in format string (no. 4) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    sprintf(buffer, "%4i:Drive    %4i F%2i %2i", m35_4.current, POS3CNT, V.fault_count, V.fault_ticks);
+    ^
+firmware/src/main.c:618:5: warning: %i in format string (no. 1) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    sprintf(buffer, "%4i:D %5i %5i %5i  ", V.TimeUsed, m35_2.duty, m35_3.duty, m35_4.duty);
+    ^
+firmware/src/main.c:620:5: warning: %i in format string (no. 4) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    sprintf(buffer, "MB %4i %3X %3i %4i %4i", (int16_t) PetitRegisters[5].ActValue, (uint16_t) PetitRegisters[10].ActValue, (int16_t) PetitRegisters[11].ActValue, V.modbus_rx, V.modbus_tx);
+    ^
+firmware/src/main.c:620:5: warning: %i in format string (no. 5) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    sprintf(buffer, "MB %4i %3X %3i %4i %4i", (int16_t) PetitRegisters[5].ActValue, (uint16_t) PetitRegisters[10].ActValue, (int16_t) PetitRegisters[11].ActValue, V.modbus_rx, V.modbus_tx);
+    ^
+firmware/src/old_lcd/OledChar.c:340:25: style: Condition '(ch&0x80)==0' is always true [knownConditionTrueFalse]
+ } else if ((ch & 0x80) == 0) {
+                        ^
+firmware/src/old_lcd/OledChar.c:334:18: note: Assuming that condition '(ch&0x80)!=0' is not redundant
+ if ((ch & 0x80) != 0) {
+                 ^
+firmware/src/old_lcd/OledChar.c:340:25: note: Condition '(ch&0x80)==0' is always true
+ } else if ((ch & 0x80) == 0) {
+                        ^
+firmware/src/old_lcd/OledChar.c:188:12: style: The scope of the variable 'pb' can be reduced. [variableScope]
+ uint8_t * pb;
+           ^
+firmware/src/old_lcd/OledChar.c:189:10: style: The scope of the variable 'ib' can be reduced. [variableScope]
+ int32_t ib;
+         ^
+firmware/src/old_lcd/OledChar.c:159:30: style:inconclusive: Function 'OledGetCursor' argument 1 names different: declaration 'pxcy' definition 'pxch'. [funcArgNamesDifferent]
+void OledGetCursor(int32_t * pxch, int32_t * pych)
+                             ^
+firmware/src/old_lcd/OledChar.h:69:30: note: Function 'OledGetCursor' argument 1 names different: declaration 'pxcy' definition 'pxch'.
+void OledGetCursor(int32_t * pxcy, int32_t * pych);
+                             ^
+firmware/src/old_lcd/OledChar.c:159:30: note: Function 'OledGetCursor' argument 1 names different: declaration 'pxcy' definition 'pxch'.
+void OledGetCursor(int32_t * pxch, int32_t * pych)
+                             ^
+firmware/src/old_lcd/OledDriver.c:553:5: style:inconclusive: Found duplicate branches for 'if' and 'else'. [duplicateBranch]
+    if (dataOut == NULL) {
+    ^
+firmware/src/old_lcd/OledDriver.c:555:7: note: Found duplicate branches for 'if' and 'else'.
+    } else {
+      ^
+firmware/src/old_lcd/OledDriver.c:553:5: note: Found duplicate branches for 'if' and 'else'.
+    if (dataOut == NULL) {
+    ^
+firmware/src/old_lcd/OledDriver.c:523:24: style: Variable 'bytesWritten' is assigned a value that is never used. [unreadVariable]
+ uint16_t bytesWritten = 0;
+                       ^
+firmware/src/old_lcd/OledGrph.c:805:25: style: Condition '(ch&0x80)==0' is always true [knownConditionTrueFalse]
+ } else if ((ch & 0x80) == 0) {
+                        ^
+firmware/src/old_lcd/OledGrph.c:799:18: note: Assuming that condition '(ch&0x80)!=0' is not redundant
+ if ((ch & 0x80) != 0) {
+                 ^
+firmware/src/old_lcd/OledGrph.c:805:25: note: Condition '(ch&0x80)==0' is always true
+ } else if ((ch & 0x80) == 0) {
+                        ^
+firmware/src/old_lcd/OledGrph.c:496:10: style: The scope of the variable 'ibPat' can be reduced. [variableScope]
+ int32_t ibPat;
+         ^
+firmware/src/old_lcd/OledGrph.c:497:12: style: The scope of the variable 'pbCur' can be reduced. [variableScope]
+ uint8_t * pbCur;
+           ^
+firmware/src/old_lcd/OledGrph.c:499:10: style: The scope of the variable 'xcoCur' can be reduced. [variableScope]
+ int32_t xcoCur;
+         ^
+firmware/src/old_lcd/OledGrph.c:500:10: style: The scope of the variable 'mskPat' can be reduced. [variableScope]
+ uint8_t mskPat;
+         ^
+firmware/src/old_lcd/OledGrph.c:596:12: style: The scope of the variable 'pbDspCur' can be reduced. [variableScope]
+ uint8_t * pbDspCur;
+           ^
+firmware/src/old_lcd/OledGrph.c:598:12: style: The scope of the variable 'pbBmpCur' can be reduced. [variableScope]
+ uint8_t * pbBmpCur;
+           ^
+firmware/src/old_lcd/OledGrph.c:600:10: style: The scope of the variable 'xcoCur' can be reduced. [variableScope]
+ int32_t xcoCur;
+         ^
+firmware/src/old_lcd/OledGrph.c:692:12: style: The scope of the variable 'pbDspCur' can be reduced. [variableScope]
+ uint8_t * pbDspCur;
+           ^
+firmware/src/old_lcd/OledGrph.c:694:12: style: The scope of the variable 'pbBmpCur' can be reduced. [variableScope]
+ uint8_t * pbBmpCur;
+           ^
+firmware/src/old_lcd/OledGrph.c:696:10: style: The scope of the variable 'xcoCur' can be reduced. [variableScope]
+ int32_t xcoCur;
+         ^
+firmware/src/old_lcd/eadog.c:49:8: warning: Redundant assignment of 'rdata' to itself. [selfAssignment]
+ rdata = rdata;
+       ^
+firmware/src/old_lcd/eadog.c:99:8: warning: Redundant assignment of 'rdata' to itself. [selfAssignment]
+ rdata = rdata;
+       ^
+firmware/src/old_lcd/eadog.c:49:8: style: Variable 'rdata' is assigned a value that is never used. [unreadVariable]
+ rdata = rdata;
+       ^
+firmware/src/old_lcd/eadog.c:99:8: style: Variable 'rdata' is assigned a value that is never used. [unreadVariable]
+ rdata = rdata;
+       ^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:190:0: style: The function 'ADCHS_ChannelConversionStart' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:163:0: style: The function 'ADCHS_ChannelEarlyInterruptDisable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:151:0: style: The function 'ADCHS_ChannelEarlyInterruptEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:139:0: style: The function 'ADCHS_ChannelResultInterruptDisable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:127:0: style: The function 'ADCHS_ChannelResultInterruptEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:198:0: style: The function 'ADCHS_ChannelResultIsReady' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:223:0: style: The function 'ADCHS_EOSStatusGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:175:0: style: The function 'ADCHS_GlobalEdgeConversionStart' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:180:0: style: The function 'ADCHS_GlobalLevelConversionStart' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:185:0: style: The function 'ADCHS_GlobalLevelConversionStop' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:121:0: style: The function 'ADCHS_ModulesDisable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/adchs/plib_adchs.c:115:0: style: The function 'ADCHS_ModulesEnable' is never used. [unusedFunction]
+
+^
+firmware/src/app.c:89:0: style: The function 'APP_Initialize' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/gpio/plib_gpio.c:427:0: style: The function 'CHANGE_NOTICE_B_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/coretimer/plib_coretimer.c:53:0: style: The function 'CORETIMER_CallbackSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/coretimer/plib_coretimer.c:111:0: style: The function 'CORETIMER_DelayMs' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/coretimer/plib_coretimer.c:123:0: style: The function 'CORETIMER_DelayUs' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/coretimer/plib_coretimer.c:83:0: style: The function 'CORETIMER_FrequencyGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/coretimer/plib_coretimer.c:58:0: style: The function 'CORETIMER_PeriodSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/coretimer/plib_coretimer.c:76:0: style: The function 'CORETIMER_Stop' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/coretimer/plib_coretimer.c:87:0: style: The function 'CORE_TIMER_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmac/plib_dmac.c:679:0: style: The function 'DMA0_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmac/plib_dmac.c:755:0: style: The function 'DMA1_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmac/plib_dmac.c:831:0: style: The function 'DMA2_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmac/plib_dmac.c:618:0: style: The function 'DMAC_CRCDisable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmac/plib_dmac.c:643:0: style: The function 'DMAC_CRCRead' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmac/plib_dmac.c:387:0: style: The function 'DMAC_ChainTransferSetup' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmac/plib_dmac.c:568:0: style: The function 'DMAC_ChannelCRCSetup' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmac/plib_dmac.c:308:0: style: The function 'DMAC_ChannelCallbackRegister' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmac/plib_dmac.c:462:0: style: The function 'DMAC_ChannelDisable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmac/plib_dmac.c:495:0: style: The function 'DMAC_ChannelIsBusy' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmac/plib_dmac.c:440:0: style: The function 'DMAC_ChannelPatternMatchDisable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmac/plib_dmac.c:424:0: style: The function 'DMAC_ChannelPatternMatchSetup' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmac/plib_dmac.c:334:0: style: The function 'DMAC_ChannelTransfer' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmac/plib_dmac.c:513:0: style: The function 'DMAC_ChannelTransferStatusGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmt/plib_dmt.c:67:0: style: The function 'DMT_ClearWindowStatusGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmt/plib_dmt.c:73:0: style: The function 'DMT_CounterGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmt/plib_dmt.c:79:0: style: The function 'DMT_TimeOutCountGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/dmt/plib_dmt.c:85:0: style: The function 'DMT_WindowIntervalGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/eeprom/plib_eeprom.c:211:0: style: The function 'EEPROM_BulkErase' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/eeprom/plib_eeprom.c:228:0: style: The function 'EEPROM_ErrorGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/eeprom/plib_eeprom.c:193:0: style: The function 'EEPROM_PageErase' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/eeprom/plib_eeprom.c:153:0: style: The function 'EEPROM_WordRead' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/eeprom/plib_eeprom.c:174:0: style: The function 'EEPROM_WordWrite' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/evic/plib_evic.c:173:0: style: The function 'EVIC_ExternalInterruptDisable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/evic/plib_evic.c:148:0: style: The function 'EVIC_INT_Disable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/evic/plib_evic.c:143:0: style: The function 'EVIC_INT_Enable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/evic/plib_evic.c:159:0: style: The function 'EVIC_INT_Restore' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/evic/plib_evic.c:97:0: style: The function 'EVIC_SourceEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/evic/plib_evic.c:113:0: style: The function 'EVIC_SourceIsEnabled' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/evic/plib_evic.c:135:0: style: The function 'EVIC_SourceStatusClear' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/evic/plib_evic.c:120:0: style: The function 'EVIC_SourceStatusGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/evic/plib_evic.c:127:0: style: The function 'EVIC_SourceStatusSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/evic/plib_evic.c:210:0: style: The function 'EXTERNAL_0_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/gpio/plib_gpio.c:361:0: style: The function 'GPIO_PinIntDisable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/gpio/plib_gpio.c:322:0: style: The function 'GPIO_PinIntEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/gpio/plib_gpio.c:386:0: style: The function 'GPIO_PinInterruptCallbackRegister' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/gpio/plib_gpio.c:301:0: style: The function 'GPIO_PortInterruptDisable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/gpio/plib_gpio.c:286:0: style: The function 'GPIO_PortInterruptEnable' is never used. [unusedFunction]
+
+^
+firmware/src/filters.c:17:0: style: The function 'IIR_butter_1_16' is never used. [unusedFunction]
+
+^
+firmware/src/gfx.c:175:0: style: The function 'LA_gfx' is never used. [unusedFunction]
+
+^
+firmware/src/mclib.c:76:0: style: The function 'MCLIB_ClarkeTransform' is never used. [unusedFunction]
+
+^
+firmware/src/filters.c:152:0: style: The function 'MCLIB_ImposeLimits' is never used. [unusedFunction]
+
+^
+firmware/src/mclib.c:106:0: style: The function 'MCLIB_InvParkTransform' is never used. [unusedFunction]
+
+^
+firmware/src/filters.c:134:0: style: The function 'MCLIB_LinearRamp' is never used. [unusedFunction]
+
+^
+firmware/src/mc_picontrol.c:76:0: style: The function 'MCLIB_PIControl' is never used. [unusedFunction]
+
+^
+firmware/src/mclib.c:90:0: style: The function 'MCLIB_ParkTransform' is never used. [unusedFunction]
+
+^
+firmware/src/mc_picontrol.c:107:0: style: The function 'MCLIB_ResetPIParameters' is never used. [unusedFunction]
+
+^
+firmware/src/freqgen.c:258:0: style: The function 'MCLIB_SinCosCalc' is never used. [unusedFunction]
+
+^
+firmware/src/freqgen.c:312:0: style: The function 'MCLIB_WrapAngle' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:348:0: style: The function 'MCPWM_ChannelDeadTimeSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:364:0: style: The function 'MCPWM_ChannelLeadingEdgeBlankingDelaySet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:374:0: style: The function 'MCPWM_ChannelPinsOverrideDisable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:369:0: style: The function 'MCPWM_ChannelPinsOverrideEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:384:0: style: The function 'MCPWM_ChannelPinsOwnershipDisable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:379:0: style: The function 'MCPWM_ChannelPinsOwnershipEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:354:0: style: The function 'MCPWM_ChannelPrimaryTriggerSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:343:0: style: The function 'MCPWM_ChannelSecondaryDutySet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:359:0: style: The function 'MCPWM_ChannelSecondaryTriggerSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:322:0: style: The function 'MCPWM_PrimaryPeriodGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:317:0: style: The function 'MCPWM_PrimaryPeriodSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:333:0: style: The function 'MCPWM_SecondaryPeriodGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:328:0: style: The function 'MCPWM_SecondaryPeriodSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:311:0: style: The function 'MCPWM_Stop' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledChar.c:186:0: style: The function 'OledDefUserChar' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledDriver.c:392:0: style: The function 'OledDisplayOff' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledDriver.c:367:0: style: The function 'OledDisplayOn' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledGrph.c:453:0: style: The function 'OledDrawRect' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledGrph.c:832:0: style: The function 'OledDrawString' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledGrph.c:490:0: style: The function 'OledFillRect' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledGrph.c:590:0: style: The function 'OledGetBmp' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledChar.c:244:0: style: The function 'OledGetCharUpdate' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledChar.c:159:0: style: The function 'OledGetCursor' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledGrph.c:284:0: style: The function 'OledGetDrawMode' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledGrph.c:329:0: style: The function 'OledGetPixel' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledGrph.c:148:0: style: The function 'OledGetPos' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledGrph.c:194:0: style: The function 'OledGetStdPattern' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledDriver.c:143:0: style: The function 'OledInit' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledChar.c:267:0: style: The function 'OledPutChar' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledChar.c:222:0: style: The function 'OledSetCharUpdate' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledGrph.c:171:0: style: The function 'OledSetDrawColor' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledGrph.c:217:0: style: The function 'OledSetFillPattern' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledDriver.c:190:0: style: The function 'OledTerm' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:391:0: style: The function 'PWM1_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:428:0: style: The function 'PWM2_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:465:0: style: The function 'PWM3_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/mcpwm/plib_mcpwm.c:502:0: style: The function 'PWM4_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/qei/plib_qei1.c:114:0: style: The function 'QEI1_PositionCountSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/qei/plib_qei1.c:108:0: style: The function 'QEI1_PositionWindowSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/qei/plib_qei1.c:103:0: style: The function 'QEI1_PulseIntervalGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/qei/plib_qei1.c:97:0: style: The function 'QEI1_Stop' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/qei/plib_qei1.c:119:0: style: The function 'QEI1_VelocityCountSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/qei/plib_qei2.c:114:0: style: The function 'QEI2_PositionCountSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/qei/plib_qei2.c:108:0: style: The function 'QEI2_PositionWindowSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/qei/plib_qei2.c:103:0: style: The function 'QEI2_PulseIntervalGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/qei/plib_qei2.c:97:0: style: The function 'QEI2_Stop' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/qei/plib_qei2.c:119:0: style: The function 'QEI2_VelocityCountSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/qei/plib_qei3.c:114:0: style: The function 'QEI3_PositionCountSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/qei/plib_qei3.c:108:0: style: The function 'QEI3_PositionWindowSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/qei/plib_qei3.c:103:0: style: The function 'QEI3_PulseIntervalGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/qei/plib_qei3.c:97:0: style: The function 'QEI3_Stop' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/qei/plib_qei3.c:119:0: style: The function 'QEI3_VelocityCountSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/rtcc/plib_rtcc.c:153:0: style: The function 'RTCC_AlarmSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/rtcc/plib_rtcc.c:68:0: style: The function 'RTCC_Initialize' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/rtcc/plib_rtcc.c:121:0: style: The function 'RTCC_TimeGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/rtcc/plib_rtcc.c:95:0: style: The function 'RTCC_TimeSet' is never used. [unusedFunction]
+
+^
+firmware/src/pid.c:28:0: style: The function 'ResetPI' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/spi/plib_spi3.c:312:0: style: The function 'SPI3_CallbackRegister' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/eadog.c:35:0: style: The function 'SPI3_Initialize_edogm' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/eadog.c:85:0: style: The function 'SPI3_Initialize_edogs' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/spi/spi_master/plib_spi3_master.c:164:0: style: The function 'SPI3_IsTransmitterBusy' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/spi/plib_spi3.c:319:0: style: The function 'SPI3_RX_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/spi/plib_spi3.c:159:0: style: The function 'SPI3_Read' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/spi/plib_spi3.c:428:0: style: The function 'SPI3_TX_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/spi/plib_spi3.c:112:0: style: The function 'SPI3_TransferSetup' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/console/src/sys_console.c:167:0: style: The function 'SYS_CONSOLE_DeviceGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/console/src/sys_console.c:374:0: style: The function 'SYS_CONSOLE_Flush' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/console/src/sys_console.c:153:0: style: The function 'SYS_CONSOLE_HandleGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/console/src/sys_console.c:70:0: style: The function 'SYS_CONSOLE_Initialize' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/console/src/sys_console.c:357:0: style: The function 'SYS_CONSOLE_Message' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/console/src/sys_console.c:317:0: style: The function 'SYS_CONSOLE_Print' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/console/src/sys_console.c:194:0: style: The function 'SYS_CONSOLE_Read' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/console/src/sys_console.c:237:0: style: The function 'SYS_CONSOLE_ReadCountGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/console/src/sys_console.c:218:0: style: The function 'SYS_CONSOLE_ReadFreeBufferCountGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/console/src/sys_console.c:111:0: style: The function 'SYS_CONSOLE_Status' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/console/src/sys_console.c:182:0: style: The function 'SYS_CONSOLE_Tasks' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/console/src/sys_console.c:256:0: style: The function 'SYS_CONSOLE_Write' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/console/src/sys_console.c:298:0: style: The function 'SYS_CONSOLE_WriteCountGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/console/src/sys_console.c:279:0: style: The function 'SYS_CONSOLE_WriteFreeBufferCountGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/debug/src/sys_debug.c:81:0: style: The function 'SYS_DEBUG_ConsoleInstanceGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/debug/src/sys_debug.c:96:0: style: The function 'SYS_DEBUG_ErrorLevelGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/debug/src/sys_debug.c:91:0: style: The function 'SYS_DEBUG_ErrorLevelSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/debug/src/sys_debug.c:65:0: style: The function 'SYS_DEBUG_Initialize' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/debug/src/sys_debug.c:101:0: style: The function 'SYS_DEBUG_Redirect' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/debug/src/sys_debug.c:86:0: style: The function 'SYS_DEBUG_Status' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/int/src/sys_int.c:57:0: style: The function 'SYS_INT_Enable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/int/src/sys_int.c:102:0: style: The function 'SYS_INT_SourceRestore' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:1110:0: style: The function 'SYS_TIME_CallbackRegisterMS' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:1088:0: style: The function 'SYS_TIME_CallbackRegisterUS' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:781:0: style: The function 'SYS_TIME_CountToMS' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:776:0: style: The function 'SYS_TIME_CountToUS' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:754:0: style: The function 'SYS_TIME_CounterGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:763:0: style: The function 'SYS_TIME_CounterSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:682:0: style: The function 'SYS_TIME_Deinitialize' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:1069:0: style: The function 'SYS_TIME_DelayIsComplete' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:1050:0: style: The function 'SYS_TIME_DelayMS' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:1031:0: style: The function 'SYS_TIME_DelayUS' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:719:0: style: The function 'SYS_TIME_FrequencyGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:662:0: style: The function 'SYS_TIME_Initialize' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:701:0: style: The function 'SYS_TIME_Status' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:976:0: style: The function 'SYS_TIME_TimerCounterGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:802:0: style: The function 'SYS_TIME_TimerCreate' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:821:0: style: The function 'SYS_TIME_TimerReload' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/system/time/src/sys_time.c:946:0: style: The function 'SYS_TIME_TimerStop' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr1/plib_tmr1.c:117:0: style: The function 'TIMER_1_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr2.c:116:0: style: The function 'TIMER_2_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr3.c:116:0: style: The function 'TIMER_3_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr6.c:116:0: style: The function 'TIMER_6_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr1/plib_tmr1.c:107:0: style: The function 'TMR1_CounterGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr1/plib_tmr1.c:112:0: style: The function 'TMR1_FrequencyGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr1/plib_tmr1.c:135:0: style: The function 'TMR1_InterruptDisable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr1/plib_tmr1.c:101:0: style: The function 'TMR1_PeriodGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr1/plib_tmr1.c:95:0: style: The function 'TMR1_PeriodSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr1/plib_tmr1.c:89:0: style: The function 'TMR1_Stop' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr2.c:105:0: style: The function 'TMR2_CounterGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr2.c:111:0: style: The function 'TMR2_FrequencyGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr2.c:135:0: style: The function 'TMR2_InterruptDisable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr2.c:128:0: style: The function 'TMR2_InterruptEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr2.c:100:0: style: The function 'TMR2_PeriodGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr2.c:95:0: style: The function 'TMR2_PeriodSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr3.c:105:0: style: The function 'TMR3_CounterGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr3.c:111:0: style: The function 'TMR3_FrequencyGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr3.c:135:0: style: The function 'TMR3_InterruptDisable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr3.c:128:0: style: The function 'TMR3_InterruptEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr3.c:100:0: style: The function 'TMR3_PeriodGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr3.c:95:0: style: The function 'TMR3_PeriodSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr3.c:84:0: style: The function 'TMR3_Start' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr6.c:105:0: style: The function 'TMR6_CounterGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr6.c:111:0: style: The function 'TMR6_FrequencyGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr6.c:135:0: style: The function 'TMR6_InterruptDisable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr6.c:128:0: style: The function 'TMR6_InterruptEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr6.c:100:0: style: The function 'TMR6_PeriodGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr6.c:95:0: style: The function 'TMR6_PeriodSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/tmr/plib_tmr6.c:90:0: style: The function 'TMR6_Stop' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:578:0: style: The function 'UART1_AutoBaudQuery' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:586:0: style: The function 'UART1_AutoBaudSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:562:0: style: The function 'UART1_ErrorGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:597:0: style: The function 'UART1_FAULT_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:103:0: style: The function 'UART1_Initialize' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:611:0: style: The function 'UART1_RX_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:302:0: style: The function 'UART1_Read' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:362:0: style: The function 'UART1_ReadBufferSizeGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:386:0: style: The function 'UART1_ReadCallbackRegister' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:357:0: style: The function 'UART1_ReadFreeBufferCountGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:367:0: style: The function 'UART1_ReadNotificationEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:378:0: style: The function 'UART1_ReadThresholdSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:152:0: style: The function 'UART1_SerialSetup' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:630:0: style: The function 'UART1_TX_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:497:0: style: The function 'UART1_Write' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:531:0: style: The function 'UART1_WriteBufferSizeGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:555:0: style: The function 'UART1_WriteCallbackRegister' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:536:0: style: The function 'UART1_WriteNotificationEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart1.c:547:0: style: The function 'UART1_WriteThresholdSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:657:0: style: The function 'UART2_AutoBaudQuery' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:665:0: style: The function 'UART2_AutoBaudSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:647:0: style: The function 'UART2_ErrorGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:676:0: style: The function 'UART2_FAULT_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:690:0: style: The function 'UART2_RX_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:343:0: style: The function 'UART2_Read' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:410:0: style: The function 'UART2_ReadBufferSizeGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:434:0: style: The function 'UART2_ReadCallbackRegister' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:405:0: style: The function 'UART2_ReadFreeBufferCountGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:415:0: style: The function 'UART2_ReadNotificationEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:426:0: style: The function 'UART2_ReadThresholdSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:165:0: style: The function 'UART2_SerialSetup' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:709:0: style: The function 'UART2_TX_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:616:0: style: The function 'UART2_WriteBufferSizeGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:640:0: style: The function 'UART2_WriteCallbackRegister' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:621:0: style: The function 'UART2_WriteNotificationEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart2.c:632:0: style: The function 'UART2_WriteThresholdSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:657:0: style: The function 'UART3_AutoBaudQuery' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:665:0: style: The function 'UART3_AutoBaudSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:647:0: style: The function 'UART3_ErrorGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:676:0: style: The function 'UART3_FAULT_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:690:0: style: The function 'UART3_RX_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:410:0: style: The function 'UART3_ReadBufferSizeGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:434:0: style: The function 'UART3_ReadCallbackRegister' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:405:0: style: The function 'UART3_ReadFreeBufferCountGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:415:0: style: The function 'UART3_ReadNotificationEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:426:0: style: The function 'UART3_ReadThresholdSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:165:0: style: The function 'UART3_SerialSetup' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:709:0: style: The function 'UART3_TX_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:616:0: style: The function 'UART3_WriteBufferSizeGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:640:0: style: The function 'UART3_WriteCallbackRegister' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:621:0: style: The function 'UART3_WriteNotificationEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart3.c:632:0: style: The function 'UART3_WriteThresholdSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:657:0: style: The function 'UART6_AutoBaudQuery' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:665:0: style: The function 'UART6_AutoBaudSet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:676:0: style: The function 'UART6_FAULT_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:690:0: style: The function 'UART6_RX_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:410:0: style: The function 'UART6_ReadBufferSizeGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:405:0: style: The function 'UART6_ReadFreeBufferCountGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:165:0: style: The function 'UART6_SerialSetup' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:709:0: style: The function 'UART6_TX_InterruptHandler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:616:0: style: The function 'UART6_WriteBufferSizeGet' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:640:0: style: The function 'UART6_WriteCallbackRegister' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:621:0: style: The function 'UART6_WriteNotificationEnable' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/peripheral/uart/plib_uart6.c:632:0: style: The function 'UART6_WriteThresholdSet' is never used. [unusedFunction]
+
+^
+firmware/src/pid.c:7:0: style: The function 'UpdatePI' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/exceptions.c:136:0: style: The function '_bootstrap_exception_handler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/exceptions.c:109:0: style: The function '_general_exception_handler' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/stdio/xc32_monitor.c:48:0: style: The function '_mon_getc' is never used. [unusedFunction]
+
+^
+firmware/src/config/default/stdio/xc32_monitor.c:54:0: style: The function '_mon_putc' is never used. [unusedFunction]
+
+^
+firmware/src/dio.c:125:0: style: The function 'check_switches' is never used. [unusedFunction]
+
+^
+firmware/src/dio.c:133:0: style: The function 'clear_switch' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/eadog.c:247:0: style: The function 'eaDogM_ClearRow' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/eadog.c:294:0: style: The function 'eaDogM_WriteByteToCGRAM' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/eadog.c:282:0: style: The function 'eaDogM_WriteIntAtPos' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/eadog.c:256:0: style: The function 'eaDogM_WriteString' is never used. [unusedFunction]
+
+^
+firmware/src/adc_scan.c:4:0: style: The function 'end_of_adc_scan' is never used. [unusedFunction]
+
+^
+firmware/src/dio.c:98:0: style: The function 'get_switch_bm' is never used. [unusedFunction]
+
+^
+firmware/src/dio.c:111:0: style: The function 'get_switch_data' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/eadog.c:177:0: style: The function 'init_display' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/dogm-graphic.c:277:0: style: The function 'lcd_init' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/dogm-graphic.c:264:0: style: The function 'lcd_set_contrast' is never used. [unusedFunction]
+
+^
+firmware/src/filters.c:103:0: style: The function 'lp_filter' is never used. [unusedFunction]
+
+^
+firmware/src/filters.c:119:0: style: The function 'lp_filter2' is never used. [unusedFunction]
+
+^
+firmware/src/tests.c:3:0: style: The function 'run_tests' is never used. [unusedFunction]
+
+^
+firmware/src/gfx.c:90:0: style: The function 'vector_graph' is never used. [unusedFunction]
+
+^
+firmware/src/old_lcd/OledDriver.c:577:0: style: The function 'wait_lcd_done' is never used. [unusedFunction]
+
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+

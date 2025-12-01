@@ -19,6 +19,7 @@
 #include "imu.h"
 #include "gfx.h"
 
+static const char *build_date = __DATE__, *build_time = __TIME__;
 static char buffer[IMU_BUF];
 bool SW1_SET = false, SW2_SET = false;
 volatile uint16_t tickCount[TMR_COUNT];
@@ -78,9 +79,12 @@ int main(void)
 
 	snprintf(buffer, IMU_BUF - 1, "DEV%X REV%X U%X%X   ", *(uint32_t*) 0x7C2000, *(uint32_t*) 0x7C2004, *(uint32_t*) 0x7F2BE0, *(uint32_t*) 0x7F2BE4);
 	eaDogM_WriteStringAtPos(15, 0, buffer);
+	fe_version();
+	eaDogM_WriteStringAtPos(11, 0, imu_buffer);
 	imu0.op.info_ptr();
 	eaDogM_WriteStringAtPos(13, 0, imu_buffer);
 	OledUpdate();
+
 	StartTimer(TMR_TEST, 2);
 	/*
 	 * read the iss66 chip ID register
@@ -161,6 +165,8 @@ int main(void)
 			q1 = accel.y / 1.0f;
 			q2 = accel.z / 1.0f;
 			q3 = q0;
+			snprintf(buffer, IMU_BUF - 1, "%5.2f,%5.2f,%5.2f,%5.2f,%5.2f,%5.2f,%5.2f\r", 0.1f, accel.xa, accel.ya, accel.za, accel.x, accel.y, accel.z);
+			UART1_Write(buffer, strlen(buffer) );
 			RLED_Toggle();
 		}
 
@@ -183,7 +189,10 @@ int main(void)
 	return( EXIT_FAILURE);
 }
 
-
+void fe_version(void)
+{
+	snprintf(imu_buffer, IMU_BUF - 1, "%s Driver %s       %s %s         ", FE_ALIAS, FE_DRIVER, build_date, build_time);
+}
 /*******************************************************************************
  End of File
  */

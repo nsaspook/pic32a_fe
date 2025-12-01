@@ -1,0 +1,113 @@
+
+(*              Copyright 1987 fred brooks LogicTek             *)
+(*                                                              *)
+(*                                                              *)
+(*   First Release                      12/8/87-FGB             *)
+(* Add ProcessPid to return PID of calling process              *)
+(*                                      12/12/87-FGB            *)
+(* Added variable parm to StartProcess to pass info to process  *)
+(* in currentprocess.gemsave[15]        1/1/88-FGB              *)
+(*                                                              *)
+
+DEFINITION MODULE SYSCALL;
+
+FROM    ATOMIC  IMPORT  SIGNAL,sysvariable;
+FROM    SYSTEM  IMPORT  ADDRESS;
+FROM    Strings IMPORT  String;
+
+CONST   (* SYSTEM ERRORS *)
+
+        ENOERR           =       0;     (* no error *)
+        ENOENT           =       2;     (* no file or directory *)
+        ENORCH           =       3;     (* no such process *)
+        ENOMEM           =       12;    (* out of memory *)
+        EBADRQC          =       54;    (* bad request *)
+
+(* Read the program command line and pass it to kernel to execute *)
+PROCEDURE   SysCmd;
+
+(* Pass command line to kernal to execute *)
+PROCEDURE   SysReq(VAR command: ARRAY OF CHAR);
+
+(* Get the processdescriptor for the currentprocess *)
+PROCEDURE  SysDes(VAR currentprocess : SIGNAL);
+
+(* Get the systemvariables ,These are copies of the variables *)
+PROCEDURE  SysVar(VAR sysvar : sysvariable);
+
+(* Return PID of calling process *)
+PROCEDURE  ProcessPid(): INTEGER;
+
+(* Put procedure to sleep *)
+PROCEDURE        Sleep;
+
+(* check to see if special interrupt has happened , execute if triggered *)
+PROCEDURE CheckSpint;
+
+(*  Setup spint linkage to spintid *)
+PROCEDURE EnableSpint(spintid: CARDINAL; routine: PROC; data: ADDRESS): BOOLEAN;
+
+(*  request spint data and active info  return TRUE if active bit set *)
+(*  data will be set to NIL if the spint is disabled           *)
+PROCEDURE SpintInfo(spintid: CARDINAL; VAR data: ADDRESS): BOOLEAN;
+
+(*  remove spint linkage to spintid *)
+PROCEDURE DisableSpint(spintid: CARDINAL);
+
+(*  send spint to routine  *)
+PROCEDURE Trigger(spintid: CARDINAL): BOOLEAN;
+
+(*  Hold program interrupts *)
+PROCEDURE HoldSpint(spintid: CARDINAL);
+
+(*  Release program interrupts *)
+PROCEDURE ReleaseSpint(spintid: CARDINAL);
+
+(*  Wait a specified period of time for a program interrupt ticks are
+    in 200 hz clocks. If tick is -1 then wait forever for interrupt  *)
+PROCEDURE IntDelay(tick: LONGINT): INTEGER;
+
+(* create a process for the MX2 system, place in the scheduler ready
+   list, start new process *)
+PROCEDURE StartProcess(VAR P: PROC; 
+                       VAR n: LONGCARD; 
+                       VAR priority: INTEGER; 
+                       VAR pn: String;
+                       VAR parm: ADDRESS);
+
+(* store the currentprocess and switch to next process in ready list *)
+PROCEDURE SwapProcess;
+
+(* end process and remove it from the ready list, free memory used by
+   process *)
+PROCEDURE TermProcess(VAR id: INTEGER);
+
+(* return the next pid the system will use for a new process *)
+PROCEDURE NextPid(): INTEGER;
+
+(* tell scheduler not to run this process but keep in memory *)
+PROCEDURE SleepProcess(VAR id: INTEGER);
+
+(* tell scheduler tp sleep for msec 1000th of a second  *)
+PROCEDURE DozeProcess(VAR id: INTEGER; VAR msec: LONGCARD);
+
+(* Sleep process until the contents of 'loc' equals 'value AND mask'.
+msec is the timeout value in milliseconds if set the 0 it waits forever *)
+PROCEDURE WaitProcess(VAR id: INTEGER; VAR loc: ADDRESS;
+                      VAR value,mask,msec: LONGCARD);
+
+(* tell scheduler to start running this process again if it was sleeping
+   before *)
+PROCEDURE WakeupProcess(VAR id: INTEGER);
+
+(* change process priority *)
+PROCEDURE ChangeProcessPriority(VAR id: INTEGER; VAR pri: INTEGER);
+
+(* turn on the scheduler interrupt, and start normal process switching *)
+PROCEDURE MultiBegin;
+
+(* turn off the scheduler interrupt, used to stop process switching in
+   section of code that should not be swapped out *)
+PROCEDURE MultiEnd;
+
+END               SYSCALL.

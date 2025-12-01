@@ -81,20 +81,20 @@
                      displayName="analog_fe_default"
                      projectFiles="true">
         <logicalFolder name="components" displayName="components" projectFiles="true">
-          <itemPath>analog_fe_default/components/spi3.yml</itemPath>
-          <itemPath>analog_fe_default/components/pwm.yml</itemPath>
-          <itemPath>analog_fe_default/components/sccp1.yml</itemPath>
-          <itemPath>analog_fe_default/components/qei1.yml</itemPath>
-          <itemPath>analog_fe_default/components/dfp.yml</itemPath>
-          <itemPath>analog_fe_default/components/spi2.yml</itemPath>
-          <itemPath>analog_fe_default/components/uart1.yml</itemPath>
-          <itemPath>analog_fe_default/components/core.yml</itemPath>
-          <itemPath>analog_fe_default/components/cmp_dac1.yml</itemPath>
           <itemPath>analog_fe_default/components/spi1.yml</itemPath>
+          <itemPath>analog_fe_default/components/spi3.yml</itemPath>
+          <itemPath>analog_fe_default/components/sccp1.yml</itemPath>
           <itemPath>analog_fe_default/components/adc2.yml</itemPath>
-          <itemPath>analog_fe_default/components/timer1.yml</itemPath>
-          <itemPath>analog_fe_default/components/sccp2.yml</itemPath>
+          <itemPath>analog_fe_default/components/pwm.yml</itemPath>
+          <itemPath>analog_fe_default/components/dfp.yml</itemPath>
           <itemPath>analog_fe_default/components/amp2.yml</itemPath>
+          <itemPath>analog_fe_default/components/uart1.yml</itemPath>
+          <itemPath>analog_fe_default/components/spi2.yml</itemPath>
+          <itemPath>analog_fe_default/components/sccp2.yml</itemPath>
+          <itemPath>analog_fe_default/components/timer1.yml</itemPath>
+          <itemPath>analog_fe_default/components/core.yml</itemPath>
+          <itemPath>analog_fe_default/components/qei1.yml</itemPath>
+          <itemPath>analog_fe_default/components/cmp_dac1.yml</itemPath>
         </logicalFolder>
         <itemPath>analog_fe_default/mcc-config.mc4</itemPath>
       </logicalFolder>
@@ -197,7 +197,7 @@
         <targetDevice>PIC32AK1216GC41064</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>PK5Tool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>5.00</languageToolchainVersion>
         <platform>2</platform>

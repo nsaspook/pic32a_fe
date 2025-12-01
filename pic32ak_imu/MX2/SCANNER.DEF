@@ -1,0 +1,44 @@
+
+(*              Copyright 1987 fred brooks LogicTek             *)
+(*                                                              *)
+(*                                                              *)
+(*   First Release                      12/8/87-FGB             *)
+(*                                                              *)
+
+DEFINITION MODULE       SCANNER;
+
+FROM       SYSTEM       IMPORT  ADDRESS;
+
+TYPE    
+        modetype        =       (delimiter,register,translation);
+        modes           =       SET OF modetype;
+        scstate         =
+                RECORD
+                        return          :       LONGINT;
+                        auxreturn       :       LONGINT;
+                        disp            :       CARDINAL;
+                        prevdisp        :       CARDINAL;
+                        delim           :       ADDRESS;
+                        delimret        :       CARDINAL;
+                        bufadr          :       ADDRESS;
+                        buflen          :       CARDINAL;
+                        mode            :       modes;
+                END;
+
+VAR     state           :       scstate;
+
+PROCEDURE       scinit(bufadr: ADDRESS; buflen: CARDINAL);
+PROCEDURE       gtdisp(): CARDINAL;
+PROCEDURE       gbdisp(): CARDINAL;
+PROCEDURE       stdisp(disp: CARDINAL);
+PROCEDURE       nxparm;
+PROCEDURE       bkparm;
+PROCEDURE       dlim;
+PROCEDURE       stmode(mode: modes);
+PROCEDURE       char(VAR ch: CHAR);
+PROCEDURE       bkchar(VAR ch: CHAR);
+PROCEDURE       nxchar(VAR ch: CHAR);
+PROCEDURE       onenum;
+PROCEDURE       ltext(bufadr: ADDRESS; buflen: CARDINAL);
+PROCEDURE       etext(bufadr: ADDRESS; buflen: CARDINAL);
+END                     SCANNER.

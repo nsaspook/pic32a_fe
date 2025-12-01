@@ -1,0 +1,304 @@
+DEFINITION MODULE ATOMIC;
+
+(*              Copyright 1987,1988 fred brooks LogicTek        *)
+(*                                                              *)
+(*                                                              *)
+(*   First Release                      12/8/87-FGB             *)
+(* Added variable parm to StartProcess to pass info to process  *)
+(* in currentprocess.gemsave[15]        1/1/88-FGB              *)
+(*                                                              *)
+(* Remove monitor priority. Each routine the switches processes *)
+(* must be protected from all interrupts by the IntEnd and      *)
+(* IntBegin calls. If this is not done correctly the system     *)
+(* system will bomb.                    4/4/88-FGB              *)
+(*                                                              *)
+
+FROM    SYSTEM  IMPORT  ADDRESS,BYTE;
+FROM    NEWSYS  IMPORT  PROCESS;
+FROM    Strings IMPORT  String;
+
+CONST   MAGIC            =       22261; (* somebodys b-day *)
+        buflength        =       1024;
+        OTOS             =       LONGCARD(602CH); (* Old rom TOS *)
+        MTOS             =       LONGCARD(87CEH); (* New rom MEGA TOS *)
+        OLDDATE          =       11201985H;
+        NEWDATE          =       04221987H;
+        VERSION          =       "  MX2 V2.3.0"; (* mx2 version number *)
+TYPE
+        Gvectype        =       POINTER TO ADDRESS;
+        buffer  =       ARRAY [0..buflength] OF BYTE;
+        PIPE    =       RECORD
+                pipename:       String;
+                buf     :       buffer;
+                bufsize :       CARDINAL;
+                bufhead :       CARDINAL;
+                buftail :       CARDINAL;
+                cnt     :       CARDINAL;
+        END;
+        pipeptr =       POINTER TO PIPE;
+(*      these devices are defined for use with the MX2 port command
+        dev0 thru dev7 are user defineable device drivers. By loading
+        the addresses of the correct procedures into the DeviceTable for
+        in, out and status custom devices may be defined.
+        DeviceTable[dev0].bconstat:=Mybconstat;
+        DeviceTable[dev0].bcostat:=Mybcostat;
+        DeviceTable[dev0].bconin:=Mybconin;
+        DeviceTable[dev0].bconout:=Mybconout;
+        Will setup dev0 for use with the port command.
+
+        sys port 4 -0 -0
+        will cause the process with the PID of 4 to use dev0
+*)
+        devicetype =    (printer,aux,con,midi,null,dev0,dev1,dev2,dev3,
+                         dev4,dev5,dev6,dev7);
+        devstattype     =       PROCEDURE(): BOOLEAN;
+        devintype       =       PROCEDURE(): LONGCARD;
+        devouttype      =       PROCEDURE(CHAR);
+
+        devblocktype    =       RECORD
+                bconstat        :       devstattype;
+                bcostat         :       devstattype;
+                bconin          :       devintype;
+                bconout         :       devouttype;
+        END;
+        devtabletype    =       ARRAY [ORD(dev0)..ORD(dev7)] OF devblocktype;
+
+TYPE            SIGNAL          =       POINTER TO ProcessDescriptor;
+                GEMTYPE         =       ARRAY [0..0FFH] OF ADDRESS;
+                pipetype        =       ARRAY [0..31] OF pipeptr;
+        (* pipe names starting with mx2 or MX2 are reserved by the
+           system *)
+(* This is the control record for all system process. Variable
+   "currentprocess" points to the currently running process. The ready
+   queue is implemented as a linked list round robin. *)
+
+(* The gemsave array contains important system vectors that are switched
+   with every process. This allows programs to intercept trap vectors
+   such as the GEMDOS TRAP 1 and still to allow the other programs
+   to run correctly.       current vectors saved are
+                           gemsave[0]      gem workspace pointer
+                           gemsave[1]      LINEA   VECTOR    28H
+                           gemsave[2]      GEMDOS  TRAP 1    84H
+                           gemsave[3]      GSX,GEM TRAP 2    88H
+                           gemsave[4]      BIOS    TRAP 13   B4H
+                           gemsave[5]      XBIOS   TRAP 14   B8H
+                           gemsave[6]      linef   VECTOR    2CH
+                           gemsave[7]      level2  VECTOR    68H
+                           gemsave[8]      level4  VECTOR    70H
+                           gemsave[9]      _shell_p         4F6H
+                           gemsave[11]     wait value (* V2.2.0 *)
+                           gemsave[12]     wait mask  (* V2.2.0 *)
+                           gemsave[13]     sleep timer variable
+                           gemsave[14]     timer flag variable
+                           gemsave[15]     init parameter for process
+
+                           misc[0]         priority work variable
+*)
+
+        ProcessDescriptor =
+               RECORD
+                        name    :       String;   (* process name *)
+                        pid     :       INTEGER;  (* process id   *)
+                        cor     :       PROCESS;  (* process coroutine *)
+                        pc      :       ADDRESS;  (* process PC *)
+                        sr      :       CARDINAL; (* process SR *)
+                        ssp     :       ADDRESS;  (* process super SR *)
+                        biosval :       ADDRESS;  (* bios call save ptr *)
+                        retval  :       ADDRESS;
+                        biosave :       ARRAY [0..225] OF CARDINAL;
+                        gemsave :       ARRAY [0..15]  OF ADDRESS; 
+                        termvec :       ADDRESS;
+                        wsp     :       ADDRESS;  (* process work space *)
+                        wspsize :       LONGCARD; (* size of work space *)
+                        next    :       SIGNAL;   (* ptr to next process *)
+                        ppid    :       INTEGER;  (* parent id *)
+                        tmpcor  :       PROCESS;  (* cor save variable *)
+                        ready   :       BOOLEAN;  (* process run flag *)
+                        active  :       BOOLEAN;  (* process alive flag *)
+                        intflag :       BOOLEAN;  (* process switched *)
+                        date    :       CARDINAL; (* date started *)
+                        time    :       CARDINAL; (* time started *)
+                        tick    :       LONGCARD; (* total 200hz clocks *)
+                        slice   :       LONGCARD; (* restart time 200hz *)
+                        pri     :       INTEGER;  (* set length of run *)
+                        flags   :       ARRAY [0..2] OF LONGCARD; (* var *)
+(* flags[0] is default drive of process that called the kernel
+   flags[1] is address of process to be added to ready list of kernel
+   flags[2] is size of process stack or workspace
+*)
+                        ipname  :       String;   (* program name *)
+                        iptail  :       String;   (* program command *)
+                      ipenvstr  :       String;   (* program env string *)
+                        return  :       INTEGER;  (* function return *)
+                        errno   :       INTEGER;  (* error number *)
+                        bpsave  :       GEMTYPE;  (* save for gemdos *)
+                        Iport   :       devicetype;
+                        Oport   :       devicetype;
+                        waitloc :       POINTER TO LONGCARD; (* V2.2.0 *)
+                        misc    :       ARRAY [0..8] OF INTEGER;
+               END;
+
+(* Vector 144H points to variable that contains this record *)
+(* look at SYS.MOD for an example of use of these variables *)
+
+     sysrequesttype =
+               RECORD
+                  req         : BOOLEAN;
+                  pid         : INTEGER;
+                  magic       : LONGCARD;
+               END;
+
+     spinttype =
+               RECORD
+                  proc        : PROC;
+                  pid         : INTEGER;
+                  data        : ADDRESS;
+               END;
+
+     StartProcesstype           = PROCEDURE(VAR PROC,VAR LONGCARD,
+                                            VAR INTEGER,VAR String,
+                                            VAR ADDRESS);
+     SwapProcesstype            = PROCEDURE;
+     TermProcesstype            = PROCEDURE(VAR INTEGER);
+     NextPidtype                = PROCEDURE(): INTEGER;
+     SleepProcesstype           = PROCEDURE(VAR INTEGER);
+     WakeupProcesstype          = PROCEDURE(VAR INTEGER);
+     ChangeProcessPrioritytype  = PROCEDURE(VAR INTEGER,VAR INTEGER);
+     MultiBegintype             = PROCEDURE;
+     MultiEndtype               = PROCEDURE;
+     DozeProcesstype            = PROCEDURE(VAR INTEGER,VAR LONGCARD);
+     WaitProcesstype            = PROCEDURE(VAR INTEGER,VAR ADDRESS,
+                                            VAR LONGCARD, VAR LONGCARD,
+                                            VAR LONGCARD);
+
+        sysvariable =
+               RECORD
+                  currentprocess  : POINTER TO SIGNAL;
+                  MULTI           : POINTER TO BOOLEAN;
+                  slicebegin      : POINTER TO LONGCARD;
+                  contextswitch   : POINTER TO LONGCARD;
+                  command         : POINTER TO String;
+                  request         : POINTER TO sysrequesttype;
+                  CRON            : POINTER TO PROC;
+                  spintenable     : POINTER TO BITSET;
+                  spintmask       : POINTER TO BITSET;
+                  spint           : POINTER TO ARRAY [0..15] OF spinttype;
+                  bpsave          : POINTER TO GEMTYPE;
+                  pipes           : POINTER TO pipetype;
+                  sysmemsize      : POINTER TO LONGCARD;
+                  gemsaveGvec     : POINTER TO Gvectype;
+                  StartProcess    : StartProcesstype;
+                  SwapProcess     : SwapProcesstype;
+                  TermProcess     : TermProcesstype;
+                  NextPid         : NextPidtype;
+                  SleepProcess    : SleepProcesstype;
+                  WakeupProcess   : WakeupProcesstype;
+                  ChangeProcessPriority : ChangeProcessPrioritytype;
+                  MultiBegin      : MultiBegintype;
+                  MultiEnd        : MultiEndtype;
+                  DozeProcess     : DozeProcesstype;
+                  WaitProcess     : WaitProcesstype;
+                  CronActive      : POINTER TO BOOLEAN;
+                  DeviceTable     : POINTER TO devtabletype;
+               END;
+
+VAR             currentprocess               : SIGNAL;
+                MULTI                        : BOOLEAN;
+                slicebegin                   : LONGCARD;
+                contextswitch                : LONGCARD;
+                command                      : String;
+                request                      : sysrequesttype;
+                CRON                         : PROC;
+                spintenable                  : BITSET;
+                spintmask                    : BITSET;
+                spint                        : ARRAY [0..15] OF spinttype;
+                bpsave                       : GEMTYPE;
+                pipes                        : pipetype;
+                sysmemsize                   : LONGCARD;
+                ROMDATE [0fc0018H]           : LONGCARD;
+                gemsaveGvec                  : Gvectype;
+                CronActive                   : BOOLEAN;
+                DeviceTable                  : devtabletype;
+                (* A spint is a software interrupt. It is called by
+                   setting it's bit in the spint enable mask. Spints
+                   0-3 are reserved by the system   *)
+                (* The CRON procedure variable is here to put your
+                   own procedure into the init scheduler in MX2 this
+                   procedure will be run every 30 seconds. It is setup to
+                   the dummy procedure at first. to setup your own
+                   get sysvar then (sysvar.CRON:='your procedure') *)
+
+(* start the master context switch interrupt and setup system variables *)
+PROCEDURE Initsked;
+
+(* setup kernal to begin the system startup setup all buffers and 
+   procedures for MX2 *)
+PROCEDURE InitProcesses;
+
+(* shutdown kernal and restore to normal gem state *)
+(* this currently does not work *)
+PROCEDURE EndProcesses;
+
+(* create a process for the MX2 system, place in the scheduler ready
+   list, start new process *)
+PROCEDURE StartProcess(VAR P: PROC; 
+                       VAR n: LONGCARD; 
+                       VAR priority: INTEGER; 
+                       VAR pn: String;
+                       VAR parm: ADDRESS);
+                       (* parm is the init parameter to be placed in
+                          gemsave[15]  *)
+
+(* store the currentprocess and switch to next process in ready list *)
+PROCEDURE SwapProcess;
+
+(* end process and remove it from the ready list, free memory used by
+   process *)
+PROCEDURE TermProcess(VAR id: INTEGER);
+
+(* return the next pid the system will use for a new process *)
+PROCEDURE NextPid(): INTEGER;
+
+(* tell scheduler not to run this process but keep in memory *)
+PROCEDURE SleepProcess(VAR id: INTEGER);
+
+(* tell scheduler to sleep for msec 1000th of a second  *)
+PROCEDURE DozeProcess(VAR id: INTEGER; VAR msec: LONGCARD);
+
+(* Sleep process until the contents of 'loc' equals 'value AND mask'.
+msec is the timeout value in milliseconds if set the 0 it waits forever *)
+PROCEDURE WaitProcess(VAR id: INTEGER; VAR loc: ADDRESS;
+                      VAR value,mask,msec: LONGCARD);
+
+(* tell scheduler to start running this process again if it was sleeping
+   before *)
+PROCEDURE WakeupProcess(VAR id: INTEGER);
+
+(* V0.7 change process priority *)
+PROCEDURE ChangeProcessPriority(VAR id: INTEGER; VAR pri: INTEGER);
+
+(* turn on the scheduler interrupt, and start normal process switching *)
+PROCEDURE MultiBegin;
+
+(* turn off the scheduler interrupt, used to stop process switching in
+   section of code that should not be swapped out *)
+PROCEDURE MultiEnd;
+
+(* check if flag is TRUE and lock out other process from changing it's
+   state until procedure is over *)
+PROCEDURE CheckFlag(VAR flag: BOOLEAN): BOOLEAN;
+
+(* set flag to TRUE and lock out other process from changing it's
+   state until procedure is over *)
+PROCEDURE SetFlag(VAR flag: BOOLEAN);
+
+(* set flag to FALSE and lock out other process from changing it's
+   state until procedure is over *)
+PROCEDURE ResetFlag(VAR flag: BOOLEAN);
+
+(* check if flag is TRUE then set flag to FALSE while locking out other 
+   process from changing it's state until procedure is over *)
+PROCEDURE CheckResetFlag(VAR flag: BOOLEAN): BOOLEAN;
+
+END             ATOMIC.
+

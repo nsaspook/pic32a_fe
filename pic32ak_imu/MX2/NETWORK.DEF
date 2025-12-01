@@ -1,0 +1,19 @@
+
+(*              Copyright 1987 fred brooks LogicTek             *)
+(*                                                              *)
+(*                                                              *)
+(*   First Release                      12/8/87-FGB             *)
+(* Added support for use of MIDI or AUX port for network        *)
+(*                                      2/6/88-FGB              *)
+(*                                                              *)
+
+DEFINITION MODULE NETWORK;
+FROM        BIOS    IMPORT    Device;
+VAR         netdevice         :    Device;
+PROCEDURE       initnetwork(port: Device);
+(* install network, default is network on ,MIDI port *)
+PROCEDURE       recframe;    (* check network for received data *)
+PROCEDURE       networkoff;  (* turn on network *)
+PROCEDURE       networkon;   (* turn off network *)
+
+END  NETWORK.

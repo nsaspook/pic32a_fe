@@ -19,9 +19,12 @@ extern "C" {
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 
+#define FE_DRIVER "V1.00"
+#define FE_ALIAS "PIC32AK FE"
+
 #define SCA3300
-#define IMU_ID	3	
-	
+#define IMU_ID	3
+
 #define IMU_BUF	256
 #define FFT_BUF	64
 
@@ -33,13 +36,19 @@ extern "C" {
 #define ADC2_SCALE	0.000402000f
 
 #define DAC1_CAL	1256
-	
+
 #define DIS_TICKS	100
 #define IMU_TICKS	50
 #define GFX_TICKS	30000
 
 	extern bool SW1_SET, SW2_SET;
 	extern double adc1_scaled, adc2_scaled;
+
+	void fe_version(void);
+	/*
+	 * PIC32AK FE board firmware
+	 * V1.00	Alpha testing versions
+	 */
 
 #ifdef	__cplusplus
 }

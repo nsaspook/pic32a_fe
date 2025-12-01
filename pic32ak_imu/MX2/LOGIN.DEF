@@ -1,0 +1,10 @@
+DEFINITION MODULE LOGIN;
+
+(* read passwd file and sign on user *)
+PROCEDURE       login;
+
+(* encrypt password *)
+PROCEDURE       crypt(VAR red,crypto: ARRAY OF CHAR);
+
+END     LOGIN.
+

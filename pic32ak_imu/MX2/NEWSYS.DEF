@@ -1,0 +1,26 @@
+
+(*              Copyright 1987 fred brooks LogicTek             *)
+(*                                                              *)
+(*                                                              *)
+(* 1.0.0  First Release                      12/8/87-FGB        *)
+(* 1.0.1  Changed to trap #9 because of possible conflict with  *)
+(*        JSM2 coroutines                    12/9/87-FGB        *)
+(*                                                              *)
+
+DEFINITION MODULE NEWSYS;
+FROM       SYSTEM       IMPORT  ADDRESS;
+
+TYPE    PROCESS         =       ADDRESS;
+CONST      TRAP         =       0A4H; (* trap 9 adr used for TRANSFER and
+                                         IOTRANSFER *)
+
+PROCEDURE  NEWPROCESS(processProc       :  PROC;
+                      workspace         :  ADDRESS;
+                      worksize          :  LONGCARD;
+                      VAR process       :  ADDRESS);
+
+PROCEDURE  TRANSFER(VAR p1,p2: ADDRESS);
+
+PROCEDURE  IOTRANSFER(VAR p1,p2: ADDRESS; device: ADDRESS);
+
+END               NEWSYS.

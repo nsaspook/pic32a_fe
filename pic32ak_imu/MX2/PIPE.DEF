@@ -1,0 +1,26 @@
+
+(*              Copyright 1987 fred brooks LogicTek             *)
+(*                                                              *)
+(*                                                              *)
+(*   First Release                      12/8/87-FGB             *)
+(* Correct Bad error in PipeOpen causing pipe to be closed if   *)
+(* this routine is called               12/14/87-FGB            *)
+(*                                                              *)
+
+DEFINITION MODULE PIPE;
+FROM       SYSTEM       IMPORT  BYTE,WORD,LONGWORD;
+
+PROCEDURE OpenPipe(pipeName: ARRAY OF CHAR): LONGCARD; (* return pipe id *)
+PROCEDURE IsReadable(pipeid: LONGCARD): BOOLEAN;
+PROCEDURE IsWriteable(pipeid: LONGCARD): BOOLEAN;
+PROCEDURE ClosePipe(pipeid: LONGCARD);
+PROCEDURE PipeOpen(pipeid: LONGCARD): BOOLEAN;
+
+PROCEDURE PWriteByte(pipeid: LONGCARD; byte: BYTE): BOOLEAN;
+PROCEDURE PWriteWord(pipeid: LONGCARD; word: WORD): BOOLEAN;
+PROCEDURE PWriteLongWord(pipeid: LONGCARD; longword: LONGWORD): BOOLEAN;
+
+PROCEDURE PReadByte(pipeid: LONGCARD; VAR byte: BYTE): BOOLEAN;
+PROCEDURE PReadWord(pipeid: LONGCARD; VAR word: WORD): BOOLEAN;
+PROCEDURE PReadLongWord(pipeid: LONGCARD; VAR longword: LONGWORD): BOOLEAN;
+END               PIPE.
