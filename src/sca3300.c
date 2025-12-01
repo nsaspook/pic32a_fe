@@ -2,7 +2,6 @@
 
 static const char *build_date = __DATE__, *build_time = __TIME__;
 static volatile bool time_done = false;
-
 static uint8_t CRC8(uint8_t, uint8_t);
 static bool imu_cs(imu_cmd_t *);
 void imu_cs_cb(uintptr_t);
@@ -77,14 +76,13 @@ bool sca3300_imu_transfer(imu_cmd_t * imu, uint32_t data)
 	while (SPI3STATbits.SPIRBE != false);
 	imu->rbuf32[SCA3300_REC] = SPI3BUF;
 
-	StartTimer(TMR_CS, SCA3300_CHIP_CS_DELAY); // milliseconds
+//	StartTimer(TMR_CS, SCA3300_CHIP_CS_DELAY); // milliseconds
 	sca3300_cs_disable(imu);
 	//	while (imu->run) { // wait until data has left the SPI buffer, run flag is set in SPI interrupt ISR
 	//		if (TimerDone(TMR_CS)) {
 	//			return false;
 	//		}
 	//	};
-
 	return true;
 }
 
@@ -236,7 +234,6 @@ void sca3300_set_spimode(void * imup)
 	if (imu) {
 		sca3300_imu_transfer(imu, SCA3300_SWRESET_32B); // chip software reset
 		delay_us(SCA3300_CHIP_SWR_DELAY);
-
 		sca3300_imu_transfer(imu, SCL3300_MODE4); // send the range command
 		delay_us(SCA3300_CHIP_MODE_DELAY);
 		sca3300_imu_transfer(imu, SCL3300_ANGLE);
@@ -311,7 +308,7 @@ void imu_cs_cb(uintptr_t context)
 
 void sca3300_version(void)
 {
-	snprintf(imu_buffer, 255, "%s Driver %s         %s %s         ", SCA3300_ALIAS, SCA3300_DRIVER, build_date, build_time);
+	snprintf(imu_buffer, IMU_BUF - 1, "%s Driver %s         %s %s         ", SCA3300_ALIAS, SCA3300_DRIVER, build_date, build_time);
 }
 
 /* This function is called after period expires */

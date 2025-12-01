@@ -19,27 +19,20 @@
 #include "imu.h"
 #include "gfx.h"
 
-static char buffer[256];
+static char buffer[IMU_BUF];
 bool SW1_SET = false, SW2_SET = false;
 volatile uint16_t tickCount[TMR_COUNT];
 uint32_t board_serial_id = 0x35A;
+double adc1_scaled = 0.0f, adc2_scaled = 0.0f;
 sSensorData_t accel = {
 	.id = 1,
 };
-
-double adc1_scaled = 0.0f, adc2_scaled = 0.0f;
-
-#define DIS_TICKS	100
-#define IMU_TICKS	50
-#define GFX_TICKS	30000
-
-#ifdef SCA3300
 
 /*
  * SCA3300-D01 instance
  */
 imu_cmd_t __attribute__((address(YRAM))) imu0 = {
-	.id = 3,
+	.id = IMU_ID,
 	.tbuf32[SCA3300_TRM] = SCA3300_SWRESET_32B,
 	.online = false,
 	.device = IMU_SCL3300, // device type
@@ -49,7 +42,7 @@ imu_cmd_t __attribute__((address(YRAM))) imu0 = {
 	.log_timeout = SCA_LOG_TIMEOUT,
 	.update = true,
 	.features = false,
-	.spi_bytes = 4,
+	.spi_bytes = 4, // 32-bit transfers
 	.op.info_ptr = &sca3300_version,
 	.op.imu_set_spimode = &sca3300_set_spimode,
 	.op.imu_getid = &sca3300_getid,
@@ -62,11 +55,10 @@ imu_cmd_t __attribute__((address(YRAM))) imu0 = {
 	.warn = false,
 	.down = false,
 };
-#endif
 
 int main(void)
 {
-	RAMXECCCON = 0x00008000; // ECC enable
+	RAMXECCCON = 0x00008000; // ECC enables
 	RAMYECCCON = 0x00008000;
 	PWBXECCCON = 0x00008000;
 	PWBYECCCON = 0x00008000;
@@ -84,7 +76,7 @@ int main(void)
 	OledClearBuffer();
 	wait_lcd_done();
 
-	snprintf(buffer, 255, "DEV%X REV%X U%X%X   ", *(uint32_t*) 0x7C2000, *(uint32_t*) 0x7C2004, *(uint32_t*) 0x7F2BE0, *(uint32_t*) 0x7F2BE4);
+	snprintf(buffer, IMU_BUF - 1, "DEV%X REV%X U%X%X   ", *(uint32_t*) 0x7C2000, *(uint32_t*) 0x7C2004, *(uint32_t*) 0x7F2BE0, *(uint32_t*) 0x7F2BE4);
 	eaDogM_WriteStringAtPos(15, 0, buffer);
 	imu0.op.info_ptr();
 	eaDogM_WriteStringAtPos(13, 0, imu_buffer);
@@ -100,7 +92,7 @@ int main(void)
 	};
 	SRAM_CS_Set();
 	ADC_DMA_init(); // setup background ADC data tasks
-	CMP1_DACDataWrite(1256);
+	CMP1_DACDataWrite(DAC1_CAL);
 	/*
 	 * configure SPI port for IMU if needed, detect sensor and config
 	 */
@@ -108,7 +100,7 @@ int main(void)
 	imu0.op.imu_getserial(&imu0);
 	imu0.op.imu_getid(&imu0);
 
-	snprintf(buffer, 255, "%s, serial %X      ", imu_string(&imu0), imu0.board_serial_id);
+	snprintf(buffer, IMU_BUF - 1, "%s, serial %X      ", imu_string(&imu0), imu0.board_serial_id);
 	eaDogM_WriteStringAtPos(1, 0, buffer);
 
 	StartTimer(TMR_TEST, DIS_TICKS); // GLCD screen updates every 2ms
@@ -122,19 +114,19 @@ int main(void)
 			if (!SW2_SET) {
 				StartTimer(TMR_TEST, DIS_TICKS);
 				if (!SW1_SET) {
-					snprintf(buffer, 255, "S%u, I%X%X%X, D%u D%u", total_sample_triggers, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6],
+					snprintf(buffer, IMU_BUF - 1, "S%u, I%X%X%X, D%u D%u", total_sample_triggers, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6],
 						(uint16_t) adc_result[ADC1_D], (uint16_t) adc_result[ADC2_D]);
 					eaDogM_WriteStringAtPos(0, 0, buffer);
 				}
-				snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);
+				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);
 				eaDogM_WriteStringAtPos(2, 0, buffer);
-				snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f, %d   ", accel.x, accel.y, accel.z, imu0.rs);
+				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f, %d   ", accel.x, accel.y, accel.z, imu0.rs);
 				eaDogM_WriteStringAtPos(3, 0, buffer);
 				adc1_scaled = (uint16_t) adc_result[ADC1_D] * ADC1_SCALE;
 				adc2_scaled = (uint16_t) adc_result[ADC2_D] * ADC2_SCALE;
-				snprintf(buffer, 255, "ADC1 Voltage : %7.4f Volts", adc1_scaled);
+				snprintf(buffer, IMU_BUF - 1, "ADC1 Voltage : %7.4f Volts", adc1_scaled);
 				eaDogM_WriteStringAtPos(4, 0, buffer);
-				snprintf(buffer, 255, "ADC2 Voltage : %7.4f Volts", adc2_scaled);
+				snprintf(buffer, IMU_BUF - 1, "ADC2 Voltage : %7.4f Volts", adc2_scaled);
 				eaDogM_WriteStringAtPos(5, 0, buffer);
 				if (SW1_SET) {
 					uint16_t i = 1;
@@ -151,9 +143,9 @@ int main(void)
 				OledUpdate();
 			} else {
 				OledClearBuffer();
-				snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);
+				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);
 				eaDogM_WriteStringAtPos(2, 0, buffer);
-				snprintf(buffer, 255, "%6.3f,%6.3f,%6.3f, %d   ", accel.x, accel.y, accel.z, imu0.rs);
+				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f, %d   ", accel.x, accel.y, accel.z, imu0.rs);
 				eaDogM_WriteStringAtPos(3, 0, buffer);
 				vector_graph_fs();
 				OledUpdate();

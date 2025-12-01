@@ -28,4 +28,5 @@ build/default/production/_ext/1360937237/sca3300.o:  \
  ../src/config/default/peripheral/ccp/plib_ccp_common.h  \
  ../src/config/default/peripheral/ccp/plib_sccp1.h  \
 ../src/imu.h  \
- ../src/timers.h 
+ ../src/samples.h  \
+../src/timers.h 

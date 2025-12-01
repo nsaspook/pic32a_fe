@@ -16,15 +16,14 @@
 //#define USE_SRAM
 //#define DMA_HALF
 
-#define MAX_ISS66_SAMPLES	32768
-#define CDOWN	8
-
+static const uint32_t MAX_ISS66_SAMPLES = 32768;
+static const uint16_t CDOWN = 8;
 static const uint32_t retrigger_time = 400;
 volatile uint8_t iss_adc_write[8] = {0x02, 0x00, 0x00, 0x00}; // 1024 bytes in each address page for sequential writes
 uint8_t sram_adc_write[8];
 volatile uint32_t total_sample_triggers = 0;
 volatile uint16_t sram_addr = 0, *sram_addr_ptr = (volatile uint16_t *) & iss_adc_write[2];
-volatile uint16_t adc_result[2] = {0, 0};
+volatile uint16_t adc_result[NUM_ADC] = {0, 0};
 
 /*
  * swap16 for iss66 addresses

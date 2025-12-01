@@ -1,8 +1,6 @@
-//#include "imupic32mcj.h"
 #include "imu.h"
-//#include "bno086.h"
 
-const double imu_table[] = {
+static const double imu_table[] = {
 	BMA490_ACCEL_MG_LSB_2G,
 	BMA490_ACCEL_MG_LSB_4G,
 	BMA490_ACCEL_MG_LSB_8G,
@@ -26,11 +24,8 @@ static const uint8_t imu_name [][8] = {
 	"NO IMU ",
 };
 
-char imu_buffer[256];
+char imu_buffer[IMU_BUF];
 static uint32_t sensortime;
-
-static void move_bma490_transfer_data(uint8_t *, imu_cmd_t *);
-
 extern struct sca3300_data sdata;
 
 double get_imu_scale(imu_cmd_t * imu)
@@ -124,18 +119,6 @@ void getAllData(sSensorData_t *accel, imu_cmd_t * imu)
 	}
 }
 
-/*
- * load raw SPI sensor data from IMU and transfer to the logging processing buffer
- */
-void move_bma490_transfer_data(uint8_t *pBuf, imu_cmd_t * imu)
-{
-	if (pBuf && imu) { // null pointer checks
-		for (uint32_t i = IMU_DATA_BUFFER_INDEX; i < IMU_DATA_RAW_LEN; i++) {
-			pBuf[i - IMU_DATA_BUFFER_INDEX] = imu->rbuf[i];
-		}
-	}
-}
-
 const uint8_t * imu_string(imu_cmd_t * imu)
 {
 	const uint8_t * str_ptr = imu_name[IMU_NONE];
@@ -146,5 +129,4 @@ const uint8_t * imu_string(imu_cmd_t * imu)
 		}
 	}
 	return str_ptr; // return name string
-
 }

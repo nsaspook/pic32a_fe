@@ -16,39 +16,30 @@ extern "C" {
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include <math.h>
-
-#define SCA3300
+#include "samples.h"
 
 #define IMU_DRIVER "V1.716"
-#ifdef BNO086
-#define IMU_ALIAS "BNO086 IMU"
-#else
 #define IMU_ALIAS "IMU"
-#endif
-
 #define IMU_ID_DELAY 400
-
 #define IMU_DATA_RAW_LEN  30
 #define IMU_DATA_BUFFER_INDEX  1
-
 #define IMU_CS 0
-#define SCA_LOG_TIMEOUT 10 // 8
+#define SCA_LOG_TIMEOUT 10 // 8	
+#define IMU_BUF32	2
 
 	typedef struct _sSensorData_t {
 		const uint16_t id;
-		//		sh2_Quaternion_t fusion;
 		double x; /**< X-axis sensor data */
 		double y; /**< Y-axis sensor data */
 		double z; /**< Z-axis sensor data */
-		float xa; /**< X-angle sensor data */
-		float ya; /**< Y-angle sensor data */
-		float za; /**< Z-angle sensor data */
+		double xa; /**< X-angle sensor data */
+		double ya; /**< Y-angle sensor data */
+		double za; /**< Z-angle sensor data */
 		float xerr;
 		float yerr;
 		float zerr;
 		uint32_t sensortime; /**< sensor time */
 		float sensortemp;
-		uint8_t buffer[64]; // can-fd frame buffer space
 	} sSensorData_t;
 
 	/*
@@ -86,12 +77,7 @@ extern "C" {
 		volatile bool online, run, update, features, crc_error, angles;
 		uint64_t host_serial_id;
 		bool locked, warn, down;
-#ifdef BNO086
-		uint8_t rbuf[512], tbuf[512];
-#else
-		uint8_t rbuf[512], tbuf[512];
-#endif
-		uint32_t rbuf32[2], tbuf32[2];
+		uint32_t rbuf32[IMU_BUF32], tbuf32[IMU_BUF32];
 		uint16_t serial1, serial2;
 		op_t op;
 		volatile bool init_good;
@@ -119,20 +105,8 @@ extern "C" {
 		uint8_t cmd;
 		uint32_t cmd_data[4];
 		uint64_t secret;
-		uint8_t buf[64];
+		uint8_t buf[FFT_BUF];
 	} imu_host_t;
-
-	struct sca3300_data {
-		const uint16_t id;
-
-		struct {
-			int16_t channels[9];
-			uint16_t ret_status;
-			uint32_t ts;
-		} scan;
-		uint8_t rs;
-		uint8_t ss;
-	};
 
 	enum accel_g {
 		range_2g = 0,
@@ -160,6 +134,19 @@ extern "C" {
 		SCL3300_ANG_X,
 		SCL3300_ANG_Y,
 		SCL3300_ANG_Z,
+		SCL3300_LAST,
+	};
+
+	struct sca3300_data {
+		const uint16_t id;
+
+		struct {
+			int16_t channels[SCL3300_LAST];
+			uint16_t ret_status;
+			uint32_t ts;
+		} scan;
+		uint8_t rs;
+		uint8_t ss;
 	};
 
 	/*! Earth's gravity in m/s^2 */
@@ -191,14 +178,14 @@ extern "C" {
 
 	typedef struct sFFTData_t {
 		uint16_t id;
-		uint8_t buffer[64]; // can-fd frame buffer space
+		uint8_t buffer[FFT_BUF];
 	} sFFTData_t;
 
 	double get_imu_scale(imu_cmd_t *);
 	void getAllData(sSensorData_t *, imu_cmd_t *);
 	const uint8_t * imu_string(imu_cmd_t *);
 
-	extern char imu_buffer[256];
+	extern char imu_buffer[IMU_BUF];
 
 #ifdef __cplusplus
 }
