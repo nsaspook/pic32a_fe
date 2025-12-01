@@ -1,0 +1,5702 @@
+configVersion: 1.0.0
+componentName: core
+coreVersion: 5.8.3
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: core
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.23.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: core
+          x: '5'
+          y: '4'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    clkoUsed:
+      attributes:
+        id: clkoUsed
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    calcExtClkSrcFreq:
+      attributes:
+        id: calcExtClkSrcFreq
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '8000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    poscmdValue:
+      attributes:
+        id: poscmdValue
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    POSC_FREQ:
+      attributes:
+        id: POSC_FREQ
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '8000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    extClkSrcFreq:
+      attributes:
+        id: extClkSrcFreq
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '64000000'
+          type: Integer
+        - attributes:
+            id: min
+          children:
+          - type: Value
+            value: '0'
+          type: Integer
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '8000000'
+          type: User
+        type: Values
+      type: Integer
+    primaryClockUsed:
+      attributes:
+        id: primaryClockUsed
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    extClkSrcSel:
+      attributes:
+        id: extClkSrcSel
+      children:
+      - children:
+        - attributes:
+            value: External Clock
+          type: User
+        type: Values
+      type: Combo
+    clkGen6OutFrequencyInMHz:
+      attributes:
+        id: clkGen6OutFrequencyInMHz
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200.0'
+          type: Dynamic
+        type: Values
+      type: String
+    clkGen6OutFrequency:
+      attributes:
+        id: clkGen6OutFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    clockModuleString:
+      attributes:
+        id: clockModuleString
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: |2-
+                  CLOCK_SYSTEM = 1,
+                  CLOCK_FRC = 2,
+                  CLOCK_WDT = 3,
+                  CLOCK_BFRC = 3,
+                  CLOCK_ADC = 6,
+                  CLOCK_CMP_DAC = 7,
+                  CLOCK_SPI = 9,
+                  CLOCK_CCP = 12,
+                  CLOCK_REFO1 = 12
+          type: Dynamic
+        type: Values
+      type: String
+    clkGen6Enable:
+      attributes:
+        id: clkGen6Enable
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    clkGen6ClkSrcFrequency:
+      attributes:
+        id: clkGen6ClkSrcFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    clkGen6CON__NOSC:
+      attributes:
+        id: clkGen6CON__NOSC
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
+      type: KeyValueSet
+    getInterruptPriorityData:
+      attributes:
+        id: getInterruptPriorityData
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: |-
+              IPC6bits.T1IP = 2;
+                  IPC6bits.CCT1IP = 5;
+                  IPC6bits.CCT2IP = 6;
+                  IPC7bits.SPI1RXIP = 1;
+                  IPC8bits.SPI1TXIP = 1;
+                  IPC8bits.SPI1EIP = 1;
+                  IPC8bits.SPI2RXIP = 3;
+                  IPC8bits.SPI2TXIP = 3;
+                  IPC8bits.SPI2EIP = 1;
+                  IPC9bits.DMA0IP = 1;
+                  IPC9bits.DMA1IP = 1;
+                  IPC11bits.U1RXIP = 1;
+                  IPC11bits.U1TXIP = 1;
+                  IPC11bits.U1EIP = 1;
+                  IPC13bits.DMA5IP = 5;
+          type: Dynamic
+        type: Values
+      type: String
+    getExtInterruptEdgePolarity:
+      attributes:
+        id: getExtInterruptEdgePolarity
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: ''
+          type: Dynamic
+        type: Values
+      type: String
+    INTC_63_ENABLE:
+      attributes:
+        id: INTC_63_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: spi1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_64_ENABLE:
+      attributes:
+        id: INTC_64_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: spi1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_65_ENABLE:
+      attributes:
+        id: INTC_65_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: spi1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_63_HANDLER_LOCK:
+      attributes:
+        id: INTC_63_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: spi1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_64_HANDLER_LOCK:
+      attributes:
+        id: INTC_64_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: spi1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_65_HANDLER_LOCK:
+      attributes:
+        id: INTC_65_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: spi1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_66_ENABLE:
+      attributes:
+        id: INTC_66_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: spi2
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_67_ENABLE:
+      attributes:
+        id: INTC_67_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: spi2
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_68_ENABLE:
+      attributes:
+        id: INTC_68_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: spi2
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_66_HANDLER_LOCK:
+      attributes:
+        id: INTC_66_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: spi2
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_67_HANDLER_LOCK:
+      attributes:
+        id: INTC_67_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: spi2
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_68_HANDLER_LOCK:
+      attributes:
+        id: INTC_68_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: spi2
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_69_ENABLE:
+      attributes:
+        id: INTC_69_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: spi3
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_70_ENABLE:
+      attributes:
+        id: INTC_70_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: spi3
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_71_ENABLE:
+      attributes:
+        id: INTC_71_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: spi3
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_69_HANDLER_LOCK:
+      attributes:
+        id: INTC_69_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: spi3
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_70_HANDLER_LOCK:
+      attributes:
+        id: INTC_70_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: spi3
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_71_HANDLER_LOCK:
+      attributes:
+        id: INTC_71_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: spi3
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    BSP_PIN_31_MODE:
+      attributes:
+        id: BSP_PIN_31_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_32_MODE:
+      attributes:
+        id: BSP_PIN_32_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_33_MODE:
+      attributes:
+        id: BSP_PIN_33_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_34_MODE:
+      attributes:
+        id: BSP_PIN_34_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_35_MODE:
+      attributes:
+        id: BSP_PIN_35_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_36_MODE:
+      attributes:
+        id: BSP_PIN_36_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_37_MODE:
+      attributes:
+        id: BSP_PIN_37_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_38_MODE:
+      attributes:
+        id: BSP_PIN_38_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_41_MODE:
+      attributes:
+        id: BSP_PIN_41_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_42_MODE:
+      attributes:
+        id: BSP_PIN_42_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_43_MODE:
+      attributes:
+        id: BSP_PIN_43_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_44_MODE:
+      attributes:
+        id: BSP_PIN_44_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_45_MODE:
+      attributes:
+        id: BSP_PIN_45_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_46_MODE:
+      attributes:
+        id: BSP_PIN_46_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_49_MODE:
+      attributes:
+        id: BSP_PIN_49_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_50_MODE:
+      attributes:
+        id: BSP_PIN_50_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_51_MODE:
+      attributes:
+        id: BSP_PIN_51_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_52_MODE:
+      attributes:
+        id: BSP_PIN_52_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_53_MODE:
+      attributes:
+        id: BSP_PIN_53_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_54_MODE:
+      attributes:
+        id: BSP_PIN_54_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_55_MODE:
+      attributes:
+        id: BSP_PIN_55_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_56_MODE:
+      attributes:
+        id: BSP_PIN_56_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_57_MODE:
+      attributes:
+        id: BSP_PIN_57_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_58_MODE:
+      attributes:
+        id: BSP_PIN_58_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_61_MODE:
+      attributes:
+        id: BSP_PIN_61_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_62_MODE:
+      attributes:
+        id: BSP_PIN_62_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_63_MODE:
+      attributes:
+        id: BSP_PIN_63_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_64_MODE:
+      attributes:
+        id: BSP_PIN_64_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    INTC_190_ENABLE:
+      attributes:
+        id: INTC_190_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: adc2
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_190_HANDLER_LOCK:
+      attributes:
+        id: INTC_190_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: adc2
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_191_ENABLE:
+      attributes:
+        id: INTC_191_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: adc2
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_191_HANDLER_LOCK:
+      attributes:
+        id: INTC_191_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: adc2
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    BSP_PIN_1_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_1_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: AD2AN6
+          type: User
+        type: Values
+      type: String
+    USE_PPS_INPUT_0:
+      attributes:
+        id: USE_PPS_INPUT_0
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_INPUT_PIN_0:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_PIN_0
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '32'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_INPUT_FUNCTION_0:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_FUNCTION_0
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '18'
+          type: User
+        type: Values
+      type: KeyValueSet
+    USE_PPS_OUTPUT_0:
+      attributes:
+        id: USE_PPS_OUTPUT_0
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_FUNCTION_0:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_0
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '15'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_PIN_0:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_0
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '32'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    USE_PPS_OUTPUT_1:
+      attributes:
+        id: USE_PPS_OUTPUT_1
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_PIN_1:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_1
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '30'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_FUNCTION_1:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_1
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '45'
+          type: User
+        type: Values
+      type: KeyValueSet
+    USE_PPS_INPUT_1:
+      attributes:
+        id: USE_PPS_INPUT_1
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_INPUT_PIN_1:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_PIN_1
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '21'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_INPUT_FUNCTION_1:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_FUNCTION_1
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '29'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_33_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_33_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SDI1
+          type: User
+        type: Values
+      type: String
+    USE_PPS_INPUT_2:
+      attributes:
+        id: USE_PPS_INPUT_2
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_INPUT_PIN_2:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_PIN_2
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '27'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_INPUT_FUNCTION_2:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_FUNCTION_2
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '20'
+          type: User
+        type: Values
+      type: KeyValueSet
+    GPIO_CHANNEL_B_CONFIG:
+      attributes:
+        id: GPIO_CHANNEL_B_CONFIG
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SYS_PORT_B_TRIS:
+      attributes:
+        id: SYS_PORT_B_TRIS
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '4071'
+          type: Dynamic
+        type: Values
+      type: Hex
+    SYS_PORT_B_LAT:
+      attributes:
+        id: SYS_PORT_B_LAT
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '26'
+          type: Dynamic
+        type: Values
+      type: Hex
+    SYS_PORT_B_CNPU:
+      attributes:
+        id: SYS_PORT_B_CNPU
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '2584'
+          type: Dynamic
+        type: Values
+      type: Hex
+    GPIO_CHANNEL_C_CONFIG:
+      attributes:
+        id: GPIO_CHANNEL_C_CONFIG
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SYS_PORT_C_TRIS:
+      attributes:
+        id: SYS_PORT_C_TRIS
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '4058'
+          type: Dynamic
+        type: Values
+      type: Hex
+    SYS_PORT_C_LAT:
+      attributes:
+        id: SYS_PORT_C_LAT
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '37'
+          type: Dynamic
+        type: Values
+      type: Hex
+    SYS_PORT_C_CNPU:
+      attributes:
+        id: SYS_PORT_C_CNPU
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '3357'
+          type: Dynamic
+        type: Values
+      type: Hex
+    INTC_48_ENABLE:
+      attributes:
+        id: INTC_48_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_48_HANDLER_LOCK:
+      attributes:
+        id: INTC_48_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    cm1BUFValue:
+      attributes:
+        id: cm1BUFValue
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0x1'
+          type: Dynamic
+        type: Values
+      type: String
+    cm1TimerWindowPeriod:
+      attributes:
+        id: cm1TimerWindowPeriod
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 5.0 ns
+          type: Dynamic
+        type: Values
+      type: String
+    cm1RefClkSrcFreq:
+      attributes:
+        id: cm1RefClkSrcFreq
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    cm1ClkSrcFreq:
+      attributes:
+        id: cm1ClkSrcFreq
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    cm2BUFValue:
+      attributes:
+        id: cm2BUFValue
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0x1'
+          type: Dynamic
+        type: Values
+      type: String
+    cm2TimerWindowPeriod:
+      attributes:
+        id: cm2TimerWindowPeriod
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 5.0 ns
+          type: Dynamic
+        type: Values
+      type: String
+    cm2RefClkSrcFreq:
+      attributes:
+        id: cm2RefClkSrcFreq
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    cm2ClkSrcFreq:
+      attributes:
+        id: cm2ClkSrcFreq
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    cm3BUFValue:
+      attributes:
+        id: cm3BUFValue
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0x1'
+          type: Dynamic
+        type: Values
+      type: String
+    cm3TimerWindowPeriod:
+      attributes:
+        id: cm3TimerWindowPeriod
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 5.0 ns
+          type: Dynamic
+        type: Values
+      type: String
+    cm3RefClkSrcFreq:
+      attributes:
+        id: cm3RefClkSrcFreq
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    cm3ClkSrcFreq:
+      attributes:
+        id: cm3ClkSrcFreq
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    cm4BUFValue:
+      attributes:
+        id: cm4BUFValue
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0x1'
+          type: Dynamic
+        type: Values
+      type: String
+    cm4TimerWindowPeriod:
+      attributes:
+        id: cm4TimerWindowPeriod
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 5.0 ns
+          type: Dynamic
+        type: Values
+      type: String
+    cm4RefClkSrcFreq:
+      attributes:
+        id: cm4RefClkSrcFreq
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    cm4ClkSrcFreq:
+      attributes:
+        id: cm4ClkSrcFreq
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    WDT_ALLOWED_WINDOW_SIZE:
+      attributes:
+        id: WDT_ALLOWED_WINDOW_SIZE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 523984.176167 s
+          type: Dynamic
+        type: Values
+      type: String
+    WDT_TIMEOUT_PERIOD_RUN:
+      attributes:
+        id: WDT_TIMEOUT_PERIOD_RUN
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 2095936.70467 s
+          type: Dynamic
+        type: Values
+      type: String
+    CLOCK_FREQUENCY:
+      attributes:
+        id: CLOCK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '32787'
+          type: Dynamic
+        type: Values
+      type: Integer
+    sysClockFrequency:
+      attributes:
+        id: sysClockFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    stdSpeedClkFreq:
+      attributes:
+        id: stdSpeedClkFreq
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '100000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    slowSpeedClkFreq:
+      attributes:
+        id: slowSpeedClkFreq
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '50000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    sysClockFrequencyComment:
+      attributes:
+        id: sysClockFrequencyComment
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200.0'
+          type: Dynamic
+        type: Values
+      type: String
+    clkGen1OutFrequencyInMHz:
+      attributes:
+        id: clkGen1OutFrequencyInMHz
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200.0'
+          type: Dynamic
+        type: Values
+      type: String
+    clkGen1OutFrequency:
+      attributes:
+        id: clkGen1OutFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    clkGen1ClkSrcFrequency:
+      attributes:
+        id: clkGen1ClkSrcFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    pll1OutFrequencyInMHz:
+      attributes:
+        id: pll1OutFrequencyInMHz
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200.0'
+          type: Dynamic
+        type: Values
+      type: String
+    pll1calculatedFoutFrequency:
+      attributes:
+        id: pll1calculatedFoutFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    pll1VcoFrequencyInMHz:
+      attributes:
+        id: pll1VcoFrequencyInMHz
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200.0'
+          type: Dynamic
+        type: Values
+      type: String
+    pll1calculatedVCOFrequency:
+      attributes:
+        id: pll1calculatedVCOFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    pll1calculatedPfdFrequency:
+      attributes:
+        id: pll1calculatedPfdFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '400000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    pll1ClockSourceFreq:
+      attributes:
+        id: pll1ClockSourceFreq
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '8000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    pll1CON__NOSC:
+      attributes:
+        id: pll1CON__NOSC
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    pll2OutFrequencyInMHz:
+      attributes:
+        id: pll2OutFrequencyInMHz
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '533.333333'
+          type: Dynamic
+        type: Values
+      type: String
+    pll2calculatedFoutFrequency:
+      attributes:
+        id: pll2calculatedFoutFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '533333333'
+          type: Dynamic
+        type: Values
+      type: Integer
+    pll2calculatedPfdFrequency:
+      attributes:
+        id: pll2calculatedPfdFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1600000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    pll2VcoFrequencyInMHz:
+      attributes:
+        id: pll2VcoFrequencyInMHz
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '800.0'
+          type: Dynamic
+        type: Values
+      type: String
+    pll2calculatedVCOFrequency:
+      attributes:
+        id: pll2calculatedVCOFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '800000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    pll2ClockSourceFreq:
+      attributes:
+        id: pll2ClockSourceFreq
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '8000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    pll2CON__FSCMEN:
+      attributes:
+        id: pll2CON__FSCMEN
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    pll2Enable:
+      attributes:
+        id: pll2Enable
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    pll2CON__NOSC:
+      attributes:
+        id: pll2CON__NOSC
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    pll2DIV__PLLFBDIV:
+      attributes:
+        id: pll2DIV__PLLFBDIV
+      children:
+      - children:
+        - attributes:
+            value: '200'
+          type: User
+        type: Values
+      type: Integer
+    pll2DIV__POSTDIV1:
+      attributes:
+        id: pll2DIV__POSTDIV1
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '4'
+          type: Dynamic
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: Combo
+    pll2DIV__POSTDIV2:
+      attributes:
+        id: pll2DIV__POSTDIV2
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1'
+          type: Dynamic
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: Combo
+    USE_PPS_OUTPUT_2:
+      attributes:
+        id: USE_PPS_OUTPUT_2
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_FUNCTION_2:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_2
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '15'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_PIN_2:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_2
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '27'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    clkGen9OutFrequencyInMHz:
+      attributes:
+        id: clkGen9OutFrequencyInMHz
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '68.085106'
+          type: Dynamic
+        type: Values
+      type: String
+    clkGen9OutFrequency:
+      attributes:
+        id: clkGen9OutFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '68085106'
+          type: Dynamic
+        type: Values
+      type: Integer
+    clkGen9Enable:
+      attributes:
+        id: clkGen9Enable
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    clkGen9ClkSrcFrequency:
+      attributes:
+        id: clkGen9ClkSrcFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    clkGen9CON__NOSC:
+      attributes:
+        id: clkGen9CON__NOSC
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
+      type: KeyValueSet
+    clkGen9IsDividerEnabled:
+      attributes:
+        id: clkGen9IsDividerEnabled
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    clkGen9DIV__INTDIV:
+      attributes:
+        id: clkGen9DIV__INTDIV
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: Integer
+    clkGen9DIV__FRACDIV:
+      attributes:
+        id: clkGen9DIV__FRACDIV
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '240'
+          type: User
+        type: Values
+      type: Integer
+    INTC_49_ENABLE:
+      attributes:
+        id: INTC_49_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: sccp1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_49_HANDLER_LOCK:
+      attributes:
+        id: INTC_49_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: sccp1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    BSP_PIN_41_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_41_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_41_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_41_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: DIS_MODE
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_41_DIR:
+      attributes:
+        id: BSP_PIN_41_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_41_LAT:
+      attributes:
+        id: BSP_PIN_41_LAT
+      children:
+      - children:
+        - attributes:
+            value: High
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_41_PU:
+      attributes:
+        id: BSP_PIN_41_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    clkGen12ClkSrcFrequency:
+      attributes:
+        id: clkGen12ClkSrcFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '8000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    clkGen12CON__NOSC:
+      attributes:
+        id: clkGen12CON__NOSC
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    clkGen12IsDividerEnabled:
+      attributes:
+        id: clkGen12IsDividerEnabled
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    clkGen12DIV__INTDIV:
+      attributes:
+        id: clkGen12DIV__INTDIV
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
+      type: Integer
+    clkGen12DIV__FRACDIV:
+      attributes:
+        id: clkGen12DIV__FRACDIV
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: Integer
+    clkGen12OutFrequencyInMHz:
+      attributes:
+        id: clkGen12OutFrequencyInMHz
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1.0'
+          type: Dynamic
+        type: Values
+      type: String
+    clkGen12OutFrequency:
+      attributes:
+        id: clkGen12OutFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    clkGen12Enable:
+      attributes:
+        id: clkGen12Enable
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    anyChannelEnabled:
+      attributes:
+        id: anyChannelEnabled
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_72_ENABLE:
+      attributes:
+        id: INTC_72_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_72_HANDLER_LOCK:
+      attributes:
+        id: INTC_72_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    dmaRegPorSet:
+      attributes:
+        id: dmaRegPorSet
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: |2+
+                  DMACON = 0x0UL;
+
+                  DMABUF = 0x0UL;
+
+                  DMALOW = 0x0UL;
+
+                  DMAHIGH = 0x0UL;
+
+                  DMA0CH = 0x0UL;
+                  DMA0SEL = 0x0UL;
+                  DMA0STAT = 0x0UL;
+                  DMA0SRC = 0x0UL;
+                  DMA0DST = 0x0UL;
+                  DMA0CNT = 0x1UL;
+                  DMA0MSK = 0x0UL;
+                  DMA0PAT = 0x0UL;
+
+                  DMA1CH = 0x0UL;
+                  DMA1SEL = 0x0UL;
+                  DMA1STAT = 0x0UL;
+                  DMA1SRC = 0x0UL;
+                  DMA1DST = 0x0UL;
+                  DMA1CNT = 0x1UL;
+                  DMA1MSK = 0x0UL;
+                  DMA1PAT = 0x0UL;
+
+                  DMA5CH = 0x0UL;
+                  DMA5SEL = 0x0UL;
+                  DMA5STAT = 0x0UL;
+                  DMA5SRC = 0x0UL;
+                  DMA5DST = 0x0UL;
+                  DMA5CNT = 0x1UL;
+                  DMA5MSK = 0x0UL;
+                  DMA5PAT = 0x0UL;
+
+          type: Dynamic
+        type: Values
+      type: String
+    DMA_ENABLE:
+      attributes:
+        id: DMA_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    INTC_75_ENABLE:
+      attributes:
+        id: INTC_75_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_75_HANDLER_LOCK:
+      attributes:
+        id: INTC_75_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    DMA_HEADER:
+      attributes:
+        id: DMA_HEADER
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    INTC_74_ENABLE:
+      attributes:
+        id: INTC_74_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_74_HANDLER_LOCK:
+      attributes:
+        id: INTC_74_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    DMA_SOURCE:
+      attributes:
+        id: DMA_SOURCE
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    DMA_SYS_INIT:
+      attributes:
+        id: DMA_SYS_INIT
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    INTC_109_ENABLE:
+      attributes:
+        id: INTC_109_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_109_HANDLER_LOCK:
+      attributes:
+        id: INTC_109_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_73_ENABLE:
+      attributes:
+        id: INTC_73_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_73_HANDLER_LOCK:
+      attributes:
+        id: INTC_73_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_110_ENABLE:
+      attributes:
+        id: INTC_110_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_110_HANDLER_LOCK:
+      attributes:
+        id: INTC_110_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    DMA_SYS_DEF:
+      attributes:
+        id: DMA_SYS_DEF
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    DMA_HIGHEST_CHANNEL:
+      attributes:
+        id: DMA_HIGHEST_CHANNEL
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '6'
+          type: Dynamic
+        type: Values
+      type: Integer
+    DMA0_SEL__CHSEL:
+      attributes:
+        id: DMA0_SEL__CHSEL
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '7'
+          type: Dynamic
+        type: Values
+      type: Hex
+    DMA0_CH__CHEN:
+      attributes:
+        id: DMA0_CH__CHEN
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMA1_SEL__CHSEL:
+      attributes:
+        id: DMA1_SEL__CHSEL
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '92'
+          type: Dynamic
+        type: Values
+      type: Hex
+    DMA1_CH__CHEN:
+      attributes:
+        id: DMA1_CH__CHEN
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMA0_CH__SAMODE:
+      attributes:
+        id: DMA0_CH__SAMODE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    DMA0_CH__SIZE:
+      attributes:
+        id: DMA0_CH__SIZE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '2'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    DMA0_CH__TRMODE:
+      attributes:
+        id: DMA0_CH__TRMODE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '3'
+          type: Dynamic
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: KeyValueSet
+    DMA0_CH__DAMODE:
+      attributes:
+        id: DMA0_CH__DAMODE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '2'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    DMA0CH_TRG_SRC:
+      attributes:
+        id: DMA0CH_TRG_SRC
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '58'
+          type: User
+        type: Values
+      type: KeyValueSet
+    DMA0_CH__RELOADC:
+      attributes:
+        id: DMA0_CH__RELOADC
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMA0_CH__RELOADD:
+      attributes:
+        id: DMA0_CH__RELOADD
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMA0_CH__RELOADS:
+      attributes:
+        id: DMA0_CH__RELOADS
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    dmaIntEnabled:
+      attributes:
+        id: dmaIntEnabled
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    DMA0_CH__DONEEN:
+      attributes:
+        id: DMA0_CH__DONEEN
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMA2_SEL__CHSEL:
+      attributes:
+        id: DMA2_SEL__CHSEL
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    DMA2_CH__CHEN:
+      attributes:
+        id: DMA2_CH__CHEN
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    DMA2_CH__DONEEN:
+      attributes:
+        id: DMA2_CH__DONEEN
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    DMA1_CH__DONEEN:
+      attributes:
+        id: DMA1_CH__DONEEN
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMA1CH_TRG_SRC:
+      attributes:
+        id: DMA1CH_TRG_SRC
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '10'
+          type: User
+        type: Values
+      type: KeyValueSet
+    DMA1_CH__SIZE:
+      attributes:
+        id: DMA1_CH__SIZE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    DMA1_CH__DAMODE:
+      attributes:
+        id: DMA1_CH__DAMODE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    DMA1_CH__RELOADC:
+      attributes:
+        id: DMA1_CH__RELOADC
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMA1_CH__RELOADD:
+      attributes:
+        id: DMA1_CH__RELOADD
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMA1_CH__RELOADS:
+      attributes:
+        id: DMA1_CH__RELOADS
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    BSP_PIN_51_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_51_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_51_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_51_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: RLED
+          type: User
+        type: Values
+      type: String
+    GPIO_CHANNEL_D_CONFIG:
+      attributes:
+        id: GPIO_CHANNEL_D_CONFIG
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SYS_PORT_D_TRIS:
+      attributes:
+        id: SYS_PORT_D_TRIS
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '5592'
+          type: Dynamic
+        type: Values
+      type: Hex
+    BSP_PIN_51_DIR:
+      attributes:
+        id: BSP_PIN_51_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    SYS_PORT_D_LAT:
+      attributes:
+        id: SYS_PORT_D_LAT
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '2052'
+          type: Dynamic
+        type: Values
+      type: Hex
+    BSP_PIN_51_LAT:
+      attributes:
+        id: BSP_PIN_51_LAT
+      children:
+      - children:
+        - attributes:
+            value: ''
+          type: User
+        type: Values
+      type: String
+    dmaLowAddressLimit:
+      attributes:
+        id: dmaLowAddressLimit
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '16384'
+          type: User
+        type: Values
+      type: Hex
+    dmaHighAddressLimit:
+      attributes:
+        id: dmaHighAddressLimit
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '32768'
+          type: User
+        type: Values
+      type: Hex
+    DMA1_CH__TRMODE:
+      attributes:
+        id: DMA1_CH__TRMODE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    INTC_48_PRIORITY:
+      attributes:
+        id: INTC_48_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Combo
+    INTC_49_PRIORITY:
+      attributes:
+        id: INTC_49_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
+      type: Combo
+    BSP_PIN_37_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_37_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_37_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_37_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: DIS_RESET
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_37_DIR:
+      attributes:
+        id: BSP_PIN_37_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_37_LAT:
+      attributes:
+        id: BSP_PIN_37_LAT
+      children:
+      - children:
+        - attributes:
+            value: High
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_37_PU:
+      attributes:
+        id: BSP_PIN_37_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    vco2DIV__INTDIV:
+      attributes:
+        id: vco2DIV__INTDIV
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: Integer
+    USE_PPS_OUTPUT_3:
+      attributes:
+        id: USE_PPS_OUTPUT_3
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_FUNCTION_3:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_3
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '16'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_PIN_3:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_3
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '27'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    USE_PPS_INPUT_3:
+      attributes:
+        id: USE_PPS_INPUT_3
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_INPUT_PIN_3:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_PIN_3
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '29'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_INPUT_FUNCTION_3:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_FUNCTION_3
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '25'
+          type: User
+        type: Values
+      type: KeyValueSet
+    USE_PPS_OUTPUT_4:
+      attributes:
+        id: USE_PPS_OUTPUT_4
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_PIN_4:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_4
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '19'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_FUNCTION_4:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_4
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '43'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_B_ANSEL:
+      attributes:
+        id: SYS_PORT_B_ANSEL
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '37'
+          type: Dynamic
+        type: Values
+      type: Hex
+    BSP_PIN_28_MODE:
+      attributes:
+        id: BSP_PIN_28_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_28_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_28_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_28_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_28_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: SRAM_CS
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_28_DIR:
+      attributes:
+        id: BSP_PIN_28_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_28_LAT:
+      attributes:
+        id: BSP_PIN_28_LAT
+      children:
+      - children:
+        - attributes:
+            value: High
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_28_PU:
+      attributes:
+        id: BSP_PIN_28_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_63_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_63_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SCK1
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_62_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_62_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_62_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_62_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: DIS_CS
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_62_DIR:
+      attributes:
+        id: BSP_PIN_62_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_62_LAT:
+      attributes:
+        id: BSP_PIN_62_LAT
+      children:
+      - children:
+        - attributes:
+            value: High
+          type: User
+        type: Values
+      type: String
+    SYS_PORT_D_CNPU:
+      attributes:
+        id: SYS_PORT_D_CNPU
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '2264'
+          type: Dynamic
+        type: Values
+      type: Hex
+    BSP_PIN_62_PU:
+      attributes:
+        id: BSP_PIN_62_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_50_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_50_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SDO1
+          type: User
+        type: Values
+      type: String
+    FUSE_CONFIG_CODE_GEN:
+      attributes:
+        id: FUSE_CONFIG_CODE_GEN
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: |2
+
+              // FCP
+              #pragma config FCP_CP = OFF            // Memory protection is disabled
+              #pragma config FCP_CRC = OFF            // CRC is disabled
+              #pragma config FCP_WPUCA = OFF            // Protection is disabled
+
+              // FICD
+              #pragma config FICD_JTAGEN = ON            // JTAG is enabled
+
+              // FDEVOPT
+              #pragma config FDEVOPT_ALTI2C1 = OFF            // Primary I2C1 pins are used
+              #pragma config FDEVOPT_ALTI2C2 = OFF            // Primary I2C2 pins are used
+              #pragma config FDEVOPT_BISTDIS = OFF            // RAM test after reset is enabled
+              #pragma config FDEVOPT_SPI2PIN = ON            // SPI2 uses direct connections with specified device pins
+
+              // FWDT
+              #pragma config FWDT_WINDIS = ON            // Watchdog Timer operates in Non-Window mode
+              #pragma config FWDT_SWDTMPS = PS2147483648            // Sleep Mode Watchdog Timer Post Scaler select bits
+              #pragma config FWDT_RCLKSEL = BFRC256            // WDT Run Mode uses BFRC:256
+              #pragma config FWDT_RWDTPS = PS2147483648            // Run Mode Watchdog Timer Post Scaler select bits
+              #pragma config FWDT_WDTWIN = WIN25            // WDT Window is 25% of WDT period
+              #pragma config FWDT_WDTEN = SW            // WDT is controlled by software, use WDTCON.ON bit
+              #pragma config FWDT_WDTRSTEN = ON            // WDT event generates a reset
+
+              // FPR0CTRL
+              #pragma config FPR0CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR0CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR0CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR0CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR0CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR0CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR0ST
+              #pragma config FPR0ST_START = 0x0UL            // Region start address bits
+
+              // FPR0END
+              #pragma config FPR0END_END = 0x0UL            // Region end address bits
+
+              // FPR1CTRL
+              #pragma config FPR1CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR1CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR1CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR1CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR1CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR1CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR1ST
+              #pragma config FPR1ST_START = 0x0UL            // Region start address bits
+
+              // FPR1END
+              #pragma config FPR1END_END = 0x0UL            // Region end address bits
+
+              // FPR2CTRL
+              #pragma config FPR2CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR2CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR2CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR2CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR2CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR2CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR2ST
+              #pragma config FPR2ST_START = 0x0UL            // Region start address bits
+
+              // FPR2END
+              #pragma config FPR2END_END = 0x0UL            // Region end address bits
+
+              // FPR3CTRL
+              #pragma config FPR3CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR3CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR3CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR3CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR3CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR3CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR3ST
+              #pragma config FPR3ST_START = 0x0UL            // Region start address bits
+
+              // FPR3END
+              #pragma config FPR3END_END = 0x0UL            // Region end address bits
+
+              // FPR4CTRL
+              #pragma config FPR4CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR4CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR4CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR4CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR4CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR4CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR4ST
+              #pragma config FPR4ST_START = 0x0UL            // Region start address bits
+
+              // FPR4END
+              #pragma config FPR4END_END = 0x0UL            // Region end address bits
+
+              // FPR5CTRL
+              #pragma config FPR5CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR5CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR5CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR5CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR5CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR5CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR5ST
+              #pragma config FPR5ST_START = 0x0UL            // Region start address bits
+
+              // FPR5END
+              #pragma config FPR5END_END = 0x0UL            // Region end address bits
+
+              // FPR6CTRL
+              #pragma config FPR6CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR6CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR6CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR6CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR6CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR6CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR6ST
+              #pragma config FPR6ST_START = 0x0UL            // Region start address bits
+
+              // FPR6END
+              #pragma config FPR6END_END = 0x0UL            // Region end address bits
+
+              // FPR7CTRL
+              #pragma config FPR7CTRL_RDIS = ON            // Protection is disabled
+              #pragma config FPR7CTRL_EX = ON            // Code execution is enabled
+              #pragma config FPR7CTRL_RD = ON            // Read operation is enabled
+              #pragma config FPR7CTRL_WR = ON            // Write and erase operation is enabled
+              #pragma config FPR7CTRL_CRC = ON            // NVM controller CRC calculation is enabled
+              #pragma config FPR7CTRL_RTYPE = FIRMWARE            // Firmware configurable region
+
+              // FPR7ST
+              #pragma config FPR7ST_START = 0x0UL            // Region start address bits
+
+              // FPR7END
+              #pragma config FPR7END_END = 0x0UL            // Region end address bits
+
+              // FIRT
+              #pragma config FIRT_IRT = OFF            // Immutable root of trust (IRT) regions are disabled
+
+              // FSECDBG
+              #pragma config FSECDBG_SECDBG = OFF            // Secure debug is disabled
+
+              // FPED
+              #pragma config FPED_ICSPPED = OFF            // ICSP can program and erase
+
+              // FEPUCB
+              #pragma config FEPUCB_EPUCB = 0xffffffffUL            // UCB erase protection bits
+
+              // FWPUCB
+              #pragma config FWPUCB_WPUCB = 0xffffffffUL            // UCB write protection bits
+          type: Dynamic
+        type: Values
+      type: String
+    CONFIG_FDEVOPT_SPI2PIN:
+      attributes:
+        id: CONFIG_FDEVOPT_SPI2PIN
+      children:
+      - children:
+        - attributes:
+            value: 'ON'
+          type: User
+        type: Values
+      type: Combo
+    BSP_PIN_31_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_31_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SCK2
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_34_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_34_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SDO2
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_32_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_32_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SDI2
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_33_PU:
+      attributes:
+        id: BSP_PIN_33_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_32_PU:
+      attributes:
+        id: BSP_PIN_32_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    INTC_196_ENABLE:
+      attributes:
+        id: INTC_196_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: adc2
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_196_HANDLER_LOCK:
+      attributes:
+        id: INTC_196_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: adc2
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_197_ENABLE:
+      attributes:
+        id: INTC_197_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: adc2
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_197_HANDLER_LOCK:
+      attributes:
+        id: INTC_197_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: adc2
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    DMA5_SEL__CHSEL:
+      attributes:
+        id: DMA5_SEL__CHSEL
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '9'
+          type: Dynamic
+        type: Values
+      type: Hex
+    DMA5_CH__CHEN:
+      attributes:
+        id: DMA5_CH__CHEN
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMA5_CH__DONEEN:
+      attributes:
+        id: DMA5_CH__DONEEN
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMA5CH_TRG_SRC:
+      attributes:
+        id: DMA5CH_TRG_SRC
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '56'
+          type: User
+        type: Values
+      type: KeyValueSet
+    DMA5_CH__SIZE:
+      attributes:
+        id: DMA5_CH__SIZE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '2'
+          type: Dynamic
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    DMA5_CH__RELOADC:
+      attributes:
+        id: DMA5_CH__RELOADC
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMA5_CH__RELOADD:
+      attributes:
+        id: DMA5_CH__RELOADD
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMA5_CH__RELOADS:
+      attributes:
+        id: DMA5_CH__RELOADS
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMA5_CH__TRMODE:
+      attributes:
+        id: DMA5_CH__TRMODE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '3'
+          type: Dynamic
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: KeyValueSet
+    DMA5_CH__DAMODE:
+      attributes:
+        id: DMA5_CH__DAMODE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '2'
+          type: Dynamic
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    DMA5_CH__SAMODE:
+      attributes:
+        id: DMA5_CH__SAMODE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '1'
+          type: Dynamic
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_2_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_2_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: AD1AN6
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_3_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_3_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: DACOUT1
+          type: User
+        type: Values
+      type: String
+    clkGen6IsDividerEnabled:
+      attributes:
+        id: clkGen6IsDividerEnabled
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    pll1DIV__POSTDIV2:
+      attributes:
+        id: pll1DIV__POSTDIV2
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '2'
+          type: Dynamic
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Combo
+    pll1DIV__POSTDIV1:
+      attributes:
+        id: pll1DIV__POSTDIV1
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '4'
+          type: Dynamic
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: Combo
+    vco1DIV__INTDIV:
+      attributes:
+        id: vco1DIV__INTDIV
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: Integer
+    pll1DIV__PLLFBDIV:
+      attributes:
+        id: pll1DIV__PLLFBDIV
+      children:
+      - children:
+        - attributes:
+            value: '100'
+          type: User
+        type: Values
+      type: Integer
+    pll1DIV__PLLPRE:
+      attributes:
+        id: pll1DIV__PLLPRE
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Integer
+    DMA5_CH__HALFEN:
+      attributes:
+        id: DMA5_CH__HALFEN
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    BSP_PIN_49_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_49_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_49_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_49_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: TP0
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_49_DIR:
+      attributes:
+        id: BSP_PIN_49_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    INTC_51_ENABLE:
+      attributes:
+        id: INTC_51_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: sccp2
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_51_HANDLER_LOCK:
+      attributes:
+        id: INTC_51_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: sccp2
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_51_PRIORITY:
+      attributes:
+        id: INTC_51_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
+      type: Combo
+    INTC_110_PRIORITY:
+      attributes:
+        id: INTC_110_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
+      type: Combo
+    INTC_66_PRIORITY:
+      attributes:
+        id: INTC_66_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: Combo
+    INTC_67_PRIORITY:
+      attributes:
+        id: INTC_67_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: Combo
+    INTC_51_ENABLE_CONTEXT:
+      attributes:
+        id: INTC_51_ENABLE_CONTEXT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    INTC_66_ENABLE_CONTEXT:
+      attributes:
+        id: INTC_66_ENABLE_CONTEXT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    INTC_67_ENABLE_CONTEXT:
+      attributes:
+        id: INTC_67_ENABLE_CONTEXT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    INTC_110_ENABLE_CONTEXT:
+      attributes:
+        id: INTC_110_ENABLE_CONTEXT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    BSP_PIN_9_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_9_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: AD2AN7
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_22_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_22_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: OA2IN+
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_20_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_20_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: OA2OUT
+          type: User
+        type: Values
+      type: String
+    clkGen7OutFrequencyInMHz:
+      attributes:
+        id: clkGen7OutFrequencyInMHz
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '8.0'
+          type: Dynamic
+        type: Values
+      type: String
+    clkGen7OutFrequency:
+      attributes:
+        id: clkGen7OutFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '8000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    clkGen7Enable:
+      attributes:
+        id: clkGen7Enable
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    clkGen7ClkSrcFrequency:
+      attributes:
+        id: clkGen7ClkSrcFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '8000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    clkGen7CON__NOSC:
+      attributes:
+        id: clkGen7CON__NOSC
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    USE_PPS_INPUT_4:
+      attributes:
+        id: USE_PPS_INPUT_4
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_INPUT_PIN_4:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_PIN_4
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_INPUT_FUNCTION_4:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_FUNCTION_4
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_45_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_45_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: QEIA1
+          type: User
+        type: Values
+      type: String
+    USE_PPS_INPUT_5:
+      attributes:
+        id: USE_PPS_INPUT_5
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_INPUT_PIN_5:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_PIN_5
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_INPUT_FUNCTION_5:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_FUNCTION_5
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '19'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_46_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_46_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: QEIB1
+          type: User
+        type: Values
+      type: String
+    USE_PPS_INPUT_6:
+      attributes:
+        id: USE_PPS_INPUT_6
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_INPUT_PIN_6:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_PIN_6
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '14'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_INPUT_FUNCTION_6:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_FUNCTION_6
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '54'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_43_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_43_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: QEIHOME1
+          type: User
+        type: Values
+      type: String
+    USE_PPS_INPUT_7:
+      attributes:
+        id: USE_PPS_INPUT_7
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_INPUT_PIN_7:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_PIN_7
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '15'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_INPUT_FUNCTION_7:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_FUNCTION_7
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '32'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_44_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_44_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: QEIINDX1
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_43_PU:
+      attributes:
+        id: BSP_PIN_43_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_44_PU:
+      attributes:
+        id: BSP_PIN_44_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_46_PU:
+      attributes:
+        id: BSP_PIN_46_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_45_PU:
+      attributes:
+        id: BSP_PIN_45_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    USE_PPS_INPUT_8:
+      attributes:
+        id: USE_PPS_INPUT_8
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_INPUT_PIN_8:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_PIN_8
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '10'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_INPUT_FUNCTION_8:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_FUNCTION_8
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '28'
+          type: User
+        type: Values
+      type: KeyValueSet
+    USE_PPS_OUTPUT_5:
+      attributes:
+        id: USE_PPS_OUTPUT_5
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_FUNCTION_5:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_5
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '22'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_PIN_5:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_5
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '28'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    USE_PPS_INPUT_9:
+      attributes:
+        id: USE_PPS_INPUT_9
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_INPUT_PIN_9:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_PIN_9
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '33'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_INPUT_FUNCTION_9:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_FUNCTION_9
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '27'
+          type: User
+        type: Values
+      type: KeyValueSet
+    USE_PPS_OUTPUT_6:
+      attributes:
+        id: USE_PPS_OUTPUT_6
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_PIN_6:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_6
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '34'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_FUNCTION_6:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_6
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '44'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_24_MODE:
+      attributes:
+        id: BSP_PIN_24_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_24_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_24_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SDO3
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_27_MODE:
+      attributes:
+        id: BSP_PIN_27_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_27_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_27_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_27_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_27_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: IMU_CS
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_27_DIR:
+      attributes:
+        id: BSP_PIN_27_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_27_LAT:
+      attributes:
+        id: BSP_PIN_27_LAT
+      children:
+      - children:
+        - attributes:
+            value: High
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_27_PU:
+      attributes:
+        id: BSP_PIN_27_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    INTC_89_ENABLE:
+      attributes:
+        id: INTC_89_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: uart1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_90_ENABLE:
+      attributes:
+        id: INTC_90_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: uart1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_91_ENABLE:
+      attributes:
+        id: INTC_91_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: uart1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_89_HANDLER_LOCK:
+      attributes:
+        id: INTC_89_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: uart1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_90_HANDLER_LOCK:
+      attributes:
+        id: INTC_90_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: uart1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_91_HANDLER_LOCK:
+      attributes:
+        id: INTC_91_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: uart1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    USE_PPS_INPUT_10:
+      attributes:
+        id: USE_PPS_INPUT_10
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_INPUT_PIN_10:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_PIN_10
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '36'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_INPUT_FUNCTION_10:
+      attributes:
+        id: SYS_PORT_PPS_INPUT_FUNCTION_10
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '49'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_30_MODE:
+      attributes:
+        id: BSP_PIN_30_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_30_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_30_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: U1RX
+          type: User
+        type: Values
+      type: String
+    USE_PPS_OUTPUT_7:
+      attributes:
+        id: USE_PPS_OUTPUT_7
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_PIN_7:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_7
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '35'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_FUNCTION_7:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_7
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '11'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_29_MODE:
+      attributes:
+        id: BSP_PIN_29_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_29_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_29_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: U1TX
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_52_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_52_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_52_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_52_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: ISO1_S
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_53_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_53_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_53_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_53_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: DLED
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_54_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_54_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_54_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_54_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: ISO3_O
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_61_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_61_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_61_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_61_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: ISO4_O
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_52_DIR:
+      attributes:
+        id: BSP_PIN_52_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_53_DIR:
+      attributes:
+        id: BSP_PIN_53_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_54_PU:
+      attributes:
+        id: BSP_PIN_54_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_61_PU:
+      attributes:
+        id: BSP_PIN_61_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_55_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_55_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_55_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_55_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: ISO2_S
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_55_DIR:
+      attributes:
+        id: BSP_PIN_55_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_56_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_56_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_56_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_56_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: SW1
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_57_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_57_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_57_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_57_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: SW2
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_56_PU:
+      attributes:
+        id: BSP_PIN_56_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_57_PU:
+      attributes:
+        id: BSP_PIN_57_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    USE_PPS_OUTPUT_8:
+      attributes:
+        id: USE_PPS_OUTPUT_8
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_PIN_8:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_8
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '23'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_FUNCTION_8:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_8
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '25'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_35_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_35_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: PWM1H
+          type: User
+        type: Values
+      type: String
+    USE_PPS_OUTPUT_9:
+      attributes:
+        id: USE_PPS_OUTPUT_9
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_PIN_9:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_9
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '20'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_FUNCTION_9:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_9
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '41'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_36_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_36_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: PWM1L
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_42_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_42_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_42_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_42_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: TXDE
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_42_DIR:
+      attributes:
+        id: BSP_PIN_42_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_42_LAT:
+      attributes:
+        id: BSP_PIN_42_LAT
+      children:
+      - children:
+        - attributes:
+            value: High
+          type: User
+        type: Values
+      type: String
+    USE_PPS_OUTPUT_10:
+      attributes:
+        id: USE_PPS_OUTPUT_10
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_PIN_10:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_10
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '40'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_FUNCTION_10:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_10
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '39'
+          type: User
+        type: Values
+      type: KeyValueSet
+    GPIO_CHANNEL_A_CONFIG:
+      attributes:
+        id: GPIO_CHANNEL_A_CONFIG
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SYS_PORT_A_ANSEL:
+      attributes:
+        id: SYS_PORT_A_ANSEL
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '4035'
+          type: Dynamic
+        type: Values
+      type: Hex
+    BSP_PIN_12_MODE:
+      attributes:
+        id: BSP_PIN_12_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_12_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_12_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: PWM2H
+          type: User
+        type: Values
+      type: String
+    USE_PPS_OUTPUT_11:
+      attributes:
+        id: USE_PPS_OUTPUT_11
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_PIN_11:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_11
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '47'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_FUNCTION_11:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_11
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_13_MODE:
+      attributes:
+        id: BSP_PIN_13_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_13_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_13_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: PWM2L
+          type: User
+        type: Values
+      type: String
+    USE_PPS_OUTPUT_12:
+      attributes:
+        id: USE_PPS_OUTPUT_12
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_PIN_12:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_12
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '48'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_FUNCTION_12:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_12
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_14_MODE:
+      attributes:
+        id: BSP_PIN_14_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_14_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_14_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: PWM3H
+          type: User
+        type: Values
+      type: String
+    USE_PPS_OUTPUT_13:
+      attributes:
+        id: USE_PPS_OUTPUT_13
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_PIN_13:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_13
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '45'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_FUNCTION_13:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_13
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_15_MODE:
+      attributes:
+        id: BSP_PIN_15_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_15_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_15_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: PWM3L
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_24_PU:
+      attributes:
+        id: BSP_PIN_24_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_21_MODE:
+      attributes:
+        id: BSP_PIN_21_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_21_DIR:
+      attributes:
+        id: BSP_PIN_21_DIR
+      children:
+      - children:
+        - attributes:
+            value: ''
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_21_LAT:
+      attributes:
+        id: BSP_PIN_21_LAT
+      children:
+      - children:
+        - attributes:
+            value: High
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_21_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_21_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_21_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_21_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: GPIO_RB1
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_58_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_58_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SCK3
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_23_MODE:
+      attributes:
+        id: BSP_PIN_23_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_23_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_23_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: SDI3
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_53_LAT:
+      attributes:
+        id: BSP_PIN_53_LAT
+      children:
+      - children:
+        - attributes:
+            value: High
+          type: User
+        type: Values
+      type: String
+    CONFIG_FDEVOPT_BISTDIS:
+      attributes:
+        id: CONFIG_FDEVOPT_BISTDIS
+      children:
+      - children:
+        - attributes:
+            value: 'OFF'
+          type: User
+        type: Values
+      type: Combo
+    INTC_44_ENABLE:
+      attributes:
+        id: INTC_44_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_44_HANDLER_LOCK:
+      attributes:
+        id: INTC_44_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_45_ENABLE:
+      attributes:
+        id: INTC_45_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_45_HANDLER_LOCK:
+      attributes:
+        id: INTC_45_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_46_ENABLE:
+      attributes:
+        id: INTC_46_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_46_HANDLER_LOCK:
+      attributes:
+        id: INTC_46_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_47_ENABLE:
+      attributes:
+        id: INTC_47_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    INTC_47_HANDLER_LOCK:
+      attributes:
+        id: INTC_47_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+  userData:
+    children:
+    - attributes:
+        canvasHeight: '0'
+        canvasWidth: '0'
+      type: GraphSettings
+    - children:
+      - attributes:
+          id: profile0
+          name: Main
+        type: Profile
+      type: PowerProfiles
+    type: UserData
