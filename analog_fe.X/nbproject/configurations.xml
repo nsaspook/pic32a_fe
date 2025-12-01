@@ -37,6 +37,9 @@
               <itemPath>../src/config/default/peripheral/opa/plib_opa_common.h</itemPath>
               <itemPath>../src/config/default/peripheral/opa/plib_opa2.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="pwm" displayName="pwm" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/pwm/plib_pwm.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="qei" displayName="qei" projectFiles="true">
               <itemPath>../src/config/default/peripheral/qei/plib_qei1.h</itemPath>
             </logicalFolder>
@@ -78,19 +81,20 @@
                      displayName="analog_fe_default"
                      projectFiles="true">
         <logicalFolder name="components" displayName="components" projectFiles="true">
-          <itemPath>analog_fe_default/components/spi1.yml</itemPath>
           <itemPath>analog_fe_default/components/spi3.yml</itemPath>
+          <itemPath>analog_fe_default/components/pwm.yml</itemPath>
           <itemPath>analog_fe_default/components/sccp1.yml</itemPath>
-          <itemPath>analog_fe_default/components/adc2.yml</itemPath>
-          <itemPath>analog_fe_default/components/dfp.yml</itemPath>
-          <itemPath>analog_fe_default/components/amp2.yml</itemPath>
-          <itemPath>analog_fe_default/components/uart1.yml</itemPath>
-          <itemPath>analog_fe_default/components/spi2.yml</itemPath>
-          <itemPath>analog_fe_default/components/sccp2.yml</itemPath>
-          <itemPath>analog_fe_default/components/timer1.yml</itemPath>
-          <itemPath>analog_fe_default/components/core.yml</itemPath>
           <itemPath>analog_fe_default/components/qei1.yml</itemPath>
+          <itemPath>analog_fe_default/components/dfp.yml</itemPath>
+          <itemPath>analog_fe_default/components/spi2.yml</itemPath>
+          <itemPath>analog_fe_default/components/uart1.yml</itemPath>
+          <itemPath>analog_fe_default/components/core.yml</itemPath>
           <itemPath>analog_fe_default/components/cmp_dac1.yml</itemPath>
+          <itemPath>analog_fe_default/components/spi1.yml</itemPath>
+          <itemPath>analog_fe_default/components/adc2.yml</itemPath>
+          <itemPath>analog_fe_default/components/timer1.yml</itemPath>
+          <itemPath>analog_fe_default/components/sccp2.yml</itemPath>
+          <itemPath>analog_fe_default/components/amp2.yml</itemPath>
         </logicalFolder>
         <itemPath>analog_fe_default/mcc-config.mc4</itemPath>
       </logicalFolder>
@@ -134,6 +138,9 @@
             </logicalFolder>
             <logicalFolder name="opa" displayName="opa" projectFiles="true">
               <itemPath>../src/config/default/peripheral/opa/plib_opa2.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="pwm" displayName="pwm" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/pwm/plib_pwm.c</itemPath>
             </logicalFolder>
             <logicalFolder name="qei" displayName="qei" projectFiles="true">
               <itemPath>../src/config/default/peripheral/qei/plib_qei1.c</itemPath>
@@ -190,7 +197,7 @@
         <targetDevice>PIC32AK1216GC41064</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PK5Tool</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>5.00</languageToolchainVersion>
         <platform>2</platform>

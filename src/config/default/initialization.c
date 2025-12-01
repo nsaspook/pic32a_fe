@@ -288,6 +288,8 @@ void SYS_Initialize ( void* data )
     CMP1_Initialize();
 
 
+	PWM_Initialize();
+
     QEI1_Initialize();
 	UART1_Initialize();
 
@@ -296,9 +298,9 @@ void SYS_Initialize ( void* data )
     TMR1_Initialize();
 
 
-OPA2_Initialize();
 	SPI2_Initialize();
 
+OPA2_Initialize();
 	SPI1_Initialize();
 
     SCCP2_TimerInitialize();

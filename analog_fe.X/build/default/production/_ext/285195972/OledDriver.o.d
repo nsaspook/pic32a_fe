@@ -1,39 +1,112 @@
-build/default/production/_ext/285195972/OledDriver.o:  \
- ../src/lcd_drv/OledDriver.c  \
-../src/lcd_drv/lcd_drv.h  \
- ../src/config/default/definitions.h  \
- ../src/config/default/peripheral/spi/spi_host/plib_spi3_host.h  \
- ../src/config/default/device.h  \
- ../src/config/default/toolchain_specifics.h  \
- ../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h  \
- ../src/config/default/peripheral/clk/plib_clk.h  \
- ../src/config/default/peripheral/clk/plib_clk_common.h  \
- ../src/config/default/peripheral/gpio/plib_gpio.h  \
- ../src/config/default/peripheral/intc/plib_intc.h  \
- ../src/config/default/peripheral/dma/plib_dma.h  \
- ../src/config/default/peripheral/cmp_dac/plib_cmp1.h  \
- ../src/config/default/peripheral/cmp_dac/plib_cmp_common.h  \
- ../src/config/default/peripheral/qei/plib_qei1.h  \
- ../src/config/default/peripheral/uart/plib_uart1.h  \
- ../src/config/default/peripheral/uart/plib_uart_common.h  \
- ../src/config/default/peripheral/adc/plib_adc2.h  \
- ../src/config/default/peripheral/adc/plib_adc_common.h  \
- ../src/config/default/peripheral/tmr/plib_tmr1.h  \
- ../src/config/default/peripheral/tmr/plib_tmr_common.h  \
- ../src/config/default/peripheral/opa/plib_opa2.h  \
- ../src/config/default/peripheral/opa/plib_opa_common.h  \
- ../src/config/default/peripheral/spi/spi_host/plib_spi2_host.h  \
- ../src/config/default/peripheral/spi/spi_host/plib_spi1_host.h  \
- ../src/config/default/peripheral/ccp/plib_sccp2.h  \
- ../src/config/default/peripheral/ccp/plib_ccp_common.h  \
- ../src/config/default/peripheral/ccp/plib_sccp1.h  \
- ../src/../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h  \
- ../src/../src/config/default/peripheral/gpio/plib_gpio.h  \
- ../src/../src/config/default/peripheral/dma/plib_dma.h  \
- ../src/lcd_drv/display_type.h  \
-../src/lcd_drv/eadog.h  \
- ../src/lcd_drv/dogm-graphic.h  \
-../src/timers.h  \
- ../src/lcd_drv/OledDriver.h  \
-../src/lcd_drv/OledChar.h  \
- ../src/lcd_drv/OledGrph.h 
+build/default/production/_ext/285195972/OledDriver.o: \
+ ../src/lcd_drv/OledDriver.c ../src/lcd_drv/lcd_drv.h \
+ ../src/config/default/definitions.h \
+ ../src/config/default/peripheral/spi/spi_host/plib_spi3_host.h \
+ ../src/config/default/device.h \
+ ../src/config/default/toolchain_specifics.h \
+ ../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h \
+ ../src/config/default/peripheral/clk/plib_clk.h \
+ ../src/config/default/peripheral/clk/plib_clk_common.h \
+ ../src/config/default/peripheral/gpio/plib_gpio.h \
+ ../src/config/default/peripheral/intc/plib_intc.h \
+ ../src/config/default/peripheral/dma/plib_dma.h \
+ ../src/config/default/peripheral/cmp_dac/plib_cmp1.h \
+ ../src/config/default/peripheral/cmp_dac/plib_cmp_common.h \
+ ../src/config/default/peripheral/pwm/plib_pwm.h \
+ ../src/config/default/peripheral/qei/plib_qei1.h \
+ ../src/config/default/peripheral/uart/plib_uart1.h \
+ ../src/config/default/peripheral/uart/plib_uart_common.h \
+ ../src/config/default/peripheral/adc/plib_adc2.h \
+ ../src/config/default/peripheral/adc/plib_adc_common.h \
+ ../src/config/default/peripheral/tmr/plib_tmr1.h \
+ ../src/config/default/peripheral/tmr/plib_tmr_common.h \
+ ../src/config/default/peripheral/spi/spi_host/plib_spi2_host.h \
+ ../src/config/default/peripheral/opa/plib_opa2.h \
+ ../src/config/default/peripheral/opa/plib_opa_common.h \
+ ../src/config/default/peripheral/spi/spi_host/plib_spi1_host.h \
+ ../src/config/default/peripheral/ccp/plib_sccp2.h \
+ ../src/config/default/peripheral/ccp/plib_ccp_common.h \
+ ../src/config/default/peripheral/ccp/plib_sccp1.h \
+ ../src/../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h \
+ ../src/../src/config/default/peripheral/gpio/plib_gpio.h \
+ ../src/../src/config/default/peripheral/dma/plib_dma.h \
+ ../src/lcd_drv/display_type.h ../src/lcd_drv/eadog.h \
+ ../src/lcd_drv/dogm-graphic.h ../src/timers.h \
+ ../src/lcd_drv/OledDriver.h ../src/lcd_drv/OledChar.h \
+ ../src/lcd_drv/OledGrph.h
+
+../src/lcd_drv/lcd_drv.h:
+
+../src/config/default/definitions.h:
+
+../src/config/default/peripheral/spi/spi_host/plib_spi3_host.h:
+
+../src/config/default/device.h:
+
+../src/config/default/toolchain_specifics.h:
+
+../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h:
+
+../src/config/default/peripheral/clk/plib_clk.h:
+
+../src/config/default/peripheral/clk/plib_clk_common.h:
+
+../src/config/default/peripheral/gpio/plib_gpio.h:
+
+../src/config/default/peripheral/intc/plib_intc.h:
+
+../src/config/default/peripheral/dma/plib_dma.h:
+
+../src/config/default/peripheral/cmp_dac/plib_cmp1.h:
+
+../src/config/default/peripheral/cmp_dac/plib_cmp_common.h:
+
+../src/config/default/peripheral/pwm/plib_pwm.h:
+
+../src/config/default/peripheral/qei/plib_qei1.h:
+
+../src/config/default/peripheral/uart/plib_uart1.h:
+
+../src/config/default/peripheral/uart/plib_uart_common.h:
+
+../src/config/default/peripheral/adc/plib_adc2.h:
+
+../src/config/default/peripheral/adc/plib_adc_common.h:
+
+../src/config/default/peripheral/tmr/plib_tmr1.h:
+
+../src/config/default/peripheral/tmr/plib_tmr_common.h:
+
+../src/config/default/peripheral/spi/spi_host/plib_spi2_host.h:
+
+../src/config/default/peripheral/opa/plib_opa2.h:
+
+../src/config/default/peripheral/opa/plib_opa_common.h:
+
+../src/config/default/peripheral/spi/spi_host/plib_spi1_host.h:
+
+../src/config/default/peripheral/ccp/plib_sccp2.h:
+
+../src/config/default/peripheral/ccp/plib_ccp_common.h:
+
+../src/config/default/peripheral/ccp/plib_sccp1.h:
+
+../src/../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h:
+
+../src/../src/config/default/peripheral/gpio/plib_gpio.h:
+
+../src/../src/config/default/peripheral/dma/plib_dma.h:
+
+../src/lcd_drv/display_type.h:
+
+../src/lcd_drv/eadog.h:
+
+../src/lcd_drv/dogm-graphic.h:
+
+../src/timers.h:
+
+../src/lcd_drv/OledDriver.h:
+
+../src/lcd_drv/OledChar.h:
+
+../src/lcd_drv/OledGrph.h:
