@@ -15055,6 +15055,7 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <pinref part="C10" gate="G$1" pin="2"/>
 <wire x1="281.94" y1="83.82" x2="281.94" y2="96.52" width="0.1524" layer="91"/>
 <junction x="281.94" y="83.82"/>
+<junction x="281.94" y="96.52"/>
 </segment>
 <segment>
 <pinref part="VDD6" gate="G$1" pin="VDD"/>
@@ -15062,6 +15063,7 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <pinref part="C11" gate="G$1" pin="2"/>
 <wire x1="299.72" y1="83.82" x2="299.72" y2="96.52" width="0.1524" layer="91"/>
 <junction x="299.72" y="83.82"/>
+<junction x="299.72" y="96.52"/>
 </segment>
 <segment>
 <pinref part="VDD7" gate="G$1" pin="VDD"/>
@@ -15069,6 +15071,7 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <pinref part="C12" gate="G$1" pin="2"/>
 <wire x1="317.5" y1="83.82" x2="317.5" y2="96.52" width="0.1524" layer="91"/>
 <junction x="317.5" y="83.82"/>
+<junction x="317.5" y="96.52"/>
 </segment>
 <segment>
 <wire x1="63.5" y1="109.22" x2="78.74" y2="109.22" width="0.1524" layer="91"/>
@@ -15273,6 +15276,7 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <pinref part="C10" gate="G$1" pin="1"/>
 <wire x1="289.56" y1="83.82" x2="289.56" y2="96.52" width="0.1524" layer="91"/>
 <junction x="289.56" y="83.82"/>
+<junction x="289.56" y="96.52"/>
 </segment>
 <segment>
 <pinref part="C5" gate="G$1" pin="2"/>
@@ -15280,6 +15284,7 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <pinref part="C11" gate="G$1" pin="1"/>
 <wire x1="307.34" y1="83.82" x2="307.34" y2="96.52" width="0.1524" layer="91"/>
 <junction x="307.34" y="83.82"/>
+<junction x="307.34" y="96.52"/>
 </segment>
 <segment>
 <pinref part="C6" gate="G$1" pin="2"/>
@@ -15287,6 +15292,7 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <pinref part="C12" gate="G$1" pin="1"/>
 <wire x1="325.12" y1="83.82" x2="325.12" y2="96.52" width="0.1524" layer="91"/>
 <junction x="325.12" y="83.82"/>
+<junction x="325.12" y="96.52"/>
 </segment>
 <segment>
 <pinref part="C3" gate="G$1" pin="2"/>
