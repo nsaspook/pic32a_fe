@@ -1,0 +1,7 @@
+lcd_get_position_page global:[lcd_current_page]
+lcd_get_position_column global:[lcd_current_column]
+init_lcd_drv global:[foo_map] call:[CSB_SetHigh,OledInit,OledMoveTo,OledPutBmp,OledSetCharUpdate,delay_us,lcd_init]
+SCCP1_Callback_InterruptHandler global:[time_done]
+delay_us global:[time_done] call:[SCCP1_Timer32bitPeriodSet,SCCP1_TimerCallbackRegister,SCCP1_TimerStart,SCCP1_TimerStop] noreturn:[SCCP1_TimerStop]
+backlight_on call:[DIS_MODE_Clear,DIS_MODE_Get] noreturn:[DIS_MODE_Clear]
+backlight_off call:[DIS_MODE_Get,DIS_MODE_Set] noreturn:[DIS_MODE_Set]

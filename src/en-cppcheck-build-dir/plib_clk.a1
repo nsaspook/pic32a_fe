@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="1574424527004535687">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/clk/plib_clk.c" line="42" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/clk/plib_clk.c" line="43" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/clk/plib_clk.c" line="44" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/clk/plib_clk.c" line="45" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;interrupts.h&quot; not found." verbose="Include file: &quot;interrupts.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/clk/plib_clk.c" line="46" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/clk/plib_clk.h" line="56" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/clk/plib_clk.h" line="57" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/clk/plib_clk.h" line="58" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/clk/plib_clk_common.h" line="56" column="0"/>
+        </error>
+        <error id="normalCheckLevelMaxBranches" severity="information" msg="Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches." verbose="Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches." file0="/ldrv/pic32a_fe/src/config/default/peripheral/clk/plib_clk.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/clk/plib_clk.c" line="0" column="0"/>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/clk/plib_clk.h" functionName="CLOCK_GeneratorFrequencyGet" lineNumber="77" column="24"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/clk/plib_clk.h" functionName="CLOCK_FailStatusGet" lineNumber="119" column="24"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/clk/plib_clk.c" functionName="CLOCK_Initialize" lineNumber="329" column="6"/>
+    <functioncall functionName="CLKFAIL"/>
+    <functioncall functionName="COSC"/>
+    <functioncall functionName="_CLK1CON_FSCMEN_MASK"/>
+  </FileInfo>
+</analyzerinfo>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="2553497865451707239">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/timers.h" line="4" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/timers.h" line="5" column="0"/>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="/ldrv/pic32a_fe/src/timers.h:28:6" call-funcname="StartTimer" call-argnr="1" file="/ldrv/pic32a_fe/src/timers.c" line="29" col="12" call-argexpr="TMR_INTERNAL" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/timers.h:29:6" call-funcname="TimerDone" call-argnr="1" file="/ldrv/pic32a_fe/src/timers.c" line="30" col="19" call-argexpr="TMR_INTERNAL" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/>  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/timers.c" functionName="StartTimer" lineNumber="8" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/timers.c" functionName="TimerDone" lineNumber="16" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/timers.c" functionName="WaitMs" lineNumber="27" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/timers.c" functionName="timer_ms_tick" lineNumber="37" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/timers.c" functionName="delay_ms_tick" lineNumber="47" column="6"/>
+    <functioncall functionName="StartTimer"/>
+    <functioncall functionName="TimerDone"/>
+    <functioncall functionName="WaitMs"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="true"/>
+  </FileInfo>
+</analyzerinfo>

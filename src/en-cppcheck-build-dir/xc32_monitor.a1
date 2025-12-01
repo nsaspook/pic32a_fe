@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="8983929939422976774">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/stdio/xc32_monitor.c" line="40" column="0"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;buffer&apos; can be declared as pointer to const" verbose="Parameter &apos;buffer&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/config/default/stdio/xc32_monitor.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/stdio/xc32_monitor.c" line="46" column="28" info="Parameter &apos;buffer&apos; can be declared as pointer to const"/>
+            <symbol>buffer</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;buffer&apos; can be declared as pointer to const" verbose="Parameter &apos;buffer&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/config/default/stdio/xc32_monitor.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/stdio/xc32_monitor.c" line="51" column="30" info="Parameter &apos;buffer&apos; can be declared as pointer to const"/>
+            <symbol>buffer</symbol>
+        </error>
+</analyzerinfo>

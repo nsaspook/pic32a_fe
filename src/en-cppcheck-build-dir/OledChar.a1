@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="14341992300254546416">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="29" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="30" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdio.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdio.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="31" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;definitions.h&quot; not found." verbose="Include file: &quot;definitions.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="32" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="46" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="47" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/dma/plib_dma.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/dma/plib_dma.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="48" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;timers.h&quot; not found." verbose="Include file: &quot;timers.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h" line="5" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="57" column="0"/>
+        </error>
+        <error id="knownConditionTrueFalse" severity="style" msg="Condition &apos;(ch&amp;0x80)==0&apos; is always true" verbose="Condition &apos;(ch&amp;0x80)==0&apos; is always true" cwe="571" file0="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" line="305" column="25" info="Condition &apos;(ch&amp;0x80)==0&apos; is always true"/>
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" line="299" column="18" info="Assuming that condition &apos;(ch&amp;0x80)!=0&apos; is not redundant"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;pb&apos; can be reduced." verbose="The scope of the variable &apos;pb&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" line="153" column="12"/>
+            <symbol>pb</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;ib&apos; can be reduced." verbose="The scope of the variable &apos;ib&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" line="154" column="10"/>
+            <symbol>ib</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;pbDef&apos; can be declared as pointer to const" verbose="Parameter &apos;pbDef&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" line="151" column="44" info="Parameter &apos;pbDef&apos; can be declared as pointer to const"/>
+            <symbol>pbDef</symbol>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;pbFont&apos; can be declared as pointer to const" verbose="Variable &apos;pbFont&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" line="295" column="12" info="Variable &apos;pbFont&apos; can be declared as pointer to const"/>
+            <symbol>pbFont</symbol>
+        </error>
+  <FileInfo check="Bounds checking">
+    <array-index>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/lcd_drv/OledChar.h:63:6" my-argnr="1" my-argname="sz" file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" line="261" col="2" value="159"/>
+    </array-index>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/lcd_drv/OledChar.h:58:6" my-argnr="1" my-argname="pxch" file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" line="126" col="3" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/lcd_drv/OledChar.h:58:6" my-argnr="2" my-argname="pych" file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" line="127" col="3" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/lcd_drv/OledChar.h:63:6" my-argnr="1" my-argname="sz" file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" line="261" col="2" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h" functionName="lcd_get_position_page" lineNumber="60" column="23"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h" functionName="lcd_get_position_column" lineNumber="65" column="23"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" functionName="OledSetCursor" lineNumber="84" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" functionName="OledGetCursor" lineNumber="124" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" functionName="OledDefUserChar" lineNumber="151" column="9"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" functionName="OledSetCharUpdate" lineNumber="187" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" functionName="OledGetCharUpdate" lineNumber="209" column="9"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" functionName="OledPutChar" lineNumber="232" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" functionName="OledPutString" lineNumber="259" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" functionName="OledDrawGlyph" lineNumber="293" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledChar.c" functionName="OledAdvanceCursor" lineNumber="338" column="6"/>
+    <functioncall functionName="OledAdvanceCursor"/>
+    <functioncall functionName="OledDrawGlyph"/>
+    <functioncall functionName="OledMoveTo"/>
+    <functioncall functionName="OledSetCursor"/>
+    <functioncall functionName="OledUpdate"/>
+  </FileInfo>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="34" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/gpio/plib_gpio.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/gpio/plib_gpio.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="35" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/dmac/plib_dmac.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/dmac/plib_dmac.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="36" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/coretimer/plib_coretimer.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/coretimer/plib_coretimer.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="37" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="40" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="41" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/dmac/plib_dmac.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/dmac/plib_dmac.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="42" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/coretimer/plib_coretimer.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/coretimer/plib_coretimer.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="43" column="0"/>
+        </error>
+</analyzerinfo>

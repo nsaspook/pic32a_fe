@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="8360991180550163970">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="29" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="30" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdio.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdio.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="31" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;definitions.h&quot; not found." verbose="Include file: &quot;definitions.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="32" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="46" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="47" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/dma/plib_dma.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/dma/plib_dma.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="48" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="57" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;timers.h&quot; not found." verbose="Include file: &quot;timers.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h" line="5" column="0"/>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h:53:6" call-funcname="lcd_command_s" call-argnr="1" file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="95" col="2" call-argexpr="(column)&amp;0x0F" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0">
+  <path file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="369" col="57" info="Calling function &apos;lcd_clear_area_xy&apos;, 5th argument &apos;0&apos; value is 0"/>
+  <path file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="264" col="22" info="Calling function &apos;lcd_moveto_xy&apos;, 2nd argument &apos;col&apos; value is 0"/>
+</function-call><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h:54:9" call-funcname="lcd_inc_column" call-argnr="1" file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="109" col="51" call-argexpr="columns" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0">
+  <path file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="250" col="22" info="Calling function &apos;lcd_move_xy&apos;, 2nd argument &apos;0&apos; value is 0"/>
+</function-call><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h:39:13" call-funcname="SPI1_Exchange8bit" call-argnr="1" file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="139" col="19" call-argexpr="cmd" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0">
+  <path file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="296" col="2" info="Calling function &apos;lcd_command&apos;, 1st argument &apos;0&apos; value is 0"/>
+</function-call><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h:82:6" call-funcname="lcd_move_xy" call-argnr="2" file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="250" col="13" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h:81:6" call-funcname="lcd_moveto_xy" call-argnr="1" file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="264" col="15" call-argexpr="page" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0">
+  <path file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="369" col="54" info="Calling function &apos;lcd_clear_area_xy&apos;, 4th argument &apos;0&apos; value is 0"/>
+</function-call><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h:81:6" call-funcname="lcd_moveto_xy" call-argnr="2" file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="264" col="15" call-argexpr="col" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0">
+  <path file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="369" col="57" info="Calling function &apos;lcd_clear_area_xy&apos;, 5th argument &apos;0&apos; value is 0"/>
+</function-call><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h:76:6" call-funcname="lcd_clear_area" call-argnr="3" file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="265" col="16" call-argexpr="style" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0">
+  <path file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="369" col="46" info="Calling function &apos;lcd_clear_area_xy&apos;, 3rd argument &apos;0&apos; value is 0"/>
+</function-call><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h:52:6" call-funcname="lcd_command" call-argnr="1" file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="296" col="2" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h:77:6" call-funcname="lcd_clear_area_xy" call-argnr="3" file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="369" col="19" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h:77:6" call-funcname="lcd_clear_area_xy" call-argnr="4" file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="369" col="19" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h:77:6" call-funcname="lcd_clear_area_xy" call-argnr="5" file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" line="369" col="19" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/>  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h" functionName="lcd_get_position_page" lineNumber="60" column="23"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h" functionName="lcd_get_position_column" lineNumber="65" column="23"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" functionName="lcd_inc_page" lineNumber="58" column="9"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" functionName="lcd_inc_column" lineNumber="71" column="9"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" functionName="lcd_moveto_xy" lineNumber="92" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" functionName="lcd_move_xy" lineNumber="107" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" functionName="lcd_data" lineNumber="121" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" functionName="lcd_command" lineNumber="134" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" functionName="lcd_command_s" lineNumber="143" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" functionName="lcd_clear_area" lineNumber="232" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" functionName="lcd_clear_area_xy" lineNumber="262" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" functionName="lcd_set_contrast" lineNumber="274" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.c" functionName="lcd_init" lineNumber="287" column="6"/>
+    <functioncall functionName="CSB_SetHigh"/>
+    <functioncall functionName="CSB_SetLow"/>
+    <functioncall functionName="RS_SetHigh"/>
+    <functioncall functionName="RS_SetLow"/>
+    <functioncall functionName="SPI1_Exchange8bit"/>
+    <functioncall functionName="WaitMs"/>
+    <functioncall functionName="lcd_clear_area"/>
+    <functioncall functionName="lcd_clear_area_xy"/>
+    <functioncall functionName="lcd_command"/>
+    <functioncall functionName="lcd_command_s"/>
+    <functioncall functionName="lcd_data"/>
+    <functioncall functionName="lcd_get_position_column"/>
+    <functioncall functionName="lcd_get_position_page"/>
+    <functioncall functionName="lcd_inc_column"/>
+    <functioncall functionName="lcd_inc_page"/>
+    <functioncall functionName="lcd_move_xy"/>
+    <functioncall functionName="lcd_moveto_xy"/>
+  </FileInfo>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="34" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/gpio/plib_gpio.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/gpio/plib_gpio.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="35" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/dmac/plib_dmac.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/dmac/plib_dmac.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="36" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/coretimer/plib_coretimer.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/coretimer/plib_coretimer.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="37" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="40" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="41" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/dmac/plib_dmac.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/dmac/plib_dmac.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="42" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/coretimer/plib_coretimer.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/coretimer/plib_coretimer.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="43" column="0"/>
+        </error>
+</analyzerinfo>

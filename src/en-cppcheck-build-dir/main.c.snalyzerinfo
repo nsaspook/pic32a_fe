@@ -1,0 +1,3 @@
+lcd_get_position_page global:[lcd_current_page]
+lcd_get_position_column global:[lcd_current_column]
+main global:[SW1_SET,SW2_SET,accel,adc1_scaled,adc2_scaled,buffer,imu0,imu_buffer,iss_read_id,iss_read_id_buffer,q0,q1,q2,q3,total_sample_triggers] call:[ADC_DMA_init,CMP1_DACDataWrite,LA_gfx,OledClearBuffer,OledUpdate,RLED_Toggle,SCCP2_TimerStart,SPI2_WriteRead,SRAM_CS_Clear,SRAM_CS_Set,SW1_Get,SW2_Get,SYS_Initialize,SYS_Tasks,StartTimer,TMR1_CallbackRegister,TMR1_InterruptEnable,TMR1_Start,TimerDone,eaDogM_WriteStringAtPos,getAllData,imu_getdata,imu_getid,imu_getserial,imu_set_spimode,imu_string,info_ptr,init_lcd_drv,return,sizeof,snprintf,vector_graph_fs,wait_lcd_done] noreturn:[LA_gfx,OledUpdate,RLED_Toggle,StartTimer,eaDogM_WriteStringAtPos,return]

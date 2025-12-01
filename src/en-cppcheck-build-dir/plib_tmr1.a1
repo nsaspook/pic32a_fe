@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="8873138958668957085">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stdbool.h&quot; not found." verbose="Include file: &quot;stdbool.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" line="46" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" line="47" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.h" line="46" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.h" line="47" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.h" line="48" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr_common.h" line="57" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;interrupts.h&quot; not found." verbose="Include file: &quot;interrupts.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" line="49" column="0"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;timeout&apos; can be declared as pointer to const" verbose="Parameter &apos;timeout&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" line="144" column="42" info="Parameter &apos;timeout&apos; can be declared as pointer to const"/>
+            <symbol>timeout</symbol>
+        </error>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.h:204:6" my-argnr="1" my-argname="timeout" file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" line="135" col="5" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.h:219:6" my-argnr="1" my-argname="timeout" file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" line="141" col="5" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.h:234:6" my-argnr="1" my-argname="timeout" file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" line="147" col="32" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.h:234:6" my-argnr="1" my-argname="timeout" file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" line="147" col="32" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="TMR1_Initialize" lineNumber="65" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="TMR1_Deinitialize" lineNumber="84" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="TMR1_Start" lineNumber="95" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="TMR1_Stop" lineNumber="100" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="TMR1_PeriodSet" lineNumber="106" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="TMR1_PeriodGet" lineNumber="112" column="10"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="TMR1_CounterGet" lineNumber="118" column="10"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="TMR1_FrequencyGet" lineNumber="123" column="10"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="TMR1_GetTickCounter" lineNumber="128" column="10"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="TMR1_StartTimeOut" lineNumber="133" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="TMR1_ResetTimeOut" lineNumber="139" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="TMR1_IsTimeoutReached" lineNumber="144" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="T1_InterruptHandler" lineNumber="156" column="28"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="TMR1_InterruptEnable" lineNumber="171" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="TMR1_InterruptDisable" lineNumber="177" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/tmr/plib_tmr1.c" functionName="TMR1_CallbackRegister" lineNumber="183" column="6"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="PR1"/>
+    <functioncall functionName="TMR1"/>
+    <functioncall functionName="TMR1_GetTickCounter"/>
+    <functioncall functionName="TMR1_InterruptEnable"/>
+    <functioncall functionName="TMR1_Stop"/>
+    <functioncall functionName="_T1IF"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="true"/>
+  </FileInfo>
+</analyzerinfo>

@@ -1,0 +1,7 @@
+htons call:[return]
+htonl call:[return]
+ADC_DMA_write global:[MAX_ISS66_SAMPLES,adc_result,iss_adc_write,sram_addr,sram_addr_ptr,total_sample_triggers] call:[DMA_ChannelIsBusy,DMA_ChannelTransfer,SRAM_CS_Clear,TP0_Clear,TP0_Set,htons,memcpy] noreturn:[DMA_ChannelTransfer]
+ADC_DMA_read
+SPI2DmaChannelHandler_State global:[CDOWN] call:[SPI2_IsTransmitterBusy,SRAM_CS_Set] noreturn:[SRAM_CS_Set]
+SCCP2_Callback_InterruptHandler call:[ADC_DMA_write] noreturn:[ADC_DMA_write]
+ADC_DMA_init global:[adc_result,retrigger_time] call:[DMA_ChannelCallbackRegister,SCCP2_Timer32bitPeriodSet,SCCP2_TimerCallbackRegister,TP0_Clear,TP0_Set] noreturn:[SCCP2_Timer32bitPeriodSet]

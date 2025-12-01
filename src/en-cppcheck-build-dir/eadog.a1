@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="2225049542193401091">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;xc.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;xc.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="1" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="29" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="30" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdio.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdio.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="31" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;definitions.h&quot; not found." verbose="Include file: &quot;definitions.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="32" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="46" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="47" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/dma/plib_dma.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/dma/plib_dma.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="48" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;timers.h&quot; not found." verbose="Include file: &quot;timers.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h" line="5" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="57" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="3" column="0"/>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/eadog.h:61:7" call-funcname="eaDogM_SetPos" call-argnr="2" file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="180" col="15" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/eadog.h:61:7" call-funcname="eaDogM_SetPos" call-argnr="1" file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="235" col="15" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/eadog.h:61:7" call-funcname="eaDogM_SetPos" call-argnr="2" file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="235" col="15" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/OledChar.h:63:6" call-funcname="OledPutString" call-argnr="1" file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="205" col="2" my-id="/ldrv/pic32a_fe/src/lcd_drv/eadog.h:64:7" my-argnr="3"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/lcd_drv/eadog.h:63:7" my-argnr="1" my-argname="strPtr" file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="188" col="21" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/lcd_drv/eadog.h:63:7" my-argnr="1" my-argname="strPtr" file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="188" col="21" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h" functionName="lcd_get_position_page" lineNumber="60" column="23"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h" functionName="lcd_get_position_column" lineNumber="65" column="23"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" functionName="SPI1_ExchangeBuffer" lineNumber="89" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" functionName="wdtdelay" lineNumber="95" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" functionName="init_display" lineNumber="107" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" functionName="send_lcd_data" lineNumber="127" column="13"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" functionName="send_lcd_cmd" lineNumber="138" column="13"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" functionName="send_lcd_cmd_long" lineNumber="151" column="13"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" functionName="eaDogM_WriteChr" lineNumber="160" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" functionName="eaDogM_WriteCommand" lineNumber="165" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" functionName="eaDogM_SetPos" lineNumber="170" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" functionName="eaDogM_ClearRow" lineNumber="177" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" functionName="eaDogM_WriteString" lineNumber="186" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" functionName="eaDogM_WriteStringAtPos" lineNumber="201" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" functionName="eaDogM_WriteIntAtPos" lineNumber="212" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" functionName="eaDogM_WriteByteToCGRAM" lineNumber="224" column="6"/>
+    <functioncall functionName="CSB_SetHigh"/>
+    <functioncall functionName="CSB_SetLow"/>
+    <functioncall functionName="DIS_CS_Clear"/>
+    <functioncall functionName="DIS_CS_Set"/>
+    <functioncall functionName="DIS_MODE_Clear"/>
+    <functioncall functionName="DIS_MODE_Set"/>
+    <functioncall functionName="DIS_RESET_Clear"/>
+    <functioncall functionName="DIS_RESET_Set"/>
+    <functioncall functionName="OledPutString"/>
+    <functioncall functionName="OledSetCursor"/>
+    <functioncall functionName="SPI1_Exchange8bit"/>
+    <functioncall functionName="SPI1_Write"/>
+    <functioncall functionName="eaDogM_SetPos"/>
+    <functioncall functionName="eaDogM_WriteChr"/>
+    <functioncall functionName="eaDogM_WriteCommand"/>
+    <functioncall functionName="send_lcd_cmd"/>
+    <functioncall functionName="send_lcd_cmd_long"/>
+    <functioncall functionName="send_lcd_data"/>
+    <functioncall functionName="strlen"/>
+    <functioncall functionName="wait_lcd_done"/>
+    <functioncall functionName="wdtdelay"/>
+  </FileInfo>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/bma400/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found." verbose="Include file: &quot;../src/config/bma400/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="11" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/bma400/peripheral/spi/spi_master/plib_spi1_master.h&quot; not found." verbose="Include file: &quot;../src/config/bma400/peripheral/spi/spi_master/plib_spi1_master.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="12" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/bma400/peripheral/gpio/plib_gpio.h&quot; not found." verbose="Include file: &quot;../src/config/bma400/peripheral/gpio/plib_gpio.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="13" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="5" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/spi/spi_master/plib_spi1_master.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/spi/spi_master/plib_spi1_master.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="6" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/gpio/plib_gpio.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/gpio/plib_gpio.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="7" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj_remote/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found." verbose="Include file: &quot;../src/config/mcj_remote/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="17" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj_remote/peripheral/spi/spi_master/plib_spi1_master.h&quot; not found." verbose="Include file: &quot;../src/config/mcj_remote/peripheral/spi/spi_master/plib_spi1_master.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="18" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj_remote/peripheral/gpio/plib_gpio.h&quot; not found." verbose="Include file: &quot;../src/config/mcj_remote/peripheral/gpio/plib_gpio.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/eadog.c" line="19" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="34" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/gpio/plib_gpio.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/gpio/plib_gpio.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="35" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/dmac/plib_dmac.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/dmac/plib_dmac.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="36" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/coretimer/plib_coretimer.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/coretimer/plib_coretimer.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="37" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="40" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="41" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/dmac/plib_dmac.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/dmac/plib_dmac.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="42" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/coretimer/plib_coretimer.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/coretimer/plib_coretimer.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="43" column="0"/>
+        </error>
+</analyzerinfo>

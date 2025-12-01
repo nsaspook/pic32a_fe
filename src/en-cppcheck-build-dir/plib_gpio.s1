@@ -1,0 +1,17 @@
+GPIO_PinWrite call:[GPIO_PortWrite] noreturn:[GPIO_PortWrite]
+GPIO_PinRead call:[GPIO_PortRead,return] noreturn:[return]
+GPIO_PinLatchRead call:[GPIO_PortLatchRead,return] noreturn:[return]
+GPIO_PinToggle call:[GPIO_PortToggle] noreturn:[GPIO_PortToggle]
+GPIO_PinSet call:[GPIO_PortSet] noreturn:[GPIO_PortSet]
+GPIO_PinClear call:[GPIO_PortClear] noreturn:[GPIO_PortClear]
+GPIO_PinInputEnable call:[GPIO_PortInputEnable] noreturn:[GPIO_PortInputEnable]
+GPIO_PinOutputEnable call:[GPIO_PortOutputEnable] noreturn:[GPIO_PortOutputEnable]
+GPIO_Initialize
+GPIO_PortRead call:[return] noreturn:[return]
+GPIO_PortWrite
+GPIO_PortLatchRead call:[return] noreturn:[return]
+GPIO_PortSet
+GPIO_PortClear
+GPIO_PortToggle
+GPIO_PortInputEnable
+GPIO_PortOutputEnable

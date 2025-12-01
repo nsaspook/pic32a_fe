@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="5308181463516095910">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.h" line="45" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.h" line="46" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h" line="45" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h" line="46" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h" line="47" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;interrupts.h&quot; not found." verbose="Include file: &quot;interrupts.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="43" column="0"/>
+        </error>
+        <error id="normalCheckLevelMaxBranches" severity="information" msg="Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches." verbose="Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches." file0="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="0" column="0"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;txCount&apos; can be reduced." verbose="The scope of the variable &apos;txCount&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="180" column="12"/>
+            <symbol>txCount</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;rxCount&apos; can be reduced." verbose="The scope of the variable &apos;rxCount&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="181" column="12"/>
+            <symbol>rxCount</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;dummySize&apos; can be reduced." verbose="The scope of the variable &apos;dummySize&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="182" column="12"/>
+            <symbol>dummySize</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;dummyRxCntr&apos; can be reduced." verbose="The scope of the variable &apos;dummyRxCntr&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="183" column="12"/>
+            <symbol>dummyRxCntr</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;receivedData&apos; can be reduced." verbose="The scope of the variable &apos;receivedData&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="184" column="12"/>
+            <symbol>receivedData</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;setup&apos; can be declared as pointer to const" verbose="Parameter &apos;setup&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="119" column="46" info="Parameter &apos;setup&apos; can be declared as pointer to const"/>
+            <symbol>setup</symbol>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.h:204:6" call-funcname="SPI3_WriteRead" call-argnr="3" file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="165" col="26" call-argexpr="NULL" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.h:204:6" call-funcname="SPI3_WriteRead" call-argnr="4" file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="165" col="26" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.h:204:6" call-funcname="SPI3_WriteRead" call-argnr="1" file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="170" col="26" call-argexpr="NULL" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.h:204:6" call-funcname="SPI3_WriteRead" call-argnr="2" file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="170" col="26" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.h:204:6" call-funcname="SPI3_WriteRead" call-argnr="1" file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="165" col="12" my-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.h:268:6" my-argnr="1"/>
+<function-call call-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.h:204:6" call-funcname="SPI3_WriteRead" call-argnr="3" file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="170" col="12" my-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.h:334:6" my-argnr="1"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" functionName="SPI3_Initialize" lineNumber="85" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" functionName="SPI3_Deinitialize" lineNumber="103" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" functionName="SPI3_TransferSetup" lineNumber="119" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" functionName="SPI3_Write" lineNumber="163" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" functionName="SPI3_Read" lineNumber="168" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" functionName="SPI3_IsTransmitterBusy" lineNumber="173" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi3_host.c" functionName="SPI3_WriteRead" lineNumber="178" column="6"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="SPI3BUF"/>
+    <functioncall functionName="SPI3_WriteRead"/>
+    <functioncall functionName="_SPI3CON1_CKE_MASK"/>
+    <functioncall functionName="_SPI3CON1_ENHBUF_MASK"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="true"/>
+  </FileInfo>
+</analyzerinfo>

@@ -1,0 +1,16 @@
+TMR1_Initialize global:[tmr1Obj] call:[TMR1_InterruptEnable] noreturn:[TMR1_InterruptEnable]
+TMR1_Deinitialize call:[TMR1_Stop]
+TMR1_Start
+TMR1_Stop
+TMR1_PeriodSet
+TMR1_PeriodGet
+TMR1_CounterGet
+TMR1_FrequencyGet
+TMR1_GetTickCounter global:[tmr1Obj]
+TMR1_StartTimeOut call:[TMR1_GetTickCounter]
+TMR1_ResetTimeOut call:[TMR1_GetTickCounter] noreturn:[TMR1_GetTickCounter]
+TMR1_IsTimeoutReached global:[tmr1Obj]
+T1_InterruptHandler global:[tmr1Obj] call:[callback_fn] noreturn:[callback_fn]
+TMR1_InterruptEnable
+TMR1_InterruptDisable
+TMR1_CallbackRegister global:[tmr1Obj]

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="12908865296281387254">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.c" line="43" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.c" line="44" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.c" line="45" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.c" line="46" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;interrupts.h&quot; not found." verbose="Include file: &quot;interrupts.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.c" line="47" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.h" line="47" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.h" line="48" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.h" line="49" column="0"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;fpdmdac&apos; can be declared as pointer to const" verbose="Variable &apos;fpdmdac&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.c" line="145" column="15" info="Variable &apos;fpdmdac&apos; can be declared as pointer to const"/>
+            <symbol>fpdmdac</symbol>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.h" functionName="CMP1_StatusGet" lineNumber="88" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.h" functionName="CMP1_Enable" lineNumber="98" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.h" functionName="CMP1_Disable" lineNumber="108" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.h" functionName="CMP1_DACEnable" lineNumber="118" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.h" functionName="CMP1_DACDisable" lineNumber="128" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.h" functionName="CMP1_DACDataWrite" lineNumber="138" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.c" functionName="CMP1_Initialize" lineNumber="102" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.c" functionName="CMP1_Deinitialize" lineNumber="127" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/cmp_dac/plib_cmp1.c" functionName="CMP1_Calibrate" lineNumber="143" column="6"/>
+    <functioncall functionName="CMPSTAT"/>
+  </FileInfo>
+</analyzerinfo>

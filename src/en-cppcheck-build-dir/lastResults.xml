@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="2.18.0"/>
+    <errors>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;x&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;x&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="imu.c" sinceDate="11/30/25">
+            <location file="imu.c" line="93"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;y&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;y&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="imu.c" sinceDate="11/30/25">
+            <location file="imu.c" line="93"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;z&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;z&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="imu.c" sinceDate="11/30/25">
+            <location file="imu.c" line="93"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;xa&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;xa&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="imu.c" sinceDate="11/30/25">
+            <location file="imu.c" line="94"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;ya&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;ya&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="imu.c" sinceDate="11/30/25">
+            <location file="imu.c" line="94"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;za&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;za&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="imu.c" sinceDate="11/30/25">
+            <location file="imu.c" line="94"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &amp;#039;l = a * b;&amp;#039; =&amp;gt; &amp;#039;l = (double)a * b;&amp;#039;." cwe="197" file0="imu.c" sinceDate="11/30/25">
+            <location file="imu.c" line="44"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &amp;#039;l = a * b;&amp;#039; =&amp;gt; &amp;#039;l = (double)a * b;&amp;#039;." cwe="197" file0="imu.c" sinceDate="11/30/25">
+            <location file="imu.c" line="47"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &amp;#039;l = a * b;&amp;#039; =&amp;gt; &amp;#039;l = (double)a * b;&amp;#039;." cwe="197" file0="imu.c" sinceDate="11/30/25">
+            <location file="imu.c" line="50"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &amp;#039;l = a * b;&amp;#039; =&amp;gt; &amp;#039;l = (double)a * b;&amp;#039;." cwe="197" file0="imu.c" sinceDate="11/30/25">
+            <location file="imu.c" line="54"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &amp;#039;l = a * b;&amp;#039; =&amp;gt; &amp;#039;l = (double)a * b;&amp;#039;." cwe="197" file0="imu.c" sinceDate="11/30/25">
+            <location file="imu.c" line="57"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &amp;#039;l = a * b;&amp;#039; =&amp;gt; &amp;#039;l = (double)a * b;&amp;#039;." cwe="197" file0="imu.c" sinceDate="11/30/25">
+            <location file="imu.c" line="60"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &amp;#039;l = a * b;&amp;#039; =&amp;gt; &amp;#039;l = (double)a * b;&amp;#039;." cwe="197" file0="imu.c" sinceDate="11/30/25">
+            <location file="imu.c" line="63"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &amp;#039;l = a * b;&amp;#039; =&amp;gt; &amp;#039;l = (double)a * b;&amp;#039;." cwe="197" file0="imu.c" sinceDate="11/30/25">
+            <location file="imu.c" line="66"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &amp;#039;l = a * b;&amp;#039; =&amp;gt; &amp;#039;l = (double)a * b;&amp;#039;." cwe="197" file0="imu.c" sinceDate="11/30/25">
+            <location file="imu.c" line="75"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;ADC_DMA_read&amp;#039; is never used." verbose="The function &amp;#039;ADC_DMA_read&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="is66.c" line="87"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;htonl&amp;#039; is never used." verbose="The function &amp;#039;htonl&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="is66.c" line="38"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;q&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;q&amp;#039; can be declared as pointer to const" cwe="398" file0="quat.c" sinceDate="11/30/25">
+            <location file="quat.c" line="44"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;q1&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;q1&amp;#039; can be declared as pointer to const" cwe="398" file0="quat.c" sinceDate="11/30/25">
+            <location file="quat.c" line="49"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;q2&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;q2&amp;#039; can be declared as pointer to const" cwe="398" file0="quat.c" sinceDate="11/30/25">
+            <location file="quat.c" line="49"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;q&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;q&amp;#039; can be declared as pointer to const" cwe="398" file0="quat.c" sinceDate="11/30/25">
+            <location file="quat.c" line="58"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &amp;#039;axis&amp;#039; can be declared as const array" verbose="Parameter &amp;#039;axis&amp;#039; can be declared as const array" cwe="398" file0="quat.c" sinceDate="11/30/25">
+            <location file="quat.c" line="65"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &amp;#039;eulerZYX&amp;#039; can be declared as const array" verbose="Parameter &amp;#039;eulerZYX&amp;#039; can be declared as const array" cwe="398" file0="quat.c" sinceDate="11/30/25">
+            <location file="quat.c" line="118"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;q&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;q&amp;#039; can be declared as pointer to const" cwe="398" file0="quat.c" sinceDate="11/30/25">
+            <location file="quat.c" line="166"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &amp;#039;v&amp;#039; can be declared as const array" verbose="Parameter &amp;#039;v&amp;#039; can be declared as const array" cwe="398" file0="quat.c" sinceDate="11/30/25">
+            <location file="quat.c" line="204"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Quaternion_conjugate&amp;#039; is never used." verbose="The function &amp;#039;Quaternion_conjugate&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="quat.c" line="157"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Quaternion_equal&amp;#039; is never used." verbose="The function &amp;#039;Quaternion_equal&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="quat.c" line="49"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Quaternion_fprint&amp;#039; is never used." verbose="The function &amp;#039;Quaternion_fprint&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="quat.c" line="58"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Quaternion_fromEulerZYX&amp;#039; is never used." verbose="The function &amp;#039;Quaternion_fromEulerZYX&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="quat.c" line="118"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Quaternion_fromXRotation&amp;#039; is never used." verbose="The function &amp;#039;Quaternion_fromXRotation&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="quat.c" line="97"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Quaternion_fromYRotation&amp;#039; is never used." verbose="The function &amp;#039;Quaternion_fromYRotation&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="quat.c" line="104"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Quaternion_fromZRotation&amp;#039; is never used." verbose="The function &amp;#039;Quaternion_fromZRotation&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="quat.c" line="111"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Quaternion_multiply&amp;#039; is never used." verbose="The function &amp;#039;Quaternion_multiply&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="quat.c" line="184"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Quaternion_normalize&amp;#039; is never used." verbose="The function &amp;#039;Quaternion_normalize&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="quat.c" line="172"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Quaternion_rotate&amp;#039; is never used." verbose="The function &amp;#039;Quaternion_rotate&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="quat.c" line="204"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Quaternion_setIdentity&amp;#039; is never used." verbose="The function &amp;#039;Quaternion_setIdentity&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="quat.c" line="38"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Quaternion_slerp&amp;#039; is never used." verbose="The function &amp;#039;Quaternion_slerp&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="quat.c" line="241"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Quaternion_toAxisAngle&amp;#039; is never used." verbose="The function &amp;#039;Quaternion_toAxisAngle&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="quat.c" line="76"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Quaternion_toEulerZYX&amp;#039; is never used." verbose="The function &amp;#039;Quaternion_toEulerZYX&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="quat.c" line="135"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;BitValue&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;BitValue&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="sca3300.c" sinceDate="11/30/25">
+            <location file="sca3300.c" line="22"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;imu_cs_cb&amp;#039; is never used." verbose="The function &amp;#039;imu_cs_cb&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="sca3300.c" line="294"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;CLOCK_FailStatusGet&amp;#039; is never used." verbose="The function &amp;#039;CLOCK_FailStatusGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/clk/plib_clk.h" line="119"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;CLOCK_GeneratorFrequencyGet&amp;#039; is never used." verbose="The function &amp;#039;CLOCK_GeneratorFrequencyGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/clk/plib_clk.h" line="77"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;GPIO_PinClear&amp;#039; is never used." verbose="The function &amp;#039;GPIO_PinClear&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/gpio/plib_gpio.h" line="551"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;GPIO_PinInputEnable&amp;#039; is never used." verbose="The function &amp;#039;GPIO_PinInputEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/gpio/plib_gpio.h" line="569"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;GPIO_PinLatchRead&amp;#039; is never used." verbose="The function &amp;#039;GPIO_PinLatchRead&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/gpio/plib_gpio.h" line="497"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;GPIO_PinOutputEnable&amp;#039; is never used." verbose="The function &amp;#039;GPIO_PinOutputEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/gpio/plib_gpio.h" line="587"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;GPIO_PinRead&amp;#039; is never used." verbose="The function &amp;#039;GPIO_PinRead&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/gpio/plib_gpio.h" line="476"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;GPIO_PinSet&amp;#039; is never used." verbose="The function &amp;#039;GPIO_PinSet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/gpio/plib_gpio.h" line="533"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;GPIO_PinToggle&amp;#039; is never used." verbose="The function &amp;#039;GPIO_PinToggle&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/gpio/plib_gpio.h" line="515"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;GPIO_PinWrite&amp;#039; is never used." verbose="The function &amp;#039;GPIO_PinWrite&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/gpio/plib_gpio.h" line="455"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;CMP1_DACDisable&amp;#039; is never used." verbose="The function &amp;#039;CMP1_DACDisable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/cmp_dac/plib_cmp1.h" line="128"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;CMP1_DACEnable&amp;#039; is never used." verbose="The function &amp;#039;CMP1_DACEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/cmp_dac/plib_cmp1.h" line="118"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;CMP1_Disable&amp;#039; is never used." verbose="The function &amp;#039;CMP1_Disable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/cmp_dac/plib_cmp1.h" line="108"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;CMP1_Enable&amp;#039; is never used." verbose="The function &amp;#039;CMP1_Enable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/cmp_dac/plib_cmp1.h" line="98"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;CMP1_StatusGet&amp;#039; is never used." verbose="The function &amp;#039;CMP1_StatusGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/cmp_dac/plib_cmp1.h" line="88"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;QEI1_CounterModeSet&amp;#039; is never used." verbose="The function &amp;#039;QEI1_CounterModeSet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/qei/plib_qei1.h" line="442"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;QEI1_Enable&amp;#039; is never used." verbose="The function &amp;#039;QEI1_Enable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/qei/plib_qei1.h" line="133"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;QEI1_IMVGatedValueSet&amp;#039; is never used." verbose="The function &amp;#039;QEI1_IMVGatedValueSet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/qei/plib_qei1.h" line="471"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;QEI1_ModuloRangeSet&amp;#039; is never used." verbose="The function &amp;#039;QEI1_ModuloRangeSet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/qei/plib_qei1.h" line="230"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;QEI1_PhaseInputSwappedGet&amp;#039; is never used." verbose="The function &amp;#039;QEI1_PhaseInputSwappedGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/qei/plib_qei1.h" line="258"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;QEI1_PhaseInputSwappedSet&amp;#039; is never used." verbose="The function &amp;#039;QEI1_PhaseInputSwappedSet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/qei/plib_qei1.h" line="284"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;QEI1_PositionCapture16bitGet&amp;#039; is never used." verbose="The function &amp;#039;QEI1_PositionCapture16bitGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/qei/plib_qei1.h" line="391"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;QEI1_PositionCaptureDisable&amp;#039; is never used." verbose="The function &amp;#039;QEI1_PositionCaptureDisable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/qei/plib_qei1.h" line="341"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;QEI1_PositionCaptureEnable&amp;#039; is never used." verbose="The function &amp;#039;QEI1_PositionCaptureEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/qei/plib_qei1.h" line="317"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;QEI1_PositionCaptureGet&amp;#039; is never used." verbose="The function &amp;#039;QEI1_PositionCaptureGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/qei/plib_qei1.h" line="366"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;QEI1_PositionCaptureSet&amp;#039; is never used." verbose="The function &amp;#039;QEI1_PositionCaptureSet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/qei/plib_qei1.h" line="415"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;QEI1_PositionCount16bitRead&amp;#039; is never used." verbose="The function &amp;#039;QEI1_PositionCount16bitRead&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/qei/plib_qei1.h" line="182"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;QEI1_PositionCountRead&amp;#039; is never used." verbose="The function &amp;#039;QEI1_PositionCountRead&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/qei/plib_qei1.h" line="157"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;QEI1_PositionCountWrite&amp;#039; is never used." verbose="The function &amp;#039;QEI1_PositionCountWrite&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/qei/plib_qei1.h" line="205"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;ADC2_ChannelResultFlagClear&amp;#039; is never used." verbose="The function &amp;#039;ADC2_ChannelResultFlagClear&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/adc/plib_adc2.h" line="252"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;ADC2_ChannelResultGet&amp;#039; is never used." verbose="The function &amp;#039;ADC2_ChannelResultGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/adc/plib_adc2.h" line="166"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;ADC2_ChannelResultInterruptDisable&amp;#039; is never used." verbose="The function &amp;#039;ADC2_ChannelResultInterruptDisable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/adc/plib_adc2.h" line="231"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;ADC2_ChannelResultInterruptEnable&amp;#039; is never used." verbose="The function &amp;#039;ADC2_ChannelResultInterruptEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/adc/plib_adc2.h" line="213"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;ADC2_ChannelResultIsReady&amp;#039; is never used." verbose="The function &amp;#039;ADC2_ChannelResultIsReady&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/adc/plib_adc2.h" line="192"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;ADC2_ChannelSoftwareTriggerEnable&amp;#039; is never used." verbose="The function &amp;#039;ADC2_ChannelSoftwareTriggerEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/adc/plib_adc2.h" line="145"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;ADC2_CompareStatusGet&amp;#039; is never used." verbose="The function &amp;#039;ADC2_CompareStatusGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/adc/plib_adc2.h" line="271"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;ADC2_Enable&amp;#039; is never used." verbose="The function &amp;#039;ADC2_Enable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/adc/plib_adc2.h" line="110"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;ADC2_IndividualChannelInterruptPrioritySet&amp;#039; is never used." verbose="The function &amp;#039;ADC2_IndividualChannelInterruptPrioritySet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/adc/plib_adc2.h" line="296"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;ADC2_SoftwareTriggerEnable&amp;#039; is never used." verbose="The function &amp;#039;ADC2_SoftwareTriggerEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/adc/plib_adc2.h" line="134"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OPA2_DifferentialInputModeSet&amp;#039; is never used." verbose="The function &amp;#039;OPA2_DifferentialInputModeSet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/opa/plib_opa2.h" line="147"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OPA2_OffsetCorrection&amp;#039; is never used." verbose="The function &amp;#039;OPA2_OffsetCorrection&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/opa/plib_opa2.h" line="159"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OPA2_OutputMonitorEnable&amp;#039; is never used." verbose="The function &amp;#039;OPA2_OutputMonitorEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/opa/plib_opa2.h" line="133"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;data&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;data&amp;#039; can be declared as pointer to const" cwe="398" file0="config/default/initialization.c" sinceDate="11/30/25">
+            <location file="config/default/initialization.c" line="268"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_AddressErrorTrap&amp;#039; is never used." verbose="The function &amp;#039;_AddressErrorTrap&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/traps.c" line="126"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_BusErrorTrap&amp;#039; is never used." verbose="The function &amp;#039;_BusErrorTrap&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/traps.c" line="94"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_GeneralTrap&amp;#039; is never used." verbose="The function &amp;#039;_GeneralTrap&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/traps.c" line="133"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_IllegalInstructionTrap&amp;#039; is never used." verbose="The function &amp;#039;_IllegalInstructionTrap&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/traps.c" line="178"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_MathErrorTrap&amp;#039; is never used." verbose="The function &amp;#039;_MathErrorTrap&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/traps.c" line="158"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_StackErrorTrap&amp;#039; is never used." verbose="The function &amp;#039;_StackErrorTrap&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/traps.c" line="165"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;ADC2_ChannelCallbackRegister&amp;#039; is never used." verbose="The function &amp;#039;ADC2_ChannelCallbackRegister&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/adc/plib_adc2.c" line="209"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;ADC2_Deinitialize&amp;#039; is never used." verbose="The function &amp;#039;ADC2_Deinitialize&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/adc/plib_adc2.c" line="144"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;ADC2_PWMTriggerSourceSet&amp;#039; is never used." verbose="The function &amp;#039;ADC2_PWMTriggerSourceSet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/adc/plib_adc2.c" line="194"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;context&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;context&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/ccp/plib_sccp1.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/ccp/plib_sccp1.c" line="116"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SCCP1_Timer32bitCounterGet&amp;#039; is never used." verbose="The function &amp;#039;SCCP1_Timer32bitCounterGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/ccp/plib_sccp1.c" line="102"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SCCP1_Timer32bitPeriodGet&amp;#039; is never used." verbose="The function &amp;#039;SCCP1_Timer32bitPeriodGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/ccp/plib_sccp1.c" line="97"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SCCP1_TimerFrequencyGet&amp;#039; is never used." verbose="The function &amp;#039;SCCP1_TimerFrequencyGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/ccp/plib_sccp1.c" line="108"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SCCP1_TimerInterruptDisable&amp;#039; is never used." verbose="The function &amp;#039;SCCP1_TimerInterruptDisable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/ccp/plib_sccp1.c" line="134"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SCCP1_TimerInterruptEnable&amp;#039; is never used." verbose="The function &amp;#039;SCCP1_TimerInterruptEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/ccp/plib_sccp1.c" line="127"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;context&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;context&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/ccp/plib_sccp2.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/ccp/plib_sccp2.c" line="116"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SCCP2_Timer32bitCounterGet&amp;#039; is never used." verbose="The function &amp;#039;SCCP2_Timer32bitCounterGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/ccp/plib_sccp2.c" line="102"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SCCP2_Timer32bitPeriodGet&amp;#039; is never used." verbose="The function &amp;#039;SCCP2_Timer32bitPeriodGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/ccp/plib_sccp2.c" line="97"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SCCP2_TimerFrequencyGet&amp;#039; is never used." verbose="The function &amp;#039;SCCP2_TimerFrequencyGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/ccp/plib_sccp2.c" line="108"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SCCP2_TimerInterruptDisable&amp;#039; is never used." verbose="The function &amp;#039;SCCP2_TimerInterruptDisable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/ccp/plib_sccp2.c" line="134"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SCCP2_TimerInterruptEnable&amp;#039; is never used." verbose="The function &amp;#039;SCCP2_TimerInterruptEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/ccp/plib_sccp2.c" line="127"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SCCP2_TimerStop&amp;#039; is never used." verbose="The function &amp;#039;SCCP2_TimerStop&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/ccp/plib_sccp2.c" line="87"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &amp;#039;fpdmdac&amp;#039; can be declared as pointer to const" verbose="Variable &amp;#039;fpdmdac&amp;#039; can be declared as pointer to const" cwe="398" file0="config/default/peripheral/cmp_dac/plib_cmp1.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/cmp_dac/plib_cmp1.c" line="145"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;CMP1_Calibrate&amp;#039; is never used." verbose="The function &amp;#039;CMP1_Calibrate&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/cmp_dac/plib_cmp1.c" line="143"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;CMP1_Deinitialize&amp;#039; is never used." verbose="The function &amp;#039;CMP1_Deinitialize&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/cmp_dac/plib_cmp1.c" line="127"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;DMA_ChannelDisable&amp;#039; is never used." verbose="The function &amp;#039;DMA_ChannelDisable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/dma/plib_dma.c" line="367"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;DMA_ChannelEnable&amp;#039; is never used." verbose="The function &amp;#039;DMA_ChannelEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/dma/plib_dma.c" line="342"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;DMA_ChannelGetTransferredCount&amp;#039; is never used." verbose="The function &amp;#039;DMA_ChannelGetTransferredCount&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/dma/plib_dma.c" line="482"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;DMA_ChannelPatternMatchDisable&amp;#039; is never used." verbose="The function &amp;#039;DMA_ChannelPatternMatchDisable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/dma/plib_dma.c" line="414"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;DMA_ChannelPatternMatchEnable&amp;#039; is never used." verbose="The function &amp;#039;DMA_ChannelPatternMatchEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/dma/plib_dma.c" line="392"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;DMA_ChannelPatternMatchSetup&amp;#039; is never used." verbose="The function &amp;#039;DMA_ChannelPatternMatchSetup&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/dma/plib_dma.c" line="308"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;DMA_ChannelSettingsGet&amp;#039; is never used." verbose="The function &amp;#039;DMA_ChannelSettingsGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/dma/plib_dma.c" line="548"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;DMA_ChannelSettingsSet&amp;#039; is never used." verbose="The function &amp;#039;DMA_ChannelSettingsSet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/dma/plib_dma.c" line="572"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;DMA_ChannelSoftwareTriggerEnable&amp;#039; is never used." verbose="The function &amp;#039;DMA_ChannelSoftwareTriggerEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/dma/plib_dma.c" line="460"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;DMA_Deinitialize&amp;#039; is never used." verbose="The function &amp;#039;DMA_Deinitialize&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/dma/plib_dma.c" line="191"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;DMA_IsSoftwareRequestPending&amp;#039; is never used." verbose="The function &amp;#039;DMA_IsSoftwareRequestPending&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/dma/plib_dma.c" line="436"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &amp;#039;IECx&amp;#039; can be declared as pointer to const" verbose="Variable &amp;#039;IECx&amp;#039; can be declared as pointer to const" cwe="398" file0="config/default/peripheral/intc/plib_intc.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/intc/plib_intc.c" line="83"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &amp;#039;IFSx&amp;#039; can be declared as pointer to const" verbose="Variable &amp;#039;IFSx&amp;#039; can be declared as pointer to const" cwe="398" file0="config/default/peripheral/intc/plib_intc.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/intc/plib_intc.c" line="90"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;INTC_Disable&amp;#039; is never used." verbose="The function &amp;#039;INTC_Disable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/intc/plib_intc.c" line="112"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;INTC_Enable&amp;#039; is never used." verbose="The function &amp;#039;INTC_Enable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/intc/plib_intc.c" line="107"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;INTC_Restore&amp;#039; is never used." verbose="The function &amp;#039;INTC_Restore&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/intc/plib_intc.c" line="125"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;INTC_SourceDisable&amp;#039; is never used." verbose="The function &amp;#039;INTC_SourceDisable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/intc/plib_intc.c" line="75"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;INTC_SourceEnable&amp;#039; is never used." verbose="The function &amp;#039;INTC_SourceEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/intc/plib_intc.c" line="69"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;INTC_SourceIsEnabled&amp;#039; is never used." verbose="The function &amp;#039;INTC_SourceIsEnabled&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/intc/plib_intc.c" line="81"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;INTC_SourceStatusClear&amp;#039; is never used." verbose="The function &amp;#039;INTC_SourceStatusClear&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/intc/plib_intc.c" line="101"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;INTC_SourceStatusGet&amp;#039; is never used." verbose="The function &amp;#039;INTC_SourceStatusGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/intc/plib_intc.c" line="88"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;INTC_SourceStatusSet&amp;#039; is never used." verbose="The function &amp;#039;INTC_SourceStatusSet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/intc/plib_intc.c" line="95"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OPA2_Deinitialize&amp;#039; is never used." verbose="The function &amp;#039;OPA2_Deinitialize&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/opa/plib_opa2.c" line="62"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;QEI1_Deinitialize&amp;#039; is never used." verbose="The function &amp;#039;QEI1_Deinitialize&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/qei/plib_qei1.c" line="107"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;nRxPending&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;nRxPending&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/spi/spi_host/plib_spi1_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi1_host.c" line="370"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;receivedData&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;receivedData&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/spi/spi_host/plib_spi1_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi1_host.c" line="371"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;setup&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;setup&amp;#039; can be declared as pointer to const" cwe="398" file0="config/default/peripheral/spi/spi_host/plib_spi1_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi1_host.c" line="144"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &amp;#039;nRxPending&amp;#039; is assigned a value that is never used." verbose="Variable &amp;#039;nRxPending&amp;#039; is assigned a value that is never used." cwe="563" file0="config/default/peripheral/spi/spi_host/plib_spi1_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi1_host.c" line="370"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &amp;#039;receivedData&amp;#039; is assigned a value that is never used." verbose="Variable &amp;#039;receivedData&amp;#039; is assigned a value that is never used." cwe="563" file0="config/default/peripheral/spi/spi_host/plib_spi1_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi1_host.c" line="371"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI1_CallbackRegister&amp;#039; is never used." verbose="The function &amp;#039;SPI1_CallbackRegister&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi1_host.c" line="210"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI1_Deinitialize&amp;#039; is never used." verbose="The function &amp;#039;SPI1_Deinitialize&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi1_host.c" line="119"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI1_IsBusy&amp;#039; is never used." verbose="The function &amp;#039;SPI1_IsBusy&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi1_host.c" line="204"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI1_IsTransmitterBusy&amp;#039; is never used." verbose="The function &amp;#039;SPI1_IsTransmitterBusy&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi1_host.c" line="198"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI1_Read&amp;#039; is never used." verbose="The function &amp;#039;SPI1_Read&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi1_host.c" line="193"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI1_TransferSetup&amp;#039; is never used." verbose="The function &amp;#039;SPI1_TransferSetup&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi1_host.c" line="144"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;nRxPending&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;nRxPending&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/spi/spi_host/plib_spi2_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="370"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;receivedData&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;receivedData&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/spi/spi_host/plib_spi2_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="371"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;setup&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;setup&amp;#039; can be declared as pointer to const" cwe="398" file0="config/default/peripheral/spi/spi_host/plib_spi2_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="144"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &amp;#039;nRxPending&amp;#039; is assigned a value that is never used." verbose="Variable &amp;#039;nRxPending&amp;#039; is assigned a value that is never used." cwe="563" file0="config/default/peripheral/spi/spi_host/plib_spi2_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="370"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &amp;#039;receivedData&amp;#039; is assigned a value that is never used." verbose="Variable &amp;#039;receivedData&amp;#039; is assigned a value that is never used." cwe="563" file0="config/default/peripheral/spi/spi_host/plib_spi2_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="371"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI2_CallbackRegister&amp;#039; is never used." verbose="The function &amp;#039;SPI2_CallbackRegister&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="210"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI2_Deinitialize&amp;#039; is never used." verbose="The function &amp;#039;SPI2_Deinitialize&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="119"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI2_IsBusy&amp;#039; is never used." verbose="The function &amp;#039;SPI2_IsBusy&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="204"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI2_Read&amp;#039; is never used." verbose="The function &amp;#039;SPI2_Read&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="193"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI2_TransferSetup&amp;#039; is never used." verbose="The function &amp;#039;SPI2_TransferSetup&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="144"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI2_Write&amp;#039; is never used." verbose="The function &amp;#039;SPI2_Write&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="188"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;txCount&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;txCount&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/spi/spi_host/plib_spi3_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="180"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;rxCount&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;rxCount&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/spi/spi_host/plib_spi3_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="181"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;dummySize&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;dummySize&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/spi/spi_host/plib_spi3_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="182"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;dummyRxCntr&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;dummyRxCntr&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/spi/spi_host/plib_spi3_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="183"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;receivedData&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;receivedData&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/spi/spi_host/plib_spi3_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="184"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;setup&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;setup&amp;#039; can be declared as pointer to const" cwe="398" file0="config/default/peripheral/spi/spi_host/plib_spi3_host.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="119"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI3_Deinitialize&amp;#039; is never used." verbose="The function &amp;#039;SPI3_Deinitialize&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="103"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI3_IsTransmitterBusy&amp;#039; is never used." verbose="The function &amp;#039;SPI3_IsTransmitterBusy&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="173"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI3_Read&amp;#039; is never used." verbose="The function &amp;#039;SPI3_Read&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="168"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI3_TransferSetup&amp;#039; is never used." verbose="The function &amp;#039;SPI3_TransferSetup&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="119"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI3_Write&amp;#039; is never used." verbose="The function &amp;#039;SPI3_Write&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/spi/spi_host/plib_spi3_host.c" line="163"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;timeout&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;timeout&amp;#039; can be declared as pointer to const" cwe="398" file0="config/default/peripheral/tmr/plib_tmr1.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/tmr/plib_tmr1.c" line="144"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;TMR1_CounterGet&amp;#039; is never used." verbose="The function &amp;#039;TMR1_CounterGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/tmr/plib_tmr1.c" line="118"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;TMR1_Deinitialize&amp;#039; is never used." verbose="The function &amp;#039;TMR1_Deinitialize&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/tmr/plib_tmr1.c" line="84"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;TMR1_FrequencyGet&amp;#039; is never used." verbose="The function &amp;#039;TMR1_FrequencyGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/tmr/plib_tmr1.c" line="123"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;TMR1_InterruptDisable&amp;#039; is never used." verbose="The function &amp;#039;TMR1_InterruptDisable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/tmr/plib_tmr1.c" line="177"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;TMR1_IsTimeoutReached&amp;#039; is never used." verbose="The function &amp;#039;TMR1_IsTimeoutReached&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/tmr/plib_tmr1.c" line="144"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;TMR1_PeriodGet&amp;#039; is never used." verbose="The function &amp;#039;TMR1_PeriodGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/tmr/plib_tmr1.c" line="112"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;TMR1_PeriodSet&amp;#039; is never used." verbose="The function &amp;#039;TMR1_PeriodSet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/tmr/plib_tmr1.c" line="106"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;TMR1_ResetTimeOut&amp;#039; is never used." verbose="The function &amp;#039;TMR1_ResetTimeOut&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/tmr/plib_tmr1.c" line="139"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;TMR1_StartTimeOut&amp;#039; is never used." verbose="The function &amp;#039;TMR1_StartTimeOut&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/tmr/plib_tmr1.c" line="133"/>
+        </error>
+        <error id="duplicateConditionalAssign" severity="style" msg="The statement &amp;#039;if (U1STATbits.RXFOIF!=0U) U1STATbits.RXFOIF=0U&amp;#039; is logically equivalent to &amp;#039;U1STATbits.RXFOIF=0U&amp;#039;." verbose="The statement &amp;#039;if (U1STATbits.RXFOIF!=0U) U1STATbits.RXFOIF=0U&amp;#039; is logically equivalent to &amp;#039;U1STATbits.RXFOIF=0U&amp;#039;." cwe="398" file0="config/default/peripheral/uart/plib_uart1.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="95" info="Condition &amp;#039;U1STATbits.RXFOIF!=0U&amp;#039; is redundant"/>
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="97" info="Assignment &amp;#039;U1STATbits.RXFOIF=0U&amp;#039;"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;baud&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;baud&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/uart/plib_uart1.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="177"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;ctrlReg&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;ctrlReg&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/uart/plib_uart1.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="178"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;uxbrg&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;uxbrg&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/uart/plib_uart1.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="179"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;nUnreadBytesAvailable&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;nUnreadBytesAvailable&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/uart/plib_uart1.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="315"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;nFreeWrBufferCount&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;nFreeWrBufferCount&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="config/default/peripheral/uart/plib_uart1.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="494"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;setup&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;setup&amp;#039; can be declared as pointer to const" cwe="398" file0="config/default/peripheral/uart/plib_uart1.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="174"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;pWrBuffer&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;pWrBuffer&amp;#039; can be declared as pointer to const" cwe="398" file0="config/default/peripheral/uart/plib_uart1.c" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="552"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_AutoBaudQuery&amp;#039; is never used." verbose="The function &amp;#039;UART1_AutoBaudQuery&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="638"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_AutoBaudSet&amp;#039; is never used." verbose="The function &amp;#039;UART1_AutoBaudSet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="651"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_ErrorGet&amp;#039; is never used." verbose="The function &amp;#039;UART1_ErrorGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="628"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_Read&amp;#039; is never used." verbose="The function &amp;#039;UART1_Read&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="343"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_ReadBufferSizeGet&amp;#039; is never used." verbose="The function &amp;#039;UART1_ReadBufferSizeGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="405"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_ReadCallbackRegister&amp;#039; is never used." verbose="The function &amp;#039;UART1_ReadCallbackRegister&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="429"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_ReadFreeBufferCountGet&amp;#039; is never used." verbose="The function &amp;#039;UART1_ReadFreeBufferCountGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="400"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_ReadNotificationEnable&amp;#039; is never used." verbose="The function &amp;#039;UART1_ReadNotificationEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="410"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_ReadThresholdSet&amp;#039; is never used." verbose="The function &amp;#039;UART1_ReadThresholdSet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="421"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_SerialSetup&amp;#039; is never used." verbose="The function &amp;#039;UART1_SerialSetup&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="174"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_TransmitComplete&amp;#039; is never used." verbose="The function &amp;#039;UART1_TransmitComplete&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="591"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_Write&amp;#039; is never used." verbose="The function &amp;#039;UART1_Write&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="552"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_WriteBufferSizeGet&amp;#039; is never used." verbose="The function &amp;#039;UART1_WriteBufferSizeGet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="586"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_WriteCallbackRegister&amp;#039; is never used." verbose="The function &amp;#039;UART1_WriteCallbackRegister&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="621"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_WriteNotificationEnable&amp;#039; is never used." verbose="The function &amp;#039;UART1_WriteNotificationEnable&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="602"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UART1_WriteThresholdSet&amp;#039; is never used." verbose="The function &amp;#039;UART1_WriteThresholdSet&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/peripheral/uart/plib_uart1.c" line="613"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;buffer&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;buffer&amp;#039; can be declared as pointer to const" cwe="398" file0="config/default/stdio/xc32_monitor.c" sinceDate="11/30/25">
+            <location file="config/default/stdio/xc32_monitor.c" line="46"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;buffer&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;buffer&amp;#039; can be declared as pointer to const" cwe="398" file0="config/default/stdio/xc32_monitor.c" sinceDate="11/30/25">
+            <location file="config/default/stdio/xc32_monitor.c" line="51"/>
+        </error>
+        <error id="knownConditionTrueFalse" severity="style" msg="Condition &amp;#039;(ch&amp;amp;0x80)==0&amp;#039; is always true" verbose="Condition &amp;#039;(ch&amp;amp;0x80)==0&amp;#039; is always true" cwe="571" file0="lcd_drv/OledChar.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledChar.c" line="305" info="Condition &amp;#039;(ch&amp;amp;0x80)==0&amp;#039; is always true"/>
+            <location file="lcd_drv/OledChar.c" line="299" info="Assuming that condition &amp;#039;(ch&amp;amp;0x80)!=0&amp;#039; is not redundant"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;pb&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;pb&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="lcd_drv/OledChar.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledChar.c" line="153"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;ib&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;ib&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="lcd_drv/OledChar.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledChar.c" line="154"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;pbDef&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;pbDef&amp;#039; can be declared as pointer to const" cwe="398" file0="lcd_drv/OledChar.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledChar.c" line="151"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &amp;#039;pbFont&amp;#039; can be declared as pointer to const" verbose="Variable &amp;#039;pbFont&amp;#039; can be declared as pointer to const" cwe="398" file0="lcd_drv/OledChar.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledChar.c" line="295"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledDefUserChar&amp;#039; is never used." verbose="The function &amp;#039;OledDefUserChar&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledChar.c" line="151"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledGetCharUpdate&amp;#039; is never used." verbose="The function &amp;#039;OledGetCharUpdate&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledChar.c" line="209"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledGetCursor&amp;#039; is never used." verbose="The function &amp;#039;OledGetCursor&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledChar.c" line="124"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledPutChar&amp;#039; is never used." verbose="The function &amp;#039;OledPutChar&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledChar.c" line="232"/>
+        </error>
+        <error id="knownConditionTrueFalse" severity="style" msg="Condition &amp;#039;(ch&amp;amp;0x80)==0&amp;#039; is always true" verbose="Condition &amp;#039;(ch&amp;amp;0x80)==0&amp;#039; is always true" cwe="571" file0="lcd_drv/OledGrph.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="780" info="Condition &amp;#039;(ch&amp;amp;0x80)==0&amp;#039; is always true"/>
+            <location file="lcd_drv/OledGrph.c" line="774" info="Assuming that condition &amp;#039;(ch&amp;amp;0x80)!=0&amp;#039; is not redundant"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;ibPat&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;ibPat&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="lcd_drv/OledGrph.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="459"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;pbCur&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;pbCur&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="lcd_drv/OledGrph.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="460"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;xcoCur&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;xcoCur&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="lcd_drv/OledGrph.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="462"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;mskPat&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;mskPat&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="lcd_drv/OledGrph.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="463"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;pbDspCur&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;pbDspCur&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="lcd_drv/OledGrph.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="563"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;pbBmpCur&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;pbBmpCur&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="lcd_drv/OledGrph.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="565"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;xcoCur&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;xcoCur&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="lcd_drv/OledGrph.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="567"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;pbDspCur&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;pbDspCur&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="lcd_drv/OledGrph.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="663"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;pbBmpCur&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;pbBmpCur&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="lcd_drv/OledGrph.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="665"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;xcoCur&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;xcoCur&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="lcd_drv/OledGrph.c" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="667"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledDrawRect&amp;#039; is never used." verbose="The function &amp;#039;OledDrawRect&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="416"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledDrawString&amp;#039; is never used." verbose="The function &amp;#039;OledDrawString&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="809"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledFillRect&amp;#039; is never used." verbose="The function &amp;#039;OledFillRect&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="453"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledGetBmp&amp;#039; is never used." verbose="The function &amp;#039;OledGetBmp&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="557"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledGetDrawMode&amp;#039; is never used." verbose="The function &amp;#039;OledGetDrawMode&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="247"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledGetPixel&amp;#039; is never used." verbose="The function &amp;#039;OledGetPixel&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="292"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledGetPos&amp;#039; is never used." verbose="The function &amp;#039;OledGetPos&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="111"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledGetStdPattern&amp;#039; is never used." verbose="The function &amp;#039;OledGetStdPattern&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="157"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledSetDrawColor&amp;#039; is never used." verbose="The function &amp;#039;OledSetDrawColor&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="134"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledSetFillPattern&amp;#039; is never used." verbose="The function &amp;#039;OledSetFillPattern&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledGrph.c" line="180"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI1_ExchangeBuffer&amp;#039; is never used." verbose="The function &amp;#039;SPI1_ExchangeBuffer&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/eadog.c" line="89"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;eaDogM_ClearRow&amp;#039; is never used." verbose="The function &amp;#039;eaDogM_ClearRow&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/eadog.c" line="177"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;eaDogM_WriteByteToCGRAM&amp;#039; is never used." verbose="The function &amp;#039;eaDogM_WriteByteToCGRAM&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/eadog.c" line="224"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;eaDogM_WriteIntAtPos&amp;#039; is never used." verbose="The function &amp;#039;eaDogM_WriteIntAtPos&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/eadog.c" line="212"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;eaDogM_WriteString&amp;#039; is never used." verbose="The function &amp;#039;eaDogM_WriteString&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/eadog.c" line="186"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;init_display&amp;#039; is never used." verbose="The function &amp;#039;init_display&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/eadog.c" line="107"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;backlight_off&amp;#039; is never used." verbose="The function &amp;#039;backlight_off&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/lcd_drv.c" line="78"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;backlight_on&amp;#039; is never used." verbose="The function &amp;#039;backlight_on&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/lcd_drv.c" line="72"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledDevInit&amp;#039; is never used." verbose="The function &amp;#039;OledDevInit&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledDriver.c" line="342"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledDisplayOff&amp;#039; is never used." verbose="The function &amp;#039;OledDisplayOff&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledDriver.c" line="417"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledDisplayOn&amp;#039; is never used." verbose="The function &amp;#039;OledDisplayOn&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledDriver.c" line="392"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledHostInit&amp;#039; is never used." verbose="The function &amp;#039;OledHostInit&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledDriver.c" line="244"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledPutBuffer&amp;#039; is never used." verbose="The function &amp;#039;OledPutBuffer&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledDriver.c" line="596"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;OledTerm&amp;#039; is never used." verbose="The function &amp;#039;OledTerm&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledDriver.c" line="215"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SPI1DmaChannelHandler&amp;#039; is never used." verbose="The function &amp;#039;SPI1DmaChannelHandler&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledDriver.c" line="601"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;lcd_version&amp;#039; is never used." verbose="The function &amp;#039;lcd_version&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/OledDriver.c" line="645"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_CCT1Interrupt&amp;#039; is never used." verbose="The function &amp;#039;_CCT1Interrupt&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/interrupts.c" line="89"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_CCT2Interrupt&amp;#039; is never used." verbose="The function &amp;#039;_CCT2Interrupt&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/interrupts.c" line="94"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_DMA0Interrupt&amp;#039; is never used." verbose="The function &amp;#039;_DMA0Interrupt&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/interrupts.c" line="129"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_DMA1Interrupt&amp;#039; is never used." verbose="The function &amp;#039;_DMA1Interrupt&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/interrupts.c" line="134"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_DMA5Interrupt&amp;#039; is never used." verbose="The function &amp;#039;_DMA5Interrupt&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/interrupts.c" line="154"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_SPI1EInterrupt&amp;#039; is never used." verbose="The function &amp;#039;_SPI1EInterrupt&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/interrupts.c" line="109"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_SPI1RXInterrupt&amp;#039; is never used." verbose="The function &amp;#039;_SPI1RXInterrupt&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/interrupts.c" line="99"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_SPI1TXInterrupt&amp;#039; is never used." verbose="The function &amp;#039;_SPI1TXInterrupt&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/interrupts.c" line="104"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_SPI2EInterrupt&amp;#039; is never used." verbose="The function &amp;#039;_SPI2EInterrupt&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/interrupts.c" line="124"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_SPI2RXInterrupt&amp;#039; is never used." verbose="The function &amp;#039;_SPI2RXInterrupt&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/interrupts.c" line="114"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_SPI2TXInterrupt&amp;#039; is never used." verbose="The function &amp;#039;_SPI2TXInterrupt&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/interrupts.c" line="119"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_T1Interrupt&amp;#039; is never used." verbose="The function &amp;#039;_T1Interrupt&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/interrupts.c" line="84"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_U1EInterrupt&amp;#039; is never used." verbose="The function &amp;#039;_U1EInterrupt&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/interrupts.c" line="149"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_U1RXInterrupt&amp;#039; is never used." verbose="The function &amp;#039;_U1RXInterrupt&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/interrupts.c" line="139"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_U1TXInterrupt&amp;#039; is never used." verbose="The function &amp;#039;_U1TXInterrupt&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="config/default/interrupts.c" line="144"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;delay_ms_tick&amp;#039; is never used." verbose="The function &amp;#039;delay_ms_tick&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="timers.c" line="47"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;fft_draw&amp;#039; is never used." verbose="The function &amp;#039;fft_draw&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="gfx.c" line="249"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;vector_graph&amp;#039; is never used." verbose="The function &amp;#039;vector_graph&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="gfx.c" line="12"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;lcd_set_contrast&amp;#039; is never used." verbose="The function &amp;#039;lcd_set_contrast&amp;#039; is never used." cwe="561" sinceDate="11/30/25">
+            <location file="lcd_drv/dogm-graphic.c" line="274"/>
+        </error>
+    </errors>
+</results>

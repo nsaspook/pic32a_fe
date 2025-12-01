@@ -1,0 +1,10 @@
+INTC_Initialize
+INTC_SourceEnable
+INTC_SourceDisable
+INTC_SourceIsEnabled call:[return] noreturn:[return]
+INTC_SourceStatusGet call:[return] noreturn:[return]
+INTC_SourceStatusSet
+INTC_SourceStatusClear
+INTC_Enable call:[__builtin_enable_interrupts] noreturn:[__builtin_enable_interrupts]
+INTC_Disable call:[__builtin_disable_interrupts]
+INTC_Restore call:[__builtin_enable_interrupts] noreturn:[__builtin_enable_interrupts]

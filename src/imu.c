@@ -66,20 +66,20 @@ double get_imu_scale(imu_cmd_t * imu)
 			accelRange = SCL3300_ACCEL_MG_LSB_24G * GRAVITY_EARTH * IMU_ACCEL_MG_SCALE;
 			break;
 		case range_inc1:
-			accelRange = SCL3300_INC1 * GRAVITY_EARTH * IMU_ACCEL_MG_SCALE;
+			accelRange = (double) SCL3300_INC1 * GRAVITY_EARTH * IMU_ACCEL_MG_SCALE;
 			break;
 		case range_inc2:
-			accelRange = SCL3300_INC2 * GRAVITY_EARTH * IMU_ACCEL_MG_SCALE;
+			accelRange = (double) SCL3300_INC2 * GRAVITY_EARTH * IMU_ACCEL_MG_SCALE;
 			break;
 		case range_2g:
 			accelRange = BMA490_ACCEL_MG_LSB_2G * GRAVITY_EARTH * IMU_ACCEL_MG_SCALE;
 			break;
 		default:
 			if (imu->device == IMU_SCA3300) {
-				accelRange = SCA3300_ACCEL_MG_LSB_15G * GRAVITY_EARTH * IMU_ACCEL_MG_SCALE;
+				accelRange = (double) SCA3300_ACCEL_MG_LSB_15G * GRAVITY_EARTH * IMU_ACCEL_MG_SCALE;
 				imu->acc_range = range_15g; // update imu data structure
 			} else {
-				accelRange = SCL3300_ACCEL_MG_LSB_12G * GRAVITY_EARTH * IMU_ACCEL_MG_SCALE;
+				accelRange = (double) SCL3300_ACCEL_MG_LSB_12G * GRAVITY_EARTH * IMU_ACCEL_MG_SCALE;
 				imu->acc_range = range_12g; // update imu data structure
 			}
 			break;
@@ -90,8 +90,8 @@ double get_imu_scale(imu_cmd_t * imu)
 
 void getAllData(sSensorData_t *accel, imu_cmd_t * imu)
 {
-	int16_t x = 0, y = 0, z = 0;
-	int16_t xa = 0, ya = 0, za = 0;
+	int16_t x, y, z;
+	int16_t xa, ya, za;
 	double accelRange;
 
 	accelRange = get_imu_scale(imu);
@@ -109,17 +109,17 @@ void getAllData(sSensorData_t *accel, imu_cmd_t * imu)
 			xa = sdata.scan.channels[SCL3300_ANG_X];
 			ya = sdata.scan.channels[SCL3300_ANG_Y];
 			za = sdata.scan.channels[SCL3300_ANG_Z];
-			accel->xa = xa / ANGLE_RES1 * ANGLE_RES2; // scale angle data
-			accel->ya = ya / ANGLE_RES1 * ANGLE_RES2;
-			accel->za = za / ANGLE_RES1 * ANGLE_RES2;
-			accel->x = x * accelRange; // scale to the correct units
-			accel->y = y * accelRange;
-			accel->z = z * accelRange;
+			accel->xa = (double) xa / ANGLE_RES1 * ANGLE_RES2; // scale angle data
+			accel->ya = (double) ya / ANGLE_RES1 * ANGLE_RES2;
+			accel->za = (double) za / ANGLE_RES1 * ANGLE_RES2;
+			accel->x = (double) x * accelRange; // scale to the correct units
+			accel->y = (double) y * accelRange;
+			accel->z = (double) z * accelRange;
 		}
 	}
 }
 
-const uint8_t * imu_string(imu_cmd_t * imu)
+const uint8_t * imu_string(const imu_cmd_t * imu)
 {
 	const uint8_t * str_ptr = imu_name[IMU_NONE];
 

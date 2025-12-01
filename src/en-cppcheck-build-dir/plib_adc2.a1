@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="9061281179923980303">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.c" line="43" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.c" line="44" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.c" line="45" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.c" line="46" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;interrupts.h&quot; not found." verbose="Include file: &quot;interrupts.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.c" line="47" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc_common.h" line="45" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;xc.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;xc.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.h" line="47" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.h" line="48" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.h" line="49" column="0"/>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.h" functionName="ADC2_Enable" lineNumber="110" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.h" functionName="ADC2_Disable" lineNumber="123" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.h" functionName="ADC2_SoftwareTriggerEnable" lineNumber="134" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.h" functionName="ADC2_ChannelSoftwareTriggerEnable" lineNumber="145" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.h" functionName="ADC2_ChannelResultGet" lineNumber="166" column="24"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.h" functionName="ADC2_ChannelResultIsReady" lineNumber="192" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.h" functionName="ADC2_ChannelResultInterruptEnable" lineNumber="213" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.h" functionName="ADC2_ChannelResultInterruptDisable" lineNumber="231" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.h" functionName="ADC2_ChannelResultFlagClear" lineNumber="252" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.h" functionName="ADC2_CompareStatusGet" lineNumber="271" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.h" functionName="ADC2_IndividualChannelInterruptPrioritySet" lineNumber="296" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.c" functionName="ADC2_Initialize" lineNumber="120" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.c" functionName="ADC2_Deinitialize" lineNumber="144" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.c" functionName="ADC2_TriggerSourceValueGet" lineNumber="168" column="17"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.c" functionName="ADC2_PWMTriggerSourceSet" lineNumber="194" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/adc/plib_adc2.c" functionName="ADC2_ChannelCallbackRegister" lineNumber="209" column="6"/>
+    <functioncall functionName="AD2CH4DATA"/>
+    <functioncall functionName="ADC2_Disable"/>
+    <functioncall functionName="ADC2_TriggerSourceValueGet"/>
+    <functioncall functionName="_AD2CON_ON_MASK"/>
+    <functioncall functionName="false"/>
+  </FileInfo>
+</analyzerinfo>

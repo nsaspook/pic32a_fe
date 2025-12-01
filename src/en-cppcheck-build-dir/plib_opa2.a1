@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="5658565353534594544">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.c" line="45" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.c" line="46" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.c" line="47" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.c" line="48" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.h" line="28" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.h" line="29" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.h" line="30" column="0"/>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.h" functionName="OPA2_Enable" lineNumber="75" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.h" functionName="OPA2_Disable" lineNumber="90" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.h" functionName="OPA2_UnityGainEnable" lineNumber="104" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.h" functionName="OPA2_HighPowerModeEnable" lineNumber="118" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.h" functionName="OPA2_OutputMonitorEnable" lineNumber="133" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.h" functionName="OPA2_DifferentialInputModeSet" lineNumber="147" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.h" functionName="OPA2_OffsetCorrection" lineNumber="159" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.c" functionName="OPA2_Initialize" lineNumber="53" column="7"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/opa/plib_opa2.c" functionName="OPA2_Deinitialize" lineNumber="62" column="6"/>
+    <functioncall functionName="OPA2_Disable"/>
+    <functioncall functionName="OPA2_Enable"/>
+    <functioncall functionName="OPA2_HighPowerModeEnable"/>
+    <functioncall functionName="OPA2_UnityGainEnable"/>
+    <functioncall functionName="true"/>
+  </FileInfo>
+</analyzerinfo>

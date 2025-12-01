@@ -1,0 +1,13 @@
+SPI2_Initialize global:[spi2Obj]
+SPI2_Deinitialize
+SPI2_TransferSetup
+SPI2_Write call:[SPI2_WriteRead,return] noreturn:[return]
+SPI2_Read call:[SPI2_WriteRead,return] noreturn:[return]
+SPI2_IsTransmitterBusy call:[return]
+SPI2_IsBusy global:[spi2Obj] call:[return] noreturn:[return]
+SPI2_CallbackRegister global:[spi2Obj]
+SPI_FIFO_Fill global:[spi2Obj]
+SPI2_WriteRead global:[spi2Obj] call:[SPI_FIFO_Fill]
+SPI2RX_InterruptHandler global:[spi2Obj] call:[SPI_FIFO_Fill,callback] noreturn:[callback]
+SPI2E_InterruptHandler global:[spi2Obj] call:[callback] noreturn:[callback]
+SPI2TX_InterruptHandler global:[spi2Obj]

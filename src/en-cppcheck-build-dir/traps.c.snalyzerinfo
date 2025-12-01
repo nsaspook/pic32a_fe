@@ -1,0 +1,8 @@
+TRAPS_halt_on_error global:[exception_address,exception_code] call:[__builtin_software_breakpoint] noreturn:[__builtin_software_breakpoint]
+use_failsafe_stack call:[asm,sizeof]
+_BusErrorTrap call:[TRAPS_halt_on_error] noreturn:[TRAPS_halt_on_error]
+_AddressErrorTrap call:[TRAPS_halt_on_error] noreturn:[TRAPS_halt_on_error]
+_GeneralTrap call:[TRAPS_halt_on_error] noreturn:[TRAPS_halt_on_error]
+_MathErrorTrap call:[TRAPS_halt_on_error] noreturn:[TRAPS_halt_on_error]
+_StackErrorTrap call:[TRAPS_halt_on_error,use_failsafe_stack] noreturn:[TRAPS_halt_on_error]
+_IllegalInstructionTrap call:[TRAPS_halt_on_error] noreturn:[TRAPS_halt_on_error]

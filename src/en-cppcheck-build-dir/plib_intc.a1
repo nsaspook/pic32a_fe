@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="13569731486598227948">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.h" line="48" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.h" line="49" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.h" line="50" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;interrupts.h&quot; not found." verbose="Include file: &quot;interrupts.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.c" line="44" column="0"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;IECx&apos; can be declared as pointer to const" verbose="Variable &apos;IECx&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.c" line="83" column="24" info="Variable &apos;IECx&apos; can be declared as pointer to const"/>
+            <symbol>IECx</symbol>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;IFSx&apos; can be declared as pointer to const" verbose="Variable &apos;IFSx&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.c" line="90" column="24" info="Variable &apos;IFSx&apos; can be declared as pointer to const"/>
+            <symbol>IFSx</symbol>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.c" functionName="INTC_Initialize" lineNumber="47" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.c" functionName="INTC_SourceEnable" lineNumber="69" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.c" functionName="INTC_SourceDisable" lineNumber="75" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.c" functionName="INTC_SourceIsEnabled" lineNumber="81" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.c" functionName="INTC_SourceStatusGet" lineNumber="88" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.c" functionName="INTC_SourceStatusSet" lineNumber="95" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.c" functionName="INTC_SourceStatusClear" lineNumber="101" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.c" functionName="INTC_Enable" lineNumber="107" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.c" functionName="INTC_Disable" lineNumber="112" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/intc/plib_intc.c" functionName="INTC_Restore" lineNumber="125" column="6"/>
+    <functioncall functionName="__builtin_disable_interrupts"/>
+    <functioncall functionName="__builtin_enable_interrupts"/>
+  </FileInfo>
+</analyzerinfo>

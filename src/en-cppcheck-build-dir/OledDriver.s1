@@ -1,0 +1,21 @@
+lcd_get_position_page global:[lcd_current_page]
+lcd_get_position_column global:[lcd_current_column]
+OledInit call:[DMA_ChannelCallbackRegister,OledClear,OledDvrInit] noreturn:[OledClear]
+OledTerm call:[OledDevTerm,OledHostTerm] noreturn:[OledHostTerm]
+OledHostInit
+OledHostTerm
+OledDvrInit global:[clrOledCur,dxcoOledFontCur,dycoOledFontCur,fOledCharUpdate,pbOledFontCur,pbOledFontUser,pbOledPatCur,rgbFillPat,rgbOledFont0,rgbOledFontUser,xchOledMax,ychOledMax] call:[OledSetCursor,OledSetDrawMode]
+OledDevInit
+OledDevTerm
+OledDisplayOn
+OledDisplayOff
+OledClear call:[OledClearBuffer,OledUpdate,wait_lcd_done] noreturn:[OledUpdate]
+CBDmaChannelHandler
+OledClearBuffer global:[disp_frame,dstate,rgbOledBmp0] call:[memset,wait_lcd_done] noreturn:[memset]
+OledUpdate call:[SPI1DmaChannelHandler_State,wait_lcd_done]
+SPI1DmaChannelHandler_State global:[disp_frame,dstate,rgbOledBmp0,rgbOledBmp_page] call:[CSB_SetHigh,CSB_SetLow,DMA_ChannelTransfer,RS_SetHigh,RS_SetLow,lcd_moveto_xy] noreturn:[CSB_SetHigh]
+OledPutBuffer call:[SPI1_to_Buffer] noreturn:[SPI1_to_Buffer]
+SPI1DmaChannelHandler call:[CSB_SetHigh] noreturn:[CSB_SetHigh]
+SPI1_to_Buffer global:[rgbOledBmp_page] call:[CSB_SetLow,DMA_ChannelTransfer,RS_SetHigh,RS_SetLow,wait_lcd_done] noreturn:[DMA_ChannelTransfer]
+wait_lcd_done call:[DMA_ChannelIsBusy]
+lcd_version global:[build_date,build_time] call:[printf] noreturn:[printf]

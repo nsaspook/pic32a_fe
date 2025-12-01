@@ -1,0 +1,7 @@
+lcd_get_position_page global:[lcd_current_page]
+lcd_get_position_column global:[lcd_current_column]
+line_rot call:[OledLineTo,OledMoveTo] noreturn:[OledLineTo]
+vector_graph global:[q1,q2,q3,sine_res,sinea,sineb,sinec] call:[cos,line_rot,sin]
+vector_graph_fs global:[q0,q1,q2,q3,sine_res,sinea,sineb,sinec] call:[OledLineTo,OledMoveTo,cos,line_rot,sin]
+LA_gfx global:[xa,ya,za] call:[OledLineTo,OledMoveTo] noreturn:[OledLineTo]
+fft_draw call:[line_rot] noreturn:[line_rot]

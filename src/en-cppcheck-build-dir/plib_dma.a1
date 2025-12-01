@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="12945327509736192626">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;device.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;device.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.h" line="56" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.h" line="57" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.h" line="58" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;interrupts.h&quot; not found." verbose="Include file: &quot;interrupts.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" line="48" column="0"/>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA_Initialize" lineNumber="120" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA_Deinitialize" lineNumber="191" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA_ChannelTransfer" lineNumber="254" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA_ChannelPatternMatchSetup" lineNumber="308" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA_ChannelEnable" lineNumber="342" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA_ChannelDisable" lineNumber="367" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA_ChannelPatternMatchEnable" lineNumber="392" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA_ChannelPatternMatchDisable" lineNumber="414" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA_IsSoftwareRequestPending" lineNumber="436" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA_ChannelSoftwareTriggerEnable" lineNumber="460" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA_ChannelGetTransferredCount" lineNumber="482" column="10"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA_ChannelIsBusy" lineNumber="506" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA_ChannelSettingsGet" lineNumber="548" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA_ChannelSettingsSet" lineNumber="572" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA_ChannelCallbackRegister" lineNumber="600" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA0_InterruptHandler" lineNumber="607" column="28"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA1_InterruptHandler" lineNumber="654" column="28"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/dma/plib_dma.c" functionName="DMA5_InterruptHandler" lineNumber="701" column="28"/>
+    <functioncall functionName="DMA0CH"/>
+    <functioncall functionName="DMA0CNT"/>
+    <functioncall functionName="DMA1CH"/>
+    <functioncall functionName="DMA1CNT"/>
+    <functioncall functionName="DMA5CH"/>
+    <functioncall functionName="DMA5CNT"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="_DMA0CH_DONEEN_MASK"/>
+    <functioncall functionName="_DMA1CH_DONEEN_MASK"/>
+    <functioncall functionName="_DMA5CH_DONEEN_MASK"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="true"/>
+  </FileInfo>
+</analyzerinfo>

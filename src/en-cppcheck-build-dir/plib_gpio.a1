@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="5882526208271025092">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;device.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;device.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.h" line="43" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.h" line="44" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.h" line="45" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.h" line="46" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;interrupts.h&quot; not found." verbose="Include file: &quot;interrupts.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.c" line="42" column="0"/>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.h" functionName="GPIO_PinWrite" lineNumber="455" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.h" functionName="GPIO_PinRead" lineNumber="476" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.h" functionName="GPIO_PinLatchRead" lineNumber="497" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.h" functionName="GPIO_PinToggle" lineNumber="515" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.h" functionName="GPIO_PinSet" lineNumber="533" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.h" functionName="GPIO_PinClear" lineNumber="551" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.h" functionName="GPIO_PinInputEnable" lineNumber="569" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.h" functionName="GPIO_PinOutputEnable" lineNumber="587" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.c" functionName="GPIO_Initialize" lineNumber="65" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.c" functionName="GPIO_PortRead" lineNumber="124" column="11"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.c" functionName="GPIO_PortWrite" lineNumber="129" column="7"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.c" functionName="GPIO_PortLatchRead" lineNumber="134" column="11"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.c" functionName="GPIO_PortSet" lineNumber="139" column="7"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.c" functionName="GPIO_PortClear" lineNumber="144" column="7"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.c" functionName="GPIO_PortToggle" lineNumber="149" column="7"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.c" functionName="GPIO_PortInputEnable" lineNumber="154" column="7"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/gpio/plib_gpio.c" functionName="GPIO_PortOutputEnable" lineNumber="159" column="7"/>
+    <functioncall functionName="GPIO_PortClear"/>
+    <functioncall functionName="GPIO_PortInputEnable"/>
+    <functioncall functionName="GPIO_PortLatchRead"/>
+    <functioncall functionName="GPIO_PortOutputEnable"/>
+    <functioncall functionName="GPIO_PortRead"/>
+    <functioncall functionName="GPIO_PortSet"/>
+    <functioncall functionName="GPIO_PortToggle"/>
+    <functioncall functionName="GPIO_PortWrite"/>
+  </FileInfo>
+</analyzerinfo>

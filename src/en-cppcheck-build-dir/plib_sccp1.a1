@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="14309670946272489631">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.c" line="52" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.h" line="47" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.h" line="48" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.h" line="49" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_ccp_common.h" line="57" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;interrupts.h&quot; not found." verbose="Include file: &quot;interrupts.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.c" line="54" column="0"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;context&apos; can be reduced." verbose="The scope of the variable &apos;context&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.c" line="116" column="15"/>
+            <symbol>context</symbol>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.c" functionName="SCCP1_TimerInitialize" lineNumber="59" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.c" functionName="SCCP1_TimerStart" lineNumber="81" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.c" functionName="SCCP1_TimerStop" lineNumber="87" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.c" functionName="SCCP1_Timer32bitPeriodSet" lineNumber="92" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.c" functionName="SCCP1_Timer32bitPeriodGet" lineNumber="97" column="10"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.c" functionName="SCCP1_Timer32bitCounterGet" lineNumber="102" column="10"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.c" functionName="SCCP1_TimerFrequencyGet" lineNumber="108" column="10"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.c" functionName="CCT1_InterruptHandler" lineNumber="113" column="28"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.c" functionName="SCCP1_TimerInterruptEnable" lineNumber="127" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.c" functionName="SCCP1_TimerInterruptDisable" lineNumber="134" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/ccp/plib_sccp1.c" functionName="SCCP1_TimerCallbackRegister" lineNumber="140" column="6"/>
+    <functioncall functionName="CCP1PR"/>
+    <functioncall functionName="CCP1TMR"/>
+    <functioncall functionName="CCT1IF"/>
+  </FileInfo>
+</analyzerinfo>

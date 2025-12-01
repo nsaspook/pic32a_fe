@@ -120,10 +120,10 @@ int main(void)
 				}
 				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);
 				eaDogM_WriteStringAtPos(2, 0, buffer);
-				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f, %d   ", accel.x, accel.y, accel.z, imu0.rs);
+				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f, %u   ", accel.x, accel.y, accel.z, imu0.rs);
 				eaDogM_WriteStringAtPos(3, 0, buffer);
-				adc1_scaled = (uint16_t) adc_result[ADC1_D] * ADC1_SCALE;
-				adc2_scaled = (uint16_t) adc_result[ADC2_D] * ADC2_SCALE;
+				adc1_scaled = (double) adc_result[ADC1_D] * ADC1_SCALE;
+				adc2_scaled = (double) adc_result[ADC2_D] * ADC2_SCALE;
 				snprintf(buffer, IMU_BUF - 1, "ADC1 Voltage : %7.4f Volts", adc1_scaled);
 				eaDogM_WriteStringAtPos(4, 0, buffer);
 				snprintf(buffer, IMU_BUF - 1, "ADC2 Voltage : %7.4f Volts", adc2_scaled);
@@ -145,7 +145,7 @@ int main(void)
 				OledClearBuffer();
 				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);
 				eaDogM_WriteStringAtPos(2, 0, buffer);
-				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f, %d   ", accel.x, accel.y, accel.z, imu0.rs);
+				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f, %u   ", accel.x, accel.y, accel.z, imu0.rs);
 				eaDogM_WriteStringAtPos(3, 0, buffer);
 				vector_graph_fs();
 				OledUpdate();

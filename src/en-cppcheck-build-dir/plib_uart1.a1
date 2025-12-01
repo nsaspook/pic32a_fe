@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="4502955920952742456">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;xc.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;xc.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="43" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="44" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="45" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="46" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="47" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;interrupts.h&quot; not found." verbose="Include file: &quot;interrupts.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="48" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.h" line="47" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.h" line="48" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.h" line="49" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart_common.h" line="45" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart_common.h" line="46" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart_common.h" line="47" column="0"/>
+        </error>
+        <error id="duplicateConditionalAssign" severity="style" msg="The statement &apos;if (U1STATbits.RXFOIF!=0U) U1STATbits.RXFOIF=0U&apos; is logically equivalent to &apos;U1STATbits.RXFOIF=0U&apos;." verbose="The statement &apos;if (U1STATbits.RXFOIF!=0U) U1STATbits.RXFOIF=0U&apos; is logically equivalent to &apos;U1STATbits.RXFOIF=0U&apos;." cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="95" column="30" info="Condition &apos;U1STATbits.RXFOIF!=0U&apos; is redundant"/>
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="97" column="31" info="Assignment &apos;U1STATbits.RXFOIF=0U&apos;"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;baud&apos; can be reduced." verbose="The scope of the variable &apos;baud&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="177" column="14"/>
+            <symbol>baud</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;ctrlReg&apos; can be reduced." verbose="The scope of the variable &apos;ctrlReg&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="178" column="14"/>
+            <symbol>ctrlReg</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;uxbrg&apos; can be reduced." verbose="The scope of the variable &apos;uxbrg&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="179" column="14"/>
+            <symbol>uxbrg</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;nUnreadBytesAvailable&apos; can be reduced." verbose="The scope of the variable &apos;nUnreadBytesAvailable&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="315" column="14"/>
+            <symbol>nUnreadBytesAvailable</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;nFreeWrBufferCount&apos; can be reduced." verbose="The scope of the variable &apos;nFreeWrBufferCount&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="494" column="14"/>
+            <symbol>nFreeWrBufferCount</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;setup&apos; can be declared as pointer to const" verbose="Parameter &apos;setup&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="174" column="44" info="Parameter &apos;setup&apos; can be declared as pointer to const"/>
+            <symbol>setup</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;pWrBuffer&apos; can be declared as pointer to const" verbose="Parameter &apos;pWrBuffer&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="552" column="29" info="Parameter &apos;pWrBuffer&apos; can be declared as pointer to const"/>
+            <symbol>pWrBuffer</symbol>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c:437:13" call-funcname="UART1_TxPullByte" call-argnr="1" file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" line="717" col="33" call-argexpr="&amp;wrByte" call-argvaluetype="7" call-argvalue="2" call-argvalue-ufr="0"/>  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_ErrorClear" lineNumber="85" column="13"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_Initialize" lineNumber="119" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_SerialSetup" lineNumber="174" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_RxPushByte" lineNumber="261" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_ReadNotificationSend" lineNumber="313" column="13"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_Read" lineNumber="343" column="8"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_ReadCountGet" lineNumber="378" column="8"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_ReadFreeBufferCountGet" lineNumber="400" column="8"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_ReadBufferSizeGet" lineNumber="405" column="8"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_ReadNotificationEnable" lineNumber="410" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_ReadThresholdSet" lineNumber="421" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_ReadCallbackRegister" lineNumber="429" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_TxPullByte" lineNumber="437" column="13"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_TxPushByte" lineNumber="461" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_WriteNotificationSend" lineNumber="492" column="13"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_WritePendingBytesGet" lineNumber="522" column="15"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_WriteCountGet" lineNumber="543" column="8"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_Write" lineNumber="552" column="8"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_WriteFreeBufferCountGet" lineNumber="581" column="8"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_WriteBufferSizeGet" lineNumber="586" column="8"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_TransmitComplete" lineNumber="591" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_WriteNotificationEnable" lineNumber="602" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_WriteThresholdSet" lineNumber="613" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_WriteCallbackRegister" lineNumber="621" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_ErrorGet" lineNumber="628" column="12"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_AutoBaudQuery" lineNumber="638" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="UART1_AutoBaudSet" lineNumber="651" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="U1E_InterruptHandler" lineNumber="662" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="U1RX_InterruptHandler" lineNumber="685" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/uart/plib_uart1.c" functionName="U1TX_InterruptHandler" lineNumber="704" column="6"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="U1RXB"/>
+    <functioncall functionName="UART1_ErrorClear"/>
+    <functioncall functionName="UART1_ReadCountGet"/>
+    <functioncall functionName="UART1_ReadNotificationSend"/>
+    <functioncall functionName="UART1_RxPushByte"/>
+    <functioncall functionName="UART1_TxPullByte"/>
+    <functioncall functionName="UART1_TxPushByte"/>
+    <functioncall functionName="UART1_WriteCountGet"/>
+    <functioncall functionName="UART1_WriteFreeBufferCountGet"/>
+    <functioncall functionName="UART1_WriteNotificationSend"/>
+    <functioncall functionName="UART1_WritePendingBytesGet"/>
+    <functioncall functionName="_U1CON_RXEN_MASK"/>
+    <functioncall functionName="_U1STAT_PERIE_MASK"/>
+    <functioncall functionName="_U1STAT_PERIF_MASK"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="true"/>
+  </FileInfo>
+</analyzerinfo>

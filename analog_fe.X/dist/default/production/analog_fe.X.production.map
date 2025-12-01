@@ -193,7 +193,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.DMA1_InterruptHandler  0x805a28                0xb8            0xb8  (184)
 .text.DMA5_InterruptHandler  0x805ae0                0xb8            0xb8  (184)
 .text.sca3300_set_spimode  0x805b98                0xb4            0xb4  (180)
-/tmp/ccvV2IXO.s.scn1      0x805c4c                0xb0            0xb0  (176)
+/tmp/ccEkWPIW.s.scn1      0x805c4c                0xb0            0xb0  (176)
 .text.lcd_moveto_xy       0x805cfc                0xac            0xac  (172)
 .text.lcd_init            0x805da8                0xac            0xac  (172)
 .text.lcd_clear_area      0x805e54                0xa8            0xa8  (168)
@@ -214,7 +214,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.OledMoveTo          0x806620                0x5c            0x5c  (92)
 .text.sca3300_imu_transfer  0x80667c                0x5c            0x5c  (92)
 .text.ADC2_Initialize     0x8066d8                0x50            0x50  (80)
-/tmp/cc8SDmf9.s.scn1      0x806728                0x4c            0x4c  (76)
+/tmp/ccmi8GdV.s.scn1      0x806728                0x4c            0x4c  (76)
 .text.SYS_Initialize      0x806774                0x48            0x48  (72)
 .text.SPI2E_InterruptHandler  0x8067bc                0x44            0x44  (68)
 .text.SPI1_Initialize     0x806800                0x44            0x44  (68)
@@ -237,7 +237,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.timer_ms_tick       0x806c04                0x34            0x34  (52)
 .text.wait_lcd_done       0x806c38                0x30            0x30  (48)
 .text.delay_us.part.0     0x806c68                0x60            0x60  (96)
-/tmp/ccwGoywA.s.scn1      0x806cc8                0x30            0x30  (48)
+/tmp/ccZVPKj8.s.scn1      0x806cc8                0x30            0x30  (48)
 .text.TMR1_Initialize     0x806cf8                0x2c            0x2c  (44)
 .text.T1_InterruptHandler  0x806d24                0x2c            0x2c  (44)
 .text.OledClearBuffer     0x806d50                0x28            0x28  (40)
@@ -281,7 +281,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.TMR1_InterruptEnable  0x807054                 0x8             0x8  (8)
 .text.write               0x80705c                 0x8             0x8  (8)
 .text.TRAPS_halt_on_error  0x807064                 0x8             0x8  (8)
-/tmp/ccvV2IXO.s.scn2      0x80706c                 0x8             0x8  (8)
+/tmp/ccEkWPIW.s.scn2      0x80706c                 0x8             0x8  (8)
 .text.CBDmaChannelHandler  0x807074                 0x4             0x4  (4)
 .text.SCCP2_Callback_InterruptHandler  0x807078                 0x4             0x4  (4)
 
@@ -371,7 +371,7 @@ _0x7f900ee7aea0_at_address_0x4000    0x4000                   0           0xf00 
 .nbss.time_done             0x5662                   0             0x2  (2)
 .data                       0x5664                   0            0x30  (48)
 .bss                        0x5694                   0             0x4  (4)
-_0x7fbf66cfd5a0_at_address_0x6000    0x6000                   0            0x5c  (92)
+_0x7f11efcfd5a0_at_address_0x6000    0x6000                   0            0x5c  (92)
 
                       Total "data" memory used (bytes):         0x16f4  (5876) 35%
 
@@ -1959,7 +1959,7 @@ __FWPUCB
  .comment           0x1600         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
  .comment           0x165c         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libm-elf.a(floorl.GENERIC-32PIC-AK_o)
 
-.debug_info         0x0000      0x1a289
+.debug_info         0x0000      0x1a290
  *(.debug_info)
  .debug_info        0x0000       0x11a3 build/default/production/_ext/60163342/plib_adc2.o
  .debug_info        0x11a3        0x801 build/default/production/_ext/60165246/plib_sccp1.o
@@ -1994,12 +1994,12 @@ __FWPUCB
  .debug_info        0x161f2        0x556 build/default/production/_ext/1360937237/timers.o
  .debug_info        0x16748       0x17e4 build/default/production/_ext/1360937237/is66.o
  .debug_info        0x17f2c       0x17c6 build/default/production/_ext/1360937237/sca3300.o
- .debug_info        0x196f2        0xb4b build/default/production/_ext/1360937237/imu.o
- .debug_info        0x1a23d         0x26 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_info        0x1a263         0x26 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_info        0x196f2        0xb52 build/default/production/_ext/1360937237/imu.o
+ .debug_info        0x1a244         0x26 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_info        0x1a26a         0x26 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev       0x0000       0x3cbc
+.debug_abbrev       0x0000       0x3ccb
  *(.debug_abbrev)
  .debug_abbrev      0x0000        0x1fd build/default/production/_ext/60163342/plib_adc2.o
  .debug_abbrev      0x01fd        0x17d build/default/production/_ext/60165246/plib_sccp1.o
@@ -2034,11 +2034,11 @@ __FWPUCB
  .debug_abbrev      0x32d8        0x180 build/default/production/_ext/1360937237/timers.o
  .debug_abbrev      0x3458        0x23f build/default/production/_ext/1360937237/is66.o
  .debug_abbrev      0x3697        0x3c7 build/default/production/_ext/1360937237/sca3300.o
- .debug_abbrev      0x3a5e        0x236 build/default/production/_ext/1360937237/imu.o
- .debug_abbrev      0x3c94         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_abbrev      0x3ca8         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_abbrev      0x3a5e        0x245 build/default/production/_ext/1360937237/imu.o
+ .debug_abbrev      0x3ca3         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_abbrev      0x3cb7         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
 
-.debug_line         0x0000       0x815d
+.debug_line         0x0000       0x816f
  *(.debug_line)
  .debug_line        0x0000        0x275 build/default/production/_ext/60163342/plib_adc2.o
  .debug_line        0x0275        0x28b build/default/production/_ext/60165246/plib_sccp1.o
@@ -2073,9 +2073,9 @@ __FWPUCB
  .debug_line        0x7342        0x154 build/default/production/_ext/1360937237/timers.o
  .debug_line        0x7496        0x365 build/default/production/_ext/1360937237/is66.o
  .debug_line        0x77fb        0x699 build/default/production/_ext/1360937237/sca3300.o
- .debug_line        0x7e94        0x21b build/default/production/_ext/1360937237/imu.o
- .debug_line        0x80af         0x5e /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_line        0x810d         0x50 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_line        0x7e94        0x22d build/default/production/_ext/1360937237/imu.o
+ .debug_line        0x80c1         0x5e /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_line        0x811f         0x50 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
 
 .debug_frame        0x0000       0x1a10
  *(.debug_frame)
@@ -2150,7 +2150,7 @@ __FWPUCB
  .debug_str         0x0a3c         0x52 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
  .debug_str         0x0a8e         0x4f /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
 
-.debug_loc          0x0000       0x5eb5
+.debug_loc          0x0000       0x5e65
  *(.debug_loc)
  .debug_loc         0x0000        0x13c build/default/production/_ext/60163342/plib_adc2.o
  .debug_loc         0x013c         0x2b build/default/production/_ext/60165246/plib_sccp1.o
@@ -2180,7 +2180,7 @@ __FWPUCB
  .debug_loc         0x532a        0x148 build/default/production/_ext/1360937237/timers.o
  .debug_loc         0x5472         0x97 build/default/production/_ext/1360937237/is66.o
  .debug_loc         0x5509        0x748 build/default/production/_ext/1360937237/sca3300.o
- .debug_loc         0x5c51        0x264 build/default/production/_ext/1360937237/imu.o
+ .debug_loc         0x5c51        0x214 build/default/production/_ext/1360937237/imu.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -5265,9 +5265,9 @@ _0x7f900ee7aea0_at_address_0x4000
                     0x4000        0xf00 build/default/production/_ext/285195972/OledDriver.o
                     0x4000                  _rgbOledBmp0
 
-_0x7fbf66cfd5a0_at_address_0x6000
+_0x7f11efcfd5a0_at_address_0x6000
                     0x6000         0x5c
- _0x7fbf66cfd5a0_at_address_0x6000
+ _0x7f11efcfd5a0_at_address_0x6000
                     0x6000         0x5c build/default/production/_ext/1360937237/main.o
                     0x6000                  _imu0
 
@@ -5973,9 +5973,9 @@ __ivt_0           0x800004        0x47c
                   0x805b98         0xb4 build/default/production/_ext/1360937237/sca3300.o
                   0x805b98                  _sca3300_set_spimode
 
-/tmp/ccvV2IXO.s.scn1
+/tmp/ccEkWPIW.s.scn1
                   0x805c4c         0xb0
- /tmp/ccvV2IXO.s.scn1
+ /tmp/ccEkWPIW.s.scn1
                   0x805c4c         0xb0 build/default/production/_ext/1360937237/main.o
 
 .text.lcd_moveto_xy
@@ -6098,9 +6098,9 @@ __ivt_0           0x800004        0x47c
                   0x8066d8         0x50 build/default/production/_ext/60163342/plib_adc2.o
                   0x8066d8                  _ADC2_Initialize
 
-/tmp/cc8SDmf9.s.scn1
+/tmp/ccmi8GdV.s.scn1
                   0x806728         0x4c
- /tmp/cc8SDmf9.s.scn1
+ /tmp/ccmi8GdV.s.scn1
                   0x806728         0x4c build/default/production/_ext/1360937237/sca3300.o
 
 .text.SYS_Initialize
@@ -6236,9 +6236,9 @@ __ivt_0           0x800004        0x47c
  .text.delay_us.part.0
                   0x806c98         0x30 build/default/production/_ext/1360937237/sca3300.o
 
-/tmp/ccwGoywA.s.scn1
+/tmp/ccZVPKj8.s.scn1
                   0x806cc8         0x30
- /tmp/ccwGoywA.s.scn1
+ /tmp/ccZVPKj8.s.scn1
                   0x806cc8         0x30 build/default/production/_ext/1360937237/imu.o
 
 .text.TMR1_Initialize
@@ -6495,9 +6495,9 @@ __ivt_0           0x800004        0x47c
                   0x807064          0x8 build/default/production/_ext/1171490990/traps.o
                   0x807064                  _TRAPS_halt_on_error
 
-/tmp/ccvV2IXO.s.scn2
+/tmp/ccEkWPIW.s.scn2
                   0x80706c          0x8
- /tmp/ccvV2IXO.s.scn2
+ /tmp/ccEkWPIW.s.scn2
                   0x80706c          0x8 build/default/production/_ext/1360937237/main.o
                   0x80706c                  _iss_read_id
 

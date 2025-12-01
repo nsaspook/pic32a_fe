@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="10228184084629507049">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;xc.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;xc.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" line="56" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" line="57" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" line="58" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.c" line="44" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.c" line="45" column="0"/>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" functionName="QEI1_Disable" lineNumber="108" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" functionName="QEI1_Enable" lineNumber="133" column="21"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" functionName="QEI1_PositionCountRead" lineNumber="157" column="24"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" functionName="QEI1_PositionCount16bitRead" lineNumber="182" column="24"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" functionName="QEI1_PositionCountWrite" lineNumber="205" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" functionName="QEI1_ModuloRangeSet" lineNumber="230" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" functionName="QEI1_PhaseInputSwappedGet" lineNumber="258" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" functionName="QEI1_PhaseInputSwappedSet" lineNumber="284" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" functionName="QEI1_PositionCaptureEnable" lineNumber="317" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" functionName="QEI1_PositionCaptureDisable" lineNumber="341" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" functionName="QEI1_PositionCaptureGet" lineNumber="366" column="24"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" functionName="QEI1_PositionCapture16bitGet" lineNumber="391" column="24"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" functionName="QEI1_PositionCaptureSet" lineNumber="415" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" functionName="QEI1_CounterModeSet" lineNumber="442" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.h" functionName="QEI1_IMVGatedValueSet" lineNumber="471" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.c" functionName="QEI1_Initialize" lineNumber="77" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/qei/plib_qei1.c" functionName="QEI1_Deinitialize" lineNumber="107" column="6"/>
+    <functioncall functionName="POS1CNT"/>
+    <functioncall functionName="QEI1GEC"/>
+    <functioncall functionName="QEI1_Disable"/>
+    <functioncall functionName="SWPAB"/>
+  </FileInfo>
+</analyzerinfo>

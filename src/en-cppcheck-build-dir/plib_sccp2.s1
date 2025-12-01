@@ -1,0 +1,11 @@
+SCCP2_TimerInitialize
+SCCP2_TimerStart
+SCCP2_TimerStop
+SCCP2_Timer32bitPeriodSet
+SCCP2_Timer32bitPeriodGet
+SCCP2_Timer32bitCounterGet call:[return] noreturn:[return]
+SCCP2_TimerFrequencyGet call:[return] noreturn:[return]
+CCT2_InterruptHandler global:[sccp2Obj] call:[callback_fn] noreturn:[callback_fn]
+SCCP2_TimerInterruptEnable
+SCCP2_TimerInterruptDisable
+SCCP2_TimerCallbackRegister global:[sccp2Obj]

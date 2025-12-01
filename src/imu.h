@@ -183,7 +183,7 @@ extern "C" {
 
 	double get_imu_scale(imu_cmd_t *);
 	void getAllData(sSensorData_t *, imu_cmd_t *);
-	const uint8_t * imu_string(imu_cmd_t *);
+	const uint8_t * imu_string(const imu_cmd_t *);
 
 	extern char imu_buffer[IMU_BUF];
 

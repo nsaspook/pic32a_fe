@@ -1,0 +1,16 @@
+ADC2_Enable
+ADC2_Disable
+ADC2_SoftwareTriggerEnable
+ADC2_ChannelSoftwareTriggerEnable
+ADC2_ChannelResultGet
+ADC2_ChannelResultIsReady
+ADC2_ChannelResultInterruptEnable
+ADC2_ChannelResultInterruptDisable
+ADC2_ChannelResultFlagClear
+ADC2_CompareStatusGet
+ADC2_IndividualChannelInterruptPrioritySet
+ADC2_Initialize
+ADC2_Deinitialize call:[ADC2_Disable]
+ADC2_TriggerSourceValueGet
+ADC2_PWMTriggerSourceSet call:[ADC2_TriggerSourceValueGet]
+ADC2_ChannelCallbackRegister global:[adc2ChannelObj]

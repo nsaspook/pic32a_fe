@@ -1,0 +1,28 @@
+lcd_get_position_page global:[lcd_current_page]
+lcd_get_position_column global:[lcd_current_column]
+OledMoveTo global:[bnOledCur,disp_frame,pbOledCur,rgbOledBmp0,xcoOledCur,ycoOledCur] call:[OledClampXco,OledClampYco]
+OledGetPos global:[xcoOledCur,ycoOledCur]
+OledSetDrawColor global:[clrOledCur]
+OledGetStdPattern global:[rgbFillPat] call:[return]
+OledSetFillPattern global:[pbOledPatCur]
+OledSetDrawMode global:[modOledCur,pfnDoRop]
+OledGetDrawMode global:[modOledCur]
+OledDrawPixel global:[bnOledCur,clrOledCur,pbOledCur,pfnDoRop]
+OledGetPixel global:[bnOledCur,pbOledCur] call:[return]
+OledLineTo global:[xcoOledCur,ycoOledCur] call:[OledClampXco,OledClampYco,OledDrawPixel,labs,void]
+OledDrawRect global:[xcoOledCur,ycoOledCur] call:[OledClampXco,OledClampYco,OledLineTo] noreturn:[OledLineTo]
+OledFillRect global:[disp_frame,pbOledPatCur,pfnDoRop,rgbOledBmp0,xcoOledCur,ycoOledCur] call:[OledClampXco,OledClampYco]
+OledGetBmp global:[disp_frame,rgbOledBmp0,xcoOledCur,ycoOledCur]
+OledPutBmp global:[disp_frame,pfnDoRop,rgbOledBmp0,xcoOledCur,ycoOledCur]
+OledDrawChar global:[dxcoOledFontCur,dycoOledFontCur,pbOledFontCur,pbOledFontUser,xcoOledCur] call:[OledPutBmp]
+OledDrawString call:[OledDrawChar]
+OledRopSet call:[return]
+OledRopOr
+OledRopAnd
+OledRopXor
+OledMoveUp global:[bnOledCur,disp_frame,pbOledCur,rgbOledBmp0]
+OledMoveDown global:[bnOledCur,disp_frame,pbOledCur,rgbOledBmp0]
+OledMoveLeft global:[disp_frame,pbOledCur,rgbOledBmp0]
+OledMoveRight global:[disp_frame,pbOledCur]
+OledClampXco
+OledClampYco

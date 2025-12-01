@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="4408968769443105032">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/imu.h" line="15" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/imu.h" line="16" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdlib.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdlib.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/imu.h" line="17" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/imu.h" line="18" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/samples.h" line="14" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/samples.h" line="15" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdlib.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdlib.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/samples.h" line="16" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;ctype.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;ctype.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/samples.h" line="17" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdio.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdio.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/samples.h" line="18" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;string.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;string.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/samples.h" line="19" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;definitions.h&quot; not found." verbose="Include file: &quot;definitions.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/samples.h" line="20" column="0"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;x&apos; can be reduced." verbose="The scope of the variable &apos;x&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/imu.c">
+            <location file="/ldrv/pic32a_fe/src/imu.c" line="93" column="10"/>
+            <symbol>x</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;y&apos; can be reduced." verbose="The scope of the variable &apos;y&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/imu.c">
+            <location file="/ldrv/pic32a_fe/src/imu.c" line="93" column="13"/>
+            <symbol>y</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;z&apos; can be reduced." verbose="The scope of the variable &apos;z&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/imu.c">
+            <location file="/ldrv/pic32a_fe/src/imu.c" line="93" column="16"/>
+            <symbol>z</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;xa&apos; can be reduced." verbose="The scope of the variable &apos;xa&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/imu.c">
+            <location file="/ldrv/pic32a_fe/src/imu.c" line="94" column="10"/>
+            <symbol>xa</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;ya&apos; can be reduced." verbose="The scope of the variable &apos;ya&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/imu.c">
+            <location file="/ldrv/pic32a_fe/src/imu.c" line="94" column="14"/>
+            <symbol>ya</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;za&apos; can be reduced." verbose="The scope of the variable &apos;za&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/imu.c">
+            <location file="/ldrv/pic32a_fe/src/imu.c" line="94" column="18"/>
+            <symbol>za</symbol>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &apos;l = a * b;&apos; =&gt; &apos;l = (double)a * b;&apos;." cwe="197" file0="/ldrv/pic32a_fe/src/imu.c">
+            <location file="/ldrv/pic32a_fe/src/imu.c" line="44" column="15"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &apos;l = a * b;&apos; =&gt; &apos;l = (double)a * b;&apos;." cwe="197" file0="/ldrv/pic32a_fe/src/imu.c">
+            <location file="/ldrv/pic32a_fe/src/imu.c" line="47" column="15"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &apos;l = a * b;&apos; =&gt; &apos;l = (double)a * b;&apos;." cwe="197" file0="/ldrv/pic32a_fe/src/imu.c">
+            <location file="/ldrv/pic32a_fe/src/imu.c" line="50" column="15"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &apos;l = a * b;&apos; =&gt; &apos;l = (double)a * b;&apos;." cwe="197" file0="/ldrv/pic32a_fe/src/imu.c">
+            <location file="/ldrv/pic32a_fe/src/imu.c" line="54" column="15"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &apos;l = a * b;&apos; =&gt; &apos;l = (double)a * b;&apos;." cwe="197" file0="/ldrv/pic32a_fe/src/imu.c">
+            <location file="/ldrv/pic32a_fe/src/imu.c" line="57" column="15"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &apos;l = a * b;&apos; =&gt; &apos;l = (double)a * b;&apos;." cwe="197" file0="/ldrv/pic32a_fe/src/imu.c">
+            <location file="/ldrv/pic32a_fe/src/imu.c" line="60" column="15"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &apos;l = a * b;&apos; =&gt; &apos;l = (double)a * b;&apos;." cwe="197" file0="/ldrv/pic32a_fe/src/imu.c">
+            <location file="/ldrv/pic32a_fe/src/imu.c" line="63" column="15"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &apos;l = a * b;&apos; =&gt; &apos;l = (double)a * b;&apos;." cwe="197" file0="/ldrv/pic32a_fe/src/imu.c">
+            <location file="/ldrv/pic32a_fe/src/imu.c" line="66" column="15"/>
+        </error>
+        <error id="truncLongCastAssignment" severity="style" msg="float result is assigned to double variable. If the variable is double to avoid loss of information, then you have loss of information." verbose="float result is assigned to double variable. If the variable is double to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to double, for example &apos;l = a * b;&apos; =&gt; &apos;l = (double)a * b;&apos;." cwe="197" file0="/ldrv/pic32a_fe/src/imu.c">
+            <location file="/ldrv/pic32a_fe/src/imu.c" line="75" column="15"/>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="/ldrv/pic32a_fe/src/imu.h:184:9" call-funcname="get_imu_scale" call-argnr="1" file="/ldrv/pic32a_fe/src/imu.c" line="97" col="28" call-argexpr="imu" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0" warning="true">
+  <path file="/ldrv/pic32a_fe/src/imu.c" line="100" col="6" info="Assuming that condition &apos;imu&apos; is not redundant"/>
+</function-call><function-call call-id="/ldrv/pic32a_fe/src/imu.h:184:9" call-funcname="get_imu_scale" call-argnr="1" file="/ldrv/pic32a_fe/src/imu.c" line="97" col="15" my-id="/ldrv/pic32a_fe/src/imu.h:185:7" my-argnr="2"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/imu.c" functionName="get_imu_scale" lineNumber="31" column="8"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/imu.c" functionName="getAllData" lineNumber="91" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/imu.c" functionName="imu_string" lineNumber="122" column="17"/>
+    <functioncall functionName="get_imu_scale"/>
+  </FileInfo>
+</analyzerinfo>

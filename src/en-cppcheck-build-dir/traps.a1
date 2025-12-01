@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="13520156154037204129">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;device.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;device.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/traps.c" line="40" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/traps.c" line="41" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/traps.h" line="43" column="0"/>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="/ldrv/pic32a_fe/src/config/default/traps.h:79:6" call-funcname="TRAPS_halt_on_error" call-argnr="1" file="/ldrv/pic32a_fe/src/config/default/traps.c" line="181" col="24" call-argexpr="0U" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/>  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="TRAPS_halt_on_error" lineNumber="64" column="28"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="use_failsafe_stack" lineNumber="81" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="_BusErrorTrap" lineNumber="94" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="_AddressErrorTrap" lineNumber="126" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="_GeneralTrap" lineNumber="133" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="_MathErrorTrap" lineNumber="158" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="_StackErrorTrap" lineNumber="165" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="_IllegalInstructionTrap" lineNumber="178" column="20"/>
+    <functioncall functionName="PCTRAP"/>
+    <functioncall functionName="TRAPS_halt_on_error"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="use_failsafe_stack"/>
+  </FileInfo>
+  <FileInfo check="ctu">
+<function-call call-id="/ldrv/pic32a_fe/src/config/default/traps.h:79:6" call-funcname="TRAPS_halt_on_error" call-argnr="1" file="/ldrv/pic32a_fe/src/config/default/traps.c" line="181" col="24" call-argexpr="0U" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/>  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="TRAPS_halt_on_error" lineNumber="64" column="28"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="use_failsafe_stack" lineNumber="81" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="_BusErrorTrap" lineNumber="94" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="_AddressErrorTrap" lineNumber="126" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="_GeneralTrap" lineNumber="133" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="_MathErrorTrap" lineNumber="158" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="_StackErrorTrap" lineNumber="165" column="20"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/traps.c" functionName="_IllegalInstructionTrap" lineNumber="178" column="20"/>
+    <functioncall functionName="PCTRAP"/>
+    <functioncall functionName="TRAPS_halt_on_error"/>
+    <functioncall functionName="__builtin_software_breakpoint"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="use_failsafe_stack"/>
+  </FileInfo>
+</analyzerinfo>

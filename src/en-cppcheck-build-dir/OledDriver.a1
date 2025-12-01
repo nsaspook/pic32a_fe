@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="10244136733859398999">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="29" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="30" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdio.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdio.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="31" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;definitions.h&quot; not found." verbose="Include file: &quot;definitions.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="32" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="46" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="47" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/dma/plib_dma.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/dma/plib_dma.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="48" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;timers.h&quot; not found." verbose="Include file: &quot;timers.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h" line="5" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="57" column="0"/>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/OledChar.h:57:6" call-funcname="OledSetCursor" call-argnr="1" file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" line="310" col="15" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/OledChar.h:57:6" call-funcname="OledSetCursor" call-argnr="2" file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" line="310" col="15" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/OledGrph.h:58:6" call-funcname="OledSetDrawMode" call-argnr="1" file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" line="316" col="17" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c:148:6" call-funcname="SPI1DmaChannelHandler_State" call-argnr="1" file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" line="515" col="29" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h:81:6" call-funcname="lcd_moveto_xy" call-argnr="2" file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" line="550" col="16" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c:149:10" call-funcname="SPI1_to_Buffer" call-argnr="3" file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" line="598" col="16" call-argexpr="NULL" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c:149:10" call-funcname="SPI1_to_Buffer" call-argnr="1" file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" line="598" col="2" my-id="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c:144:6" my-argnr="2"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h" functionName="lcd_get_position_page" lineNumber="60" column="23"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h" functionName="lcd_get_position_column" lineNumber="65" column="23"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledInit" lineNumber="177" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledTerm" lineNumber="215" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledHostInit" lineNumber="244" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledHostTerm" lineNumber="268" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledDvrInit" lineNumber="290" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledDevInit" lineNumber="342" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledDevTerm" lineNumber="366" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledDisplayOn" lineNumber="392" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledDisplayOff" lineNumber="417" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledClear" lineNumber="442" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="CBDmaChannelHandler" lineNumber="467" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledClearBuffer" lineNumber="475" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledUpdate" lineNumber="511" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="SPI1DmaChannelHandler_State" lineNumber="527" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledPutBuffer" lineNumber="596" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="SPI1DmaChannelHandler" lineNumber="601" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="SPI1_to_Buffer" lineNumber="609" column="10"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="wait_lcd_done" lineNumber="633" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="lcd_version" lineNumber="645" column="6"/>
+    <functioncall functionName="CBDmaChannelHandler"/>
+    <functioncall functionName="CSB_SetHigh"/>
+    <functioncall functionName="CSB_SetLow"/>
+    <functioncall functionName="DMA_CHANNEL_0"/>
+    <functioncall functionName="DMA_CHANNEL_1"/>
+    <functioncall functionName="DMA_ChannelCallbackRegister"/>
+    <functioncall functionName="DMA_ChannelIsBusy"/>
+    <functioncall functionName="DMA_ChannelTransfer"/>
+    <functioncall functionName="DMA_TRANSFER_EVENT"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="OledClear"/>
+    <functioncall functionName="OledClearBuffer"/>
+    <functioncall functionName="OledDevTerm"/>
+    <functioncall functionName="OledDvrInit"/>
+    <functioncall functionName="OledHostTerm"/>
+    <functioncall functionName="OledSetCursor"/>
+    <functioncall functionName="OledSetDrawMode"/>
+    <functioncall functionName="OledUpdate"/>
+    <functioncall functionName="RS_SetHigh"/>
+    <functioncall functionName="RS_SetLow"/>
+    <functioncall functionName="SPI1BUF"/>
+    <functioncall functionName="SPI1DmaChannelHandler_State"/>
+    <functioncall functionName="SPI1_to_Buffer"/>
+    <functioncall functionName="lcd_moveto_xy"/>
+    <functioncall functionName="memset"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="wait_lcd_done"/>
+  </FileInfo>
+  <FileInfo check="ctu">
+<function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/OledChar.h:57:6" call-funcname="OledSetCursor" call-argnr="1" file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" line="310" col="15" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/OledChar.h:57:6" call-funcname="OledSetCursor" call-argnr="2" file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" line="310" col="15" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/OledGrph.h:58:6" call-funcname="OledSetDrawMode" call-argnr="1" file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" line="316" col="17" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c:148:6" call-funcname="SPI1DmaChannelHandler_State" call-argnr="1" file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" line="515" col="29" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h:81:6" call-funcname="lcd_moveto_xy" call-argnr="2" file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" line="550" col="16" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c:149:10" call-funcname="SPI1_to_Buffer" call-argnr="3" file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" line="598" col="16" call-argexpr="NULL" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c:149:10" call-funcname="SPI1_to_Buffer" call-argnr="1" file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" line="598" col="2" my-id="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c:144:6" my-argnr="2"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h" functionName="lcd_get_position_page" lineNumber="60" column="23"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/dogm-graphic.h" functionName="lcd_get_position_column" lineNumber="65" column="23"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledInit" lineNumber="177" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledTerm" lineNumber="215" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledHostInit" lineNumber="244" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledHostTerm" lineNumber="268" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledDvrInit" lineNumber="290" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledDevInit" lineNumber="342" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledDevTerm" lineNumber="366" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledDisplayOn" lineNumber="392" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledDisplayOff" lineNumber="417" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledClear" lineNumber="442" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="CBDmaChannelHandler" lineNumber="467" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledClearBuffer" lineNumber="475" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledUpdate" lineNumber="511" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="SPI1DmaChannelHandler_State" lineNumber="527" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="OledPutBuffer" lineNumber="596" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="SPI1DmaChannelHandler" lineNumber="601" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="SPI1_to_Buffer" lineNumber="609" column="10"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="wait_lcd_done" lineNumber="633" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/lcd_drv/OledDriver.c" functionName="lcd_version" lineNumber="645" column="6"/>
+    <functioncall functionName="CBDmaChannelHandler"/>
+    <functioncall functionName="CSB_SetHigh"/>
+    <functioncall functionName="CSB_SetLow"/>
+    <functioncall functionName="DMA_CHANNEL_0"/>
+    <functioncall functionName="DMA_CHANNEL_1"/>
+    <functioncall functionName="DMA_ChannelCallbackRegister"/>
+    <functioncall functionName="DMA_ChannelIsBusy"/>
+    <functioncall functionName="DMA_ChannelTransfer"/>
+    <functioncall functionName="DMA_TRANSFER_EVENT"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="OledClear"/>
+    <functioncall functionName="OledClearBuffer"/>
+    <functioncall functionName="OledDevTerm"/>
+    <functioncall functionName="OledDvrInit"/>
+    <functioncall functionName="OledHostTerm"/>
+    <functioncall functionName="OledSetCursor"/>
+    <functioncall functionName="OledSetDrawMode"/>
+    <functioncall functionName="OledUpdate"/>
+    <functioncall functionName="RS_SetHigh"/>
+    <functioncall functionName="RS_SetLow"/>
+    <functioncall functionName="SPI1BUF"/>
+    <functioncall functionName="SPI1DmaChannelHandler_State"/>
+    <functioncall functionName="SPI1_to_Buffer"/>
+    <functioncall functionName="lcd_moveto_xy"/>
+    <functioncall functionName="memset"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="wait_lcd_done"/>
+  </FileInfo>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="34" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/gpio/plib_gpio.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/gpio/plib_gpio.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="35" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/dmac/plib_dmac.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/dmac/plib_dmac.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="36" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/mcj/peripheral/coretimer/plib_coretimer.h&quot; not found." verbose="Include file: &quot;../src/config/mcj/peripheral/coretimer/plib_coretimer.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="37" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/spi/spi_master/plib_spi_master_common.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="40" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/gpio/plib_gpio.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="41" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/dmac/plib_dmac.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/dmac/plib_dmac.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="42" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;../src/config/default/peripheral/coretimer/plib_coretimer.h&quot; not found." verbose="Include file: &quot;../src/config/default/peripheral/coretimer/plib_coretimer.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/lcd_drv/lcd_drv.h" line="43" column="0"/>
+        </error>
+</analyzerinfo>

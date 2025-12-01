@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="10043053616375161335">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/quat.h" line="36" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/quat.h" line="37" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdio.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdio.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/quat.h" line="38" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/quat.h" line="39" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdlib.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdlib.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/quat.c" line="21" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;assert.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;assert.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/quat.c" line="22" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/quat.c" line="23" column="0"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;q&apos; can be declared as pointer to const" verbose="Parameter &apos;q&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/quat.c">
+            <location file="/ldrv/pic32a_fe/src/quat.c" line="44" column="34" info="Parameter &apos;q&apos; can be declared as pointer to const"/>
+            <symbol>q</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;q1&apos; can be declared as pointer to const" verbose="Parameter &apos;q1&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/quat.c">
+            <location file="/ldrv/pic32a_fe/src/quat.c" line="49" column="35" info="Parameter &apos;q1&apos; can be declared as pointer to const"/>
+            <symbol>q1</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;q2&apos; can be declared as pointer to const" verbose="Parameter &apos;q2&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/quat.c">
+            <location file="/ldrv/pic32a_fe/src/quat.c" line="49" column="51" info="Parameter &apos;q2&apos; can be declared as pointer to const"/>
+            <symbol>q2</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;q&apos; can be declared as pointer to const" verbose="Parameter &apos;q&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/quat.c">
+            <location file="/ldrv/pic32a_fe/src/quat.c" line="58" column="48" info="Parameter &apos;q&apos; can be declared as pointer to const"/>
+            <symbol>q</symbol>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;axis&apos; can be declared as const array" verbose="Parameter &apos;axis&apos; can be declared as const array" cwe="398" file0="/ldrv/pic32a_fe/src/quat.c">
+            <location file="/ldrv/pic32a_fe/src/quat.c" line="65" column="38" info="Parameter &apos;axis&apos; can be declared as const array"/>
+            <symbol>axis</symbol>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;eulerZYX&apos; can be declared as const array" verbose="Parameter &apos;eulerZYX&apos; can be declared as const array" cwe="398" file0="/ldrv/pic32a_fe/src/quat.c">
+            <location file="/ldrv/pic32a_fe/src/quat.c" line="118" column="37" info="Parameter &apos;eulerZYX&apos; can be declared as const array"/>
+            <symbol>eulerZYX</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;q&apos; can be declared as pointer to const" verbose="Parameter &apos;q&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/quat.c">
+            <location file="/ldrv/pic32a_fe/src/quat.c" line="166" column="36" info="Parameter &apos;q&apos; can be declared as pointer to const"/>
+            <symbol>q</symbol>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;v&apos; can be declared as const array" verbose="Parameter &apos;v&apos; can be declared as const array" cwe="398" file0="/ldrv/pic32a_fe/src/quat.c">
+            <location file="/ldrv/pic32a_fe/src/quat.c" line="204" column="46" info="Parameter &apos;v&apos; can be declared as const array"/>
+            <symbol>v</symbol>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="/ldrv/pic32a_fe/src/quat.h:57:6" call-funcname="Quaternion_set" call-argnr="2" file="/ldrv/pic32a_fe/src/quat.c" line="41" col="19" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/quat.h:57:6" call-funcname="Quaternion_set" call-argnr="3" file="/ldrv/pic32a_fe/src/quat.c" line="41" col="19" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/quat.h:57:6" call-funcname="Quaternion_set" call-argnr="4" file="/ldrv/pic32a_fe/src/quat.c" line="41" col="19" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/quat.h:86:6" call-funcname="Quaternion_fromAxisAngle" call-argnr="1" file="/ldrv/pic32a_fe/src/quat.c" line="101" col="29" call-argexpr="axis" call-argvaluetype="7" call-argvalue="24" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/quat.h:86:6" call-funcname="Quaternion_fromAxisAngle" call-argnr="1" file="/ldrv/pic32a_fe/src/quat.c" line="108" col="29" call-argexpr="axis" call-argvaluetype="7" call-argvalue="24" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/quat.h:86:6" call-funcname="Quaternion_fromAxisAngle" call-argnr="1" file="/ldrv/pic32a_fe/src/quat.c" line="115" col="29" call-argexpr="axis" call-argvaluetype="7" call-argvalue="24" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/quat.h:57:6" call-funcname="Quaternion_set" call-argnr="5" file="/ldrv/pic32a_fe/src/quat.c" line="46" col="5" my-id="/ldrv/pic32a_fe/src/quat.h:67:6" my-argnr="2"/>
+<function-call call-id="/ldrv/pic32a_fe/src/quat.h:136:8" call-funcname="Quaternion_norm" call-argnr="1" file="/ldrv/pic32a_fe/src/quat.c" line="175" col="18" my-id="/ldrv/pic32a_fe/src/quat.h:141:6" my-argnr="1"/>
+<function-call call-id="/ldrv/pic32a_fe/src/quat.h:67:6" call-funcname="Quaternion_copy" call-argnr="2" file="/ldrv/pic32a_fe/src/quat.c" line="250" col="9" my-id="/ldrv/pic32a_fe/src/quat.h:168:6" my-argnr="4"/>
+  </FileInfo>
+  <FileInfo check="Bounds checking">
+    <array-index>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:86:6" my-argnr="1" my-argname="axis" file="/ldrv/pic32a_fe/src/quat.c" line="71" col="24" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:102:6" my-argnr="1" my-argname="eulerZYX" file="/ldrv/pic32a_fe/src/quat.c" line="122" col="21" value="16"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:160:6" my-argnr="2" my-argname="v" file="/ldrv/pic32a_fe/src/quat.c" line="225" col="20" value="0"/>
+    </array-index>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:67:6" my-argnr="1" my-argname="q" file="/ldrv/pic32a_fe/src/quat.c" line="46" col="20" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:72:6" my-argnr="1" my-argname="q1" file="/ldrv/pic32a_fe/src/quat.c" line="51" col="25" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:72:6" my-argnr="2" my-argname="q2" file="/ldrv/pic32a_fe/src/quat.c" line="51" col="33" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:77:6" my-argnr="1" my-argname="file" file="/ldrv/pic32a_fe/src/quat.c" line="60" col="13" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:77:6" my-argnr="2" my-argname="q" file="/ldrv/pic32a_fe/src/quat.c" line="61" col="9" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:86:6" my-argnr="1" my-argname="axis" file="/ldrv/pic32a_fe/src/quat.c" line="71" col="24" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:95:8" my-argnr="1" my-argname="q" file="/ldrv/pic32a_fe/src/quat.c" line="80" col="31" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:102:6" my-argnr="1" my-argname="eulerZYX" file="/ldrv/pic32a_fe/src/quat.c" line="122" col="21" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:109:6" my-argnr="1" my-argname="q" file="/ldrv/pic32a_fe/src/quat.c" line="140" col="32" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:146:6" my-argnr="1" my-argname="q" file="/ldrv/pic32a_fe/src/quat.c" line="160" col="17" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:155:6" my-argnr="1" my-argname="q1" file="/ldrv/pic32a_fe/src/quat.c" line="196" col="19" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:155:6" my-argnr="2" my-argname="q2" file="/ldrv/pic32a_fe/src/quat.c" line="196" col="28" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:160:6" my-argnr="1" my-argname="q" file="/ldrv/pic32a_fe/src/quat.c" line="209" col="17" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:160:6" my-argnr="2" my-argname="v" file="/ldrv/pic32a_fe/src/quat.c" line="225" col="20" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:168:6" my-argnr="1" my-argname="q1" file="/ldrv/pic32a_fe/src/quat.c" line="246" col="27" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:168:6" my-argnr="2" my-argname="q2" file="/ldrv/pic32a_fe/src/quat.c" line="246" col="33" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:67:6" my-argnr="1" my-argname="q" file="/ldrv/pic32a_fe/src/quat.c" line="46" col="20" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:72:6" my-argnr="1" my-argname="q1" file="/ldrv/pic32a_fe/src/quat.c" line="51" col="25" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:72:6" my-argnr="2" my-argname="q2" file="/ldrv/pic32a_fe/src/quat.c" line="51" col="33" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:77:6" my-argnr="1" my-argname="file" file="/ldrv/pic32a_fe/src/quat.c" line="60" col="13" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:77:6" my-argnr="2" my-argname="q" file="/ldrv/pic32a_fe/src/quat.c" line="61" col="9" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:86:6" my-argnr="1" my-argname="axis" file="/ldrv/pic32a_fe/src/quat.c" line="71" col="24" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:95:8" my-argnr="1" my-argname="q" file="/ldrv/pic32a_fe/src/quat.c" line="80" col="31" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:102:6" my-argnr="1" my-argname="eulerZYX" file="/ldrv/pic32a_fe/src/quat.c" line="122" col="21" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:109:6" my-argnr="1" my-argname="q" file="/ldrv/pic32a_fe/src/quat.c" line="140" col="32" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:146:6" my-argnr="1" my-argname="q" file="/ldrv/pic32a_fe/src/quat.c" line="160" col="17" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:155:6" my-argnr="1" my-argname="q1" file="/ldrv/pic32a_fe/src/quat.c" line="196" col="19" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:155:6" my-argnr="2" my-argname="q2" file="/ldrv/pic32a_fe/src/quat.c" line="196" col="28" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:160:6" my-argnr="1" my-argname="q" file="/ldrv/pic32a_fe/src/quat.c" line="209" col="17" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:160:6" my-argnr="2" my-argname="v" file="/ldrv/pic32a_fe/src/quat.c" line="225" col="20" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:168:6" my-argnr="1" my-argname="q1" file="/ldrv/pic32a_fe/src/quat.c" line="246" col="27" value="0"/>
+    <unsafe-usage my-id="/ldrv/pic32a_fe/src/quat.h:168:6" my-argnr="2" my-argname="q2" file="/ldrv/pic32a_fe/src/quat.c" line="246" col="33" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_set" lineNumber="29" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_setIdentity" lineNumber="38" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_copy" lineNumber="44" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_equal" lineNumber="49" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_fprint" lineNumber="58" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_fromAxisAngle" lineNumber="65" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_toAxisAngle" lineNumber="76" column="8"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_fromXRotation" lineNumber="97" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_fromYRotation" lineNumber="104" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_fromZRotation" lineNumber="111" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_fromEulerZYX" lineNumber="118" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_toEulerZYX" lineNumber="135" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_conjugate" lineNumber="157" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_norm" lineNumber="166" column="8"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_normalize" lineNumber="172" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_multiply" lineNumber="184" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_rotate" lineNumber="204" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/quat.c" functionName="Quaternion_slerp" lineNumber="241" column="6"/>
+    <functioncall functionName="Quaternion_copy"/>
+    <functioncall functionName="Quaternion_fromAxisAngle"/>
+    <functioncall functionName="Quaternion_norm"/>
+    <functioncall functionName="Quaternion_set"/>
+    <functioncall functionName="acos"/>
+    <functioncall functionName="asin"/>
+    <functioncall functionName="assert"/>
+    <functioncall functionName="atan2"/>
+    <functioncall functionName="copysign"/>
+    <functioncall functionName="cos"/>
+    <functioncall functionName="fabs"/>
+    <functioncall functionName="fprintf"/>
+    <functioncall functionName="sin"/>
+    <functioncall functionName="sqrt"/>
+  </FileInfo>
+</analyzerinfo>

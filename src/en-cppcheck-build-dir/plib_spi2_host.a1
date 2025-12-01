@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="11678188491635917968">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;device.h&quot; not found." verbose="Include file: &quot;device.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.h" line="45" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.h" line="46" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h" line="45" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stddef.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h" line="46" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdbool.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h" line="47" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;interrupts.h&quot; not found." verbose="Include file: &quot;interrupts.h&quot; not found.">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="43" column="0"/>
+        </error>
+        <error id="normalCheckLevelMaxBranches" severity="information" msg="Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches." verbose="Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches." file0="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="0" column="0"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;nRxPending&apos; can be reduced." verbose="The scope of the variable &apos;nRxPending&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="370" column="14"/>
+            <symbol>nRxPending</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;receivedData&apos; can be reduced." verbose="The scope of the variable &apos;receivedData&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="371" column="14"/>
+            <symbol>receivedData</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;setup&apos; can be declared as pointer to const" verbose="Parameter &apos;setup&apos; can be declared as pointer to const" cwe="398" file0="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="144" column="46" info="Parameter &apos;setup&apos; can be declared as pointer to const"/>
+            <symbol>setup</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;nRxPending&apos; is assigned a value that is never used." verbose="Variable &apos;nRxPending&apos; is assigned a value that is never used." cwe="563" file0="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="370" column="25"/>
+            <symbol>nRxPending</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;receivedData&apos; is assigned a value that is never used." verbose="Variable &apos;receivedData&apos; is assigned a value that is never used." cwe="563" file0="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c">
+            <location file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="371" column="27"/>
+            <symbol>receivedData</symbol>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.h:204:6" call-funcname="SPI2_WriteRead" call-argnr="3" file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="190" col="26" call-argexpr="NULL" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.h:204:6" call-funcname="SPI2_WriteRead" call-argnr="4" file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="190" col="26" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.h:204:6" call-funcname="SPI2_WriteRead" call-argnr="1" file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="195" col="26" call-argexpr="NULL" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.h:204:6" call-funcname="SPI2_WriteRead" call-argnr="2" file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="195" col="26" call-argexpr="0" call-argvaluetype="0" call-argvalue="0" call-argvalue-ufr="0"/><function-call call-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.h:204:6" call-funcname="SPI2_WriteRead" call-argnr="1" file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="190" col="12" my-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.h:268:6" my-argnr="1"/>
+<function-call call-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.h:204:6" call-funcname="SPI2_WriteRead" call-argnr="3" file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" line="195" col="12" my-id="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.h:334:6" my-argnr="1"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" functionName="SPI2_Initialize" lineNumber="87" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" functionName="SPI2_Deinitialize" lineNumber="119" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" functionName="SPI2_TransferSetup" lineNumber="144" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" functionName="SPI2_Write" lineNumber="188" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" functionName="SPI2_Read" lineNumber="193" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" functionName="SPI2_IsTransmitterBusy" lineNumber="198" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" functionName="SPI2_IsBusy" lineNumber="204" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" functionName="SPI2_CallbackRegister" lineNumber="210" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" functionName="SPI_FIFO_Fill" lineNumber="217" column="13"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" functionName="SPI2_WriteRead" lineNumber="248" column="6"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" functionName="SPI2RX_InterruptHandler" lineNumber="368" column="28"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" functionName="SPI2E_InterruptHandler" lineNumber="457" column="28"/>
+    <functiondecl file="/ldrv/pic32a_fe/src/config/default/peripheral/spi/spi_host/plib_spi2_host.c" functionName="SPI2TX_InterruptHandler" lineNumber="484" column="28"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="SPI2BUF"/>
+    <functioncall functionName="SPI2STAT"/>
+    <functioncall functionName="SPI2_WriteRead"/>
+    <functioncall functionName="SPI_FIFO_Fill"/>
+    <functioncall functionName="_SPI2CON1_CKE_MASK"/>
+    <functioncall functionName="_SPI2CON1_ENHBUF_MASK"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="true"/>
+  </FileInfo>
+</analyzerinfo>
