@@ -55,7 +55,6 @@ void INTC_Initialize( void )
     IPC8bits.SPI1EIP = 1;
     IPC8bits.SPI2RXIP = 4;
     IPC8bits.SPI2TXIP = 3;
-    IPC8bits.SPI2EIP = 1;
     IPC9bits.DMA0IP = 1;
     IPC9bits.DMA1IP = 1;
     IPC11bits.U1RXIP = 1;
