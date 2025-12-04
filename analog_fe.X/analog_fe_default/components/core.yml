@@ -210,7 +210,7 @@ data:
                   IPC7bits.SPI1RXIP = 1;
                   IPC8bits.SPI1TXIP = 1;
                   IPC8bits.SPI1EIP = 1;
-                  IPC8bits.SPI2RXIP = 3;
+                  IPC8bits.SPI2RXIP = 4;
                   IPC8bits.SPI2TXIP = 3;
                   IPC8bits.SPI2EIP = 1;
                   IPC9bits.DMA0IP = 1;
@@ -308,6 +308,9 @@ data:
             id: spi2
             value: 'true'
           type: Dynamic
+        - attributes:
+            value: 'true'
+          type: User
         type: Values
       type: Boolean
     INTC_67_ENABLE:
@@ -2052,6 +2055,15 @@ data:
                   DMA1CNT = 0x1UL;
                   DMA1MSK = 0x0UL;
                   DMA1PAT = 0x0UL;
+
+                  DMA4CH = 0x0UL;
+                  DMA4SEL = 0x0UL;
+                  DMA4STAT = 0x0UL;
+                  DMA4SRC = 0x0UL;
+                  DMA4DST = 0x0UL;
+                  DMA4CNT = 0x1UL;
+                  DMA4MSK = 0x0UL;
+                  DMA4PAT = 0x0UL;
 
                   DMA5CH = 0x0UL;
                   DMA5SEL = 0x0UL;
@@ -3847,7 +3859,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '4'
           type: User
         type: Values
       type: Combo
@@ -3877,7 +3889,7 @@ data:
       children:
       - children:
         - attributes:
-            value: 'true'
+            value: 'false'
           type: User
         type: Values
       type: Boolean
@@ -3887,7 +3899,7 @@ data:
       children:
       - children:
         - attributes:
-            value: 'true'
+            value: 'false'
           type: User
         type: Values
       type: Boolean
@@ -5685,6 +5697,201 @@ data:
             id: pwm
             value: 'false'
           type: Dynamic
+        type: Values
+      type: Boolean
+    DMA4_SEL__CHSEL:
+      attributes:
+        id: DMA4_SEL__CHSEL
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '8'
+          type: Dynamic
+        type: Values
+      type: Hex
+    DMA4_CH__CHEN:
+      attributes:
+        id: DMA4_CH__CHEN
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMA4_CH__DAMODE:
+      attributes:
+        id: DMA4_CH__DAMODE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    DMA4_CH__SAMODE:
+      attributes:
+        id: DMA4_CH__SAMODE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '2'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    DMA4_CH__SIZE:
+      attributes:
+        id: DMA4_CH__SIZE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '2'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    DMA4_CH__TRMODE:
+      attributes:
+        id: DMA4_CH__TRMODE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: core
+            value: '3'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    DMA4CH_TRG_SRC:
+      attributes:
+        id: DMA4CH_TRG_SRC
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '57'
+          type: User
+        type: Values
+      type: KeyValueSet
+    DMA4_CH__RELOADC:
+      attributes:
+        id: DMA4_CH__RELOADC
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    DMA4_CH__RELOADD:
+      attributes:
+        id: DMA4_CH__RELOADD
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    DMA4_CH__RELOADS:
+      attributes:
+        id: DMA4_CH__RELOADS
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    DMA4_CH__DONEEN:
+      attributes:
+        id: DMA4_CH__DONEEN
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
         type: Values
       type: Boolean
   userData:

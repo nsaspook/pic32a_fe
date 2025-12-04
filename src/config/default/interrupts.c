@@ -111,12 +111,12 @@ void __attribute__ (( interrupt, no_auto_psv)) _SPI1EInterrupt (void)
     SPI1E_InterruptHandler();
 }
 
-void __attribute__ (( interrupt, no_auto_psv, context)) _SPI2RXInterrupt (void)
+void __attribute__ (( interrupt, no_auto_psv)) _SPI2RXInterrupt (void)
 {
     SPI2RX_InterruptHandler();
 }
 
-void __attribute__ (( interrupt, no_auto_psv, context)) _SPI2TXInterrupt (void)
+void __attribute__ (( interrupt, no_auto_psv)) _SPI2TXInterrupt (void)
 {
     SPI2TX_InterruptHandler();
 }

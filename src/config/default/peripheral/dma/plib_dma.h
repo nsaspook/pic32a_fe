@@ -128,6 +128,7 @@ typedef struct
 */
 #define    DMA_CHANNEL_0             (0x0U)
 #define    DMA_CHANNEL_1             (0x1U)
+#define    DMA_CHANNEL_4             (0x4U)
 #define    DMA_CHANNEL_5             (0x5U)
 
 #define    DMA_NUMBER_OF_CHANNELS    (0x6U)

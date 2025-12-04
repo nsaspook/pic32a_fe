@@ -119,7 +119,7 @@ void static UART1_ErrorClear( void )
 void UART1_Initialize( void )
 {
     /*
-    Baud Rate:      460829.493
+    Baud Rate:      917431.193
     */
     U1CON = (U1CON_MODE_8_BIT_NONE
             |U1CON_STP_1_SENT_1_RECEIVE
@@ -131,7 +131,7 @@ void UART1_Initialize( void )
             |_U1STAT_PERIE_MASK);
 
     /* BAUD Rate register Setup */
-    U1BRG = 0xd9;
+    U1BRG = 0x6d;
   
     /* Disable Interrupts */
     IEC2bits.U1EIE = 0U;

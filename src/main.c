@@ -116,6 +116,7 @@ int main(void)
 		SYS_Tasks();
 		if (TimerDone(TMR_TEST)) {
 			if (!SW2_SET) {
+				ADC_DMA_read();
 				StartTimer(TMR_TEST, DIS_TICKS);
 				if (!SW1_SET) {
 					snprintf(buffer, IMU_BUF - 1, "S%u, I%X%X%X, D%u D%u", total_sample_triggers, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6],
@@ -132,6 +133,9 @@ int main(void)
 				eaDogM_WriteStringAtPos(4, 0, buffer);
 				snprintf(buffer, IMU_BUF - 1, "ADC2 Voltage : %7.4f Volts", adc2_scaled);
 				eaDogM_WriteStringAtPos(5, 0, buffer);
+				uint16_t *ptr1 = (void*) &sram_adc_read[7], *ptr2 = (void*) &sram_adc_read[9];
+				snprintf(buffer, IMU_BUF - 1, "ISS Read %u %u      ", *ptr1, *ptr2);
+				eaDogM_WriteStringAtPos(6, 0, buffer);
 				if (SW1_SET) {
 					uint16_t i = 1;
 					LA_gfx(false, false, 0);
@@ -158,6 +162,7 @@ int main(void)
 
 		if (TimerDone(TMR_IMU_DATA)) {
 			StartTimer(TMR_IMU_DATA, IMU_TICKS);
+			TP0_Set();
 			imu0.op.imu_getdata(&imu0);
 			imu0.update = false;
 			getAllData(&accel, &imu0); // convert data from the IMU chip
@@ -165,8 +170,11 @@ int main(void)
 			q1 = accel.y / 1.0f;
 			q2 = accel.z / 1.0f;
 			q3 = q0;
+			TP0_Clear();
+			TP0_Set();
 			snprintf(buffer, IMU_BUF - 1, "%5.2f,%5.2f,%5.2f,%5.2f,%5.2f,%5.2f,%5.2f\r", 0.1f, accel.xa, accel.ya, accel.za, accel.x, accel.y, accel.z);
-			UART1_Write(buffer, strlen(buffer) );
+			UART1_Write(buffer, strlen(buffer));
+			TP0_Clear();
 			RLED_Toggle();
 		}
 

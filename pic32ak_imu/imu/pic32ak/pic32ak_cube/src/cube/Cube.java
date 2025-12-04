@@ -43,7 +43,7 @@ public class Cube {
         frame.setVisible(true);
 
         SerialPort port = SerialPort.getCommPort("ttyUSB1");
-        port.setBaudRate(460800);
+        port.setBaudRate(921600);
         port.setComPortTimeouts(SerialPort.TIMEOUT_SCANNER, 1, 1);
         if (port.openPort() == false) {
             System.err.println("Unable to open the serial port. Exiting.");
@@ -67,7 +67,7 @@ public class Cube {
                 Quat4d quaternion = new Quat4d(w, x, y, z);
                 Vector3d vector = new Vector3d((az * 0.02), (ay * 0.02), (az * 0.02));
                 transformGroup.setTransform(new Transform3D(quaternion, vector, 1.0));
-                System.out.println(String.format("x = %+2.3f     y = %+2.3f     z = %+2.3f ", x, y, z));
+//                System.out.println(String.format("x = %+2.3f     y = %+2.3f     z = %+2.3f ", x, y, z));
 
             } catch (Exception e) {
             }

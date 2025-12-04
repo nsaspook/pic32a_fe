@@ -18,11 +18,13 @@
 
 static const uint32_t MAX_ISS66_SAMPLES = 32768;
 static const uint16_t CDOWN = 8;
-static const uint32_t retrigger_time = 400;
+static const uint32_t retrigger_time = 600;
 volatile uint8_t iss_adc_write[8] = {0x02, 0x00, 0x00, 0x00}; // 1024 bytes in each address page for sequential writes
-uint8_t sram_adc_write[8];
+volatile uint8_t iss_adc_read[16] = {0x0B, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+volatile uint8_t sram_adc_write[8], sram_adc_read[16] = {1, 2, 3, 4, 5, 6, 7, 8};
 volatile uint32_t total_sample_triggers = 0;
-volatile uint16_t sram_addr = 0, *sram_addr_ptr = (volatile uint16_t *) & iss_adc_write[2];
+volatile uint16_t sram_addr = 0, *sram_addr_ptr = (volatile uint16_t *) & iss_adc_write[2]; // pointer to address bytes
+volatile uint16_t sram_addr_read = 0, *sram_addr_read_ptr = (volatile uint16_t *) & iss_adc_read[2]; // pointer to address bytes
 volatile uint16_t adc_result[NUM_ADC] = {0, 0};
 
 /*
@@ -47,15 +49,19 @@ static inline uint32_t htonl(uint32_t x)
 void ADC_DMA_write(void)
 {
 #ifndef USE_SRAM
+	/*
+	 * trigger both ADC's
+	 */
 	AD1SWTRGbits.CH6TRG = 1;
 	AD2SWTRGbits.CH4TRG = 1;
-	TP0_Set();
-	while (AD1STATbits.CH6RDY == 0 && AD2STATbits.CH4RDY == 0);
-	TP0_Clear();
+	while (AD1STATbits.CH6RDY == 0 && AD2STATbits.CH4RDY == 0); // conversions complete on both
 	adc_result[ADC1_D] = (uint16_t) AD1CH6DATA; // save as uint16_t data
 	adc_result[ADC2_D] = (uint16_t) AD2CH4DATA;
 	memcpy((void *) &iss_adc_write[4], (const void *) &adc_result[ADC1_D], 4);
 
+	/*
+	 * swap address bytes for serial SRAM addressing and update address bytes
+	 */
 #if defined __has_builtin
 #if __has_builtin (__builtin_bswap16)
 	*sram_addr_ptr = __builtin_bswap16(sram_addr);
@@ -71,11 +77,17 @@ void ADC_DMA_write(void)
 		//		TP0_Toggle();
 	};
 
+	/*
+	 * make sure DMA is ready for next sequence
+	 */
 	while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
 	};
 #ifndef USE_SRAM
 	SRAM_CS_Clear(); // CS will bet set in DMA complete ISR
 #endif
+	/*
+	 * write sram chip data address and two 16-bit ADC results to chip for later processing
+	 */
 	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_write, (const void*) &SPI2BUF, (size_t) 8);
 #endif
 };
@@ -86,7 +98,46 @@ void ADC_DMA_write(void)
  */
 void ADC_DMA_read(void)
 {
+#ifndef USE_SRAM
+	/*
+	 * swap address bytes for serial SRAM addressing and update address bytes
+	 */
+#if defined __has_builtin
+#if __has_builtin (__builtin_bswap16)
+	*sram_addr_read_ptr = __builtin_bswap16(sram_addr_read);
+#else
+	*sram_addr_ptr = htons(sram_addr_read);
+#endif
+#else
+	*sram_addr_ptr = htons(sram_addr_read);
+#endif
+	//	if ((sram_addr_read += 4) >= 16) {
+	//		sram_addr_read = 0;
+	//	};
 
+	/*
+	 * make sure DMA is ready for next sequence
+	 */
+	SCCP2_TimerStop();
+	while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
+	};
+	//	while (DMA_ChannelIsBusy(DMA_CHANNEL_4)) {
+	//	};
+#ifndef USE_SRAM
+	SRAM_CS_Clear(); // CS will bet set in DMA complete ISR
+#endif
+
+	//SPI2_WriteRead((void*) iss_adc_read, 9, (void*) sram_adc_read, 9);
+
+	DMA_ChannelTransfer(DMA_CHANNEL_4, (const void *) &SPI2BUF, (const void*) sram_adc_read, (size_t) 9);
+	/*
+	 * write sram chip data address and two 16-bit ADC results to chip for later processing
+	 */
+	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_read, (const void*) &SPI2BUF, (size_t) 9);
+	//	DMA_ChannelTransfer(DMA_CHANNEL_4, (const void *) &SPI2BUF, (const void*) sram_adc_read, (size_t) 9);
+	SCCP2_Timer32bitPeriodSet(retrigger_time + retrigger_time);
+	SCCP2_TimerStart();
+#endif
 };
 
 /*
@@ -95,11 +146,7 @@ void ADC_DMA_read(void)
 void SPI2DmaChannelHandler_State(DMA_TRANSFER_EVENT event, uintptr_t contextHandle)
 {
 	static uint32_t cdown = CDOWN;
-#ifdef DMA_HALF
-	if (event == DMA_TRANSFER_EVENT_HALF_COMPLETE) {
-		// stuff
-	}
-#endif
+
 	if (event == DMA_TRANSFER_EVENT_COMPLETE) {
 #ifndef USE_SRAM
 		while (SPI2_IsTransmitterBusy() && --cdown != 0); // SPI buffer empty timeout
@@ -107,6 +154,14 @@ void SPI2DmaChannelHandler_State(DMA_TRANSFER_EVENT event, uintptr_t contextHand
 		SRAM_CS_Set();
 #endif
 	}
+}
+
+void SPI2DmaChannelHandler_State_Read(DMA_TRANSFER_EVENT event, uintptr_t contextHandle)
+{
+	if (event == DMA_TRANSFER_EVENT_COMPLETE) {
+
+	}
+
 }
 
 /*
@@ -156,10 +211,8 @@ void ADC_DMA_init(void)
 
 	// Trigger channel #6 in software and wait for the result.
 	AD1SWTRGbits.CH6TRG = 1;
-	TP0_Set();
 	// Wait for a conversion ready flag.
 	while (AD1STATbits.CH6RDY == 0);
-	TP0_Clear();
 	// Read result. It will clear the conversion ready flag.
 	adc_result[ADC1_D] = AD1CH6DATA;
 
@@ -167,6 +220,7 @@ void ADC_DMA_init(void)
 	 * setup the DMA and timer background tasks
 	 */
 	DMA_ChannelCallbackRegister(DMA_CHANNEL_5, SPI2DmaChannelHandler_State, 0);
+	//	DMA_ChannelCallbackRegister(DMA_CHANNEL_4, SPI2DmaChannelHandler_State_Read, 0);
 	SCCP2_TimerCallbackRegister(SCCP2_Callback_InterruptHandler, (uintptr_t) NULL);
 	SCCP2_Timer32bitPeriodSet(retrigger_time); //  close to 3.5us timer interrupts
 }

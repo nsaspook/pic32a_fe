@@ -38,7 +38,7 @@ extern "C" {
 #define DAC1_CAL	1256
 
 #define DIS_TICKS	100
-#define IMU_TICKS	50
+#define IMU_TICKS	1
 #define GFX_TICKS	30000
 
 	extern bool SW1_SET, SW2_SET;

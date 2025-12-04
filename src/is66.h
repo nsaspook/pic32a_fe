@@ -22,6 +22,7 @@ extern "C" {
 	uint8_t iss_read_id_buffer[7];
 
 	extern volatile uint8_t iss_adc_write[8];
+	extern volatile uint8_t sram_adc_write[8], sram_adc_read[8];
 	extern volatile uint32_t total_sample_triggers;
 	extern volatile uint16_t sram_addr, *sram_addr_ptr, adc_result[NUM_ADC];
 

@@ -90,6 +90,27 @@
 #define DMA1CH_DAMODE_DECREMENTED          ((uint32_t)(_DMA1CH_DAMODE_MASK & ((uint32_t)(2) << _DMA1CH_DAMODE_POSITION)))
 
 //SPI DMAxCH Data Size Selection options
+#define DMA4CH_SIZE_ONE_BYTE_WORD          ((uint32_t)(_DMA4CH_SIZE_MASK & ((uint32_t)(0) << _DMA4CH_SIZE_POSITION)))
+#define DMA4CH_SIZE_16_BIT_WORD          ((uint32_t)(_DMA4CH_SIZE_MASK & ((uint32_t)(1) << _DMA4CH_SIZE_POSITION)))
+#define DMA4CH_SIZE_32_BIT_WORD          ((uint32_t)(_DMA4CH_SIZE_MASK & ((uint32_t)(2) << _DMA4CH_SIZE_POSITION)))
+
+//SPI DMAxCH Transfer Mode Selection options
+#define DMA4CH_TRMODE_ONE_SHOT          ((uint32_t)(_DMA4CH_TRMODE_MASK & ((uint32_t)(0) << _DMA4CH_TRMODE_POSITION)))
+#define DMA4CH_TRMODE_REPEATED_ONE_SHOT          ((uint32_t)(_DMA4CH_TRMODE_MASK & ((uint32_t)(1) << _DMA4CH_TRMODE_POSITION)))
+#define DMA4CH_TRMODE_CONTINUOUS          ((uint32_t)(_DMA4CH_TRMODE_MASK & ((uint32_t)(2) << _DMA4CH_TRMODE_POSITION)))
+#define DMA4CH_TRMODE_REPEATED_CONTINUOUS          ((uint32_t)(_DMA4CH_TRMODE_MASK & ((uint32_t)(3) << _DMA4CH_TRMODE_POSITION)))
+
+// DMAxCH Source Address Mode Selection Options
+#define DMA4CH_SAMODE_UNCHANGED          ((uint32_t)(_DMA4CH_SAMODE_MASK & ((uint32_t)(0) << _DMA4CH_SAMODE_POSITION)))
+#define DMA4CH_SAMODE_INCREMENTED          ((uint32_t)(_DMA4CH_SAMODE_MASK & ((uint32_t)(1) << _DMA4CH_SAMODE_POSITION)))
+#define DMA4CH_SAMODE_DECREMENTED          ((uint32_t)(_DMA4CH_SAMODE_MASK & ((uint32_t)(2) << _DMA4CH_SAMODE_POSITION)))
+
+// DMAxCH Destination Address Mode Selection Options
+#define DMA4CH_DAMODE_UNCHANGED          ((uint32_t)(_DMA4CH_DAMODE_MASK & ((uint32_t)(0) << _DMA4CH_DAMODE_POSITION)))
+#define DMA4CH_DAMODE_INCREMENTED          ((uint32_t)(_DMA4CH_DAMODE_MASK & ((uint32_t)(1) << _DMA4CH_DAMODE_POSITION)))
+#define DMA4CH_DAMODE_DECREMENTED          ((uint32_t)(_DMA4CH_DAMODE_MASK & ((uint32_t)(2) << _DMA4CH_DAMODE_POSITION)))
+
+//SPI DMAxCH Data Size Selection options
 #define DMA5CH_SIZE_ONE_BYTE_WORD          ((uint32_t)(_DMA5CH_SIZE_MASK & ((uint32_t)(0) << _DMA5CH_SIZE_POSITION)))
 #define DMA5CH_SIZE_16_BIT_WORD          ((uint32_t)(_DMA5CH_SIZE_MASK & ((uint32_t)(1) << _DMA5CH_SIZE_POSITION)))
 #define DMA5CH_SIZE_32_BIT_WORD          ((uint32_t)(_DMA5CH_SIZE_MASK & ((uint32_t)(2) << _DMA5CH_SIZE_POSITION)))
@@ -132,6 +153,10 @@ void DMA_Initialize( void )
     dmaChannelObj[DMA_CHANNEL_1].callback   =    NULL;
     dmaChannelObj[DMA_CHANNEL_1].context    =    0U;
 
+    dmaChannelObj[DMA_CHANNEL_4].inUse      =    false;
+    dmaChannelObj[DMA_CHANNEL_4].callback   =    NULL;
+    dmaChannelObj[DMA_CHANNEL_4].context    =    0U;
+
     dmaChannelObj[DMA_CHANNEL_5].inUse      =    false;
     dmaChannelObj[DMA_CHANNEL_5].callback   =    NULL;
     dmaChannelObj[DMA_CHANNEL_5].context    =    0U;
@@ -161,6 +186,12 @@ void DMA_Initialize( void )
          | _DMA1CH_DONEEN_MASK);
 
     DMA1SEL = (uint32_t)0x5c << _DMA1SEL_CHSEL_POSITION;
+    DMA4CH = (DMA4CH_SAMODE_UNCHANGED
+         | DMA4CH_DAMODE_INCREMENTED
+         | DMA4CH_TRMODE_ONE_SHOT
+         | DMA4CH_SIZE_ONE_BYTE_WORD);
+
+    DMA4SEL = (uint32_t)0x8 << _DMA4SEL_CHSEL_POSITION;
     DMA5CH = ( _DMA5CH_RELOADC_MASK
          | _DMA5CH_RELOADD_MASK
          | _DMA5CH_RELOADS_MASK
@@ -208,6 +239,8 @@ void DMA_Deinitialize( void )
     DMA0CHbits.CHEN = 0U;
     //Disable DMA Channel 1
     DMA1CHbits.CHEN = 0U;
+    //Disable DMA Channel 4
+    DMA4CHbits.CHEN = 0U;
     //Disable DMA Channel 5
     DMA5CHbits.CHEN = 0U;
     /* Disable the DMA module */
@@ -238,6 +271,15 @@ void DMA_Deinitialize( void )
     DMA1CNT = 0x1UL;
     DMA1MSK = 0x0UL;
     DMA1PAT = 0x0UL;
+
+    DMA4CH = 0x0UL;
+    DMA4SEL = 0x0UL;
+    DMA4STAT = 0x0UL;
+    DMA4SRC = 0x0UL;
+    DMA4DST = 0x0UL;
+    DMA4CNT = 0x1UL;
+    DMA4MSK = 0x0UL;
+    DMA4PAT = 0x0UL;
 
     DMA5CH = 0x0UL;
     DMA5SEL = 0x0UL;
@@ -284,6 +326,17 @@ bool DMA_ChannelTransfer(DMA_CHANNEL channel, const void *srcAddr, const void *d
                 DMA1CHbits.CHEN = 1;
                 break;
 
+            case DMA_CHANNEL_4:
+                DMA4SRC = (uint32_t)XsrcAddr;
+                DMA4DST = (uint32_t)XdestAddr;
+                DMA4CNT = blockSize;
+                dmaChannelObj[channel].inUse = true;
+                returnStatus = true;
+
+                //Enable DMA Channel 4
+                DMA4CHbits.CHEN = 1;
+                break;
+
             case DMA_CHANNEL_5:
                 DMA5SRC = (uint32_t)XsrcAddr;
                 DMA5DST = (uint32_t)XdestAddr;
@@ -325,6 +378,14 @@ void DMA_ChannelPatternMatchSetup(DMA_CHANNEL channel, uint32_t patternMatchMask
         DMA1CHbits.MATCHEN = 1U;
         break;
 
+        case DMA_CHANNEL_4:
+        DMA4MSK = patternMatchMask;
+        DMA4PAT = patternMatchData;
+
+        /* Enable Pattern Match */
+        DMA4CHbits.MATCHEN = 1U;
+        break;
+
         case DMA_CHANNEL_5:
         DMA5MSK = patternMatchMask;
         DMA5PAT = patternMatchData;
@@ -353,6 +414,11 @@ void DMA_ChannelEnable(DMA_CHANNEL channel)
             dmaChannelObj[channel].inUse = true;
             break;
 
+        case DMA_CHANNEL_4:
+            DMA4CHbits.CHEN = 1U;
+            dmaChannelObj[channel].inUse = true;
+            break;
+
         case DMA_CHANNEL_5:
             DMA5CHbits.CHEN = 1U;
             dmaChannelObj[channel].inUse = true;
@@ -375,6 +441,11 @@ void DMA_ChannelDisable (DMA_CHANNEL channel)
 
         case DMA_CHANNEL_1:
             DMA1CHbits.CHEN = 0U;
+            dmaChannelObj[channel].inUse = false;
+            break;
+
+        case DMA_CHANNEL_4:
+            DMA4CHbits.CHEN = 0U;
             dmaChannelObj[channel].inUse = false;
             break;
 
@@ -401,6 +472,10 @@ void DMA_ChannelPatternMatchEnable(DMA_CHANNEL channel)
             DMA1CHbits.MATCHEN = 1U;
             break;
 
+        case DMA_CHANNEL_4:
+            DMA4CHbits.MATCHEN = 1U;
+            break;
+
         case DMA_CHANNEL_5:
             DMA5CHbits.MATCHEN = 1U;
             break;
@@ -421,6 +496,10 @@ void DMA_ChannelPatternMatchDisable(DMA_CHANNEL channel)
 
         case DMA_CHANNEL_1:
             DMA1CHbits.MATCHEN = 0U;
+            break;
+
+        case DMA_CHANNEL_4:
+            DMA4CHbits.MATCHEN = 0U;
             break;
 
         case DMA_CHANNEL_5:
@@ -446,6 +525,10 @@ bool DMA_IsSoftwareRequestPending(DMA_CHANNEL channel)
                 status = (DMA1CHbits.CHREQ != 0U);
                 break;
 
+        case DMA_CHANNEL_4:
+                status = (DMA4CHbits.CHREQ != 0U);
+                break;
+
         case DMA_CHANNEL_5:
                 status = (DMA5CHbits.CHREQ != 0U);
                 break;
@@ -469,6 +552,10 @@ void DMA_ChannelSoftwareTriggerEnable(DMA_CHANNEL channel)
             DMA1CHbits.CHREQ = 1U;
             break;
 
+        case DMA_CHANNEL_4:
+            DMA4CHbits.CHREQ = 1U;
+            break;
+
         case DMA_CHANNEL_5:
             DMA5CHbits.CHREQ = 1U;
             break;
@@ -490,6 +577,10 @@ uint32_t DMA_ChannelGetTransferredCount(DMA_CHANNEL channel)
 
         case DMA_CHANNEL_1:
             count = DMA1CNT;
+            break;
+
+        case DMA_CHANNEL_4:
+            count = DMA4CNT;
             break;
 
         case DMA_CHANNEL_5:
@@ -528,6 +619,16 @@ bool DMA_ChannelIsBusy (DMA_CHANNEL channel)
             }
             break;
 
+        case DMA_CHANNEL_4:
+            if (DMA4STATbits.DONE == 0U)
+            {
+                if (dmaChannelObj[4].inUse)
+                {
+                    busy_check = true;
+                }
+            }
+            break;
+
         case DMA_CHANNEL_5:
             if (DMA5STATbits.DONE == 0U)
             {
@@ -558,6 +659,10 @@ DMA_CHANNEL_CONFIG DMA_ChannelSettingsGet(DMA_CHANNEL channel)
             setting = DMA1CH;
             break;
 
+        case DMA_CHANNEL_4:
+            setting = DMA4CH;
+            break;
+
         case DMA_CHANNEL_5:
             setting = DMA5CH;
             break;
@@ -582,6 +687,11 @@ bool DMA_ChannelSettingsSet(DMA_CHANNEL channel, DMA_CHANNEL_CONFIG setting)
 
         case DMA_CHANNEL_1:
             DMA1CH = setting;
+            status = true;
+            break;
+
+        case DMA_CHANNEL_4:
+            DMA4CH = setting;
             status = true;
             break;
 
