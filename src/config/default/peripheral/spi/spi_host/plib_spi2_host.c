@@ -105,7 +105,8 @@ void SPI2_Initialize ( void )
     SPI2CON1 = (SPI2CON1_MSTEN_HOST_MODE
             |SPI2CON1_CKP_IDLE_LOW_ACTIVE_HIGH
             |SPI2CON1_CKE_ACTIVE_TO_IDLE
-            |SPI2CON1_MCLKEN_UPB_CLOCK
+            |SPI2CON1_MCLKEN_CLOCK_GEN_9
+            |_SPI2CON1_SMP_MASK
             |_SPI2CON1_ENHBUF_MASK);
 
     /* Initialize global variables */

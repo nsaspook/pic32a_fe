@@ -14793,9 +14793,9 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <attribute name="NAME" x="240.03" y="-72.644" size="1.778" layer="95"/>
 <attribute name="TP_SIGNAL_NAME" x="251.46" y="-72.39" size="1.778" layer="97" rot="R270"/>
 </instance>
-<instance part="TP4" gate="G$1" x="254" y="-68.58" smashed="yes" rot="R270">
-<attribute name="NAME" x="247.65" y="-67.564" size="1.778" layer="95"/>
-<attribute name="TP_SIGNAL_NAME" x="251.46" y="-69.85" size="1.778" layer="97" rot="R270"/>
+<instance part="TP4" gate="G$1" x="254" y="-66.04" smashed="yes" rot="R270">
+<attribute name="NAME" x="247.65" y="-65.024" size="1.778" layer="95"/>
+<attribute name="TP_SIGNAL_NAME" x="251.46" y="-67.31" size="1.778" layer="97" rot="R270"/>
 </instance>
 <instance part="TP5" gate="G$1" x="254" y="-63.5" smashed="yes" rot="R270">
 <attribute name="NAME" x="247.65" y="-62.484" size="1.778" layer="95"/>
@@ -15717,14 +15717,11 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <label x="50.8" y="-33.02" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="256.54" y1="-68.58" x2="271.78" y2="-68.58" width="0.1524" layer="91"/>
-<pinref part="U2" gate="A" pin="SIO2"/>
-<label x="259.08" y="-68.58" size="1.778" layer="95"/>
-<junction x="256.54" y="-68.58"/>
-<junction x="271.78" y="-68.58"/>
-<pinref part="TP4" gate="G$1" pin="TP"/>
 <pinref part="U2" gate="A" pin="SO/SIO1"/>
-<wire x1="271.78" y1="-68.58" x2="271.78" y2="-66.04" width="0.1524" layer="91"/>
+<wire x1="256.54" y1="-66.04" x2="271.78" y2="-66.04" width="0.1524" layer="91"/>
+<label x="259.08" y="-66.04" size="1.778" layer="95"/>
+<pinref part="TP4" gate="G$1" pin="TP"/>
+<junction x="256.54" y="-66.04"/>
 <junction x="271.78" y="-66.04"/>
 </segment>
 </net>
@@ -16202,20 +16199,19 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <label x="254" y="-101.6" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SCK3" class="0">
+<net name="RB1" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="TMS/OA2IN-/AD1AN4/AD2ANN1/RP18/RB1"/>
 <wire x1="76.2" y1="-5.08" x2="60.96" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="76.2" y="-5.08"/>
 <junction x="60.96" y="-5.08"/>
-<label x="50.8" y="-5.08" size="1.778" layer="95"/>
+<label x="66.04" y="-5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="330.2" y1="-93.98" x2="314.96" y2="-93.98" width="0.1524" layer="91"/>
-<pinref part="AC1" gate="G$1" pin="SCK"/>
-<junction x="314.96" y="-93.98"/>
-<junction x="330.2" y="-93.98"/>
-<label x="332.74" y="-93.98" size="1.778" layer="95"/>
+<wire x1="35.56" y1="55.88" x2="22.86" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="MISC_ANA" gate="A" pin="3"/>
+<junction x="35.56" y="55.88"/>
+<label x="38.1" y="55.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SDI3" class="0">
@@ -16744,20 +16740,20 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <label x="38.1" y="58.42" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="RD8" class="0">
+<net name="SCK3" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="RP57/ASDA2/IOMD6/IOMF3/RD8"/>
 <wire x1="294.64" y1="30.48" x2="309.88" y2="30.48" width="0.1524" layer="91"/>
 <junction x="294.64" y="30.48"/>
 <junction x="309.88" y="30.48"/>
-<label x="302.26" y="30.48" size="1.778" layer="95"/>
+<label x="317.5" y="30.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="22.86" y1="55.88" x2="35.56" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="MISC_ANA" gate="A" pin="3"/>
-<junction x="22.86" y="55.88"/>
-<junction x="35.56" y="55.88"/>
-<label x="38.1" y="55.88" size="1.778" layer="95"/>
+<wire x1="314.96" y1="-93.98" x2="330.2" y2="-93.98" width="0.1524" layer="91"/>
+<pinref part="AC1" gate="G$1" pin="SCK"/>
+<junction x="314.96" y="-93.98"/>
+<junction x="330.2" y="-93.98"/>
+<label x="332.74" y="-93.98" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

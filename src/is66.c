@@ -16,9 +16,9 @@
 //#define USE_SRAM
 //#define DMA_HALF
 
-static const uint32_t MAX_ISS66_SAMPLES = 32768;
+static const uint32_t MAX_ISS66_SAMPLES = 1024; // page testing
 static const uint16_t CDOWN = 8;
-static const uint32_t retrigger_time = 600;
+static const uint32_t retrigger_time = 250;
 volatile uint8_t iss_adc_write[8] = {0x02, 0x00, 0x00, 0x00}; // 1024 bytes in each address page for sequential writes
 volatile uint8_t iss_adc_read[16] = {0x0B, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 volatile uint8_t sram_adc_write[8], sram_adc_read[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
@@ -92,7 +92,7 @@ void ADC_DMA_write(void)
 };
 
 /*
- * iss66 data reads using DMA
+ * iss66 data reads using interrupt driver
  * on the todo list
  */
 void ADC_DMA_read(void)
@@ -130,16 +130,16 @@ void ADC_DMA_read(void)
 #endif
 
 	SPI2_WriteRead((void*) iss_adc_read, 9, (void*) sram_adc_read, 9);
-	while (SPI2_IsBusy ());
+	while (SPI2_IsBusy());
 
 	//DMA_ChannelTransfer(DMA_CHANNEL_4, (const void *) &SPI2BUF, (const void*) sram_adc_read, (size_t) 9);
 	/*
 	 * write sram chip data address and two 16-bit ADC results to chip for later processing
 	 */
 	//DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_read, (const void*) &SPI2BUF, (size_t) 9);
-	SCCP2_Timer32bitPeriodSet(retrigger_time + retrigger_time);
+	SCCP2_Timer32bitPeriodSet(retrigger_time);
 	SCCP2_TimerStart();
-		adc_iss_result[index & 1] = sram_adc_read[7] + (sram_adc_read[8] << 8); // store 16-bit results into result array
+	adc_iss_result[index & 1] = sram_adc_read[7] + (sram_adc_read[8] << 8); // store 16-bit results into result array
 #endif
 };
 

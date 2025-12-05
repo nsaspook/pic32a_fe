@@ -35,7 +35,7 @@ data:
       - children:
         - attributes:
             id: spi2
-            value: '25000000'
+            value: '72192333'
           type: Dynamic
         type: Values
       type: Integer
@@ -99,7 +99,7 @@ data:
       - children:
         - attributes:
             id: spi2
-            value: '100000000'
+            value: '288769330'
           type: Dynamic
         type: Values
       type: Integer
@@ -112,18 +112,18 @@ data:
             id: max
           children:
           - type: Value
-            value: '50000000'
+            value: '144384665'
           type: Integer
         - attributes:
             id: min
           children:
           - type: Value
-            value: '3051'
+            value: '8812'
           type: Integer
         type: Attributes
       - children:
         - attributes:
-            value: '25000000'
+            value: '60000000'
           type: User
         type: Values
       type: Integer
@@ -143,7 +143,17 @@ data:
       children:
       - children:
         - attributes:
-            value: '0'
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SPI_CON1__SMP:
+      attributes:
+        id: SPI_CON1__SMP
+      children:
+      - children:
+        - attributes:
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet

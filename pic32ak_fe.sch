@@ -14546,7 +14546,7 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <part name="TP22" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
 <part name="TP23" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
 <part name="TP24" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
-<part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100 ohm"/>
+<part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="50 ohm"/>
 <part name="R12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100 ohm"/>
 <part name="R13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100 ohm"/>
 <part name="VSS39" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
@@ -14685,7 +14685,7 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <attribute name="VALUE" x="356.489" y="-54.864" size="1.778" layer="96" rot="MR90"/>
 </instance>
 <instance part="VDD4" gate="G$1" x="355.6" y="-71.12" smashed="yes" rot="R180">
-<attribute name="VALUE" x="350.52" y="-73.66" size="1.778" layer="96"/>
+<attribute name="VALUE" x="353.06" y="-73.66" size="1.778" layer="96"/>
 </instance>
 <instance part="VSS10" gate="G$1" x="363.22" y="-71.12" smashed="yes">
 <attribute name="VALUE" x="370.84" y="-71.12" size="1.778" layer="96" rot="R180"/>
@@ -14871,11 +14871,11 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <attribute name="VALUE" x="274.32" y="58.42" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="TP1" gate="G$1" x="340.36" y="-71.12" smashed="yes" rot="R90">
-<attribute name="NAME" x="346.71" y="-72.136" size="1.778" layer="95" rot="R180"/>
+<attribute name="NAME" x="349.25" y="-72.136" size="1.778" layer="95" rot="R180"/>
 <attribute name="TP_SIGNAL_NAME" x="342.9" y="-69.85" size="1.778" layer="97" rot="R90"/>
 </instance>
 <instance part="TP2" gate="G$1" x="340.36" y="-68.58" smashed="yes" rot="R90">
-<attribute name="NAME" x="346.71" y="-69.596" size="1.778" layer="95" rot="R180"/>
+<attribute name="NAME" x="349.25" y="-64.516" size="1.778" layer="95" rot="R180"/>
 <attribute name="TP_SIGNAL_NAME" x="342.9" y="-67.31" size="1.778" layer="97" rot="R90"/>
 </instance>
 <instance part="TP3" gate="G$1" x="254" y="-71.12" smashed="yes" rot="R270">
@@ -14883,11 +14883,11 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <attribute name="TP_SIGNAL_NAME" x="251.46" y="-72.39" size="1.778" layer="97" rot="R270"/>
 </instance>
 <instance part="TP4" gate="G$1" x="254" y="-66.04" smashed="yes" rot="R270">
-<attribute name="NAME" x="247.65" y="-65.024" size="1.778" layer="95"/>
+<attribute name="NAME" x="240.03" y="-65.024" size="1.778" layer="95"/>
 <attribute name="TP_SIGNAL_NAME" x="251.46" y="-67.31" size="1.778" layer="97" rot="R270"/>
 </instance>
 <instance part="TP5" gate="G$1" x="254" y="-63.5" smashed="yes" rot="R270">
-<attribute name="NAME" x="247.65" y="-62.484" size="1.778" layer="95"/>
+<attribute name="NAME" x="240.03" y="-62.484" size="1.778" layer="95"/>
 <attribute name="TP_SIGNAL_NAME" x="251.46" y="-64.77" size="1.778" layer="97" rot="R270"/>
 </instance>
 <instance part="TP6" gate="G$1" x="218.44" y="88.9" smashed="yes" rot="R90">
@@ -15103,16 +15103,16 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <attribute name="TP_SIGNAL_NAME" x="191.77" y="-45.72" size="1.778" layer="97" rot="R180"/>
 </instance>
 <instance part="R11" gate="G$1" x="261.62" y="-43.18" smashed="yes" rot="R180">
-<attribute name="NAME" x="265.43" y="-44.6786" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="265.43" y="-39.878" size="1.778" layer="96" rot="R180"/>
+<attribute name="NAME" x="262.89" y="-39.5986" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="255.27" y="-39.878" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="R12" gate="G$1" x="261.62" y="-48.26" smashed="yes" rot="R180">
-<attribute name="NAME" x="265.43" y="-49.7586" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="265.43" y="-44.958" size="1.778" layer="96" rot="R180"/>
+<attribute name="NAME" x="262.89" y="-44.6786" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="255.27" y="-44.958" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="R13" gate="G$1" x="261.62" y="-53.34" smashed="yes" rot="R180">
-<attribute name="NAME" x="265.43" y="-54.8386" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="265.43" y="-50.038" size="1.778" layer="96" rot="R180"/>
+<attribute name="NAME" x="262.89" y="-49.7586" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="255.27" y="-50.038" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="VSS39" gate="G$1" x="256.54" y="-55.88" smashed="yes">
 <attribute name="VALUE" x="254" y="-55.88" size="1.778" layer="96" rot="R180"/>

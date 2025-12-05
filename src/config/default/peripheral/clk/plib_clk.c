@@ -336,13 +336,13 @@ void CLOCK_Initialize(void)
         Clock Generator 3 frequency                     : 8.0 MHz
         Clock Generator 6 frequency                     : 200.0 MHz
         Clock Generator 7 frequency                     : 8.0 MHz
-        Clock Generator 9 frequency                     : 68.085106 MHz
+        Clock Generator 9 frequency                     : 288.76933 MHz
         Clock Generator 12 frequency                     : 1.0 MHz
         
         PLL 1 frequency                                 : 200.0 MHz
         PLL 1 VCO Out frequency                         : 200.0 MHz
-        PLL 2 frequency                                 : 533.333333 MHz
-        PLL 2 VCO Out frequency                         : 800.0 MHz
+        PLL 2 frequency                                 : 578.666666 MHz
+        PLL 2 VCO Out frequency                         : 868.0 MHz
 
     */
     //Primary oscillator settings 
@@ -400,7 +400,7 @@ void CLOCK_Initialize(void)
                 |PLL2CON_NOSC_POSC
                 |PLL2CON_BOSC_BFRC);
     PLL2DIV = (PLL2DIV_PLLPRE_SET(1)
-                 |PLL2DIV_PLLFBDIV_SET(200)
+                 |PLL2DIV_PLLFBDIV_SET(217)
                  |PLL2DIV_POSTDIV1_SET(3)
                  |PLL2DIV_POSTDIV2_SET(1));
     //Enable PLL Input and Feedback Divider update
@@ -495,10 +495,10 @@ void CLOCK_Initialize(void)
     //Clock Generator 9 settings
     CLK9CON = (_CLK9CON_ON_MASK
                 |_CLK9CON_OE_MASK
-                |CLK9CON_NOSC_PLL1_FOUT
+                |CLK9CON_NOSC_PLL2_FOUT
                 |CLK9CON_BOSC_BFRC);
     CLK9DIV = (CLK9DIV_INTDIV_SET(1)
-                 |CLK9DIV_FRACDIV_SET(240));
+                 |CLK9DIV_FRACDIV_SET(1));
     //Enable divide factors
     CLK9CONbits.DIVSWEN = 1U; 
 #ifndef __MPLAB_DEBUGGER_SIMULATOR
