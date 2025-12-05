@@ -21,11 +21,11 @@ static const uint16_t CDOWN = 8;
 static const uint32_t retrigger_time = 600;
 volatile uint8_t iss_adc_write[8] = {0x02, 0x00, 0x00, 0x00}; // 1024 bytes in each address page for sequential writes
 volatile uint8_t iss_adc_read[16] = {0x0B, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-volatile uint8_t sram_adc_write[8], sram_adc_read[16] = {1, 2, 3, 4, 5, 6, 7, 8};
+volatile uint8_t sram_adc_write[8], sram_adc_read[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
 volatile uint32_t total_sample_triggers = 0;
 volatile uint16_t sram_addr = 0, *sram_addr_ptr = (volatile uint16_t *) & iss_adc_write[2]; // pointer to address bytes
 volatile uint16_t sram_addr_read = 0, *sram_addr_read_ptr = (volatile uint16_t *) & iss_adc_read[2]; // pointer to address bytes
-volatile uint16_t adc_result[NUM_ADC] = {0, 0};
+volatile uint16_t adc_result[NUM_ADC] = {0, 0}, adc_iss_result[NUM_ADC] = {0, 0};
 
 /*
  * swap16 for iss66 addresses
@@ -74,7 +74,6 @@ void ADC_DMA_write(void)
 	if ((sram_addr += 4) >= MAX_ISS66_SAMPLES) {
 		sram_addr = 0;
 		total_sample_triggers++;
-		//		TP0_Toggle();
 	};
 
 	/*
@@ -98,7 +97,15 @@ void ADC_DMA_write(void)
  */
 void ADC_DMA_read(void)
 {
+	static uint8_t index = 0;
+
+	SCCP2_TimerStop();
 #ifndef USE_SRAM
+	if (index++ &1) {
+		iss_adc_read[3] = 2;
+	} else {
+		iss_adc_read[3] = 0;
+	}
 	/*
 	 * swap address bytes for serial SRAM addressing and update address bytes
 	 */
@@ -111,32 +118,28 @@ void ADC_DMA_read(void)
 #else
 	*sram_addr_ptr = htons(sram_addr_read);
 #endif
-	//	if ((sram_addr_read += 4) >= 16) {
-	//		sram_addr_read = 0;
-	//	};
 
 	/*
 	 * make sure DMA is ready for next sequence
 	 */
-	SCCP2_TimerStop();
 	while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
 	};
-	//	while (DMA_ChannelIsBusy(DMA_CHANNEL_4)) {
-	//	};
+
 #ifndef USE_SRAM
 	SRAM_CS_Clear(); // CS will bet set in DMA complete ISR
 #endif
 
-	//SPI2_WriteRead((void*) iss_adc_read, 9, (void*) sram_adc_read, 9);
+	SPI2_WriteRead((void*) iss_adc_read, 9, (void*) sram_adc_read, 9);
+	while (SPI2_IsBusy ());
 
-	DMA_ChannelTransfer(DMA_CHANNEL_4, (const void *) &SPI2BUF, (const void*) sram_adc_read, (size_t) 9);
+	//DMA_ChannelTransfer(DMA_CHANNEL_4, (const void *) &SPI2BUF, (const void*) sram_adc_read, (size_t) 9);
 	/*
 	 * write sram chip data address and two 16-bit ADC results to chip for later processing
 	 */
-	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_read, (const void*) &SPI2BUF, (size_t) 9);
-	//	DMA_ChannelTransfer(DMA_CHANNEL_4, (const void *) &SPI2BUF, (const void*) sram_adc_read, (size_t) 9);
+	//DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_read, (const void*) &SPI2BUF, (size_t) 9);
 	SCCP2_Timer32bitPeriodSet(retrigger_time + retrigger_time);
 	SCCP2_TimerStart();
+		adc_iss_result[index & 1] = sram_adc_read[7] + (sram_adc_read[8] << 8); // store 16-bit results into result array
 #endif
 };
 

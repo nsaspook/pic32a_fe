@@ -116,8 +116,8 @@ int main(void)
 		SYS_Tasks();
 		if (TimerDone(TMR_TEST)) {
 			if (!SW2_SET) {
-				ADC_DMA_read();
 				StartTimer(TMR_TEST, DIS_TICKS);
+				ADC_DMA_read();
 				if (!SW1_SET) {
 					snprintf(buffer, IMU_BUF - 1, "S%u, I%X%X%X, D%u D%u", total_sample_triggers, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6],
 						(uint16_t) adc_result[ADC1_D], (uint16_t) adc_result[ADC2_D]);
@@ -129,15 +129,19 @@ int main(void)
 				eaDogM_WriteStringAtPos(3, 0, buffer);
 				adc1_scaled = (double) adc_result[ADC1_D] * ADC1_SCALE;
 				adc2_scaled = (double) adc_result[ADC2_D] * ADC2_SCALE;
-				snprintf(buffer, IMU_BUF - 1, "ADC1 Voltage : %7.4f Volts", adc1_scaled);
+				snprintf(buffer, IMU_BUF - 1, "ADC1 Voltage: %7.4f Volts", adc1_scaled);
 				eaDogM_WriteStringAtPos(4, 0, buffer);
-				snprintf(buffer, IMU_BUF - 1, "ADC2 Voltage : %7.4f Volts", adc2_scaled);
+				snprintf(buffer, IMU_BUF - 1, "ADC2 Voltage: %7.4f Volts", adc2_scaled);
 				eaDogM_WriteStringAtPos(5, 0, buffer);
-				uint16_t *ptr1 = (void*) &sram_adc_read[7], *ptr2 = (void*) &sram_adc_read[9];
-				snprintf(buffer, IMU_BUF - 1, "ISS Read %u %u      ", *ptr1, *ptr2);
+				snprintf(buffer, IMU_BUF - 1, "ISS Read: D%u D%u      ", adc_iss_result[ADC1_D], adc_iss_result[ADC2_D]);
 				eaDogM_WriteStringAtPos(6, 0, buffer);
+				adc1_scaled = (double) adc_iss_result[ADC1_D] * ADC1_SCALE;
+				adc2_scaled = (double) adc_iss_result[ADC2_D] * ADC2_SCALE;
+				snprintf(buffer, IMU_BUF - 1, "ISS Volts: %7.4f %7.4f      ", adc1_scaled, adc2_scaled);
+				eaDogM_WriteStringAtPos(7, 0, buffer);
 				if (SW1_SET) {
 					uint16_t i = 1;
+
 					LA_gfx(false, false, 0);
 					while ((i++ < 15)) {
 						// extra processing loop while waiting for clock time to expire
