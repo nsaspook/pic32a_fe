@@ -1,0 +1,114 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "NCP51460SN33T1G"
+   (description "Operating Input Voltage VIN 4.2 V to 28 V; Output Current Capability of 0 to 20 mA; Output Voltage Temperature Coefficient of 18 ppm/C; Output Voltage Accuracy 1 %, for 0 C TA 100 C ; High PSRR of 68 dB at 1 kHz; Stable Without Output Capacitor; Low Quiescent Current of 140 A; Low Output Noise of 18 VRMS; Output Voltage Option: 3.3V")
+   (family "ANA")
+   (package "SOT96P237X111-3N")
+   (attribute "Datasheet Link" "https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF")
+   (attribute "Geometry.Height" "1.11mm")
+   (attribute "Mouser Part Number" "863-NCP51460SN33T1G")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/onsemi/NCP51460SN33T1G?qs=yYCK2ysgWqmLP%2FSKTB%252Bdng%3D%3D")
+   (attribute "Manufacturer_Name" "onsemi")
+   (attribute "Manufacturer_Part_Number" "NCP51460SN33T1G")
+   (gate
+    (symbol "NCP51460SN33T1G")
+    (pin "VIN" 1 IP)
+    (pin "VOUT" 2 OP)
+    (pin "GND" 3 PP)
+   )
+  )
+  (symbol "NCP51460SN33T1G"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 900 100) (pt 900 -200) (pt 200 -200) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1100 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "SOT96P237X111-3N"
+   (units MM)
+   (layer OCCA
+    (graphic
+     (stroke 0.05)
+     (path
+      (closed true)
+      (pt -1.95 1.77)
+      (pt 1.95 1.77)
+      (pt 1.95 -1.77)
+      (pt -1.95 -1.77)
+      (pt -1.95 1.77))))
+   (layer TASM
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -0.65 1.46)
+      (pt 0.65 1.46)
+      (pt 0.65 -1.46)
+      (pt -0.65 -1.46)
+      (pt -0.65 1.46))))
+   (layer TASM
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt -0.65 0.505)
+      (pt 0.305 1.46))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -0.35 1.46)
+      (pt 0.35 1.46)
+      (pt 0.35 -1.46)
+      (pt -0.35 -1.46)
+      (pt -0.35 1.46))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -1.7 1.505)
+      (pt -0.7 1.505))))
+   (leg 1 (pt -1.2 0.955) (padstack 0))
+   (leg 2 (pt -1.2 -0.955) (padstack 0))
+   (leg 3 (pt 1.2 0) (padstack 0))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 0.6 1 0 0 0))
+   )
+   (model "NCP51460SN33T1G.stp"
+    (euler 0 0 0)
+    (offset 0 0 0)
+   )
+  )
+ )
+)

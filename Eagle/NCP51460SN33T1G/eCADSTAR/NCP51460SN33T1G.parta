@@ -1,0 +1,70 @@
+(Japanese_coding: sjis)
+(function "ECS_226237"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2015-08-18-09:34:54)
+    (utime 2025-01-22-16:53:39)
+    (interface
+        (port "1" (symbPinId 1) (portType INPUT))
+        (port "2" (symbPinId 2) (portType OUTPUT))
+        (port "3" (symbPinId 3) (portType GROUND))
+    )
+    (property "symbolName" "NCP51460SN33T1G")
+)
+
+
+(pinAssign "ECS_226237"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2015-08-18-09:34:54)
+    (utime 2025-01-22-16:53:39)
+    (interface
+        (port "1" (symbPinId 1) (portName "VIN") (portType INPUT))
+        (port "2" (symbPinId 2) (portName "VOUT") (portType OUTPUT))
+        (port "3" (symbPinId 3) (portName "GND") (portType GROUND))
+    )
+    (internal
+        (funcInst (functionRef "ECS_226237")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+                (port "3" (match "3"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "NCP51460SN33T1G")
+)
+
+
+(part "NCP51460SN33T1G"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2015-08-18-09:34:54)
+    (utime 2025-01-22-16:53:39)
+    (packageRef "NCP51460SN33T1G")
+    (pinAssignRef "ECS_226237")
+    (interface
+        (port "1" (symbPinId 1) (portName "VIN") (portType INPUT))
+        (port "2" (symbPinId 2) (portName "VOUT") (portType OUTPUT))
+        (port "3" (symbPinId 3) (portName "GND") (portType GROUND))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "YES")
+    (property "refDesPrefix" "IC")
+    (property "description" "Operating Input Voltage VIN 4.2 V to 28 V; Output Current Capability of 0 to 20 mA; Output Voltage Temperature Coefficient of 18 ppm/C; Output Voltage Accuracy 1 %, for 0 C TA 100 C ; High PSRR of 68 dB at 1 kHz; Stable Without Output Capacitor; Low Quiescent Current of 140 A; Low Output Noise of 18 VRMS; Output Voltage Option: 3.3V")
+    (property "Mouser_Part_Number" "863-NCP51460SN33T1G")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/onsemi/NCP51460SN33T1G?qs=yYCK2ysgWqmLP%2FSKTB%252Bdng%3D%3D")
+    (property "Manufacturer_Name" "onsemi")
+    (property "Manufacturer_Part_Number" "NCP51460SN33T1G")
+    (property "Datasheet_Link" "https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF")
+    (property "compAreaTopHeight" 1.11)
+)
+
+

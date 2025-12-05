@@ -1,0 +1,1424 @@
+configVersion: 1.0.0
+componentName: pwm
+coreVersion: 5.8.3
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: pwm
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.24.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: pwm
+          x: '496'
+          y: '148'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    MASTER_CALC_FREQ:
+      attributes:
+        id: MASTER_CALC_FREQ
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '100000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    MASTER_PERIOD:
+      attributes:
+        id: MASTER_PERIOD
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '7984'
+          type: Dynamic
+        type: Values
+      type: Hex
+    MASTER_PG_CON__MODSEL:
+      attributes:
+        id: MASTER_PG_CON__MODSEL
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: KeyValueSet
+    MASTER_PHASE_REG_VAL:
+      attributes:
+        id: MASTER_PHASE_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    MASTER_PRIMARY_CAL_PHASE:
+      attributes:
+        id: MASTER_PRIMARY_CAL_PHASE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    MASTER_PRIMARY_DC:
+      attributes:
+        id: MASTER_PRIMARY_DC
+      children:
+      - children:
+        - attributes:
+            value: '50.0'
+          type: User
+        type: Values
+      type: Float
+    MASTER_PRIMARY_DC_REG_VAL:
+      attributes:
+        id: MASTER_PRIMARY_DC_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '4000'
+          type: Dynamic
+        type: Values
+      type: Hex
+    MASTER_REQ_FREQ:
+      attributes:
+        id: MASTER_REQ_FREQ
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '2941176'
+          type: Integer
+        - attributes:
+            id: min
+          children:
+          - type: Value
+            value: '762'
+          type: Integer
+        type: Attributes
+      - children:
+        - attributes:
+            value: '100000'
+          type: User
+        type: Values
+      type: Integer
+    MASTER_SEC_CAL_PHASE:
+      attributes:
+        id: MASTER_SEC_CAL_PHASE
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    MASTER_SEC_DC_REG_VAL:
+      attributes:
+        id: MASTER_SEC_DC_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    MASTER_SEC_PHASE_REG_VAL:
+      attributes:
+        id: MASTER_SEC_PHASE_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG1_CALC_DEAD_TIME_HIGH:
+      attributes:
+        id: PG1_CALC_DEAD_TIME_HIGH
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG1_CALC_DEAD_TIME_LOW:
+      attributes:
+        id: PG1_CALC_DEAD_TIME_LOW
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG1_CALC_FREQ:
+      attributes:
+        id: PG1_CALC_FREQ
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '100000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    PG1_CLK_FREQ:
+      attributes:
+        id: PG1_CLK_FREQ
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '100000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    PG1_DEAD_TIME_HIGH:
+      attributes:
+        id: PG1_DEAD_TIME_HIGH
+      children:
+      - children:
+        - attributes:
+            value: '0.1'
+          type: User
+        type: Values
+      type: Float
+    PG1_DEAD_TIME_HIGH_REG_VAL:
+      attributes:
+        id: PG1_DEAD_TIME_HIGH_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '160'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG1_DEAD_TIME_LOW:
+      attributes:
+        id: PG1_DEAD_TIME_LOW
+      children:
+      - children:
+        - attributes:
+            value: '0.1'
+          type: User
+        type: Values
+      type: Float
+    PG1_DEAD_TIME_LOW_REG_VAL:
+      attributes:
+        id: PG1_DEAD_TIME_LOW_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '160'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG1_ENABLE:
+      attributes:
+        id: PG1_ENABLE
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    PG1_PERIOD:
+      attributes:
+        id: PG1_PERIOD
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '7984'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG1_PG_CON__CLKSEL:
+      attributes:
+        id: PG1_PG_CON__CLKSEL
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    PG1_PG_CON__MDCSEL:
+      attributes:
+        id: PG1_PG_CON__MDCSEL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    PG1_PG_CON__MODSEL:
+      attributes:
+        id: PG1_PG_CON__MODSEL
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: pwm
+            value: '3'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    PG1_PG_CON__MPERSEL:
+      attributes:
+        id: PG1_PG_CON__MPERSEL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    PG1_PG_CON__ON:
+      attributes:
+        id: PG1_PG_CON__ON
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG1_PG_DT:
+      attributes:
+        id: PG1_PG_DT
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '10485920'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG1_PG_IOCON__PENH:
+      attributes:
+        id: PG1_PG_IOCON__PENH
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG1_PG_IOCON__PENL:
+      attributes:
+        id: PG1_PG_IOCON__PENL
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG1_PG_IOCON__PMOD:
+      attributes:
+        id: PG1_PG_IOCON__PMOD
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: pwm
+            value: '2'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    PG1_PG_IOCON__PPSEN:
+      attributes:
+        id: PG1_PG_IOCON__PPSEN
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG1_PG_TRIGA:
+      attributes:
+        id: PG1_PG_TRIGA
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG1_PG_TRIGB:
+      attributes:
+        id: PG1_PG_TRIGB
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG1_PRIMARY_CAL_PHASE:
+      attributes:
+        id: PG1_PRIMARY_CAL_PHASE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG1_PRIMARY_DC:
+      attributes:
+        id: PG1_PRIMARY_DC
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        - attributes:
+            value: '50.0'
+          type: User
+        type: Values
+      type: Float
+    PG1_PRIMARY_DC_REG_VAL:
+      attributes:
+        id: PG1_PRIMARY_DC_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '4000'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG1_PRIMARY_PHASE_REG_VAL:
+      attributes:
+        id: PG1_PRIMARY_PHASE_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG1_REQ_FREQ:
+      attributes:
+        id: PG1_REQ_FREQ
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '2941176'
+          type: Integer
+        - attributes:
+            id: min
+          children:
+          - type: Value
+            value: '762'
+          type: Integer
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: pwm
+            value: '100000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    PG1_SEC_CAL_PHASE:
+      attributes:
+        id: PG1_SEC_CAL_PHASE
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG1_SEC_DC:
+      attributes:
+        id: PG1_SEC_DC
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG1_SEC_DC_REG_VAL:
+      attributes:
+        id: PG1_SEC_DC_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG1_SEC_PHASE_REG_VAL:
+      attributes:
+        id: PG1_SEC_PHASE_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG1_USE_MASTER_DC:
+      attributes:
+        id: PG1_USE_MASTER_DC
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    PG1_USE_MASTER_PERIOD:
+      attributes:
+        id: PG1_USE_MASTER_PERIOD
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    PG2_CALC_DEAD_TIME_HIGH:
+      attributes:
+        id: PG2_CALC_DEAD_TIME_HIGH
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG2_CALC_DEAD_TIME_LOW:
+      attributes:
+        id: PG2_CALC_DEAD_TIME_LOW
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG2_CALC_FREQ:
+      attributes:
+        id: PG2_CALC_FREQ
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '200000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    PG2_DEAD_TIME_HIGH_REG_VAL:
+      attributes:
+        id: PG2_DEAD_TIME_HIGH_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG2_DEAD_TIME_LOW_REG_VAL:
+      attributes:
+        id: PG2_DEAD_TIME_LOW_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG2_ENABLE:
+      attributes:
+        id: PG2_ENABLE
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    PG2_PERIOD:
+      attributes:
+        id: PG2_PERIOD
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '3984'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG2_PG_CON__MODSEL:
+      attributes:
+        id: PG2_PG_CON__MODSEL
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG2_PG_CON__ON:
+      attributes:
+        id: PG2_PG_CON__ON
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG2_PG_DT:
+      attributes:
+        id: PG2_PG_DT
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG2_PG_IOCON__PENH:
+      attributes:
+        id: PG2_PG_IOCON__PENH
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG2_PG_IOCON__PENL:
+      attributes:
+        id: PG2_PG_IOCON__PENL
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG2_PG_IOCON__PPSEN:
+      attributes:
+        id: PG2_PG_IOCON__PPSEN
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG2_PG_TRIGA:
+      attributes:
+        id: PG2_PG_TRIGA
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG2_PG_TRIGB:
+      attributes:
+        id: PG2_PG_TRIGB
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG2_PRIMARY_CAL_PHASE:
+      attributes:
+        id: PG2_PRIMARY_CAL_PHASE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG2_PRIMARY_DC:
+      attributes:
+        id: PG2_PRIMARY_DC
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        - attributes:
+            value: '50.0'
+          type: User
+        type: Values
+      type: Float
+    PG2_PRIMARY_DC_REG_VAL:
+      attributes:
+        id: PG2_PRIMARY_DC_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '2000'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG2_PRIMARY_PHASE_REG_VAL:
+      attributes:
+        id: PG2_PRIMARY_PHASE_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG2_REQ_FREQ:
+      attributes:
+        id: PG2_REQ_FREQ
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '2941176'
+          type: Integer
+        - attributes:
+            id: min
+          children:
+          - type: Value
+            value: '762'
+          type: Integer
+        type: Attributes
+      - children:
+        - attributes:
+            value: '200000'
+          type: User
+        type: Values
+      type: Integer
+    PG2_SEC_CAL_PHASE:
+      attributes:
+        id: PG2_SEC_CAL_PHASE
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG2_SEC_DC:
+      attributes:
+        id: PG2_SEC_DC
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG2_SEC_DC_REG_VAL:
+      attributes:
+        id: PG2_SEC_DC_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG2_SEC_PHASE_REG_VAL:
+      attributes:
+        id: PG2_SEC_PHASE_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG3_CALC_DEAD_TIME_HIGH:
+      attributes:
+        id: PG3_CALC_DEAD_TIME_HIGH
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG3_CALC_DEAD_TIME_LOW:
+      attributes:
+        id: PG3_CALC_DEAD_TIME_LOW
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG3_CALC_FREQ:
+      attributes:
+        id: PG3_CALC_FREQ
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '11001'
+          type: Dynamic
+        type: Values
+      type: Integer
+    PG3_DEAD_TIME_HIGH_REG_VAL:
+      attributes:
+        id: PG3_DEAD_TIME_HIGH_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG3_DEAD_TIME_LOW_REG_VAL:
+      attributes:
+        id: PG3_DEAD_TIME_LOW_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG3_ENABLE:
+      attributes:
+        id: PG3_ENABLE
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    PG3_PERIOD:
+      attributes:
+        id: PG3_PERIOD
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '72704'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG3_PG_CON__MODSEL:
+      attributes:
+        id: PG3_PG_CON__MODSEL
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG3_PG_CON__ON:
+      attributes:
+        id: PG3_PG_CON__ON
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG3_PG_DT:
+      attributes:
+        id: PG3_PG_DT
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG3_PG_IOCON__PENH:
+      attributes:
+        id: PG3_PG_IOCON__PENH
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG3_PG_IOCON__PENL:
+      attributes:
+        id: PG3_PG_IOCON__PENL
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG3_PG_IOCON__PPSEN:
+      attributes:
+        id: PG3_PG_IOCON__PPSEN
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG3_PG_TRIGA:
+      attributes:
+        id: PG3_PG_TRIGA
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG3_PG_TRIGB:
+      attributes:
+        id: PG3_PG_TRIGB
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG3_PRIMARY_CAL_PHASE:
+      attributes:
+        id: PG3_PRIMARY_CAL_PHASE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG3_PRIMARY_DC:
+      attributes:
+        id: PG3_PRIMARY_DC
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        - attributes:
+            value: '50.0'
+          type: User
+        type: Values
+      type: Float
+    PG3_PRIMARY_DC_REG_VAL:
+      attributes:
+        id: PG3_PRIMARY_DC_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '36360'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG3_PRIMARY_PHASE_REG_VAL:
+      attributes:
+        id: PG3_PRIMARY_PHASE_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG3_REQ_FREQ:
+      attributes:
+        id: PG3_REQ_FREQ
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '2941176'
+          type: Integer
+        - attributes:
+            id: min
+          children:
+          - type: Value
+            value: '762'
+          type: Integer
+        type: Attributes
+      - children:
+        - attributes:
+            value: '11000'
+          type: User
+        type: Values
+      type: Integer
+    PG3_SEC_CAL_PHASE:
+      attributes:
+        id: PG3_SEC_CAL_PHASE
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG3_SEC_DC:
+      attributes:
+        id: PG3_SEC_DC
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG3_SEC_DC_REG_VAL:
+      attributes:
+        id: PG3_SEC_DC_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG3_SEC_PHASE_REG_VAL:
+      attributes:
+        id: PG3_SEC_PHASE_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG4_CALC_DEAD_TIME_HIGH:
+      attributes:
+        id: PG4_CALC_DEAD_TIME_HIGH
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG4_CALC_DEAD_TIME_LOW:
+      attributes:
+        id: PG4_CALC_DEAD_TIME_LOW
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG4_CALC_FREQ:
+      attributes:
+        id: PG4_CALC_FREQ
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '1525'
+          type: Dynamic
+        type: Values
+      type: Integer
+    PG4_DEAD_TIME_HIGH_REG_VAL:
+      attributes:
+        id: PG4_DEAD_TIME_HIGH_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG4_DEAD_TIME_LOW_REG_VAL:
+      attributes:
+        id: PG4_DEAD_TIME_LOW_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG4_PERIOD:
+      attributes:
+        id: PG4_PERIOD
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '1048560'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG4_PG_TRIGA:
+      attributes:
+        id: PG4_PG_TRIGA
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG4_PG_TRIGB:
+      attributes:
+        id: PG4_PG_TRIGB
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG4_PRIMARY_CAL_PHASE:
+      attributes:
+        id: PG4_PRIMARY_CAL_PHASE
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG4_PRIMARY_DC:
+      attributes:
+        id: PG4_PRIMARY_DC
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG4_PRIMARY_DC_REG_VAL:
+      attributes:
+        id: PG4_PRIMARY_DC_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PG4_SEC_CAL_PHASE:
+      attributes:
+        id: PG4_SEC_CAL_PHASE
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG4_SEC_DC:
+      attributes:
+        id: PG4_SEC_DC
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0.0'
+          type: Dynamic
+        type: Values
+      type: Float
+    PG4_SEC_DC_REG_VAL:
+      attributes:
+        id: PG4_SEC_DC_REG_VAL
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    generatorsInUse:
+      attributes:
+        id: generatorsInUse
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    intEnabled:
+      attributes:
+        id: intEnabled
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    regPorSet:
+      attributes:
+        id: regPorSet
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: |2+
+                  MDC = 0x0UL;
+
+                  MPER = 0x0UL;
+
+                  MPHASE = 0x0UL;
+
+                  PCLKCON = 0x0UL;
+
+                  PG1CON = 0x0UL;
+                  PG1IOCON = 0x0UL;
+                  PG1STAT = 0x0UL;
+                  PG1EVT = 0x0UL;
+                  PG1DC = 0x0UL;
+                  PG1PER = 0x0UL;
+                  PG1PHASE = 0x0UL;
+                  PG1DT = 0x0UL;
+                  PG1FPCI = 0x0UL;
+                  PG1TRIGA = 0x0UL;
+                  PG1TRIGB = 0x0UL;
+                  PG1TRIGC = 0x0UL;
+
+                  PG2CON = 0x0UL;
+                  PG2IOCON = 0x0UL;
+                  PG2STAT = 0x0UL;
+                  PG2EVT = 0x0UL;
+                  PG2DC = 0x0UL;
+                  PG2PER = 0x0UL;
+                  PG2PHASE = 0x0UL;
+                  PG2DT = 0x0UL;
+                  PG2FPCI = 0x0UL;
+                  PG2TRIGA = 0x0UL;
+                  PG2TRIGB = 0x0UL;
+                  PG2TRIGC = 0x0UL;
+
+                  PG3CON = 0x0UL;
+                  PG3IOCON = 0x0UL;
+                  PG3STAT = 0x0UL;
+                  PG3EVT = 0x0UL;
+                  PG3DC = 0x0UL;
+                  PG3PER = 0x0UL;
+                  PG3PHASE = 0x0UL;
+                  PG3DT = 0x0UL;
+                  PG3FPCI = 0x0UL;
+                  PG3TRIGA = 0x0UL;
+                  PG3TRIGB = 0x0UL;
+                  PG3TRIGC = 0x0UL;
+
+          type: Dynamic
+        type: Values
+      type: String
+  userData: {}

@@ -133,11 +133,11 @@ int main(void)
 				eaDogM_WriteStringAtPos(4, 0, buffer);
 				snprintf(buffer, IMU_BUF - 1, "ADC2 Voltage: %7.4f Volts", adc2_scaled);
 				eaDogM_WriteStringAtPos(5, 0, buffer);
-				snprintf(buffer, IMU_BUF - 1, "ISS Read: D%u D%u      ", adc_iss_result[ADC1_D], adc_iss_result[ADC2_D]);
+				snprintf(buffer, IMU_BUF - 1, "ISS Readback:  D%u D%u      ", adc_iss_result[ADC1_D], adc_iss_result[ADC2_D]);
 				eaDogM_WriteStringAtPos(6, 0, buffer);
 				adc1_scaled = (double) adc_iss_result[ADC1_D] * ADC1_SCALE;
 				adc2_scaled = (double) adc_iss_result[ADC2_D] * ADC2_SCALE;
-				snprintf(buffer, IMU_BUF - 1, "ISS Volts: %7.4f %7.4f      ", adc1_scaled, adc2_scaled);
+				snprintf(buffer, IMU_BUF - 1, "ISS Volts   : %7.4f %7.4f      ", adc1_scaled, adc2_scaled);
 				eaDogM_WriteStringAtPos(7, 0, buffer);
 				if (SW1_SET) {
 					uint16_t i = 1;
