@@ -19,7 +19,7 @@ extern "C" {
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 
-#define FE_DRIVER "V1.00"
+#define FE_DRIVER "V1.01"
 #define FE_ALIAS "PIC32AK FE"
 
 #define SCA3300
@@ -41,6 +41,15 @@ extern "C" {
 #define IMU_TICKS	1
 #define GFX_TICKS	30000
 
+#define ISOO1_PORT	ISO1_S
+#define ISOO2_PORT	ISO2_S
+#define ISOI1_PORT	ISO3_O
+#define ISOI2_PORT	ISO4_O
+	
+	/*
+	 * unconfigured pins RA11, RA9, RA8, RA6, RB5, RB1
+	 */
+
 	extern bool SW1_SET, SW2_SET;
 	extern double adc1_scaled, adc2_scaled;
 
@@ -48,6 +57,7 @@ extern "C" {
 	/*
 	 * PIC32AK FE board firmware
 	 * V1.00	Alpha testing versions
+	 * add iso DIO, set SPI2 speeds to max
 	 */
 
 #ifdef	__cplusplus
