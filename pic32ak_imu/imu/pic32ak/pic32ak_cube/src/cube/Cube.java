@@ -42,7 +42,7 @@ public class Cube {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
-        SerialPort port = SerialPort.getCommPort("ttyUSB1");
+        SerialPort port = SerialPort.getCommPort("ttyMpic32ak");
         port.setBaudRate(921600);
         port.setComPortTimeouts(SerialPort.TIMEOUT_SCANNER, 1, 1);
         if (port.openPort() == false) {
