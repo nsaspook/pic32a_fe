@@ -16,16 +16,18 @@
 //#define USE_SRAM
 //#define DMA_HALF
 
-static const uint32_t MAX_ISS66_SAMPLES = 1024; // page testing
+static const uint32_t MAX_ISS66_SAMPLES = 32; // sram ADC samples to write
+static const uint32_t MAX_ISS66_PAGES = 2; // sram pages to write
 static const uint16_t CDOWN = 8;
 static const uint32_t retrigger_time = 250;
-volatile uint8_t iss_adc_write[8] = {0x02, 0x00, 0x00, 0x00}; // 1024 bytes in each address page for sequential writes
-volatile uint8_t iss_adc_read[16] = {0x0B, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-volatile uint8_t sram_adc_write[8], sram_adc_read[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+volatile uint8_t iss_adc_write[8] = {0x02, 0x00, 0x00, 0x00, 0x19, 0x57, 0x19, 0x57}; // 1024 bytes in each address page for sequential writes
+volatile uint8_t iss_adc_read[32] = {0x0B, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+volatile uint8_t sram_adc_write[8], sram_adc_read[32] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
 volatile uint32_t total_sample_triggers = 0;
 volatile uint16_t sram_addr = 0, *sram_addr_ptr = (volatile uint16_t *) & iss_adc_write[2]; // pointer to address bytes
-volatile uint16_t sram_addr_read = 0, *sram_addr_read_ptr = (volatile uint16_t *) & iss_adc_read[2]; // pointer to address bytes
+volatile uint16_t sram_addr_read = 2, *sram_addr_read_ptr = (volatile uint16_t *) & iss_adc_read[2]; // pointer to address bytes
 volatile uint16_t adc_result[NUM_ADC] = {0, 0}, adc_iss_result[NUM_ADC] = {0, 0};
+volatile enum iss_sample_type iss_state = ISS_INIT;
 
 /*
  * swap16 for iss66 addresses
@@ -48,7 +50,10 @@ static inline uint32_t htonl(uint32_t x)
  */
 void ADC_DMA_write(void)
 {
-#ifndef USE_SRAM
+	static uint32_t page_count = 0, store_count = 0;
+	static uint32_t cdown = CDOWN;
+
+	TP0_Set();
 	/*
 	 * trigger both ADC's
 	 */
@@ -59,6 +64,7 @@ void ADC_DMA_write(void)
 	adc_result[ADC2_D] = (uint16_t) AD2CH4DATA;
 	memcpy((void *) &iss_adc_write[4], (const void *) &adc_result[ADC1_D], 4);
 
+#ifdef ISS_TESTING
 	/*
 	 * swap address bytes for serial SRAM addressing and update address bytes
 	 */
@@ -88,7 +94,79 @@ void ADC_DMA_write(void)
 	 * write sram chip data address and two 16-bit ADC results to chip for later processing
 	 */
 	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_write, (const void*) &SPI2BUF, (size_t) 8);
+#else
+
+	switch (iss_state) {
+	case ISS_INIT:
+		page_count = 0;
+		store_count = 0;
+#if defined __has_builtin
+#if __has_builtin (__builtin_bswap16)
+		*sram_addr_ptr = __builtin_bswap16(page_count);
+#else
+		*sram_addr_ptr = htons(page_count);
 #endif
+#else
+		*sram_addr_ptr = htons(page_count);
+#endif
+
+		iss_state = ISS_PAGE;
+		break;
+	case ISS_PAGE:
+		while (SPI2_IsTransmitterBusy() && --cdown != 0); // SPI buffer empty timeout
+		cdown = CDOWN;
+		SRAM_CS_Set();
+		/*
+		 * make sure DMA is ready for address sequence
+		 */
+		while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
+		};
+		SRAM_CS_Clear(); // enable chip
+		/*
+		 * write sram chip data address
+		 */
+		DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_write, (const void*) &SPI2BUF, (size_t) 4);
+		total_sample_triggers++;
+		if (page_count++ >= MAX_ISS66_PAGES) {
+			iss_state = ISS_INIT; // back to init state
+		} else {
+#if defined __has_builtin
+#if __has_builtin (__builtin_bswap16)
+			*sram_addr_ptr = __builtin_bswap16(page_count);
+#else
+			*sram_addr_ptr = htons(page_count);
+#endif
+#else
+			*sram_addr_ptr = htons(page_count);
+#endif
+			iss_state = ISS_STORE;
+		}
+		break;
+	case ISS_STORE:
+		/*
+		 * make sure DMA is ready for address sequence
+		 */
+		while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
+		};
+		SRAM_CS_Clear(); // enable chip
+		/*
+		 * write sram chip data address
+		 */
+		DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) &iss_adc_write[4], (const void*) &SPI2BUF, (size_t) 4);
+		store_count++;
+		if (store_count >= MAX_ISS66_SAMPLES) {
+			store_count = 0;
+			iss_state = ISS_PAGE;
+		}
+		break;
+	case ISS_NULL:
+		break;
+	default:
+		iss_state = ISS_INIT;
+		break;
+	}
+#endif
+	TP0_Clear();
 };
 
 /*
@@ -97,21 +175,16 @@ void ADC_DMA_write(void)
  */
 void ADC_DMA_read(void)
 {
-	static uint8_t index = 0;
-
 	SCCP2_TimerStop();
+	WaitMs(1);
+	SRAM_CS_Set();
 #ifndef USE_SRAM
-	if (index++ &1) {
-		iss_adc_read[3] = 2;
-	} else {
-		iss_adc_read[3] = 0;
-	}
 	/*
 	 * swap address bytes for serial SRAM addressing and update address bytes
 	 */
 #if defined __has_builtin
 #if __has_builtin (__builtin_bswap16)
-	*sram_addr_read_ptr = __builtin_bswap16(sram_addr_read);
+	//	*sram_addr_read_ptr = __builtin_bswap16(sram_addr_read);
 #else
 	*sram_addr_ptr = htons(sram_addr_read);
 #endif
@@ -129,17 +202,19 @@ void ADC_DMA_read(void)
 	SRAM_CS_Clear(); // CS will bet set in DMA complete ISR
 #endif
 
-	SPI2_WriteRead((void*) iss_adc_read, 9, (void*) sram_adc_read, 9);
+	SPI2_WriteRead((void*) iss_adc_read, 11, (void*) sram_adc_read, 25);
 	while (SPI2_IsBusy());
 
-	//DMA_ChannelTransfer(DMA_CHANNEL_4, (const void *) &SPI2BUF, (const void*) sram_adc_read, (size_t) 9);
+	//	DMA_ChannelTransfer(DMA_CHANNEL_4, (const void *) &SPI2BUF, (const void*) sram_adc_read, (size_t) 25);
 	/*
 	 * write sram chip data address and two 16-bit ADC results to chip for later processing
 	 */
-	//DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_read, (const void*) &SPI2BUF, (size_t) 9);
+	//	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_read, (const void*) &SPI2BUF, (size_t) 25);
 	SCCP2_Timer32bitPeriodSet(retrigger_time);
 	SCCP2_TimerStart();
-	adc_iss_result[index & 1] = sram_adc_read[7] + (sram_adc_read[8] << 8); // store 16-bit results into result array
+	adc_iss_result[ADC1_D] = sram_adc_read[13] + (sram_adc_read[14] << 8); // store 16-bit results into result array
+	adc_iss_result[ADC2_D] = sram_adc_read[15] + (sram_adc_read[16] << 8); // store 16-bit results into result array
+
 #endif
 };
 
@@ -151,10 +226,12 @@ void SPI2DmaChannelHandler_State(DMA_TRANSFER_EVENT event, uintptr_t contextHand
 	static uint32_t cdown = CDOWN;
 
 	if (event == DMA_TRANSFER_EVENT_COMPLETE) {
+#ifdef ISS_TESTING
 #ifndef USE_SRAM
 		while (SPI2_IsTransmitterBusy() && --cdown != 0); // SPI buffer empty timeout
 		cdown = CDOWN;
 		SRAM_CS_Set();
+#endif
 #endif
 	}
 }

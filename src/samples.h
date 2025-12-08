@@ -21,6 +21,8 @@ extern "C" {
 
 #define FE_DRIVER "V1.01"
 #define FE_ALIAS "PIC32AK FE"
+	
+//#define ISS_TESTING
 
 #define SCA3300
 #define IMU_ID	3
@@ -45,13 +47,21 @@ extern "C" {
 #define ISOO2_PORT	ISO2_S
 #define ISOI1_PORT	ISO3_O
 #define ISOI2_PORT	ISO4_O
-	
+
 	/*
 	 * unconfigured pins RA11, RA9, RA8, RA6, RB5, RB1
 	 */
 
 	extern bool SW1_SET, SW2_SET;
 	extern double adc1_scaled, adc2_scaled;
+
+	enum iss_sample_type {
+		ISS_INIT = 0, // IMU chip model
+		ISS_PAGE,
+		ISS_STORE,
+		ISS_NULL,
+		ISS_LAST,
+	};
 
 	void fe_version(void);
 	/*

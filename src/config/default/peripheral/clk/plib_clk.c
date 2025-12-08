@@ -336,13 +336,13 @@ void CLOCK_Initialize(void)
         Clock Generator 3 frequency                     : 8.0 MHz
         Clock Generator 6 frequency                     : 200.0 MHz
         Clock Generator 7 frequency                     : 8.0 MHz
-        Clock Generator 9 frequency                     : 288.76933 MHz
+        Clock Generator 9 frequency                     : 263.48538 MHz
         Clock Generator 12 frequency                     : 1.0 MHz
         
         PLL 1 frequency                                 : 200.0 MHz
         PLL 1 VCO Out frequency                         : 200.0 MHz
-        PLL 2 frequency                                 : 578.666666 MHz
-        PLL 2 VCO Out frequency                         : 868.0 MHz
+        PLL 2 frequency                                 : 528.0 MHz
+        PLL 2 VCO Out frequency                         : 792.0 MHz
 
     */
     //Primary oscillator settings 
@@ -400,7 +400,7 @@ void CLOCK_Initialize(void)
                 |PLL2CON_NOSC_POSC
                 |PLL2CON_BOSC_BFRC);
     PLL2DIV = (PLL2DIV_PLLPRE_SET(1)
-                 |PLL2DIV_PLLFBDIV_SET(217)
+                 |PLL2DIV_PLLFBDIV_SET(198)
                  |PLL2DIV_POSTDIV1_SET(3)
                  |PLL2DIV_POSTDIV2_SET(1));
     //Enable PLL Input and Feedback Divider update

@@ -206,17 +206,17 @@ data:
             value: |-
               IPC6bits.T1IP = 2;
                   IPC6bits.CCT1IP = 5;
-                  IPC6bits.CCT2IP = 6;
-                  IPC7bits.SPI1RXIP = 1;
-                  IPC8bits.SPI1TXIP = 1;
-                  IPC8bits.SPI1EIP = 1;
+                  IPC6bits.CCT2IP = 1;
+                  IPC7bits.SPI1RXIP = 2;
+                  IPC8bits.SPI1TXIP = 2;
+                  IPC8bits.SPI1EIP = 2;
                   IPC8bits.SPI2RXIP = 4;
                   IPC8bits.SPI2TXIP = 3;
-                  IPC9bits.DMA0IP = 1;
-                  IPC9bits.DMA1IP = 1;
-                  IPC11bits.U1RXIP = 1;
-                  IPC11bits.U1TXIP = 1;
-                  IPC11bits.U1EIP = 1;
+                  IPC9bits.DMA0IP = 2;
+                  IPC9bits.DMA1IP = 2;
+                  IPC11bits.U1RXIP = 2;
+                  IPC11bits.U1TXIP = 2;
+                  IPC11bits.U1EIP = 2;
                   IPC13bits.DMA5IP = 5;
           type: Dynamic
         type: Values
@@ -1536,7 +1536,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '578.666666'
+            value: '528.0'
           type: Dynamic
         type: Values
       type: String
@@ -1547,7 +1547,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '578666666'
+            value: '528000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -1558,7 +1558,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '1736000000'
+            value: '1584000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -1569,7 +1569,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '868.0'
+            value: '792.0'
           type: Dynamic
         type: Values
       type: String
@@ -1580,7 +1580,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '868000000'
+            value: '792000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -1632,7 +1632,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '217'
+            value: '198'
           type: User
         type: Values
       type: Integer
@@ -1728,7 +1728,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '288.76933'
+            value: '263.48538'
           type: Dynamic
         type: Values
       type: String
@@ -1739,7 +1739,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '288769330'
+            value: '263485380'
           type: Dynamic
         type: Values
       type: Integer
@@ -1760,7 +1760,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '578666666'
+            value: '528000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -3841,7 +3841,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '1'
           type: User
         type: Values
       type: Combo
@@ -5896,6 +5896,86 @@ data:
           type: User
         type: Values
       type: Boolean
+    INTC_63_PRIORITY:
+      attributes:
+        id: INTC_63_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Combo
+    INTC_64_PRIORITY:
+      attributes:
+        id: INTC_64_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Combo
+    INTC_65_PRIORITY:
+      attributes:
+        id: INTC_65_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Combo
+    INTC_72_PRIORITY:
+      attributes:
+        id: INTC_72_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Combo
+    INTC_73_PRIORITY:
+      attributes:
+        id: INTC_73_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Combo
+    INTC_89_PRIORITY:
+      attributes:
+        id: INTC_89_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Combo
+    INTC_90_PRIORITY:
+      attributes:
+        id: INTC_90_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Combo
+    INTC_91_PRIORITY:
+      attributes:
+        id: INTC_91_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Combo
   userData:
     children:
     - attributes:
