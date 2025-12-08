@@ -60,6 +60,7 @@ void INTC_Initialize( void )
     IPC11bits.U1RXIP = 2;
     IPC11bits.U1TXIP = 2;
     IPC11bits.U1EIP = 2;
+    IPC13bits.DMA4IP = 1;
     IPC13bits.DMA5IP = 5;
 
 

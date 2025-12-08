@@ -69,6 +69,7 @@ void DMA1_InterruptHandler( void );
 void U1RX_InterruptHandler( void );
 void U1TX_InterruptHandler( void );
 void U1E_InterruptHandler( void );
+void DMA4_InterruptHandler( void );
 void DMA5_InterruptHandler( void );
 
 

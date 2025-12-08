@@ -10,6 +10,7 @@
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 #include "samples.h"
+#include "timers.h"
 
 #define __has_builtin			// use Built-in Byte Swap Functions
 
@@ -21,13 +22,15 @@ static const uint32_t MAX_ISS66_PAGES = 2; // sram pages to write
 static const uint16_t CDOWN = 8;
 static const uint32_t retrigger_time = 250;
 volatile uint8_t iss_adc_write[8] = {0x02, 0x00, 0x00, 0x00, 0x19, 0x57, 0x19, 0x57}; // 1024 bytes in each address page for sequential writes
-volatile uint8_t iss_adc_read[32] = {0x0B, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+volatile uint8_t iss_adc_read[32] = {0x0B, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 volatile uint8_t sram_adc_write[8], sram_adc_read[32] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-volatile uint32_t total_sample_triggers = 0;
+volatile uint32_t total_sample_triggers = 0, total_iss_triggers = 0;
 volatile uint16_t sram_addr = 0, *sram_addr_ptr = (volatile uint16_t *) & iss_adc_write[2]; // pointer to address bytes
 volatile uint16_t sram_addr_read = 2, *sram_addr_read_ptr = (volatile uint16_t *) & iss_adc_read[2]; // pointer to address bytes
 volatile uint16_t adc_result[NUM_ADC] = {0, 0}, adc_iss_result[NUM_ADC] = {0, 0};
 volatile enum iss_sample_type iss_state = ISS_INIT;
+
+void null_handler(void);
 
 /*
  * swap16 for iss66 addresses
@@ -127,7 +130,7 @@ void ADC_DMA_write(void)
 		 */
 		DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_write, (const void*) &SPI2BUF, (size_t) 4);
 		total_sample_triggers++;
-		if (page_count++ >= MAX_ISS66_PAGES) {
+		if (++page_count >= MAX_ISS66_PAGES) {
 			iss_state = ISS_INIT; // back to init state
 		} else {
 #if defined __has_builtin
@@ -169,6 +172,13 @@ void ADC_DMA_write(void)
 	TP0_Clear();
 };
 
+void null_handler(void)
+{
+	uint32_t nothing;
+
+	nothing = SPI2BUF;
+}
+
 /*
  * iss66 data reads using interrupt driver
  * on the todo list
@@ -178,7 +188,6 @@ void ADC_DMA_read(void)
 	SCCP2_TimerStop();
 	WaitMs(1);
 	SRAM_CS_Set();
-#ifndef USE_SRAM
 	/*
 	 * swap address bytes for serial SRAM addressing and update address bytes
 	 */
@@ -191,31 +200,28 @@ void ADC_DMA_read(void)
 #else
 	*sram_addr_ptr = htons(sram_addr_read);
 #endif
-
 	/*
 	 * make sure DMA is ready for next sequence
 	 */
 	while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
 	};
-
-#ifndef USE_SRAM
 	SRAM_CS_Clear(); // CS will bet set in DMA complete ISR
-#endif
 
+#ifndef ISS_DMA_READ
 	SPI2_WriteRead((void*) iss_adc_read, 11, (void*) sram_adc_read, 25);
 	while (SPI2_IsBusy());
-
-	//	DMA_ChannelTransfer(DMA_CHANNEL_4, (const void *) &SPI2BUF, (const void*) sram_adc_read, (size_t) 25);
+	total_iss_triggers++;
+#else
+	DMA_ChannelTransfer(DMA_CHANNEL_4, (const void *) &SPI2BUF, (const void*) sram_adc_read, (size_t) 25);
 	/*
 	 * write sram chip data address and two 16-bit ADC results to chip for later processing
 	 */
-	//	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_read, (const void*) &SPI2BUF, (size_t) 25);
+	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) &iss_adc_read[1], (const void*) &SPI2BUF, (size_t) 25);
+#endif
 	SCCP2_Timer32bitPeriodSet(retrigger_time);
 	SCCP2_TimerStart();
 	adc_iss_result[ADC1_D] = sram_adc_read[13] + (sram_adc_read[14] << 8); // store 16-bit results into result array
 	adc_iss_result[ADC2_D] = sram_adc_read[15] + (sram_adc_read[16] << 8); // store 16-bit results into result array
-
-#endif
 };
 
 /*
@@ -227,11 +233,9 @@ void SPI2DmaChannelHandler_State(DMA_TRANSFER_EVENT event, uintptr_t contextHand
 
 	if (event == DMA_TRANSFER_EVENT_COMPLETE) {
 #ifdef ISS_TESTING
-#ifndef USE_SRAM
 		while (SPI2_IsTransmitterBusy() && --cdown != 0); // SPI buffer empty timeout
 		cdown = CDOWN;
 		SRAM_CS_Set();
-#endif
 #endif
 	}
 }
@@ -239,9 +243,7 @@ void SPI2DmaChannelHandler_State(DMA_TRANSFER_EVENT event, uintptr_t contextHand
 void SPI2DmaChannelHandler_State_Read(DMA_TRANSFER_EVENT event, uintptr_t contextHandle)
 {
 	if (event == DMA_TRANSFER_EVENT_COMPLETE) {
-
 	}
-
 }
 
 /*
@@ -300,7 +302,7 @@ void ADC_DMA_init(void)
 	 * setup the DMA and timer background tasks
 	 */
 	DMA_ChannelCallbackRegister(DMA_CHANNEL_5, SPI2DmaChannelHandler_State, 0);
-	//	DMA_ChannelCallbackRegister(DMA_CHANNEL_4, SPI2DmaChannelHandler_State_Read, 0);
+	DMA_ChannelCallbackRegister(DMA_CHANNEL_4, SPI2DmaChannelHandler_State_Read, 0);
 	SCCP2_TimerCallbackRegister(SCCP2_Callback_InterruptHandler, (uintptr_t) NULL);
 	SCCP2_Timer32bitPeriodSet(retrigger_time); //  close to 3.5us timer interrupts
 }

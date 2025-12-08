@@ -189,9 +189,11 @@ void DMA_Initialize( void )
     DMA4CH = (DMA4CH_SAMODE_UNCHANGED
          | DMA4CH_DAMODE_INCREMENTED
          | DMA4CH_TRMODE_ONE_SHOT
-         | DMA4CH_SIZE_ONE_BYTE_WORD);
+         | DMA4CH_SIZE_ONE_BYTE_WORD
+         | _DMA4CH_DONEEN_MASK);
 
     DMA4SEL = (uint32_t)0x8 << _DMA4SEL_CHSEL_POSITION;
+    DMA4CHbits.FLWCON = 0b01; //Null-Write mode
     DMA5CH = ( _DMA5CH_RELOADC_MASK
          | _DMA5CH_RELOADD_MASK
          | _DMA5CH_RELOADS_MASK
@@ -212,6 +214,10 @@ void DMA_Initialize( void )
     _DMA1IF = 0U;
     // Enabling Channel 1 Interrupt
     _DMA1IE = 1U;
+    // Clearing Channel 4 Interrupt Flag;
+    _DMA4IF = 0U;
+    // Enabling Channel 4 Interrupt
+    _DMA4IE = 1U;
     // Clearing Channel 5 Interrupt Flag;
     _DMA5IF = 0U;
     // Enabling Channel 5 Interrupt
@@ -230,6 +236,10 @@ void DMA_Deinitialize( void )
     _DMA1IF = 0U;
     // disabling Channel 1 Interrupt
     _DMA1IE = 0U;
+    // Clearing Channel 4 Interrupt Flag;
+    _DMA4IF = 0U;
+    // disabling Channel 4 Interrupt
+    _DMA4IE = 0U;
     // Clearing Channel 5 Interrupt Flag;
     _DMA5IF = 0U;
     // disabling Channel 5 Interrupt
@@ -795,6 +805,53 @@ void __attribute__((used)) DMA1_InterruptHandler (void)
         dmaEvent = DMA_TRANSFER_EVENT_HALF_COMPLETE;
         DMA1STATbits.HALF = 0U;
         dmaChannelObj[1].inUse = false;
+    }
+    else
+    {
+        // nothing to process
+    }
+
+    if((chanObj->callback != NULL) && (dmaEvent != DMA_TRANSFER_EVENT_NONE))
+    {
+        uintptr_t context = chanObj->context;
+
+        chanObj->callback(dmaEvent, context);
+    }
+}
+void __attribute__((used)) DMA4_InterruptHandler (void)
+{
+    volatile DMA_CHANNEL_OBJECT *chanObj;
+    DMA_TRANSFER_EVENT dmaEvent = DMA_TRANSFER_EVENT_NONE;
+
+    /* Clear the interrupt flag*/
+    _DMA4IF = 0U;
+
+    /* Find out the channel object */
+    chanObj = &dmaChannelObj[4];
+
+    if(DMA4STATbits.OVERRUN == 1U)
+    {
+        dmaEvent = DMA_OVERRUN_ERROR;
+        DMA4STATbits.OVERRUN = 0;
+        dmaChannelObj[4].inUse = false;
+    }
+    else if(DMA4STATbits.MATCH == 1U)
+    {
+        dmaEvent = DMA_PATTERN_MATCH;
+        DMA4STATbits.MATCH = 0U;
+        dmaChannelObj[4].inUse = false;
+    }
+    else if(DMA4STATbits.DONE == 1U)
+    {
+        dmaEvent = DMA_TRANSFER_EVENT_COMPLETE;
+        DMA4STATbits.DONE = 0U;
+        dmaChannelObj[4].inUse = false;
+    }
+    else if(DMA4STATbits.HALF == 1U)
+    {
+        dmaEvent = DMA_TRANSFER_EVENT_HALF_COMPLETE;
+        DMA4STATbits.HALF = 0U;
+        dmaChannelObj[4].inUse = false;
     }
     else
     {

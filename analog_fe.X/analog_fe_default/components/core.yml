@@ -217,6 +217,7 @@ data:
                   IPC11bits.U1RXIP = 2;
                   IPC11bits.U1TXIP = 2;
                   IPC11bits.U1EIP = 2;
+                  IPC13bits.DMA4IP = 1;
                   IPC13bits.DMA5IP = 5;
           type: Dynamic
         type: Values
@@ -2183,7 +2184,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -2194,7 +2195,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -5892,7 +5893,7 @@ data:
         type: Attributes
       - children:
         - attributes:
-            value: 'false'
+            value: 'true'
           type: User
         type: Values
       type: Boolean

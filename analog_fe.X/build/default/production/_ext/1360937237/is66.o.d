@@ -27,4 +27,5 @@ build/default/production/_ext/1360937237/is66.o:  \
  ../src/config/default/peripheral/ccp/plib_sccp2.h  \
  ../src/config/default/peripheral/ccp/plib_ccp_common.h  \
  ../src/config/default/peripheral/ccp/plib_sccp1.h  \
-../src/samples.h 
+../src/samples.h  \
+ ../src/timers.h 

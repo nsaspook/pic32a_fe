@@ -85,7 +85,7 @@ int main(void)
 	eaDogM_WriteStringAtPos(13, 0, imu_buffer);
 	OledUpdate();
 
-	
+
 	StartTimer(TMR_TEST, 2);
 	/*
 	 * read the iss66 chip ID register
@@ -129,18 +129,24 @@ int main(void)
 				eaDogM_WriteStringAtPos(2, 0, buffer);
 				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f, %u   ", accel.x, accel.y, accel.z, imu0.rs);
 				eaDogM_WriteStringAtPos(3, 0, buffer);
+				__builtin_disable_interrupts();
 				adc1_scaled = (double) adc_result[ADC1_D] * ADC1_SCALE;
 				adc2_scaled = (double) adc_result[ADC2_D] * ADC2_SCALE;
+				__builtin_enable_interrupts();
 				snprintf(buffer, IMU_BUF - 1, "ADC1 Voltage: %7.4f Volts", adc1_scaled);
 				eaDogM_WriteStringAtPos(4, 0, buffer);
 				snprintf(buffer, IMU_BUF - 1, "ADC2 Voltage: %7.4f Volts", adc2_scaled);
 				eaDogM_WriteStringAtPos(5, 0, buffer);
+				__builtin_disable_interrupts();
 				snprintf(buffer, IMU_BUF - 1, "ISS Readback:  D%4u  D%4u      ", adc_iss_result[ADC1_D], adc_iss_result[ADC2_D]);
 				eaDogM_WriteStringAtPos(6, 0, buffer);
 				adc1_scaled = (double) adc_iss_result[ADC1_D] * ADC1_SCALE;
 				adc2_scaled = (double) adc_iss_result[ADC2_D] * ADC2_SCALE;
+				__builtin_enable_interrupts();
 				snprintf(buffer, IMU_BUF - 1, "ISS Volts   :  %6.4f %6.4f      ", adc1_scaled, adc2_scaled);
 				eaDogM_WriteStringAtPos(7, 0, buffer);
+				snprintf(buffer, IMU_BUF - 1, "ISS Samples : S%u       ", total_iss_triggers);
+				eaDogM_WriteStringAtPos(8, 0, buffer);
 				if (SW1_SET) {
 					uint16_t i = 1;
 

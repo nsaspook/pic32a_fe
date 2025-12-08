@@ -23,6 +23,7 @@ extern "C" {
 #define FE_ALIAS "PIC32AK FE"
 	
 //#define ISS_TESTING
+//#define ISS_DMA_READ
 
 #define SCA3300
 #define IMU_ID	3
