@@ -23,13 +23,14 @@ extern "C" {
 #define FE_ALIAS "PIC32AK FE"
 
 	//#define ISS_DMA_READ
-#define FULL_ISS_PAGE
 
 #define SCA3300
-#define IMU_ID	3
+#define IMU_ID		3
 
-#define IMU_BUF	256
-#define FFT_BUF	64
+#define IMU_BUF		256
+#define FFT_BUF		64
+#define SAMPLE_BUF	32
+#define SAMPLE_TIMEOUT	2
 
 #define NUM_ADC	2
 #define ADC1_D	0
@@ -49,10 +50,15 @@ extern "C" {
 #define ISOI1_PORT	ISO3_O
 #define ISOI2_PORT	ISO4_O
 
+#define RETRIGGER_TIME	200
+
 	static const uint32_t MAX_ISS66_SAMPLES = 256; // sram ADC samples to write, X4 bytes
 	static const uint32_t MAX_ISS66_PAGES = 512; // sram pages to write
 	static const size_t SRAM_READ_SAMPLES = 25;
-
+	static const uint32_t ISS_FAST_CMD_SIZE = 5;
+	static const uint32_t ISS_WRITE_CMD_SIZE = 4;
+	static const uint32_t ADC_SAMPLES_SIZE = 4;
+	static const uint32_t ADC_SAMPLES_START = 4;
 	/*
 	 * unconfigured pins RA11, RA9, RA8, RA6, RB5, RB1
 	 */

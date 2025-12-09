@@ -20,8 +20,10 @@ extern "C" {
 
 	extern uint8_t iss_read_id_buffer[];
 
-	extern volatile uint32_t total_sample_triggers, total_iss_triggers;
-	extern volatile uint16_t adc_result[NUM_ADC], adc_iss_result[NUM_ADC];
+	extern volatile uint32_t total_sample_triggers;
+	extern uint32_t total_iss_triggers;
+	extern volatile uint16_t adc_result[];
+	extern uint16_t adc_iss_result[];
 
 	void ISS_read_id(void);
 	void ADC_DMA_write(void);

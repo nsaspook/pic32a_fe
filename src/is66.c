@@ -12,28 +12,21 @@
 #include "samples.h"
 #include "timers.h"
 
-#define __has_builtin			// use Built-in Byte Swap Functions
-
-//#define USE_SRAM
-//#define DMA_HALF
-
-static const uint8_t iss_read_id[7] = {0x9F};
-uint8_t iss_read_id_buffer[7];
-static const uint32_t ISS_PAGE_WRITE = 0x02000000, ISS_FAST_CMD_SIZE = 5, ISS_WRITE_CMD_SIZE = 4, ADC_SAMPLES_SIZE = 4,
-	ADC_SAMPLES_START = 4;
+static const uint8_t iss_read_id[SAMPLE_BUF] = {0x9F};
+static const uint32_t ISS_PAGE_WRITE = 0x02000000;
+static const uint16_t CDOWN = SAMPLE_TIMEOUT;
+static const uint32_t retrigger_time = RETRIGGER_TIME;
 static uint32_t ISS_PAGE_WRITE_CMD, iss_page_index, iss_page_write_swap;
-static const uint16_t CDOWN = 8;
-static const uint32_t retrigger_time = 200;
-volatile uint8_t iss_adc_write[8] = {0x02, 0x00, 0x00, 0x00, 0x19, 0x57, 0x19, 0x57}; // 1024 bytes in each address page for sequential writes
-volatile uint8_t iss_adc_read[32] = {0x0B, 0x01, 0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-volatile uint8_t sram_adc_write[8], sram_adc_read[32] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-volatile uint32_t total_sample_triggers = 0, total_iss_triggers = 0;
-volatile uint16_t sram_addr = 0, *sram_addr_ptr = (volatile uint16_t *) & iss_adc_write[2]; // pointer to address bytes
-volatile uint16_t sram_addr_read = 2, *sram_addr_read_ptr = (volatile uint16_t *) & iss_adc_read[2]; // pointer to address bytes
-volatile uint16_t adc_result[NUM_ADC] = {0, 0}, adc_iss_result[NUM_ADC] = {0, 0};
-volatile enum iss_sample_type iss_state = ISS_INIT;
 
-void null_handler(void);
+uint8_t iss_read_id_buffer[SAMPLE_BUF];
+uint8_t iss_adc_read[SAMPLE_BUF] = {0x0B, 0x01, 0x0c, 0x00, 0x00}; // ISS sram testing page
+uint8_t sram_adc_read[SAMPLE_BUF];
+uint16_t adc_iss_result[NUM_ADC] = {0, 0};
+
+volatile uint8_t iss_adc_write[SAMPLE_BUF]; // 1024 bytes in each address page for sequential writes
+volatile uint32_t total_sample_triggers = 0, total_iss_triggers = 0;
+volatile uint16_t adc_result[NUM_ADC] = {0, 0};
+volatile enum iss_sample_type iss_state = ISS_INIT;
 
 /*
  * swapXX for iss66 addresses
@@ -56,7 +49,7 @@ static inline uint32_t htonl(uint32_t x)
  */
 void ADC_DMA_write(void)
 {
-	static uint32_t page_count = 0, store_count = 0;
+	static uint32_t store_count = 0;
 	static uint32_t cdown = CDOWN;
 
 	/*
@@ -67,11 +60,10 @@ void ADC_DMA_write(void)
 	while (AD1STATbits.CH6RDY == 0 && AD2STATbits.CH4RDY == 0); // conversions complete on both
 	adc_result[ADC1_D] = (uint16_t) AD1CH6DATA; // save as uint16_t data
 	adc_result[ADC2_D] = (uint16_t) AD2CH4DATA;
-	memcpy((void *) &iss_adc_write[4], (const void *) &adc_result[ADC1_D], ADC_SAMPLES_SIZE);
+	memcpy((void *) &iss_adc_write[ADC_SAMPLES_START], (const void *) &adc_result[ADC1_D], ADC_SAMPLES_SIZE);
 
 	switch (iss_state) {
 	case ISS_INIT:
-		page_count = 0;
 		store_count = 0;
 		iss_adc_write[1] = 0;
 		ISS_PAGE_WRITE_CMD = ISS_PAGE_WRITE;
@@ -93,14 +85,9 @@ void ADC_DMA_write(void)
 		/*
 		 * write sram chip data address
 		 */
-#ifdef	FULL_ISS_PAGE
 		DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) &iss_page_write_swap, (const void*) &SPI2BUF, (size_t) ISS_WRITE_CMD_SIZE);
-#else
-		DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_write, (const void*) &SPI2BUF, (size_t) ISS_WRITE_CMD_SIZE);
-#endif
 		TP0_Clear();
 		total_sample_triggers++;
-#ifdef	FULL_ISS_PAGE
 		if (++iss_page_index >= MAX_ISS66_PAGES) {
 			iss_state = ISS_INIT; // back to init state
 		} else {
@@ -108,13 +95,6 @@ void ADC_DMA_write(void)
 			ISS_PAGE_WRITE_CMD += 1024; // next full sram page
 			iss_page_write_swap = htonl(ISS_PAGE_WRITE_CMD);
 		}
-#else
-		if (++iss_adc_write[1] >= MAX_ISS66_PAGES) {
-			iss_state = ISS_INIT; // back to init state
-		} else {
-			iss_state = ISS_STORE;
-		}
-#endif
 		break;
 	case ISS_STORE:
 		/*
@@ -140,13 +120,6 @@ void ADC_DMA_write(void)
 		break;
 	}
 };
-
-void null_handler(void)
-{
-	uint32_t nothing;
-
-	nothing = SPI2BUF;
-}
 
 /*
  * iss66 data reads using interrupt driver
@@ -186,14 +159,8 @@ void ADC_DMA_read(void)
  */
 void SPI2DmaChannelHandler_State(DMA_TRANSFER_EVENT event, uintptr_t contextHandle)
 {
-	static uint32_t cdown = CDOWN;
 
 	if (event == DMA_TRANSFER_EVENT_COMPLETE) {
-#ifdef ISS_TESTING
-		while (SPI2_IsTransmitterBusy() && --cdown != 0); // SPI buffer empty timeout
-		cdown = CDOWN;
-		SRAM_CS_Set();
-#endif
 	}
 }
 
@@ -261,7 +228,7 @@ void ADC_DMA_init(void)
 	DMA_ChannelCallbackRegister(DMA_CHANNEL_5, SPI2DmaChannelHandler_State, 0);
 	DMA_ChannelCallbackRegister(DMA_CHANNEL_4, SPI2DmaChannelHandler_State_Read, 0);
 	SCCP2_TimerCallbackRegister(SCCP2_Callback_InterruptHandler, (uintptr_t) NULL);
-	SCCP2_Timer32bitPeriodSet(retrigger_time); //  close to 3.5us timer interrupts
+	SCCP2_Timer32bitPeriodSet(retrigger_time); //  close to 2us between sample
 }
 
 void ISS_read_id(void)
