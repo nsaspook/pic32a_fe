@@ -49,6 +49,10 @@ extern "C" {
 #define ISOI1_PORT	ISO3_O
 #define ISOI2_PORT	ISO4_O
 
+	static const uint32_t MAX_ISS66_SAMPLES = 256; // sram ADC samples to write, X4 bytes
+	static const uint32_t MAX_ISS66_PAGES = 512; // sram pages to write
+	static const size_t SRAM_READ_SAMPLES = 25;
+
 	/*
 	 * unconfigured pins RA11, RA9, RA8, RA6, RB5, RB1
 	 */

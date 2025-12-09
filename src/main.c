@@ -89,13 +89,8 @@ int main(void)
 	StartTimer(TMR_TEST, 2);
 	/*
 	 * read the iss66 chip ID register
-	 * will convert to a proper ID function later, now it's just for display
 	 */
-	SRAM_CS_Clear();
-	SPI2_WriteRead((void *) iss_read_id, sizeof(iss_read_id), iss_read_id_buffer, sizeof(iss_read_id));
-	while (!TimerDone(TMR_TEST)) {
-	};
-	SRAM_CS_Set();
+	ISS_read_id();
 
 	ADC_DMA_init(); // setup background ADC data tasks
 	CMP1_DACDataWrite(DAC1_CAL);

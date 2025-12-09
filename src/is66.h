@@ -18,14 +18,12 @@ extern "C" {
 #include "definitions.h"                // SYS function prototypes
 #include "samples.h"
 
-	const uint8_t iss_read_id[7] = {0x9F};
-	uint8_t iss_read_id_buffer[7];
-	
-	extern volatile uint8_t iss_adc_write[8];
-	extern volatile uint8_t sram_adc_write[8], sram_adc_read[8];
-	extern volatile uint32_t total_sample_triggers, total_iss_triggers;
-	extern volatile uint16_t sram_addr, *sram_addr_ptr, adc_result[NUM_ADC], adc_iss_result[NUM_ADC];
+	extern uint8_t iss_read_id_buffer[];
 
+	extern volatile uint32_t total_sample_triggers, total_iss_triggers;
+	extern volatile uint16_t adc_result[NUM_ADC], adc_iss_result[NUM_ADC];
+
+	void ISS_read_id(void);
 	void ADC_DMA_write(void);
 	void ADC_DMA_read(void);
 	void ADC_DMA_init(void);

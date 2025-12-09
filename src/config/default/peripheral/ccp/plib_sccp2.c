@@ -71,7 +71,7 @@ void SCCP2_TimerInitialize(void)
     CCP2TMR = 0x0;
 
     /*Set period */
-    CCP2PR = 0U;
+    CCP2PR = 1999U;
 
     IEC1 |= _IEC1_CCT2IE_MASK;
 
