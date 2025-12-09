@@ -17,12 +17,14 @@
 //#define USE_SRAM
 //#define DMA_HALF
 
-static const uint32_t MAX_ISS66_SAMPLES = 32; // sram ADC samples to write
-static const uint32_t MAX_ISS66_PAGES = 2; // sram pages to write
+static const uint32_t MAX_ISS66_SAMPLES = 256; // sram ADC samples to write, X4 bytes
+static const uint32_t MAX_ISS66_PAGES = 512; // sram pages to write
+static const uint32_t ISS_PAGE_WRITE = 0x02000000;
+static uint32_t ISS_PAGE_WRITE_CMD, iss_page_index, iss_page_write_swap;
 static const uint16_t CDOWN = 8;
 static const uint32_t retrigger_time = 250;
 volatile uint8_t iss_adc_write[8] = {0x02, 0x00, 0x00, 0x00, 0x19, 0x57, 0x19, 0x57}; // 1024 bytes in each address page for sequential writes
-volatile uint8_t iss_adc_read[32] = {0x0B, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+volatile uint8_t iss_adc_read[32] = {0x0B, 0x01, 0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 volatile uint8_t sram_adc_write[8], sram_adc_read[32] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
 volatile uint32_t total_sample_triggers = 0, total_iss_triggers = 0;
 volatile uint16_t sram_addr = 0, *sram_addr_ptr = (volatile uint16_t *) & iss_adc_write[2]; // pointer to address bytes
@@ -33,7 +35,7 @@ volatile enum iss_sample_type iss_state = ISS_INIT;
 void null_handler(void);
 
 /*
- * swap16 for iss66 addresses
+ * swapXX for iss66 addresses
  * The htonx() functions converts the unsigned integer from host byte order to network byte order
  * as used on the Internet
  */
@@ -56,7 +58,6 @@ void ADC_DMA_write(void)
 	static uint32_t page_count = 0, store_count = 0;
 	static uint32_t cdown = CDOWN;
 
-	TP0_Set();
 	/*
 	 * trigger both ADC's
 	 */
@@ -67,55 +68,18 @@ void ADC_DMA_write(void)
 	adc_result[ADC2_D] = (uint16_t) AD2CH4DATA;
 	memcpy((void *) &iss_adc_write[4], (const void *) &adc_result[ADC1_D], 4);
 
-#ifdef ISS_TESTING
-	/*
-	 * swap address bytes for serial SRAM addressing and update address bytes
-	 */
-#if defined __has_builtin
-#if __has_builtin (__builtin_bswap16)
-	*sram_addr_ptr = __builtin_bswap16(sram_addr);
-#else
-	*sram_addr_ptr = htons(sram_addr);
-#endif
-#else
-	*sram_addr_ptr = htons(sram_addr);
-#endif
-	if ((sram_addr += 4) >= MAX_ISS66_SAMPLES) {
-		sram_addr = 0;
-		total_sample_triggers++;
-	};
-
-	/*
-	 * make sure DMA is ready for next sequence
-	 */
-	while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
-	};
-#ifndef USE_SRAM
-	SRAM_CS_Clear(); // CS will bet set in DMA complete ISR
-#endif
-	/*
-	 * write sram chip data address and two 16-bit ADC results to chip for later processing
-	 */
-	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_write, (const void*) &SPI2BUF, (size_t) 8);
-#else
-
 	switch (iss_state) {
 	case ISS_INIT:
 		page_count = 0;
 		store_count = 0;
-#if defined __has_builtin
-#if __has_builtin (__builtin_bswap16)
-		*sram_addr_ptr = __builtin_bswap16(page_count);
-#else
-		*sram_addr_ptr = htons(page_count);
-#endif
-#else
-		*sram_addr_ptr = htons(page_count);
-#endif
-
+		iss_adc_write[1] = 0;
+		ISS_PAGE_WRITE_CMD = ISS_PAGE_WRITE;
+		iss_page_index = 0;
 		iss_state = ISS_PAGE;
+		iss_page_write_swap = htonl(ISS_PAGE_WRITE_CMD);
 		break;
 	case ISS_PAGE:
+		TP0_Set();
 		while (SPI2_IsTransmitterBusy() && --cdown != 0); // SPI buffer empty timeout
 		cdown = CDOWN;
 		SRAM_CS_Set();
@@ -128,22 +92,28 @@ void ADC_DMA_write(void)
 		/*
 		 * write sram chip data address
 		 */
+#ifdef	FULL_ISS_PAGE
+		DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) &iss_page_write_swap, (const void*) &SPI2BUF, (size_t) 4);
+#else
 		DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_write, (const void*) &SPI2BUF, (size_t) 4);
+#endif
+		TP0_Clear();
 		total_sample_triggers++;
-		if (++page_count >= MAX_ISS66_PAGES) {
+#ifdef	FULL_ISS_PAGE
+		if (++iss_page_index >= MAX_ISS66_PAGES) {
 			iss_state = ISS_INIT; // back to init state
 		} else {
-#if defined __has_builtin
-#if __has_builtin (__builtin_bswap16)
-			*sram_addr_ptr = __builtin_bswap16(page_count);
+			iss_state = ISS_STORE;
+			ISS_PAGE_WRITE_CMD += 1024; // next full sram page
+			iss_page_write_swap = htonl(ISS_PAGE_WRITE_CMD);
+		}
 #else
-			*sram_addr_ptr = htons(page_count);
-#endif
-#else
-			*sram_addr_ptr = htons(page_count);
-#endif
+		if (++iss_adc_write[1] >= MAX_ISS66_PAGES) {
+			iss_state = ISS_INIT; // back to init state
+		} else {
 			iss_state = ISS_STORE;
 		}
+#endif
 		break;
 	case ISS_STORE:
 		/*
@@ -168,8 +138,6 @@ void ADC_DMA_write(void)
 		iss_state = ISS_INIT;
 		break;
 	}
-#endif
-	TP0_Clear();
 };
 
 void null_handler(void)
@@ -188,18 +156,6 @@ void ADC_DMA_read(void)
 	SCCP2_TimerStop();
 	WaitMs(1);
 	SRAM_CS_Set();
-	/*
-	 * swap address bytes for serial SRAM addressing and update address bytes
-	 */
-#if defined __has_builtin
-#if __has_builtin (__builtin_bswap16)
-	//	*sram_addr_read_ptr = __builtin_bswap16(sram_addr_read);
-#else
-	*sram_addr_ptr = htons(sram_addr_read);
-#endif
-#else
-	*sram_addr_ptr = htons(sram_addr_read);
-#endif
 	/*
 	 * make sure DMA is ready for next sequence
 	 */

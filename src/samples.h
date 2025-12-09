@@ -19,11 +19,11 @@ extern "C" {
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 
-#define FE_DRIVER "V1.01"
+#define FE_DRIVER "V1.02"
 #define FE_ALIAS "PIC32AK FE"
-	
-//#define ISS_TESTING
-//#define ISS_DMA_READ
+
+	//#define ISS_DMA_READ
+#define FULL_ISS_PAGE
 
 #define SCA3300
 #define IMU_ID	3
