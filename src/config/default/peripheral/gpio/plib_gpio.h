@@ -56,6 +56,15 @@
 // Section: Data types and constants
 
 
+/*** Macros for TP1 pin ***/
+#define TP1_Set()               (_LATA11 = 1U)
+#define TP1_Clear()             (_LATA11 = 0U)
+#define TP1_Toggle()            (_LATA11 ^= 1U)
+#define TP1_OutputEnable()      (_TRISA11 = 0U)
+#define TP1_InputEnable()       (_TRISA11 = 1U)
+#define TP1_Get()               ((PORTA >> 11) & 0x1)
+#define TP1_PIN                 GPIO_PIN_RA11
+
 /*** Macros for GPIO_RB1 pin ***/
 #define GPIO_RB1_Set()               (_LATB1 = 1U)
 #define GPIO_RB1_Clear()             (_LATB1 = 0U)

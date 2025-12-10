@@ -81,12 +81,12 @@ void _DMA5Interrupt (void);
 
 // Section: System Interrupt Vector definitions
 
-void __attribute__ (( interrupt, no_auto_psv)) _T1Interrupt (void)
+void __attribute__ (( interrupt, no_auto_psv, context)) _T1Interrupt (void)
 {
     T1_InterruptHandler();
 }
 
-void __attribute__ (( interrupt, no_auto_psv)) _CCT1Interrupt (void)
+void __attribute__ (( interrupt, no_auto_psv, context)) _CCT1Interrupt (void)
 {
     CCT1_InterruptHandler();
 }
@@ -111,22 +111,22 @@ void __attribute__ (( interrupt, no_auto_psv)) _SPI1EInterrupt (void)
     SPI1E_InterruptHandler();
 }
 
-void __attribute__ (( interrupt, no_auto_psv)) _SPI2RXInterrupt (void)
+void __attribute__ (( interrupt, no_auto_psv, context)) _SPI2RXInterrupt (void)
 {
     SPI2RX_InterruptHandler();
 }
 
-void __attribute__ (( interrupt, no_auto_psv)) _SPI2TXInterrupt (void)
+void __attribute__ (( interrupt, no_auto_psv, context)) _SPI2TXInterrupt (void)
 {
     SPI2TX_InterruptHandler();
 }
 
-void __attribute__ (( interrupt, no_auto_psv)) _DMA0Interrupt (void)
+void __attribute__ (( interrupt, no_auto_psv, context)) _DMA0Interrupt (void)
 {
     DMA0_InterruptHandler();
 }
 
-void __attribute__ (( interrupt, no_auto_psv)) _DMA1Interrupt (void)
+void __attribute__ (( interrupt, no_auto_psv, context)) _DMA1Interrupt (void)
 {
     DMA1_InterruptHandler();
 }
@@ -146,7 +146,7 @@ void __attribute__ (( interrupt, no_auto_psv)) _U1EInterrupt (void)
     U1E_InterruptHandler();
 }
 
-void __attribute__ (( interrupt, no_auto_psv)) _DMA4Interrupt (void)
+void __attribute__ (( interrupt, no_auto_psv, context)) _DMA4Interrupt (void)
 {
     DMA4_InterruptHandler();
 }

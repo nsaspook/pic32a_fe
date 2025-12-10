@@ -60,25 +60,37 @@ extern "C" {
 	static const uint32_t ADC_SAMPLES_SIZE = 4;
 	static const uint32_t ADC_SAMPLES_START = 4;
 	/*
-	 * unconfigured pins RA11, RA9, RA8, RA6, RB5, RB1
+	 * unconfigured pins RA9, RA8, RA6, RB5, RB1
+	 * RA11 = TP1
 	 */
 
 	extern bool SW1_SET, SW2_SET;
 	extern double adc1_scaled, adc2_scaled;
 
 	enum iss_sample_type {
-		ISS_INIT = 0, // IMU chip model
+		ISS_INIT = 0, // ISS FSM states
 		ISS_PAGE,
 		ISS_STORE,
 		ISS_NULL,
 		ISS_LAST,
 	};
 
+	enum iss_chip_type {
+		ISS_NONE = 0, // ISS chip models
+		ISS_ISS8Mb,
+		ISS_ISS16Mb,
+		ISS_ISS32Mb,
+		ISS_ISSUNKNOWN,
+		ISS_ISSLAST,
+	};
+
 	void fe_version(void);
 	/*
 	 * PIC32AK FE board firmware
 	 * V1.00	Alpha testing versions
-	 * add iso DIO, set SPI2 speeds to max
+	 * V1.01	add iso DIO, set SPI2 speeds to max
+	 * V1.02	code cleanups
+
 	 */
 
 #ifdef	__cplusplus

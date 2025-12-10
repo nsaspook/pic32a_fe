@@ -204,19 +204,19 @@ data:
         - attributes:
             id: core
             value: |-
-              IPC6bits.T1IP = 2;
+              IPC6bits.T1IP = 1;
                   IPC6bits.CCT1IP = 5;
-                  IPC6bits.CCT2IP = 1;
-                  IPC7bits.SPI1RXIP = 2;
-                  IPC8bits.SPI1TXIP = 2;
-                  IPC8bits.SPI1EIP = 2;
+                  IPC6bits.CCT2IP = 2;
+                  IPC7bits.SPI1RXIP = 1;
+                  IPC8bits.SPI1TXIP = 1;
+                  IPC8bits.SPI1EIP = 1;
                   IPC8bits.SPI2RXIP = 4;
-                  IPC8bits.SPI2TXIP = 3;
-                  IPC9bits.DMA0IP = 2;
-                  IPC9bits.DMA1IP = 2;
-                  IPC11bits.U1RXIP = 2;
-                  IPC11bits.U1TXIP = 2;
-                  IPC11bits.U1EIP = 2;
+                  IPC8bits.SPI2TXIP = 4;
+                  IPC9bits.DMA0IP = 1;
+                  IPC9bits.DMA1IP = 1;
+                  IPC11bits.U1RXIP = 1;
+                  IPC11bits.U1TXIP = 1;
+                  IPC11bits.U1EIP = 1;
                   IPC13bits.DMA4IP = 1;
                   IPC13bits.DMA5IP = 5;
           type: Dynamic
@@ -2811,7 +2811,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '1'
           type: User
         type: Values
       type: Combo
@@ -3842,7 +3842,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '1'
+            value: '2'
           type: User
         type: Values
       type: Combo
@@ -3872,7 +3872,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '4'
           type: User
         type: Values
       type: Combo
@@ -3892,7 +3892,7 @@ data:
       children:
       - children:
         - attributes:
-            value: 'false'
+            value: 'true'
           type: User
         type: Values
       type: Boolean
@@ -3902,7 +3902,7 @@ data:
       children:
       - children:
         - attributes:
-            value: 'false'
+            value: 'true'
           type: User
         type: Values
       type: Boolean
@@ -5258,7 +5258,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '4035'
+            value: '1987'
           type: Dynamic
         type: Values
       type: Hex
@@ -5903,7 +5903,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '1'
           type: User
         type: Values
       type: Combo
@@ -5913,7 +5913,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '1'
           type: User
         type: Values
       type: Combo
@@ -5923,7 +5923,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '1'
           type: User
         type: Values
       type: Combo
@@ -5933,7 +5933,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '1'
           type: User
         type: Values
       type: Combo
@@ -5943,7 +5943,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '1'
           type: User
         type: Values
       type: Combo
@@ -5953,7 +5953,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '1'
           type: User
         type: Values
       type: Combo
@@ -5963,7 +5963,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '1'
           type: User
         type: Values
       type: Combo
@@ -5973,10 +5973,111 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '1'
           type: User
         type: Values
       type: Combo
+    INTC_48_ENABLE_CONTEXT:
+      attributes:
+        id: INTC_48_ENABLE_CONTEXT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    INTC_49_ENABLE_CONTEXT:
+      attributes:
+        id: INTC_49_ENABLE_CONTEXT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    INTC_73_ENABLE_CONTEXT:
+      attributes:
+        id: INTC_73_ENABLE_CONTEXT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    INTC_72_ENABLE_CONTEXT:
+      attributes:
+        id: INTC_72_ENABLE_CONTEXT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    INTC_109_ENABLE_CONTEXT:
+      attributes:
+        id: INTC_109_ENABLE_CONTEXT
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    BSP_PIN_6_MODE:
+      attributes:
+        id: BSP_PIN_6_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_6_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_6_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_6_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_6_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: TP1
+          type: User
+        type: Values
+      type: String
+    SYS_PORT_A_TRIS:
+      attributes:
+        id: SYS_PORT_A_TRIS
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '2047'
+          type: Dynamic
+        type: Values
+      type: Hex
+    BSP_PIN_6_DIR:
+      attributes:
+        id: BSP_PIN_6_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
   userData:
     children:
     - attributes:

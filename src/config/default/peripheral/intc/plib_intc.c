@@ -47,19 +47,19 @@
 void INTC_Initialize( void )
 {
     /* Configure Interrupt priority */
-    IPC6bits.T1IP = 2;
+    IPC6bits.T1IP = 1;
     IPC6bits.CCT1IP = 5;
-    IPC6bits.CCT2IP = 1;
-    IPC7bits.SPI1RXIP = 2;
-    IPC8bits.SPI1TXIP = 2;
-    IPC8bits.SPI1EIP = 2;
+    IPC6bits.CCT2IP = 2;
+    IPC7bits.SPI1RXIP = 1;
+    IPC8bits.SPI1TXIP = 1;
+    IPC8bits.SPI1EIP = 1;
     IPC8bits.SPI2RXIP = 4;
-    IPC8bits.SPI2TXIP = 3;
-    IPC9bits.DMA0IP = 2;
-    IPC9bits.DMA1IP = 2;
-    IPC11bits.U1RXIP = 2;
-    IPC11bits.U1TXIP = 2;
-    IPC11bits.U1EIP = 2;
+    IPC8bits.SPI2TXIP = 4;
+    IPC9bits.DMA0IP = 1;
+    IPC9bits.DMA1IP = 1;
+    IPC11bits.U1RXIP = 1;
+    IPC11bits.U1TXIP = 1;
+    IPC11bits.U1EIP = 1;
     IPC13bits.DMA4IP = 1;
     IPC13bits.DMA5IP = 5;
 

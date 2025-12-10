@@ -16,7 +16,7 @@ static const uint8_t iss_read_id[SAMPLE_BUF] = {0x9F};
 static const uint32_t ISS_PAGE_WRITE = 0x02000000;
 static const uint16_t CDOWN = SAMPLE_TIMEOUT;
 static const uint32_t retrigger_time = RETRIGGER_TIME;
-static uint32_t ISS_PAGE_WRITE_CMD, iss_page_index, iss_page_write_swap;
+static uint32_t ISS_PAGE_WRITE_CMD, iss_page_index, store_count, cdown = CDOWN, iss_page_write_swap;
 
 uint8_t iss_read_id_buffer[SAMPLE_BUF];
 uint8_t iss_adc_read[SAMPLE_BUF] = {0x0B, 0x01, 0x0c, 0x00, 0x00}; // ISS sram testing page
@@ -27,6 +27,8 @@ volatile uint8_t iss_adc_write[SAMPLE_BUF]; // 1024 bytes in each address page f
 volatile uint32_t total_sample_triggers = 0, total_iss_triggers = 0;
 volatile uint16_t adc_result[NUM_ADC] = {0, 0};
 volatile enum iss_sample_type iss_state = ISS_INIT;
+
+enum iss_chip_type ISS_read_id(void);
 
 /*
  * swapXX for iss66 addresses
@@ -49,9 +51,7 @@ static inline uint32_t htonl(uint32_t x)
  */
 void ADC_DMA_write(void)
 {
-	static uint32_t store_count = 0;
-	static uint32_t cdown = CDOWN;
-
+	TP1_Set();
 	/*
 	 * trigger both ADC's
 	 */
@@ -61,11 +61,11 @@ void ADC_DMA_write(void)
 	adc_result[ADC1_D] = (uint16_t) AD1CH6DATA; // save as uint16_t data
 	adc_result[ADC2_D] = (uint16_t) AD2CH4DATA;
 	memcpy((void *) &iss_adc_write[ADC_SAMPLES_START], (const void *) &adc_result[ADC1_D], ADC_SAMPLES_SIZE);
+	TP1_Clear();
 
 	switch (iss_state) {
 	case ISS_INIT:
 		store_count = 0;
-		iss_adc_write[1] = 0;
 		ISS_PAGE_WRITE_CMD = ISS_PAGE_WRITE;
 		iss_page_index = 0;
 		iss_state = ISS_PAGE;
@@ -85,8 +85,7 @@ void ADC_DMA_write(void)
 		/*
 		 * write sram chip data address
 		 */
-		DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) &iss_page_write_swap, (const void*) &SPI2BUF, (size_t) ISS_WRITE_CMD_SIZE);
-		TP0_Clear();
+		DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) &iss_page_write_swap, (const void*) &SPI2BUF, ISS_WRITE_CMD_SIZE);
 		total_sample_triggers++;
 		if (++iss_page_index >= MAX_ISS66_PAGES) {
 			iss_state = ISS_INIT; // back to init state
@@ -95,20 +94,14 @@ void ADC_DMA_write(void)
 			ISS_PAGE_WRITE_CMD += 1024; // next full sram page
 			iss_page_write_swap = htonl(ISS_PAGE_WRITE_CMD);
 		}
+		TP0_Clear();
 		break;
 	case ISS_STORE:
-		/*
-		 * make sure DMA is ready for address sequence
-		 */
 		while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
 		};
 		SRAM_CS_Clear(); // enable chip
-		/*
-		 * write sram chip data address
-		 */
-		DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) &iss_adc_write[ADC_SAMPLES_START], (const void*) &SPI2BUF, (size_t) ADC_SAMPLES_SIZE);
-		store_count++;
-		if (store_count >= MAX_ISS66_SAMPLES) {
+		DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) &iss_adc_write[ADC_SAMPLES_START], (const void*) &SPI2BUF, ADC_SAMPLES_SIZE);
+		if (++store_count >= MAX_ISS66_SAMPLES) {
 			store_count = 0;
 			iss_state = ISS_PAGE;
 		}
@@ -123,43 +116,38 @@ void ADC_DMA_write(void)
 
 /*
  * iss66 data reads using interrupt driver
- * on the todo list
+ * DMA on the todo list
  */
 void ADC_DMA_read(void)
 {
 	SCCP2_TimerStop();
-	WaitMs(1);
 	SRAM_CS_Set();
-	/*
-	 * make sure DMA is ready for next sequence
-	 */
 	while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
 	};
-	SRAM_CS_Clear(); // CS will bet set in DMA complete ISR
+	SRAM_CS_Clear(); // CS will be set in ADC_DMA_WRITE
 
 #ifndef ISS_DMA_READ
-	SPI2_WriteRead((void*) iss_adc_read, ISS_FAST_CMD_SIZE, (void*) sram_adc_read, SRAM_READ_SAMPLES); // 5 bytes for 32-bit command and 8 clocks
+	SPI2_WriteRead((void*) iss_adc_read, ISS_FAST_CMD_SIZE, (void*) sram_adc_read, SRAM_READ_SAMPLES); // 4 bytes for 32-bit command with 8 extra clocks
 	while (SPI2_IsBusy());
 	total_iss_triggers++;
 #else
-	DMA_ChannelTransfer(DMA_CHANNEL_4, (const void *) &SPI2BUF, (const void*) sram_adc_read, (size_t) SRAM_READ_SAMPLES);
+	DMA_ChannelTransfer(DMA_CHANNEL_4, (const void *) &SPI2BUF, (const void*) sram_adc_read, SRAM_READ_SAMPLES);
 	/*
-	 * write sram chip data address and two 16-bit ADC results to chip for later processing
+	 * write sram chip data address to start read processing
 	 */
-	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_read, (const void*) &SPI2BUF, (size_t) SRAM_READ_SAMPLES);
+	DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) iss_adc_read, (const void*) &SPI2BUF, SRAM_READ_SAMPLES);
 #endif
 	SCCP2_Timer32bitPeriodSet(retrigger_time);
 	SCCP2_TimerStart();
-	adc_iss_result[ADC1_D] = sram_adc_read[5] + (sram_adc_read[6] << 8); // store 16-bit results into result array
-	adc_iss_result[ADC2_D] = sram_adc_read[7] + (sram_adc_read[8] << 8); // store 16-bit results into result array
+	adc_iss_result[ADC1_D] = sram_adc_read[5] + (sram_adc_read[6] << 8); // store 16-bit results into results array
+	adc_iss_result[ADC2_D] = sram_adc_read[7] + (sram_adc_read[8] << 8);
 };
 
 /*
- * DMA event callback processor
+ * DMA write/read event call-backs
  */
 void SPI2DmaChannelHandler_State(DMA_TRANSFER_EVENT event, uintptr_t contextHandle)
 {
-
 	if (event == DMA_TRANSFER_EVENT_COMPLETE) {
 	}
 }
@@ -171,7 +159,7 @@ void SPI2DmaChannelHandler_State_Read(DMA_TRANSFER_EVENT event, uintptr_t contex
 }
 
 /*
- * Time trigger for ADC conversion and iss66 data writes
+ * Timer trigger for ADC conversion and iss66 data writes
  */
 void SCCP2_Callback_InterruptHandler(uint32_t status, uintptr_t context)
 {
@@ -231,11 +219,34 @@ void ADC_DMA_init(void)
 	SCCP2_Timer32bitPeriodSet(retrigger_time); //  close to 2us between sample
 }
 
-void ISS_read_id(void)
+/*
+ * get IS66/67 SerialRAM chip codes 
+ */
+enum iss_chip_type ISS_read_id(void)
 {
+	enum iss_chip_type iss_chip = ISS_NONE;
+
+	StartTimer(TMR_TEST, 2);
 	SRAM_CS_Clear();
 	SPI2_WriteRead((void *) iss_read_id, sizeof(iss_read_id), iss_read_id_buffer, sizeof(iss_read_id));
 	while (!TimerDone(TMR_TEST)) {
 	};
 	SRAM_CS_Set();
+	if ((iss_read_id_buffer[4] == 0x9D) && (iss_read_id_buffer[5] == 0x5D)) {
+		switch (iss_read_id_buffer[6]&0xF0) {
+		case 0x99:
+			iss_chip = ISS_ISS8Mb;
+			break;
+		case 0x20:
+			iss_chip = ISS_ISS16Mb;
+			break;
+		case 0x40:
+			iss_chip = ISS_ISS32Mb;
+			break;
+		default:
+			iss_chip = ISS_ISSUNKNOWN;
+			break;
+		}
+	}
+	return iss_chip;
 }

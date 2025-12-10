@@ -85,8 +85,6 @@ int main(void)
 	eaDogM_WriteStringAtPos(13, 0, imu_buffer);
 	OledUpdate();
 
-
-	StartTimer(TMR_TEST, 2);
 	/*
 	 * read the iss66 chip ID register
 	 */

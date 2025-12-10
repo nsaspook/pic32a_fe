@@ -25,7 +25,7 @@ extern "C" {
 	extern volatile uint16_t adc_result[];
 	extern uint16_t adc_iss_result[];
 
-	void ISS_read_id(void);
+	enum iss_chip_type ISS_read_id(void);
 	void ADC_DMA_write(void);
 	void ADC_DMA_read(void);
 	void ADC_DMA_init(void);
