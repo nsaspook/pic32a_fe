@@ -185,7 +185,7 @@ extern "C" {
 	void getAllData(sSensorData_t *, imu_cmd_t *);
 	const uint8_t * imu_string(const imu_cmd_t *);
 
-	extern char imu_buffer[IMU_BUF];
+	extern char imu_buffer[];
 
 #ifdef __cplusplus
 }

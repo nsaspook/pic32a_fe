@@ -46,7 +46,7 @@ extern uint8_t mskOledCur;
 extern int32_t bnOledCur;
 extern int32_t fOledCharUpdate;
 
-extern uint8_t rgbOledBmp[cbOledDispMax];
+extern uint8_t rgbOledBmp[];
 
 extern int32_t dxcoOledFontCur;
 extern int32_t dycoOledFontCur;

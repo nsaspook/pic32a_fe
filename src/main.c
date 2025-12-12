@@ -9,6 +9,7 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdint.h>
 #include "definitions.h"                // SYS function prototypes
 
 #include "lcd_drv/lcd_drv.h"
@@ -88,9 +89,9 @@ int main(void)
 	/*
 	 * read the iss66 chip ID register
 	 */
-	ISS_read_id();
-
-	ADC_DMA_init(); // setup background ADC data tasks
+	if (ISS_read_id() != ISS_ISS_UNK) {
+		ADC_DMA_init(); // setup background ADC data tasks
+	}
 	CMP1_DACDataWrite(DAC1_CAL);
 	/*
 	 * configure SPI port for IMU if needed, detect sensor and config

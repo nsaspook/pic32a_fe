@@ -11,6 +11,7 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
+#include <xc.h>
 #include <stddef.h>                     // Defines NULL
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
@@ -19,7 +20,7 @@ extern "C" {
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 
-#define FE_DRIVER "V1.02"
+#define FE_DRIVER "V1.03"
 #define FE_ALIAS "PIC32AK FE"
 
 	//#define ISS_DMA_READ
@@ -53,7 +54,10 @@ extern "C" {
 #define RETRIGGER_TIME	200
 
 	static const uint32_t MAX_ISS66_SAMPLES = 256; // sram ADC samples to write, X4 bytes
-	static const uint32_t MAX_ISS66_PAGES = 512; // sram pages to write
+	static const uint32_t MAX_ISS66_PAGES_8MBIT = 512; // sram pages to write
+	static const uint32_t MAX_ISS66_PAGES_16MBIT = 512;
+	static const uint32_t MAX_ISS66_PAGES_32MBIT = 512;
+	static const uint32_t ISS66_PAGE_SIZE = 1024;
 	static const size_t SRAM_READ_SAMPLES = 25;
 	static const uint32_t ISS_FAST_CMD_SIZE = 5;
 	static const uint32_t ISS_WRITE_CMD_SIZE = 4;
@@ -76,12 +80,12 @@ extern "C" {
 	};
 
 	enum iss_chip_type {
-		ISS_NONE = 0, // ISS chip models
-		ISS_ISS8Mb,
-		ISS_ISS16Mb,
-		ISS_ISS32Mb,
-		ISS_ISSUNKNOWN,
-		ISS_ISSLAST,
+		ISS_ISS_UNK = 0, // ISS chip models
+		ISS_ISS_8Mb,
+		ISS_ISS_16Mb,
+		ISS_ISS_32Mb,
+		ISS_ISS_BAD,
+		ISS_ISS_LAST,
 	};
 
 	void fe_version(void);
@@ -90,7 +94,7 @@ extern "C" {
 	 * V1.00	Alpha testing versions
 	 * V1.01	add iso DIO, set SPI2 speeds to max
 	 * V1.02	code cleanups
-
+	 * V1.03	SRAM chip ID setups
 	 */
 
 #ifdef	__cplusplus

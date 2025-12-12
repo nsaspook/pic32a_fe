@@ -12,6 +12,7 @@
 extern "C" {
 #endif
 
+#include <xc.h>
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -24,6 +25,7 @@ extern "C" {
 	extern uint32_t total_iss_triggers;
 	extern volatile uint16_t adc_result[];
 	extern uint16_t adc_iss_result[];
+	extern enum iss_chip_type iss_chip;
 
 	enum iss_chip_type ISS_read_id(void);
 	void ADC_DMA_write(void);

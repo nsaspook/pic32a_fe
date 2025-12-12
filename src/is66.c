@@ -1,13 +1,13 @@
 /*
  * is66 setup and R/W functions
  */
-#include <xc.h>
 #include <stddef.h>                     // Defines NULL
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdint.h>
 #include "definitions.h"                // SYS function prototypes
 #include "samples.h"
 #include "timers.h"
@@ -16,7 +16,8 @@ static const uint8_t iss_read_id[SAMPLE_BUF] = {0x9F};
 static const uint32_t ISS_PAGE_WRITE = 0x02000000;
 static const uint16_t CDOWN = SAMPLE_TIMEOUT;
 static const uint32_t retrigger_time = RETRIGGER_TIME;
-static uint32_t ISS_PAGE_WRITE_CMD, iss_page_index, store_count, cdown = CDOWN, iss_page_write_swap;
+static uint32_t ISS_PAGE_WRITE_CMD, iss_page_index, store_count, cdown = CDOWN,
+	iss_page_write_swap, iss_page_num = MAX_ISS66_PAGES_32MBIT;
 
 uint8_t iss_read_id_buffer[SAMPLE_BUF];
 uint8_t iss_adc_read[SAMPLE_BUF] = {0x0B, 0x01, 0x0c, 0x00, 0x00}; // ISS sram testing page
@@ -28,6 +29,7 @@ volatile uint32_t total_sample_triggers = 0, total_iss_triggers = 0;
 volatile uint16_t adc_result[NUM_ADC] = {0, 0};
 volatile enum iss_sample_type iss_state = ISS_INIT;
 
+enum iss_chip_type iss_chip = ISS_ISS_UNK;
 enum iss_chip_type ISS_read_id(void);
 
 /*
@@ -87,11 +89,11 @@ void ADC_DMA_write(void)
 		 */
 		DMA_ChannelTransfer(DMA_CHANNEL_5, (const void *) &iss_page_write_swap, (const void*) &SPI2BUF, ISS_WRITE_CMD_SIZE);
 		total_sample_triggers++;
-		if (++iss_page_index >= MAX_ISS66_PAGES) {
+		if (++iss_page_index >= iss_page_num) {
 			iss_state = ISS_INIT; // back to init state
 		} else {
 			iss_state = ISS_STORE;
-			ISS_PAGE_WRITE_CMD += 1024; // next full sram page
+			ISS_PAGE_WRITE_CMD += ISS66_PAGE_SIZE; // next full sram page
 			iss_page_write_swap = htonl(ISS_PAGE_WRITE_CMD);
 		}
 		TP0_Clear();
@@ -210,6 +212,18 @@ void ADC_DMA_init(void)
 	// Read result. It will clear the conversion ready flag.
 	adc_result[ADC1_D] = AD1CH6DATA;
 
+	switch (iss_chip) {
+	case ISS_ISS_32Mb:
+		iss_page_num = MAX_ISS66_PAGES_32MBIT;
+		break;
+	case ISS_ISS_16Mb:
+		iss_page_num = MAX_ISS66_PAGES_16MBIT;
+		break;
+	default:
+		iss_page_num = MAX_ISS66_PAGES_8MBIT;
+		break;
+	}
+
 	/*
 	 * setup the DMA and timer background tasks
 	 */
@@ -220,12 +234,10 @@ void ADC_DMA_init(void)
 }
 
 /*
- * get IS66/67 SerialRAM chip codes 
+ * get IS66/67 SerialRAM chip codes
  */
 enum iss_chip_type ISS_read_id(void)
 {
-	enum iss_chip_type iss_chip = ISS_NONE;
-
 	StartTimer(TMR_TEST, 2);
 	SRAM_CS_Clear();
 	SPI2_WriteRead((void *) iss_read_id, sizeof(iss_read_id), iss_read_id_buffer, sizeof(iss_read_id));
@@ -235,16 +247,16 @@ enum iss_chip_type ISS_read_id(void)
 	if ((iss_read_id_buffer[4] == 0x9D) && (iss_read_id_buffer[5] == 0x5D)) {
 		switch (iss_read_id_buffer[6]&0xF0) {
 		case 0x99:
-			iss_chip = ISS_ISS8Mb;
+			iss_chip = ISS_ISS_8Mb;
 			break;
 		case 0x20:
-			iss_chip = ISS_ISS16Mb;
+			iss_chip = ISS_ISS_16Mb;
 			break;
 		case 0x40:
-			iss_chip = ISS_ISS32Mb;
+			iss_chip = ISS_ISS_32Mb;
 			break;
 		default:
-			iss_chip = ISS_ISSUNKNOWN;
+			iss_chip = ISS_ISS_BAD;
 			break;
 		}
 	}
