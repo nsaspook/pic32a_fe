@@ -1,5 +1,6 @@
 #include "imu.h"
 
+#ifdef IMU_TABLE
 static const double imu_table[] = {
 	BMA490_ACCEL_MG_LSB_2G,
 	BMA490_ACCEL_MG_LSB_4G,
@@ -14,6 +15,7 @@ static const double imu_table[] = {
 	SCL3300_INC1,
 	SCL3300_INC2,
 };
+#endif
 
 static const uint8_t imu_name [][8] = {
 	"BMA4x0",
@@ -25,7 +27,6 @@ static const uint8_t imu_name [][8] = {
 };
 
 char imu_buffer[IMU_BUF];
-static uint32_t sensortime;
 extern struct sca3300_data sdata;
 
 double get_imu_scale(imu_cmd_t * imu)

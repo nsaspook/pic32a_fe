@@ -14487,7 +14487,7 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <part name="VSS26" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
 <part name="TP1" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
 <part name="TP2" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
-<part name="TP3" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
+<part name="TP3_VSS" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
 <part name="TP4" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
 <part name="TP5" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
 <part name="TP6" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
@@ -14547,8 +14547,8 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <part name="TP23" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
 <part name="TP24" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
 <part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="50 ohm"/>
-<part name="R12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100 ohm"/>
-<part name="R13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100 ohm"/>
+<part name="R12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="50 ohm"/>
+<part name="R13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="50 ohm"/>
 <part name="VSS39" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
 <part name="IC3" library="NCP51460SN33T1G" deviceset="NCP51460SN33T1G" device=""/>
 <part name="VSS40" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
@@ -14557,6 +14557,8 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <part name="VSS41" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
 <part name="C28" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uf"/>
 <part name="VSS42" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
+<part name="USBC-PWR" library="con-lstb" library_urn="urn:adsk.eagle:library:162" deviceset="MA04-1" device="" package3d_urn="urn:adsk.eagle:package:8337/1" value="USBC-PWR"/>
+<part name="VSS43" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -14571,8 +14573,8 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <attribute name="VALUE" x="123.19" y="-78.74" size="1.778" layer="96"/>
 <attribute name="NAME" x="123.19" y="-47.498" size="1.778" layer="95"/>
 </instance>
-<instance part="VSS1" gate="G$1" x="147.32" y="-53.34" smashed="yes" rot="R180">
-<attribute name="VALUE" x="149.86" y="-53.34" size="1.778" layer="96"/>
+<instance part="VSS1" gate="G$1" x="149.86" y="-53.34" smashed="yes" rot="R180">
+<attribute name="VALUE" x="152.4" y="-53.34" size="1.778" layer="96"/>
 </instance>
 <instance part="VDD1" gate="G$1" x="152.4" y="-55.88" smashed="yes">
 <attribute name="VALUE" x="160.02" y="-55.88" size="1.778" layer="96" rot="R180"/>
@@ -14878,8 +14880,8 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <attribute name="NAME" x="349.25" y="-64.516" size="1.778" layer="95" rot="R180"/>
 <attribute name="TP_SIGNAL_NAME" x="342.9" y="-67.31" size="1.778" layer="97" rot="R90"/>
 </instance>
-<instance part="TP3" gate="G$1" x="254" y="-71.12" smashed="yes" rot="R270">
-<attribute name="NAME" x="240.03" y="-72.644" size="1.778" layer="95"/>
+<instance part="TP3_VSS" gate="G$1" x="254" y="-71.12" smashed="yes" rot="R270">
+<attribute name="NAME" x="234.95" y="-72.644" size="1.778" layer="95"/>
 <attribute name="TP_SIGNAL_NAME" x="251.46" y="-72.39" size="1.778" layer="97" rot="R270"/>
 </instance>
 <instance part="TP4" gate="G$1" x="254" y="-66.04" smashed="yes" rot="R270">
@@ -15142,6 +15144,13 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <instance part="VSS42" gate="G$1" x="63.5" y="99.06" smashed="yes">
 <attribute name="VALUE" x="60.96" y="99.06" size="1.778" layer="96" rot="R180"/>
 </instance>
+<instance part="USBC-PWR" gate="1" x="35.56" y="-99.06" smashed="yes">
+<attribute name="VALUE" x="34.29" y="-109.22" size="1.778" layer="96"/>
+<attribute name="NAME" x="34.29" y="-93.218" size="1.778" layer="95"/>
+</instance>
+<instance part="VSS43" gate="G$1" x="43.18" y="-106.68" smashed="yes">
+<attribute name="VALUE" x="40.64" y="-106.68" size="1.778" layer="96" rot="R180"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -15363,10 +15372,10 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <net name="VSS" class="1">
 <segment>
 <pinref part="GLCD" gate="1" pin="8"/>
-<wire x1="132.08" y1="-55.88" x2="147.32" y2="-55.88" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="-55.88" x2="149.86" y2="-55.88" width="0.1524" layer="91"/>
 <pinref part="VSS1" gate="G$1" pin="VSS"/>
 <junction x="132.08" y="-55.88"/>
-<junction x="147.32" y="-55.88"/>
+<junction x="149.86" y="-55.88"/>
 </segment>
 <segment>
 <wire x1="60.96" y1="-15.24" x2="76.2" y2="-15.24" width="0.1524" layer="91"/>
@@ -15482,7 +15491,7 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <label x="259.08" y="-71.12" size="1.778" layer="95"/>
 <pinref part="U2" gate="A" pin="VSS"/>
 <junction x="271.78" y="-71.12"/>
-<pinref part="TP3" gate="G$1" pin="TP"/>
+<pinref part="TP3_VSS" gate="G$1" pin="TP"/>
 </segment>
 <segment>
 <pinref part="C14" gate="G$1" pin="2"/>
@@ -15534,14 +15543,17 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <segment>
 <pinref part="LED2" gate="G$1" pin="C"/>
 <pinref part="VSS17" gate="G$1" pin="VSS"/>
+<junction x="241.3" y="76.2"/>
 </segment>
 <segment>
 <pinref part="LED3" gate="G$1" pin="C"/>
 <pinref part="VSS18" gate="G$1" pin="VSS"/>
+<junction x="248.92" y="76.2"/>
 </segment>
 <segment>
 <pinref part="LED4" gate="G$1" pin="C"/>
 <pinref part="VSS19" gate="G$1" pin="VSS"/>
+<junction x="256.54" y="76.2"/>
 </segment>
 <segment>
 <wire x1="22.86" y1="50.8" x2="35.56" y2="50.8" width="0.1524" layer="91"/>
@@ -15632,6 +15644,7 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <segment>
 <pinref part="R10" gate="G$1" pin="1"/>
 <pinref part="VSS25" gate="G$1" pin="VSS"/>
+<junction x="5.08" y="-38.1"/>
 </segment>
 <segment>
 <pinref part="RESET_SW" gate="G$1" pin="COM"/>
@@ -15808,6 +15821,11 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <pinref part="C28" gate="G$1" pin="2"/>
 <pinref part="VSS42" gate="G$1" pin="VSS"/>
 <junction x="63.5" y="101.6"/>
+</segment>
+<segment>
+<pinref part="USBC-PWR" gate="1" pin="1"/>
+<pinref part="VSS43" gate="G$1" pin="VSS"/>
+<junction x="43.18" y="-104.14"/>
 </segment>
 </net>
 <net name="SDI1" class="0">
@@ -16177,24 +16195,28 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <segment>
 <pinref part="R3" gate="G$1" pin="1"/>
 <pinref part="POWER" gate="G$1" pin="A"/>
+<junction x="233.68" y="83.82"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
 <pinref part="LED2" gate="G$1" pin="A"/>
 <pinref part="R4" gate="G$1" pin="1"/>
+<junction x="241.3" y="83.82"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="LED3" gate="G$1" pin="A"/>
 <pinref part="R5" gate="G$1" pin="1"/>
+<junction x="248.92" y="83.82"/>
 </segment>
 </net>
 <net name="N$5" class="0">
 <segment>
 <pinref part="LED4" gate="G$1" pin="A"/>
 <pinref part="R6" gate="G$1" pin="1"/>
+<junction x="256.54" y="83.82"/>
 </segment>
 </net>
 <net name="RLED" class="0">
@@ -16257,6 +16279,13 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <pinref part="TP8" gate="G$1" pin="TP"/>
 <wire x1="73.66" y1="-91.44" x2="73.66" y2="-86.36" width="0.1524" layer="91"/>
 <junction x="73.66" y="-91.44"/>
+</segment>
+<segment>
+<wire x1="43.18" y1="-96.52" x2="50.8" y2="-96.52" width="0.1524" layer="91"/>
+<pinref part="USBC-PWR" gate="1" pin="4"/>
+<junction x="43.18" y="-96.52"/>
+<junction x="50.8" y="-96.52"/>
+<label x="45.72" y="-96.52" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="OA2IN" class="0">
@@ -16921,6 +16950,13 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <junction x="101.6" y="-106.68"/>
 <label x="91.44" y="-106.68" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="147.32" y1="-53.34" x2="132.08" y2="-53.34" width="0.1524" layer="91"/>
+<pinref part="GLCD" gate="1" pin="9"/>
+<junction x="132.08" y="-53.34"/>
+<junction x="147.32" y="-53.34"/>
+<label x="134.62" y="-53.34" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="RA9" class="0">
 <segment>
@@ -16936,6 +16972,13 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <junction x="86.36" y="-104.14"/>
 <junction x="101.6" y="-104.14"/>
 <label x="91.44" y="-104.14" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="147.32" y1="-50.8" x2="132.08" y2="-50.8" width="0.1524" layer="91"/>
+<pinref part="GLCD" gate="1" pin="10"/>
+<junction x="132.08" y="-50.8"/>
+<junction x="147.32" y="-50.8"/>
+<label x="134.62" y="-50.8" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RA6" class="0">

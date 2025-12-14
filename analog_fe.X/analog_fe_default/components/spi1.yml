@@ -35,7 +35,7 @@ data:
       - children:
         - attributes:
             id: spi1
-            value: '25000000'
+            value: '35771348'
           type: Dynamic
         type: Values
       type: Integer
@@ -54,6 +54,20 @@ data:
       attributes:
         id: REQUESTED_SPEED
       children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '71542695'
+          type: Integer
+        - attributes:
+            id: min
+          children:
+          - type: Value
+            value: '4366'
+          type: Integer
+        type: Attributes
       - children:
         - attributes:
             value: '25000000'
@@ -109,7 +123,7 @@ data:
       - children:
         - attributes:
             id: spi1
-            value: '100000000'
+            value: '143085391'
           type: Dynamic
         type: Values
       type: Integer
@@ -119,7 +133,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '0'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet

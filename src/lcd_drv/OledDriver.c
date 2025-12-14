@@ -125,7 +125,7 @@ volatile uint8_t __attribute__((address(BANK2 - 16), coherent)) rgbOledBmp_page[
 
 uint8_t  __attribute__((address(XRAM))) rgbOledBmp0[cbOledDispMax]; // one display buffer, no page flipping
 //uint8_t rgbOledBmp1[cbOledDispMax];
-static uint8_t rgbOledBmp_blank[4] = {0x00, 0x00, 0x00, 0x00}; // 32-bit frame-buffer clearing variable
+//static uint8_t rgbOledBmp_blank[4] = {0x00, 0x00, 0x00, 0x00}; // 32-bit frame-buffer clearing variable
 volatile uint8_t rgbOledBmp_page[5];
 
 static volatile DMA_RUN_STATE dstate = D_idle;

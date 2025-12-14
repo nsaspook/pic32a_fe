@@ -78,7 +78,7 @@ int main(void)
 	OledClearBuffer();
 	wait_lcd_done();
 
-	snprintf(buffer, IMU_BUF - 1, "DEV%X REV%X U%X%X   ", *(uint32_t*) 0x7C2000, *(uint32_t*) 0x7C2004, *(uint32_t*) 0x7F2BE0, *(uint32_t*) 0x7F2BE4);
+	snprintf(buffer, IMU_BUF - 1, "DEV%lX REV%lX U%lX%lX   ", *(uint32_t*) 0x7C2000, *(uint32_t*) 0x7C2004, *(uint32_t*) 0x7F2BE0, *(uint32_t*) 0x7F2BE4);
 	eaDogM_WriteStringAtPos(15, 0, buffer);
 	fe_version();
 	eaDogM_WriteStringAtPos(11, 0, imu_buffer);
@@ -100,7 +100,7 @@ int main(void)
 	imu0.op.imu_getserial(&imu0);
 	imu0.op.imu_getid(&imu0);
 
-	snprintf(buffer, IMU_BUF - 1, "%s, serial %X      ", imu_string(&imu0), imu0.board_serial_id);
+	snprintf(buffer, IMU_BUF - 1, "%s, serial %lX      ", imu_string(&imu0), imu0.board_serial_id);
 	eaDogM_WriteStringAtPos(1, 0, buffer);
 
 	StartTimer(TMR_TEST, DIS_TICKS); // GLCD screen updates every 2ms
@@ -115,13 +115,13 @@ int main(void)
 				StartTimer(TMR_TEST, DIS_TICKS);
 				ADC_DMA_read();
 				if (!SW1_SET) {
-					snprintf(buffer, IMU_BUF - 1, "S%u, I%X%X%X, D%u D%u", total_sample_triggers, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6],
+					snprintf(buffer, IMU_BUF - 1, "S%lu, I%X%X%X, D%u D%u", total_sample_triggers, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6],
 						(uint16_t) adc_result[ADC1_D], (uint16_t) adc_result[ADC2_D]);
 					eaDogM_WriteStringAtPos(0, 0, buffer);
 				}
 				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);
 				eaDogM_WriteStringAtPos(2, 0, buffer);
-				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f, %u   ", accel.x, accel.y, accel.z, imu0.rs);
+				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f, %lu   ", accel.x, accel.y, accel.z, imu0.rs);
 				eaDogM_WriteStringAtPos(3, 0, buffer);
 				__builtin_disable_interrupts();
 				adc1_scaled = (double) adc_result[ADC1_D] * ADC1_SCALE;
@@ -131,16 +131,18 @@ int main(void)
 				eaDogM_WriteStringAtPos(4, 0, buffer);
 				snprintf(buffer, IMU_BUF - 1, "ADC2 Voltage: %7.4f Volts", adc2_scaled);
 				eaDogM_WriteStringAtPos(5, 0, buffer);
-				__builtin_disable_interrupts();
-				snprintf(buffer, IMU_BUF - 1, "ISS Readback:  D%4u  D%4u      ", adc_iss_result[ADC1_D], adc_iss_result[ADC2_D]);
-				eaDogM_WriteStringAtPos(6, 0, buffer);
-				adc1_scaled = (double) adc_iss_result[ADC1_D] * ADC1_SCALE;
-				adc2_scaled = (double) adc_iss_result[ADC2_D] * ADC2_SCALE;
-				__builtin_enable_interrupts();
-				snprintf(buffer, IMU_BUF - 1, "ISS Volts   :  %6.4f %6.4f      ", adc1_scaled, adc2_scaled);
-				eaDogM_WriteStringAtPos(7, 0, buffer);
-				snprintf(buffer, IMU_BUF - 1, "ISS Samples : S%u       ", total_iss_triggers);
-				eaDogM_WriteStringAtPos(8, 0, buffer);
+				if (!SW1_SET) {
+					__builtin_disable_interrupts();
+					snprintf(buffer, IMU_BUF - 1, "ISS Readback:  D%4u  D%4u      ", adc_iss_result[ADC1_D], adc_iss_result[ADC2_D]);
+					eaDogM_WriteStringAtPos(6, 0, buffer);
+					adc1_scaled = (double) adc_iss_result[ADC1_D] * ADC1_SCALE;
+					adc2_scaled = (double) adc_iss_result[ADC2_D] * ADC2_SCALE;
+					__builtin_enable_interrupts();
+					snprintf(buffer, IMU_BUF - 1, "ISS Volts   :  %6.4f %6.4f      ", adc1_scaled, adc2_scaled);
+					eaDogM_WriteStringAtPos(7, 0, buffer);
+					snprintf(buffer, IMU_BUF - 1, "ISS Samples : S%lu       ", total_iss_triggers);
+					eaDogM_WriteStringAtPos(8, 0, buffer);
+				}
 				if (SW1_SET) {
 					uint16_t i = 1;
 
@@ -159,7 +161,7 @@ int main(void)
 				OledClearBuffer();
 				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);
 				eaDogM_WriteStringAtPos(2, 0, buffer);
-				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f, %u   ", accel.x, accel.y, accel.z, imu0.rs);
+				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f, %lu   ", accel.x, accel.y, accel.z, imu0.rs);
 				eaDogM_WriteStringAtPos(3, 0, buffer);
 				vector_graph_fs();
 				OledUpdate();
@@ -176,7 +178,7 @@ int main(void)
 			q2 = accel.z / 1.0f;
 			q3 = q0;
 			snprintf(buffer, IMU_BUF - 1, "%5.2f,%5.2f,%5.2f,%5.2f,%5.2f,%5.2f,%5.2f\r", 0.1f, accel.xa, accel.ya, accel.za, accel.x, accel.y, accel.z);
-			UART1_Write(buffer, strlen(buffer));
+			UART1_Write((uint8_t*) buffer, strlen(buffer));
 		}
 
 		if (!SW1_Get()) {
