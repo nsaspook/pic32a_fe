@@ -1076,7 +1076,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '4071'
+            value: '4039'
           type: Dynamic
         type: Values
       type: Hex
@@ -1087,7 +1087,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '26'
+            value: '24'
           type: Dynamic
         type: Values
       type: Hex
@@ -1120,7 +1120,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '4058'
+            value: '3866'
           type: Dynamic
         type: Values
       type: Hex
@@ -1131,7 +1131,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '37'
+            value: '229'
           type: Dynamic
         type: Values
       type: Hex
@@ -2716,7 +2716,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '5592'
+            value: '5596'
           type: Dynamic
         type: Values
       type: Hex
@@ -2737,7 +2737,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '2052'
+            value: '2048'
           type: Dynamic
         type: Values
       type: Hex
@@ -3061,7 +3061,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '37'
+            value: '7'
           type: Dynamic
         type: Values
       type: Hex
@@ -3182,7 +3182,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '2268'
+            value: '2264'
           type: Dynamic
         type: Values
       type: Hex
@@ -4828,26 +4828,6 @@ data:
           type: User
         type: Values
       type: String
-    BSP_PIN_53_FUNCTION_TYPE:
-      attributes:
-        id: BSP_PIN_53_FUNCTION_TYPE
-      children:
-      - children:
-        - attributes:
-            value: GPIO
-          type: User
-        type: Values
-      type: String
-    BSP_PIN_53_FUNCTION_NAME:
-      attributes:
-        id: BSP_PIN_53_FUNCTION_NAME
-      children:
-      - children:
-        - attributes:
-            value: DLED
-          type: User
-        type: Values
-      type: String
     BSP_PIN_54_FUNCTION_TYPE:
       attributes:
         id: BSP_PIN_54_FUNCTION_TYPE
@@ -4891,16 +4871,6 @@ data:
     BSP_PIN_52_DIR:
       attributes:
         id: BSP_PIN_52_DIR
-      children:
-      - children:
-        - attributes:
-            value: Out
-          type: User
-        type: Values
-      type: String
-    BSP_PIN_53_DIR:
-      attributes:
-        id: BSP_PIN_53_DIR
       children:
       - children:
         - attributes:
@@ -5050,7 +5020,7 @@ data:
         type: Attributes
       - children:
         - attributes:
-            value: '23'
+            value: '44'
           type: User
         type: Values
       type: KeyValueSet
@@ -5068,20 +5038,10 @@ data:
         type: Attributes
       - children:
         - attributes:
-            value: '25'
+            value: '41'
           type: User
         type: Values
       type: KeyValueSet
-    BSP_PIN_35_FUNCTION_TYPE:
-      attributes:
-        id: BSP_PIN_35_FUNCTION_TYPE
-      children:
-      - children:
-        - attributes:
-            value: PWM1H
-          type: User
-        type: Values
-      type: String
     USE_PPS_OUTPUT_9:
       attributes:
         id: USE_PPS_OUTPUT_9
@@ -5114,7 +5074,7 @@ data:
         type: Attributes
       - children:
         - attributes:
-            value: '20'
+            value: '42'
           type: User
         type: Values
       type: KeyValueSet
@@ -5132,20 +5092,10 @@ data:
         type: Attributes
       - children:
         - attributes:
-            value: '41'
+            value: '25'
           type: User
         type: Values
       type: KeyValueSet
-    BSP_PIN_36_FUNCTION_TYPE:
-      attributes:
-        id: BSP_PIN_36_FUNCTION_TYPE
-      children:
-      - children:
-        - attributes:
-            value: PWM1L
-          type: User
-        type: Values
-      type: String
     BSP_PIN_42_FUNCTION_TYPE:
       attributes:
         id: BSP_PIN_42_FUNCTION_TYPE
@@ -5258,7 +5208,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '1987'
+            value: '1219'
           type: Dynamic
         type: Values
       type: Hex
@@ -5514,56 +5464,6 @@ data:
           type: User
         type: Values
       type: String
-    BSP_PIN_21_MODE:
-      attributes:
-        id: BSP_PIN_21_MODE
-      children:
-      - children:
-        - attributes:
-            value: DIGITAL
-          type: User
-        type: Values
-      type: String
-    BSP_PIN_21_DIR:
-      attributes:
-        id: BSP_PIN_21_DIR
-      children:
-      - children:
-        - attributes:
-            value: ''
-          type: User
-        type: Values
-      type: String
-    BSP_PIN_21_LAT:
-      attributes:
-        id: BSP_PIN_21_LAT
-      children:
-      - children:
-        - attributes:
-            value: High
-          type: User
-        type: Values
-      type: String
-    BSP_PIN_21_FUNCTION_TYPE:
-      attributes:
-        id: BSP_PIN_21_FUNCTION_TYPE
-      children:
-      - children:
-        - attributes:
-            value: GPIO
-          type: User
-        type: Values
-      type: String
-    BSP_PIN_21_FUNCTION_NAME:
-      attributes:
-        id: BSP_PIN_21_FUNCTION_NAME
-      children:
-      - children:
-        - attributes:
-            value: GPIO_RB1
-          type: User
-        type: Values
-      type: String
     BSP_PIN_58_FUNCTION_TYPE:
       attributes:
         id: BSP_PIN_58_FUNCTION_TYPE
@@ -5591,16 +5491,6 @@ data:
       - children:
         - attributes:
             value: SDI3
-          type: User
-        type: Values
-      type: String
-    BSP_PIN_53_LAT:
-      attributes:
-        id: BSP_PIN_53_LAT
-      children:
-      - children:
-        - attributes:
-            value: High
           type: User
         type: Values
       type: String
@@ -6078,13 +5968,173 @@ data:
           type: User
         type: Values
       type: String
-    BSP_PIN_53_PU:
+    BSP_PIN_7_MODE:
       attributes:
-        id: BSP_PIN_53_PU
+        id: BSP_PIN_7_MODE
       children:
       - children:
         - attributes:
-            value: 'True'
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_7_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_7_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: PWM1L
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_8_MODE:
+      attributes:
+        id: BSP_PIN_8_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_8_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_8_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: PWM1H
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_35_DIR:
+      attributes:
+        id: BSP_PIN_35_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_36_DIR:
+      attributes:
+        id: BSP_PIN_36_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_35_LAT:
+      attributes:
+        id: BSP_PIN_35_LAT
+      children:
+      - children:
+        - attributes:
+            value: High
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_36_LAT:
+      attributes:
+        id: BSP_PIN_36_LAT
+      children:
+      - children:
+        - attributes:
+            value: High
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_35_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_35_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_35_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_35_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: GPIO_RC6
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_36_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_36_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_36_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_36_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: GPIO_RC7
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_17_DIR:
+      attributes:
+        id: BSP_PIN_17_DIR
+      children:
+      - children:
+        - attributes:
+            value: Out
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_17_LAT:
+      attributes:
+        id: BSP_PIN_17_LAT
+      children:
+      - children:
+        - attributes:
+            value: ''
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_17_MODE:
+      attributes:
+        id: BSP_PIN_17_MODE
+      children:
+      - children:
+        - attributes:
+            value: DIGITAL
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_17_FUNCTION_TYPE:
+      attributes:
+        id: BSP_PIN_17_FUNCTION_TYPE
+      children:
+      - children:
+        - attributes:
+            value: GPIO
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_17_FUNCTION_NAME:
+      attributes:
+        id: BSP_PIN_17_FUNCTION_NAME
+      children:
+      - children:
+        - attributes:
+            value: DLED
           type: User
         type: Values
       type: String

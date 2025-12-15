@@ -166,46 +166,46 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text                     0x800480              0x2044          0x2044  (8260)
-.text.main                0x8024c4               0x810           0x810  (2064)
-.text.vector_graph_fs     0x802cd4               0x690           0x690  (1680)
-.dinit                    0x803364               0x548           0x548  (1352)
-/tmp/cc8Bo8YQ.s.scn1      0x8038ac               0x514           0x514  (1300)
-/tmp/cchNPzoO.s.scn1      0x803dc0               0x300           0x300  (768)
-.text.CLOCK_Initialize    0x8040c0               0x2d4           0x2d4  (724)
-.text.OledPutBmp          0x804394               0x244           0x244  (580)
-.text.sca3300_getdata     0x8045d8               0x1f4           0x1f4  (500)
-.text.ADC_DMA_write       0x8047cc               0x1d0           0x1d0  (464)
-.text.GPIO_Initialize     0x80499c               0x1c4           0x1c4  (452)
-.text.SPI2_WriteRead      0x804b60               0x198           0x198  (408)
-.text.SPI1_WriteRead      0x804cf8               0x198           0x198  (408)
-.text.LA_gfx              0x804e90               0x16c           0x16c  (364)
-.text.ADC_DMA_init        0x804ffc               0x158           0x158  (344)
-.text.OledLineTo          0x805154               0x150           0x150  (336)
-/tmp/ccJmdAgT.s.scn2      0x8052a4               0x140           0x140  (320)
-.text.SPI1DmaChannelHandler_State  0x8053e4               0x114           0x114  (276)
-.text.SPI2RX_InterruptHandler  0x8054f8               0x10c           0x10c  (268)
-.text.SPI1RX_InterruptHandler  0x805604               0x10c           0x10c  (268)
-.text.U1RX_InterruptHandler  0x805710               0x100           0x100  (256)
-.text.U1TX_InterruptHandler  0x805810               0x100           0x100  (256)
-.text.get_imu_scale       0x805910               0x100           0x100  (256)
-.text.INTC_Initialize     0x805a10                0xf4            0xf4  (244)
-.text.PWM_Initialize      0x805b04                0xf0            0xf0  (240)
-.text.getAllData          0x805bf4                0xec            0xec  (236)
-.text.DMA_Initialize      0x805ce0                0xd0            0xd0  (208)
-.text.sca3300_getid       0x805db0                0xcc            0xcc  (204)
-.text.DMA_ChannelTransfer  0x805e7c                0xc0            0xc0  (192)
-.text.DMA0_InterruptHandler  0x805f3c                0xb8            0xb8  (184)
-.text.DMA1_InterruptHandler  0x805ff4                0xb8            0xb8  (184)
-.text.DMA4_InterruptHandler  0x8060ac                0xb8            0xb8  (184)
-.text.DMA5_InterruptHandler  0x806164                0xb8            0xb8  (184)
-.text.ADC_DMA_read        0x80621c                0xb4            0xb4  (180)
-.text.sca3300_set_spimode  0x8062d0                0xb4            0xb4  (180)
-.text.lcd_moveto_xy       0x806384                0xac            0xac  (172)
-.text.lcd_init            0x806430                0xac            0xac  (172)
-.text.lcd_clear_area      0x8064dc                0xa8            0xa8  (168)
-.text.sca3300_getserial   0x806584                0xa8            0xa8  (168)
-.text.DMA_ChannelIsBusy   0x80662c                0xa4            0xa4  (164)
-.text.ISS_read_id         0x8066d0                0x9c            0x9c  (156)
+.text.main                0x8024c4               0x830           0x830  (2096)
+.text.vector_graph_fs     0x802cf4               0x690           0x690  (1680)
+.dinit                    0x803384               0x548           0x548  (1352)
+/tmp/ccb9lTAw.s.scn1      0x8038cc               0x514           0x514  (1300)
+/tmp/ccHIgoCr.s.scn1      0x803de0               0x300           0x300  (768)
+.text.CLOCK_Initialize    0x8040e0               0x2d4           0x2d4  (724)
+.text.OledPutBmp          0x8043b4               0x244           0x244  (580)
+.text.sca3300_getdata     0x8045f8               0x1f4           0x1f4  (500)
+.text.ADC_DMA_write       0x8047ec               0x1d0           0x1d0  (464)
+.text.GPIO_Initialize     0x8049bc               0x1cc           0x1cc  (460)
+.text.SPI2_WriteRead      0x804b88               0x198           0x198  (408)
+.text.SPI1_WriteRead      0x804d20               0x198           0x198  (408)
+.text.LA_gfx              0x804eb8               0x16c           0x16c  (364)
+.text.ADC_DMA_init        0x805024               0x158           0x158  (344)
+.text.OledLineTo          0x80517c               0x150           0x150  (336)
+/tmp/cc3i3wKX.s.scn2      0x8052cc               0x140           0x140  (320)
+.text.SPI1DmaChannelHandler_State  0x80540c               0x114           0x114  (276)
+.text.SPI2RX_InterruptHandler  0x805520               0x10c           0x10c  (268)
+.text.SPI1RX_InterruptHandler  0x80562c               0x10c           0x10c  (268)
+.text.U1RX_InterruptHandler  0x805738               0x100           0x100  (256)
+.text.U1TX_InterruptHandler  0x805838               0x100           0x100  (256)
+.text.get_imu_scale       0x805938               0x100           0x100  (256)
+.text.INTC_Initialize     0x805a38                0xf4            0xf4  (244)
+.text.PWM_Initialize      0x805b2c                0xec            0xec  (236)
+.text.getAllData          0x805c18                0xec            0xec  (236)
+.text.DMA_Initialize      0x805d04                0xd0            0xd0  (208)
+.text.sca3300_getid       0x805dd4                0xcc            0xcc  (204)
+.text.DMA_ChannelTransfer  0x805ea0                0xc0            0xc0  (192)
+.text.DMA0_InterruptHandler  0x805f60                0xb8            0xb8  (184)
+.text.DMA1_InterruptHandler  0x806018                0xb8            0xb8  (184)
+.text.DMA4_InterruptHandler  0x8060d0                0xb8            0xb8  (184)
+.text.DMA5_InterruptHandler  0x806188                0xb8            0xb8  (184)
+.text.sca3300_set_spimode  0x806240                0xb4            0xb4  (180)
+.text.lcd_moveto_xy       0x8062f4                0xac            0xac  (172)
+.text.lcd_init            0x8063a0                0xac            0xac  (172)
+.text.lcd_clear_area      0x80644c                0xa8            0xa8  (168)
+.text.sca3300_getserial   0x8064f4                0xa8            0xa8  (168)
+.text.DMA_ChannelIsBusy   0x80659c                0xa4            0xa4  (164)
+.text.ISS_read_id         0x806640                0x9c            0x9c  (156)
+.text.ADC_DMA_read        0x8066dc                0x90            0x90  (144)
 .text.UART1_Initialize    0x80676c                0x8c            0x8c  (140)
 .text.U1E_InterruptHandler  0x8067f8                0x8c            0x8c  (140)
 .text.UART1_Write         0x806884                0x80            0x80  (128)
@@ -220,14 +220,14 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.OledMoveTo          0x806cbc                0x5c            0x5c  (92)
 .text.sca3300_imu_transfer  0x806d18                0x5c            0x5c  (92)
 .text.ADC2_Initialize     0x806d74                0x50            0x50  (80)
-/tmp/ccJmdAgT.s.scn1      0x806dc4                0x50            0x50  (80)
+/tmp/cc3i3wKX.s.scn1      0x806dc4                0x50            0x50  (80)
 .text.SYS_Initialize      0x806e14                0x4c            0x4c  (76)
-/tmp/ccRfVDDF.s.scn1      0x806e60                0x4c            0x4c  (76)
+/tmp/ccBKKm67.s.scn1      0x806e60                0x4c            0x4c  (76)
 .text.SPI1_Initialize     0x806eac                0x44            0x44  (68)
 .text.SPI1E_InterruptHandler  0x806ef0                0x44            0x44  (68)
 .text.CMP1_Initialize     0x806f34                0x40            0x40  (64)
 .text.SPI2_Initialize     0x806f74                0x40            0x40  (64)
-/tmp/ccBHPBIu.s.scn1      0x806fb4                0x40            0x40  (64)
+/tmp/ccCi4fmX.s.scn1      0x806fb4                0x40            0x40  (64)
 .text.OledMoveUp          0x806ff4                0x40            0x40  (64)
 .text.OledMoveDown        0x807034                0x40            0x40  (64)
 .text.OledPutString       0x807074                0x40            0x40  (64)
@@ -243,7 +243,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.timer_ms_tick       0x8072b8                0x34            0x34  (52)
 .text.wait_lcd_done       0x8072ec                0x30            0x30  (48)
 .text.delay_us.part.0     0x80731c                0x60            0x60  (96)
-/tmp/ccIij5Qi.s.scn1      0x80737c                0x30            0x30  (48)
+/tmp/ccSkTGtl.s.scn1      0x80737c                0x30            0x30  (48)
 .text.TMR1_Initialize     0x8073ac                0x2c            0x2c  (44)
 .text.T1_InterruptHandler  0x8073d8                0x2c            0x2c  (44)
 .text.OledClearBuffer     0x807404                0x28            0x28  (40)
@@ -257,7 +257,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 .text.SPI2_IsBusy         0x807530                0x20            0x20  (32)
 .text.eaDogM_WriteStringAtPos  0x807550                0x20            0x20  (32)
 .text.lcd_command         0x807570                0x20            0x20  (32)
-/tmp/ccUTC37p.s.scn1      0x807590                0x20            0x20  (32)
+/tmp/ccjzaZ0W.s.scn1      0x807590                0x20            0x20  (32)
 .text.SPI1_Exchange8bit   0x8075b0                0x1c            0x1c  (28)
 .text.OledClear           0x8075cc                0x18            0x18  (24)
 .text.OledSetCharUpdate   0x8075e4                0x18            0x18  (24)
@@ -302,7 +302,7 @@ __ivt_0                   0x800004               0x47c           0x47c  (1148)
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-_0x7fe68f8a8f30_at_address_0x4000    0x4000                   0           0xf00  (3840)
+_0x7f708b49cf30_at_address_0x4000    0x4000                   0           0xf00  (3840)
 .nbss.UART1_WriteBuffer     0x4f00                   0           0x102  (258)
 .nbss.UART1_ReadBuffer      0x5002                   0           0x102  (258)
 .nbss.rgbOledFontUser       0x5104                   0           0x100  (256)
@@ -390,7 +390,7 @@ _0x7fe68f8a8f30_at_address_0x4000    0x4000                   0           0xf00 
 .nbss.time_done             0x56f0                   0             0x2  (2)
 .data                       0x56f4                   0            0x30  (48)
 .bss                        0x5724                   0             0x4  (4)
-_0x7f1efc30fd80_at_address_0x6000    0x6000                   0            0x5c  (92)
+_0x7f955c90fd80_at_address_0x6000    0x6000                   0            0x5c  (92)
 
                       Total "data" memory used (bytes):         0x1782  (6018) 36%
 
@@ -589,43 +589,43 @@ External Symbols in Program Memory (by address):
                   0x8023e0                  ___umoddi3
                   0x8023e8                  _floorl
                   0x8024c4                  _main
-                  0x802cd4                  _vector_graph_fs
-                  0x8038ac                  _foo_map
-                  0x803dc0                  _rgbOledFont0
-                  0x8040c0                  _CLOCK_Initialize
-                  0x804394                  _OledPutBmp
-                  0x8045d8                  _sca3300_getdata
-                  0x8047cc                  _ADC_DMA_write
-                  0x80499c                  _GPIO_Initialize
-                  0x804b60                  _SPI2_WriteRead
-                  0x804cf8                  _SPI1_WriteRead
-                  0x804e90                  _LA_gfx
-                  0x804ffc                  _ADC_DMA_init
-                  0x805154                  _OledLineTo
-                  0x8053e4                  _SPI1DmaChannelHandler_State
-                  0x8054f8                  _SPI2RX_InterruptHandler
-                  0x805604                  _SPI1RX_InterruptHandler
-                  0x805710                  _U1RX_InterruptHandler
-                  0x805810                  _U1TX_InterruptHandler
-                  0x805910                  _get_imu_scale
-                  0x805a10                  _INTC_Initialize
-                  0x805b04                  _PWM_Initialize
-                  0x805bf4                  _getAllData
-                  0x805ce0                  _DMA_Initialize
-                  0x805db0                  _sca3300_getid
-                  0x805e7c                  _DMA_ChannelTransfer
-                  0x805f3c                  _DMA0_InterruptHandler
-                  0x805ff4                  _DMA1_InterruptHandler
-                  0x8060ac                  _DMA4_InterruptHandler
-                  0x806164                  _DMA5_InterruptHandler
-                  0x80621c                  _ADC_DMA_read
-                  0x8062d0                  _sca3300_set_spimode
-                  0x806384                  _lcd_moveto_xy
-                  0x806430                  _lcd_init
-                  0x8064dc                  _lcd_clear_area
-                  0x806584                  _sca3300_getserial
-                  0x80662c                  _DMA_ChannelIsBusy
-                  0x8066d0                  _ISS_read_id
+                  0x802cf4                  _vector_graph_fs
+                  0x8038cc                  _foo_map
+                  0x803de0                  _rgbOledFont0
+                  0x8040e0                  _CLOCK_Initialize
+                  0x8043b4                  _OledPutBmp
+                  0x8045f8                  _sca3300_getdata
+                  0x8047ec                  _ADC_DMA_write
+                  0x8049bc                  _GPIO_Initialize
+                  0x804b88                  _SPI2_WriteRead
+                  0x804d20                  _SPI1_WriteRead
+                  0x804eb8                  _LA_gfx
+                  0x805024                  _ADC_DMA_init
+                  0x80517c                  _OledLineTo
+                  0x80540c                  _SPI1DmaChannelHandler_State
+                  0x805520                  _SPI2RX_InterruptHandler
+                  0x80562c                  _SPI1RX_InterruptHandler
+                  0x805738                  _U1RX_InterruptHandler
+                  0x805838                  _U1TX_InterruptHandler
+                  0x805938                  _get_imu_scale
+                  0x805a38                  _INTC_Initialize
+                  0x805b2c                  _PWM_Initialize
+                  0x805c18                  _getAllData
+                  0x805d04                  _DMA_Initialize
+                  0x805dd4                  _sca3300_getid
+                  0x805ea0                  _DMA_ChannelTransfer
+                  0x805f60                  _DMA0_InterruptHandler
+                  0x806018                  _DMA1_InterruptHandler
+                  0x8060d0                  _DMA4_InterruptHandler
+                  0x806188                  _DMA5_InterruptHandler
+                  0x806240                  _sca3300_set_spimode
+                  0x8062f4                  _lcd_moveto_xy
+                  0x8063a0                  _lcd_init
+                  0x80644c                  _lcd_clear_area
+                  0x8064f4                  _sca3300_getserial
+                  0x80659c                  _DMA_ChannelIsBusy
+                  0x806640                  _ISS_read_id
+                  0x8066dc                  _ADC_DMA_read
                   0x80676c                  _UART1_Initialize
                   0x8067f8                  _U1E_InterruptHandler
                   0x806884                  _UART1_Write
@@ -711,28 +711,28 @@ External Symbols in Program Memory (by address):
 External Symbols in Program Memory (by name):
 
                   0x806d74                  _ADC2_Initialize
-                  0x804ffc                  _ADC_DMA_init
-                  0x80621c                  _ADC_DMA_read
-                  0x8047cc                  _ADC_DMA_write
+                  0x805024                  _ADC_DMA_init
+                  0x8066dc                  _ADC_DMA_read
+                  0x8047ec                  _ADC_DMA_write
                   0x807770                  _CBDmaChannelHandler
                   0x807250                  _CCT1_InterruptHandler
                   0x807284                  _CCT2_InterruptHandler
-                  0x8040c0                  _CLOCK_Initialize
+                  0x8040e0                  _CLOCK_Initialize
                   0x806f34                  _CMP1_Initialize
                   0x8076d4                  _CSB_SetHigh
                   0x8076c8                  _CSB_SetLow
-                  0x805f3c                  _DMA0_InterruptHandler
-                  0x805ff4                  _DMA1_InterruptHandler
-                  0x8060ac                  _DMA4_InterruptHandler
-                  0x806164                  _DMA5_InterruptHandler
+                  0x805f60                  _DMA0_InterruptHandler
+                  0x806018                  _DMA1_InterruptHandler
+                  0x8060d0                  _DMA4_InterruptHandler
+                  0x806188                  _DMA5_InterruptHandler
                   0x8074a4                  _DMA_ChannelCallbackRegister
-                  0x80662c                  _DMA_ChannelIsBusy
-                  0x805e7c                  _DMA_ChannelTransfer
-                  0x805ce0                  _DMA_Initialize
-                  0x80499c                  _GPIO_Initialize
-                  0x805a10                  _INTC_Initialize
-                  0x8066d0                  _ISS_read_id
-                  0x804e90                  _LA_gfx
+                  0x80659c                  _DMA_ChannelIsBusy
+                  0x805ea0                  _DMA_ChannelTransfer
+                  0x805d04                  _DMA_Initialize
+                  0x8049bc                  _GPIO_Initialize
+                  0x805a38                  _INTC_Initialize
+                  0x806640                  _ISS_read_id
+                  0x804eb8                  _LA_gfx
                   0x80766c                  _OPA2_Initialize
                   0x8071a4                  _OledAdvanceCursor
                   0x8075cc                  _OledClear
@@ -740,13 +740,13 @@ External Symbols in Program Memory (by name):
                   0x806b34                  _OledDrawGlyph
                   0x806980                  _OledDvrInit
                   0x80742c                  _OledInit
-                  0x805154                  _OledLineTo
+                  0x80517c                  _OledLineTo
                   0x807034                  _OledMoveDown
                   0x807454                  _OledMoveLeft
                   0x807704                  _OledMoveRight
                   0x806cbc                  _OledMoveTo
                   0x806ff4                  _OledMoveUp
-                  0x804394                  _OledPutBmp
+                  0x8043b4                  _OledPutBmp
                   0x807074                  _OledPutString
                   0x8076ec                  _OledRopAnd
                   0x8076e0                  _OledRopOr
@@ -756,7 +756,7 @@ External Symbols in Program Memory (by name):
                   0x807168                  _OledSetCursor
                   0x806904                  _OledSetDrawMode
                   0x80767c                  _OledUpdate
-                  0x805b04                  _PWM_Initialize
+                  0x805b2c                  _PWM_Initialize
                   0x80712c                  _QEI1_Initialize
                   0x8076bc                  _RS_SetHigh
                   0x8076b0                  _RS_SetLow
@@ -772,22 +772,22 @@ External Symbols in Program Memory (by name):
                   0x8070f0                  _SCCP2_TimerInitialize
                   0x807738                  _SCCP2_TimerStart
                   0x80765c                  _SCCP2_TimerStop
-                  0x8053e4                  _SPI1DmaChannelHandler_State
+                  0x80540c                  _SPI1DmaChannelHandler_State
                   0x806ef0                  _SPI1E_InterruptHandler
-                  0x805604                  _SPI1RX_InterruptHandler
+                  0x80562c                  _SPI1RX_InterruptHandler
                   0x806acc                  _SPI1TX_InterruptHandler
                   0x8075b0                  _SPI1_Exchange8bit
                   0x806eac                  _SPI1_Initialize
                   0x807748                  _SPI1_Write
-                  0x804cf8                  _SPI1_WriteRead
+                  0x804d20                  _SPI1_WriteRead
                   0x807774                  _SPI2DmaChannelHandler_State
                   0x807778                  _SPI2DmaChannelHandler_State_Read
-                  0x8054f8                  _SPI2RX_InterruptHandler
+                  0x805520                  _SPI2RX_InterruptHandler
                   0x806a64                  _SPI2TX_InterruptHandler
                   0x806f74                  _SPI2_Initialize
                   0x807530                  _SPI2_IsBusy
                   0x8075fc                  _SPI2_IsTransmitterBusy
-                  0x804b60                  _SPI2_WriteRead
+                  0x804b88                  _SPI2_WriteRead
                   0x807510                  _SPI3_Initialize
                   0x806e14                  _SYS_Initialize
                   0x807624                  _StartTimer
@@ -798,8 +798,8 @@ External Symbols in Program Memory (by name):
                   0x807750                  _TMR1_Start
                   0x8074ec                  _TimerDone
                   0x8067f8                  _U1E_InterruptHandler
-                  0x805710                  _U1RX_InterruptHandler
-                  0x805810                  _U1TX_InterruptHandler
+                  0x805738                  _U1RX_InterruptHandler
+                  0x805838                  _U1TX_InterruptHandler
                   0x80676c                  _UART1_Initialize
                   0x806884                  _UART1_Write
                   0x807638                  _WaitMs
@@ -849,34 +849,34 @@ External Symbols in Program Memory (by name):
                   0x807550                  _eaDogM_WriteStringAtPos
                   0x8071e0                  _fe_version
                   0x8023e8                  _floorl
-                  0x8038ac                  _foo_map
-                  0x805bf4                  _getAllData
-                  0x805910                  _get_imu_scale
+                  0x8038cc                  _foo_map
+                  0x805c18                  _getAllData
+                  0x805938                  _get_imu_scale
                   0x80747c                  _imu_string
                   0x8069f4                  _init_lcd_drv
-                  0x8064dc                  _lcd_clear_area
+                  0x80644c                  _lcd_clear_area
                   0x807570                  _lcd_command
                   0x8074c8                  _lcd_data
-                  0x806430                  _lcd_init
-                  0x806384                  _lcd_moveto_xy
+                  0x8063a0                  _lcd_init
+                  0x8062f4                  _lcd_moveto_xy
                   0x8024c4                  _main
                   0x801cd0                  _memcpy
                   0x801cec                  _memset
                   0x806fb4                  _rgbFillPat
-                  0x803dc0                  _rgbOledFont0
+                  0x803de0                  _rgbOledFont0
                   0x806b98                  _sca3300_check_crc
-                  0x8045d8                  _sca3300_getdata
-                  0x805db0                  _sca3300_getid
-                  0x806584                  _sca3300_getserial
+                  0x8045f8                  _sca3300_getdata
+                  0x805dd4                  _sca3300_getid
+                  0x8064f4                  _sca3300_getserial
                   0x806d18                  _sca3300_imu_transfer
-                  0x8062d0                  _sca3300_set_spimode
+                  0x806240                  _sca3300_set_spimode
                   0x807218                  _sca3300_version
                   0x8021a0                  _strcpy
                   0x800b4c                  _strlen
                   0x8072b8                  _timer_ms_tick
                   0x8021b0                  _tolower
                   0x8021c0                  _toupper
-                  0x802cd4                  _vector_graph_fs
+                  0x802cf4                  _vector_graph_fs
                   0x8072ec                  _wait_lcd_done
                   0x807760                  _write
 
@@ -1164,7 +1164,7 @@ Discarded input sections
                     0x0000         0x60 build/default/production/_ext/285195972/OledDriver.o
  .text.OledPutBuffer
                     0x0000         0x10 build/default/production/_ext/285195972/OledDriver.o
- /tmp/ccx6N6wm.s.scn1
+ /tmp/ccOv52uZ.s.scn1
                     0x0000         0x54 build/default/production/_ext/285195972/OledDriver.o
  .text.lcd_version
                     0x0000         0x30 build/default/production/_ext/285195972/OledDriver.o
@@ -1999,7 +1999,7 @@ __FWPUCB
  .comment           0x1662         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(divmoddi3.AA_eo)
  .comment           0x16be         0x5c /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libm-elf.a(floorl.GENERIC-32PIC-AK_o)
 
-.debug_info         0x0000      0x1bf4f
+.debug_info         0x0000      0x1bca2
  *(.debug_info)
  .debug_info        0x0000       0x11a3 build/default/production/_ext/60163342/plib_adc2.o
  .debug_info        0x11a3        0x801 build/default/production/_ext/60165246/plib_sccp1.o
@@ -2007,40 +2007,40 @@ __FWPUCB
  .debug_info        0x21a5       0x1170 build/default/production/_ext/60165520/plib_clk.o
  .debug_info        0x3315        0x5b1 build/default/production/_ext/165463675/plib_cmp1.o
  .debug_info        0x38c6       0x20bb build/default/production/_ext/60166502/plib_dma.o
- .debug_info        0x5981        0xd8d build/default/production/_ext/1865254177/plib_gpio.o
- .debug_info        0x670e        0xa95 build/default/production/_ext/1865312166/plib_intc.o
- .debug_info        0x71a3        0x453 build/default/production/_ext/60177166/plib_opa2.o
- .debug_info        0x75f6        0xa17 build/default/production/_ext/60178356/plib_pwm.o
- .debug_info        0x800d        0x48d build/default/production/_ext/60178755/plib_qei1.o
- .debug_info        0x849a        0xd28 build/default/production/_ext/1868329136/plib_spi3_host.o
- .debug_info        0x91c2       0x1624 build/default/production/_ext/1868329136/plib_spi2_host.o
- .debug_info        0xa7e6       0x1b00 build/default/production/_ext/1868329136/plib_spi1_host.o
- .debug_info        0xc2e6        0xcb7 build/default/production/_ext/60181895/plib_tmr1.o
- .debug_info        0xcf9d       0x1dd0 build/default/production/_ext/1865657120/plib_uart1.o
- .debug_info        0xed6d        0x237 build/default/production/_ext/163028504/xc32_monitor.o
- .debug_info        0xefa4        0x3bf build/default/production/_ext/1171490990/initialization.o
- .debug_info        0xf363        0x5a6 build/default/production/_ext/1171490990/interrupts.o
- .debug_info        0xf909        0x7eb build/default/production/_ext/1171490990/traps.o
- .debug_info        0x100f4        0x234 build/default/production/_ext/285195972/ChrFont0.o
- .debug_info        0x10328        0x230 build/default/production/_ext/285195972/FillPat.o
- .debug_info        0x10558        0xdb2 build/default/production/_ext/285195972/OledDriver.o
- .debug_info        0x1130a        0x248 build/default/production/_ext/285195972/foo.o
- .debug_info        0x11552       0x1048 build/default/production/_ext/285195972/eadog.o
- .debug_info        0x1259a        0xe85 build/default/production/_ext/285195972/OledGrph.o
- .debug_info        0x1341f        0x6df build/default/production/_ext/285195972/lcd_drv.o
- .debug_info        0x13afe        0x633 build/default/production/_ext/285195972/OledChar.o
- .debug_info        0x14131        0xbbd build/default/production/_ext/285195972/dogm-graphic.o
- .debug_info        0x14cee       0x1c77 build/default/production/_ext/1360937237/main.o
- .debug_info        0x16965        0xc73 build/default/production/_ext/1360937237/gfx.o
- .debug_info        0x175d8        0x556 build/default/production/_ext/1360937237/timers.o
- .debug_info        0x17b2e       0x1eb9 build/default/production/_ext/1360937237/is66.o
- .debug_info        0x199e7       0x18f9 build/default/production/_ext/1360937237/sca3300.o
- .debug_info        0x1b2e0        0xc23 build/default/production/_ext/1360937237/imu.o
- .debug_info        0x1bf03         0x26 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_info        0x1bf29         0x26 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_info        0x5981        0xd8c build/default/production/_ext/1865254177/plib_gpio.o
+ .debug_info        0x670d        0xa95 build/default/production/_ext/1865312166/plib_intc.o
+ .debug_info        0x71a2        0x453 build/default/production/_ext/60177166/plib_opa2.o
+ .debug_info        0x75f5        0xa17 build/default/production/_ext/60178356/plib_pwm.o
+ .debug_info        0x800c        0x48d build/default/production/_ext/60178755/plib_qei1.o
+ .debug_info        0x8499        0xd28 build/default/production/_ext/1868329136/plib_spi3_host.o
+ .debug_info        0x91c1       0x1624 build/default/production/_ext/1868329136/plib_spi2_host.o
+ .debug_info        0xa7e5       0x1b00 build/default/production/_ext/1868329136/plib_spi1_host.o
+ .debug_info        0xc2e5        0xcb7 build/default/production/_ext/60181895/plib_tmr1.o
+ .debug_info        0xcf9c       0x1dd0 build/default/production/_ext/1865657120/plib_uart1.o
+ .debug_info        0xed6c        0x237 build/default/production/_ext/163028504/xc32_monitor.o
+ .debug_info        0xefa3        0x3bf build/default/production/_ext/1171490990/initialization.o
+ .debug_info        0xf362        0x5a6 build/default/production/_ext/1171490990/interrupts.o
+ .debug_info        0xf908        0x7eb build/default/production/_ext/1171490990/traps.o
+ .debug_info        0x100f3        0x234 build/default/production/_ext/285195972/ChrFont0.o
+ .debug_info        0x10327        0x230 build/default/production/_ext/285195972/FillPat.o
+ .debug_info        0x10557        0xdb2 build/default/production/_ext/285195972/OledDriver.o
+ .debug_info        0x11309        0x248 build/default/production/_ext/285195972/foo.o
+ .debug_info        0x11551       0x1048 build/default/production/_ext/285195972/eadog.o
+ .debug_info        0x12599        0xe85 build/default/production/_ext/285195972/OledGrph.o
+ .debug_info        0x1341e        0x6df build/default/production/_ext/285195972/lcd_drv.o
+ .debug_info        0x13afd        0x633 build/default/production/_ext/285195972/OledChar.o
+ .debug_info        0x14130        0xbbd build/default/production/_ext/285195972/dogm-graphic.o
+ .debug_info        0x14ced       0x19cb build/default/production/_ext/1360937237/main.o
+ .debug_info        0x166b8        0xc73 build/default/production/_ext/1360937237/gfx.o
+ .debug_info        0x1732b        0x556 build/default/production/_ext/1360937237/timers.o
+ .debug_info        0x17881       0x1eb9 build/default/production/_ext/1360937237/is66.o
+ .debug_info        0x1973a       0x18f9 build/default/production/_ext/1360937237/sca3300.o
+ .debug_info        0x1b033        0xc23 build/default/production/_ext/1360937237/imu.o
+ .debug_info        0x1bc56         0x26 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_info        0x1bc7c         0x26 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev       0x0000       0x3dfb
+.debug_abbrev       0x0000       0x3dd1
  *(.debug_abbrev)
  .debug_abbrev      0x0000        0x1fd build/default/production/_ext/60163342/plib_adc2.o
  .debug_abbrev      0x01fd        0x17d build/default/production/_ext/60165246/plib_sccp1.o
@@ -2071,16 +2071,16 @@ __FWPUCB
  .debug_abbrev      0x28bb        0x1d5 build/default/production/_ext/285195972/lcd_drv.o
  .debug_abbrev      0x2a90        0x1a4 build/default/production/_ext/285195972/OledChar.o
  .debug_abbrev      0x2c34        0x297 build/default/production/_ext/285195972/dogm-graphic.o
- .debug_abbrev      0x2ecb        0x323 build/default/production/_ext/1360937237/main.o
- .debug_abbrev      0x31ee        0x1c5 build/default/production/_ext/1360937237/gfx.o
- .debug_abbrev      0x33b3        0x180 build/default/production/_ext/1360937237/timers.o
- .debug_abbrev      0x3533        0x268 build/default/production/_ext/1360937237/is66.o
- .debug_abbrev      0x379b        0x3ee build/default/production/_ext/1360937237/sca3300.o
- .debug_abbrev      0x3b89        0x24a build/default/production/_ext/1360937237/imu.o
- .debug_abbrev      0x3dd3         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_abbrev      0x3de7         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_abbrev      0x2ecb        0x2f9 build/default/production/_ext/1360937237/main.o
+ .debug_abbrev      0x31c4        0x1c5 build/default/production/_ext/1360937237/gfx.o
+ .debug_abbrev      0x3389        0x180 build/default/production/_ext/1360937237/timers.o
+ .debug_abbrev      0x3509        0x268 build/default/production/_ext/1360937237/is66.o
+ .debug_abbrev      0x3771        0x3ee build/default/production/_ext/1360937237/sca3300.o
+ .debug_abbrev      0x3b5f        0x24a build/default/production/_ext/1360937237/imu.o
+ .debug_abbrev      0x3da9         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_abbrev      0x3dbd         0x14 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
 
-.debug_line         0x0000       0x8aa3
+.debug_line         0x0000       0x8a57
  *(.debug_line)
  .debug_line        0x0000        0x275 build/default/production/_ext/60163342/plib_adc2.o
  .debug_line        0x0275        0x28b build/default/production/_ext/60165246/plib_sccp1.o
@@ -2099,26 +2099,26 @@ __FWPUCB
  .debug_line        0x3b5b        0x36f build/default/production/_ext/60181895/plib_tmr1.o
  .debug_line        0x3eca        0xad8 build/default/production/_ext/1865657120/plib_uart1.o
  .debug_line        0x49a2         0xa4 build/default/production/_ext/163028504/xc32_monitor.o
- .debug_line        0x4a46        0x373 build/default/production/_ext/1171490990/initialization.o
- .debug_line        0x4db9        0x1d0 build/default/production/_ext/1171490990/interrupts.o
- .debug_line        0x4f89        0x29c build/default/production/_ext/1171490990/traps.o
- .debug_line        0x5225         0x7b build/default/production/_ext/285195972/ChrFont0.o
- .debug_line        0x52a0         0x7a build/default/production/_ext/285195972/FillPat.o
- .debug_line        0x531a        0x46a build/default/production/_ext/285195972/OledDriver.o
- .debug_line        0x5784         0x83 build/default/production/_ext/285195972/foo.o
- .debug_line        0x5807        0x52c build/default/production/_ext/285195972/eadog.o
- .debug_line        0x5d33        0x8dc build/default/production/_ext/285195972/OledGrph.o
- .debug_line        0x660f        0x21b build/default/production/_ext/285195972/lcd_drv.o
- .debug_line        0x682a        0x28f build/default/production/_ext/285195972/OledChar.o
- .debug_line        0x6ab9        0x3fc build/default/production/_ext/285195972/dogm-graphic.o
- .debug_line        0x6eb5        0x545 build/default/production/_ext/1360937237/main.o
- .debug_line        0x73fa        0x6a7 build/default/production/_ext/1360937237/gfx.o
- .debug_line        0x7aa1        0x154 build/default/production/_ext/1360937237/timers.o
- .debug_line        0x7bf5        0x520 build/default/production/_ext/1360937237/is66.o
- .debug_line        0x8115        0x6a6 build/default/production/_ext/1360937237/sca3300.o
- .debug_line        0x87bb        0x23a build/default/production/_ext/1360937237/imu.o
- .debug_line        0x89f5         0x5e /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_line        0x8a53         0x50 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_line        0x4a46        0x375 build/default/production/_ext/1171490990/initialization.o
+ .debug_line        0x4dbb        0x1d0 build/default/production/_ext/1171490990/interrupts.o
+ .debug_line        0x4f8b        0x29c build/default/production/_ext/1171490990/traps.o
+ .debug_line        0x5227         0x7b build/default/production/_ext/285195972/ChrFont0.o
+ .debug_line        0x52a2         0x7a build/default/production/_ext/285195972/FillPat.o
+ .debug_line        0x531c        0x46a build/default/production/_ext/285195972/OledDriver.o
+ .debug_line        0x5786         0x83 build/default/production/_ext/285195972/foo.o
+ .debug_line        0x5809        0x52c build/default/production/_ext/285195972/eadog.o
+ .debug_line        0x5d35        0x8dc build/default/production/_ext/285195972/OledGrph.o
+ .debug_line        0x6611        0x21b build/default/production/_ext/285195972/lcd_drv.o
+ .debug_line        0x682c        0x28f build/default/production/_ext/285195972/OledChar.o
+ .debug_line        0x6abb        0x3fc build/default/production/_ext/285195972/dogm-graphic.o
+ .debug_line        0x6eb7        0x4f9 build/default/production/_ext/1360937237/main.o
+ .debug_line        0x73b0        0x6a7 build/default/production/_ext/1360937237/gfx.o
+ .debug_line        0x7a57        0x154 build/default/production/_ext/1360937237/timers.o
+ .debug_line        0x7bab        0x51e build/default/production/_ext/1360937237/is66.o
+ .debug_line        0x80c9        0x6a6 build/default/production/_ext/1360937237/sca3300.o
+ .debug_line        0x876f        0x23a build/default/production/_ext/1360937237/imu.o
+ .debug_line        0x89a9         0x5e /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_line        0x8a07         0x50 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
 
 .debug_frame        0x0000       0x1a1c
  *(.debug_frame)
@@ -2155,7 +2155,7 @@ __FWPUCB
  .debug_frame       0x18c8        0x108 build/default/production/_ext/1360937237/sca3300.o
  .debug_frame       0x19d0         0x4c build/default/production/_ext/1360937237/imu.o
 
-.debug_str          0x0000        0xc0b
+.debug_str          0x0000        0xbd2
  *(.debug_str)
  .debug_str         0x0000         0x38 build/default/production/_ext/60163342/plib_adc2.o
  .debug_str         0x0038         0x14 build/default/production/_ext/60165246/plib_sccp1.o
@@ -2186,16 +2186,16 @@ __FWPUCB
  .debug_str         0x071c         0xaa build/default/production/_ext/285195972/lcd_drv.o
  .debug_str         0x07c6         0x18 build/default/production/_ext/285195972/OledChar.o
  .debug_str         0x07de         0x53 build/default/production/_ext/285195972/dogm-graphic.o
- .debug_str         0x0831        0x170 build/default/production/_ext/1360937237/main.o
- .debug_str         0x09a1         0x23 build/default/production/_ext/1360937237/gfx.o
- .debug_str         0x09c4          0xd build/default/production/_ext/1360937237/timers.o
- .debug_str         0x09d1         0xfb build/default/production/_ext/1360937237/is66.o
- .debug_str         0x0acc         0x86 build/default/production/_ext/1360937237/sca3300.o
- .debug_str         0x0b52         0x18 build/default/production/_ext/1360937237/imu.o
- .debug_str         0x0b6a         0x52 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
- .debug_str         0x0bbc         0x4f /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
+ .debug_str         0x0831        0x137 build/default/production/_ext/1360937237/main.o
+ .debug_str         0x0968         0x23 build/default/production/_ext/1360937237/gfx.o
+ .debug_str         0x098b          0xd build/default/production/_ext/1360937237/timers.o
+ .debug_str         0x0998         0xfb build/default/production/_ext/1360937237/is66.o
+ .debug_str         0x0a93         0x86 build/default/production/_ext/1360937237/sca3300.o
+ .debug_str         0x0b19         0x18 build/default/production/_ext/1360937237/imu.o
+ .debug_str         0x0b31         0x52 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(extendsfdf.aa.AA_eo)
+ .debug_str         0x0b83         0x4f /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libc99-pic30-elf.a(funpack.aa.AA_eo)
 
-.debug_loc          0x0000       0x60f9
+.debug_loc          0x0000       0x60e5
  *(.debug_loc)
  .debug_loc         0x0000        0x13c build/default/production/_ext/60163342/plib_adc2.o
  .debug_loc         0x013c         0x2b build/default/production/_ext/60165246/plib_sccp1.o
@@ -2220,12 +2220,12 @@ __FWPUCB
  .debug_loc         0x42bd         0xb7 build/default/production/_ext/285195972/lcd_drv.o
  .debug_loc         0x4374        0x1e5 build/default/production/_ext/285195972/OledChar.o
  .debug_loc         0x4559        0x5b8 build/default/production/_ext/285195972/dogm-graphic.o
- .debug_loc         0x4b11        0x4ac build/default/production/_ext/1360937237/main.o
- .debug_loc         0x4fbd        0x656 build/default/production/_ext/1360937237/gfx.o
- .debug_loc         0x5613        0x148 build/default/production/_ext/1360937237/timers.o
- .debug_loc         0x575b         0x42 build/default/production/_ext/1360937237/is66.o
- .debug_loc         0x579d        0x748 build/default/production/_ext/1360937237/sca3300.o
- .debug_loc         0x5ee5        0x214 build/default/production/_ext/1360937237/imu.o
+ .debug_loc         0x4b11        0x498 build/default/production/_ext/1360937237/main.o
+ .debug_loc         0x4fa9        0x656 build/default/production/_ext/1360937237/gfx.o
+ .debug_loc         0x55ff        0x148 build/default/production/_ext/1360937237/timers.o
+ .debug_loc         0x5747         0x42 build/default/production/_ext/1360937237/is66.o
+ .debug_loc         0x5789        0x748 build/default/production/_ext/1360937237/sca3300.o
+ .debug_loc         0x5ed1        0x214 build/default/production/_ext/1360937237/imu.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -5309,15 +5309,15 @@ __c30_signature
  __c30_signature
                     0x0186          0x6 /ldrv/opt/microchip/xc32/v5.00/pic32a/bin/bin/../../lib/libm-elf.a(floorl.GENERIC-32PIC-AK_o)
 
-_0x7fe68f8a8f30_at_address_0x4000
+_0x7f708b49cf30_at_address_0x4000
                     0x4000        0xf00
- _0x7fe68f8a8f30_at_address_0x4000
+ _0x7f708b49cf30_at_address_0x4000
                     0x4000        0xf00 build/default/production/_ext/285195972/OledDriver.o
                     0x4000                  _rgbOledBmp0
 
-_0x7f1efc30fd80_at_address_0x6000
+_0x7f955c90fd80_at_address_0x6000
                     0x6000         0x5c
- _0x7f1efc30fd80_at_address_0x6000
+ _0x7f955c90fd80_at_address_0x6000
                     0x6000         0x5c build/default/production/_ext/1360937237/main.o
                     0x6000                  _imu0
 
@@ -5908,236 +5908,236 @@ __ivt_0           0x800004        0x47c
 .config_WPUCA     0x7f3000          0x4
  .config_WPUCA    0x7f3000          0x4 build/default/production/_ext/1171490990/initialization.o
 
-.text.main        0x8024c4        0x810
- .text.main       0x8024c4        0x810 build/default/production/_ext/1360937237/main.o
+.text.main        0x8024c4        0x830
+ .text.main       0x8024c4        0x830 build/default/production/_ext/1360937237/main.o
                   0x8024c4                  _main
 
 .text.vector_graph_fs
-                  0x802cd4        0x690
+                  0x802cf4        0x690
  .text.vector_graph_fs
-                  0x802cd4        0x690 build/default/production/_ext/1360937237/gfx.o
-                  0x802cd4                  _vector_graph_fs
+                  0x802cf4        0x690 build/default/production/_ext/1360937237/gfx.o
+                  0x802cf4                  _vector_graph_fs
 
-.dinit            0x803364        0x548
- .dinit           0x803364        0x548 data_init
+.dinit            0x803384        0x548
+ .dinit           0x803384        0x548 data_init
 
-/tmp/cc8Bo8YQ.s.scn1
-                  0x8038ac        0x514
- /tmp/cc8Bo8YQ.s.scn1
-                  0x8038ac        0x514 build/default/production/_ext/285195972/foo.o
-                  0x8038ac                  _foo_map
+/tmp/ccb9lTAw.s.scn1
+                  0x8038cc        0x514
+ /tmp/ccb9lTAw.s.scn1
+                  0x8038cc        0x514 build/default/production/_ext/285195972/foo.o
+                  0x8038cc                  _foo_map
 
-/tmp/cchNPzoO.s.scn1
-                  0x803dc0        0x300
- /tmp/cchNPzoO.s.scn1
-                  0x803dc0        0x300 build/default/production/_ext/285195972/ChrFont0.o
-                  0x803dc0                  _rgbOledFont0
+/tmp/ccHIgoCr.s.scn1
+                  0x803de0        0x300
+ /tmp/ccHIgoCr.s.scn1
+                  0x803de0        0x300 build/default/production/_ext/285195972/ChrFont0.o
+                  0x803de0                  _rgbOledFont0
 
 .text.CLOCK_Initialize
-                  0x8040c0        0x2d4
+                  0x8040e0        0x2d4
  .text.CLOCK_Initialize
-                  0x8040c0        0x2d4 build/default/production/_ext/60165520/plib_clk.o
-                  0x8040c0                  _CLOCK_Initialize
+                  0x8040e0        0x2d4 build/default/production/_ext/60165520/plib_clk.o
+                  0x8040e0                  _CLOCK_Initialize
 
 .text.OledPutBmp
-                  0x804394        0x244
+                  0x8043b4        0x244
  .text.OledPutBmp
-                  0x804394        0x244 build/default/production/_ext/285195972/OledGrph.o
-                  0x804394                  _OledPutBmp
+                  0x8043b4        0x244 build/default/production/_ext/285195972/OledGrph.o
+                  0x8043b4                  _OledPutBmp
 
 .text.sca3300_getdata
-                  0x8045d8        0x1f4
+                  0x8045f8        0x1f4
  .text.sca3300_getdata
-                  0x8045d8        0x1f4 build/default/production/_ext/1360937237/sca3300.o
-                  0x8045d8                  _sca3300_getdata
+                  0x8045f8        0x1f4 build/default/production/_ext/1360937237/sca3300.o
+                  0x8045f8                  _sca3300_getdata
 
 .text.ADC_DMA_write
-                  0x8047cc        0x1d0
+                  0x8047ec        0x1d0
  .text.ADC_DMA_write
-                  0x8047cc        0x1d0 build/default/production/_ext/1360937237/is66.o
-                  0x8047cc                  _ADC_DMA_write
+                  0x8047ec        0x1d0 build/default/production/_ext/1360937237/is66.o
+                  0x8047ec                  _ADC_DMA_write
 
 .text.GPIO_Initialize
-                  0x80499c        0x1c4
+                  0x8049bc        0x1cc
  .text.GPIO_Initialize
-                  0x80499c        0x1c4 build/default/production/_ext/1865254177/plib_gpio.o
-                  0x80499c                  _GPIO_Initialize
+                  0x8049bc        0x1cc build/default/production/_ext/1865254177/plib_gpio.o
+                  0x8049bc                  _GPIO_Initialize
 
 .text.SPI2_WriteRead
-                  0x804b60        0x198
+                  0x804b88        0x198
  .text.SPI2_WriteRead
-                  0x804b60        0x198 build/default/production/_ext/1868329136/plib_spi2_host.o
-                  0x804b60                  _SPI2_WriteRead
+                  0x804b88        0x198 build/default/production/_ext/1868329136/plib_spi2_host.o
+                  0x804b88                  _SPI2_WriteRead
 
 .text.SPI1_WriteRead
-                  0x804cf8        0x198
+                  0x804d20        0x198
  .text.SPI1_WriteRead
-                  0x804cf8        0x198 build/default/production/_ext/1868329136/plib_spi1_host.o
-                  0x804cf8                  _SPI1_WriteRead
+                  0x804d20        0x198 build/default/production/_ext/1868329136/plib_spi1_host.o
+                  0x804d20                  _SPI1_WriteRead
 
-.text.LA_gfx      0x804e90        0x16c
- .text.LA_gfx     0x804e90        0x16c build/default/production/_ext/1360937237/gfx.o
-                  0x804e90                  _LA_gfx
+.text.LA_gfx      0x804eb8        0x16c
+ .text.LA_gfx     0x804eb8        0x16c build/default/production/_ext/1360937237/gfx.o
+                  0x804eb8                  _LA_gfx
 
 .text.ADC_DMA_init
-                  0x804ffc        0x158
+                  0x805024        0x158
  .text.ADC_DMA_init
-                  0x804ffc        0x158 build/default/production/_ext/1360937237/is66.o
-                  0x804ffc                  _ADC_DMA_init
+                  0x805024        0x158 build/default/production/_ext/1360937237/is66.o
+                  0x805024                  _ADC_DMA_init
 
 .text.OledLineTo
-                  0x805154        0x150
+                  0x80517c        0x150
  .text.OledLineTo
-                  0x805154        0x150 build/default/production/_ext/285195972/OledGrph.o
-                  0x805154                  _OledLineTo
+                  0x80517c        0x150 build/default/production/_ext/285195972/OledGrph.o
+                  0x80517c                  _OledLineTo
 
-/tmp/ccJmdAgT.s.scn2
-                  0x8052a4        0x140
- /tmp/ccJmdAgT.s.scn2
-                  0x8052a4        0x140 build/default/production/_ext/1360937237/main.o
+/tmp/cc3i3wKX.s.scn2
+                  0x8052cc        0x140
+ /tmp/cc3i3wKX.s.scn2
+                  0x8052cc        0x140 build/default/production/_ext/1360937237/main.o
 
 .text.SPI1DmaChannelHandler_State
-                  0x8053e4        0x114
+                  0x80540c        0x114
  .text.SPI1DmaChannelHandler_State
-                  0x8053e4        0x114 build/default/production/_ext/285195972/OledDriver.o
-                  0x8053e4                  _SPI1DmaChannelHandler_State
+                  0x80540c        0x114 build/default/production/_ext/285195972/OledDriver.o
+                  0x80540c                  _SPI1DmaChannelHandler_State
 
 .text.SPI2RX_InterruptHandler
-                  0x8054f8        0x10c
+                  0x805520        0x10c
  .text.SPI2RX_InterruptHandler
-                  0x8054f8        0x10c build/default/production/_ext/1868329136/plib_spi2_host.o
-                  0x8054f8                  _SPI2RX_InterruptHandler
+                  0x805520        0x10c build/default/production/_ext/1868329136/plib_spi2_host.o
+                  0x805520                  _SPI2RX_InterruptHandler
 
 .text.SPI1RX_InterruptHandler
-                  0x805604        0x10c
+                  0x80562c        0x10c
  .text.SPI1RX_InterruptHandler
-                  0x805604        0x10c build/default/production/_ext/1868329136/plib_spi1_host.o
-                  0x805604                  _SPI1RX_InterruptHandler
+                  0x80562c        0x10c build/default/production/_ext/1868329136/plib_spi1_host.o
+                  0x80562c                  _SPI1RX_InterruptHandler
 
 .text.U1RX_InterruptHandler
-                  0x805710        0x100
+                  0x805738        0x100
  .text.U1RX_InterruptHandler
-                  0x805710        0x100 build/default/production/_ext/1865657120/plib_uart1.o
-                  0x805710                  _U1RX_InterruptHandler
+                  0x805738        0x100 build/default/production/_ext/1865657120/plib_uart1.o
+                  0x805738                  _U1RX_InterruptHandler
 
 .text.U1TX_InterruptHandler
-                  0x805810        0x100
+                  0x805838        0x100
  .text.U1TX_InterruptHandler
-                  0x805810        0x100 build/default/production/_ext/1865657120/plib_uart1.o
-                  0x805810                  _U1TX_InterruptHandler
+                  0x805838        0x100 build/default/production/_ext/1865657120/plib_uart1.o
+                  0x805838                  _U1TX_InterruptHandler
 
 .text.get_imu_scale
-                  0x805910        0x100
+                  0x805938        0x100
  .text.get_imu_scale
-                  0x805910        0x100 build/default/production/_ext/1360937237/imu.o
-                  0x805910                  _get_imu_scale
+                  0x805938        0x100 build/default/production/_ext/1360937237/imu.o
+                  0x805938                  _get_imu_scale
 
 .text.INTC_Initialize
-                  0x805a10         0xf4
+                  0x805a38         0xf4
  .text.INTC_Initialize
-                  0x805a10         0xf4 build/default/production/_ext/1865312166/plib_intc.o
-                  0x805a10                  _INTC_Initialize
+                  0x805a38         0xf4 build/default/production/_ext/1865312166/plib_intc.o
+                  0x805a38                  _INTC_Initialize
 
 .text.PWM_Initialize
-                  0x805b04         0xf0
+                  0x805b2c         0xec
  .text.PWM_Initialize
-                  0x805b04         0xf0 build/default/production/_ext/60178356/plib_pwm.o
-                  0x805b04                  _PWM_Initialize
+                  0x805b2c         0xec build/default/production/_ext/60178356/plib_pwm.o
+                  0x805b2c                  _PWM_Initialize
 
 .text.getAllData
-                  0x805bf4         0xec
+                  0x805c18         0xec
  .text.getAllData
-                  0x805bf4         0xec build/default/production/_ext/1360937237/imu.o
-                  0x805bf4                  _getAllData
+                  0x805c18         0xec build/default/production/_ext/1360937237/imu.o
+                  0x805c18                  _getAllData
 
 .text.DMA_Initialize
-                  0x805ce0         0xd0
+                  0x805d04         0xd0
  .text.DMA_Initialize
-                  0x805ce0         0xd0 build/default/production/_ext/60166502/plib_dma.o
-                  0x805ce0                  _DMA_Initialize
+                  0x805d04         0xd0 build/default/production/_ext/60166502/plib_dma.o
+                  0x805d04                  _DMA_Initialize
 
 .text.sca3300_getid
-                  0x805db0         0xcc
+                  0x805dd4         0xcc
  .text.sca3300_getid
-                  0x805db0         0xcc build/default/production/_ext/1360937237/sca3300.o
-                  0x805db0                  _sca3300_getid
+                  0x805dd4         0xcc build/default/production/_ext/1360937237/sca3300.o
+                  0x805dd4                  _sca3300_getid
 
 .text.DMA_ChannelTransfer
-                  0x805e7c         0xc0
+                  0x805ea0         0xc0
  .text.DMA_ChannelTransfer
-                  0x805e7c         0xc0 build/default/production/_ext/60166502/plib_dma.o
-                  0x805e7c                  _DMA_ChannelTransfer
+                  0x805ea0         0xc0 build/default/production/_ext/60166502/plib_dma.o
+                  0x805ea0                  _DMA_ChannelTransfer
 
 .text.DMA0_InterruptHandler
-                  0x805f3c         0xb8
+                  0x805f60         0xb8
  .text.DMA0_InterruptHandler
-                  0x805f3c         0xb8 build/default/production/_ext/60166502/plib_dma.o
-                  0x805f3c                  _DMA0_InterruptHandler
+                  0x805f60         0xb8 build/default/production/_ext/60166502/plib_dma.o
+                  0x805f60                  _DMA0_InterruptHandler
 
 .text.DMA1_InterruptHandler
-                  0x805ff4         0xb8
+                  0x806018         0xb8
  .text.DMA1_InterruptHandler
-                  0x805ff4         0xb8 build/default/production/_ext/60166502/plib_dma.o
-                  0x805ff4                  _DMA1_InterruptHandler
+                  0x806018         0xb8 build/default/production/_ext/60166502/plib_dma.o
+                  0x806018                  _DMA1_InterruptHandler
 
 .text.DMA4_InterruptHandler
-                  0x8060ac         0xb8
+                  0x8060d0         0xb8
  .text.DMA4_InterruptHandler
-                  0x8060ac         0xb8 build/default/production/_ext/60166502/plib_dma.o
-                  0x8060ac                  _DMA4_InterruptHandler
+                  0x8060d0         0xb8 build/default/production/_ext/60166502/plib_dma.o
+                  0x8060d0                  _DMA4_InterruptHandler
 
 .text.DMA5_InterruptHandler
-                  0x806164         0xb8
+                  0x806188         0xb8
  .text.DMA5_InterruptHandler
-                  0x806164         0xb8 build/default/production/_ext/60166502/plib_dma.o
-                  0x806164                  _DMA5_InterruptHandler
-
-.text.ADC_DMA_read
-                  0x80621c         0xb4
- .text.ADC_DMA_read
-                  0x80621c         0xb4 build/default/production/_ext/1360937237/is66.o
-                  0x80621c                  _ADC_DMA_read
+                  0x806188         0xb8 build/default/production/_ext/60166502/plib_dma.o
+                  0x806188                  _DMA5_InterruptHandler
 
 .text.sca3300_set_spimode
-                  0x8062d0         0xb4
+                  0x806240         0xb4
  .text.sca3300_set_spimode
-                  0x8062d0         0xb4 build/default/production/_ext/1360937237/sca3300.o
-                  0x8062d0                  _sca3300_set_spimode
+                  0x806240         0xb4 build/default/production/_ext/1360937237/sca3300.o
+                  0x806240                  _sca3300_set_spimode
 
 .text.lcd_moveto_xy
-                  0x806384         0xac
+                  0x8062f4         0xac
  .text.lcd_moveto_xy
-                  0x806384         0xac build/default/production/_ext/285195972/dogm-graphic.o
-                  0x806384                  _lcd_moveto_xy
+                  0x8062f4         0xac build/default/production/_ext/285195972/dogm-graphic.o
+                  0x8062f4                  _lcd_moveto_xy
 
-.text.lcd_init    0x806430         0xac
+.text.lcd_init    0x8063a0         0xac
  .text.lcd_init
-                  0x806430         0xac build/default/production/_ext/285195972/dogm-graphic.o
-                  0x806430                  _lcd_init
+                  0x8063a0         0xac build/default/production/_ext/285195972/dogm-graphic.o
+                  0x8063a0                  _lcd_init
 
 .text.lcd_clear_area
-                  0x8064dc         0xa8
+                  0x80644c         0xa8
  .text.lcd_clear_area
-                  0x8064dc         0xa8 build/default/production/_ext/285195972/dogm-graphic.o
-                  0x8064dc                  _lcd_clear_area
+                  0x80644c         0xa8 build/default/production/_ext/285195972/dogm-graphic.o
+                  0x80644c                  _lcd_clear_area
 
 .text.sca3300_getserial
-                  0x806584         0xa8
+                  0x8064f4         0xa8
  .text.sca3300_getserial
-                  0x806584         0xa8 build/default/production/_ext/1360937237/sca3300.o
-                  0x806584                  _sca3300_getserial
+                  0x8064f4         0xa8 build/default/production/_ext/1360937237/sca3300.o
+                  0x8064f4                  _sca3300_getserial
 
 .text.DMA_ChannelIsBusy
-                  0x80662c         0xa4
+                  0x80659c         0xa4
  .text.DMA_ChannelIsBusy
-                  0x80662c         0xa4 build/default/production/_ext/60166502/plib_dma.o
-                  0x80662c                  _DMA_ChannelIsBusy
+                  0x80659c         0xa4 build/default/production/_ext/60166502/plib_dma.o
+                  0x80659c                  _DMA_ChannelIsBusy
 
 .text.ISS_read_id
-                  0x8066d0         0x9c
+                  0x806640         0x9c
  .text.ISS_read_id
-                  0x8066d0         0x9c build/default/production/_ext/1360937237/is66.o
-                  0x8066d0                  _ISS_read_id
+                  0x806640         0x9c build/default/production/_ext/1360937237/is66.o
+                  0x806640                  _ISS_read_id
+
+.text.ADC_DMA_read
+                  0x8066dc         0x90
+ .text.ADC_DMA_read
+                  0x8066dc         0x90 build/default/production/_ext/1360937237/is66.o
+                  0x8066dc                  _ADC_DMA_read
 
 .text.UART1_Initialize
                   0x80676c         0x8c
@@ -6224,9 +6224,9 @@ __ivt_0           0x800004        0x47c
                   0x806d74         0x50 build/default/production/_ext/60163342/plib_adc2.o
                   0x806d74                  _ADC2_Initialize
 
-/tmp/ccJmdAgT.s.scn1
+/tmp/cc3i3wKX.s.scn1
                   0x806dc4         0x50
- /tmp/ccJmdAgT.s.scn1
+ /tmp/cc3i3wKX.s.scn1
                   0x806dc4         0x50 build/default/production/_ext/1360937237/main.o
 
 .text.SYS_Initialize
@@ -6235,9 +6235,9 @@ __ivt_0           0x800004        0x47c
                   0x806e14         0x4c build/default/production/_ext/1171490990/initialization.o
                   0x806e14                  _SYS_Initialize
 
-/tmp/ccRfVDDF.s.scn1
+/tmp/ccBKKm67.s.scn1
                   0x806e60         0x4c
- /tmp/ccRfVDDF.s.scn1
+ /tmp/ccBKKm67.s.scn1
                   0x806e60         0x4c build/default/production/_ext/1360937237/sca3300.o
 
 .text.SPI1_Initialize
@@ -6264,9 +6264,9 @@ __ivt_0           0x800004        0x47c
                   0x806f74         0x40 build/default/production/_ext/1868329136/plib_spi2_host.o
                   0x806f74                  _SPI2_Initialize
 
-/tmp/ccBHPBIu.s.scn1
+/tmp/ccCi4fmX.s.scn1
                   0x806fb4         0x40
- /tmp/ccBHPBIu.s.scn1
+ /tmp/ccCi4fmX.s.scn1
                   0x806fb4         0x40 build/default/production/_ext/285195972/FillPat.o
                   0x806fb4                  _rgbFillPat
 
@@ -6361,9 +6361,9 @@ __ivt_0           0x800004        0x47c
  .text.delay_us.part.0
                   0x80734c         0x30 build/default/production/_ext/1360937237/sca3300.o
 
-/tmp/ccIij5Qi.s.scn1
+/tmp/ccSkTGtl.s.scn1
                   0x80737c         0x30
- /tmp/ccIij5Qi.s.scn1
+ /tmp/ccSkTGtl.s.scn1
                   0x80737c         0x30 build/default/production/_ext/1360937237/imu.o
 
 .text.TMR1_Initialize
@@ -6442,9 +6442,9 @@ __ivt_0           0x800004        0x47c
                   0x807570         0x20 build/default/production/_ext/285195972/dogm-graphic.o
                   0x807570                  _lcd_command
 
-/tmp/ccUTC37p.s.scn1
+/tmp/ccjzaZ0W.s.scn1
                   0x807590         0x20
- /tmp/ccUTC37p.s.scn1
+ /tmp/ccjzaZ0W.s.scn1
                   0x807590         0x20 build/default/production/_ext/1360937237/is66.o
 
 .text.SPI1_Exchange8bit

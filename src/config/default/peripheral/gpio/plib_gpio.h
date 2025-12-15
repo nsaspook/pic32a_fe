@@ -65,14 +65,14 @@
 #define TP1_Get()               ((PORTA >> 11) & 0x1)
 #define TP1_PIN                 GPIO_PIN_RA11
 
-/*** Macros for GPIO_RB1 pin ***/
-#define GPIO_RB1_Set()               (_LATB1 = 1U)
-#define GPIO_RB1_Clear()             (_LATB1 = 0U)
-#define GPIO_RB1_Toggle()            (_LATB1 ^= 1U)
-#define GPIO_RB1_OutputEnable()      (_TRISB1 = 0U)
-#define GPIO_RB1_InputEnable()       (_TRISB1 = 1U)
-#define GPIO_RB1_Get()               ((PORTB >> 1) & 0x1)
-#define GPIO_RB1_PIN                 GPIO_PIN_RB1
+/*** Macros for DLED pin ***/
+#define DLED_Set()               (_LATB5 = 1U)
+#define DLED_Clear()             (_LATB5 = 0U)
+#define DLED_Toggle()            (_LATB5 ^= 1U)
+#define DLED_OutputEnable()      (_TRISB5 = 0U)
+#define DLED_InputEnable()       (_TRISB5 = 1U)
+#define DLED_Get()               ((PORTB >> 5) & 0x1)
+#define DLED_PIN                 GPIO_PIN_RB5
 
 /*** Macros for IMU_CS pin ***/
 #define IMU_CS_Set()               (_LATB3 = 1U)
@@ -91,6 +91,24 @@
 #define SRAM_CS_InputEnable()       (_TRISB4 = 1U)
 #define SRAM_CS_Get()               ((PORTB >> 4) & 0x1)
 #define SRAM_CS_PIN                 GPIO_PIN_RB4
+
+/*** Macros for GPIO_RC6 pin ***/
+#define GPIO_RC6_Set()               (_LATC6 = 1U)
+#define GPIO_RC6_Clear()             (_LATC6 = 0U)
+#define GPIO_RC6_Toggle()            (_LATC6 ^= 1U)
+#define GPIO_RC6_OutputEnable()      (_TRISC6 = 0U)
+#define GPIO_RC6_InputEnable()       (_TRISC6 = 1U)
+#define GPIO_RC6_Get()               ((PORTC >> 6) & 0x1)
+#define GPIO_RC6_PIN                 GPIO_PIN_RC6
+
+/*** Macros for GPIO_RC7 pin ***/
+#define GPIO_RC7_Set()               (_LATC7 = 1U)
+#define GPIO_RC7_Clear()             (_LATC7 = 0U)
+#define GPIO_RC7_Toggle()            (_LATC7 ^= 1U)
+#define GPIO_RC7_OutputEnable()      (_TRISC7 = 0U)
+#define GPIO_RC7_InputEnable()       (_TRISC7 = 1U)
+#define GPIO_RC7_Get()               ((PORTC >> 7) & 0x1)
+#define GPIO_RC7_PIN                 GPIO_PIN_RC7
 
 /*** Macros for DIS_RESET pin ***/
 #define DIS_RESET_Set()               (_LATC0 = 1U)
@@ -145,15 +163,6 @@
 #define ISO1_S_InputEnable()       (_TRISD1 = 1U)
 #define ISO1_S_Get()               ((PORTD >> 1) & 0x1)
 #define ISO1_S_PIN                 GPIO_PIN_RD1
-
-/*** Macros for DLED pin ***/
-#define DLED_Set()               (_LATD2 = 1U)
-#define DLED_Clear()             (_LATD2 = 0U)
-#define DLED_Toggle()            (_LATD2 ^= 1U)
-#define DLED_OutputEnable()      (_TRISD2 = 0U)
-#define DLED_InputEnable()       (_TRISD2 = 1U)
-#define DLED_Get()               ((PORTD >> 2) & 0x1)
-#define DLED_PIN                 GPIO_PIN_RD2
 
 /*** Macros for ISO3_O pin ***/
 #define ISO3_O_Set()               (_LATD3 = 1U)

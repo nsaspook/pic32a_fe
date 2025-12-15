@@ -70,7 +70,7 @@ int main(void)
 	TMR1_CallbackRegister(timer_ms_tick, 0);
 	TMR1_InterruptEnable();
 	TMR1_Start(); // software timers hardware time-base
-	PWM_GeneratorEnable(PWM_GENERATOR_1);
+	//	PWM_GeneratorEnable(PWM_GENERATOR_1);
 
 	/*
 	 * setup GLCD background update tasks
@@ -144,6 +144,7 @@ int main(void)
 					eaDogM_WriteStringAtPos(7, 0, buffer);
 					snprintf(buffer, IMU_BUF - 1, "ISS Samples : S%lu       ", total_iss_triggers);
 					eaDogM_WriteStringAtPos(8, 0, buffer);
+					DLED_Toggle();
 				}
 				if (SW1_SET) {
 					uint16_t i = 1;

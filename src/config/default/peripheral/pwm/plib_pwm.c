@@ -523,9 +523,9 @@ void PWM_Initialize (void)
             |PG2EVT_UPDTRG_MANUAL
             |PG2EVT_PGTRGSEL_EOC);
             
-    PG2DC = 0x7d0UL;
+    PG2DC = 0x4708UL;
     
-    PG2PER = 0xf90UL;
+    PG2PER = 0x8e00UL;
     
     PG2PHASE = 0x0UL;
     
@@ -574,9 +574,9 @@ void PWM_Initialize (void)
             |PG3EVT_UPDTRG_MANUAL
             |PG3EVT_PGTRGSEL_EOC);
             
-    PG3DC = 0x8e08UL;
+    PG3DC = 0x4708UL;
     
-    PG3PER = 0x11c00UL;
+    PG3PER = 0x8e00UL;
     
     PG3PHASE = 0x0UL;
     

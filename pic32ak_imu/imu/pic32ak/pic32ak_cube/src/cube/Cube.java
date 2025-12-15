@@ -54,19 +54,21 @@ public class Cube {
             try {
                 String line = s.nextLine();
                 String[] token = line.split(",");
+                {
+                    // multiply x/y/z by -1 to swap frames of reference
+                    double w = Double.parseDouble(token[0]);
+                    double x = Double.parseDouble(token[1]);
+                    double y = Double.parseDouble(token[2]);
+                    double z = Double.parseDouble(token[3]);
+                    double ax = Double.parseDouble(token[4]);
+                    double ay = Double.parseDouble(token[5]);
+                    double az = Double.parseDouble(token[6]);
 
-                // multiply x/y/z by -1 to swap frames of reference
-                double w = Double.parseDouble(token[0]);
-                double x = Double.parseDouble(token[1]);
-                double y = Double.parseDouble(token[2]);
-                double z = Double.parseDouble(token[3]);
-                double ax = Double.parseDouble(token[4]);
-                double ay = Double.parseDouble(token[5]);
-                double az = Double.parseDouble(token[6]);
+                    Quat4d quaternion = new Quat4d(w, x, y, z);
+                    Vector3d vector = new Vector3d((az * 0.02), (ay * 0.02), (az * 0.02));
 
-                Quat4d quaternion = new Quat4d(w, x, y, z);
-                Vector3d vector = new Vector3d((az * 0.02), (ay * 0.02), (az * 0.02));
-                transformGroup.setTransform(new Transform3D(quaternion, vector, 1.0));
+                    transformGroup.setTransform(new Transform3D(quaternion, vector, 1.0));
+                }
 //                System.out.println(String.format("x = %+2.3f     y = %+2.3f     z = %+2.3f ", x, y, z));
 
             } catch (Exception e) {

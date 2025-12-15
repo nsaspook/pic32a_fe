@@ -14318,6 +14318,76 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 </deviceset>
 </devicesets>
 </library>
+<library name="NCP51460SN33T1G">
+<description>&lt;Operating Input Voltage VIN 4.2 V to 28 V; Output Current Capability of 0 to 20 mA; Output Voltage Temperature Coefficient of 18 ppm/C; Output Voltage Accuracy 1 %, for 0 C TA 100 C ; High PSRR of 68 dB at 1 kHz; Stable Without Output Capacitor; Low Quiescent Current of 140 A; Low Output Noise of 18 VRMS; Output Voltage Option: 3.3V&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="SOT96P237X111-3N">
+<description>&lt;b&gt;SOT-23 (TO-236) CASE 318-08&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-1.2" y="0.955" dx="1" dy="0.6" layer="1"/>
+<smd name="2" x="-1.2" y="-0.955" dx="1" dy="0.6" layer="1"/>
+<smd name="3" x="1.2" y="0" dx="1" dy="0.6" layer="1"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-1.95" y1="1.77" x2="1.95" y2="1.77" width="0.05" layer="51"/>
+<wire x1="1.95" y1="1.77" x2="1.95" y2="-1.77" width="0.05" layer="51"/>
+<wire x1="1.95" y1="-1.77" x2="-1.95" y2="-1.77" width="0.05" layer="51"/>
+<wire x1="-1.95" y1="-1.77" x2="-1.95" y2="1.77" width="0.05" layer="51"/>
+<wire x1="-0.65" y1="1.46" x2="0.65" y2="1.46" width="0.1" layer="51"/>
+<wire x1="0.65" y1="1.46" x2="0.65" y2="-1.46" width="0.1" layer="51"/>
+<wire x1="0.65" y1="-1.46" x2="-0.65" y2="-1.46" width="0.1" layer="51"/>
+<wire x1="-0.65" y1="-1.46" x2="-0.65" y2="1.46" width="0.1" layer="51"/>
+<wire x1="-0.65" y1="0.505" x2="0.305" y2="1.46" width="0.1" layer="51"/>
+<wire x1="-0.35" y1="1.46" x2="0.35" y2="1.46" width="0.2" layer="21"/>
+<wire x1="0.35" y1="1.46" x2="0.35" y2="-1.46" width="0.2" layer="21"/>
+<wire x1="0.35" y1="-1.46" x2="-0.35" y2="-1.46" width="0.2" layer="21"/>
+<wire x1="-0.35" y1="-1.46" x2="-0.35" y2="1.46" width="0.2" layer="21"/>
+<wire x1="-1.7" y1="1.505" x2="-0.7" y2="1.505" width="0.2" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="NCP51460SN33T1G">
+<wire x1="5.08" y1="2.54" x2="22.86" y2="2.54" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-5.08" x2="22.86" y2="2.54" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<text x="24.13" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="24.13" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="VIN" x="0" y="0" length="middle" direction="in"/>
+<pin name="VOUT" x="0" y="-2.54" length="middle" direction="out"/>
+<pin name="GND" x="27.94" y="0" length="middle" direction="pwr" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="NCP51460SN33T1G" prefix="IC">
+<description>&lt;b&gt;Operating Input Voltage VIN 4.2 V to 28 V; Output Current Capability of 0 to 20 mA; Output Voltage Temperature Coefficient of 18 ppm/C; Output Voltage Accuracy 1 %, for 0 C TA 100 C ; High PSRR of 68 dB at 1 kHz; Stable Without Output Capacitor; Low Quiescent Current of 140 A; Low Output Noise of 18 VRMS; Output Voltage Option: 3.3V&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="NCP51460SN33T1G" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT96P237X111-3N">
+<connects>
+<connect gate="G$1" pin="GND" pad="3"/>
+<connect gate="G$1" pin="VIN" pad="1"/>
+<connect gate="G$1" pin="VOUT" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value="Operating Input Voltage VIN 4.2 V to 28 V; Output Current Capability of 0 to 20 mA; Output Voltage Temperature Coefficient of 18 ppm/C; Output Voltage Accuracy 1 %, for 0 C TA 100 C ; High PSRR of 68 dB at 1 kHz; Stable Without Output Capacitor; Low Quiescent Current of 140 A; Low Output Noise of 18 VRMS; Output Voltage Option: 3.3V" constant="no"/>
+<attribute name="HEIGHT" value="1.11mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="onsemi" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="NCP51460SN33T1G" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="863-NCP51460SN33T1G" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.co.uk/ProductDetail/onsemi/NCP51460SN33T1G?qs=yYCK2ysgWqmLP%2FSKTB%252Bdng%3D%3D" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -14480,6 +14550,13 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <part name="R12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100 ohm"/>
 <part name="R13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100 ohm"/>
 <part name="VSS39" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
+<part name="IC3" library="NCP51460SN33T1G" deviceset="NCP51460SN33T1G" device=""/>
+<part name="VSS40" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
+<part name="AVDD_JUMPER" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="SJ2W" device="" package3d_urn="urn:adsk.eagle:package:15474/1" value="AVDD JUMPER"/>
+<part name="C27" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uf"/>
+<part name="VSS41" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
+<part name="C28" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uf"/>
+<part name="VSS42" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -14943,20 +15020,20 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <attribute name="VALUE" x="156.21" y="-91.44" size="1.778" layer="96" align="center-left"/>
 </instance>
 <instance part="ISO1_R" gate="G$1" x="139.7" y="-96.52" smashed="yes" rot="R180">
-<attribute name="NAME" x="143.51" y="-90.3986" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="143.51" y="-93.218" size="1.778" layer="96" rot="R180"/>
-</instance>
-<instance part="ISO1_R1" gate="G$1" x="139.7" y="-101.6" smashed="yes" rot="R180">
-<attribute name="NAME" x="143.51" y="-95.4786" size="1.778" layer="95" rot="R180"/>
+<attribute name="NAME" x="115.57" y="-95.4786" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="143.51" y="-98.298" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="ISO1_R3" gate="G$1" x="139.7" y="-106.68" smashed="yes" rot="R180">
-<attribute name="NAME" x="143.51" y="-100.5586" size="1.778" layer="95" rot="R180"/>
+<instance part="ISO1_R1" gate="G$1" x="139.7" y="-101.6" smashed="yes" rot="R180">
+<attribute name="NAME" x="115.57" y="-100.5586" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="143.51" y="-103.378" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="ISO1_R2" gate="G$1" x="139.7" y="-111.76" smashed="yes" rot="R180">
-<attribute name="NAME" x="143.51" y="-105.6386" size="1.778" layer="95" rot="R180"/>
+<instance part="ISO1_R3" gate="G$1" x="139.7" y="-106.68" smashed="yes" rot="R180">
+<attribute name="NAME" x="115.57" y="-105.6386" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="143.51" y="-108.458" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="ISO1_R2" gate="G$1" x="139.7" y="-111.76" smashed="yes" rot="R180">
+<attribute name="NAME" x="115.57" y="-110.7186" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="143.51" y="-113.538" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="U1_TTL" gate="1" x="45.72" y="-50.8" smashed="yes">
 <attribute name="VALUE" x="44.45" y="-60.96" size="1.778" layer="96"/>
@@ -15039,6 +15116,31 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 </instance>
 <instance part="VSS39" gate="G$1" x="256.54" y="-55.88" smashed="yes">
 <attribute name="VALUE" x="254" y="-55.88" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="IC3" gate="G$1" x="7.62" y="111.76" smashed="yes">
+<attribute name="NAME" x="31.75" y="119.38" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="31.75" y="116.84" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="VSS40" gate="G$1" x="35.56" y="109.22" smashed="yes">
+<attribute name="VALUE" x="33.02" y="109.22" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="AVDD_JUMPER" gate="G$1" x="50.8" y="109.22" smashed="yes" rot="R180">
+<attribute name="NAME" x="71.12" y="106.299" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="71.12" y="113.665" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="C27" gate="G$1" x="-7.62" y="109.22" smashed="yes" rot="MR0">
+<attribute name="NAME" x="-8.636" y="109.855" size="1.778" layer="95" rot="MR0"/>
+<attribute name="VALUE" x="-8.636" y="105.029" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="VSS41" gate="G$1" x="-7.62" y="101.6" smashed="yes">
+<attribute name="VALUE" x="-10.16" y="101.6" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="C28" gate="G$1" x="63.5" y="106.68" smashed="yes" rot="MR0">
+<attribute name="NAME" x="62.484" y="107.315" size="1.778" layer="95" rot="MR0"/>
+<attribute name="VALUE" x="62.484" y="102.489" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="VSS42" gate="G$1" x="63.5" y="99.06" smashed="yes">
+<attribute name="VALUE" x="60.96" y="99.06" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -15131,13 +15233,6 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <wire x1="317.5" y1="83.82" x2="317.5" y2="96.52" width="0.1524" layer="91"/>
 <junction x="317.5" y="83.82"/>
 <junction x="317.5" y="96.52"/>
-</segment>
-<segment>
-<wire x1="63.5" y1="109.22" x2="78.74" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="E1" gate="G$1" pin="1"/>
-<junction x="78.74" y="109.22"/>
-<junction x="63.5" y="109.22"/>
-<label x="66.04" y="109.22" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="Y1" gate="G$1" pin="ENABLE/DISABLE"/>
@@ -15256,6 +15351,13 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <junction x="335.28" y="-83.82"/>
 <junction x="350.52" y="-83.82"/>
 <label x="337.82" y="-83.82" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="50.8" y1="114.3" x2="66.04" y2="114.3" width="0.1524" layer="91"/>
+<pinref part="AVDD_JUMPER" gate="G$1" pin="3"/>
+<junction x="66.04" y="114.3"/>
+<junction x="50.8" y="114.3"/>
+<label x="58.42" y="114.3" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VSS" class="1">
@@ -15692,6 +15794,21 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <junction x="256.54" y="-48.26"/>
 <junction x="256.54" y="-43.18"/>
 </segment>
+<segment>
+<pinref part="IC3" gate="G$1" pin="GND"/>
+<pinref part="VSS40" gate="G$1" pin="VSS"/>
+<junction x="35.56" y="111.76"/>
+</segment>
+<segment>
+<pinref part="C27" gate="G$1" pin="2"/>
+<pinref part="VSS41" gate="G$1" pin="VSS"/>
+<junction x="-7.62" y="104.14"/>
+</segment>
+<segment>
+<pinref part="C28" gate="G$1" pin="2"/>
+<pinref part="VSS42" gate="G$1" pin="VSS"/>
+<junction x="63.5" y="101.6"/>
+</segment>
 </net>
 <net name="SDI1" class="0">
 <segment>
@@ -16000,6 +16117,14 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <junction x="358.14" y="86.36"/>
 <junction x="363.22" y="86.36"/>
 <label x="365.76" y="86.36" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="7.62" y1="111.76" x2="-7.62" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="IC3" gate="G$1" pin="VIN"/>
+<junction x="7.62" y="111.76"/>
+<junction x="-7.62" y="111.76"/>
+<label x="-2.54" y="111.76" size="1.778" layer="95"/>
+<pinref part="C27" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="PGD" class="0">
@@ -16862,6 +16987,35 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <pinref part="TP14" gate="G$1" pin="TP"/>
 </segment>
 </net>
+<net name="3.3REG" class="1">
+<segment>
+<pinref part="IC3" gate="G$1" pin="VOUT"/>
+<wire x1="7.62" y1="109.22" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
+<junction x="7.62" y="109.22"/>
+<junction x="2.54" y="109.22"/>
+<label x="-2.54" y="106.68" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="50.8" y1="104.14" x2="45.72" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="AVDD_JUMPER" gate="G$1" pin="1"/>
+<junction x="45.72" y="104.14"/>
+<junction x="50.8" y="104.14"/>
+<label x="35.56" y="104.14" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="AVDD_IN" class="1">
+<segment>
+<pinref part="E1" gate="G$1" pin="1"/>
+<pinref part="AVDD_JUMPER" gate="G$1" pin="2"/>
+<wire x1="78.74" y1="109.22" x2="63.5" y2="109.22" width="0.1524" layer="91"/>
+<junction x="55.88" y="109.22"/>
+<junction x="78.74" y="109.22"/>
+<label x="63.5" y="109.22" size="1.778" layer="95"/>
+<pinref part="C28" gate="G$1" pin="1"/>
+<wire x1="63.5" y1="109.22" x2="55.88" y2="109.22" width="0.1524" layer="91"/>
+<junction x="63.5" y="109.22"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
@@ -16871,6 +17025,7 @@ Source: &lt;a href="http://www.vishay.com/docs/83687/sfh6916.pdf"&gt; Datasheet 
 <approved hash="104,1,76.2,-17.78,U1,VDD_4,VDD,,,"/>
 <approved hash="104,1,294.64,-15.24,U1,VDD_5,VDD,,,"/>
 <approved hash="104,1,294.64,5.08,U1,VDD_6,VDD,,,"/>
+<approved hash="104,1,35.56,111.76,IC3,GND,VSS,,,"/>
 </errors>
 </schematic>
 </drawing>
