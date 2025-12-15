@@ -70,6 +70,7 @@ int main(void)
 	TMR1_CallbackRegister(timer_ms_tick, 0);
 	TMR1_InterruptEnable();
 	TMR1_Start(); // software timers hardware time-base
+	PWM_GeneratorEnable(PWM_GENERATOR_1);
 
 	/*
 	 * setup GLCD background update tasks
@@ -111,6 +112,7 @@ int main(void)
 		/* Maintain state machines of all polled MPLAB Harmony modules. */
 		SYS_Tasks();
 		if (TimerDone(TMR_TEST)) {
+			RLED_Toggle();
 			if (!SW2_SET) {
 				StartTimer(TMR_TEST, DIS_TICKS);
 				ADC_DMA_read();

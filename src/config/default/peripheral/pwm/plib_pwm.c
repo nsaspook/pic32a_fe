@@ -438,7 +438,7 @@
 void PWM_Initialize (void)
 {
     PG1CON = (PG1CON_MDCSEL_PGxDC
-            |PG1CON_MPERSEL_MPER
+            |PG1CON_MPERSEL_PGxPER
             |PG1CON_MPHSEL_PGxPHASE
             |PG1CON_MSTEN_DISABLED
             |PG1CON_UPDMOD_SOC
@@ -472,9 +472,9 @@ void PWM_Initialize (void)
             |PG1EVT_UPDTRG_MANUAL
             |PG1EVT_PGTRGSEL_EOC);
             
-    PG1DC = 0xfa0UL;
+    PG1DC = 0x8e08UL;
     
-    PG1PER = 0x1f30UL;
+    PG1PER = 0x11c00UL;
     
     PG1PHASE = 0x0UL;
     
@@ -605,6 +605,7 @@ void PWM_Initialize (void)
         PG1CONbits.ON = 1U;
         PG2CONbits.ON = 1U;
         PG3CONbits.ON = 1U;
+        PG4CONbits.ON = 1U;
 }
 
 void PWM_Deinitialize (void)

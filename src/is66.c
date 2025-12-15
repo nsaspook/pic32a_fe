@@ -122,6 +122,7 @@ void ADC_DMA_write(void)
  */
 void ADC_DMA_read(void)
 {
+	DLED_Toggle();
 	SCCP2_TimerStop();
 	SRAM_CS_Set();
 	while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
