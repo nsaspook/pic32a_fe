@@ -16456,20 +16456,20 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <pinref part="TP21" gate="G$1" pin="TP"/>
 </segment>
 </net>
-<net name="DLED" class="0">
+<net name="RB1_DU" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="TMS/OA2IN-/AD1AN4/AD2ANN1/RP18/RB1"/>
 <wire x1="76.2" y1="-5.08" x2="60.96" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="76.2" y="-5.08"/>
 <junction x="60.96" y="-5.08"/>
-<label x="48.26" y="-5.08" size="1.778" layer="95"/>
+<label x="66.04" y="-5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="248.92" y1="109.22" x2="248.92" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="R5" gate="G$1" pin="2"/>
-<junction x="248.92" y="93.98"/>
-<junction x="248.92" y="109.22"/>
-<label x="248.92" y="101.6" size="1.778" layer="95" rot="R90"/>
+<wire x1="35.56" y1="58.42" x2="22.86" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="MISC_ANA" gate="A" pin="4"/>
+<junction x="22.86" y="58.42"/>
+<junction x="35.56" y="58.42"/>
+<label x="38.1" y="58.42" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SDI3" class="0">
@@ -16998,20 +16998,20 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <label x="38.1" y="60.96" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="RB5" class="0">
+<net name="DLED" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="OA3IN+/AD2AN2/CMP3B/RP22/RB5"/>
 <wire x1="76.2" y1="5.08" x2="60.96" y2="5.08" width="0.1524" layer="91"/>
 <junction x="60.96" y="5.08"/>
 <junction x="76.2" y="5.08"/>
-<label x="66.04" y="5.08" size="1.778" layer="95"/>
+<label x="50.8" y="5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="35.56" y1="58.42" x2="22.86" y2="58.42" width="0.1524" layer="91"/>
-<pinref part="MISC_ANA" gate="A" pin="4"/>
-<junction x="22.86" y="58.42"/>
-<junction x="35.56" y="58.42"/>
-<label x="38.1" y="58.42" size="1.778" layer="95"/>
+<wire x1="248.92" y1="109.22" x2="248.92" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+<junction x="248.92" y="93.98"/>
+<junction x="248.92" y="109.22"/>
+<label x="248.92" y="101.6" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="SCK3" class="0">
@@ -17070,6 +17070,7 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <approved hash="104,1,294.64,-15.24,U1,VDD_5,VDD,,,"/>
 <approved hash="104,1,294.64,5.08,U1,VDD_6,VDD,,,"/>
 <approved hash="104,1,35.56,111.76,IC3,GND,VSS,,,"/>
+<approved hash="106,1,76.2,-5.08,RB1_DU,,,,,"/>
 </errors>
 </schematic>
 </drawing>

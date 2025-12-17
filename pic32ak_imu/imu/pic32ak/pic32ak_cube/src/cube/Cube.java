@@ -54,7 +54,6 @@ public class Cube {
             try {
                 String line = s.nextLine();
                 String[] token = line.split(",");
-                {
                     // multiply x/y/z by -1 to swap frames of reference
                     double w = Double.parseDouble(token[0]);
                     double x = Double.parseDouble(token[1]);
@@ -68,7 +67,6 @@ public class Cube {
                     Vector3d vector = new Vector3d((az * 0.02), (ay * 0.02), (az * 0.02));
 
                     transformGroup.setTransform(new Transform3D(quaternion, vector, 1.0));
-                }
 //                System.out.println(String.format("x = %+2.3f     y = %+2.3f     z = %+2.3f ", x, y, z));
 
             } catch (Exception e) {

@@ -70,7 +70,6 @@ int main(void)
 	TMR1_CallbackRegister(timer_ms_tick, 0);
 	TMR1_InterruptEnable();
 	TMR1_Start(); // software timers hardware time-base
-	//	PWM_GeneratorEnable(PWM_GENERATOR_1);
 
 	/*
 	 * setup GLCD background update tasks

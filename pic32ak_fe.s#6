@@ -14573,8 +14573,8 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <attribute name="VALUE" x="123.19" y="-78.74" size="1.778" layer="96"/>
 <attribute name="NAME" x="123.19" y="-47.498" size="1.778" layer="95"/>
 </instance>
-<instance part="VSS1" gate="G$1" x="147.32" y="-53.34" smashed="yes" rot="R180">
-<attribute name="VALUE" x="149.86" y="-53.34" size="1.778" layer="96"/>
+<instance part="VSS1" gate="G$1" x="149.86" y="-53.34" smashed="yes" rot="R180">
+<attribute name="VALUE" x="152.4" y="-53.34" size="1.778" layer="96"/>
 </instance>
 <instance part="VDD1" gate="G$1" x="152.4" y="-55.88" smashed="yes">
 <attribute name="VALUE" x="160.02" y="-55.88" size="1.778" layer="96" rot="R180"/>
@@ -15372,10 +15372,10 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <net name="VSS" class="1">
 <segment>
 <pinref part="GLCD" gate="1" pin="8"/>
-<wire x1="132.08" y1="-55.88" x2="147.32" y2="-55.88" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="-55.88" x2="149.86" y2="-55.88" width="0.1524" layer="91"/>
 <pinref part="VSS1" gate="G$1" pin="VSS"/>
 <junction x="132.08" y="-55.88"/>
-<junction x="147.32" y="-55.88"/>
+<junction x="149.86" y="-55.88"/>
 </segment>
 <segment>
 <wire x1="60.96" y1="-15.24" x2="76.2" y2="-15.24" width="0.1524" layer="91"/>
@@ -16950,6 +16950,13 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <junction x="101.6" y="-106.68"/>
 <label x="91.44" y="-106.68" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="147.32" y1="-53.34" x2="132.08" y2="-53.34" width="0.1524" layer="91"/>
+<pinref part="GLCD" gate="1" pin="9"/>
+<junction x="132.08" y="-53.34"/>
+<junction x="147.32" y="-53.34"/>
+<label x="134.62" y="-53.34" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="RA9" class="0">
 <segment>
@@ -16965,6 +16972,13 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <junction x="86.36" y="-104.14"/>
 <junction x="101.6" y="-104.14"/>
 <label x="91.44" y="-104.14" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="147.32" y1="-50.8" x2="132.08" y2="-50.8" width="0.1524" layer="91"/>
+<pinref part="GLCD" gate="1" pin="10"/>
+<junction x="132.08" y="-50.8"/>
+<junction x="147.32" y="-50.8"/>
+<label x="134.62" y="-50.8" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RA6" class="0">
