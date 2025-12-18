@@ -20,7 +20,7 @@ extern "C" {
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 
-#define FE_DRIVER "V1.03"
+#define FE_DRIVER "V1.04"
 #define FE_ALIAS "PIC32AK FE"
 
 	//#define ISS_DMA_READ
@@ -46,10 +46,19 @@ extern "C" {
 #define IMU_TICKS	1
 #define GFX_TICKS	30000
 
-#define ISOO1_PORT	ISO1_S
-#define ISOO2_PORT	ISO2_S
-#define ISOI1_PORT	ISO3_O
-#define ISOI2_PORT	ISO4_O
+	/*
+	 * isolated DIO pins
+	 */
+#define ISOO3_PORT_G		ISO3_O_Get()
+#define ISOO4_PORT_G		ISO4_O_Get()
+
+#define ISOI1_LAT_S		ISO1_S_Set()
+#define ISOI1_LAT_C		ISO1_S_Clear()
+#define ISOI1_LAT_L		ISO1_S_Get()
+
+#define ISOI2_LAT_S		ISO2_S_Set()
+#define ISOI2_LAT_C		ISO2_S_Clear()
+#define ISOI2_LAT_L		ISO2_S_Get()
 
 #define RETRIGGER_TIME	200
 
@@ -95,6 +104,7 @@ extern "C" {
 	 * V1.01	add iso DIO, set SPI2 speeds to max
 	 * V1.02	code cleanups
 	 * V1.03	SRAM chip ID setups
+	 * V1.04	DISABLE JTAG so pins D[1--3], RB1 will work
 	 */
 
 #ifdef	__cplusplus

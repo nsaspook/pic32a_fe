@@ -15498,6 +15498,7 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <segment>
 <pinref part="C13" gate="G$1" pin="2"/>
 <pinref part="VSS4" gate="G$1" pin="VSS"/>
+<junction x="149.86" y="81.28"/>
 </segment>
 <segment>
 <wire x1="256.54" y1="-71.12" x2="271.78" y2="-71.12" width="0.1524" layer="91"/>
@@ -15531,10 +15532,12 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <segment>
 <pinref part="C17" gate="G$1" pin="2"/>
 <pinref part="VSS13" gate="G$1" pin="VSS"/>
+<junction x="43.18" y="-81.28"/>
 </segment>
 <segment>
 <pinref part="C18" gate="G$1" pin="2"/>
 <pinref part="VSS14" gate="G$1" pin="VSS"/>
+<junction x="30.48" y="-78.74"/>
 </segment>
 <segment>
 <pinref part="C20" gate="G$1" pin="2"/>
@@ -15735,6 +15738,7 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <segment>
 <pinref part="C22" gate="G$1" pin="2"/>
 <pinref part="VSS31" gate="G$1" pin="VSS"/>
+<junction x="246.38" y="-101.6"/>
 </segment>
 <segment>
 <pinref part="C25" gate="G$1" pin="1"/>
@@ -16054,7 +16058,7 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <pinref part="C3" gate="G$1" pin="1"/>
 <junction x="86.36" y="81.28"/>
 <junction x="86.36" y="73.66"/>
-<label x="83.82" y="68.58" size="1.778" layer="95"/>
+<label x="83.82" y="71.12" size="1.778" layer="95"/>
 <pinref part="C9" gate="G$1" pin="2"/>
 <wire x1="86.36" y1="81.28" x2="86.36" y2="93.98" width="0.1524" layer="91"/>
 </segment>
@@ -16478,7 +16482,7 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <pinref part="TP21" gate="G$1" pin="TP"/>
 </segment>
 </net>
-<net name="RB1_DU" class="0">
+<net name="RB1" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="TMS/OA2IN-/AD1AN4/AD2ANN1/RP18/RB1"/>
 <wire x1="76.2" y1="-5.08" x2="60.96" y2="-5.08" width="0.1524" layer="91"/>

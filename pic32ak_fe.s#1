@@ -14561,6 +14561,7 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <part name="R13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="50 ohm"/>
 <part name="C29" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uf"/>
 <part name="VSS44" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
+<part name="TEST_P1" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-20" package3d_urn="urn:adsk.eagle:package:27950/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -15072,7 +15073,7 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <attribute name="NAME" x="77.47" y="-98.298" size="1.778" layer="95"/>
 </instance>
 <instance part="VSS38" gate="G$1" x="86.36" y="-127" smashed="yes">
-<attribute name="VALUE" x="83.82" y="-127" size="1.778" layer="96" rot="R180"/>
+<attribute name="VALUE" x="93.98" y="-124.46" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="TP9" gate="G$1" x="332.74" y="-91.44" smashed="yes" rot="R90">
 <attribute name="NAME" x="344.17" y="-89.916" size="1.778" layer="95" rot="R180"/>
@@ -15159,6 +15160,10 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 </instance>
 <instance part="VSS44" gate="G$1" x="314.96" y="48.26" smashed="yes">
 <attribute name="VALUE" x="312.42" y="48.26" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="TEST_P1" gate="G$1" x="99.06" y="-99.06" smashed="yes" rot="R180">
+<attribute name="NAME" x="87.63" y="-98.044" size="1.778" layer="95"/>
+<attribute name="TP_SIGNAL_NAME" x="97.79" y="-96.52" size="1.778" layer="97" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -16946,11 +16951,14 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <label x="66.04" y="33.02" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="101.6" y1="-101.6" x2="86.36" y2="-101.6" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="-101.6" x2="99.06" y2="-101.6" width="0.1524" layer="91"/>
 <pinref part="PWM" gate="1" pin="10"/>
 <junction x="86.36" y="-101.6"/>
 <junction x="101.6" y="-101.6"/>
 <label x="91.44" y="-101.6" size="1.778" layer="95"/>
+<pinref part="TEST_P1" gate="G$1" pin="TP"/>
+<wire x1="99.06" y1="-101.6" x2="86.36" y2="-101.6" width="0.1524" layer="91"/>
+<junction x="99.06" y="-101.6"/>
 </segment>
 </net>
 <net name="PWM1L" class="0">

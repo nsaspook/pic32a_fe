@@ -143,6 +143,8 @@ int main(void)
 					eaDogM_WriteStringAtPos(7, 0, buffer);
 					snprintf(buffer, IMU_BUF - 1, "ISS Samples : S%lu       ", total_iss_triggers);
 					eaDogM_WriteStringAtPos(8, 0, buffer);
+					snprintf(buffer, IMU_BUF - 1, "ISO I/O : IN %lu %lu, OUT %lu %lu       ", ISOO3_PORT_G, ISOO4_PORT_G, ISOI1_LAT_L, ISOI2_LAT_L);
+					eaDogM_WriteStringAtPos(9, 0, buffer);
 					DLED_Toggle();
 				}
 				if (SW1_SET) {

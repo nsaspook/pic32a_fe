@@ -472,9 +472,9 @@ void PWM_Initialize (void)
             |PG1EVT_UPDTRG_MANUAL
             |PG1EVT_PGTRGSEL_EOC);
             
-    PG1DC = 0x8e08UL;
+    PG1DC = 0x40098UL;
     
-    PG1PER = 0x11c00UL;
+    PG1PER = 0x80120UL;
     
     PG1PHASE = 0x0UL;
     

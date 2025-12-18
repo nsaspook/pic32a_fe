@@ -61,7 +61,7 @@
 #pragma config FCP_WPUCA = OFF            // Protection is disabled
 
 // FICD
-#pragma config FICD_JTAGEN = ON            // JTAG is enabled
+#pragma config FICD_JTAGEN = OFF            // JTAG is disabled
 
 // FDEVOPT
 #pragma config FDEVOPT_ALTI2C1 = OFF            // Primary I2C1 pins are used
