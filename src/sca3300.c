@@ -241,7 +241,7 @@ void sca3300_set_spimode(void * imup)
 		sca3300_imu_transfer(imu, SCA3300_RS_32B);
 		sca3300_imu_transfer(imu, SCA3300_RS_32B);
 		sca3300_imu_transfer(imu, SCA3300_RS_32B);
-		imu->ss = (imu->rbuf32[SCA3300_REC] >> 8)&0xfff;
+		imu->ss = (imu->rbuf32[SCA3300_REC] >> 8)&0x1ff;
 		imu->rs = (imu->rbuf32[SCA3300_REC] >> 24)&0x3;
 		imu->init_good = true;
 	}

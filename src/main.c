@@ -161,6 +161,8 @@ int main(void)
 				OledUpdate();
 			} else {
 				OledClearBuffer();
+				snprintf(buffer, IMU_BUF - 1, "IMU status: RS 0x%02lX, SS 0x%03lx", imu0.rs, imu0.ss);
+				eaDogM_WriteStringAtPos(0, 0, buffer);
 				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);
 				eaDogM_WriteStringAtPos(2, 0, buffer);
 				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f, %lu   ", accel.x, accel.y, accel.z, imu0.rs);

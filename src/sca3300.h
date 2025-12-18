@@ -25,7 +25,7 @@ extern "C" {
 #include "imu.h"
 #include "timers.h"
 
-#define SCA3300_DRIVER	"V1.007"
+#define SCA3300_DRIVER	"V1.008"
 #define SCA3300_ALIAS	"SCx3300"
 
 	/* Device commands and response */
