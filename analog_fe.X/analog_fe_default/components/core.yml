@@ -160,6 +160,7 @@ data:
                   CLOCK_ADC = 6,
                   CLOCK_CMP_DAC = 7,
                   CLOCK_SPI = 9,
+                  CLOCK_PTG = 10,
                   CLOCK_CCP = 12,
                   CLOCK_REFO1 = 12
           type: Dynamic
@@ -1120,7 +1121,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '3866'
+            value: '4058'
           type: Dynamic
         type: Values
       type: Hex
@@ -1142,7 +1143,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '3357'
+            value: '3549'
           type: Dynamic
         type: Values
       type: Hex
@@ -6014,7 +6015,7 @@ data:
       children:
       - children:
         - attributes:
-            value: Out
+            value: ''
           type: User
         type: Values
       type: String
@@ -6024,7 +6025,7 @@ data:
       children:
       - children:
         - attributes:
-            value: Out
+            value: ''
           type: User
         type: Values
       type: String
@@ -6168,6 +6169,197 @@ data:
           type: User
         type: Values
       type: Combo
+    clkGen10OutFrequencyInMHz:
+      attributes:
+        id: clkGen10OutFrequencyInMHz
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200.0'
+          type: Dynamic
+        type: Values
+      type: String
+    clkGen10OutFrequency:
+      attributes:
+        id: clkGen10OutFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    clkGen10Enable:
+      attributes:
+        id: clkGen10Enable
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    clkGen10ClkSrcFrequency:
+      attributes:
+        id: clkGen10ClkSrcFrequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '200000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    clkGen10CON__NOSC:
+      attributes:
+        id: clkGen10CON__NOSC
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
+      type: KeyValueSet
+    clkGen10IsDividerEnabled:
+      attributes:
+        id: clkGen10IsDividerEnabled
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    USE_PPS_OUTPUT_14:
+      attributes:
+        id: USE_PPS_OUTPUT_14
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_PIN_14:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_14
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '23'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_FUNCTION_14:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_14
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '51'
+          type: User
+        type: Values
+      type: KeyValueSet
+    USE_PPS_OUTPUT_15:
+      attributes:
+        id: USE_PPS_OUTPUT_15
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    SYS_PORT_PPS_OUTPUT_PIN_15:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_PIN_15
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '20'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SYS_PORT_PPS_OUTPUT_FUNCTION_15:
+      attributes:
+        id: SYS_PORT_PPS_OUTPUT_FUNCTION_15
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '48'
+          type: User
+        type: Values
+      type: KeyValueSet
+    BSP_PIN_35_PU:
+      attributes:
+        id: BSP_PIN_35_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
+    BSP_PIN_36_PU:
+      attributes:
+        id: BSP_PIN_36_PU
+      children:
+      - children:
+        - attributes:
+            value: 'True'
+          type: User
+        type: Values
+      type: String
   userData:
     children:
     - attributes:

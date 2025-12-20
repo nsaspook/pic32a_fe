@@ -16244,11 +16244,11 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <label x="302.26" y="17.78" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="248.92" y1="93.98" x2="248.92" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="R5" gate="G$1" pin="2"/>
-<junction x="248.92" y="93.98"/>
-<label x="248.92" y="101.6" size="1.778" layer="95" rot="R90"/>
-<junction x="248.92" y="109.22"/>
+<wire x1="22.86" y1="55.88" x2="35.56" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="MISC_ANA" gate="A" pin="3"/>
+<junction x="22.86" y="55.88"/>
+<junction x="35.56" y="55.88"/>
+<label x="38.1" y="55.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="HLED" class="0">
@@ -16465,10 +16465,11 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <label x="48.26" y="-5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="35.56" y1="55.88" x2="22.86" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="MISC_ANA" gate="A" pin="3"/>
-<junction x="35.56" y="55.88"/>
-<label x="38.1" y="55.88" size="1.778" layer="95"/>
+<wire x1="248.92" y1="109.22" x2="248.92" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+<junction x="248.92" y="93.98"/>
+<junction x="248.92" y="109.22"/>
+<label x="248.92" y="101.6" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="SDI3" class="0">

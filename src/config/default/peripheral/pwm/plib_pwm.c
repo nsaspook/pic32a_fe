@@ -472,9 +472,9 @@ void PWM_Initialize (void)
             |PG1EVT_UPDTRG_MANUAL
             |PG1EVT_PGTRGSEL_EOC);
             
-    PG1DC = 0x40098UL;
+    PG1DC = 0x80000UL;
     
-    PG1PER = 0x80120UL;
+    PG1PER = 0xffff0UL;
     
     PG1PHASE = 0x0UL;
     
@@ -543,11 +543,11 @@ void PWM_Initialize (void)
             |PG3CON_MPERSEL_PGxPER
             |PG3CON_MPHSEL_PGxPHASE
             |PG3CON_MSTEN_DISABLED
-            |PG3CON_UPDMOD_SOC
+            |PG3CON_UPDMOD_IMMEDIATE
             |PG3CON_TRGMOD_SINGLE_TRIGGER_MODE
             |PG3CON_SOCS_LOCAL_EOC
             |PG3CON_CLKSEL_MASTER_CLOCK_BY_MCLKSEL
-            |PG3CON_MODSEL_CENTER_ALIGNED);
+            |PG3CON_MODSEL_INDEPENDENT_EDGE);
     
     PG3IOCON = (PG3IOCON_PMOD_COMPLEMENTARY_MODE
             |_PG3IOCON_PPSEN_MASK
@@ -571,16 +571,16 @@ void PWM_Initialize (void)
             |PG3EVT_ADTR1EN2_DISABLED
             |PG3EVT_ADTR1EN1_DISABLED
             |PG3EVT_PWMPCI_PWM_GENERATOR_1
-            |PG3EVT_UPDTRG_MANUAL
+            |PG3EVT_UPDTRG_PGxDC
             |PG3EVT_PGTRGSEL_EOC);
             
-    PG3DC = 0x4708UL;
+    PG3DC = 0x7d00UL;
     
-    PG3PER = 0x8e00UL;
+    PG3PER = 0xf9f0UL;
     
     PG3PHASE = 0x0UL;
     
-    PG3DT = 0x0UL;
+    PG3DT = 0x1f401f40UL;
     
     PG3FPCI = PG3FPCI_PPS_NON_INVERTED | (uint32_t)0x0 << _PG3FPCI_PSS_POSITION;
     
@@ -590,9 +590,9 @@ void PWM_Initialize (void)
     
     PG3TRIGC = 0x0UL;
     
-    MDC = 0xfa0UL;
+    MDC = 0x7d00UL;
     
-    MPER = 0x1f30UL;
+    MPER = 0xf9f0UL;
 
     MPHASE = 0x0UL;
 

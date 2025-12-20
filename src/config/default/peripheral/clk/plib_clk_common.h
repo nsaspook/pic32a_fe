@@ -63,6 +63,7 @@ typedef enum
     CLOCK_GENERATOR_6 = 6,    
     CLOCK_GENERATOR_7 = 7,    
     CLOCK_GENERATOR_9 = 9,    
+    CLOCK_GENERATOR_10 = 10,    
     CLOCK_GENERATOR_12 = 12,    
     
     CLOCK_SYSTEM = 1,
@@ -72,6 +73,7 @@ typedef enum
     CLOCK_ADC = 6,
     CLOCK_CMP_DAC = 7,
     CLOCK_SPI = 9,
+    CLOCK_PTG = 10,
     CLOCK_CCP = 12,
     CLOCK_REFO1 = 12
 
@@ -85,6 +87,7 @@ typedef enum
     CLOCK_GEN6_FAIL_MASK = 0x20,   
     CLOCK_GEN7_FAIL_MASK = 0x40,   
     CLOCK_GEN9_FAIL_MASK = 0x100,   
+    CLOCK_GEN10_FAIL_MASK = 0x200,   
     CLOCK_GEN12_FAIL_MASK = 0x800,   
     CLOCK_PLL1_FAIL_MASK = 0x1000000,    
     CLOCK_PLL2_FAIL_MASK = 0x2000000,    

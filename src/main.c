@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
+#include <limits.h>
 #include "definitions.h"                // SYS function prototypes
 
 #include "lcd_drv/lcd_drv.h"
@@ -106,12 +107,16 @@ int main(void)
 	StartTimer(TMR_TEST, DIS_TICKS); // GLCD screen updates every 2ms
 	StartTimer(TMR_IMU_DATA, IMU_TICKS); // IMU data updates every xms
 	SCCP2_TimerStart(); // ADC timer start
+	QEI1_Enable();
+	QEI1_PositionCountWrite(0);
+	PWM_Enable();
 
 	while (true) {
 		/* Maintain state machines of all polled MPLAB Harmony modules. */
 		SYS_Tasks();
 		if (TimerDone(TMR_TEST)) {
 			RLED_Toggle();
+			PWM_DutyCycleSet(PWM_GENERATOR_3, SHRT_MAX + ((int32_t) POS1CNT * 5) + ((int32_t) VEL1CNT * 100));
 			if (!SW2_SET) {
 				StartTimer(TMR_TEST, DIS_TICKS);
 				ADC_DMA_read();
@@ -143,8 +148,10 @@ int main(void)
 					eaDogM_WriteStringAtPos(7, 0, buffer);
 					snprintf(buffer, IMU_BUF - 1, "ISS Samples : S%lu       ", total_iss_triggers);
 					eaDogM_WriteStringAtPos(8, 0, buffer);
-					snprintf(buffer, IMU_BUF - 1, "ISO I/O : IN %lu %lu, OUT %lu %lu       ", ISOO3_PORT_G, ISOO4_PORT_G, ISOI1_LAT_L, ISOI2_LAT_L);
+					snprintf(buffer, IMU_BUF - 1, "ISO I/O : IN %lu%lu, OUT %lu%lu  RC%lu%lu    ", ISOO3_PORT_G, ISOO4_PORT_G, ISOI1_LAT_L, ISOI2_LAT_L, GPIO_RC6_Get(), GPIO_RC7_Get());
 					eaDogM_WriteStringAtPos(9, 0, buffer);
+					snprintf(buffer, IMU_BUF - 1, "QEI : CNT %05ld, VEL %05ld ", POS1CNT, VEL1CNT);
+					eaDogM_WriteStringAtPos(10, 0, buffer);
 					DLED_Toggle();
 				}
 				if (SW1_SET) {

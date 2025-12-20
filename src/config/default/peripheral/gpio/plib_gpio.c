@@ -75,8 +75,8 @@ void GPIO_Initialize ( void )
     ANSELB= 0x7U; /* Digital Mode Enable */
      /*PORTC Initialization */
     LATC = 0xe5U; /* Initial Latch Value */
-    CNPUC= 0xd1dU; /* Pull-Up Enable */
-    TRISC = 0xf1aU; /* Direction Control */
+    CNPUC= 0xdddU; /* Pull-Up Enable */
+    TRISC = 0xfdaU; /* Direction Control */
      /*PORTD Initialization */
     LATD = 0x800U; /* Initial Latch Value */
     CNPUD= 0x8d8U; /* Pull-Up Enable */

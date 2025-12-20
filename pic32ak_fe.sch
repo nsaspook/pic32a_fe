@@ -16850,7 +16850,7 @@ Source: &lt;a href="https://www.onsemi.com/pub/Collateral/NCP51460-D.PDF"&gt; Da
 <label x="73.66" y="-48.26" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="RC8" class="0">
+<net name="RC6" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="RP39/RC6"/>
 <wire x1="294.64" y1="-27.94" x2="309.88" y2="-27.94" width="0.1524" layer="91"/>

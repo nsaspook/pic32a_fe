@@ -35,7 +35,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '100000'
+            value: '25000'
           type: Dynamic
         type: Values
       type: Integer
@@ -46,7 +46,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '7984'
+            value: '63984'
           type: Dynamic
         type: Values
       type: Hex
@@ -56,7 +56,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -80,7 +80,7 @@ data:
             id: visible
           children:
           - type: Value
-            value: 'false'
+            value: 'true'
           type: Boolean
         type: Attributes
       - children:
@@ -107,7 +107,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '4000'
+            value: '32000'
           type: Dynamic
         type: Values
       type: Hex
@@ -120,18 +120,18 @@ data:
             id: max
           children:
           - type: Value
-            value: '2941176'
+            value: '5882352'
           type: Integer
         - attributes:
             id: min
           children:
           - type: Value
-            value: '762'
+            value: '1525'
           type: Integer
         type: Attributes
       - children:
         - attributes:
-            value: '100000'
+            value: '25000'
           type: User
         type: Values
       type: Integer
@@ -478,7 +478,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '36360'
+            value: '262296'
           type: Dynamic
         type: Values
       type: Hex
@@ -888,7 +888,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '0.0'
+            value: '5.0'
           type: Dynamic
         type: Values
       type: Float
@@ -899,7 +899,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '0.0'
+            value: '5.0'
           type: Dynamic
         type: Values
       type: Float
@@ -910,7 +910,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '21997'
+            value: '25000'
           type: Dynamic
         type: Values
       type: Integer
@@ -921,7 +921,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '0'
+            value: '8000'
           type: Dynamic
         type: Values
       type: Hex
@@ -932,7 +932,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '0'
+            value: '8000'
           type: Dynamic
         type: Values
       type: Hex
@@ -953,7 +953,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '36352'
+            value: '63984'
           type: Dynamic
         type: Values
       type: Hex
@@ -963,7 +963,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -992,7 +992,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '0'
+            value: '524296000'
           type: Dynamic
         type: Values
       type: Hex
@@ -1054,14 +1054,6 @@ data:
       children:
       - children:
         - attributes:
-            id: visible
-          children:
-          - type: Value
-            value: 'false'
-          type: Boolean
-        type: Attributes
-      - children:
-        - attributes:
             id: pwm
             value: '0.0'
           type: Dynamic
@@ -1088,7 +1080,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '18184'
+            value: '32000'
           type: Dynamic
         type: Values
       type: Hex
@@ -1109,21 +1101,7 @@ data:
       children:
       - children:
         - attributes:
-            id: max
-          children:
-          - type: Value
-            value: '2941176'
-          type: Integer
-        - attributes:
-            id: min
-          children:
-          - type: Value
-            value: '762'
-          type: Integer
-        type: Attributes
-      - children:
-        - attributes:
-            value: '22000'
+            value: '25000'
           type: User
         type: Values
       type: Integer
@@ -1299,7 +1277,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '36360'
+            value: '262296'
           type: Dynamic
         type: Values
       type: Hex
@@ -1659,4 +1637,54 @@ data:
           type: User
         type: Values
       type: KeyValueSet
+    PG3_PG_CON__TRGMOD:
+      attributes:
+        id: PG3_PG_CON__TRGMOD
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG3_PG_EVT__UPDTRG:
+      attributes:
+        id: PG3_PG_EVT__UPDTRG
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG3_PG_CON__UPDMOD:
+      attributes:
+        id: PG3_PG_CON__UPDMOD
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    PG3_DEAD_TIME_LOW:
+      attributes:
+        id: PG3_DEAD_TIME_LOW
+      children:
+      - children:
+        - attributes:
+            value: '5.0'
+          type: User
+        type: Values
+      type: Float
+    PG3_DEAD_TIME_HIGH:
+      attributes:
+        id: PG3_DEAD_TIME_HIGH
+      children:
+      - children:
+        - attributes:
+            value: '5.0'
+          type: User
+        type: Values
+      type: Float
   userData: {}

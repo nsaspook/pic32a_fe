@@ -3189,6 +3189,12 @@ design rules under a new name.</description>
 <attribute name="SPICEPREFIX" value="R" x="40.64" y="11.43" size="1.778" layer="28" rot="MR0" display="off"/>
 <attribute name="VALUE" x="41.275" y="9.525" size="1.27" layer="28" rot="MR0"/>
 </element>
+<element name="C29" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uf" x="71.12" y="10.16" smashed="yes" rot="MR0">
+<attribute name="NAME" x="71.755" y="10.795" size="1.27" layer="26" rot="MR0"/>
+<attribute name="POPULARITY" value="37" x="71.12" y="10.16" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="SPICEPREFIX" value="C" x="71.12" y="10.16" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="VALUE" x="71.755" y="8.255" size="1.27" layer="28" rot="MR0"/>
+</element>
 </elements>
 <signals>
 <signal name="VDD" class="1">
@@ -3749,6 +3755,7 @@ design rules under a new name.</description>
 <contactref element="R11" pad="1"/>
 <contactref element="R12" pad="1"/>
 <contactref element="R13" pad="1"/>
+<contactref element="C29" pad="2"/>
 </signal>
 <signal name="SDI1">
 <contactref element="U1" pad="33"/>
@@ -4038,6 +4045,12 @@ design rules under a new name.</description>
 <wire x1="59.7408" y1="15.24" x2="60.96" y2="16.4592" width="0.1524" layer="15"/>
 <wire x1="59.7408" y1="15.24" x2="59.69" y2="15.24" width="0.1524" layer="15"/>
 <via x="35.7378" y="29.2608" extent="1-16" drill="0.35"/>
+<contactref element="C29" pad="1"/>
+<wire x1="72.009" y1="13.0302" x2="72.009" y2="10.2108" width="0.1524" layer="16"/>
+<wire x1="73.7616" y1="14.7828" x2="72.009" y2="13.0302" width="0.1524" layer="16"/>
+<wire x1="73.7616" y1="15.24" x2="73.7616" y2="14.7828" width="0.1524" layer="16"/>
+<wire x1="72.009" y1="10.2108" x2="71.97" y2="10.16" width="0.1524" layer="16"/>
+<wire x1="73.7616" y1="15.24" x2="73.81" y2="15.24" width="0.1524" layer="16"/>
 </signal>
 <signal name="MCLR">
 <contactref element="U1" pad="64"/>

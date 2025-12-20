@@ -12,6 +12,7 @@ build/default/production/_ext/1360937237/main.o:  \
  ../src/config/default/peripheral/dma/plib_dma.h  \
  ../src/config/default/peripheral/cmp_dac/plib_cmp1.h  \
  ../src/config/default/peripheral/cmp_dac/plib_cmp_common.h  \
+ ../src/config/default/peripheral/ptg/plib_ptg.h  \
  ../src/config/default/peripheral/pwm/plib_pwm.h  \
  ../src/config/default/peripheral/qei/plib_qei1.h  \
  ../src/config/default/peripheral/uart/plib_uart1.h  \
@@ -20,9 +21,9 @@ build/default/production/_ext/1360937237/main.o:  \
  ../src/config/default/peripheral/adc/plib_adc_common.h  \
  ../src/config/default/peripheral/tmr/plib_tmr1.h  \
  ../src/config/default/peripheral/tmr/plib_tmr_common.h  \
- ../src/config/default/peripheral/spi/spi_host/plib_spi2_host.h  \
  ../src/config/default/peripheral/opa/plib_opa2.h  \
  ../src/config/default/peripheral/opa/plib_opa_common.h  \
+ ../src/config/default/peripheral/spi/spi_host/plib_spi2_host.h  \
  ../src/config/default/peripheral/spi/spi_host/plib_spi1_host.h  \
  ../src/config/default/peripheral/ccp/plib_sccp2.h  \
  ../src/config/default/peripheral/ccp/plib_ccp_common.h  \
