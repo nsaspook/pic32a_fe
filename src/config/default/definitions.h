@@ -54,7 +54,6 @@
 #include "peripheral/intc/plib_intc.h"
 #include "peripheral/dma/plib_dma.h"
 #include "peripheral/cmp_dac/plib_cmp1.h"
-#include "peripheral/ptg/plib_ptg.h"
 #include "peripheral/pwm/plib_pwm.h"
 #include "peripheral/qei/plib_qei1.h"
 #include "peripheral/uart/plib_uart1.h"

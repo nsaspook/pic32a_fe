@@ -288,7 +288,6 @@ void SYS_Initialize ( void* data )
     CMP1_Initialize();
 
 
-PTG_Initialize();
 	PWM_Initialize();
 
     QEI1_Initialize();

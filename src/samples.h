@@ -73,8 +73,11 @@ extern "C" {
 	static const uint32_t ADC_SAMPLES_SIZE = 4;
 	static const uint32_t ADC_SAMPLES_START = 4;
 	/*
-	 * unconfigured pins RA6, RC7, RC8, RD2, RB1
+	 * unconfigured pins RA6, RC6, RC7, RD2, RB1
 	 * RA11 = TP1
+	 * RB1 BISS1 MA, OUTPUT
+	 * RD2 BISS1 SL, INPUT
+	 * RA6 BISS1 MO, OUTPUT
 	 */
 
 	extern bool SW1_SET, SW2_SET;

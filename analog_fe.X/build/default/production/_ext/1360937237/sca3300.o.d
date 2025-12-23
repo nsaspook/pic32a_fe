@@ -13,7 +13,6 @@ build/default/production/_ext/1360937237/sca3300.o:  \
  ../src/config/default/peripheral/dma/plib_dma.h  \
  ../src/config/default/peripheral/cmp_dac/plib_cmp1.h  \
  ../src/config/default/peripheral/cmp_dac/plib_cmp_common.h  \
- ../src/config/default/peripheral/ptg/plib_ptg.h  \
  ../src/config/default/peripheral/pwm/plib_pwm.h  \
  ../src/config/default/peripheral/qei/plib_qei1.h  \
  ../src/config/default/peripheral/uart/plib_uart1.h  \
