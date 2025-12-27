@@ -888,7 +888,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '5.0'
+            value: '1.0'
           type: Dynamic
         type: Values
       type: Float
@@ -899,7 +899,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '5.0'
+            value: '0.0'
           type: Dynamic
         type: Values
       type: Float
@@ -921,7 +921,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '8000'
+            value: '1600'
           type: Dynamic
         type: Values
       type: Hex
@@ -932,7 +932,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '8000'
+            value: '0'
           type: Dynamic
         type: Values
       type: Hex
@@ -992,7 +992,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '524296000'
+            value: '104857600'
           type: Dynamic
         type: Values
       type: Hex
@@ -1032,6 +1032,20 @@ data:
       children:
       - children:
         - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
             id: pwm
             value: '0'
           type: Dynamic
@@ -1043,6 +1057,20 @@ data:
       children:
       - children:
         - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
             id: pwm
             value: '0'
           type: Dynamic
@@ -1052,6 +1080,14 @@ data:
       attributes:
         id: PG3_PRIMARY_CAL_PHASE
       children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
       - children:
         - attributes:
             id: pwm
@@ -1101,6 +1137,20 @@ data:
       children:
       - children:
         - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '5882352'
+          type: Integer
+        - attributes:
+            id: min
+          children:
+          - type: Value
+            value: '1525'
+          type: Integer
+        type: Attributes
+      - children:
+        - attributes:
             value: '25000'
           type: User
         type: Values
@@ -1109,6 +1159,14 @@ data:
       attributes:
         id: PG3_SEC_CAL_PHASE
       children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
       - children:
         - attributes:
             id: pwm
@@ -1673,7 +1731,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5.0'
+            value: '0.0'
           type: User
         type: Values
       type: Float
@@ -1683,8 +1741,18 @@ data:
       children:
       - children:
         - attributes:
-            value: '5.0'
+            value: '1.0'
           type: User
         type: Values
       type: Float
+    PG3_PG_IOCON__PMOD:
+      attributes:
+        id: PG3_PG_IOCON__PMOD
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
   userData: {}

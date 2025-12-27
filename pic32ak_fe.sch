@@ -14805,6 +14805,12 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/sn65c1168e"&gt; Datasheet &lt;/a&g
 <part name="BISS-C" library="con-lstb" library_urn="urn:adsk.eagle:library:162" deviceset="MA10-1" device="" package3d_urn="urn:adsk.eagle:package:8346/1" value="BISS-C"/>
 <part name="VSS52" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
 <part name="RS422_IN" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="PAD1-13" package3d_urn="urn:adsk.eagle:package:27946/1"/>
+<part name="R14" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="120 ohm"/>
+<part name="R15" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="120 ohm"/>
+<part name="R16" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="120 ohm"/>
+<part name="R17" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="120 ohm"/>
+<part name="C32" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="10uf"/>
+<part name="VSS53" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -15463,6 +15469,29 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/sn65c1168e"&gt; Datasheet &lt;/a&g
 <instance part="RS422_IN" gate="G$1" x="147.32" y="111.76" smashed="yes" rot="R270">
 <attribute name="NAME" x="140.97" y="112.776" size="1.778" layer="95"/>
 <attribute name="TP_SIGNAL_NAME" x="144.78" y="110.49" size="1.778" layer="97" rot="R270"/>
+</instance>
+<instance part="R14" gate="G$1" x="144.78" y="58.42" smashed="yes">
+<attribute name="NAME" x="140.97" y="59.9186" size="1.778" layer="95"/>
+<attribute name="VALUE" x="138.43" y="55.118" size="1.778" layer="96"/>
+</instance>
+<instance part="R15" gate="G$1" x="160.02" y="58.42" smashed="yes">
+<attribute name="NAME" x="156.21" y="59.9186" size="1.778" layer="95"/>
+<attribute name="VALUE" x="153.67" y="55.118" size="1.778" layer="96"/>
+</instance>
+<instance part="R16" gate="G$1" x="175.26" y="58.42" smashed="yes">
+<attribute name="NAME" x="171.45" y="59.9186" size="1.778" layer="95"/>
+<attribute name="VALUE" x="168.91" y="55.118" size="1.778" layer="96"/>
+</instance>
+<instance part="R17" gate="G$1" x="127" y="58.42" smashed="yes">
+<attribute name="NAME" x="123.19" y="59.9186" size="1.778" layer="95"/>
+<attribute name="VALUE" x="120.65" y="55.118" size="1.778" layer="96"/>
+</instance>
+<instance part="C32" gate="G$1" x="223.52" y="119.38" smashed="yes">
+<attribute name="NAME" x="224.536" y="120.015" size="1.778" layer="95"/>
+<attribute name="VALUE" x="224.536" y="115.189" size="1.778" layer="96"/>
+</instance>
+<instance part="VSS53" gate="G$1" x="223.52" y="111.76" smashed="yes">
+<attribute name="VALUE" x="220.98" y="111.76" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -16189,6 +16218,11 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/sn65c1168e"&gt; Datasheet &lt;/a&g
 <pinref part="VSS52" gate="G$1" pin="VSS"/>
 <junction x="111.76" y="71.12"/>
 </segment>
+<segment>
+<pinref part="C32" gate="G$1" pin="2"/>
+<pinref part="VSS53" gate="G$1" pin="VSS"/>
+<junction x="223.52" y="114.3"/>
+</segment>
 </net>
 <net name="SDI1" class="0">
 <segment>
@@ -16524,6 +16558,9 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/sn65c1168e"&gt; Datasheet &lt;/a&g
 <wire x1="193.04" y1="121.92" x2="193.04" y2="116.84" width="0.1524" layer="91"/>
 <junction x="193.04" y="121.92"/>
 <junction x="193.04" y="116.84"/>
+<pinref part="C32" gate="G$1" pin="1"/>
+<wire x1="210.82" y1="121.92" x2="223.52" y2="121.92" width="0.1524" layer="91"/>
+<junction x="223.52" y="121.92"/>
 </segment>
 <segment>
 <wire x1="134.62" y1="121.92" x2="134.62" y2="119.38" width="0.1524" layer="91"/>
@@ -17526,6 +17563,13 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/sn65c1168e"&gt; Datasheet &lt;/a&g
 <junction x="119.38" y="86.36"/>
 <label x="114.3" y="86.36" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="154.94" y1="58.42" x2="154.94" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="R15" gate="G$1" pin="1"/>
+<junction x="154.94" y="66.04"/>
+<junction x="154.94" y="58.42"/>
+<label x="154.94" y="63.5" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="MA+" class="0">
 <segment>
@@ -17541,6 +17585,13 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/sn65c1168e"&gt; Datasheet &lt;/a&g
 <label x="114.3" y="83.82" size="1.778" layer="95"/>
 <junction x="111.76" y="83.82"/>
 <junction x="119.38" y="83.82"/>
+</segment>
+<segment>
+<wire x1="165.1" y1="58.42" x2="165.1" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="R15" gate="G$1" pin="2"/>
+<junction x="165.1" y="58.42"/>
+<junction x="165.1" y="66.04"/>
+<label x="165.1" y="63.5" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MO-" class="0">
@@ -17558,6 +17609,13 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/sn65c1168e"&gt; Datasheet &lt;/a&g
 <junction x="119.38" y="81.28"/>
 <label x="114.3" y="81.28" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="170.18" y1="58.42" x2="170.18" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="R16" gate="G$1" pin="1"/>
+<junction x="170.18" y="66.04"/>
+<junction x="170.18" y="58.42"/>
+<label x="170.18" y="63.5" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="MO+" class="0">
 <segment>
@@ -17573,6 +17631,13 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/sn65c1168e"&gt; Datasheet &lt;/a&g
 <junction x="111.76" y="78.74"/>
 <junction x="119.38" y="78.74"/>
 <label x="114.3" y="78.74" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="180.34" y1="58.42" x2="180.34" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="R16" gate="G$1" pin="2"/>
+<junction x="180.34" y="58.42"/>
+<junction x="180.34" y="66.04"/>
+<label x="180.34" y="63.5" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SL-" class="0">
@@ -17590,6 +17655,13 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/sn65c1168e"&gt; Datasheet &lt;/a&g
 <junction x="119.38" y="91.44"/>
 <label x="114.3" y="91.44" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="139.7" y1="66.04" x2="139.7" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="R14" gate="G$1" pin="1"/>
+<junction x="139.7" y="58.42"/>
+<junction x="139.7" y="66.04"/>
+<label x="139.7" y="63.5" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="SL+" class="0">
 <segment>
@@ -17605,6 +17677,13 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/sn65c1168e"&gt; Datasheet &lt;/a&g
 <junction x="111.76" y="88.9"/>
 <junction x="119.38" y="88.9"/>
 <label x="114.3" y="88.9" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="149.86" y1="66.04" x2="149.86" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="R14" gate="G$1" pin="2"/>
+<junction x="149.86" y="66.04"/>
+<junction x="149.86" y="58.42"/>
+<label x="149.86" y="63.5" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$19" class="0">
@@ -17631,6 +17710,13 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/sn65c1168e"&gt; Datasheet &lt;/a&g
 <junction x="119.38" y="76.2"/>
 <label x="121.92" y="76.2" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="121.92" y1="66.04" x2="121.92" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="R17" gate="G$1" pin="1"/>
+<junction x="121.92" y="58.42"/>
+<junction x="121.92" y="66.04"/>
+<label x="114.3" y="68.58" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="RS422_I+" class="0">
 <segment>
@@ -17646,6 +17732,13 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/sn65c1168e"&gt; Datasheet &lt;/a&g
 <junction x="111.76" y="73.66"/>
 <junction x="119.38" y="73.66"/>
 <label x="121.92" y="73.66" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="132.08" y1="66.04" x2="132.08" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="R17" gate="G$1" pin="2"/>
+<junction x="132.08" y="58.42"/>
+<junction x="132.08" y="66.04"/>
+<label x="127" y="68.58" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

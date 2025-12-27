@@ -472,9 +472,9 @@ void PWM_Initialize (void)
             |PG1EVT_UPDTRG_MANUAL
             |PG1EVT_PGTRGSEL_EOC);
             
-    PG1DC = 0x40098UL;
+    PG1DC = 0x80000UL;
     
-    PG1PER = 0x80120UL;
+    PG1PER = 0xffff0UL;
     
     PG1PHASE = 0x0UL;
     
@@ -580,7 +580,7 @@ void PWM_Initialize (void)
     
     PG3PHASE = 0x0UL;
     
-    PG3DT = 0x1f401f40UL;
+    PG3DT = 0x6400000UL;
     
     PG3FPCI = PG3FPCI_PPS_NON_INVERTED | (uint32_t)0x0 << _PG3FPCI_PSS_POSITION;
     
