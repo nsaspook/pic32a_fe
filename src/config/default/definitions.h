@@ -52,6 +52,7 @@
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/gpio/plib_gpio.h"
 #include "peripheral/intc/plib_intc.h"
+#include "peripheral/wdt/plib_wdt.h"
 #include "peripheral/dma/plib_dma.h"
 #include "peripheral/cmp_dac/plib_cmp1.h"
 #include "peripheral/pwm/plib_pwm.h"

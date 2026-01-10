@@ -11,6 +11,7 @@ build/default/production/_ext/1360937237/imu.o:  \
  ../src/config/default/peripheral/clk/plib_clk_common.h  \
  ../src/config/default/peripheral/gpio/plib_gpio.h  \
  ../src/config/default/peripheral/intc/plib_intc.h  \
+ ../src/config/default/peripheral/wdt/plib_wdt.h  \
  ../src/config/default/peripheral/dma/plib_dma.h  \
  ../src/config/default/peripheral/cmp_dac/plib_cmp1.h  \
  ../src/config/default/peripheral/cmp_dac/plib_cmp_common.h  \

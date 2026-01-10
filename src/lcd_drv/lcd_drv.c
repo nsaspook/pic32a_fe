@@ -40,6 +40,13 @@ void init_lcd_drv(LCD_DVR_STATE init_type)
 		OledPutBmp(bmp_size, bmp_size, (uint8_t *) foo_map); // upload bitmap image from C array
 		delay_us(BMP_DELAY); // show image for a bit
 		break;
+	case D_INIT_B: // send the GLCD buffer data via DMA
+		CSB_SetHigh(); // select SPI GLCD display, DOGXL240 @30MHz SPI clock
+		delay_us(IS_DELAYPOWERUP); // > 400ms power up delay
+		lcd_init();
+		OledInit();
+		OledSetCharUpdate(0); // manual LCD screen updates for speed
+		break;
 	default:
 		break;
 	}

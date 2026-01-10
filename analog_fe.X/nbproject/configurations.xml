@@ -59,6 +59,9 @@
               <itemPath>../src/config/default/peripheral/uart/plib_uart_common.h</itemPath>
               <itemPath>../src/config/default/peripheral/uart/plib_uart1.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="wdt" displayName="wdt" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/wdt/plib_wdt.h</itemPath>
+            </logicalFolder>
           </logicalFolder>
           <itemPath>../src/config/default/toolchain_specifics.h</itemPath>
           <itemPath>../src/config/default/definitions.h</itemPath>
@@ -167,6 +170,9 @@
             <logicalFolder name="uart" displayName="uart" projectFiles="true">
               <itemPath>../src/config/default/peripheral/uart/plib_uart1.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="wdt" displayName="wdt" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/wdt/plib_wdt.c</itemPath>
+            </logicalFolder>
           </logicalFolder>
           <logicalFolder name="stdio" displayName="stdio" projectFiles="true">
             <itemPath>../src/config/default/stdio/xc32_monitor.c</itemPath>
@@ -246,15 +252,15 @@
         <property key="addresss-attribute-use" value="false"/>
         <property key="appendMe" value=""/>
         <property key="cast-align" value="false"/>
-        <property key="code-model" value="default"/>
-        <property key="const-model" value="default"/>
+        <property key="code-model" value="small-code"/>
+        <property key="const-model" value="const-in-code"/>
         <property key="data-model" value="small-data"/>
         <property key="disable-instruction-scheduling" value="false"/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-procedural-abstraction" value="false"/>
-        <property key="enable-short-double" value="false"/>
-        <property key="enable-symbols" value="true"/>
+        <property key="enable-short-double" value="true"/>
+        <property key="enable-symbols" value="false"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="expand-pragma-config" value="false"/>
@@ -262,7 +268,7 @@
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
-        <property key="keep-inline" value="false"/>
+        <property key="keep-inline" value="true"/>
         <property key="make-warnings-into-errors" value="true"/>
         <property key="oXC16gcc-errata" value=""/>
         <property key="oXC16gcc-large-aggregate" value="false"/>
@@ -278,7 +284,7 @@
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
         <property key="preprocessor-macros" value=""/>
-        <property key="scalar-model" value="default"/>
+        <property key="scalar-model" value="small-scalar"/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
         <property key="tentative-definitions" value="-fno-common"/>
@@ -293,7 +299,7 @@
       </C32-AR>
       <C32-AS>
         <property key="assembler-symbols" value=""/>
-        <property key="enable-symbols" value="true"/>
+        <property key="enable-symbols" value="false"/>
         <property key="exclude-floating-point-library" value="false"/>
         <property key="expand-macros" value="false"/>
         <property key="extra-include-directories-for-assembler" value=""/>
@@ -331,8 +337,8 @@
         <property key="exclude-standard-libraries" value="false"/>
         <property key="extra-lib-directories" value=""/>
         <property key="fill-flash-options-addr" value=""/>
-        <property key="fill-flash-options-const" value=""/>
-        <property key="fill-flash-options-how" value="0"/>
+        <property key="fill-flash-options-const" value="0xff"/>
+        <property key="fill-flash-options-how" value="1"/>
         <property key="fill-flash-options-inc-const" value="1"/>
         <property key="fill-flash-options-increment" value=""/>
         <property key="fill-flash-options-seq" value=""/>
@@ -355,7 +361,7 @@
         <property key="oXC32ld-extra-opts" value=""/>
         <property key="optimization-level" value=""/>
         <property key="preprocessor-macros" value=""/>
-        <property key="remove-unused-sections" value="true"/>
+        <property key="remove-unused-sections" value="false"/>
         <property key="report-memory-usage" value="true"/>
         <property key="serial-length" value=""/>
         <property key="serial-origin" value=""/>
@@ -470,7 +476,7 @@
         <property key="UART1" value="true"/>
         <property key="UART2" value="true"/>
         <property key="UART3" value="true"/>
-        <property key="bluetoothsetting" value="do.not.change"/>
+        <property key="bluetoothsetting" value="on"/>
         <property key="communication.activationmode" value="nohv"/>
         <property key="communication.interface" value=""/>
         <property key="communication.interface.jtag" value="2wire"/>
@@ -582,7 +588,7 @@
         <property key="UART1" value="true"/>
         <property key="UART2" value="true"/>
         <property key="UART3" value="true"/>
-        <property key="bluetoothsetting" value="do.not.change"/>
+        <property key="bluetoothsetting" value="on"/>
         <property key="communication.activationmode" value="nohv"/>
         <property key="communication.interface" value=""/>
         <property key="communication.interface.jtag" value="2wire"/>

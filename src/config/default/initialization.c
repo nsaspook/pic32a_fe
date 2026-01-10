@@ -66,17 +66,17 @@
 // FDEVOPT
 #pragma config FDEVOPT_ALTI2C1 = OFF            // Primary I2C1 pins are used
 #pragma config FDEVOPT_ALTI2C2 = OFF            // Primary I2C2 pins are used
-#pragma config FDEVOPT_BISTDIS = OFF            // RAM test after reset is enabled
+#pragma config FDEVOPT_BISTDIS = ON            // RAM test is disabled
 #pragma config FDEVOPT_SPI2PIN = ON            // SPI2 uses direct connections with specified device pins
 
 // FWDT
-#pragma config FWDT_WINDIS = ON            // Watchdog Timer operates in Non-Window mode
+#pragma config FWDT_WINDIS = OFF            // Watchdog Timer operates in Window mode
 #pragma config FWDT_SWDTMPS = PS2147483648            // Sleep Mode Watchdog Timer Post Scaler select bits
 #pragma config FWDT_RCLKSEL = BFRC256            // WDT Run Mode uses BFRC:256
 #pragma config FWDT_RWDTPS = PS2147483648            // Run Mode Watchdog Timer Post Scaler select bits
 #pragma config FWDT_WDTWIN = WIN25            // WDT Window is 25% of WDT period
-#pragma config FWDT_WDTEN = SW            // WDT is controlled by software, use WDTCON.ON bit
-#pragma config FWDT_WDTRSTEN = ON            // WDT event generates a reset
+#pragma config FWDT_WDTEN = HW            // WDT is enabled in hardware
+#pragma config FWDT_WDTRSTEN = OFF            // WDT event generates a trap
 
 // FPR0CTRL
 #pragma config FPR0CTRL_RDIS = ON            // Protection is disabled

@@ -42,11 +42,11 @@ extern "C" {
 #include "../src/config/default/peripheral/dmac/plib_dmac.h"
 #include "../src/config/default/peripheral/coretimer/plib_coretimer.h"
 #endif
-	
+
 #include "../src/config/default/peripheral/spi/spi_host/plib_spi_host_common.h"
 #include "../src/config/default/peripheral/gpio/plib_gpio.h"
 #include "../src/config/default/peripheral/dma/plib_dma.h"
-	
+
 #include "display_type.h"
 #include "eadog.h"
 #include "dogm-graphic.h"
@@ -72,6 +72,7 @@ extern "C" {
 		D_INIT,
 		D_MISC,
 		D_BLANK,
+		D_INIT_B,
 	} LCD_DVR_STATE;
 
 #define lcd_frame	0	// frame buffer 1 or 0

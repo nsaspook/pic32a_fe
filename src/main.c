@@ -71,14 +71,14 @@ int main(void)
 	TMR1_CallbackRegister(timer_ms_tick, 0);
 	TMR1_InterruptEnable();
 	TMR1_Start(); // software timers hardware time-base
-
+	
 	/*
 	 * setup GLCD background update tasks
 	 */
 	init_lcd_drv(D_INIT);
 	OledClearBuffer();
 	wait_lcd_done();
-
+	
 	snprintf(buffer, IMU_BUF - 1, "DEV%lX REV%lX U%lX%lX   ", *(uint32_t*) 0x7C2000, *(uint32_t*) 0x7C2004, *(uint32_t*) 0x7F2BE0, *(uint32_t*) 0x7F2BE4);
 	eaDogM_WriteStringAtPos(15, 0, buffer);
 	fe_version();
