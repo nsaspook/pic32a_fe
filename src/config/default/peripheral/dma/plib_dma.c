@@ -134,7 +134,7 @@
 
 // Section: Global Data
 
-volatile static DMA_CHANNEL_OBJECT  dmaChannelObj[DMA_NUMBER_OF_CHANNELS];
+static volatile DMA_CHANNEL_OBJECT  dmaChannelObj[DMA_NUMBER_OF_CHANNELS];
 
 // Section: DMA PLib Interface Implementations
 
@@ -193,7 +193,6 @@ void DMA_Initialize( void )
          | _DMA4CH_DONEEN_MASK);
 
     DMA4SEL = (uint32_t)0x8 << _DMA4SEL_CHSEL_POSITION;
-    DMA4CHbits.FLWCON = 0b01; //Null-Write mode
     DMA5CH = ( _DMA5CH_RELOADC_MASK
          | _DMA5CH_RELOADD_MASK
          | _DMA5CH_RELOADS_MASK

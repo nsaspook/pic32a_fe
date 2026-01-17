@@ -48,7 +48,7 @@
 #include "plib_tmr1.h"
 #include "interrupts.h"
 
-volatile static TIMER_OBJECT tmr1Obj;
+static volatile TIMER_OBJECT tmr1Obj;
 
 // Section: Macro Definitions
 

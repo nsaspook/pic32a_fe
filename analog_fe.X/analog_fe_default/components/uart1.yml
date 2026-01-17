@@ -11,7 +11,7 @@ dependency:
 - dependencyPackage: ''
   name: csp
   type: package
-  version: v3.24.0
+  version: v3.25.0
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments: {}
@@ -174,6 +174,17 @@ data:
         - attributes:
             value: '921600'
           type: User
+        type: Values
+      type: Integer
+    uartClkFreq:
+      attributes:
+        id: uartClkFreq
+      children:
+      - children:
+        - attributes:
+            id: uart1
+            value: '100000000'
+          type: Dynamic
         type: Values
       type: Integer
   userData: {}

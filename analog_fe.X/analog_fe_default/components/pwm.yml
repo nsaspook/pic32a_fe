@@ -11,7 +11,7 @@ dependency:
 - dependencyPackage: ''
   name: csp
   type: package
-  version: v3.24.0
+  version: v3.25.0
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments: {}
@@ -77,11 +77,11 @@ data:
       children:
       - children:
         - attributes:
-            id: visible
+            id: max
           children:
           - type: Value
-            value: 'true'
-          type: Boolean
+            value: '655.0'
+          type: Float
         type: Attributes
       - children:
         - attributes:
@@ -141,6 +141,14 @@ data:
       children:
       - children:
         - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        type: Attributes
+      - children:
+        - attributes:
             id: pwm
             value: '0.0'
           type: Dynamic
@@ -174,6 +182,14 @@ data:
       children:
       - children:
         - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
+      - children:
+        - attributes:
             id: pwm
             value: '0.0'
           type: Dynamic
@@ -183,6 +199,14 @@ data:
       attributes:
         id: PG1_CALC_DEAD_TIME_LOW
       children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
       - children:
         - attributes:
             id: pwm
@@ -197,7 +221,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '11001'
+            value: '1524'
           type: Dynamic
         type: Values
       type: Integer
@@ -216,6 +240,14 @@ data:
       attributes:
         id: PG1_DEAD_TIME_HIGH
       children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
       - children:
         - attributes:
             value: '0.1'
@@ -237,6 +269,14 @@ data:
       attributes:
         id: PG1_DEAD_TIME_LOW
       children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
       - children:
         - attributes:
             value: '0.1'
@@ -271,7 +311,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '72704'
+            value: '524576'
           type: Dynamic
         type: Values
       type: Hex
@@ -444,6 +484,12 @@ data:
       children:
       - children:
         - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        - attributes:
             id: visible
           children:
           - type: Value
@@ -522,15 +568,20 @@ data:
             id: pwm
             value: '1525'
           type: Dynamic
-        - attributes:
-            value: '11000'
-          type: User
         type: Values
       type: Integer
     PG1_SEC_CAL_PHASE:
       attributes:
         id: PG1_SEC_CAL_PHASE
       children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        type: Attributes
       - children:
         - attributes:
             id: pwm
@@ -597,6 +648,14 @@ data:
       children:
       - children:
         - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
+      - children:
+        - attributes:
             id: pwm
             value: '0.0'
           type: Dynamic
@@ -606,6 +665,14 @@ data:
       attributes:
         id: PG2_CALC_DEAD_TIME_LOW
       children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
       - children:
         - attributes:
             id: pwm
@@ -764,6 +831,12 @@ data:
       children:
       - children:
         - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        - attributes:
             id: visible
           children:
           - type: Value
@@ -843,6 +916,14 @@ data:
       children:
       - children:
         - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        type: Attributes
+      - children:
+        - attributes:
             id: pwm
             value: '0.0'
           type: Dynamic
@@ -887,6 +968,14 @@ data:
       children:
       - children:
         - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
+      - children:
+        - attributes:
             id: pwm
             value: '1.0'
           type: Dynamic
@@ -896,6 +985,14 @@ data:
       attributes:
         id: PG3_CALC_DEAD_TIME_LOW
       children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
       - children:
         - attributes:
             id: pwm
@@ -1032,20 +1129,6 @@ data:
       children:
       - children:
         - attributes:
-            id: readOnly
-          children:
-          - type: Value
-            value: 'false'
-          type: Boolean
-        - attributes:
-            id: visible
-          children:
-          - type: Value
-            value: 'true'
-          type: Boolean
-        type: Attributes
-      - children:
-        - attributes:
             id: pwm
             value: '0'
           type: Dynamic
@@ -1055,20 +1138,6 @@ data:
       attributes:
         id: PG3_PG_TRIGB
       children:
-      - children:
-        - attributes:
-            id: readOnly
-          children:
-          - type: Value
-            value: 'false'
-          type: Boolean
-        - attributes:
-            id: visible
-          children:
-          - type: Value
-            value: 'true'
-          type: Boolean
-        type: Attributes
       - children:
         - attributes:
             id: pwm
@@ -1082,11 +1151,11 @@ data:
       children:
       - children:
         - attributes:
-            id: visible
+            id: max
           children:
           - type: Value
-            value: 'true'
-          type: Boolean
+            value: '655.0'
+          type: Float
         type: Attributes
       - children:
         - attributes:
@@ -1161,10 +1230,16 @@ data:
       children:
       - children:
         - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        - attributes:
             id: visible
           children:
           - type: Value
-            value: 'true'
+            value: 'false'
           type: Boolean
         type: Attributes
       - children:
@@ -1213,6 +1288,14 @@ data:
       children:
       - children:
         - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
+      - children:
+        - attributes:
             id: pwm
             value: '0.0'
           type: Dynamic
@@ -1222,6 +1305,14 @@ data:
       attributes:
         id: PG4_CALC_DEAD_TIME_LOW
       children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
       - children:
         - attributes:
             id: pwm
@@ -1236,7 +1327,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '11001'
+            value: '1524'
           type: Dynamic
         type: Values
       type: Integer
@@ -1269,7 +1360,7 @@ data:
       - children:
         - attributes:
             id: pwm
-            value: '72704'
+            value: '524576'
           type: Dynamic
         type: Values
       type: Hex
@@ -1300,6 +1391,12 @@ data:
         id: PG4_PRIMARY_CAL_PHASE
       children:
       - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
         - attributes:
             id: visible
           children:
@@ -1343,6 +1440,14 @@ data:
       attributes:
         id: PG4_SEC_CAL_PHASE
       children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        type: Attributes
       - children:
         - attributes:
             id: pwm
@@ -1546,21 +1651,12 @@ data:
           - type: Value
             value: 'false'
           type: Boolean
-        - attributes:
-            id: visible
-          children:
-          - type: Value
-            value: 'true'
-          type: Boolean
         type: Attributes
       - children:
         - attributes:
             id: pwm
             value: '1525'
           type: Dynamic
-        - attributes:
-            value: '11000'
-          type: User
         type: Values
       type: Integer
     PG4_PG_CON__MODSEL:
@@ -1731,6 +1827,14 @@ data:
       children:
       - children:
         - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
+      - children:
+        - attributes:
             value: '0.0'
           type: User
         type: Values
@@ -1739,6 +1843,14 @@ data:
       attributes:
         id: PG3_DEAD_TIME_HIGH
       children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
       - children:
         - attributes:
             value: '1.0'
@@ -1755,4 +1867,259 @@ data:
           type: User
         type: Values
       type: KeyValueSet
+    MASTER_SEC_REQ_PHASE:
+      attributes:
+        id: MASTER_SEC_REQ_PHASE
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        type: Attributes
+      type: Float
+    MASTER_PRIMARY_REQ_PHASE:
+      attributes:
+        id: MASTER_PRIMARY_REQ_PHASE
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        type: Attributes
+      type: Float
+    MASTER_CLK_FREQ:
+      attributes:
+        id: MASTER_CLK_FREQ
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '100000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    PG2_SEC_REQ_PHASE:
+      attributes:
+        id: PG2_SEC_REQ_PHASE
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        type: Attributes
+      type: Float
+    PG2_PRIMARY_REQ_PHASE:
+      attributes:
+        id: PG2_PRIMARY_REQ_PHASE
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: Float
+    PG2_DEAD_TIME_LOW:
+      attributes:
+        id: PG2_DEAD_TIME_LOW
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
+      type: Float
+    PG2_DEAD_TIME_HIGH:
+      attributes:
+        id: PG2_DEAD_TIME_HIGH
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
+      type: Float
+    PG2_CLK_FREQ:
+      attributes:
+        id: PG2_CLK_FREQ
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '100000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    PG4_DEAD_TIME_LOW:
+      attributes:
+        id: PG4_DEAD_TIME_LOW
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
+      type: Float
+    PG4_DEAD_TIME_HIGH:
+      attributes:
+        id: PG4_DEAD_TIME_HIGH
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '20.0'
+          type: Float
+        type: Attributes
+      type: Float
+    PG4_SEC_REQ_PHASE:
+      attributes:
+        id: PG4_SEC_REQ_PHASE
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        type: Attributes
+      type: Float
+    PG4_PRIMARY_REQ_PHASE:
+      attributes:
+        id: PG4_PRIMARY_REQ_PHASE
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: Float
+    PG3_SEC_REQ_PHASE:
+      attributes:
+        id: PG3_SEC_REQ_PHASE
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        type: Attributes
+      type: Float
+    PG3_PRIMARY_REQ_PHASE:
+      attributes:
+        id: PG3_PRIMARY_REQ_PHASE
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        type: Attributes
+      type: Float
+    PG3_CLK_FREQ:
+      attributes:
+        id: PG3_CLK_FREQ
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '100000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    PG1_SEC_REQ_PHASE:
+      attributes:
+        id: PG1_SEC_REQ_PHASE
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        type: Attributes
+      type: Float
+    PG1_PRIMARY_REQ_PHASE:
+      attributes:
+        id: PG1_PRIMARY_REQ_PHASE
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '655.0'
+          type: Float
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: Float
+    CLK_DIV_FREQUENCY:
+      attributes:
+        id: CLK_DIV_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '50000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CLK_FREQUENCY:
+      attributes:
+        id: CLK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: pwm
+            value: '100000000'
+          type: Dynamic
+        type: Values
+      type: Integer
   userData: {}

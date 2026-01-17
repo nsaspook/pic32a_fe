@@ -45,8 +45,8 @@
 #include "interrupts.h"
 
 //PWM Generator x PCI Termination Polarity options
-#define PG1FPCI_PPS_NON_INVERTED          ((uint32_t)(_PG1FPCI_PPS_MASK & ((uint32_t)(0) << _PG1FPCI_PPS_POSITION))) 
-#define PG1FPCI_PPS_INVERTED          ((uint32_t)(_PG1FPCI_PPS_MASK & ((uint32_t)(1) << _PG1FPCI_PPS_POSITION))) 
+#define PG1FPCI_PPS_NON_INVERTED          ((uint32_t)(_PG1FPCI_PPS_MASK & ((uint32_t)(0) << _PG1FPCI_PPS_POSITION)))
+#define PG1FPCI_PPS_INVERTED          ((uint32_t)(_PG1FPCI_PPS_MASK & ((uint32_t)(1) << _PG1FPCI_PPS_POSITION)))
 
 //PGxCON MDCSEL bit
 #define PG1CON_MDCSEL_PGxDC          ((uint32_t)(_PG1CON_MDCSEL_MASK & ((uint32_t)(0) << _PG1CON_MDCSEL_POSITION)))
@@ -65,14 +65,14 @@
 #define PG1CON_MSTEN_ENABLED          ((uint32_t)(_PG1CON_MSTEN_MASK & ((uint32_t)(1) << _PG1CON_MSTEN_POSITION)))
 
 //PWM Generator x Trigger Mode Selection options
-#define PG1CON_TRGMOD_SINGLE_TRIGGER_MODE            ((uint32_t)(_PG1CON_TRGMOD_MASK & ((uint32_t)(0) << _PG1CON_TRGMOD_POSITION))) 
-#define PG1CON_TRGMOD_RETRIGGRERABLE_MODE            ((uint32_t)(_PG1CON_TRGMOD_MASK & ((uint32_t)(1) << _PG1CON_TRGMOD_POSITION))) 
+#define PG1CON_TRGMOD_SINGLE_TRIGGER_MODE            ((uint32_t)(_PG1CON_TRGMOD_MASK & ((uint32_t)(0) << _PG1CON_TRGMOD_POSITION)))
+#define PG1CON_TRGMOD_RETRIGGRERABLE_MODE            ((uint32_t)(_PG1CON_TRGMOD_MASK & ((uint32_t)(1) << _PG1CON_TRGMOD_POSITION)))
 
 //PWM Generator x Data Register Update Modes
-#define PG1CON_UPDMOD_SOC            ((uint32_t)(_PG1CON_UPDMOD_MASK & ((uint32_t)(0) << _PG1CON_UPDMOD_POSITION))) 
-#define PG1CON_UPDMOD_IMMEDIATE            ((uint32_t)(_PG1CON_UPDMOD_MASK & ((uint32_t)(1) << _PG1CON_UPDMOD_POSITION))) 
-#define PG1CON_UPDMOD_CLIENT_SOC            ((uint32_t)(_PG1CON_UPDMOD_MASK & ((uint32_t)(2) << _PG1CON_UPDMOD_POSITION))) 
-#define PG1CON_UPDMOD_CLIENT_IMMEDIATE            ((uint32_t)(_PG1CON_UPDMOD_MASK & ((uint32_t)(3) << _PG1CON_UPDMOD_POSITION))) 
+#define PG1CON_UPDMOD_SOC            ((uint32_t)(_PG1CON_UPDMOD_MASK & ((uint32_t)(0) << _PG1CON_UPDMOD_POSITION)))
+#define PG1CON_UPDMOD_IMMEDIATE            ((uint32_t)(_PG1CON_UPDMOD_MASK & ((uint32_t)(1) << _PG1CON_UPDMOD_POSITION)))
+#define PG1CON_UPDMOD_CLIENT_SOC            ((uint32_t)(_PG1CON_UPDMOD_MASK & ((uint32_t)(2) << _PG1CON_UPDMOD_POSITION)))
+#define PG1CON_UPDMOD_CLIENT_IMMEDIATE            ((uint32_t)(_PG1CON_UPDMOD_MASK & ((uint32_t)(3) << _PG1CON_UPDMOD_POSITION)))
 
 //PWM Generator x Start-of-Cycle Selection bits
 #define PG1CON_SOCS_LOCAL_EOC            ((uint32_t)(_PG1CON_SOCS_MASK & ((uint32_t)(0) << _PG1CON_SOCS_POSITION)))
@@ -168,10 +168,10 @@
 #define PG1EVT_PGTRGSEL_TRIGA_COMPARE          ((uint32_t)(_PG1EVT_PGTRGSEL_MASK & ((uint32_t)(1) << _PG1EVT_PGTRGSEL_POSITION)))
 #define PG1EVT_PGTRGSEL_TRIGB_COMPARE          ((uint32_t)(_PG1EVT_PGTRGSEL_MASK & ((uint32_t)(2) << _PG1EVT_PGTRGSEL_POSITION)))
 #define PG1EVT_PGTRGSEL_TRIGC_COMPARE          ((uint32_t)(_PG1EVT_PGTRGSEL_MASK & ((uint32_t)(3) << _PG1EVT_PGTRGSEL_POSITION)))
-        
+
 //PWM Generator x PCI Termination Polarity options
-#define PG2FPCI_PPS_NON_INVERTED          ((uint32_t)(_PG2FPCI_PPS_MASK & ((uint32_t)(0) << _PG2FPCI_PPS_POSITION))) 
-#define PG2FPCI_PPS_INVERTED          ((uint32_t)(_PG2FPCI_PPS_MASK & ((uint32_t)(1) << _PG2FPCI_PPS_POSITION))) 
+#define PG2FPCI_PPS_NON_INVERTED          ((uint32_t)(_PG2FPCI_PPS_MASK & ((uint32_t)(0) << _PG2FPCI_PPS_POSITION)))
+#define PG2FPCI_PPS_INVERTED          ((uint32_t)(_PG2FPCI_PPS_MASK & ((uint32_t)(1) << _PG2FPCI_PPS_POSITION)))
 
 //PGxCON MDCSEL bit
 #define PG2CON_MDCSEL_PGxDC          ((uint32_t)(_PG2CON_MDCSEL_MASK & ((uint32_t)(0) << _PG2CON_MDCSEL_POSITION)))
@@ -190,14 +190,14 @@
 #define PG2CON_MSTEN_ENABLED          ((uint32_t)(_PG2CON_MSTEN_MASK & ((uint32_t)(1) << _PG2CON_MSTEN_POSITION)))
 
 //PWM Generator x Trigger Mode Selection options
-#define PG2CON_TRGMOD_SINGLE_TRIGGER_MODE            ((uint32_t)(_PG2CON_TRGMOD_MASK & ((uint32_t)(0) << _PG2CON_TRGMOD_POSITION))) 
-#define PG2CON_TRGMOD_RETRIGGRERABLE_MODE            ((uint32_t)(_PG2CON_TRGMOD_MASK & ((uint32_t)(1) << _PG2CON_TRGMOD_POSITION))) 
+#define PG2CON_TRGMOD_SINGLE_TRIGGER_MODE            ((uint32_t)(_PG2CON_TRGMOD_MASK & ((uint32_t)(0) << _PG2CON_TRGMOD_POSITION)))
+#define PG2CON_TRGMOD_RETRIGGRERABLE_MODE            ((uint32_t)(_PG2CON_TRGMOD_MASK & ((uint32_t)(1) << _PG2CON_TRGMOD_POSITION)))
 
 //PWM Generator x Data Register Update Modes
-#define PG2CON_UPDMOD_SOC            ((uint32_t)(_PG2CON_UPDMOD_MASK & ((uint32_t)(0) << _PG2CON_UPDMOD_POSITION))) 
-#define PG2CON_UPDMOD_IMMEDIATE            ((uint32_t)(_PG2CON_UPDMOD_MASK & ((uint32_t)(1) << _PG2CON_UPDMOD_POSITION))) 
-#define PG2CON_UPDMOD_CLIENT_SOC            ((uint32_t)(_PG2CON_UPDMOD_MASK & ((uint32_t)(2) << _PG2CON_UPDMOD_POSITION))) 
-#define PG2CON_UPDMOD_CLIENT_IMMEDIATE            ((uint32_t)(_PG2CON_UPDMOD_MASK & ((uint32_t)(3) << _PG2CON_UPDMOD_POSITION))) 
+#define PG2CON_UPDMOD_SOC            ((uint32_t)(_PG2CON_UPDMOD_MASK & ((uint32_t)(0) << _PG2CON_UPDMOD_POSITION)))
+#define PG2CON_UPDMOD_IMMEDIATE            ((uint32_t)(_PG2CON_UPDMOD_MASK & ((uint32_t)(1) << _PG2CON_UPDMOD_POSITION)))
+#define PG2CON_UPDMOD_CLIENT_SOC            ((uint32_t)(_PG2CON_UPDMOD_MASK & ((uint32_t)(2) << _PG2CON_UPDMOD_POSITION)))
+#define PG2CON_UPDMOD_CLIENT_IMMEDIATE            ((uint32_t)(_PG2CON_UPDMOD_MASK & ((uint32_t)(3) << _PG2CON_UPDMOD_POSITION)))
 
 //PWM Generator x Start-of-Cycle Selection bits
 #define PG2CON_SOCS_LOCAL_EOC            ((uint32_t)(_PG2CON_SOCS_MASK & ((uint32_t)(0) << _PG2CON_SOCS_POSITION)))
@@ -293,10 +293,10 @@
 #define PG2EVT_PGTRGSEL_TRIGA_COMPARE          ((uint32_t)(_PG2EVT_PGTRGSEL_MASK & ((uint32_t)(1) << _PG2EVT_PGTRGSEL_POSITION)))
 #define PG2EVT_PGTRGSEL_TRIGB_COMPARE          ((uint32_t)(_PG2EVT_PGTRGSEL_MASK & ((uint32_t)(2) << _PG2EVT_PGTRGSEL_POSITION)))
 #define PG2EVT_PGTRGSEL_TRIGC_COMPARE          ((uint32_t)(_PG2EVT_PGTRGSEL_MASK & ((uint32_t)(3) << _PG2EVT_PGTRGSEL_POSITION)))
-        
+
 //PWM Generator x PCI Termination Polarity options
-#define PG3FPCI_PPS_NON_INVERTED          ((uint32_t)(_PG3FPCI_PPS_MASK & ((uint32_t)(0) << _PG3FPCI_PPS_POSITION))) 
-#define PG3FPCI_PPS_INVERTED          ((uint32_t)(_PG3FPCI_PPS_MASK & ((uint32_t)(1) << _PG3FPCI_PPS_POSITION))) 
+#define PG3FPCI_PPS_NON_INVERTED          ((uint32_t)(_PG3FPCI_PPS_MASK & ((uint32_t)(0) << _PG3FPCI_PPS_POSITION)))
+#define PG3FPCI_PPS_INVERTED          ((uint32_t)(_PG3FPCI_PPS_MASK & ((uint32_t)(1) << _PG3FPCI_PPS_POSITION)))
 
 //PGxCON MDCSEL bit
 #define PG3CON_MDCSEL_PGxDC          ((uint32_t)(_PG3CON_MDCSEL_MASK & ((uint32_t)(0) << _PG3CON_MDCSEL_POSITION)))
@@ -315,14 +315,14 @@
 #define PG3CON_MSTEN_ENABLED          ((uint32_t)(_PG3CON_MSTEN_MASK & ((uint32_t)(1) << _PG3CON_MSTEN_POSITION)))
 
 //PWM Generator x Trigger Mode Selection options
-#define PG3CON_TRGMOD_SINGLE_TRIGGER_MODE            ((uint32_t)(_PG3CON_TRGMOD_MASK & ((uint32_t)(0) << _PG3CON_TRGMOD_POSITION))) 
-#define PG3CON_TRGMOD_RETRIGGRERABLE_MODE            ((uint32_t)(_PG3CON_TRGMOD_MASK & ((uint32_t)(1) << _PG3CON_TRGMOD_POSITION))) 
+#define PG3CON_TRGMOD_SINGLE_TRIGGER_MODE            ((uint32_t)(_PG3CON_TRGMOD_MASK & ((uint32_t)(0) << _PG3CON_TRGMOD_POSITION)))
+#define PG3CON_TRGMOD_RETRIGGRERABLE_MODE            ((uint32_t)(_PG3CON_TRGMOD_MASK & ((uint32_t)(1) << _PG3CON_TRGMOD_POSITION)))
 
 //PWM Generator x Data Register Update Modes
-#define PG3CON_UPDMOD_SOC            ((uint32_t)(_PG3CON_UPDMOD_MASK & ((uint32_t)(0) << _PG3CON_UPDMOD_POSITION))) 
-#define PG3CON_UPDMOD_IMMEDIATE            ((uint32_t)(_PG3CON_UPDMOD_MASK & ((uint32_t)(1) << _PG3CON_UPDMOD_POSITION))) 
-#define PG3CON_UPDMOD_CLIENT_SOC            ((uint32_t)(_PG3CON_UPDMOD_MASK & ((uint32_t)(2) << _PG3CON_UPDMOD_POSITION))) 
-#define PG3CON_UPDMOD_CLIENT_IMMEDIATE            ((uint32_t)(_PG3CON_UPDMOD_MASK & ((uint32_t)(3) << _PG3CON_UPDMOD_POSITION))) 
+#define PG3CON_UPDMOD_SOC            ((uint32_t)(_PG3CON_UPDMOD_MASK & ((uint32_t)(0) << _PG3CON_UPDMOD_POSITION)))
+#define PG3CON_UPDMOD_IMMEDIATE            ((uint32_t)(_PG3CON_UPDMOD_MASK & ((uint32_t)(1) << _PG3CON_UPDMOD_POSITION)))
+#define PG3CON_UPDMOD_CLIENT_SOC            ((uint32_t)(_PG3CON_UPDMOD_MASK & ((uint32_t)(2) << _PG3CON_UPDMOD_POSITION)))
+#define PG3CON_UPDMOD_CLIENT_IMMEDIATE            ((uint32_t)(_PG3CON_UPDMOD_MASK & ((uint32_t)(3) << _PG3CON_UPDMOD_POSITION)))
 
 //PWM Generator x Start-of-Cycle Selection bits
 #define PG3CON_SOCS_LOCAL_EOC            ((uint32_t)(_PG3CON_SOCS_MASK & ((uint32_t)(0) << _PG3CON_SOCS_POSITION)))
@@ -418,17 +418,17 @@
 #define PG3EVT_PGTRGSEL_TRIGA_COMPARE          ((uint32_t)(_PG3EVT_PGTRGSEL_MASK & ((uint32_t)(1) << _PG3EVT_PGTRGSEL_POSITION)))
 #define PG3EVT_PGTRGSEL_TRIGB_COMPARE          ((uint32_t)(_PG3EVT_PGTRGSEL_MASK & ((uint32_t)(2) << _PG3EVT_PGTRGSEL_POSITION)))
 #define PG3EVT_PGTRGSEL_TRIGC_COMPARE          ((uint32_t)(_PG3EVT_PGTRGSEL_MASK & ((uint32_t)(3) << _PG3EVT_PGTRGSEL_POSITION)))
-        
+
 
 //PWM Clock Divider Selection options
-#define PCLKCON_DIVSEL_1_2          ((uint32_t)(_PCLKCON_DIVSEL_MASK & ((uint32_t)(0) << _PCLKCON_DIVSEL_POSITION))) 
-#define PCLKCON_DIVSEL_1_4          ((uint32_t)(_PCLKCON_DIVSEL_MASK & ((uint32_t)(1) << _PCLKCON_DIVSEL_POSITION))) 
-#define PCLKCON_DIVSEL_1_8          ((uint32_t)(_PCLKCON_DIVSEL_MASK & ((uint32_t)(2) << _PCLKCON_DIVSEL_POSITION))) 
-#define PCLKCON_DIVSEL_1_16          ((uint32_t)(_PCLKCON_DIVSEL_MASK & ((uint32_t)(3) << _PCLKCON_DIVSEL_POSITION))) 
+#define PCLKCON_DIVSEL_1_2          ((uint32_t)(_PCLKCON_DIVSEL_MASK & ((uint32_t)(0) << _PCLKCON_DIVSEL_POSITION)))
+#define PCLKCON_DIVSEL_1_4          ((uint32_t)(_PCLKCON_DIVSEL_MASK & ((uint32_t)(1) << _PCLKCON_DIVSEL_POSITION)))
+#define PCLKCON_DIVSEL_1_8          ((uint32_t)(_PCLKCON_DIVSEL_MASK & ((uint32_t)(2) << _PCLKCON_DIVSEL_POSITION)))
+#define PCLKCON_DIVSEL_1_16          ((uint32_t)(_PCLKCON_DIVSEL_MASK & ((uint32_t)(3) << _PCLKCON_DIVSEL_POSITION)))
 
 //PWM Master Clock Selection options
-#define PCLKCON_MCLKSEL_UPB_CLOCK           ((uint32_t)(_PCLKCON_MCLKSEL_MASK & ((uint32_t)(0) << _PCLKCON_MCLKSEL_POSITION))) 
-#define PCLKCON_MCLKSEL_CLOCK_GEN_5           ((uint32_t)(_PCLKCON_MCLKSEL_MASK & ((uint32_t)(1) << _PCLKCON_MCLKSEL_POSITION))) 
+#define PCLKCON_MCLKSEL_UPB_CLOCK           ((uint32_t)(_PCLKCON_MCLKSEL_MASK & ((uint32_t)(0) << _PCLKCON_MCLKSEL_POSITION)))
+#define PCLKCON_MCLKSEL_CLOCK_GEN_5           ((uint32_t)(_PCLKCON_MCLKSEL_MASK & ((uint32_t)(1) << _PCLKCON_MCLKSEL_POSITION)))
 
 // Section: File specific functions
 
@@ -446,7 +446,7 @@ void PWM_Initialize (void)
             |PG1CON_SOCS_LOCAL_EOC
             |PG1CON_CLKSEL_MASTER_CLOCK_BY_MCLKSEL
             |PG1CON_MODSEL_CENTER_ALIGNED);
-    
+
     PG1IOCON = (PG1IOCON_PMOD_COMPLEMENTARY_MODE
             |_PG1IOCON_PPSEN_MASK
             |_PG1IOCON_PENH_MASK
@@ -459,7 +459,7 @@ void PWM_Initialize (void)
             |(uint32_t)0x0 << _PG1IOCON_OVRDAT_POSITION
             |PG1IOCON_OSYNC_SYNC_TO_LOCAL_PWM_TIMEBASE
             |(uint32_t)0x0 << _PG1IOCON_FLTDAT_POSITION);
-            
+
     PG1EVT = (PG1EVT_ADTR2EN3_DISABLED
             |PG1EVT_ADTR2EN2_DISABLED
             |PG1EVT_ADTR2EN1_DISABLED
@@ -471,23 +471,23 @@ void PWM_Initialize (void)
             |PG1EVT_PWMPCI_PWM_GENERATOR_1
             |PG1EVT_UPDTRG_MANUAL
             |PG1EVT_PGTRGSEL_EOC);
-            
-    PG1DC = 0x80000UL;
-    
-    PG1PER = 0xffff0UL;
-    
+
+    PG1DC = 0x40098UL;
+
+    PG1PER = 0x80120UL;
+
     PG1PHASE = 0x0UL;
-    
+
     PG1DT = 0xa000a0UL;
-    
+
     PG1FPCI = PG1FPCI_PPS_NON_INVERTED | (uint32_t)0x0 << _PG1FPCI_PSS_POSITION;
-    
+
     PG1TRIGA = 0x0UL;
-    
+
     PG1TRIGB = 0x0UL;
-    
+
     PG1TRIGC = 0x0UL;
-    
+
     PG2CON = (PG2CON_MDCSEL_PGxDC
             |PG2CON_MPERSEL_PGxPER
             |PG2CON_MPHSEL_PGxPHASE
@@ -497,7 +497,7 @@ void PWM_Initialize (void)
             |PG2CON_SOCS_LOCAL_EOC
             |PG2CON_CLKSEL_MASTER_CLOCK_BY_MCLKSEL
             |PG2CON_MODSEL_CENTER_ALIGNED);
-    
+
     PG2IOCON = (PG2IOCON_PMOD_COMPLEMENTARY_MODE
             |_PG2IOCON_PPSEN_MASK
             |_PG2IOCON_PENH_MASK
@@ -510,7 +510,7 @@ void PWM_Initialize (void)
             |(uint32_t)0x0 << _PG2IOCON_OVRDAT_POSITION
             |PG2IOCON_OSYNC_SYNC_TO_LOCAL_PWM_TIMEBASE
             |(uint32_t)0x0 << _PG2IOCON_FLTDAT_POSITION);
-            
+
     PG2EVT = (PG2EVT_ADTR2EN3_DISABLED
             |PG2EVT_ADTR2EN2_DISABLED
             |PG2EVT_ADTR2EN1_DISABLED
@@ -522,23 +522,23 @@ void PWM_Initialize (void)
             |PG2EVT_PWMPCI_PWM_GENERATOR_1
             |PG2EVT_UPDTRG_MANUAL
             |PG2EVT_PGTRGSEL_EOC);
-            
+
     PG2DC = 0x4708UL;
-    
+
     PG2PER = 0x8e00UL;
-    
+
     PG2PHASE = 0x0UL;
-    
+
     PG2DT = 0x0UL;
-    
+
     PG2FPCI = PG2FPCI_PPS_NON_INVERTED | (uint32_t)0x0 << _PG2FPCI_PSS_POSITION;
-    
+
     PG2TRIGA = 0x0UL;
-    
+
     PG2TRIGB = 0x0UL;
-    
+
     PG2TRIGC = 0x0UL;
-    
+
     PG3CON = (PG3CON_MDCSEL_PGxDC
             |PG3CON_MPERSEL_PGxPER
             |PG3CON_MPHSEL_PGxPHASE
@@ -548,7 +548,7 @@ void PWM_Initialize (void)
             |PG3CON_SOCS_LOCAL_EOC
             |PG3CON_CLKSEL_MASTER_CLOCK_BY_MCLKSEL
             |PG3CON_MODSEL_INDEPENDENT_EDGE);
-    
+
     PG3IOCON = (PG3IOCON_PMOD_COMPLEMENTARY_MODE
             |_PG3IOCON_PPSEN_MASK
             |_PG3IOCON_PENH_MASK
@@ -561,7 +561,7 @@ void PWM_Initialize (void)
             |(uint32_t)0x0 << _PG3IOCON_OVRDAT_POSITION
             |PG3IOCON_OSYNC_SYNC_TO_LOCAL_PWM_TIMEBASE
             |(uint32_t)0x0 << _PG3IOCON_FLTDAT_POSITION);
-            
+
     PG3EVT = (PG3EVT_ADTR2EN3_DISABLED
             |PG3EVT_ADTR2EN2_DISABLED
             |PG3EVT_ADTR2EN1_DISABLED
@@ -573,35 +573,35 @@ void PWM_Initialize (void)
             |PG3EVT_PWMPCI_PWM_GENERATOR_1
             |PG3EVT_UPDTRG_PGxDC
             |PG3EVT_PGTRGSEL_EOC);
-            
+
     PG3DC = 0x7d00UL;
-    
+
     PG3PER = 0xf9f0UL;
-    
+
     PG3PHASE = 0x0UL;
-    
+
     PG3DT = 0x6400000UL;
-    
+
     PG3FPCI = PG3FPCI_PPS_NON_INVERTED | (uint32_t)0x0 << _PG3FPCI_PSS_POSITION;
-    
+
     PG3TRIGA = 0x0UL;
-    
+
     PG3TRIGB = 0x0UL;
-    
+
     PG3TRIGC = 0x0UL;
-    
+
     MDC = 0x7d00UL;
-    
+
     MPER = 0xf9f0UL;
 
     MPHASE = 0x0UL;
 
     PCLKCON = (PCLKCON_DIVSEL_1_2
             |PCLKCON_MCLKSEL_UPB_CLOCK);
-    
 
 
-    
+
+
         PG1CONbits.ON = 1U;
         PG2CONbits.ON = 1U;
         PG3CONbits.ON = 1U;
@@ -663,7 +663,7 @@ void PWM_Deinitialize (void)
     PG3TRIGC = 0x0UL;
 
 
-    
+
 }
 
 

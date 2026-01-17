@@ -5,8 +5,8 @@
     traps.c
 
   Summary:
-    This is the generated source file for TRAPS  
- 
+    This is the generated source file for TRAPS
+
   Description:
     None
 
@@ -48,25 +48,25 @@ void _MathErrorTrap(void);
 void _StackErrorTrap(void);
 void _IllegalInstructionTrap(void);
 
-#define ERROR_HANDLER __attribute__((weak,interrupt,no_auto_psv))
+#define ERROR_HANDLER __attribute__((weak,interrupt,no_auto_psv, noreturn))
 #define FAILSAFE_STACK_GUARDSIZE 8
 #define FAILSAFE_STACK_SIZE 32
 
 /* Address of instruction that caused the exception. */
 static uint32_t  exception_address;
- 
+
 /* Code identifying the cause of the exception. */
 static uint32_t  exception_code;
 
 // Section: Driver Interface Function Definitions
 
 //@brief Halts
-void __attribute__((weak)) TRAPS_halt_on_error(uint16_t code)  // 
+void __attribute__((weak, noreturn)) TRAPS_halt_on_error(uint16_t code)  //
 {
     exception_code  = code;
-    
+
     exception_address = PCTRAP;
-    
+
     while(true)
     {
         #ifdef __DEBUG
@@ -82,8 +82,8 @@ inline static void use_failsafe_stack(void)
 {
     static uint8_t failsafe_stack[FAILSAFE_STACK_SIZE];
 
-    SET_STACK_POINTER(failsafe_stack);  
-    
+    SET_STACK_POINTER(failsafe_stack);
+
     /* Controls where the stack pointer limit is, relative to the end of the
     * failsafe stack
     */
@@ -134,20 +134,20 @@ void ERROR_HANDLER _GeneralTrap(void)
 {
     if(INTCON5bits.DMTE == 1)
     {
-      INTCON5bits.DMTE = 0;  //Clear the trap flag 
+      INTCON5bits.DMTE = 0;  //Clear the trap flag
       TRAPS_halt_on_error(TRAPS_DMT_ERR);
     }
 
     if(INTCON5bits.SOFT == 1)
     {
-      INTCON5bits.SOFT = 0;  //Clear the trap flag 
+      INTCON5bits.SOFT = 0;  //Clear the trap flag
       TRAPS_halt_on_error(TRAPS_SOFT_ERR);
     }
 
     if(INTCON5bits.WDTE == 1)
     {
       INTCON5bits.WDTE = 0;  //Clear the trap flag
-      TRAPS_halt_on_error(TRAPS_WDT_ERR); 
+      TRAPS_halt_on_error(TRAPS_WDT_ERR);
     }
     while(true)
     {
@@ -157,7 +157,7 @@ void ERROR_HANDLER _GeneralTrap(void)
 /** Math error.**/
 void ERROR_HANDLER _MathErrorTrap(void)
 {
-    INTCON4bits.DIV0ERR = 0;  //Clear the trap flag        
+    INTCON4bits.DIV0ERR = 0;  //Clear the trap flag
     TRAPS_halt_on_error(TRAPS_DIV0_ERR);
 }
 
@@ -168,15 +168,15 @@ void ERROR_HANDLER _StackErrorTrap(void)
      * means that we cannot trust the stack to operate correctly unless
      * we set the stack pointer to a safe place.
      */
-    use_failsafe_stack(); 
-    
-    INTCON1bits.STKERR = 0;  //Clear the trap flag         
+    use_failsafe_stack();
+
+    INTCON1bits.STKERR = 0;  //Clear the trap flag
     TRAPS_halt_on_error(TRAPS_STACK_ERR);
 }
 
 /** Illegal instruction.**/
 void ERROR_HANDLER _IllegalInstructionTrap(void)
 {
-    INTCON1bits.BADOPERR = 0;  //Clear the trap flag   
-    TRAPS_halt_on_error(TRAPS_ILLEGAL_INSTRUCTION); 
+    INTCON1bits.BADOPERR = 0;  //Clear the trap flag
+    TRAPS_halt_on_error(TRAPS_ILLEGAL_INSTRUCTION);
 }

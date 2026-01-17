@@ -11,7 +11,7 @@ dependency:
 - dependencyPackage: ''
   name: csp
   type: package
-  version: v3.24.0
+  version: v3.25.0
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments: {}
@@ -1351,6 +1351,14 @@ data:
       children:
       - children:
         - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
             id: core
             value: 523984.176167 s
           type: Dynamic
@@ -1362,6 +1370,14 @@ data:
       children:
       - children:
         - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
             id: core
             value: 2095936.70467 s
           type: Dynamic
@@ -1371,6 +1387,14 @@ data:
       attributes:
         id: CLOCK_FREQUENCY
       children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
       - children:
         - attributes:
             id: core
@@ -1506,7 +1530,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '400000000'
+            value: '800000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -1560,7 +1584,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '1584000000'
+            value: '792000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -1571,7 +1595,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '792.0'
+            value: '396.0'
           type: Dynamic
         type: Values
       type: String
@@ -1582,7 +1606,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '792000000'
+            value: '396000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -1634,7 +1658,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '198'
+            value: '99'
           type: User
         type: Values
       type: Integer
@@ -1648,7 +1672,7 @@ data:
             value: '4'
           type: Dynamic
         - attributes:
-            value: '2'
+            value: '1'
           type: User
         type: Values
       type: Combo
@@ -3719,7 +3743,7 @@ data:
             value: '2'
           type: Dynamic
         - attributes:
-            value: '2'
+            value: '4'
           type: User
         type: Values
       type: Combo
@@ -3743,7 +3767,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '1'
+            value: '2'
           type: User
         type: Values
       type: Integer
@@ -3763,7 +3787,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '1'
           type: User
         type: Values
       type: Integer
@@ -6563,6 +6587,47 @@ data:
           type: User
         type: Values
       type: Combo
+    pll2DIV__PLLPRE:
+      attributes:
+        id: pll2DIV__PLLPRE
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: Integer
+    clkGen9CON__BOSC:
+      attributes:
+        id: clkGen9CON__BOSC
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    clkGen9CON__FSCMEN:
+      attributes:
+        id: clkGen9CON__FSCMEN
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    clkGen9enableFailSafeClock:
+      attributes:
+        id: clkGen9enableFailSafeClock
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
   userData:
     children:
     - attributes:

@@ -112,10 +112,10 @@ void INTC_Enable( void )
 bool INTC_Disable( void )
 {
     bool processorStatus;
-    
+
     /* Save the current processor status and then Disable the global interrupt */
     processorStatus = (INTCON1bits.GIE != 0U);
-            
+
     (void)__builtin_disable_interrupts();
 
     /* return the processor status */

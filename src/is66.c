@@ -238,9 +238,9 @@ void ADC_DMA_init(void)
  */
 enum iss_chip_type ISS_read_id(void)
 {
-	StartTimer(TMR_TEST, 2);
+	StartTimer(TMR_TEST, 1);
 	SRAM_CS_Clear();
-	SPI2_WriteRead((void *) iss_read_id, sizeof(iss_read_id), iss_read_id_buffer, sizeof(iss_read_id));
+	SPI2_WriteRead((void *) iss_read_id, 12, iss_read_id_buffer, 12);
 	while (!TimerDone(TMR_TEST)) {
 	};
 	SRAM_CS_Set();

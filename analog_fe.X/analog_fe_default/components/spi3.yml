@@ -11,7 +11,7 @@ dependency:
 - dependencyPackage: ''
   name: csp
   type: package
-  version: v3.24.0
+  version: v3.25.0
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments: {}
@@ -96,6 +96,20 @@ data:
       attributes:
         id: REQUESTED_SPEED
       children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '50000000'
+          type: Integer
+        - attributes:
+            id: min
+          children:
+          - type: Value
+            value: '3051'
+          type: Integer
+        type: Attributes
       - children:
         - attributes:
             value: '8000000'

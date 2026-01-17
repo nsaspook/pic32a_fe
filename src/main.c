@@ -71,14 +71,14 @@ int main(void)
 	TMR1_CallbackRegister(timer_ms_tick, 0);
 	TMR1_InterruptEnable();
 	TMR1_Start(); // software timers hardware time-base
-	
+
 	/*
 	 * setup GLCD background update tasks
 	 */
 	init_lcd_drv(D_INIT);
 	OledClearBuffer();
 	wait_lcd_done();
-	
+
 	snprintf(buffer, IMU_BUF - 1, "DEV%lX REV%lX U%lX%lX   ", *(uint32_t*) 0x7C2000, *(uint32_t*) 0x7C2004, *(uint32_t*) 0x7F2BE0, *(uint32_t*) 0x7F2BE4);
 	eaDogM_WriteStringAtPos(15, 0, buffer);
 	fe_version();
@@ -90,8 +90,20 @@ int main(void)
 	/*
 	 * read the iss66 chip ID register
 	 */
+	//	SPI2CON1bits.ON = 0U;
+	//	SPI2CON1bits.MODE32 = 0U; // 8-bit SPI transfers
+	//	SPI2CON1bits.ON = 1U;
+	SRAM_CS_Clear();
+	SRAM_CS_Set();
+	SRAM_CS_Clear();
+	SRAM_CS_Set();
+	//	while (true) {
+	//		ISS_read_id();
+	//	}
 	if (ISS_read_id() != ISS_ISS_UNK) {
 		ADC_DMA_init(); // setup background ADC data tasks
+	} else {
+		ADC_DMA_init();
 	}
 	CMP1_DACDataWrite(DAC1_CAL);
 	/*
@@ -121,8 +133,12 @@ int main(void)
 				StartTimer(TMR_TEST, DIS_TICKS);
 				ADC_DMA_read();
 				if (!SW1_SET) {
-					snprintf(buffer, IMU_BUF - 1, "S%lu, I%X%X%X, D%u D%u", total_sample_triggers, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6],
-						(uint16_t) adc_result[ADC1_D], (uint16_t) adc_result[ADC2_D]);
+					if (iss_chip == ISS_ISS_UNK) {
+						snprintf(buffer, IMU_BUF - 1, "ISS Error, D%u D%u", (uint16_t) adc_result[ADC1_D], (uint16_t) adc_result[ADC2_D]);
+					} else {
+						snprintf(buffer, IMU_BUF - 1, "S%lu, I%X%X%X, D%u D%u", total_sample_triggers, iss_read_id_buffer[4], iss_read_id_buffer[5], iss_read_id_buffer[6],
+							(uint16_t) adc_result[ADC1_D], (uint16_t) adc_result[ADC2_D]);
+					}
 					eaDogM_WriteStringAtPos(0, 0, buffer);
 				}
 				snprintf(buffer, IMU_BUF - 1, "%6.3f,%6.3f,%6.3f,%5.2fC", accel.xa, accel.ya, accel.za, accel.sensortemp);

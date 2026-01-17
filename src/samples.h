@@ -20,7 +20,7 @@ extern "C" {
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 
-#define FE_DRIVER "V1.04"
+#define FE_DRIVER "V1.05"
 #define FE_ALIAS "PIC32AK FE"
 
 	//#define ISS_DMA_READ
@@ -92,11 +92,11 @@ extern "C" {
 	};
 
 	enum iss_chip_type {
-		ISS_ISS_UNK = 0, // ISS chip models
+		ISS_ISS_UNK = 0, // ISS chip models, UNK means chip read error
 		ISS_ISS_8Mb,
 		ISS_ISS_16Mb,
 		ISS_ISS_32Mb,
-		ISS_ISS_BAD,
+		ISS_ISS_BAD, // unknown id
 		ISS_ISS_LAST,
 	};
 
@@ -108,6 +108,7 @@ extern "C" {
 	 * V1.02	code cleanups
 	 * V1.03	SRAM chip ID setups
 	 * V1.04	DISABLE JTAG so pins D[1--3], RB1 will work
+	 * V1.05	SRAM chip error detection fixes
 	 */
 
 #ifdef	__cplusplus

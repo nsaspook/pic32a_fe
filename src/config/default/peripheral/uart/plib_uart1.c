@@ -1,20 +1,20 @@
 /*******************************************************************************
   uart1 PLIB
- 
+
   Company:
     Microchip Technology Inc.
- 
+
   File Name:
     plib_uart1.c
- 
+
   Summary:
     uart1 PLIB Source File
- 
+
   Description:
     None
- 
+
 *******************************************************************************/
- 
+
 /*******************************************************************************
 * Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
@@ -50,39 +50,39 @@
 
 // Section: UART1 Implementation
 
-volatile static UART_RING_BUFFER_OBJECT uart1Obj;
+static volatile UART_RING_BUFFER_OBJECT uart1Obj;
 
 // Section: Macro Definitions
 
 //UART UxCON MODE options
-#define U1CON_MODE_8_BIT_NONE          ((uint32_t)(_U1CON_MODE_MASK & ((uint32_t)(0) << _U1CON_MODE_POSITION))) 
-#define U1CON_MODE_7_BIT          ((uint32_t)(_U1CON_MODE_MASK & ((uint32_t)(1) << _U1CON_MODE_POSITION))) 
-#define U1CON_MODE_8_BIT_ODD          ((uint32_t)(_U1CON_MODE_MASK & ((uint32_t)(2) << _U1CON_MODE_POSITION))) 
-#define U1CON_MODE_8_BIT_EVEN          ((uint32_t)(_U1CON_MODE_MASK & ((uint32_t)(3) << _U1CON_MODE_POSITION))) 
+#define U1CON_MODE_8_BIT_NONE          ((uint32_t)(_U1CON_MODE_MASK & ((uint32_t)(0) << _U1CON_MODE_POSITION)))
+#define U1CON_MODE_7_BIT          ((uint32_t)(_U1CON_MODE_MASK & ((uint32_t)(1) << _U1CON_MODE_POSITION)))
+#define U1CON_MODE_8_BIT_ODD          ((uint32_t)(_U1CON_MODE_MASK & ((uint32_t)(2) << _U1CON_MODE_POSITION)))
+#define U1CON_MODE_8_BIT_EVEN          ((uint32_t)(_U1CON_MODE_MASK & ((uint32_t)(3) << _U1CON_MODE_POSITION)))
 
 //UART UxCON STP options
-#define U1CON_STP_1_SENT_1_RECEIVE           ((uint32_t)(_U1CON_STP_MASK & ((uint32_t)(0) << _U1CON_STP_POSITION))) 
-#define U1CON_STP_1_5_SENT_1_5_RECEIVE           ((uint32_t)(_U1CON_STP_MASK & ((uint32_t)(1) << _U1CON_STP_POSITION))) 
-#define U1CON_STP_2_SENT_2_RECEIVE           ((uint32_t)(_U1CON_STP_MASK & ((uint32_t)(2) << _U1CON_STP_POSITION))) 
-#define U1CON_STP_2_SENT_1_RECEIVE           ((uint32_t)(_U1CON_STP_MASK & ((uint32_t)(3) << _U1CON_STP_POSITION))) 
+#define U1CON_STP_1_SENT_1_RECEIVE           ((uint32_t)(_U1CON_STP_MASK & ((uint32_t)(0) << _U1CON_STP_POSITION)))
+#define U1CON_STP_1_5_SENT_1_5_RECEIVE           ((uint32_t)(_U1CON_STP_MASK & ((uint32_t)(1) << _U1CON_STP_POSITION)))
+#define U1CON_STP_2_SENT_2_RECEIVE           ((uint32_t)(_U1CON_STP_MASK & ((uint32_t)(2) << _U1CON_STP_POSITION)))
+#define U1CON_STP_2_SENT_1_RECEIVE           ((uint32_t)(_U1CON_STP_MASK & ((uint32_t)(3) << _U1CON_STP_POSITION)))
 
 //UART UxCON CLKSEL options
-#define U1CON_CLKSEL_UPB_CLOCK        ((uint32_t)(_U1CON_CLKSEL_MASK & ((uint32_t)(0) << _U1CON_CLKSEL_POSITION))) 
-#define U1CON_CLKSEL_CLOCK_GEN_8        ((uint32_t)(_U1CON_CLKSEL_MASK & ((uint32_t)(1) << _U1CON_CLKSEL_POSITION))) 
+#define U1CON_CLKSEL_UPB_CLOCK        ((uint32_t)(_U1CON_CLKSEL_MASK & ((uint32_t)(0) << _U1CON_CLKSEL_POSITION)))
+#define U1CON_CLKSEL_CLOCK_GEN_8        ((uint32_t)(_U1CON_CLKSEL_MASK & ((uint32_t)(1) << _U1CON_CLKSEL_POSITION)))
 
 //UART UxCON FLO options
-#define U1CON_FLO_NONE        ((uint32_t)(_U1CON_FLO_MASK & ((uint32_t)(0) << _U1CON_FLO_POSITION))) 
+#define U1CON_FLO_NONE        ((uint32_t)(_U1CON_FLO_MASK & ((uint32_t)(0) << _U1CON_FLO_POSITION)))
 
 #define UART_MAX_BAUD 0xFFFFFUL
 #define UART_MIN_FRACTIONAL_BAUD 16U
 
 #define UART1_READ_BUFFER_SIZE      (256U + 1U)
-volatile static uint8_t UART1_ReadBuffer[UART1_READ_BUFFER_SIZE];
+static volatile uint8_t UART1_ReadBuffer[UART1_READ_BUFFER_SIZE];
 
 #define UART1_WRITE_BUFFER_SIZE      (256U + 1U)
-volatile static uint8_t UART1_WriteBuffer[UART1_WRITE_BUFFER_SIZE];
+static volatile uint8_t UART1_WriteBuffer[UART1_WRITE_BUFFER_SIZE];
 
-void static UART1_ErrorClear( void )
+static void UART1_ErrorClear( void )
 {
     UART_ERROR errors = UART_ERROR_NONE;
     uint8_t dummyData = 0u;
@@ -132,7 +132,7 @@ void UART1_Initialize( void )
 
     /* BAUD Rate register Setup */
     U1BRG = 0x6d;
-  
+
     /* Disable Interrupts */
     IEC2bits.U1EIE = 0U;
     IEC2bits.U1RXIE = 0U;
@@ -164,7 +164,7 @@ void UART1_Initialize( void )
 
     /* Enable UART1_RX Interrupt */
     IEC2bits.U1RXIE = 1U;
-    
+
     /* Turn ON UART1 */
     U1CON |= (_U1CON_ON_MASK
                  |_U1CON_TXEN_MASK
@@ -190,11 +190,11 @@ bool UART1_SerialSetup( UART_SERIAL_SETUP *setup, uint32_t srcClkFreq )
 
         srcClkFreq = UART1_FrequencyGet();
 
-        
+
         /* Turn OFF UART1. Save UTXEN, URXEN bits as these are cleared upon disabling UART */
         ctrlReg = U1CON & (_U1CON_TXEN_MASK | _U1CON_RXEN_MASK );
         U1CONbits.ON = 0U;
-              
+
         /* Calculate BRG value in fractional mode as it has least error rate */
         uxbrg = (srcClkFreq/baud);
         /* Check if the valid baud value is set */
@@ -208,7 +208,7 @@ bool UART1_SerialSetup( UART_SERIAL_SETUP *setup, uint32_t srcClkFreq )
             /* Calculate BRG value for high speed mode*/
             uxbrg = (srcClkFreq/(4U*baud)) - 1U;
             U1CONbits.BRGS = 1U;
-            
+
             if(uxbrg > UART_MAX_BAUD)
             {
                 /* Calculate BRG value for low speed mode*/
@@ -225,7 +225,7 @@ bool UART1_SerialSetup( UART_SERIAL_SETUP *setup, uint32_t srcClkFreq )
         {
             U1CONbits.CLKMOD = 1;
         }
-        
+
         if(setup->dataWidth == UART_DATA_8_BIT)
         {
             /* Configure UART1 mode with parity if mode is 8 bit */
@@ -239,7 +239,7 @@ bool UART1_SerialSetup( UART_SERIAL_SETUP *setup, uint32_t srcClkFreq )
 
         /* Configure UART1 mode */
         U1CONbits.STP = (uint8_t)setup->stopBits;
-        
+
         /* Configure UART1 Baud Rate */
         U1BRG = uxbrg;
 
@@ -669,7 +669,7 @@ void U1E_InterruptHandler(void)
 
     /* Disable the receive interrupt */
     IEC2bits.U1RXIE = 0U;
-    
+
     UART1_ErrorClear();
 
     /* Client must call UARTx_ErrorGet() function to clear the errors */
@@ -710,7 +710,7 @@ void U1TX_InterruptHandler(void)
     {
         /* Clear UART1TX Interrupt flag */
         IFS2bits.U1TXIF = 0U;
-        
+
         /* Keep writing to the TX FIFO as long as there is space */
         while(U1STATbits.TXBF == 0U)
         {

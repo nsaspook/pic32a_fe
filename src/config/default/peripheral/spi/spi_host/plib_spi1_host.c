@@ -43,7 +43,7 @@
 #include "interrupts.h"
 
 /* Global object to save SPI Exchange related data */
-volatile static SPI_OBJECT spi1Obj;
+static volatile SPI_OBJECT spi1Obj;
 
 // *****************************************************************************
 // *****************************************************************************
