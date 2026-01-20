@@ -53,17 +53,15 @@ static inline uint32_t htonl(uint32_t x)
  */
 void ADC_DMA_write(void)
 {
-	TP1_Set();
+	TEST_TP1_Set();
 	/*
-	 * trigger both ADC's
+	 * trigger both ADC's using PTG trigger
 	 */
-	AD1SWTRGbits.CH6TRG = 1;
-	AD2SWTRGbits.CH4TRG = 1;
 	while (AD1STATbits.CH6RDY == 0 && AD2STATbits.CH4RDY == 0); // conversions complete on both
 	adc_result[ADC1_D] = (uint16_t) AD1CH6DATA; // save as uint16_t data
 	adc_result[ADC2_D] = (uint16_t) AD2CH4DATA;
 	memcpy((void *) &iss_adc_write[ADC_SAMPLES_START], (const void *) &adc_result[ADC1_D], ADC_SAMPLES_SIZE);
-	TP1_Clear();
+	TEST_TP1_Clear();
 
 	switch (iss_state) {
 	case ISS_INIT:
@@ -74,7 +72,7 @@ void ADC_DMA_write(void)
 		iss_page_write_swap = htonl(ISS_PAGE_WRITE_CMD);
 		break;
 	case ISS_PAGE:
-		TP0_Set();
+		TEST_TP0_Set();
 		while (SPI2_IsTransmitterBusy() && --cdown != 0); // SPI buffer empty timeout
 		cdown = CDOWN;
 		SRAM_CS_Set();
@@ -96,7 +94,7 @@ void ADC_DMA_write(void)
 			ISS_PAGE_WRITE_CMD += ISS66_PAGE_SIZE; // next full sram page
 			iss_page_write_swap = htonl(ISS_PAGE_WRITE_CMD);
 		}
-		TP0_Clear();
+		TEST_TP0_Clear();
 		break;
 	case ISS_STORE:
 		while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
@@ -180,17 +178,17 @@ void ADC_DMA_init(void)
 	// by a high priority channels conversion requests.
 	AD1CH6CONbits.ACCBRST = 1;
 	AD2CH4CONbits.ACCBRST = 1;
-	// Software trigger will start a conversion.
-	AD1CH6CONbits.TRG1SRC = 1; // software
+	// PTG trigger will start conversions.
+	AD1CH6CONbits.TRG1SRC = 30; // PTG trigger 12
 	AD1CH6CONbits.TRG2SRC = 2; // back-to-back
-	AD2CH4CONbits.TRG1SRC = 1; // software
+	AD2CH4CONbits.TRG1SRC = 30; // PTG trigger 12
 	AD2CH4CONbits.TRG2SRC = 2;
 	// Use a single-ended input.
 	AD1CH6CONbits.DIFF = 0;
 	// Select the AN6 analog positive input/pin for the signal.
 	AD1CH6CONbits.PINSEL = 6;
 	// Select signal sampling time ( 0 = TADs = 6.25nS).
-	AD1CH6CONbits.SAMC = 0; // 12.5ns
+	AD1CH6CONbits.SAMC = 0;
 	AD2CH4CONbits.SAMC = 0;
 	// Enable repeat rate.
 	AD1CONbits.CALRATE = 1;
@@ -204,13 +202,6 @@ void ADC_DMA_init(void)
 	AD1CONbits.ON = 1;
 	// Wait when ADC will be ready/calibrated.
 	while (AD1CONbits.ADRDY == 0);
-
-	// Trigger channel #6 in software and wait for the result.
-	AD1SWTRGbits.CH6TRG = 1;
-	// Wait for a conversion ready flag.
-	while (AD1STATbits.CH6RDY == 0);
-	// Read result. It will clear the conversion ready flag.
-	adc_result[ADC1_D] = AD1CH6DATA;
 
 	switch (iss_chip) {
 	case ISS_ISS_32Mb:

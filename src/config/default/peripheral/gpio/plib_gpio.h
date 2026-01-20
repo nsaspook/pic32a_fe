@@ -56,14 +56,14 @@
 // Section: Data types and constants
 
 
-/*** Macros for TP1 pin ***/
-#define TP1_Set()               (_LATA11 = 1U)
-#define TP1_Clear()             (_LATA11 = 0U)
-#define TP1_Toggle()            (_LATA11 ^= 1U)
-#define TP1_OutputEnable()      (_TRISA11 = 0U)
-#define TP1_InputEnable()       (_TRISA11 = 1U)
-#define TP1_Get()               ((PORTA >> 11) & 0x1)
-#define TP1_PIN                 GPIO_PIN_RA11
+/*** Macros for TEST_TP1 pin ***/
+#define TEST_TP1_Set()               (_LATA11 = 1U)
+#define TEST_TP1_Clear()             (_LATA11 = 0U)
+#define TEST_TP1_Toggle()            (_LATA11 ^= 1U)
+#define TEST_TP1_OutputEnable()      (_TRISA11 = 0U)
+#define TEST_TP1_InputEnable()       (_TRISA11 = 1U)
+#define TEST_TP1_Get()               ((PORTA >> 11) & 0x1)
+#define TEST_TP1_PIN                 GPIO_PIN_RA11
 
 /*** Macros for DLED pin ***/
 #define DLED_Set()               (_LATB5 = 1U)
@@ -137,14 +137,14 @@
 #define TXDE_Get()               ((PORTC >> 5) & 0x1)
 #define TXDE_PIN                 GPIO_PIN_RC5
 
-/*** Macros for TP0 pin ***/
-#define TP0_Set()               (_LATD9 = 1U)
-#define TP0_Clear()             (_LATD9 = 0U)
-#define TP0_Toggle()            (_LATD9 ^= 1U)
-#define TP0_OutputEnable()      (_TRISD9 = 0U)
-#define TP0_InputEnable()       (_TRISD9 = 1U)
-#define TP0_Get()               ((PORTD >> 9) & 0x1)
-#define TP0_PIN                 GPIO_PIN_RD9
+/*** Macros for TEST_TP0 pin ***/
+#define TEST_TP0_Set()               (_LATD9 = 1U)
+#define TEST_TP0_Clear()             (_LATD9 = 0U)
+#define TEST_TP0_Toggle()            (_LATD9 ^= 1U)
+#define TEST_TP0_OutputEnable()      (_TRISD9 = 0U)
+#define TEST_TP0_InputEnable()       (_TRISD9 = 1U)
+#define TEST_TP0_Get()               ((PORTD >> 9) & 0x1)
+#define TEST_TP0_PIN                 GPIO_PIN_RD9
 
 /*** Macros for RLED pin ***/
 #define RLED_Set()               (_LATD0 = 1U)

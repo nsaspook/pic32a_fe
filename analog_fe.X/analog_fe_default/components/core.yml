@@ -3825,7 +3825,7 @@ data:
       children:
       - children:
         - attributes:
-            value: TP0
+            value: TEST_TP0
           type: User
         type: Values
       type: String
@@ -5968,7 +5968,7 @@ data:
       children:
       - children:
         - attributes:
-            value: TP1
+            value: TEST_TP1
           type: User
         type: Values
       type: String
@@ -6200,7 +6200,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '200.0'
+            value: '396.0'
           type: Dynamic
         type: Values
       type: String
@@ -6211,7 +6211,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '200000000'
+            value: '396000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -6232,7 +6232,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '200000000'
+            value: '792000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -6242,7 +6242,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -6252,7 +6252,7 @@ data:
       children:
       - children:
         - attributes:
-            value: 'false'
+            value: 'true'
           type: User
         type: Values
       type: Boolean
@@ -6621,6 +6621,37 @@ data:
     clkGen9enableFailSafeClock:
       attributes:
         id: clkGen9enableFailSafeClock
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    clkGen10CON__BOSC:
+      attributes:
+        id: clkGen10CON__BOSC
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
+      type: KeyValueSet
+    clkGen10CON__FSCMEN:
+      attributes:
+        id: clkGen10CON__FSCMEN
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    clkGen10enableFailSafeClock:
+      attributes:
+        id: clkGen10enableFailSafeClock
       children:
       - children:
         - attributes:

@@ -130,7 +130,7 @@ void ADC2_Initialize(void)
                             |AD2CH4CON_PINSEL_SET(7)
                             |AD2CH4CON_NINSEL_SET(0)
                             |AD2CH4CON_SAMC_SET(0)
-                            |AD2CH4CON_TRG1SRC_SET(1));
+                            |AD2CH4CON_TRG1SRC_SET(30));
     AD2CH4CNT = AD2CH4CNT_CNT_SET(0);
     AD2CH4CMPLO = 0X0UL;
     AD2CH4CMPHI = 0X0UL;

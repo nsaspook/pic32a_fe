@@ -90,21 +90,23 @@ int main(void)
 	/*
 	 * read the iss66 chip ID register
 	 */
-	//	SPI2CON1bits.ON = 0U;
-	//	SPI2CON1bits.MODE32 = 0U; // 8-bit SPI transfers
-	//	SPI2CON1bits.ON = 1U;
-	SRAM_CS_Clear();
+	SRAM_CS_Clear(); // make sure SRAM is out of standby
 	SRAM_CS_Set();
 	SRAM_CS_Clear();
 	SRAM_CS_Set();
-	//	while (true) {
-	//		ISS_read_id();
-	//	}
+
 	if (ISS_read_id() != ISS_ISS_UNK) {
 		ADC_DMA_init(); // setup background ADC data tasks
 	} else {
 		ADC_DMA_init();
 	}
+
+	/*
+	 * setup ADC's trigger sequence
+	 */
+	PTG_Enable();
+	PTG_StepSequenceStart();
+
 	CMP1_DACDataWrite(DAC1_CAL);
 	/*
 	 * configure SPI port for IMU if needed, detect sensor and config

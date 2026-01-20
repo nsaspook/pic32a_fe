@@ -1,0 +1,421 @@
+configVersion: 1.0.0
+componentName: ptg
+coreVersion: 5.8.3
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: ptg
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.25.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: ptg
+          x: '233'
+          y: '280'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    PTGSDLIM:
+      attributes:
+        id: PTGSDLIM
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '81'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PTGT0LIM:
+      attributes:
+        id: PTGT0LIM
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PTGT1LIM:
+      attributes:
+        id: PTGT1LIM
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Hex
+    PTG_CON__PTGITM:
+      attributes:
+        id: PTG_CON__PTGITM
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    STEP0_COMMAND:
+      attributes:
+        id: STEP0_COMMAND
+      children:
+      - children:
+        - attributes:
+            value: PTGTRIG
+          type: User
+        type: Values
+      type: Combo
+    STEP0_OPTIONS:
+      attributes:
+        id: STEP0_OPTIONS
+      children:
+      - children:
+        - attributes:
+            id: comboValues
+          children:
+          - children:
+            - type: Value
+              value: Trigger for ADC Sample Trigger
+            - type: Value
+              value: PPS Output RP55
+            - type: Value
+              value: PPS Output RP56
+            - type: Value
+              value: PPS Input RP167
+            - type: Value
+              value: PPS Input RP168
+            type: Values
+          type: StringList
+        type: Attributes
+      - children:
+        - attributes:
+            id: ptg
+            value: Trigger for ADC Sample Trigger
+          type: Dynamic
+        type: Values
+      type: Combo
+    STEP0_OPTION_VALUE:
+      attributes:
+        id: STEP0_OPTION_VALUE
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '12'
+          type: Dynamic
+        type: Values
+      type: Hex
+    maxStepSequence:
+      attributes:
+        id: maxStepSequence
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '32'
+          type: Dynamic
+        type: Values
+      type: Integer
+    stepDelay:
+      attributes:
+        id: stepDelay
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '165.4924'
+          type: Float
+        - attributes:
+            id: min
+          children:
+          - type: Value
+            value: '0.0025'
+          type: Float
+        type: Attributes
+      - children:
+        - attributes:
+            value: '0.205'
+          type: User
+        type: Values
+      type: Float
+    timer0Period:
+      attributes:
+        id: timer0Period
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '165.4924'
+          type: Float
+        - attributes:
+            id: min
+          children:
+          - type: Value
+            value: '0.0025'
+          type: Float
+        type: Attributes
+      - children:
+        - attributes:
+            value: '0.005'
+          type: User
+        type: Values
+      type: Float
+    timer1Period:
+      attributes:
+        id: timer1Period
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '165.4924'
+          type: Float
+        - attributes:
+            id: min
+          children:
+          - type: Value
+            value: '0.0025'
+          type: Float
+        type: Attributes
+      - children:
+        - attributes:
+            value: '0.005'
+          type: User
+        type: Values
+      type: Float
+    STEP1_OPTION_VALUE:
+      attributes:
+        id: STEP1_OPTION_VALUE
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    STEP1_OPTIONS:
+      attributes:
+        id: STEP1_OPTIONS
+      children:
+      - children:
+        - attributes:
+            id: comboValues
+          children:
+          - children:
+            - type: Value
+              value: Disable Step Delay Timer  PTGSD
+            - type: Value
+              value: Enable Step Delay Timer  PTGSD
+            - type: Value
+              value: Wait for PTG Timer0 to match PTGT0LIM
+            - type: Value
+              value: Wait for PTG Timer1 to match PTGT1LIM
+            - type: Value
+              value: Wait for the software trigger  positive edge  PTGSWT   0 to 1
+            - type: Value
+              value: Wait for the software trigger  level  PTGSWT   1
+            - type: Value
+              value: Generate triggers indicated in PTGBTE
+            - type: Value
+              value: NOP
+            type: Values
+          type: StringList
+        type: Attributes
+      - children:
+        - attributes:
+            id: ptg
+            value: Disable Step Delay Timer  PTGSD
+          type: Dynamic
+        - attributes:
+            value: NOP
+          type: User
+        type: Values
+      type: Combo
+    STEP1_COMMAND:
+      attributes:
+        id: STEP1_COMMAND
+      children:
+      - children:
+        - attributes:
+            value: PTGCTRL
+          type: User
+        type: Values
+      type: Combo
+    PTGC0LIM:
+      attributes:
+        id: PTGC0LIM
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: Hex
+    PTGC1LIM:
+      attributes:
+        id: PTGC1LIM
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: Hex
+    PTGHOLD:
+      attributes:
+        id: PTGHOLD
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: Hex
+    PTGADJ:
+      attributes:
+        id: PTGADJ
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: Hex
+    STEP2_OPTION_VALUE:
+      attributes:
+        id: STEP2_OPTION_VALUE
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Hex
+    STEP2_OPTIONS:
+      attributes:
+        id: STEP2_OPTIONS
+      children:
+      - children:
+        - attributes:
+            id: comboValues
+          children:
+          - children:
+            - type: Value
+              value: Jump to STEP0
+            - type: Value
+              value: Jump to STEP1
+            - type: Value
+              value: Jump to STEP2
+            - type: Value
+              value: Jump to STEP3
+            - type: Value
+              value: Jump to STEP4
+            - type: Value
+              value: Jump to STEP5
+            - type: Value
+              value: Jump to STEP6
+            - type: Value
+              value: Jump to STEP7
+            - type: Value
+              value: Jump to STEP8
+            - type: Value
+              value: Jump to STEP9
+            - type: Value
+              value: Jump to STEP10
+            - type: Value
+              value: Jump to STEP11
+            - type: Value
+              value: Jump to STEP12
+            - type: Value
+              value: Jump to STEP13
+            - type: Value
+              value: Jump to STEP14
+            - type: Value
+              value: Jump to STEP15
+            - type: Value
+              value: Jump to STEP16
+            - type: Value
+              value: Jump to STEP17
+            - type: Value
+              value: Jump to STEP18
+            - type: Value
+              value: Jump to STEP19
+            - type: Value
+              value: Jump to STEP20
+            - type: Value
+              value: Jump to STEP21
+            - type: Value
+              value: Jump to STEP22
+            - type: Value
+              value: Jump to STEP23
+            - type: Value
+              value: Jump to STEP24
+            - type: Value
+              value: Jump to STEP25
+            - type: Value
+              value: Jump to STEP26
+            - type: Value
+              value: Jump to STEP27
+            - type: Value
+              value: Jump to STEP28
+            - type: Value
+              value: Jump to STEP29
+            - type: Value
+              value: Jump to STEP30
+            - type: Value
+              value: Jump to STEP31
+            type: Values
+          type: StringList
+        type: Attributes
+      - children:
+        - attributes:
+            id: ptg
+            value: Jump to STEP0
+          type: Dynamic
+        type: Values
+      type: Combo
+    STEP2_COMMAND:
+      attributes:
+        id: STEP2_COMMAND
+      children:
+      - children:
+        - attributes:
+            value: PTGJMP
+          type: User
+        type: Values
+      type: Combo
+    CLK_FREQ:
+      attributes:
+        id: CLK_FREQ
+      children:
+      - children:
+        - attributes:
+            id: ptg
+            value: '396000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+  userData: {}

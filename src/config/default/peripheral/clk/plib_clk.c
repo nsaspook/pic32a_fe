@@ -368,7 +368,7 @@ void CLOCK_Initialize(void)
         Clock Generator 6 frequency                     : 200.0 MHz
         Clock Generator 7 frequency                     : 8.0 MHz
         Clock Generator 9 frequency                     : 143.085391 MHz
-        Clock Generator 10 frequency                     : 200.0 MHz
+        Clock Generator 10 frequency                     : 396.0 MHz
         Clock Generator 12 frequency                     : 1.0 MHz
 
         PLL 1 frequency                                 : 200.0 MHz
@@ -548,8 +548,17 @@ void CLOCK_Initialize(void)
     //Clock Generator 10 settings
     CLK10CON = (_CLK10CON_ON_MASK
                 |_CLK10CON_OE_MASK
-                |CLK10CON_NOSC_PLL1_FOUT
-                |CLK10CON_BOSC_BFRC);
+                |CLK10CON_NOSC_PLL2_FOUT
+                |CLK10CON_BOSC_PLL1_FOUT
+                |_CLK10CON_FSCMEN_MASK);
+    CLK10DIV = (CLK10DIV_INTDIV_SET(1)
+                 |CLK10DIV_FRACDIV_SET(0));
+    //Enable divide factors
+    CLK10CONbits.DIVSWEN = 1U;
+#ifndef __MPLAB_DEBUGGER_SIMULATOR
+    //Wait for divide factors to get updated
+    while(CLK10CONbits.DIVSWEN == 1U){};
+#endif
     //Enable clock switching
     CLK10CONbits.OSWEN = 1U;
 #ifndef __MPLAB_DEBUGGER_SIMULATOR

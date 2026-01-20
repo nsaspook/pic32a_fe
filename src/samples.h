@@ -20,7 +20,7 @@ extern "C" {
 #include <string.h>
 #include "definitions.h"                // SYS function prototypes
 
-#define FE_DRIVER "V1.05"
+#define FE_DRIVER "V1.06"
 #define FE_ALIAS "PIC32AK FE"
 
 	//#define ISS_DMA_READ
