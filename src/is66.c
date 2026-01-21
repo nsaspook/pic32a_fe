@@ -181,17 +181,17 @@ void ADC_DMA_init(void)
 	// PTG trigger will start conversions.
 	AD1CH6CONbits.TRG1SRC = 30; // PTG trigger 12
 	AD1CH6CONbits.TRG2SRC = 2; // back-to-back
-	AD2CH4CONbits.TRG1SRC = 30; // PTG trigger 12
+	AD2CH4CONbits.TRG1SRC = 30;
 	AD2CH4CONbits.TRG2SRC = 2;
 	// Use a single-ended input.
 	AD1CH6CONbits.DIFF = 0;
 	// Select the AN6 analog positive input/pin for the signal.
 	AD1CH6CONbits.PINSEL = 6;
 	// Select signal sampling time ( 0 = TADs = 6.25nS).
-	AD1CH6CONbits.SAMC = 0;
-	AD2CH4CONbits.SAMC = 0;
+	AD1CH6CONbits.SAMC = ADC_SAMC;
+	AD2CH4CONbits.SAMC = ADC_SAMC;
 	// Enable repeat rate.
-	AD1CONbits.CALRATE = 1;
+	AD1CONbits.CALRATE = 1; // Recalibrate every 64 seconds
 	AD2CONbits.CALRATE = 1;
 	// Enable auto calibration.
 	AD1CONbits.ACALEN = 1;

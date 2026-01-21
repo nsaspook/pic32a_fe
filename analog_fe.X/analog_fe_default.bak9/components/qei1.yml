@@ -1,0 +1,80 @@
+configVersion: 1.0.0
+componentName: qei1
+coreVersion: 5.8.3
+device: PIC32AK1216GC41064
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: qei1
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.25.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: qei1
+          x: '495'
+          y: '68'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    IS_HOME_SIGNAL_ENABLED:
+      attributes:
+        id: IS_HOME_SIGNAL_ENABLED
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    IS_INDEX_PULSE_ENABLED:
+      attributes:
+        id: IS_INDEX_PULSE_ENABLED
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    QEI_IOC__HOMPOL:
+      attributes:
+        id: QEI_IOC__HOMPOL
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    CLK_SRC_FREQ:
+      attributes:
+        id: CLK_SRC_FREQ
+      children:
+      - children:
+        - attributes:
+            id: qei1
+            value: '100000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+  userData: {}

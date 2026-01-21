@@ -105,9 +105,9 @@ void PTG_Initialize (void)
 
 	PTGBTE   = 0x0UL;
 	PTGHOLD  = 0x0UL;
-	PTGT0LIM = 0x1UL;
-	PTGT1LIM = 0x1UL;
-	PTGSDLIM = 0x51UL;
+	PTGT0LIM = 0x0UL;
+	PTGT1LIM = 0x0UL;
+	PTGSDLIM = 0x13UL;
     PTGC0LIM = 0x0UL;
 	PTGC1LIM = 0x0UL;
 	PTGADJ   = 0x0UL;
@@ -119,7 +119,7 @@ void PTG_Initialize (void)
   */
 
  	PTG_STEP0 = PTGTRIG | 0xcU; //Trigger for ADC Sample Trigger
- 	PTG_STEP1 = PTGCTRL | 0x0U; //NOP
+ 	PTG_STEP1 = PTGCTRL | 0x6U; //Enable Step Delay Timer  PTGSD
  	PTG_STEP2 = PTGJMP | 0x0U; //Jump to STEP0
  	PTG_STEP3 = PTGCTRL | 0x0U; //NOP
  	PTG_STEP4 = PTGCTRL | 0x0U; //NOP

@@ -36,6 +36,7 @@ extern "C" {
 #define NUM_ADC	2
 #define ADC1_D	0
 #define ADC2_D	1
+#define ADC_SAMC	7
 
 #define ADC1_SCALE	0.000403900f
 #define ADC2_SCALE	0.000402000f
