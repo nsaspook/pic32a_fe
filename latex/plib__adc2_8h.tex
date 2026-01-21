@@ -1,0 +1,197 @@
+\doxysection{src/config/default/peripheral/adc/plib\+\_\+adc2.h File Reference}
+\hypertarget{plib__adc2_8h}{}\label{plib__adc2_8h}\index{src/config/default/peripheral/adc/plib\_adc2.h@{src/config/default/peripheral/adc/plib\_adc2.h}}
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}plib\+\_\+adc\+\_\+common.\+h"{}}\newline
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\+\_\+\+CHANNEL}} \{ \mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773a215a3412f2f9907324842900f5c6f3a3}{ADC2\+\_\+\+CHANNEL4}} = 4U
+, \mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773aa6cacaa76cc0efeb82f2c8c96cbfb75b}{ADC2\+\_\+\+MAX\+\_\+\+CHANNELS}} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em Defines the ADC channles that are selected. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23}{ADC2\+\_\+\+PWM\+\_\+\+INSTANCE}} \{ \mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23a94c4c8d9576363fe58a04b64c86d1ee1}{ADC2\+\_\+\+PWM1}} = 1
+, \mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23a8c80b5444bb12c41a79b61cbb49b2b79}{ADC2\+\_\+\+PWM2}} = 2
+, \mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23a3a4b0ed403248c3f4e5be5f4b2658e32}{ADC2\+\_\+\+PWM3}} = 3
+, \mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23aa2adc05da23732729b45ad4629310395}{ADC2\+\_\+\+PWM4}} = 4
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__adc2_8h_a987ebcb79cab29ecba0dc2983af54a74}{ADC2\+\_\+\+Initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes ADC2 module, using the given initialization data This function must be called before any other ADC2 function is called. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__adc2_8h_ab43e3265a8ac9ae6135fbbf24ae02dcf}{ADC2\+\_\+\+Deinitialize}} (void)
+\begin{DoxyCompactList}\small\item\em Deinitializes the ADC2 to POR values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__adc2_8h_a865f997d78a4998390e0c057cde2583c}{ADC2\+\_\+\+Channel\+Callback\+Register}} (\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\+\_\+\+CHANNEL}} channel, \mbox{\hyperlink{plib__adc__common_8h_a0ecb5177d11a20d79e3b20305e9d8fa0}{ADC\+\_\+\+CHANNEL\+\_\+\+CALLBACK}} callback, uintptr\+\_\+t context)
+\begin{DoxyCompactList}\small\item\em This function can be used to define custom callback for ADC2 Channel event. Read the conversion result of the corresponding channel in the custom callback. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__adc2_8h_a06b5fb7fb15947da1d8d63a0ca06b1ab}{ADC2\+\_\+\+PWMTrigger\+Source\+Set}} (\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\+\_\+\+CHANNEL}} channel, \mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23}{ADC2\+\_\+\+PWM\+\_\+\+INSTANCE}} pwm\+Instance, \mbox{\hyperlink{plib__adc__common_8h_a149ac70fba51af61abec9c9625d35e10}{ADC\+\_\+\+PWM\+\_\+\+TRIGGERS}} trigger\+Number)
+\begin{DoxyCompactList}\small\item\em Sets Trigger source as PWM Trigger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{plib__adc2_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}\index{plib\_adc2.h@{plib\_adc2.h}!ADC2\_CHANNEL@{ADC2\_CHANNEL}}
+\index{ADC2\_CHANNEL@{ADC2\_CHANNEL}!plib\_adc2.h@{plib\_adc2.h}}
+\doxysubsubsection{\texorpdfstring{ADC2\_CHANNEL}{ADC2\_CHANNEL}}
+{\footnotesize\ttfamily \label{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773} 
+enum \mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\+\_\+\+CHANNEL}}}
+
+
+
+Defines the ADC channles that are selected. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC2\_CHANNEL4@{ADC2\_CHANNEL4}!plib\_adc2.h@{plib\_adc2.h}}\index{plib\_adc2.h@{plib\_adc2.h}!ADC2\_CHANNEL4@{ADC2\_CHANNEL4}}}\Hypertarget{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773a215a3412f2f9907324842900f5c6f3a3}\label{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773a215a3412f2f9907324842900f5c6f3a3} 
+ADC2\+\_\+\+CHANNEL4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC2\_MAX\_CHANNELS@{ADC2\_MAX\_CHANNELS}!plib\_adc2.h@{plib\_adc2.h}}\index{plib\_adc2.h@{plib\_adc2.h}!ADC2\_MAX\_CHANNELS@{ADC2\_MAX\_CHANNELS}}}\Hypertarget{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773aa6cacaa76cc0efeb82f2c8c96cbfb75b}\label{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773aa6cacaa76cc0efeb82f2c8c96cbfb75b} 
+ADC2\+\_\+\+MAX\+\_\+\+CHANNELS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8h_source_l00067}{67}} of file \mbox{\hyperlink{plib__adc2_8h_source}{plib\+\_\+adc2.\+h}}.
+
+\Hypertarget{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23}\index{plib\_adc2.h@{plib\_adc2.h}!ADC2\_PWM\_INSTANCE@{ADC2\_PWM\_INSTANCE}}
+\index{ADC2\_PWM\_INSTANCE@{ADC2\_PWM\_INSTANCE}!plib\_adc2.h@{plib\_adc2.h}}
+\doxysubsubsection{\texorpdfstring{ADC2\_PWM\_INSTANCE}{ADC2\_PWM\_INSTANCE}}
+{\footnotesize\ttfamily \label{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23} 
+enum \mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23}{ADC2\+\_\+\+PWM\+\_\+\+INSTANCE}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC2\_PWM1@{ADC2\_PWM1}!plib\_adc2.h@{plib\_adc2.h}}\index{plib\_adc2.h@{plib\_adc2.h}!ADC2\_PWM1@{ADC2\_PWM1}}}\Hypertarget{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23a94c4c8d9576363fe58a04b64c86d1ee1}\label{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23a94c4c8d9576363fe58a04b64c86d1ee1} 
+ADC2\+\_\+\+PWM1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC2\_PWM2@{ADC2\_PWM2}!plib\_adc2.h@{plib\_adc2.h}}\index{plib\_adc2.h@{plib\_adc2.h}!ADC2\_PWM2@{ADC2\_PWM2}}}\Hypertarget{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23a8c80b5444bb12c41a79b61cbb49b2b79}\label{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23a8c80b5444bb12c41a79b61cbb49b2b79} 
+ADC2\+\_\+\+PWM2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC2\_PWM3@{ADC2\_PWM3}!plib\_adc2.h@{plib\_adc2.h}}\index{plib\_adc2.h@{plib\_adc2.h}!ADC2\_PWM3@{ADC2\_PWM3}}}\Hypertarget{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23a3a4b0ed403248c3f4e5be5f4b2658e32}\label{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23a3a4b0ed403248c3f4e5be5f4b2658e32} 
+ADC2\+\_\+\+PWM3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC2\_PWM4@{ADC2\_PWM4}!plib\_adc2.h@{plib\_adc2.h}}\index{plib\_adc2.h@{plib\_adc2.h}!ADC2\_PWM4@{ADC2\_PWM4}}}\Hypertarget{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23aa2adc05da23732729b45ad4629310395}\label{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23aa2adc05da23732729b45ad4629310395} 
+ADC2\+\_\+\+PWM4&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8h_source_l00078}{78}} of file \mbox{\hyperlink{plib__adc2_8h_source}{plib\+\_\+adc2.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{plib__adc2_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__adc2_8h_a865f997d78a4998390e0c057cde2583c}\index{plib\_adc2.h@{plib\_adc2.h}!ADC2\_ChannelCallbackRegister@{ADC2\_ChannelCallbackRegister}}
+\index{ADC2\_ChannelCallbackRegister@{ADC2\_ChannelCallbackRegister}!plib\_adc2.h@{plib\_adc2.h}}
+\doxysubsubsection{\texorpdfstring{ADC2\_ChannelCallbackRegister()}{ADC2\_ChannelCallbackRegister()}}
+{\footnotesize\ttfamily \label{plib__adc2_8h_a865f997d78a4998390e0c057cde2583c} 
+void ADC2\+\_\+\+Channel\+Callback\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\+\_\+\+CHANNEL}}}]{channel}{, }\item[{\mbox{\hyperlink{plib__adc__common_8h_a0ecb5177d11a20d79e3b20305e9d8fa0}{ADC\+\_\+\+CHANNEL\+\_\+\+CALLBACK}}}]{callback}{, }\item[{uintptr\+\_\+t}]{context}{}\end{DoxyParamCaption})}
+
+
+
+This function can be used to define custom callback for ADC2 Channel event. Read the conversion result of the corresponding channel in the custom callback. 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & -\/ Selected channel. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em callback} & -\/ Address of the channel callback function. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em context} & -\/ A value (usually a pointer) passed (unused) into the function identified by the callback parameter. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00209}{209}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8h_ab43e3265a8ac9ae6135fbbf24ae02dcf}\index{plib\_adc2.h@{plib\_adc2.h}!ADC2\_Deinitialize@{ADC2\_Deinitialize}}
+\index{ADC2\_Deinitialize@{ADC2\_Deinitialize}!plib\_adc2.h@{plib\_adc2.h}}
+\doxysubsubsection{\texorpdfstring{ADC2\_Deinitialize()}{ADC2\_Deinitialize()}}
+{\footnotesize\ttfamily \label{plib__adc2_8h_ab43e3265a8ac9ae6135fbbf24ae02dcf} 
+void ADC2\+\_\+\+Deinitialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Deinitializes the ADC2 to POR values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00144}{144}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8h_a987ebcb79cab29ecba0dc2983af54a74}\index{plib\_adc2.h@{plib\_adc2.h}!ADC2\_Initialize@{ADC2\_Initialize}}
+\index{ADC2\_Initialize@{ADC2\_Initialize}!plib\_adc2.h@{plib\_adc2.h}}
+\doxysubsubsection{\texorpdfstring{ADC2\_Initialize()}{ADC2\_Initialize()}}
+{\footnotesize\ttfamily \label{plib__adc2_8h_a987ebcb79cab29ecba0dc2983af54a74} 
+void ADC2\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes ADC2 module, using the given initialization data This function must be called before any other ADC2 function is called. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00120}{120}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8h_a06b5fb7fb15947da1d8d63a0ca06b1ab}\index{plib\_adc2.h@{plib\_adc2.h}!ADC2\_PWMTriggerSourceSet@{ADC2\_PWMTriggerSourceSet}}
+\index{ADC2\_PWMTriggerSourceSet@{ADC2\_PWMTriggerSourceSet}!plib\_adc2.h@{plib\_adc2.h}}
+\doxysubsubsection{\texorpdfstring{ADC2\_PWMTriggerSourceSet()}{ADC2\_PWMTriggerSourceSet()}}
+{\footnotesize\ttfamily \label{plib__adc2_8h_a06b5fb7fb15947da1d8d63a0ca06b1ab} 
+void ADC2\+\_\+\+PWMTrigger\+Source\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\+\_\+\+CHANNEL}}}]{channel}{, }\item[{\mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23}{ADC2\+\_\+\+PWM\+\_\+\+INSTANCE}}}]{pwm\+Instance}{, }\item[{\mbox{\hyperlink{plib__adc__common_8h_a149ac70fba51af61abec9c9625d35e10}{ADC\+\_\+\+PWM\+\_\+\+TRIGGERS}}}]{trigger\+Number}{}\end{DoxyParamCaption})}
+
+
+
+Sets Trigger source as PWM Trigger. 
+
+\begin{DoxyPrecond}{Precondition}
+PWM must be enabled and configured 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & -\/ Selected channel. \\
+\hline
+\mbox{\texttt{ in}}  & {\em pwm\+Instance} & -\/ Instance of PWM. Refer Datasheet for available PWMs as trigger source \\
+\hline
+\mbox{\texttt{ in}}  & {\em trigger\+Number} & -\/ Selection between Trigger 1 or Trigger 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00194}{194}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+

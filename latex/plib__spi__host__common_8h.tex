@@ -1,0 +1,122 @@
+\doxysection{src/config/default/peripheral/spi/spi\+\_\+host/plib\+\_\+spi\+\_\+host\+\_\+common.h File Reference}
+\hypertarget{plib__spi__host__common_8h}{}\label{plib__spi__host__common_8h}\index{src/config/default/peripheral/spi/spi\_host/plib\_spi\_host\_common.h@{src/config/default/peripheral/spi/spi\_host/plib\_spi\_host\_common.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSPI__TRANSFER__SETUP}{SPI\+\_\+\+TRANSFER\+\_\+\+SETUP}}
+\item 
+struct \mbox{\hyperlink{structSPI__OBJECT}{SPI\+\_\+\+OBJECT}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{plib__spi__host__common_8h_ae09d5880ae883eee1b2ef101e157e996}{SPI\+\_\+\+CALLBACK}}) (uintptr\+\_\+t context)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0}{SPI\+\_\+\+CLOCK\+\_\+\+PHASE}} \{ \mbox{\hyperlink{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0ad42e678e8530aec81d79b177f646c383}{SPI\+\_\+\+CLOCK\+\_\+\+PHASE\+\_\+\+TRAILING\+\_\+\+EDGE}} = 0x00000000\+UL
+, \mbox{\hyperlink{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0aa414f0d6de6c3140fa79fe129b9b731a}{SPI\+\_\+\+CLOCK\+\_\+\+PHASE\+\_\+\+LEADING\+\_\+\+EDGE}} = 0x00000100\+UL
+, \mbox{\hyperlink{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0acc16c586a89f8b79b4ec6e61d9cf0623}{SPI\+\_\+\+CLOCK\+\_\+\+PHASE\+\_\+\+INVALID}} = 0x\+FFFFFFFFUL
+ \}
+\item 
+enum \mbox{\hyperlink{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64}{SPI\+\_\+\+CLOCK\+\_\+\+POLARITY}} \{ \mbox{\hyperlink{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64abe157ad19731c08747d2b64fad0ca599}{SPI\+\_\+\+CLOCK\+\_\+\+POLARITY\+\_\+\+IDLE\+\_\+\+LOW}} = 0x00000000\+UL
+, \mbox{\hyperlink{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64aa82cddd6b50d58de08457c571dba7284}{SPI\+\_\+\+CLOCK\+\_\+\+POLARITY\+\_\+\+IDLE\+\_\+\+HIGH}} = 0x00000040\+UL
+, \mbox{\hyperlink{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64a9cbbb13a80654e0548518c26d90af41e}{SPI\+\_\+\+CLOCK\+\_\+\+POLARITY\+\_\+\+INVALID}} = 0x\+FFFFFFFFUL
+ \}
+\item 
+enum \mbox{\hyperlink{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85}{SPI\+\_\+\+DATA\+\_\+\+BITS}} \{ \mbox{\hyperlink{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85a69055b82a537b36b688e59260fa4df54}{SPI\+\_\+\+DATA\+\_\+\+BITS\+\_\+8}} = 0x00000000\+UL
+, \mbox{\hyperlink{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85a3f3c632bba6b6382b0b984d5857dec07}{SPI\+\_\+\+DATA\+\_\+\+BITS\+\_\+\+INVALID}} = 0x\+FFFFFFFFUL
+ \}
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{plib__spi__host__common_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{plib__spi__host__common_8h_ae09d5880ae883eee1b2ef101e157e996}\index{plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}!SPI\_CALLBACK@{SPI\_CALLBACK}}
+\index{SPI\_CALLBACK@{SPI\_CALLBACK}!plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CALLBACK}{SPI\_CALLBACK}}
+{\footnotesize\ttfamily \label{plib__spi__host__common_8h_ae09d5880ae883eee1b2ef101e157e996} 
+typedef void(\texorpdfstring{$\ast$}{*} SPI\+\_\+\+CALLBACK) (uintptr\+\_\+t context)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__spi__host__common_8h_source_l00097}{97}} of file \mbox{\hyperlink{plib__spi__host__common_8h_source}{plib\+\_\+spi\+\_\+host\+\_\+common.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{plib__spi__host__common_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0}\index{plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}!SPI\_CLOCK\_PHASE@{SPI\_CLOCK\_PHASE}}
+\index{SPI\_CLOCK\_PHASE@{SPI\_CLOCK\_PHASE}!plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CLOCK\_PHASE}{SPI\_CLOCK\_PHASE}}
+{\footnotesize\ttfamily \label{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0} 
+enum \mbox{\hyperlink{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0}{SPI\+\_\+\+CLOCK\+\_\+\+PHASE}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CLOCK\_PHASE\_TRAILING\_EDGE@{SPI\_CLOCK\_PHASE\_TRAILING\_EDGE}!plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}}\index{plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}!SPI\_CLOCK\_PHASE\_TRAILING\_EDGE@{SPI\_CLOCK\_PHASE\_TRAILING\_EDGE}}}\Hypertarget{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0ad42e678e8530aec81d79b177f646c383}\label{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0ad42e678e8530aec81d79b177f646c383} 
+SPI\+\_\+\+CLOCK\+\_\+\+PHASE\+\_\+\+TRAILING\+\_\+\+EDGE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CLOCK\_PHASE\_LEADING\_EDGE@{SPI\_CLOCK\_PHASE\_LEADING\_EDGE}!plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}}\index{plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}!SPI\_CLOCK\_PHASE\_LEADING\_EDGE@{SPI\_CLOCK\_PHASE\_LEADING\_EDGE}}}\Hypertarget{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0aa414f0d6de6c3140fa79fe129b9b731a}\label{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0aa414f0d6de6c3140fa79fe129b9b731a} 
+SPI\+\_\+\+CLOCK\+\_\+\+PHASE\+\_\+\+LEADING\+\_\+\+EDGE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CLOCK\_PHASE\_INVALID@{SPI\_CLOCK\_PHASE\_INVALID}!plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}}\index{plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}!SPI\_CLOCK\_PHASE\_INVALID@{SPI\_CLOCK\_PHASE\_INVALID}}}\Hypertarget{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0acc16c586a89f8b79b4ec6e61d9cf0623}\label{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0acc16c586a89f8b79b4ec6e61d9cf0623} 
+SPI\+\_\+\+CLOCK\+\_\+\+PHASE\+\_\+\+INVALID&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{plib__spi__host__common_8h_source_l00059}{59}} of file \mbox{\hyperlink{plib__spi__host__common_8h_source}{plib\+\_\+spi\+\_\+host\+\_\+common.\+h}}.
+
+\Hypertarget{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64}\index{plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}!SPI\_CLOCK\_POLARITY@{SPI\_CLOCK\_POLARITY}}
+\index{SPI\_CLOCK\_POLARITY@{SPI\_CLOCK\_POLARITY}!plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CLOCK\_POLARITY}{SPI\_CLOCK\_POLARITY}}
+{\footnotesize\ttfamily \label{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64} 
+enum \mbox{\hyperlink{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64}{SPI\+\_\+\+CLOCK\+\_\+\+POLARITY}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CLOCK\_POLARITY\_IDLE\_LOW@{SPI\_CLOCK\_POLARITY\_IDLE\_LOW}!plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}}\index{plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}!SPI\_CLOCK\_POLARITY\_IDLE\_LOW@{SPI\_CLOCK\_POLARITY\_IDLE\_LOW}}}\Hypertarget{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64abe157ad19731c08747d2b64fad0ca599}\label{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64abe157ad19731c08747d2b64fad0ca599} 
+SPI\+\_\+\+CLOCK\+\_\+\+POLARITY\+\_\+\+IDLE\+\_\+\+LOW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CLOCK\_POLARITY\_IDLE\_HIGH@{SPI\_CLOCK\_POLARITY\_IDLE\_HIGH}!plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}}\index{plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}!SPI\_CLOCK\_POLARITY\_IDLE\_HIGH@{SPI\_CLOCK\_POLARITY\_IDLE\_HIGH}}}\Hypertarget{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64aa82cddd6b50d58de08457c571dba7284}\label{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64aa82cddd6b50d58de08457c571dba7284} 
+SPI\+\_\+\+CLOCK\+\_\+\+POLARITY\+\_\+\+IDLE\+\_\+\+HIGH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CLOCK\_POLARITY\_INVALID@{SPI\_CLOCK\_POLARITY\_INVALID}!plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}}\index{plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}!SPI\_CLOCK\_POLARITY\_INVALID@{SPI\_CLOCK\_POLARITY\_INVALID}}}\Hypertarget{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64a9cbbb13a80654e0548518c26d90af41e}\label{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64a9cbbb13a80654e0548518c26d90af41e} 
+SPI\+\_\+\+CLOCK\+\_\+\+POLARITY\+\_\+\+INVALID&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{plib__spi__host__common_8h_source_l00069}{69}} of file \mbox{\hyperlink{plib__spi__host__common_8h_source}{plib\+\_\+spi\+\_\+host\+\_\+common.\+h}}.
+
+\Hypertarget{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85}\index{plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}!SPI\_DATA\_BITS@{SPI\_DATA\_BITS}}
+\index{SPI\_DATA\_BITS@{SPI\_DATA\_BITS}!plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_DATA\_BITS}{SPI\_DATA\_BITS}}
+{\footnotesize\ttfamily \label{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85} 
+enum \mbox{\hyperlink{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85}{SPI\+\_\+\+DATA\+\_\+\+BITS}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_DATA\_BITS\_8@{SPI\_DATA\_BITS\_8}!plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}}\index{plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}!SPI\_DATA\_BITS\_8@{SPI\_DATA\_BITS\_8}}}\Hypertarget{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85a69055b82a537b36b688e59260fa4df54}\label{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85a69055b82a537b36b688e59260fa4df54} 
+SPI\+\_\+\+DATA\+\_\+\+BITS\+\_\+8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_DATA\_BITS\_INVALID@{SPI\_DATA\_BITS\_INVALID}!plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}}\index{plib\_spi\_host\_common.h@{plib\_spi\_host\_common.h}!SPI\_DATA\_BITS\_INVALID@{SPI\_DATA\_BITS\_INVALID}}}\Hypertarget{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85a3f3c632bba6b6382b0b984d5857dec07}\label{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85a3f3c632bba6b6382b0b984d5857dec07} 
+SPI\+\_\+\+DATA\+\_\+\+BITS\+\_\+\+INVALID&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{plib__spi__host__common_8h_source_l00079}{79}} of file \mbox{\hyperlink{plib__spi__host__common_8h_source}{plib\+\_\+spi\+\_\+host\+\_\+common.\+h}}.
+

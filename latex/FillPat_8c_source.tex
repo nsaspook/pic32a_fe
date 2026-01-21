@@ -1,0 +1,74 @@
+\doxysection{Fill\+Pat.\+c}
+\hypertarget{FillPat_8c_source}{}\label{FillPat_8c_source}\index{src/lcd\_drv/FillPat.c@{src/lcd\_drv/FillPat.c}}
+\mbox{\hyperlink{FillPat_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00002}00002\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ FillPat.c\ \ \ -\/-\/\ \ Pattern\ Table\ for\ Area\ Fill\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00006}00006\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00007}00007\ \textcolor{comment}{/*\ \ Author:\ \ \ \ \ Gene\ Apperson\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00008}00008\ \textcolor{comment}{/*\ \ Copyright\ 2011,\ Digilent\ Inc.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00009}00009\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00010}00010\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00011}00011\ \textcolor{comment}{\ \ This\ library\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00012}00012\ \textcolor{comment}{\ \ modify\ it\ under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00013}00013\ \textcolor{comment}{\ \ License\ as\ published\ by\ the\ Free\ Software\ Foundation;\ either}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00014}00014\ \textcolor{comment}{\ \ version\ 2.1\ of\ the\ License,\ or\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00015}00015\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00016}00016\ \textcolor{comment}{\ \ This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00017}00017\ \textcolor{comment}{\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00018}00018\ \textcolor{comment}{\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00019}00019\ \textcolor{comment}{\ \ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00020}00020\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00021}00021\ \textcolor{comment}{\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00022}00022\ \textcolor{comment}{\ \ License\ along\ with\ this\ library;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00023}00023\ \textcolor{comment}{\ \ Foundation,\ Inc.,\ 51\ Franklin\ St,\ Fifth\ Floor,\ Boston,\ MA\ \ 02110-\/1301\ \ USA}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00024}00024\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00025}00025\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00026}00026\ \textcolor{comment}{/*\ \ Module\ Description:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00027}00027\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00028}00028\ \textcolor{comment}{/*\ \ This\ module\ contains\ the\ data\ definitions\ for\ an\ set\ of8x8\ pixel\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00029}00029\ \textcolor{comment}{/*\ \ patterns\ used\ for\ area\ fill.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00030}00030\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00031}00031\ \textcolor{comment}{/*\ \ This\ pattern\ table\ is\ defined\ for\ a\ display\ where\ each\ byte\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00032}00032\ \textcolor{comment}{/*\ \ represents\ 8\ vertical\ pixels\ and\ consecutive\ bytes\ give\ adjacent\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00033}00033\ \textcolor{comment}{/*\ \ sets\ of\ 8\ vertical\ pixels\ progressing\ to\ the\ right\ across\ the\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00034}00034\ \textcolor{comment}{/*\ \ display.\ This\ is\ rotated\ 90\ degrees\ from\ the\ conventional\ video\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00035}00035\ \textcolor{comment}{/*\ \ display\ orientation.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00036}00036\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00037}00037\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00038}00038\ \textcolor{comment}{/*\ \ Revision\ History:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00039}00039\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00040}00040\ \textcolor{comment}{/*\ \ 06/08/2011(GeneA):\ created\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00041}00041\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00042}00042\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00044}00044\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00045}00045\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ Include\ File\ Definitions\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00046}00046\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00048}00048\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00050}00050\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00051}00051\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ Global\ Variables\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00052}00052\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00054}\mbox{\hyperlink{FillPat_8c_a553f61aff53e2ea39ebd64db6d225e8a}{00054}}\ \textcolor{keyword}{const}\ uint8\_t\ \mbox{\hyperlink{FillPat_8c_a553f61aff53e2ea39ebd64db6d225e8a}{rgbFillPat}}[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00055}00055\ \ \ \ \ 0x00,\ 0x00,\ 0x00,\ 0x00,\ 0x00,\ 0x00,\ 0x00,\ 0x00,\ \textcolor{comment}{//\ 0x00}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00056}00056\ \ \ \ \ 0xFF,\ 0xFF,\ 0xFF,\ 0xFF,\ 0xFF,\ 0xFF,\ 0xFF,\ 0xFF,\ \textcolor{comment}{//\ 0x01}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00057}00057\ \ \ \ \ 0xAA,\ 0x55,\ 0xAA,\ 0x55,\ 0xAA,\ 0x55,\ 0xAA,\ 0x55,\ \textcolor{comment}{//\ 0x02}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00058}00058\ \ \ \ \ 0x11,\ 0x44,\ 0x00,\ 0x11,\ 0x44,\ 0x00,\ 0x11,\ 0x44,\ \textcolor{comment}{//\ 0x03}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00059}00059\ \ \ \ \ 0x92,\ 0x45,\ 0x24,\ 0x92,\ 0x45,\ 0x24,\ 0x92,\ 0x45,\ \textcolor{comment}{//\ 0x04}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00060}00060\ \ \ \ \ 0x49,\ 0x92,\ 0x24,\ 0x49,\ 0x92,\ 0x24,\ 0x49,\ 0x92,\ \textcolor{comment}{//\ 0x05}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00061}00061\ \ \ \ \ 0x22,\ 0x11,\ 0x22,\ 0x00,\ 0x22,\ 0x11,\ 0x22,\ 0x00,\ \textcolor{comment}{//\ 0x06}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00062}00062\ \ \ \ \ 0x11,\ 0x22,\ 0x11,\ 0x00,\ 0x11,\ 0x22,\ 0x11,\ 0x00\ \textcolor{comment}{//\ 0x07}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00063}00063\ \};}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00065}00065\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00067}00067\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{FillPat_8c_source_l00068}00068\ }
+
+\end{DoxyCode}

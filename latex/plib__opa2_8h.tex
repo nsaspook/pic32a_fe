@@ -1,0 +1,80 @@
+\doxysection{src/config/default/peripheral/opa/plib\+\_\+opa2.h File Reference}
+\hypertarget{plib__opa2_8h}{}\label{plib__opa2_8h}\index{src/config/default/peripheral/opa/plib\_opa2.h@{src/config/default/peripheral/opa/plib\_opa2.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include "{}device.\+h"{}}\newline
+{\ttfamily \#include "{}plib\+\_\+opa\+\_\+common.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__opa2_8h_add8ac4e3713eb7c16a2a9f20e32c8c0c}{OPA2\+\_\+\+Initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the OPA2 module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__opa2_8h_a2db9426616087f05c1618da12b992a0b}{OPA2\+\_\+\+Deinitialize}} (void)
+\begin{DoxyCompactList}\small\item\em Deinitializes the OPA2 module. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{plib__opa2_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__opa2_8h_a2db9426616087f05c1618da12b992a0b}\index{plib\_opa2.h@{plib\_opa2.h}!OPA2\_Deinitialize@{OPA2\_Deinitialize}}
+\index{OPA2\_Deinitialize@{OPA2\_Deinitialize}!plib\_opa2.h@{plib\_opa2.h}}
+\doxysubsubsection{\texorpdfstring{OPA2\_Deinitialize()}{OPA2\_Deinitialize()}}
+{\footnotesize\ttfamily \label{plib__opa2_8h_a2db9426616087f05c1618da12b992a0b} 
+void OPA2\+\_\+\+Deinitialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Deinitializes the OPA2 module. 
+
+This function deinitializes the OPA2 module, resetting it to its default state and disabling its operation. \begin{DoxyPrecond}{Precondition}
+This function should be called to properly shut down the OPA2 module before system power-\/down or reconfiguration. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function should be called to release any resources allocated by the OPA2 module. 
+\end{DoxyNote}
+\begin{DoxyRemark}{Remarks}
+Ensure that any necessary cleanup or state saving is performed before calling this function. 
+\end{DoxyRemark}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__opa2_8c_source_l00062}{62}} of file \mbox{\hyperlink{plib__opa2_8c_source}{plib\+\_\+opa2.\+c}}.
+
+\Hypertarget{plib__opa2_8h_add8ac4e3713eb7c16a2a9f20e32c8c0c}\index{plib\_opa2.h@{plib\_opa2.h}!OPA2\_Initialize@{OPA2\_Initialize}}
+\index{OPA2\_Initialize@{OPA2\_Initialize}!plib\_opa2.h@{plib\_opa2.h}}
+\doxysubsubsection{\texorpdfstring{OPA2\_Initialize()}{OPA2\_Initialize()}}
+{\footnotesize\ttfamily \label{plib__opa2_8h_add8ac4e3713eb7c16a2a9f20e32c8c0c} 
+void OPA2\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the OPA2 module. 
+
+This function initializes the OPA2 module, setting it up for operation according to the predefined configuration. \begin{DoxyPrecond}{Precondition}
+This function should be called before any other OPA2 functions are used. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function must be called only once and before any other OPA2 function is called. 
+\end{DoxyNote}
+\begin{DoxyRemark}{Remarks}
+Ensure that the OPA2 module is properly configured before calling this function. 
+\end{DoxyRemark}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__opa2_8c_source_l00053}{53}} of file \mbox{\hyperlink{plib__opa2_8c_source}{plib\+\_\+opa2.\+c}}.
+

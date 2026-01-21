@@ -1,0 +1,247 @@
+\doxysection{/ldrv/pic32a\+\_\+fe/src/config/default/peripheral/dma/plib\+\_\+dma.\+h}
+\hypertarget{_2ldrv_2pic32a_fe_2src_2config_2default_2peripheral_2dma_2plib_dma_8h-example}{}\label{_2ldrv_2pic32a_fe_2src_2config_2default_2peripheral_2dma_2plib_dma_8h-example}Schedules a DMA transfer on the specified DMA channel.
+
+Schedules a DMA transfer on the specified DMA channel. This function schedules a DMA transfer on the specified DMA channel and starts the transfer when the configured trigger is received. The transfer is processed based on the channel configuration performed in the DMA manager. The channel parameter specifies the channel to be used for the transfer.
+
+The src\+Addr parameter specifies the source address from where data will be transferred.
+
+The dest\+Addr parameter specifies the address location where the data will be stored.
+
+If the channel is configured for a software trigger, calling the channel transfer function will set the source and destination address and will also start the transfer. If the channel was configured for a peripheral trigger, the channel transfer function will set the source and destination address and will transfer data when a trigger has occurred.
+
+If the requesting client registered an event callback function before calling the channel transfer function, this function will be called when the transfer completes. The callback function will be called with a DMA\+\_\+\+TRANSFER\+\_\+\+EVENT\+\_\+\+BLOCK\+\_\+\+TRANSFER\+\_\+\+COMPLETE event if the transfer was processed successfully and a DMA\+\_\+\+TRANSFER\+\_\+\+EVENT\+\_\+\+ERROR event if the transfer was not processed successfully.
+
+When a transfer is already in progress, this API will return false indicating that the transfer request is not accepted.
+
+\begin{DoxyPrecond}{Precondition}
+DMA should have been initialized by calling the DMA\+\_\+\+Initialize. The required channel transfer parameters such as beat size, source and destination address increment should have been configured in MHC.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & The DMA channel that should be used for the transfer. \\
+\hline
+\mbox{\texttt{ in}}  & {\em src\+Addr} & Source address of the DMA transfer. \\
+\hline
+\mbox{\texttt{ in}}  & {\em dest\+Addr} & Destination address of the DMA transfer. \\
+\hline
+\mbox{\texttt{ in}}  & {\em block\+Size} & Size of the transfer block in bytes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True -\/ if the transfer request is accepted. False -\/ if a previous transfer is in progress and the request is rejected.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+None.
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{MY\_APP\_OBJ\ myAppObj;}
+\DoxyCodeLine{uint8\_t\ buf[10]\ =\ \{0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9\};}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ *srcAddr\ =\ (uint8\_t\ *)\ buf;}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ *destAddr\ =\ (uint8\_t*)\ \&SERCOM1\_REGS-\/>USART\_INT.SERCOM\_DATA;}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ size\ =\ 10;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{plib__dma_8c_a14ca97886207fe4b4ed2a0d41ab6213e}{DMA\_ChannelCallbackRegister}}(\mbox{\hyperlink{plib__dma_8h_a283364370e9876af6406b9fa70e2944f}{DMA\_CHANNEL\_1}},\ APP\_DMATransferEventHandler,\ (uintptr\_t)\&myAppObj);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\mbox{\hyperlink{plib__dma_8c_a7ca594a7f34b0fa562f1e8fcce2b0279}{DMA\_ChannelTransfer}}(\mbox{\hyperlink{plib__dma_8h_a283364370e9876af6406b9fa70e2944f}{DMA\_CHANNEL\_1}},\ srcAddr,\ destAddr,\ size)\ ==\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\textcolor{comment}{\ \ DMA\ Peripheral\ Library\ Interface\ Header\ File}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ plib\_dma.h}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ DMA\ peripheral\ library\ interface.}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ This\ file\ defines\ the\ interface\ to\ the\ DMA\ peripheral\ library.\ This}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ library\ provides\ access\ to\ and\ control\ of\ the\ DMA\ controller.}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{\ \ Remarks:}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ None.}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\textcolor{comment}{*}}
+\DoxyCodeLine{\textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\textcolor{comment}{*}}
+\DoxyCodeLine{\textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\textcolor{comment}{*}}
+\DoxyCodeLine{\textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#ifndef\ PLIB\_DMA\_H\ \ \ \ }\textcolor{comment}{//\ Guards\ against\ multiple\ inclusion}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ PLIB\_DMA\_H}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\textcolor{comment}{//\ Section:\ Included\ Files}}
+\DoxyCodeLine{\textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{device_8h}{device.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\textcolor{comment}{//\ Section:\ type\ definitions}}
+\DoxyCodeLine{\textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{\ @enum\ \ \ \ \ \ \ \ \ DMA\_TRANSFER\_EVENT}}
+\DoxyCodeLine{\textcolor{comment}{\ @brief\ \ \ \ \ \ \ \ Identifies\ the\ status\ of\ the\ transfer\ event.}}
+\DoxyCodeLine{\textcolor{comment}{\ @details\ \ \ \ \ \ Used\ to\ report\ back,\ via\ registered\ callback,\ the\ status\ of\ a\ transaction.}}
+\DoxyCodeLine{\textcolor{comment}{\ @remarks\ \ \ \ \ \ None}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*\ No\ events\ yet.\ */}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7a218399970d5d2dd06a83c974efff55}{DMA\_TRANSFER\_EVENT\_NONE}}\ =\ 0,}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*\ Data\ was\ transferred\ successfully.\ */}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7dc5a006aeed94643a591f8fb093f446}{DMA\_TRANSFER\_EVENT\_COMPLETE}}\ =\ 1,}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*\ Half\ Data\ is\ transferred\ */}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa906bc18398e3dcc1893265a088638bca}{DMA\_TRANSFER\_EVENT\_HALF\_COMPLETE}}\ =\ 2,}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*\ Overrun\ error:\ The\ DMA\ channel\ cannot\ keep\ up\ with\ data\ rate\ requirements.\ */}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa99c363861124843589b3271b54a54e85}{DMA\_OVERRUN\_ERROR}}\ =\ 3,}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*\ Pattern\ match\ detected\ */}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaafe7698d91d97c347b0d26162b21d1486}{DMA\_PATTERN\_MATCH}}\ =\ 4}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}\ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\_TRANSFER\_EVENT}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{plib__dma_8h_ae4864a6166f77736d3a0dc75d3a0ce07}{DMA\_CHANNEL\_CALLBACK}})\ (\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\_TRANSFER\_EVENT}}\ status,\ uintptr\_t\ contextHandle);}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{\ @struct\ \ \ \ \ \ \ DMA\_CHANNEL\_OBJECT}}
+\DoxyCodeLine{\textcolor{comment}{\ @brief\ \ \ \ \ \ \ \ Fundamental\ data\ object\ for\ a\ DMA\ channel.}}
+\DoxyCodeLine{\textcolor{comment}{\ @details\ \ \ \ \ \ Used\ by\ DMA\ logic\ to\ register/use\ a\ DMA\ callback,\ report\ back\ error\ information}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ from\ the\ ISR\ handling\ a\ transfer\ event.}}
+\DoxyCodeLine{\textcolor{comment}{\ @remarks\ \ \ \ \ \ None}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ inUse;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*\ Call\ back\ function\ for\ this\ DMA\ channel\ */}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{plib__dma_8h_ae4864a6166f77736d3a0dc75d3a0ce07}{DMA\_CHANNEL\_CALLBACK}}\ \ callback;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*\ data\ or\ Event\ Context\ that\ will\ be\ returned\ at\ callback\ */}}
+\DoxyCodeLine{\ \ \ \ uintptr\_t\ context;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}\ \mbox{\hyperlink{structDMA__CHANNEL__OBJECT}{DMA\_CHANNEL\_OBJECT}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{\ @brief\ \ \ \ \ \ \ \ Fundamental\ data\ object\ that\ represents\ DMA\ channel\ number.}}
+\DoxyCodeLine{\textcolor{comment}{\ @details\ \ \ \ \ \ None}}
+\DoxyCodeLine{\textcolor{comment}{\ @remarks\ \ \ \ \ \ None}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ \ \ \ DMA\_CHANNEL\_0\ \ \ \ \ \ \ \ \ \ \ \ \ (0x0U)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ \ \ \ DMA\_CHANNEL\_1\ \ \ \ \ \ \ \ \ \ \ \ \ (0x1U)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ \ \ \ DMA\_CHANNEL\_4\ \ \ \ \ \ \ \ \ \ \ \ \ (0x4U)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ \ \ \ DMA\_CHANNEL\_5\ \ \ \ \ \ \ \ \ \ \ \ \ (0x5U)}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ \ \ \ DMA\_NUMBER\_OF\_CHANNELS\ \ \ \ (0x6U)}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__dma_8h_a81f51f2bf80f7431b5808fb2de932a4c}{DMA\_CHANNEL\_CONFIG}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\textcolor{comment}{//\ Section:\ DMA\ API's}}
+\DoxyCodeLine{\textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8c_a3950883876bea54b441aaf14ff17d47e}{DMA\_Initialize}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8c_a8fee79f4a211106481e6b1d021c6dab9}{DMA\_Deinitialize}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__dma_8c_a7ca594a7f34b0fa562f1e8fcce2b0279}{DMA\_ChannelTransfer}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *srcAddr,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *destAddr,\ uint32\_t\ blockSize);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8c_ab817fbfc1e326643d2be11e19e9d3ecf}{DMA\_ChannelPatternMatchSetup}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel,\ uint32\_t\ patternMatchMask,\ uint32\_t\ patternMatchData);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8c_a594085216d6e1b258cf28e5aeddf5720}{DMA\_ChannelEnable}}\ (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8c_abba26334d232e9aff34af1b259bb90e5}{DMA\_ChannelDisable}}\ (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8c_ad318df9071a043bf1bdcdb9db45fb236}{DMA\_ChannelPatternMatchEnable}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8c_aee360bd6301f75d99e0245d9694951ce}{DMA\_ChannelPatternMatchDisable}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__dma_8c_af4a0fbb7b688934515327b83fe376803}{DMA\_IsSoftwareRequestPending}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8c_a5bfc37cb3f3c004d66d8c2a3aab0c13b}{DMA\_ChannelSoftwareTriggerEnable}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel)\ ;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__dma_8c_af34816ed03c5a669f4bc4361f7a38e58}{DMA\_ChannelIsBusy}}\ (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{}
+\DoxyCodeLine{uint32\_t\ \mbox{\hyperlink{plib__dma_8c_a7223ed9d516ab40e057e88b668409739}{DMA\_ChannelGetTransferredCount}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{plib__dma_8h_a81f51f2bf80f7431b5808fb2de932a4c}{DMA\_CHANNEL\_CONFIG}}\ \mbox{\hyperlink{plib__dma_8c_a277d25aec993e50ac797415ba8a1d732}{DMA\_ChannelSettingsGet}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__dma_8c_aa3690fa60cd12eb817c922975bb42c25}{DMA\_ChannelSettingsSet}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel,\ \mbox{\hyperlink{plib__dma_8h_a81f51f2bf80f7431b5808fb2de932a4c}{DMA\_CHANNEL\_CONFIG}}\ setting);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8c_a14ca97886207fe4b4ed2a0d41ab6213e}{DMA\_ChannelCallbackRegister}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{plib__dma_8h_ae4864a6166f77736d3a0dc75d3a0ce07}{DMA\_CHANNEL\_CALLBACK}}\ eventHandler,\ \textcolor{keyword}{const}\ uintptr\_t\ contextHandle\ );}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PLIB\_DMA\_H}}
+
+\end{DoxyCodeInclude}
+ 

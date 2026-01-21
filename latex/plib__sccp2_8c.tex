@@ -1,0 +1,145 @@
+\doxysection{src/config/default/peripheral/ccp/plib\+\_\+sccp2.c File Reference}
+\hypertarget{plib__sccp2_8c}{}\label{plib__sccp2_8c}\index{src/config/default/peripheral/ccp/plib\_sccp2.c@{src/config/default/peripheral/ccp/plib\_sccp2.c}}
+{\ttfamily \#include "{}device.\+h"{}}\newline
+{\ttfamily \#include "{}plib\+\_\+sccp2.\+h"{}}\newline
+{\ttfamily \#include "{}interrupts.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__sccp2_8c_a4330f36c36775c2b06744ef5522cac8c}{SCCP2\+\_\+\+Timer\+Initialize}} (void)
+\item 
+void \mbox{\hyperlink{plib__sccp2_8c_a95d57a4c086089af7a589fa2a4856213}{SCCP2\+\_\+\+Timer\+Start}} (void)
+\item 
+void \mbox{\hyperlink{plib__sccp2_8c_af28f4e09d19478a212d23de0b2b8299c}{SCCP2\+\_\+\+Timer\+Stop}} (void)
+\item 
+void \mbox{\hyperlink{plib__sccp2_8c_a5b8d50e2af6066e4ecbe4ce2dbe1cd9b}{SCCP2\+\_\+\+Timer32bit\+Period\+Set}} (uint32\+\_\+t period)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{plib__sccp2_8c_a768d984dd669262a51c804c287deea27}{SCCP2\+\_\+\+Timer32bit\+Period\+Get}} (void)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{plib__sccp2_8c_addb30f39b7689ed0e43a82a6c0224d4c}{SCCP2\+\_\+\+Timer32bit\+Counter\+Get}} (void)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{plib__sccp2_8c_a2056148284d5a8aa68bd06641020a0f2}{SCCP2\+\_\+\+Timer\+Frequency\+Get}} (void)
+\item 
+void \mbox{\hyperlink{plib__sccp2_8c_a065104e40a00c6733ccffd0203a0283d}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((used))
+\item 
+void \mbox{\hyperlink{plib__sccp2_8c_af7686dacd2fb123b281e1594e8efdab3}{SCCP2\+\_\+\+Timer\+Interrupt\+Enable}} (void)
+\item 
+void \mbox{\hyperlink{plib__sccp2_8c_a865c12c22ff878e822ccb453da8dce0c}{SCCP2\+\_\+\+Timer\+Interrupt\+Disable}} (void)
+\item 
+void \mbox{\hyperlink{plib__sccp2_8c_a545d8c1e5e6eda1bf9e44090c8dff000}{SCCP2\+\_\+\+Timer\+Callback\+Register}} (\mbox{\hyperlink{plib__ccp__common_8h_a996299eba3ea5d5f581691356a40e4fb}{CCP\+\_\+\+TIMER\+\_\+\+CALLBACK}} callback\+\_\+fn, uintptr\+\_\+t context)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{plib__sccp2_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__sccp2_8c_a065104e40a00c6733ccffd0203a0283d}\index{plib\_sccp2.c@{plib\_sccp2.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!plib\_sccp2.c@{plib\_sccp2.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \label{plib__sccp2_8c_a065104e40a00c6733ccffd0203a0283d} 
+void \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(used)}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__sccp2_8c_source_l00113}{113}} of file \mbox{\hyperlink{plib__sccp2_8c_source}{plib\+\_\+sccp2.\+c}}.
+
+\Hypertarget{plib__sccp2_8c_addb30f39b7689ed0e43a82a6c0224d4c}\index{plib\_sccp2.c@{plib\_sccp2.c}!SCCP2\_Timer32bitCounterGet@{SCCP2\_Timer32bitCounterGet}}
+\index{SCCP2\_Timer32bitCounterGet@{SCCP2\_Timer32bitCounterGet}!plib\_sccp2.c@{plib\_sccp2.c}}
+\doxysubsubsection{\texorpdfstring{SCCP2\_Timer32bitCounterGet()}{SCCP2\_Timer32bitCounterGet()}}
+{\footnotesize\ttfamily \label{plib__sccp2_8c_addb30f39b7689ed0e43a82a6c0224d4c} 
+uint32\+\_\+t SCCP2\+\_\+\+Timer32bit\+Counter\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__sccp2_8c_source_l00102}{102}} of file \mbox{\hyperlink{plib__sccp2_8c_source}{plib\+\_\+sccp2.\+c}}.
+
+\Hypertarget{plib__sccp2_8c_a768d984dd669262a51c804c287deea27}\index{plib\_sccp2.c@{plib\_sccp2.c}!SCCP2\_Timer32bitPeriodGet@{SCCP2\_Timer32bitPeriodGet}}
+\index{SCCP2\_Timer32bitPeriodGet@{SCCP2\_Timer32bitPeriodGet}!plib\_sccp2.c@{plib\_sccp2.c}}
+\doxysubsubsection{\texorpdfstring{SCCP2\_Timer32bitPeriodGet()}{SCCP2\_Timer32bitPeriodGet()}}
+{\footnotesize\ttfamily \label{plib__sccp2_8c_a768d984dd669262a51c804c287deea27} 
+uint32\+\_\+t SCCP2\+\_\+\+Timer32bit\+Period\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__sccp2_8c_source_l00097}{97}} of file \mbox{\hyperlink{plib__sccp2_8c_source}{plib\+\_\+sccp2.\+c}}.
+
+\Hypertarget{plib__sccp2_8c_a5b8d50e2af6066e4ecbe4ce2dbe1cd9b}\index{plib\_sccp2.c@{plib\_sccp2.c}!SCCP2\_Timer32bitPeriodSet@{SCCP2\_Timer32bitPeriodSet}}
+\index{SCCP2\_Timer32bitPeriodSet@{SCCP2\_Timer32bitPeriodSet}!plib\_sccp2.c@{plib\_sccp2.c}}
+\doxysubsubsection{\texorpdfstring{SCCP2\_Timer32bitPeriodSet()}{SCCP2\_Timer32bitPeriodSet()}}
+{\footnotesize\ttfamily \label{plib__sccp2_8c_a5b8d50e2af6066e4ecbe4ce2dbe1cd9b} 
+void SCCP2\+\_\+\+Timer32bit\+Period\+Set (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{period}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__sccp2_8c_source_l00092}{92}} of file \mbox{\hyperlink{plib__sccp2_8c_source}{plib\+\_\+sccp2.\+c}}.
+
+\Hypertarget{plib__sccp2_8c_a545d8c1e5e6eda1bf9e44090c8dff000}\index{plib\_sccp2.c@{plib\_sccp2.c}!SCCP2\_TimerCallbackRegister@{SCCP2\_TimerCallbackRegister}}
+\index{SCCP2\_TimerCallbackRegister@{SCCP2\_TimerCallbackRegister}!plib\_sccp2.c@{plib\_sccp2.c}}
+\doxysubsubsection{\texorpdfstring{SCCP2\_TimerCallbackRegister()}{SCCP2\_TimerCallbackRegister()}}
+{\footnotesize\ttfamily \label{plib__sccp2_8c_a545d8c1e5e6eda1bf9e44090c8dff000} 
+void SCCP2\+\_\+\+Timer\+Callback\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__ccp__common_8h_a996299eba3ea5d5f581691356a40e4fb}{CCP\+\_\+\+TIMER\+\_\+\+CALLBACK}}}]{callback\+\_\+fn}{, }\item[{uintptr\+\_\+t}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__sccp2_8c_source_l00140}{140}} of file \mbox{\hyperlink{plib__sccp2_8c_source}{plib\+\_\+sccp2.\+c}}.
+
+\Hypertarget{plib__sccp2_8c_a2056148284d5a8aa68bd06641020a0f2}\index{plib\_sccp2.c@{plib\_sccp2.c}!SCCP2\_TimerFrequencyGet@{SCCP2\_TimerFrequencyGet}}
+\index{SCCP2\_TimerFrequencyGet@{SCCP2\_TimerFrequencyGet}!plib\_sccp2.c@{plib\_sccp2.c}}
+\doxysubsubsection{\texorpdfstring{SCCP2\_TimerFrequencyGet()}{SCCP2\_TimerFrequencyGet()}}
+{\footnotesize\ttfamily \label{plib__sccp2_8c_a2056148284d5a8aa68bd06641020a0f2} 
+uint32\+\_\+t SCCP2\+\_\+\+Timer\+Frequency\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__sccp2_8c_source_l00108}{108}} of file \mbox{\hyperlink{plib__sccp2_8c_source}{plib\+\_\+sccp2.\+c}}.
+
+\Hypertarget{plib__sccp2_8c_a4330f36c36775c2b06744ef5522cac8c}\index{plib\_sccp2.c@{plib\_sccp2.c}!SCCP2\_TimerInitialize@{SCCP2\_TimerInitialize}}
+\index{SCCP2\_TimerInitialize@{SCCP2\_TimerInitialize}!plib\_sccp2.c@{plib\_sccp2.c}}
+\doxysubsubsection{\texorpdfstring{SCCP2\_TimerInitialize()}{SCCP2\_TimerInitialize()}}
+{\footnotesize\ttfamily \label{plib__sccp2_8c_a4330f36c36775c2b06744ef5522cac8c} 
+void SCCP2\+\_\+\+Timer\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__sccp2_8c_source_l00059}{59}} of file \mbox{\hyperlink{plib__sccp2_8c_source}{plib\+\_\+sccp2.\+c}}.
+
+\Hypertarget{plib__sccp2_8c_a865c12c22ff878e822ccb453da8dce0c}\index{plib\_sccp2.c@{plib\_sccp2.c}!SCCP2\_TimerInterruptDisable@{SCCP2\_TimerInterruptDisable}}
+\index{SCCP2\_TimerInterruptDisable@{SCCP2\_TimerInterruptDisable}!plib\_sccp2.c@{plib\_sccp2.c}}
+\doxysubsubsection{\texorpdfstring{SCCP2\_TimerInterruptDisable()}{SCCP2\_TimerInterruptDisable()}}
+{\footnotesize\ttfamily \label{plib__sccp2_8c_a865c12c22ff878e822ccb453da8dce0c} 
+void SCCP2\+\_\+\+Timer\+Interrupt\+Disable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__sccp2_8c_source_l00134}{134}} of file \mbox{\hyperlink{plib__sccp2_8c_source}{plib\+\_\+sccp2.\+c}}.
+
+\Hypertarget{plib__sccp2_8c_af7686dacd2fb123b281e1594e8efdab3}\index{plib\_sccp2.c@{plib\_sccp2.c}!SCCP2\_TimerInterruptEnable@{SCCP2\_TimerInterruptEnable}}
+\index{SCCP2\_TimerInterruptEnable@{SCCP2\_TimerInterruptEnable}!plib\_sccp2.c@{plib\_sccp2.c}}
+\doxysubsubsection{\texorpdfstring{SCCP2\_TimerInterruptEnable()}{SCCP2\_TimerInterruptEnable()}}
+{\footnotesize\ttfamily \label{plib__sccp2_8c_af7686dacd2fb123b281e1594e8efdab3} 
+void SCCP2\+\_\+\+Timer\+Interrupt\+Enable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__sccp2_8c_source_l00127}{127}} of file \mbox{\hyperlink{plib__sccp2_8c_source}{plib\+\_\+sccp2.\+c}}.
+
+\Hypertarget{plib__sccp2_8c_a95d57a4c086089af7a589fa2a4856213}\index{plib\_sccp2.c@{plib\_sccp2.c}!SCCP2\_TimerStart@{SCCP2\_TimerStart}}
+\index{SCCP2\_TimerStart@{SCCP2\_TimerStart}!plib\_sccp2.c@{plib\_sccp2.c}}
+\doxysubsubsection{\texorpdfstring{SCCP2\_TimerStart()}{SCCP2\_TimerStart()}}
+{\footnotesize\ttfamily \label{plib__sccp2_8c_a95d57a4c086089af7a589fa2a4856213} 
+void SCCP2\+\_\+\+Timer\+Start (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__sccp2_8c_source_l00081}{81}} of file \mbox{\hyperlink{plib__sccp2_8c_source}{plib\+\_\+sccp2.\+c}}.
+
+\Hypertarget{plib__sccp2_8c_af28f4e09d19478a212d23de0b2b8299c}\index{plib\_sccp2.c@{plib\_sccp2.c}!SCCP2\_TimerStop@{SCCP2\_TimerStop}}
+\index{SCCP2\_TimerStop@{SCCP2\_TimerStop}!plib\_sccp2.c@{plib\_sccp2.c}}
+\doxysubsubsection{\texorpdfstring{SCCP2\_TimerStop()}{SCCP2\_TimerStop()}}
+{\footnotesize\ttfamily \label{plib__sccp2_8c_af28f4e09d19478a212d23de0b2b8299c} 
+void SCCP2\+\_\+\+Timer\+Stop (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__sccp2_8c_source_l00087}{87}} of file \mbox{\hyperlink{plib__sccp2_8c_source}{plib\+\_\+sccp2.\+c}}.
+

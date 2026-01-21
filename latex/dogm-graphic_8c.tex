@@ -1,0 +1,175 @@
+\doxysection{src/lcd\+\_\+drv/dogm-\/graphic.c File Reference}
+\hypertarget{dogm-graphic_8c}{}\label{dogm-graphic_8c}\index{src/lcd\_drv/dogm-\/graphic.c@{src/lcd\_drv/dogm-\/graphic.c}}
+{\ttfamily \#include "{}dogm-\/graphic.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{dogm-graphic_8c_a57eb0809d1074e4c31951612001ed634}{lcd\+\_\+inc\+\_\+page}} (int8\+\_\+t s)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{dogm-graphic_8c_a5a4205f2ea2a5d464c94909a2c9b108d}{lcd\+\_\+inc\+\_\+column}} (int16\+\_\+t s)
+\item 
+void \mbox{\hyperlink{dogm-graphic_8c_acd2a8f58d292326a114a97651505c569}{lcd\+\_\+moveto\+\_\+xy}} (uint8\+\_\+t page, uint8\+\_\+t column)
+\item 
+void \mbox{\hyperlink{dogm-graphic_8c_a78a4c080442b899fc7fb3c495a30ecaa}{lcd\+\_\+move\+\_\+xy}} (int8\+\_\+t pages, int16\+\_\+t columns)
+\item 
+void \mbox{\hyperlink{dogm-graphic_8c_ad0729d2cba627825a089ca1fff12ba29}{lcd\+\_\+data}} (uint8\+\_\+t data)
+\item 
+void \mbox{\hyperlink{dogm-graphic_8c_aea9d14f02df06f948cb5a56776980826}{lcd\+\_\+command}} (uint8\+\_\+t cmd)
+\item 
+void \mbox{\hyperlink{dogm-graphic_8c_a095e2ac3b58e3da9d364a8c4d7ee255f}{lcd\+\_\+command\+\_\+s}} (uint8\+\_\+t cmd)
+\item 
+void \mbox{\hyperlink{dogm-graphic_8c_a7a6b62ea024e5ff83ea957ba314b0028}{lcd\+\_\+clear\+\_\+area}} (uint8\+\_\+t pages, uint8\+\_\+t columns, uint8\+\_\+t style)
+\item 
+void \mbox{\hyperlink{dogm-graphic_8c_ae0087ff05c78dbcc9844a12734782ca2}{lcd\+\_\+clear\+\_\+area\+\_\+xy}} (uint8\+\_\+t pages, uint8\+\_\+t columns, uint8\+\_\+t style, uint8\+\_\+t page, uint8\+\_\+t col)
+\item 
+void \mbox{\hyperlink{dogm-graphic_8c_ad3ae8edb7f7fb04b8b069163f753451d}{lcd\+\_\+set\+\_\+contrast}} (uint8\+\_\+t value)
+\item 
+void \mbox{\hyperlink{dogm-graphic_8c_a6842775ba83d166f02b8fef8bb63b1e6}{lcd\+\_\+init}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{dogm-graphic_8c_a6e06d1d4fd4c71a9698770e05c08df8d}{lcd\+\_\+current\+\_\+page}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{dogm-graphic_8c_ae948687b26a30d4e13b05ff00ddcf851}{lcd\+\_\+current\+\_\+column}} = 0
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{dogm-graphic_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{dogm-graphic_8c_a7a6b62ea024e5ff83ea957ba314b0028}\index{dogm-\/graphic.c@{dogm-\/graphic.c}!lcd\_clear\_area@{lcd\_clear\_area}}
+\index{lcd\_clear\_area@{lcd\_clear\_area}!dogm-\/graphic.c@{dogm-\/graphic.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_clear\_area()}{lcd\_clear\_area()}}
+{\footnotesize\ttfamily \label{dogm-graphic_8c_a7a6b62ea024e5ff83ea957ba314b0028} 
+void lcd\+\_\+clear\+\_\+area (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pages}{, }\item[{uint8\+\_\+t}]{columns}{, }\item[{uint8\+\_\+t}]{style}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dogm-graphic_8c_source_l00232}{232}} of file \mbox{\hyperlink{dogm-graphic_8c_source}{dogm-\/graphic.\+c}}.
+
+\Hypertarget{dogm-graphic_8c_ae0087ff05c78dbcc9844a12734782ca2}\index{dogm-\/graphic.c@{dogm-\/graphic.c}!lcd\_clear\_area\_xy@{lcd\_clear\_area\_xy}}
+\index{lcd\_clear\_area\_xy@{lcd\_clear\_area\_xy}!dogm-\/graphic.c@{dogm-\/graphic.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_clear\_area\_xy()}{lcd\_clear\_area\_xy()}}
+{\footnotesize\ttfamily \label{dogm-graphic_8c_ae0087ff05c78dbcc9844a12734782ca2} 
+void lcd\+\_\+clear\+\_\+area\+\_\+xy (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pages}{, }\item[{uint8\+\_\+t}]{columns}{, }\item[{uint8\+\_\+t}]{style}{, }\item[{uint8\+\_\+t}]{page}{, }\item[{uint8\+\_\+t}]{col}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dogm-graphic_8c_source_l00262}{262}} of file \mbox{\hyperlink{dogm-graphic_8c_source}{dogm-\/graphic.\+c}}.
+
+\Hypertarget{dogm-graphic_8c_aea9d14f02df06f948cb5a56776980826}\index{dogm-\/graphic.c@{dogm-\/graphic.c}!lcd\_command@{lcd\_command}}
+\index{lcd\_command@{lcd\_command}!dogm-\/graphic.c@{dogm-\/graphic.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_command()}{lcd\_command()}}
+{\footnotesize\ttfamily \label{dogm-graphic_8c_aea9d14f02df06f948cb5a56776980826} 
+void lcd\+\_\+command (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cmd}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dogm-graphic_8c_source_l00134}{134}} of file \mbox{\hyperlink{dogm-graphic_8c_source}{dogm-\/graphic.\+c}}.
+
+\Hypertarget{dogm-graphic_8c_a095e2ac3b58e3da9d364a8c4d7ee255f}\index{dogm-\/graphic.c@{dogm-\/graphic.c}!lcd\_command\_s@{lcd\_command\_s}}
+\index{lcd\_command\_s@{lcd\_command\_s}!dogm-\/graphic.c@{dogm-\/graphic.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_command\_s()}{lcd\_command\_s()}}
+{\footnotesize\ttfamily \label{dogm-graphic_8c_a095e2ac3b58e3da9d364a8c4d7ee255f} 
+void lcd\+\_\+command\+\_\+s (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cmd}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dogm-graphic_8c_source_l00143}{143}} of file \mbox{\hyperlink{dogm-graphic_8c_source}{dogm-\/graphic.\+c}}.
+
+\Hypertarget{dogm-graphic_8c_ad0729d2cba627825a089ca1fff12ba29}\index{dogm-\/graphic.c@{dogm-\/graphic.c}!lcd\_data@{lcd\_data}}
+\index{lcd\_data@{lcd\_data}!dogm-\/graphic.c@{dogm-\/graphic.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_data()}{lcd\_data()}}
+{\footnotesize\ttfamily \label{dogm-graphic_8c_ad0729d2cba627825a089ca1fff12ba29} 
+void lcd\+\_\+data (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dogm-graphic_8c_source_l00121}{121}} of file \mbox{\hyperlink{dogm-graphic_8c_source}{dogm-\/graphic.\+c}}.
+
+\Hypertarget{dogm-graphic_8c_a5a4205f2ea2a5d464c94909a2c9b108d}\index{dogm-\/graphic.c@{dogm-\/graphic.c}!lcd\_inc\_column@{lcd\_inc\_column}}
+\index{lcd\_inc\_column@{lcd\_inc\_column}!dogm-\/graphic.c@{dogm-\/graphic.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_inc\_column()}{lcd\_inc\_column()}}
+{\footnotesize\ttfamily \label{dogm-graphic_8c_a5a4205f2ea2a5d464c94909a2c9b108d} 
+uint8\+\_\+t lcd\+\_\+inc\+\_\+column (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dogm-graphic_8c_source_l00071}{71}} of file \mbox{\hyperlink{dogm-graphic_8c_source}{dogm-\/graphic.\+c}}.
+
+\Hypertarget{dogm-graphic_8c_a57eb0809d1074e4c31951612001ed634}\index{dogm-\/graphic.c@{dogm-\/graphic.c}!lcd\_inc\_page@{lcd\_inc\_page}}
+\index{lcd\_inc\_page@{lcd\_inc\_page}!dogm-\/graphic.c@{dogm-\/graphic.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_inc\_page()}{lcd\_inc\_page()}}
+{\footnotesize\ttfamily \label{dogm-graphic_8c_a57eb0809d1074e4c31951612001ed634} 
+uint8\+\_\+t lcd\+\_\+inc\+\_\+page (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dogm-graphic_8c_source_l00058}{58}} of file \mbox{\hyperlink{dogm-graphic_8c_source}{dogm-\/graphic.\+c}}.
+
+\Hypertarget{dogm-graphic_8c_a6842775ba83d166f02b8fef8bb63b1e6}\index{dogm-\/graphic.c@{dogm-\/graphic.c}!lcd\_init@{lcd\_init}}
+\index{lcd\_init@{lcd\_init}!dogm-\/graphic.c@{dogm-\/graphic.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_init()}{lcd\_init()}}
+{\footnotesize\ttfamily \label{dogm-graphic_8c_a6842775ba83d166f02b8fef8bb63b1e6} 
+void lcd\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dogm-graphic_8c_source_l00287}{287}} of file \mbox{\hyperlink{dogm-graphic_8c_source}{dogm-\/graphic.\+c}}.
+
+\Hypertarget{dogm-graphic_8c_a78a4c080442b899fc7fb3c495a30ecaa}\index{dogm-\/graphic.c@{dogm-\/graphic.c}!lcd\_move\_xy@{lcd\_move\_xy}}
+\index{lcd\_move\_xy@{lcd\_move\_xy}!dogm-\/graphic.c@{dogm-\/graphic.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_move\_xy()}{lcd\_move\_xy()}}
+{\footnotesize\ttfamily \label{dogm-graphic_8c_a78a4c080442b899fc7fb3c495a30ecaa} 
+void lcd\+\_\+move\+\_\+xy (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{pages}{, }\item[{int16\+\_\+t}]{columns}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dogm-graphic_8c_source_l00107}{107}} of file \mbox{\hyperlink{dogm-graphic_8c_source}{dogm-\/graphic.\+c}}.
+
+\Hypertarget{dogm-graphic_8c_acd2a8f58d292326a114a97651505c569}\index{dogm-\/graphic.c@{dogm-\/graphic.c}!lcd\_moveto\_xy@{lcd\_moveto\_xy}}
+\index{lcd\_moveto\_xy@{lcd\_moveto\_xy}!dogm-\/graphic.c@{dogm-\/graphic.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_moveto\_xy()}{lcd\_moveto\_xy()}}
+{\footnotesize\ttfamily \label{dogm-graphic_8c_acd2a8f58d292326a114a97651505c569} 
+void lcd\+\_\+moveto\+\_\+xy (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{page}{, }\item[{uint8\+\_\+t}]{column}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dogm-graphic_8c_source_l00092}{92}} of file \mbox{\hyperlink{dogm-graphic_8c_source}{dogm-\/graphic.\+c}}.
+
+\Hypertarget{dogm-graphic_8c_ad3ae8edb7f7fb04b8b069163f753451d}\index{dogm-\/graphic.c@{dogm-\/graphic.c}!lcd\_set\_contrast@{lcd\_set\_contrast}}
+\index{lcd\_set\_contrast@{lcd\_set\_contrast}!dogm-\/graphic.c@{dogm-\/graphic.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_set\_contrast()}{lcd\_set\_contrast()}}
+{\footnotesize\ttfamily \label{dogm-graphic_8c_ad3ae8edb7f7fb04b8b069163f753451d} 
+void lcd\+\_\+set\+\_\+contrast (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dogm-graphic_8c_source_l00274}{274}} of file \mbox{\hyperlink{dogm-graphic_8c_source}{dogm-\/graphic.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{dogm-graphic_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{dogm-graphic_8c_ae948687b26a30d4e13b05ff00ddcf851}\index{dogm-\/graphic.c@{dogm-\/graphic.c}!lcd\_current\_column@{lcd\_current\_column}}
+\index{lcd\_current\_column@{lcd\_current\_column}!dogm-\/graphic.c@{dogm-\/graphic.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_current\_column}{lcd\_current\_column}}
+{\footnotesize\ttfamily \label{dogm-graphic_8c_ae948687b26a30d4e13b05ff00ddcf851} 
+uint8\+\_\+t lcd\+\_\+current\+\_\+column = 0}
+
+
+
+Definition at line \mbox{\hyperlink{dogm-graphic_8c_source_l00052}{52}} of file \mbox{\hyperlink{dogm-graphic_8c_source}{dogm-\/graphic.\+c}}.
+
+\Hypertarget{dogm-graphic_8c_a6e06d1d4fd4c71a9698770e05c08df8d}\index{dogm-\/graphic.c@{dogm-\/graphic.c}!lcd\_current\_page@{lcd\_current\_page}}
+\index{lcd\_current\_page@{lcd\_current\_page}!dogm-\/graphic.c@{dogm-\/graphic.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_current\_page}{lcd\_current\_page}}
+{\footnotesize\ttfamily \label{dogm-graphic_8c_a6e06d1d4fd4c71a9698770e05c08df8d} 
+uint8\+\_\+t lcd\+\_\+current\+\_\+page = 0}
+
+
+
+Definition at line \mbox{\hyperlink{dogm-graphic_8c_source_l00051}{51}} of file \mbox{\hyperlink{dogm-graphic_8c_source}{dogm-\/graphic.\+c}}.
+

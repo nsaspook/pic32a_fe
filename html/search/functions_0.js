@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['_5f_5fattribute_5f_5f_0',['__attribute__',['../interrupts_8c.html#adb815d582d49f6502acb0c843589dad7',1,'__attribute__((interrupt, no_auto_psv, context)):&#160;interrupts.c'],['../interrupts_8c.html#a226557d5e42f7e29ddaff30606138459',1,'__attribute__((interrupt, no_auto_psv)):&#160;interrupts.c'],['../plib__sccp1_8c.html#a065104e40a00c6733ccffd0203a0283d',1,'__attribute__((used)):&#160;plib_sccp1.c'],['../plib__sccp2_8c.html#a065104e40a00c6733ccffd0203a0283d',1,'__attribute__((used)):&#160;plib_sccp2.c'],['../plib__dma_8c.html#a065104e40a00c6733ccffd0203a0283d',1,'__attribute__((used)):&#160;plib_dma.c'],['../plib__spi1__host_8c.html#a065104e40a00c6733ccffd0203a0283d',1,'__attribute__((used)):&#160;plib_spi1_host.c'],['../plib__spi2__host_8c.html#a065104e40a00c6733ccffd0203a0283d',1,'__attribute__((used)):&#160;plib_spi2_host.c'],['../plib__tmr1_8c.html#a065104e40a00c6733ccffd0203a0283d',1,'__attribute__((used)):&#160;plib_tmr1.c'],['../traps_8c.html#a1ec4b57d304202f03463af5b9d2ef4f0',1,'__attribute__((weak, noreturn)):&#160;traps.c'],['../traps_8h.html#a0473a78f8b449f70bd4e12c9986b54fc',1,'__attribute__((weak, noreturn)) TRAPS_halt_on_error(uint16_t code):&#160;traps.c'],['../OledDriver_8c.html#a0361bc12809ad6765b2aa2538022cc8f',1,'__attribute__((address(XRAM))):&#160;OledDriver.c'],['../main_8c.html#a4a7ef3ee50b7085a96613533da61e4be',1,'__attribute__((address(YRAM))):&#160;main.c']]],
+  ['_5f_5fbuiltin_5fclrwdt_1',['__builtin_clrwdt',['../plib__wdt_8c.html#ac77f0b99d63cb202ef8e410c835b52a9',1,'plib_wdt.c']]],
+  ['_5faddresserrortrap_2',['_AddressErrorTrap',['../traps_8c.html#aa48029f50cb352440fded3326f868d9f',1,'traps.c']]],
+  ['_5fbuserrortrap_3',['_BusErrorTrap',['../traps_8c.html#ad6ee1738d42d98eab03f5dacf3d7b76a',1,'traps.c']]],
+  ['_5fcct1interrupt_4',['_CCT1Interrupt',['../interrupts_8c.html#a9f8efc110174a459158332a4f94dbccf',1,'interrupts.c']]],
+  ['_5fcct2interrupt_5',['_CCT2Interrupt',['../interrupts_8c.html#ab2d1bf29d62b16a6ebc9914be9905a53',1,'interrupts.c']]],
+  ['_5fdma0interrupt_6',['_DMA0Interrupt',['../interrupts_8c.html#ab1863e6bf0827e0996ebd86b884d7c93',1,'interrupts.c']]],
+  ['_5fdma1interrupt_7',['_DMA1Interrupt',['../interrupts_8c.html#a646c567e9de6e04c05fa3455b9ccc1ac',1,'interrupts.c']]],
+  ['_5fdma4interrupt_8',['_DMA4Interrupt',['../interrupts_8c.html#a691bbfdbb39a0b5a2aced6c9c8c4321a',1,'interrupts.c']]],
+  ['_5fdma5interrupt_9',['_DMA5Interrupt',['../interrupts_8c.html#acc867b2ba4a6dc9a8b7d41bd439d9eee',1,'interrupts.c']]],
+  ['_5fgeneraltrap_10',['_GeneralTrap',['../traps_8c.html#ac04455675d99c4f4a07de1e9e707234d',1,'traps.c']]],
+  ['_5fillegalinstructiontrap_11',['_IllegalInstructionTrap',['../traps_8c.html#a766780cddc60d3e1f3baf2c73f4e5087',1,'traps.c']]],
+  ['_5fmatherrortrap_12',['_MathErrorTrap',['../traps_8c.html#ad90203bf1c9fd85cbf0c9853710322c6',1,'traps.c']]],
+  ['_5fspi1einterrupt_13',['_SPI1EInterrupt',['../interrupts_8c.html#a25d51e79b7f81e11f0476827b5e14d61',1,'interrupts.c']]],
+  ['_5fspi1rxinterrupt_14',['_SPI1RXInterrupt',['../interrupts_8c.html#a4a44f00aad36308116d74c2028833dfa',1,'interrupts.c']]],
+  ['_5fspi1txinterrupt_15',['_SPI1TXInterrupt',['../interrupts_8c.html#afd28503278e74223d5cd61dc79763d1f',1,'interrupts.c']]],
+  ['_5fspi2rxinterrupt_16',['_SPI2RXInterrupt',['../interrupts_8c.html#aacf4d792b90ca2ff106c3364edac9e5d',1,'interrupts.c']]],
+  ['_5fspi2txinterrupt_17',['_SPI2TXInterrupt',['../interrupts_8c.html#ac7cd2a14af6e52751ce74cf80f9f1704',1,'interrupts.c']]],
+  ['_5fstackerrortrap_18',['_StackErrorTrap',['../traps_8c.html#acfc238951fecae1385cc547f11422f15',1,'traps.c']]],
+  ['_5ft1interrupt_19',['_T1Interrupt',['../interrupts_8c.html#a3b9d4f7573499d6acdb1ffd1064a9077',1,'interrupts.c']]],
+  ['_5fu1einterrupt_20',['_U1EInterrupt',['../interrupts_8c.html#a02c943057f7f816cc22a155e7f62a9ec',1,'interrupts.c']]],
+  ['_5fu1rxinterrupt_21',['_U1RXInterrupt',['../interrupts_8c.html#ab5b5e10f6df73914ef26fc0f76e30d91',1,'interrupts.c']]],
+  ['_5fu1txinterrupt_22',['_U1TXInterrupt',['../interrupts_8c.html#a677ede9c0b46557fafb2142bea4eddfa',1,'interrupts.c']]]
+];

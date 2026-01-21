@@ -1,0 +1,28 @@
+var annotated_dup =
+[
+    [ "_imu_cmd_t", "struct__imu__cmd__t.html", "struct__imu__cmd__t" ],
+    [ "_imu_host_t", "struct__imu__host__t.html", "struct__imu__host__t" ],
+    [ "_op_t", "struct__op__t.html", "struct__op__t" ],
+    [ "_sSensorData_t", "struct__sSensorData__t.html", "struct__sSensorData__t" ],
+    [ "ADC_CHANNEL_OBJECT", "structADC__CHANNEL__OBJECT.html", "structADC__CHANNEL__OBJECT" ],
+    [ "ADC_CMP_OBJECT", "structADC__CMP__OBJECT.html", "structADC__CMP__OBJECT" ],
+    [ "CCP_CAPTURE_OBJECT", "structCCP__CAPTURE__OBJECT.html", "structCCP__CAPTURE__OBJECT" ],
+    [ "CCP_COMPARE_OBJECT", "structCCP__COMPARE__OBJECT.html", "structCCP__COMPARE__OBJECT" ],
+    [ "CCP_TIMER_OBJECT", "structCCP__TIMER__OBJECT.html", "structCCP__TIMER__OBJECT" ],
+    [ "CLOCK_CombinedFailObject", "structCLOCK__CombinedFailObject.html", "structCLOCK__CombinedFailObject" ],
+    [ "CMP_OBJECT", "structCMP__OBJECT.html", "structCMP__OBJECT" ],
+    [ "DMA_CHANNEL_OBJECT", "structDMA__CHANNEL__OBJECT.html", "structDMA__CHANNEL__OBJECT" ],
+    [ "EXT_INT_PIN_CALLBACK_OBJ", "structEXT__INT__PIN__CALLBACK__OBJ.html", null ],
+    [ "PTG_EVENTS_CALLBACK_OBJECT", "structPTG__EVENTS__CALLBACK__OBJECT.html", "structPTG__EVENTS__CALLBACK__OBJECT" ],
+    [ "PWM_GEN_EOC_EVENT_CALLBACK_OBJ", "structPWM__GEN__EOC__EVENT__CALLBACK__OBJ.html", "structPWM__GEN__EOC__EVENT__CALLBACK__OBJ" ],
+    [ "Quaternion", "structQuaternion.html", "structQuaternion" ],
+    [ "sca3300_data", "structsca3300__data.html", "structsca3300__data" ],
+    [ "sFFTData_t", "structsFFTData__t.html", "structsFFTData__t" ],
+    [ "SPI_OBJECT", "structSPI__OBJECT.html", "structSPI__OBJECT" ],
+    [ "SPI_TRANSFER_SETUP", "structSPI__TRANSFER__SETUP.html", "structSPI__TRANSFER__SETUP" ],
+    [ "TIMER_OBJECT", "structTIMER__OBJECT.html", "structTIMER__OBJECT" ],
+    [ "TMR_TIMEOUT", "structTMR__TIMEOUT.html", "structTMR__TIMEOUT" ],
+    [ "UART_OBJECT", "structUART__OBJECT.html", "structUART__OBJECT" ],
+    [ "UART_RING_BUFFER_OBJECT", "structUART__RING__BUFFER__OBJECT.html", "structUART__RING__BUFFER__OBJECT" ],
+    [ "UART_SERIAL_SETUP", "structUART__SERIAL__SETUP.html", "structUART__SERIAL__SETUP" ]
+];

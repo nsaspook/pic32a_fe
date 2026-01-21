@@ -1,0 +1,114 @@
+\doxysection{plib\+\_\+tmr1.\+h}
+\hypertarget{plib__tmr1_8h_source}{}\label{plib__tmr1_8h_source}\index{src/config/default/peripheral/tmr/plib\_tmr1.h@{src/config/default/peripheral/tmr/plib\_tmr1.h}}
+\mbox{\hyperlink{plib__tmr1_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00002}00002\ \textcolor{comment}{\ \ TMR\ Peripheral\ Library\ Interface\ Header\ Source\ File}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00006}00006\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_tmr1.h}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ TMR1\ peripheral\ library\ header\ source\ file.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ implements\ the\ interface\ to\ the\ TMR\ peripheral\ library.\ \ This}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ library\ provides\ access\ to\ and\ control\ of\ the\ associated\ peripheral}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00016}00016\ \textcolor{comment}{\ \ \ \ instance.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00017}00017\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00018}00018\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00020}00020\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00021}00021\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00022}00022\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00023}00023\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00024}00024\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00025}00025\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00026}00026\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00027}00027\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00028}00028\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00029}00029\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00030}00030\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00031}00031\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00032}00032\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00033}00033\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00034}00034\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00035}00035\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00036}00036\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00037}00037\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00038}00038\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00039}00039\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00040}00040\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00041}00041\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00043}00043\ \textcolor{preprocessor}{\#ifndef\ PLIB\_TMR1\_H}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00044}00044\ \textcolor{preprocessor}{\#define\ PLIB\_TMR1\_H}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00046}00046\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00047}00047\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00048}00048\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{device_8h}{device.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00049}00049\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib__tmr__common_8h}{plib\_tmr\_common.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00051}\mbox{\hyperlink{plib__tmr1_8h_a17c647069d95b6a155be94eb72257241}{00051}}\ \textcolor{preprocessor}{\#define\ TIMER\_CLOCK\_FREQUENCY\ \ \ \ \ \ \ \ \ \ 100000000}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00053}\mbox{\hyperlink{plib__tmr1_8h_a9fa0b18cd3454954a2b257f74006229d}{00053}}\ \textcolor{preprocessor}{\#define\ TMR\_INTERRUPT\_PERIOD\_IN\_NS\ \ \ \ \ 500000}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00054}\mbox{\hyperlink{structTMR__TIMEOUT}{00054}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00056}\mbox{\hyperlink{structTMR__TIMEOUT_a61eb63d26b2fa6c2971603ceccffb14b}{00056}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structTMR__TIMEOUT_a61eb63d26b2fa6c2971603ceccffb14b}{start}};}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00057}\mbox{\hyperlink{structTMR__TIMEOUT_a86988a65e0d3ece7990c032c159786d6}{00057}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structTMR__TIMEOUT_a86988a65e0d3ece7990c032c159786d6}{count}};}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00058}00058\ \}\ \mbox{\hyperlink{structTMR__TIMEOUT}{TMR\_TIMEOUT}};}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00061}00061\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00062}00062\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00064}00064\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00066}00066\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00067}00067\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00082}00082\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__tmr1_8h_aeca9435d024c8eeada966c9dffbb8427}{TMR1\_Initialize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00095}00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__tmr1_8h_a2841c95f77415643312872bc9e042fd9}{TMR1\_Deinitialize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00108}00108\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__tmr1_8h_afed3745413684e23104d29539be4f2e5}{TMR1\_Start}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00121}00121\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__tmr1_8h_a27bf11425ad1e1d2e8e16a14aebb5a9c}{TMR1\_Stop}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00134}00134\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__tmr1_8h_aec8b74fdf82606cd129962d70f9f56c1}{TMR1\_PeriodSet}}(uint32\_t\ period);}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00147}00147\ uint32\_t\ \mbox{\hyperlink{plib__tmr1_8h_aa50908f589e42b6702f72a89e62d14df}{TMR1\_PeriodGet}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00160}00160\ uint32\_t\ \mbox{\hyperlink{plib__tmr1_8h_a0e9e48673a968d4bb88375f54c500b75}{TMR1\_CounterGet}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00173}00173\ uint32\_t\ \mbox{\hyperlink{plib__tmr1_8h_a8acd5b11bff2d00d3dabda7e9e1cdc03}{TMR1\_FrequencyGet}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00188}00188\ uint32\_t\ \mbox{\hyperlink{plib__tmr1_8h_a9c985cda74eb114a5e0dc32a2432d796}{TMR1\_GetTickCounter}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00204}00204\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__tmr1_8h_a0bba05773695bdaf4c9bed35cca6ce97}{TMR1\_StartTimeOut}}\ (\mbox{\hyperlink{structTMR__TIMEOUT}{TMR\_TIMEOUT}}*\ timeout,\ uint32\_t\ delay\_ms);}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00219}00219\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__tmr1_8h_a326aa4b33babf79817957697d2738160}{TMR1\_ResetTimeOut}}\ (\mbox{\hyperlink{structTMR__TIMEOUT}{TMR\_TIMEOUT}}*\ timeout);}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00234}00234\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__tmr1_8h_a142ba55962f7fa14e4dc4a8aa1d625d9}{TMR1\_IsTimeoutReached}}\ (\mbox{\hyperlink{structTMR__TIMEOUT}{TMR\_TIMEOUT}}*\ timeout);}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00247}00247\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__tmr1_8h_a59a67e99dfe8d52c9210683fc75c27d5}{TMR1\_InterruptEnable}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00260}00260\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__tmr1_8h_a025f586b354b2602f2642369351c4c85}{TMR1\_InterruptDisable}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00278}00278\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__tmr1_8h_a3f00b779f79d3099c522890b23aaa92c}{TMR1\_CallbackRegister}}(\ \mbox{\hyperlink{plib__tmr__common_8h_a3dfc0732b8dab247e647103a34b03727}{TMR\_CALLBACK}}\ callback\_fn,\ uintptr\_t\ context\ );}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00281}00281\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00282}00282\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00283}00283\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00284}00284\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00285}00285\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00286}00286\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr1_8h_source_l00288}00288\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PLIB\_TMR1\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

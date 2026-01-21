@@ -1,0 +1,133 @@
+\doxysection{plib\+\_\+spi\+\_\+host\+\_\+common.\+h}
+\hypertarget{plib__spi__host__common_8h_source}{}\label{plib__spi__host__common_8h_source}\index{src/config/default/peripheral/spi/spi\_host/plib\_spi\_host\_common.h@{src/config/default/peripheral/spi/spi\_host/plib\_spi\_host\_common.h}}
+\mbox{\hyperlink{plib__spi__host__common_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00002}00002\ \textcolor{comment}{\ \ SPI\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00006}00006\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_spi\_host\_common.h}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ SPI\ PLIB\ Master\ Common\ Header\ File}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ has\ prototype\ of\ all\ the\ interfaces\ which\ are\ common\ for\ all\ the}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ SPI\ peripherals.}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00016}00016\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00017}00017\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00019}00019\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00020}00020\ \textcolor{comment}{*\ Copyright\ (C)\ 2025-\/2019\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00021}00021\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00022}00022\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00023}00023\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00024}00024\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00025}00025\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00026}00026\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00027}00027\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00028}00028\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00029}00029\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00030}00030\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00031}00031\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00032}00032\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00033}00033\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00034}00034\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00035}00035\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00036}00036\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00037}00037\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00038}00038\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00039}00039\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00040}00040\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifndef\ PLIB\_SPI\_HOST\_COMMON\_H}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ PLIB\_SPI\_HOST\_COMMON\_H}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00045}00045\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00046}00046\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00047}00047\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00050}00050\ \textcolor{comment}{/*\ Provide\ C++\ Compatibility\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00051}00051\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00055}00055\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00057}00057\ \textcolor{comment}{/******************************\ SPI\$\{SPI\_INDEX?string\}\ Interface\ *********************************/}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00059}\mbox{\hyperlink{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0}{00059}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00060}00060\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00061}\mbox{\hyperlink{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0ad42e678e8530aec81d79b177f646c383}{00061}}\ \ \ \ \ \mbox{\hyperlink{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0ad42e678e8530aec81d79b177f646c383}{SPI\_CLOCK\_PHASE\_TRAILING\_EDGE}}\ =\ 0x00000000UL,}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00062}\mbox{\hyperlink{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0aa414f0d6de6c3140fa79fe129b9b731a}{00062}}\ \ \ \ \ \mbox{\hyperlink{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0aa414f0d6de6c3140fa79fe129b9b731a}{SPI\_CLOCK\_PHASE\_LEADING\_EDGE}}\ =\ 0x00000100UL,}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00064}00064\ \ \ \ \ \textcolor{comment}{/*\ Force\ the\ compiler\ to\ reserve\ 32-\/bit\ space\ for\ each\ enum\ value\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00065}\mbox{\hyperlink{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0acc16c586a89f8b79b4ec6e61d9cf0623}{00065}}\ \ \ \ \ \mbox{\hyperlink{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0acc16c586a89f8b79b4ec6e61d9cf0623}{SPI\_CLOCK\_PHASE\_INVALID}}\ =\ 0xFFFFFFFFUL}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00067}00067\ \}\mbox{\hyperlink{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0}{SPI\_CLOCK\_PHASE}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00069}\mbox{\hyperlink{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64}{00069}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00070}00070\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00071}\mbox{\hyperlink{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64abe157ad19731c08747d2b64fad0ca599}{00071}}\ \ \ \ \ \mbox{\hyperlink{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64abe157ad19731c08747d2b64fad0ca599}{SPI\_CLOCK\_POLARITY\_IDLE\_LOW}}\ =\ 0x00000000UL,}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00072}\mbox{\hyperlink{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64aa82cddd6b50d58de08457c571dba7284}{00072}}\ \ \ \ \ \mbox{\hyperlink{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64aa82cddd6b50d58de08457c571dba7284}{SPI\_CLOCK\_POLARITY\_IDLE\_HIGH}}\ =\ 0x00000040UL,}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00074}00074\ \ \ \ \ \textcolor{comment}{/*\ Force\ the\ compiler\ to\ reserve\ 32-\/bit\ space\ for\ each\ enum\ value\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00075}\mbox{\hyperlink{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64a9cbbb13a80654e0548518c26d90af41e}{00075}}\ \ \ \ \ \mbox{\hyperlink{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64a9cbbb13a80654e0548518c26d90af41e}{SPI\_CLOCK\_POLARITY\_INVALID}}\ =\ 0xFFFFFFFFUL}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00077}00077\ \}\mbox{\hyperlink{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64}{SPI\_CLOCK\_POLARITY}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00079}\mbox{\hyperlink{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85}{00079}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00080}00080\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00081}\mbox{\hyperlink{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85a69055b82a537b36b688e59260fa4df54}{00081}}\ \ \ \ \ \mbox{\hyperlink{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85a69055b82a537b36b688e59260fa4df54}{SPI\_DATA\_BITS\_8}}\ =\ 0x00000000UL,}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00083}00083\ \ \ \ \ \textcolor{comment}{/*\ Force\ the\ compiler\ to\ reserve\ 32-\/bit\ space\ for\ each\ enum\ value\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00084}\mbox{\hyperlink{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85a3f3c632bba6b6382b0b984d5857dec07}{00084}}\ \ \ \ \ \mbox{\hyperlink{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85a3f3c632bba6b6382b0b984d5857dec07}{SPI\_DATA\_BITS\_INVALID}}\ =\ 0xFFFFFFFFUL}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00086}00086\ \}\mbox{\hyperlink{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85}{SPI\_DATA\_BITS}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00088}\mbox{\hyperlink{structSPI__TRANSFER__SETUP}{00088}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00089}00089\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00090}\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a13a57d4f9f72129d847edfebbdc7e71f}{00090}}\ \ \ \ \ uint32\_t\ \ \ \ \mbox{\hyperlink{structSPI__TRANSFER__SETUP_a13a57d4f9f72129d847edfebbdc7e71f}{clockFrequency}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00091}\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a1babbde781da3e40f2da32ef06faedde}{00091}}\ \ \ \ \ \mbox{\hyperlink{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0}{SPI\_CLOCK\_PHASE}}\ \mbox{\hyperlink{structSPI__TRANSFER__SETUP_a1babbde781da3e40f2da32ef06faedde}{clockPhase}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00092}\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a39c28f6753b48f7ded7e5d5cf114c82c}{00092}}\ \ \ \ \ \mbox{\hyperlink{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64}{SPI\_CLOCK\_POLARITY}}\ \mbox{\hyperlink{structSPI__TRANSFER__SETUP_a39c28f6753b48f7ded7e5d5cf114c82c}{clockPolarity}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00093}\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a61358360a114db42544587290a58ec93}{00093}}\ \ \ \ \ \mbox{\hyperlink{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85}{SPI\_DATA\_BITS}}\ \ \ \mbox{\hyperlink{structSPI__TRANSFER__SETUP_a61358360a114db42544587290a58ec93}{dataBits}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00095}00095\ \}\mbox{\hyperlink{structSPI__TRANSFER__SETUP}{SPI\_TRANSFER\_SETUP}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00097}\mbox{\hyperlink{plib__spi__host__common_8h_ae09d5880ae883eee1b2ef101e157e996}{00097}}\ \textcolor{keyword}{typedef}\ \ void\ (*\mbox{\hyperlink{plib__spi__host__common_8h_ae09d5880ae883eee1b2ef101e157e996}{SPI\_CALLBACK}})\ (uintptr\_t\ context);}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00099}00099\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00100}00100\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00101}00101\ \textcolor{comment}{//\ Section:\ Local:\ ****\ Do\ Not\ Use\ ****}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00102}00102\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00103}00103\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00105}\mbox{\hyperlink{structSPI__OBJECT}{00105}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00106}00106\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00107}\mbox{\hyperlink{structSPI__OBJECT_a10308de7aa4420b45413eb72318d9c6b}{00107}}\ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structSPI__OBJECT_a10308de7aa4420b45413eb72318d9c6b}{txBuffer}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00108}\mbox{\hyperlink{structSPI__OBJECT_a29a45ad2696e9bd1e8e21216ea9fb0a3}{00108}}\ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structSPI__OBJECT_a29a45ad2696e9bd1e8e21216ea9fb0a3}{rxBuffer}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00109}\mbox{\hyperlink{structSPI__OBJECT_a5a1941b6a9c9ad4604f75317b82787fc}{00109}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structSPI__OBJECT_a5a1941b6a9c9ad4604f75317b82787fc}{txSize}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00110}\mbox{\hyperlink{structSPI__OBJECT_a391007772689bec1d2ca7911cf7e7f11}{00110}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structSPI__OBJECT_a391007772689bec1d2ca7911cf7e7f11}{rxSize}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00111}\mbox{\hyperlink{structSPI__OBJECT_a920f06e79b11a32c25bde6c359ea1b68}{00111}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structSPI__OBJECT_a920f06e79b11a32c25bde6c359ea1b68}{dummySize}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00112}\mbox{\hyperlink{structSPI__OBJECT_a44f194ed7d260687898b174390a7c8f5}{00112}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structSPI__OBJECT_a44f194ed7d260687898b174390a7c8f5}{rxCount}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00113}\mbox{\hyperlink{structSPI__OBJECT_a8bb89024b184660fbfc966523ea95e82}{00113}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structSPI__OBJECT_a8bb89024b184660fbfc966523ea95e82}{txCount}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00114}\mbox{\hyperlink{structSPI__OBJECT_a2dd222063ed85b26f3bee50b653bdea2}{00114}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structSPI__OBJECT_a2dd222063ed85b26f3bee50b653bdea2}{transferIsBusy}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00115}\mbox{\hyperlink{structSPI__OBJECT_a8807b08220e4b3e4ecf4523f11f133a7}{00115}}\ \ \ \ \ \mbox{\hyperlink{plib__spi__host__common_8h_ae09d5880ae883eee1b2ef101e157e996}{SPI\_CALLBACK}}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structSPI__OBJECT_a8807b08220e4b3e4ecf4523f11f133a7}{callback}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00116}\mbox{\hyperlink{structSPI__OBJECT_afb301b46bf1bb94237366e0db5c62810}{00116}}\ \ \ \ \ uintptr\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structSPI__OBJECT_afb301b46bf1bb94237366e0db5c62810}{context}};}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00118}00118\ \}\ \mbox{\hyperlink{structSPI__OBJECT}{SPI\_OBJECT}}\ ;}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00120}00120\ \textcolor{comment}{/*\ Provide\ C++\ Compatibility\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00121}00121\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00123}00123\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00125}00125\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{plib__spi__host__common_8h_source_l00127}00127\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLIB\_SPI\_HOST\_COMMON\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,230 @@
+\doxysection{plib\+\_\+adc2.\+h}
+\hypertarget{plib__adc2_8h_source}{}\label{plib__adc2_8h_source}\index{src/config/default/peripheral/adc/plib\_adc2.h@{src/config/default/peripheral/adc/plib\_adc2.h}}
+\mbox{\hyperlink{plib__adc2_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00002}00002\ \textcolor{comment}{\ \ adc2\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00003}00003\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00006}00006\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_adc2.h}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00009}00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ adc2\ PLIB\ Header\ File}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00012}00012\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ has\ prototype\ of\ all\ the\ interfaces\ provided\ for\ particular}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ adc2\ peripheral.}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00016}00016\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00017}00017\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00018}00018\ \ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00019}00019\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00020}00020\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00021}00021\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00022}00022\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00023}00023\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00024}00024\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00025}00025\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00026}00026\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00027}00027\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00028}00028\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00029}00029\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00030}00030\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00031}00031\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00032}00032\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00033}00033\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00034}00034\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00035}00035\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00036}00036\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00037}00037\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00038}00038\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00039}00039\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00040}00040\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifndef\ PLIB\_ADC2\_H}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ PLIB\_ADC2\_H}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00045}00045\ \textcolor{comment}{//\ Section:\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00047}00047\ \textcolor{preprocessor}{\#include\ <xc.h>}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00048}00048\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00049}00049\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00050}00050\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib__adc__common_8h}{plib\_adc\_common.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00052}00052\ \textcolor{comment}{//\ /cond\ IGNORE\_THIS}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00053}00053\ \textcolor{comment}{/*\ Provide\ C++\ Compatibility\ */}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00054}00054\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00056}00056\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00058}00058\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00059}00059\ \textcolor{comment}{//\ /endcond}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00061}00061\ \textcolor{comment}{//\ Section:\ Data\ Types}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00067}\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{00067}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00068}00068\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00069}\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773a215a3412f2f9907324842900f5c6f3a3}{00069}}\ \ \ \ \ \mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773a215a3412f2f9907324842900f5c6f3a3}{ADC2\_CHANNEL4}}\ =\ 4U,\ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00070}\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773aa6cacaa76cc0efeb82f2c8c96cbfb75b}{00070}}\ \ \ \ \ \mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773aa6cacaa76cc0efeb82f2c8c96cbfb75b}{ADC2\_MAX\_CHANNELS}}\ =\ 1}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00071}00071\ \}\ \mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\_CHANNEL}};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00078}\mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23}{00078}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00079}00079\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00080}\mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23a94c4c8d9576363fe58a04b64c86d1ee1}{00080}}\ \ \ \ \ \mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23a94c4c8d9576363fe58a04b64c86d1ee1}{ADC2\_PWM1}}\ =\ 1,}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00081}\mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23a8c80b5444bb12c41a79b61cbb49b2b79}{00081}}\ \ \ \ \ \mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23a8c80b5444bb12c41a79b61cbb49b2b79}{ADC2\_PWM2}}\ =\ 2,}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00082}\mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23a3a4b0ed403248c3f4e5be5f4b2658e32}{00082}}\ \ \ \ \ \mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23a3a4b0ed403248c3f4e5be5f4b2658e32}{ADC2\_PWM3}}\ =\ 3,}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00083}\mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23aa2adc05da23732729b45ad4629310395}{00083}}\ \ \ \ \ \mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23aa2adc05da23732729b45ad4629310395}{ADC2\_PWM4}}\ =\ 4,}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00084}00084\ \}\ \mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23}{ADC2\_PWM\_INSTANCE}};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00087}00087\ \textcolor{comment}{//\ Section:\ Driver\ Interface\ Functions}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00095}00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__adc2_8h_a987ebcb79cab29ecba0dc2983af54a74}{ADC2\_Initialize}}\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00102}00102\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__adc2_8h_ab43e3265a8ac9ae6135fbbf24ae02dcf}{ADC2\_Deinitialize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00110}00110\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ ADC2\_Enable(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00111}00111\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00112}00112\ \ \ \ \ AD2CONbits.ON\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00113}00113\ \ \ \ \ AD2CONbits.MODE\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00114}00114\ \ \ \ \ \textcolor{keywordflow}{while}(AD2CONbits.ADRDY\ ==\ 0U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00115}00115\ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00123}00123\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ ADC2\_Disable(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00124}00124\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00125}00125\ \ \ \ AD2CONbits.ON\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00126}00126\ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00134}00134\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ ADC2\_SoftwareTriggerEnable(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00135}00135\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00136}00136\ \ \ \ AD2SWTRG\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00137}00137\ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00145}00145\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ ADC2\_ChannelSoftwareTriggerEnable(\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\_CHANNEL}}\ channel)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00146}00146\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00147}00147\ \ \ \ \ \textcolor{keywordflow}{switch}(channel)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00148}00148\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00149}00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773a215a3412f2f9907324842900f5c6f3a3}{ADC2\_CHANNEL4}}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AD2SWTRGbits.CH4TRG\ =\ 0x1U;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00152}00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Do\ Nothing*/}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00155}00155\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00156}00156\ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00166}00166\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ ADC2\_ChannelResultGet(\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\_CHANNEL}}\ channel)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00167}00167\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00168}00168\ \ \ \ \ uint32\_t\ result\ =\ 0x0U;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00170}00170\ \ \ \ \ \textcolor{keywordflow}{switch}(channel)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00171}00171\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00172}00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773a215a3412f2f9907324842900f5c6f3a3}{ADC2\_CHANNEL4}}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ AD2CH4DATA;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00175}00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Do\ Nothing*/}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00178}00178\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00179}00179\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00180}00180\ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00192}00192\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ ADC2\_ChannelResultIsReady(\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\_CHANNEL}}\ channel)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00193}00193\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00194}00194\ \ \ \ \ \textcolor{keywordtype}{bool}\ status\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00196}00196\ \ \ \ \ \textcolor{keywordflow}{switch}(channel)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00197}00197\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00198}00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773a215a3412f2f9907324842900f5c6f3a3}{ADC2\_CHANNEL4}}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ AD2STATbits.CH4RDY\ ==\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Do\ Nothing*/}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00204}00204\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00205}00205\ \ \ \ \ \textcolor{keywordflow}{return}\ status;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00206}00206\ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00213}00213\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ ADC2\_ChannelResultInterruptEnable(\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\_CHANNEL}}\ channel)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00214}00214\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00215}00215\ \ \ \ \ \textcolor{keywordflow}{switch}(channel)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00216}00216\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00217}00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773a215a3412f2f9907324842900f5c6f3a3}{ADC2\_CHANNEL4}}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IEC6bits.AD2CH4IE\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00220}00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Do\ Nothing*/}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00223}00223\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00224}00224\ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00231}00231\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ ADC2\_ChannelResultInterruptDisable(\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\_CHANNEL}}\ channel)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00232}00232\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00233}00233\ \ \ \ \ \textcolor{keywordflow}{switch}(channel)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00234}00234\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773a215a3412f2f9907324842900f5c6f3a3}{ADC2\_CHANNEL4}}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IEC6bits.AD2CH4IE\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00238}00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Do\ Nothing*/}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00241}00241\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00242}00242\ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00252}00252\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ ADC2\_ChannelResultFlagClear(\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\_CHANNEL}}\ channel)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00253}00253\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00254}00254\ \ \ \ \ \textcolor{keywordflow}{switch}(channel)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00255}00255\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00256}00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773a215a3412f2f9907324842900f5c6f3a3}{ADC2\_CHANNEL4}}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IFS6bits.AD2CH4IF\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00259}00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Do\ Nothing*/}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00262}00262\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00263}00263\ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00264}00264\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00271}00271\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ ADC2\_CompareStatusGet(\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\_CHANNEL}}\ channel)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00272}00272\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00273}00273\ \ \ \ \ \textcolor{keywordtype}{bool}\ status\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00274}00274\ \ \ \ \ \textcolor{keywordflow}{switch}(channel)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00275}00275\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00276}00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773a215a3412f2f9907324842900f5c6f3a3}{ADC2\_CHANNEL4}}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ AD2CMPSTATbits.CH4CMP\ ==\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Clear\ status\ flag}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AD2CMPSTATbits.CH4CMP\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//clear\ the\ CMP\ 4\ interrupt\ flag}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IFS6bits.AD2CMP4IF\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00283}00283\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Do\ Nothing*/}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00286}00286\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00287}00287\ \ \ \ \ \textcolor{keywordflow}{return}\ status;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00288}00288\ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00296}00296\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ ADC2\_IndividualChannelInterruptPrioritySet(\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\_CHANNEL}}\ channel,\ \mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724}{INTERRUPT\_PRIORITY}}\ priorityValue)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00297}00297\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00298}00298\ \ \ \ \ \textcolor{keywordflow}{switch}(channel)}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00299}00299\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00300}00300\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773a215a3412f2f9907324842900f5c6f3a3}{ADC2\_CHANNEL4}}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_AD2CH4IP\ =\ (uint8\_t)priorityValue;}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00303}00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Do\ Nothing*/}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00306}00306\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00307}00307\ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00308}00308\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00318}00318\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__adc2_8h_a865f997d78a4998390e0c057cde2583c}{ADC2\_ChannelCallbackRegister}}(\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\_CHANNEL}}\ channel,\mbox{\hyperlink{plib__adc__common_8h_a0ecb5177d11a20d79e3b20305e9d8fa0}{ADC\_CHANNEL\_CALLBACK}}\ callback,uintptr\_t\ context);}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00320}00320\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00329}00329\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__adc2_8h_a06b5fb7fb15947da1d8d63a0ca06b1ab}{ADC2\_PWMTriggerSourceSet}}(\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\_CHANNEL}}\ channel,\ \mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23}{ADC2\_PWM\_INSTANCE}}\ pwmInstance,\ \mbox{\hyperlink{plib__adc__common_8h_a149ac70fba51af61abec9c9625d35e10}{ADC\_PWM\_TRIGGERS}}\ triggerNumber);}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00331}00331\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PLIB\_ADC2\_H}}
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00332}00332\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__adc2_8h_source_l00336}00336\ }
+
+\end{DoxyCode}

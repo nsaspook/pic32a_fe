@@ -1,0 +1,103 @@
+\doxysection{plib\+\_\+cmp1.\+h}
+\hypertarget{plib__cmp1_8h_source}{}\label{plib__cmp1_8h_source}\index{src/config/default/peripheral/cmp\_dac/plib\_cmp1.h@{src/config/default/peripheral/cmp\_dac/plib\_cmp1.h}}
+\mbox{\hyperlink{plib__cmp1_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00002}00002\ \textcolor{comment}{\ \ cmp1\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00003}00003\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00006}00006\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_cmp1.h}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00009}00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ cmp1\ PLIB\ Header\ File}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00012}00012\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ has\ prototype\ of\ all\ the\ interfaces\ provided\ for\ particular}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ cmp1\ peripheral.}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00016}00016\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00017}00017\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00018}00018\ \ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00019}00019\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00020}00020\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00021}00021\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00022}00022\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00023}00023\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00024}00024\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00025}00025\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00026}00026\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00027}00027\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00028}00028\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00029}00029\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00030}00030\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00031}00031\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00032}00032\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00033}00033\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00034}00034\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00035}00035\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00036}00036\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00037}00037\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00038}00038\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00039}00039\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00040}00040\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifndef\ PLIB\_CMP1\_H}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ PLIB\_CMP1\_H}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00045}00045\ \textcolor{comment}{//\ Section:\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00047}00047\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00048}00048\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00049}00049\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{device_8h}{device.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00050}00050\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib__cmp__common_8h}{plib\_cmp\_common.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00052}00052\ \textcolor{comment}{//\ Section:\ Data\ Type\ Definitions}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00057}\mbox{\hyperlink{plib__cmp1_8h_a15f83d86150ed883eed46ea5982754b7}{00057}}\ \textcolor{preprocessor}{\#define\ CMP1\_DAC\_CLOCK\_FREQUENCY\ 8000000UL}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00059}00059\ \textcolor{comment}{//\ Section:\ CMP1\ Module\ APIs}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00066}00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__cmp1_8h_a84bc24b25eabe4579b0322971bd1d86a}{CMP1\_Initialize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00073}00073\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__cmp1_8h_a69de2a268b86d261dc404a2188a77d77}{CMP1\_Deinitialize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00080}00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__cmp1_8h_aa86800dfb91878cc975b5cf1523bad1b}{CMP1\_Calibrate}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00081}00081\ \ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00088}00088\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ CMP1\_StatusGet(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00089}00089\ \{}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{bool})(DAC1CONbits.CMPSTAT);}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00091}00091\ \}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00098}00098\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ CMP1\_Enable(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00099}00099\ \{}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00100}00100\ \ \ \ \ DACCTRL1bits.ON\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00101}00101\ \}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00108}00108\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ CMP1\_Disable(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00109}00109\ \{}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00110}00110\ \ \ \ \ DACCTRL1bits.ON\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00111}00111\ \}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00118}00118\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ CMP1\_DACEnable(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00119}00119\ \{}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00120}00120\ \ \ \ \ DAC1CONbits.DACEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00121}00121\ \}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00128}00128\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ CMP1\_DACDisable(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00129}00129\ \{}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00130}00130\ \ \ \ \ DAC1CONbits.DACEN\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00131}00131\ \}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00138}00138\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ CMP1\_DACDataWrite(\textcolor{keywordtype}{size\_t}\ value)}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00139}00139\ \{}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00140}00140\ \ \ \ \ DAC1DATbits.DACDAT\ =\ (uint16\_t)value;}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00141}00141\ \}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00144}00144\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PLIB\_CMP1\_H}}
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp1_8h_source_l00149}00149\ }
+
+\end{DoxyCode}

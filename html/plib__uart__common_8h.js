@@ -1,0 +1,35 @@
+var plib__uart__common_8h =
+[
+    [ "UART_SERIAL_SETUP", "structUART__SERIAL__SETUP.html", "structUART__SERIAL__SETUP" ],
+    [ "UART_OBJECT", "structUART__OBJECT.html", "structUART__OBJECT" ],
+    [ "UART_RING_BUFFER_OBJECT", "structUART__RING__BUFFER__OBJECT.html", "structUART__RING__BUFFER__OBJECT" ],
+    [ "UART_DATA_7_BIT", "plib__uart__common_8h.html#a5027026c3183741ea3a8b6519ba7c7bc", null ],
+    [ "UART_DATA_8_BIT", "plib__uart__common_8h.html#a028e1d42a009017aee20c234e39f0b26", null ],
+    [ "UART_DATA_INVALID", "plib__uart__common_8h.html#a58fc2c298d7869e3b2c80d94e7c93a6d", null ],
+    [ "UART_ERROR_FRAMING", "plib__uart__common_8h.html#a336c98ad1ad61f68b5b1b0bb1a1745cb", null ],
+    [ "UART_ERROR_NONE", "plib__uart__common_8h.html#a470ebdeeed817517c63fd9b173522fe6", null ],
+    [ "UART_ERROR_OVERRUN", "plib__uart__common_8h.html#a7b0e17571b0d3f6380b7eed39bd41c56", null ],
+    [ "UART_ERROR_PARITY", "plib__uart__common_8h.html#a2670f803413d1a03c2eb4250b8ba7be0", null ],
+    [ "UART_PARITY_EVEN", "plib__uart__common_8h.html#a063b14ac42ef9e8f4246c17a586b14eb", null ],
+    [ "UART_PARITY_INVALID", "plib__uart__common_8h.html#afcc3d101a230336089e07c8f4d6e085d", null ],
+    [ "UART_PARITY_NONE", "plib__uart__common_8h.html#a270dea6e1a92dd83fe58802450bdd60c", null ],
+    [ "UART_PARITY_ODD", "plib__uart__common_8h.html#a229615e64964f68f7a856ea6ffea359e", null ],
+    [ "UART_RXFIFO_DEPTH", "plib__uart__common_8h.html#a0a2ba392fa6938bd06e077c5efd91fc9", null ],
+    [ "UART_STOP_1_5_SENT_1_5_CHECKED", "plib__uart__common_8h.html#a3759668464ac74317d509527dfc16351", null ],
+    [ "UART_STOP_1_SENT_1_CHECKED", "plib__uart__common_8h.html#ae84462d333bf43673fbc1808cad54198", null ],
+    [ "UART_STOP_2_SENT_1_CHECKED", "plib__uart__common_8h.html#a1ecb5096890519c0e75bffc593fd1fda", null ],
+    [ "UART_STOP_2_SENT_2_CHECKED", "plib__uart__common_8h.html#aa1af4cccd100a709762da922a13367f2", null ],
+    [ "UART_STOP_INVALID", "plib__uart__common_8h.html#a5a92a4a399f4c62362d67c19daf32e1b", null ],
+    [ "UART_CALLBACK", "plib__uart__common_8h.html#aea0ac6d8a847b35f9a9f3207af5c7bdd", null ],
+    [ "UART_DATA", "plib__uart__common_8h.html#a775003e27511ec4870502579ccc00f37", null ],
+    [ "UART_ERROR", "plib__uart__common_8h.html#a14e474ed24d2c0a0b109513d4b0e551f", null ],
+    [ "UART_PARITY", "plib__uart__common_8h.html#a4d84d0cdcb87c4d2b3b40de1588d45a9", null ],
+    [ "UART_RING_BUFFER_CALLBACK", "plib__uart__common_8h.html#aae28c7cc68ccc6d314404f2e4add56c0", null ],
+    [ "UART_STOP", "plib__uart__common_8h.html#a0fb892330da9cee0d5acc8b5276d0efb", null ],
+    [ "UART_EVENT", "plib__uart__common_8h.html#ad1baf1c5cbed5d0a5baab88515ae0f9b", [
+      [ "UART_EVENT_READ_THRESHOLD_REACHED", "plib__uart__common_8h.html#ad1baf1c5cbed5d0a5baab88515ae0f9ba5ef697c25399a9bea1e22bc9ed5782e9", null ],
+      [ "UART_EVENT_READ_BUFFER_FULL", "plib__uart__common_8h.html#ad1baf1c5cbed5d0a5baab88515ae0f9ba0017a5e25c828aae9db2048ac5217733", null ],
+      [ "UART_EVENT_READ_ERROR", "plib__uart__common_8h.html#ad1baf1c5cbed5d0a5baab88515ae0f9bae9b75b596e30e078de0662aeced4a8f7", null ],
+      [ "UART_EVENT_WRITE_THRESHOLD_REACHED", "plib__uart__common_8h.html#ad1baf1c5cbed5d0a5baab88515ae0f9ba87b727d1d42c5083962672049299c4c9", null ]
+    ] ]
+];

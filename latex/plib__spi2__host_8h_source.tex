@@ -1,0 +1,93 @@
+\doxysection{plib\+\_\+spi2\+\_\+host.\+h}
+\hypertarget{plib__spi2__host_8h_source}{}\label{plib__spi2__host_8h_source}\index{src/config/default/peripheral/spi/spi\_host/plib\_spi2\_host.h@{src/config/default/peripheral/spi/spi\_host/plib\_spi2\_host.h}}
+\mbox{\hyperlink{plib__spi2__host_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00002}00002\ \textcolor{comment}{\ \ SPI\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00006}00006\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_spi2\_host.h}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ SPI2\ Host\ PLIB\ Header\ File}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ has\ prototype\ of\ all\ the\ interfaces\ provided\ for\ particular}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ SPI\ peripheral.}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00016}00016\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00017}00017\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00019}00019\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00020}00020\ \textcolor{comment}{*\ Copyright\ (C)\ 2025-\/2019\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00021}00021\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00022}00022\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00023}00023\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00024}00024\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00025}00025\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00026}00026\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00027}00027\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00028}00028\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00029}00029\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00030}00030\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00031}00031\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00032}00032\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00033}00033\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00034}00034\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00035}00035\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00036}00036\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00037}00037\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00038}00038\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00039}00039\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00040}00040\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifndef\ PLIB\_SPI2\_HOST\_H}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ PLIB\_SPI2\_HOST\_H}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00045}00045\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{device_8h}{device.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00046}00046\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00047}00047\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib__spi__host__common_8h}{plib\_spi\_host\_common.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00049}00049\ \textcolor{comment}{/*\ Provide\ C++\ Compatibility\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00050}00050\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00052}00052\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00054}00054\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00056}00056\ \textcolor{comment}{//\ Section:\ Macro\ Definitions}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00061}\mbox{\hyperlink{plib__spi2__host_8h_a062ee9dfb4b18530a19b2f86abb1115a}{00061}}\ \textcolor{preprocessor}{\#define\ SPI2\_FrequencyGet()\ \ \ \ (uint32\_t)(143085391UL)}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00063}00063\ \textcolor{comment}{/******************************\ SPI2\ Interface\ *********************************/}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00085}00085\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__spi2__host_8h_afd35ebaed0d19b1e14cf69a46b863eb8}{SPI2\_Initialize}}\ (\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00110}00110\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__spi2__host_8h_a815ad2f7fc385ad93d1d3c982dd69249}{SPI2\_Deinitialize}}\ (\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00204}00204\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__spi2__host_8h_a093b235d103b5acf68454865c304834a}{SPI2\_WriteRead}}\ (\textcolor{keywordtype}{void}*\ pTransmitData,\ \textcolor{keywordtype}{size\_t}\ txSize,\ \textcolor{keywordtype}{void}*\ pReceiveData,\ \textcolor{keywordtype}{size\_t}\ rxSize);}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00268}00268\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__spi2__host_8h_a20a2e095db40cbdc75231572e642bead}{SPI2\_Write}}(\textcolor{keywordtype}{void}*\ pTransmitData,\ \textcolor{keywordtype}{size\_t}\ txSize);}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00334}00334\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__spi2__host_8h_a18f193152e981d2aa22d20e6c36991cb}{SPI2\_Read}}(\textcolor{keywordtype}{void}*\ pReceiveData,\ \textcolor{keywordtype}{size\_t}\ rxSize);}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00335}00335\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00383}00383\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__spi2__host_8h_af412aaf7a65d53eb946a0f566695a0ea}{SPI2\_TransferSetup}}\ (\mbox{\hyperlink{structSPI__TRANSFER__SETUP}{SPI\_TRANSFER\_SETUP}}\ *setup,\ uint32\_t\ spiSourceClock);}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00384}00384\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00413}00413\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__spi2__host_8h_aaaada0b426cd9b39e1d5b284372a7f87}{SPI2\_IsTransmitterBusy}}\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00414}00414\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00456}00456\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__spi2__host_8h_af4abb1b153cbfce63643463aeb851fab}{SPI2\_IsBusy}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00457}00457\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00513}00513\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__spi2__host_8h_a06f4ba24ef3547bb59d5900755556e90}{SPI2\_CallbackRegister}}(\mbox{\hyperlink{plib__spi__host__common_8h_ae09d5880ae883eee1b2ef101e157e996}{SPI\_CALLBACK}}\ callback,\ uintptr\_t\ context);}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00514}00514\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00515}00515\ \textcolor{comment}{/*\ Provide\ C++\ Compatibility\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00516}00516\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00517}00517\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00518}00518\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00519}00519\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00520}00520\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00521}00521\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8h_source_l00522}00522\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLIB\_SPI2\_HOST\_H}}
+
+\end{DoxyCode}

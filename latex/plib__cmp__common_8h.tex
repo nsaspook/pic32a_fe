@@ -1,0 +1,73 @@
+\doxysection{src/config/default/peripheral/cmp\+\_\+dac/plib\+\_\+cmp\+\_\+common.h File Reference}
+\hypertarget{plib__cmp__common_8h}{}\label{plib__cmp__common_8h}\index{src/config/default/peripheral/cmp\_dac/plib\_cmp\_common.h@{src/config/default/peripheral/cmp\_dac/plib\_cmp\_common.h}}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCMP__OBJECT}{CMP\+\_\+\+OBJECT}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{plib__cmp__common_8h_a2a7a6f409207c955f95f356622717079}{CMP\+\_\+\+CALLBACK}}) (uintptr\+\_\+t context\+Handle)
+\begin{DoxyCompactList}\small\item\em CMP Callback Function Pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55}{CMP\+\_\+\+DAC\+\_\+\+SLOPE\+\_\+\+UPDATE\+\_\+\+MODE}} \{ \mbox{\hyperlink{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55af1e37fec146251672e65319771933b18}{CMP\+\_\+\+DAC\+\_\+\+SLOPE\+\_\+\+UPDATE\+\_\+\+IMMIDIATE}} = 0U
+, \mbox{\hyperlink{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55a3aaa133eb3668b25aa4971a60de7134f}{CMP\+\_\+\+DAC\+\_\+\+SLOPE\+\_\+\+UPDATE\+\_\+\+TRIGGERED}} = 1U
+ \}
+\begin{DoxyCompactList}\small\item\em CMP slope data registers update mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{plib__cmp__common_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{plib__cmp__common_8h_a2a7a6f409207c955f95f356622717079}\index{plib\_cmp\_common.h@{plib\_cmp\_common.h}!CMP\_CALLBACK@{CMP\_CALLBACK}}
+\index{CMP\_CALLBACK@{CMP\_CALLBACK}!plib\_cmp\_common.h@{plib\_cmp\_common.h}}
+\doxysubsubsection{\texorpdfstring{CMP\_CALLBACK}{CMP\_CALLBACK}}
+{\footnotesize\ttfamily \label{plib__cmp__common_8h_a2a7a6f409207c955f95f356622717079} 
+typedef void(\texorpdfstring{$\ast$}{*} CMP\+\_\+\+CALLBACK) (uintptr\+\_\+t context\+Handle)}
+
+
+
+CMP Callback Function Pointer. 
+
+This data type defines the CMP Callback Function Pointer. \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp__common_8h_source_l00062}{62}} of file \mbox{\hyperlink{plib__cmp__common_8h_source}{plib\+\_\+cmp\+\_\+common.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{plib__cmp__common_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55}\index{plib\_cmp\_common.h@{plib\_cmp\_common.h}!CMP\_DAC\_SLOPE\_UPDATE\_MODE@{CMP\_DAC\_SLOPE\_UPDATE\_MODE}}
+\index{CMP\_DAC\_SLOPE\_UPDATE\_MODE@{CMP\_DAC\_SLOPE\_UPDATE\_MODE}!plib\_cmp\_common.h@{plib\_cmp\_common.h}}
+\doxysubsubsection{\texorpdfstring{CMP\_DAC\_SLOPE\_UPDATE\_MODE}{CMP\_DAC\_SLOPE\_UPDATE\_MODE}}
+{\footnotesize\ttfamily \label{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55} 
+enum \mbox{\hyperlink{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55}{CMP\+\_\+\+DAC\+\_\+\+SLOPE\+\_\+\+UPDATE\+\_\+\+MODE}}}
+
+
+
+CMP slope data registers update mode. 
+
+\begin{DoxyNote}{Note}
+Applicable in slope mode 
+\end{DoxyNote}
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMP\_DAC\_SLOPE\_UPDATE\_IMMIDIATE@{CMP\_DAC\_SLOPE\_UPDATE\_IMMIDIATE}!plib\_cmp\_common.h@{plib\_cmp\_common.h}}\index{plib\_cmp\_common.h@{plib\_cmp\_common.h}!CMP\_DAC\_SLOPE\_UPDATE\_IMMIDIATE@{CMP\_DAC\_SLOPE\_UPDATE\_IMMIDIATE}}}\Hypertarget{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55af1e37fec146251672e65319771933b18}\label{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55af1e37fec146251672e65319771933b18} 
+CMP\+\_\+\+DAC\+\_\+\+SLOPE\+\_\+\+UPDATE\+\_\+\+IMMIDIATE&Updates slope related data registers immidiately \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMP\_DAC\_SLOPE\_UPDATE\_TRIGGERED@{CMP\_DAC\_SLOPE\_UPDATE\_TRIGGERED}!plib\_cmp\_common.h@{plib\_cmp\_common.h}}\index{plib\_cmp\_common.h@{plib\_cmp\_common.h}!CMP\_DAC\_SLOPE\_UPDATE\_TRIGGERED@{CMP\_DAC\_SLOPE\_UPDATE\_TRIGGERED}}}\Hypertarget{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55a3aaa133eb3668b25aa4971a60de7134f}\label{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55a3aaa133eb3668b25aa4971a60de7134f} 
+CMP\+\_\+\+DAC\+\_\+\+SLOPE\+\_\+\+UPDATE\+\_\+\+TRIGGERED&Updates slope related data registers during the external trigger \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp__common_8h_source_l00050}{50}} of file \mbox{\hyperlink{plib__cmp__common_8h_source}{plib\+\_\+cmp\+\_\+common.\+h}}.
+

@@ -1,0 +1,341 @@
+\doxysection{sca3300.\+c}
+\hypertarget{sca3300_8c_source}{}\label{sca3300_8c_source}\index{src/sca3300.c@{src/sca3300.c}}
+\mbox{\hyperlink{sca3300_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sca3300_8h}{sca3300.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00003}00003\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *build\_date\ =\ \_\_DATE\_\_,\ *build\_time\ =\ \_\_TIME\_\_;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00004}00004\ \textcolor{keyword}{static}\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{bool}\ time\_done\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00005}00005\ \textcolor{keyword}{static}\ uint8\_t\ CRC8(uint8\_t,\ uint8\_t);}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00006}00006\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ imu\_cs(\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *);}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00007}00007\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sca3300_8c_af0b04578bafcddc463b21b5bc5af5c7a}{imu\_cs\_cb}}(uintptr\_t);}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00008}00008\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sca3300_8c_afd5e1cdf65a029c3d15f5a98d0285ec9}{sca3300\_cs\_disable}}(\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *);}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00009}00009\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ delay\_us(uint32\_t);}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00011}00011\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00012}00012\ \textcolor{comment}{\ *\ data\ from\ IMU\ query}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00013}00013\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00014}\mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{00014}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsca3300__data}{sca3300\_data}}\ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00016}00016\ \textcolor{comment}{//\ Calculate\ CRC\ for\ 24\ MSB's\ of\ the\ 32\ bit\ dword}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00017}00017\ \textcolor{comment}{//\ (8\ LSB's\ are\ the\ CRC\ field\ and\ are\ not\ included\ in\ CRC\ calculation)}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00019}\mbox{\hyperlink{sca3300_8c_a815009bfed8688813faaaddd4d08a5c4}{00019}}\ uint8\_t\ \mbox{\hyperlink{sca3300_8c_a815009bfed8688813faaaddd4d08a5c4}{CalculateCRC}}(uint32\_t\ Data)}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00021}00021\ \ \ \ \ uint8\_t\ BitIndex;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00022}00022\ \ \ \ \ uint8\_t\ BitValue;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00023}00023\ \ \ \ \ uint8\_t\ CRC;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00025}00025\ \ \ \ \ CRC\ =\ 0xFF;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{for}\ (BitIndex\ =\ 31;\ BitIndex\ >\ 7;\ BitIndex-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00027}00027\ \ \ \ \ \ \ \ \ BitValue\ =\ (uint8\_t)\ ((Data\ >>\ BitIndex)\ \&\ 0x01);}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ CRC\ =\ CRC8(BitValue,\ CRC);}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00030}00030\ \ \ \ \ CRC\ =\ (uint8\_t)\ \string~CRC;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{return}\ CRC;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00034}00034\ \textcolor{keyword}{static}\ uint8\_t\ CRC8(uint8\_t\ BitValue,\ uint8\_t\ CRC)}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00035}00035\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00036}00036\ \ \ \ \ uint8\_t\ Temp;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00038}00038\ \ \ \ \ Temp\ =\ (uint8\_t)\ (CRC\ \&\ 0x80);}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (BitValue\ ==\ 0x01)\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ Temp\ \string^=\ 0x80;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00042}00042\ \ \ \ \ CRC\ <<=\ 1;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (Temp\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ CRC\ \string^=\ 0x1D;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00045}00045\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{return}\ CRC;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00049}00049\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00050}00050\ \textcolor{comment}{\ *\ check\ for\ a\ proper\ 8-\/bit\ CRC\ in\ bits\ [0..7]\ of\ the\ 32-\/bit\ word\ selected\ by\ option}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00051}00051\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00052}\mbox{\hyperlink{sca3300_8c_aededef9dbaa068c390a44864d074e303}{00052}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{sca3300_8c_aededef9dbaa068c390a44864d074e303}{sca3300\_check\_crc}}(\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *\ imu,\ uint8\_t\ option)}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00053}00053\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{bool}\ crc\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{switch}\ (option)\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}:}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sca3300_8c_a815009bfed8688813faaaddd4d08a5c4}{CalculateCRC}}(imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}])\ !=\ (imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}]\&0xff))\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a5d6aac08beabb73cdb68e5fe7a3864e7}{crc\_error}}\ =\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ set\ CRC\ failure\ of\ returned\ data}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ crc\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00064}00064\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{return}\ crc;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00066}00066\ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00068}00068\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00069}00069\ \textcolor{comment}{\ *\ talk\ to\ the\ IMU\ via\ the\ SPI\ port}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00070}00070\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00071}\mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{00071}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *\ imu,\ uint32\_t\ data)}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00072}00072\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00073}00073\ \ \ \ \ imu\_cs(imu);\ \textcolor{comment}{//\ select\ IMU\ on\ SPI\ bus\ after\ required\ delay\ between\ SPI\ requests}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00074}00074\ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a8648fe0d0198fbe7e4b578b109d5acd8}{tbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7ac4879af7e94a1226229552f205a290e4}{SCA3300\_TRM}}]\ =\ data;\ \textcolor{comment}{//\ data\ request\ command\ as\ 32-\/bit\ word\ with\ CRC}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00075}00075\ \ \ \ \ SPI3BUF\ =\ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a8648fe0d0198fbe7e4b578b109d5acd8}{tbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7ac4879af7e94a1226229552f205a290e4}{SCA3300\_TRM}}];}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{while}\ (SPI3STATbits.SPIRBE\ !=\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00077}00077\ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}]\ =\ SPI3BUF;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00079}00079\ \textcolor{comment}{//\ \ StartTimer(TMR\_CS,\ SCA3300\_CHIP\_CS\_DELAY);\ //\ milliseconds}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00080}00080\ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afd5e1cdf65a029c3d15f5a98d0285ec9}{sca3300\_cs\_disable}}(imu);}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00081}00081\ \ \ \ \ \textcolor{comment}{//\ \ while\ (imu-\/>run)\ \{\ //\ wait\ until\ data\ has\ left\ the\ SPI\ buffer,\ run\ flag\ is\ set\ in\ SPI\ interrupt\ ISR}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ if\ (TimerDone(TMR\_CS))\ \{}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ return\ false;}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00084}00084\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00085}00085\ \ \ \ \ \textcolor{comment}{//\ \ \};}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00087}00087\ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00089}00089\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00090}00090\ \textcolor{comment}{\ *\ Read\ raw\ ACCEL\ data\ from\ the\ chip\ using\ SPI}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00091}00091\ \textcolor{comment}{\ *\ check\ all\ returned\ SPI\ data\ for\ proper\ CRC}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00092}00092\ \textcolor{comment}{\ *\ Off-\/frame\ protocol\ is\ used\ so\ each}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00093}00093\ \textcolor{comment}{\ *\ transfer\ consists\ of\ two\ phases.\ A\ response\ to\ the\ request\ is\ sent\ within\ next\ request}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00094}00094\ \textcolor{comment}{\ *\ frame.\ The\ response\ concurrent\ to\ the\ request\ contains\ the\ data\ requested\ by\ the}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00095}00095\ \textcolor{comment}{\ *\ previous\ command.}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00096}00096\ \textcolor{comment}{\ *\ \string~160us\ runtime\ per\ full\ data\ update}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00097}00097\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00098}\mbox{\hyperlink{sca3300_8c_a8764dea49b489954a6ab836d122615f9}{00098}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{sca3300_8c_a8764dea49b489954a6ab836d122615f9}{sca3300\_getdata}}(\textcolor{keywordtype}{void}\ *\ imup)}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00099}00099\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00100}00100\ \ \ \ \ \mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *\ imu\ =\ imup;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{if}\ (imu)\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a75c5f99182d351e5683295e906f78c0e}{run}})\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ junk\ first\ response}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a5d6aac08beabb73cdb68e5fe7a3864e7}{crc\_error}}\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ reset\ CRC\ checking\ flag}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ dummy\ result\ return\ on\ first\ command}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_aa596e0fc257f47e36e93f355763ebd06}{SCA3300\_ACC\_X\_32B}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_aededef9dbaa068c390a44864d074e303}{sca3300\_check\_crc}}(imu,\ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}});\ \textcolor{comment}{//\ check\ dummy\ for\ CRC\ error}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_aa10b79b8845269ff9ff27dec9fad5d8e}{SCA3300\_ACC\_Y\_32B}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sca3300_8c_aededef9dbaa068c390a44864d074e303}{sca3300\_check\_crc}}(imu,\ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}))\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.channels[\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a09aba5dfb003791824b96a8ff90c6c7c}{SCA3300\_ACC\_X}}]\ =\ ((imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}]\ >>\ 8)\&0xffff);\ \textcolor{comment}{//\ X\ data}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_adda4c65ae4d13bab6733a8ffc0f5ff8e}{SCA3300\_ACC\_Z\_32B}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sca3300_8c_aededef9dbaa068c390a44864d074e303}{sca3300\_check\_crc}}(imu,\ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}))\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.channels[\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a7ad6b073e8dac09229cb97c715807b1b}{SCA3300\_ACC\_Y}}]\ =\ ((imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}]\ >>\ 8)\&0xffff);\ \textcolor{comment}{//\ Y\ data}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_a57a1d1c31be910c9848fd609bafab5dc}{SCA3300\_TEMP\_32B}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sca3300_8c_aededef9dbaa068c390a44864d074e303}{sca3300\_check\_crc}}(imu,\ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}))\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.channels[\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a7e5b67920fb2120226f081dc66a9abde}{SCA3300\_ACC\_Z}}]\ =\ ((imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}]\ >>\ 8)\&0xffff);\ \textcolor{comment}{//\ Z\ data}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_ae77d3edfee8c4d7d91df1074a4c29b12}{SCA3300\_RS\_32B}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sca3300_8c_aededef9dbaa068c390a44864d074e303}{sca3300\_check\_crc}}(imu,\ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}))\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.channels[\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a055dd00780191649f593245dafa9ee2a}{SCA3300\_TEMP}}]\ =\ ((imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}]\ >>\ 8)\&0xffff);\ \textcolor{comment}{//\ Z\ data}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_ae77d3edfee8c4d7d91df1074a4c29b12}{SCA3300\_RS\_32B}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sca3300_8c_aededef9dbaa068c390a44864d074e303}{sca3300\_check\_crc}}(imu,\ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}))\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.ret\_status\ =\ ((imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}]\ >>\ 8)\&0xffff);\ \textcolor{comment}{//\ return\ status\ data}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_ab8dce3f29174f8b069593b5dde2dbb6c}{device}}\ ==\ \mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea32f41e943d217e6bdb9dc7dbc380d11d}{IMU\_SCL3300}})\ \{\ \textcolor{comment}{//\ we\ also\ need\ angles\ data}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_a85da9ed0d0e53634e8f5efd9d888416d}{SCL3300\_ANG\_X\_32B}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_aededef9dbaa068c390a44864d074e303}{sca3300\_check\_crc}}(imu,\ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}});\ \textcolor{comment}{//\ check\ dummy\ for\ CRC\ error}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_ae66e70d1212568c75291ccd3aaf4d9c3}{SCL3300\_ANG\_Y\_32B}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sca3300_8c_aededef9dbaa068c390a44864d074e303}{sca3300\_check\_crc}}(imu,\ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}))\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.channels[\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0ac56cb30a49f7dc6d4337e785a2c2f8e2}{SCL3300\_ANG\_X}}]\ =\ ((imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}]\ >>\ 8)\&0xffff);\ \textcolor{comment}{//\ X\ data}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_a1a11799bfb40780ba728bf53c143d01e}{SCL3300\_ANG\_Z\_32B}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sca3300_8c_aededef9dbaa068c390a44864d074e303}{sca3300\_check\_crc}}(imu,\ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}))\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.channels[\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a119a52f885dbfc7baa5e5e80a9d2add1}{SCL3300\_ANG\_Y}}]\ =\ ((imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}]\ >>\ 8)\&0xffff);\ \textcolor{comment}{//\ Y\ data}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_ae77d3edfee8c4d7d91df1074a4c29b12}{SCA3300\_RS\_32B}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sca3300_8c_aededef9dbaa068c390a44864d074e303}{sca3300\_check\_crc}}(imu,\ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}))\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.channels[\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0af083bf4a68434483a81948391ebd4c35}{SCL3300\_ANG\_Z}}]\ =\ ((imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}]\ >>\ 8)\&0xffff);\ \textcolor{comment}{//\ Z\ data}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a7690a7b781ca66910b91ed84868a3748}{online}};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00157}00157\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00159}00159\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00160}00160\ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00162}00162\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00163}00163\ \textcolor{comment}{\ *\ see\ if\ we\ can\ get\ the\ correct\ ID\ response\ in\ rbuf32}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00164}00164\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00165}\mbox{\hyperlink{sca3300_8c_a9e20e508f166d113f424d71ff107cbb0}{00165}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{sca3300_8c_a9e20e508f166d113f424d71ff107cbb0}{sca3300\_getid}}(\textcolor{keywordtype}{void}\ *\ imup)}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00166}00166\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00167}00167\ \ \ \ \ \mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *\ imu\ =\ imup;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00169}00169\ \ \ \ \ \textcolor{keywordflow}{if}\ (imu)\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a75c5f99182d351e5683295e906f78c0e}{run}})\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_a98d9922a2764e9b3ff3cc696f84447d5}{SCA3300\_WHOAMI\_32B}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ delay\_us(\mbox{\hyperlink{sca3300_8h_a3f95a5d45506f7524aefbc49402fefc1}{SCA3300\_CHIP\_ID\_DELAY}});\ \textcolor{comment}{//\ sca3300\ ID\ command\ spacing}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((((imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}]\ >>\ 8)\&0xffff)\ ==\ \mbox{\hyperlink{sca3300_8h_ac60b1d05eddcb2b0b3468676d16bec14}{SCA3300\_WHOAMI\_ID\_SCL}}))\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sca3300_8c_aededef9dbaa068c390a44864d074e303}{sca3300\_check\_crc}}(imu,\ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}))\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_afe313e23afbc8dc0d5b002a053c5a5d3}{angles}}\ =\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ SLC3300\ mode}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_ab8dce3f29174f8b069593b5dde2dbb6c}{device}}\ =\ \mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea32f41e943d217e6bdb9dc7dbc380d11d}{IMU\_SCL3300}};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a84248bdf132b0f7128ad039d81e9f12f}{acc\_range}}\ =\ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_acf870b794f5896531eb2d30cdd348074}{acc\_range\_scl}};\ \textcolor{comment}{//\ set\ to\ SCL\ ranges}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_a1f7d7801098b57dfc576977325fdd189}{SCL3300\_ANGLE}});\ \textcolor{comment}{//\ enable\ angle\ data}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ delay\_us(\mbox{\hyperlink{sca3300_8h_a399539eb3ec88b367c7089343e9b47d4}{SCA3300\_CHIP\_MODE\_DELAY}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a7690a7b781ca66910b91ed84868a3748}{online}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>rbuf32[SCA3300\_REC]\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a5d6aac08beabb73cdb68e5fe7a3864e7}{crc\_error}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a5d6aac08beabb73cdb68e5fe7a3864e7}{crc\_error}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a7690a7b781ca66910b91ed84868a3748}{online}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a7690a7b781ca66910b91ed84868a3748}{online}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a7690a7b781ca66910b91ed84868a3748}{online}};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00192}00192\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00194}00194\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00195}00195\ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00197}00197\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00198}00198\ \textcolor{comment}{\ *\ get\ IMU\ device\ serial\ number\ and\ convert\ that\ to\ 29-\/bit\ ID\ for\ CAN-\/FD}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00199}00199\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00200}\mbox{\hyperlink{sca3300_8c_ab09a56ab42f9f60e715da2dc6375ee48}{00200}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{sca3300_8c_ab09a56ab42f9f60e715da2dc6375ee48}{sca3300\_getserial}}(\textcolor{keywordtype}{void}\ *\ imup)}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00201}00201\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00202}00202\ \ \ \ \ \mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *\ imu\ =\ imup;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00203}00203\ \ \ \ \ \textcolor{keywordtype}{bool}\ gotserial\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00205}00205\ \ \ \ \ \textcolor{keywordflow}{if}\ (imu)\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a75c5f99182d351e5683295e906f78c0e}{run}})\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ delay\_us(\mbox{\hyperlink{sca3300_8h_a3f95a5d45506f7524aefbc49402fefc1}{SCA3300\_CHIP\_ID\_DELAY}});\ \textcolor{comment}{//\ sca3300\ command\ spacing}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_ad807bd90070a7b364104efbe9dedee7c}{SCA3300\_BANK1}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_ace0c10f5a4615bfed092913e615e00e6}{SCA3300\_SERIAL1}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_a9c1803ddfea46fe6377df4d022792d36}{SCA3300\_SERIAL2}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a0df3896092a3da8e7adfe414279b1875}{serial1}}\ =\ (imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}]\ >>\ 8)\&0xffff;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_a8a024beff236ae360560b81c898d5d69}{SCA3300\_BANK0}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sca3300_8c_aededef9dbaa068c390a44864d074e303}{sca3300\_check\_crc}}(imu,\ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}))\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a5d749b287de76c6f607e4bb50a454377}{serial2}}\ =\ (imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}]\ >>\ 8)\&0xffff;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gotserial\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a24ceb984a1f38928a0907263a740fffd}{board\_serial\_id}}\ =\ (imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a0df3896092a3da8e7adfe414279b1875}{serial1}}\ +\ (imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a5d749b287de76c6f607e4bb50a454377}{serial2}}\ <<\ 16))\ \&0xffffffff;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a24ceb984a1f38928a0907263a740fffd}{board\_serial\_id}}\ =\ \mbox{\hyperlink{main_8c_a24ceb984a1f38928a0907263a740fffd}{board\_serial\_id}};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00220}00220\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00221}00221\ \ \ \ \ \textcolor{keywordflow}{return}\ gotserial;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00222}00222\ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00224}00224\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00225}00225\ \textcolor{comment}{\ *\ check\ SPI\ and\ device\ setup}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00226}00226\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00227}\mbox{\hyperlink{sca3300_8c_a468f6da6b79a6210c0904a2a208bf19b}{00227}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sca3300_8c_a468f6da6b79a6210c0904a2a208bf19b}{sca3300\_set\_spimode}}(\textcolor{keywordtype}{void}\ *\ imup)}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00228}00228\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00229}00229\ \ \ \ \ \mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *\ imu\ =\ imup;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00231}00231\ \ \ \ \ SPI3CON1bits.ON\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00232}00232\ \ \ \ \ SPI3CON1bits.MODE32\ =\ 1U;\ \textcolor{comment}{//\ 32-\/bit\ SPI\ transfers}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00233}00233\ \ \ \ \ SPI3CON1bits.ON\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00234}00234\ \ \ \ \ \textcolor{keywordflow}{if}\ (imu)\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_a06e371b5cd0728fe6533ec7ce8c95608}{SCA3300\_SWRESET\_32B}});\ \textcolor{comment}{//\ chip\ software\ reset}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00236}00236\ \ \ \ \ \ \ \ \ delay\_us(\mbox{\hyperlink{sca3300_8h_ae12bd71407176b50566a590b3fea5b8f}{SCA3300\_CHIP\_SWR\_DELAY}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_a47bf61ef4a5203bbec695c84e8f0b22c}{SCL3300\_MODE4}});\ \textcolor{comment}{//\ send\ the\ range\ command}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ delay\_us(\mbox{\hyperlink{sca3300_8h_a399539eb3ec88b367c7089343e9b47d4}{SCA3300\_CHIP\_MODE\_DELAY}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00239}00239\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_a1f7d7801098b57dfc576977325fdd189}{SCL3300\_ANGLE}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ delay\_us(\mbox{\hyperlink{sca3300_8h_a399539eb3ec88b367c7089343e9b47d4}{SCA3300\_CHIP\_MODE\_DELAY}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_ae77d3edfee8c4d7d91df1074a4c29b12}{SCA3300\_RS\_32B}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_ae77d3edfee8c4d7d91df1074a4c29b12}{SCA3300\_RS\_32B}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\_imu\_transfer}}(imu,\ \mbox{\hyperlink{sca3300_8h_ae77d3edfee8c4d7d91df1074a4c29b12}{SCA3300\_RS\_32B}});}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00244}00244\ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a3c59346dd338708c94ca75cf21b78195}{ss}}\ =\ (imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}]\ >>\ 8)\&0x1ff;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a9ded2d87e35817a6b9aa5eb7e4e9267e}{rs}}\ =\ (imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}}[\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}]\ >>\ 24)\&0x3;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a5e8e0659d8bb5467b677bbb7a675edb2}{init\_good}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00247}00247\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00248}00248\ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00249}00249\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00250}00250\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00251}00251\ \textcolor{comment}{\ *\ enable\ sca3300\ CS\ and\ set\ run\ flag\ that\ will\ be\ cleared\ when\ the\ buffer\ interrupt}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00252}00252\ \textcolor{comment}{\ *\ happens\ or\ the\ disable\ function\ is\ call\ manually}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00253}00253\ \textcolor{comment}{\ *\ we\ only\ use\ one\ gpio\ CS\ line\ on\ this\ board\ for\ either\ type\ of\ IMU\ device}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00254}00254\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00255}00255\ \textcolor{keywordtype}{bool}\ imu\_cs(\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *\ imu)}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00256}00256\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00257}00257\ \ \ \ \ \textcolor{keywordflow}{if}\ (imu)\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_ab18f63eb47a03db3d090fc72478f44ca}{cs}})\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00260}00260\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ delay\_us(\mbox{\hyperlink{sca3300_8h_a8f31d2d5e96271c8bc6821cc6912f655}{SCA3300\_CHIP\_CS\_DELAY}});\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a75c5f99182d351e5683295e906f78c0e}{run}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_aefa376b3de4b5b08fd0079c258f9158c}{IMU\_CS\_Clear}}();}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ SPI\ receive\ complete\ callback}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ SPI3\_CallbackRegister(imu\_cs\_cb,\ (uintptr\_t)\ imu);}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00267}00267\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00268}00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00269}00269\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00270}00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00271}00271\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00272}00272\ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00274}00274\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00275}00275\ \textcolor{comment}{\ *\ force\ sca3300\ CS\ disabled\ and\ clear\ run\ flag}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00276}00276\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00277}\mbox{\hyperlink{sca3300_8c_afd5e1cdf65a029c3d15f5a98d0285ec9}{00277}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sca3300_8c_afd5e1cdf65a029c3d15f5a98d0285ec9}{sca3300\_cs\_disable}}(\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *\ imu)}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00278}00278\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00279}00279\ \ \ \ \ \textcolor{keywordflow}{if}\ (imu)\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00280}00280\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_ab18f63eb47a03db3d090fc72478f44ca}{cs}})\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00281}00281\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00282}00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a75c5f99182d351e5683295e906f78c0e}{run}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a00f34603c5b3d9ef510d6a4c23aec9a5}{IMU\_CS\_Set}}();}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00286}00286\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00287}00287\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00288}00288\ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00290}00290\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00291}00291\ \textcolor{comment}{\ *\ SPI\ interrupt\ completed\ callback}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00292}00292\ \textcolor{comment}{\ *\ disables\ sca3300\ CS\ and\ clears\ run\ flags}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00293}00293\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00294}\mbox{\hyperlink{sca3300_8c_af0b04578bafcddc463b21b5bc5af5c7a}{00294}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sca3300_8c_af0b04578bafcddc463b21b5bc5af5c7a}{imu\_cs\_cb}}(uintptr\_t\ context)}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00295}00295\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00296}00296\ \ \ \ \ \mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *\ imu\ =\ (\textcolor{keywordtype}{void}*)\ context;}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00298}00298\ \ \ \ \ \textcolor{keywordflow}{if}\ (imu)\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00299}00299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_ab18f63eb47a03db3d090fc72478f44ca}{cs}})\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00300}00300\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00301}00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a00f34603c5b3d9ef510d6a4c23aec9a5}{IMU\_CS\_Set}}();}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a75c5f99182d351e5683295e906f78c0e}{run}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00305}00305\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00306}00306\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00307}00307\ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00308}00308\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00309}\mbox{\hyperlink{sca3300_8c_a3d4574e29cfd3d283efb1c63a7887fa8}{00309}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sca3300_8c_a3d4574e29cfd3d283efb1c63a7887fa8}{sca3300\_version}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00310}00310\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00311}00311\ \ \ \ \ snprintf(\mbox{\hyperlink{imu_8c_aa44b4ee76afc216a55c2e95621ef232b}{imu\_buffer}},\ \mbox{\hyperlink{samples_8h_a2c38bbaa576e38355809f6fc0364a596}{IMU\_BUF}}\ -\/\ 1,\ \textcolor{stringliteral}{"{}\%s\ Driver\ \%s\ \ \ \ \ \ \ \ \ \%s\ \%s\ \ \ \ \ \ \ \ \ "{}},\ \mbox{\hyperlink{sca3300_8h_a9497fa51b10dd545513a403eadd7fc56}{SCA3300\_ALIAS}},\ \mbox{\hyperlink{sca3300_8h_a7d71913189b0cdd364a8ff73d46da77a}{SCA3300\_DRIVER}},\ build\_date,\ build\_time);}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00312}00312\ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00314}00314\ \textcolor{comment}{/*\ This\ function\ is\ called\ after\ period\ expires\ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00315}00315\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lcd__drv_8c_a4e56cdf3cb8f3b23e2afcd41443b7ee2}{SCCP1\_Callback\_InterruptHandler}}(uint32\_t\ status,\ uintptr\_t\ context)}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00316}00316\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00317}00317\ \ \ \ \ time\_done\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00318}00318\ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00320}00320\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00321}00321\ \textcolor{comment}{\ *\ microsecond\ busy\ wait\ delay,\ 90\ seconds\ MAX}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00322}00322\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00323}00323\ \textcolor{keywordtype}{void}\ delay\_us(uint32\_t\ us)}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00324}00324\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00325}00325\ \ \ \ \ \textcolor{keywordflow}{if}\ (us\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00326}00326\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00327}00327\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00328}00328\ \ \ \ \ time\_done\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00329}00329\ \ \ \ \ \mbox{\hyperlink{plib__sccp1_8c_abd734914e85f0b83a6e7bbef2d81f65a}{SCCP1\_TimerCallbackRegister}}(\mbox{\hyperlink{lcd__drv_8c_a4e56cdf3cb8f3b23e2afcd41443b7ee2}{SCCP1\_Callback\_InterruptHandler}},\ (uintptr\_t)\ NULL);}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00330}00330\ \ \ \ \ \mbox{\hyperlink{plib__sccp1_8c_aba6df6bb97ba312c53c5001c6fff3794}{SCCP1\_Timer32bitPeriodSet}}(us);}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00331}00331\ \ \ \ \ \mbox{\hyperlink{plib__sccp1_8c_a712f6d85f566f3b7431fc61d7356b2fc}{SCCP1\_TimerStart}}();}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00332}00332\ \ \ \ \ \textcolor{keywordflow}{while}\ (!time\_done)\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00333}00333\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00334}00334\ \ \ \ \ \mbox{\hyperlink{plib__sccp1_8c_a3da456c0e3a4764050aeb5879a263cb1}{SCCP1\_TimerStop}}();}
+\DoxyCodeLine{\Hypertarget{sca3300_8c_source_l00335}00335\ \}}
+
+\end{DoxyCode}

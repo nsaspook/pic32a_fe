@@ -1,0 +1,338 @@
+\doxysection{\+\_\+imu\+\_\+cmd\+\_\+t Struct Reference}
+\hypertarget{struct__imu__cmd__t}{}\label{struct__imu__cmd__t}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+
+
+{\ttfamily \#include $<$imu.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const uint16\+\_\+t \mbox{\hyperlink{struct__imu__cmd__t_afb17dfdd5055912f3ecae33575d82de5}{id}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__imu__cmd__t_a24ceb984a1f38928a0907263a740fffd}{board\+\_\+serial\+\_\+id}}
+\item 
+enum \mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49e}{device\+\_\+type}} \mbox{\hyperlink{struct__imu__cmd__t_ab8dce3f29174f8b069593b5dde2dbb6c}{device}}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{struct__imu__cmd__t_ab18f63eb47a03db3d090fc72478f44ca}{cs}}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{struct__imu__cmd__t_ac21541eadc49786e6119bf2d58e3387a}{spi\+\_\+bytes}}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{struct__imu__cmd__t_acf870b794f5896531eb2d30cdd348074}{acc\+\_\+range\+\_\+scl}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct__imu__cmd__t_a84248bdf132b0f7128ad039d81e9f12f}{acc\+\_\+range}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__imu__cmd__t_a2b52ec34dead60ac21090fc0c42dcffa}{log\+\_\+timeout}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__imu__cmd__t_a9ded2d87e35817a6b9aa5eb7e4e9267e}{rs}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__imu__cmd__t_a3c59346dd338708c94ca75cf21b78195}{ss}}
+\item 
+volatile bool \mbox{\hyperlink{struct__imu__cmd__t_a7690a7b781ca66910b91ed84868a3748}{online}}
+\item 
+volatile bool \mbox{\hyperlink{struct__imu__cmd__t_a75c5f99182d351e5683295e906f78c0e}{run}}
+\item 
+volatile bool \mbox{\hyperlink{struct__imu__cmd__t_a317657785799a0fc05128b769ae85ced}{update}}
+\item 
+volatile bool \mbox{\hyperlink{struct__imu__cmd__t_af690dee00ffdcc8b958b41539c269ba3}{features}}
+\item 
+volatile bool \mbox{\hyperlink{struct__imu__cmd__t_a5d6aac08beabb73cdb68e5fe7a3864e7}{crc\+\_\+error}}
+\item 
+volatile bool \mbox{\hyperlink{struct__imu__cmd__t_afe313e23afbc8dc0d5b002a053c5a5d3}{angles}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{struct__imu__cmd__t_a06fac485042f320032149dfa554010f9}{host\+\_\+serial\+\_\+id}}
+\item 
+bool \mbox{\hyperlink{struct__imu__cmd__t_a18a0f1e6c3d21c252b14ea6ae162e2ff}{locked}}
+\item 
+bool \mbox{\hyperlink{struct__imu__cmd__t_a595442f48f6c5bacbe8cf8a1baae7019}{warn}}
+\item 
+bool \mbox{\hyperlink{struct__imu__cmd__t_ac30355235d44e8f7b0a538a510bcbbeb}{down}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}{rbuf32}} \mbox{[}\mbox{\hyperlink{imu_8h_affb2811e116f9173f27bad456930b26d}{IMU\+\_\+\+BUF32}}\mbox{]}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__imu__cmd__t_a8648fe0d0198fbe7e4b578b109d5acd8}{tbuf32}} \mbox{[}\mbox{\hyperlink{imu_8h_affb2811e116f9173f27bad456930b26d}{IMU\+\_\+\+BUF32}}\mbox{]}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct__imu__cmd__t_a0df3896092a3da8e7adfe414279b1875}{serial1}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct__imu__cmd__t_a5d749b287de76c6f607e4bb50a454377}{serial2}}
+\item 
+\mbox{\hyperlink{imu_8h_a0cea943302f8cd908b5b6e8210a1e6ed}{op\+\_\+t}} \mbox{\hyperlink{struct__imu__cmd__t_a26b2efa792334cce1cd82d1c63754539}{op}}
+\item 
+volatile bool \mbox{\hyperlink{struct__imu__cmd__t_a5e8e0659d8bb5467b677bbb7a675edb2}{init\+\_\+good}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00070}{70}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{struct__imu__cmd__t_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{struct__imu__cmd__t_a84248bdf132b0f7128ad039d81e9f12f}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!acc\_range@{acc\_range}}
+\index{acc\_range@{acc\_range}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{acc\_range}{acc\_range}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a84248bdf132b0f7128ad039d81e9f12f} 
+uint8\+\_\+t acc\+\_\+range}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00075}{75}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_acf870b794f5896531eb2d30cdd348074}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!acc\_range\_scl@{acc\_range\_scl}}
+\index{acc\_range\_scl@{acc\_range\_scl}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{acc\_range\_scl}{acc\_range\_scl}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_acf870b794f5896531eb2d30cdd348074} 
+const uint8\+\_\+t acc\+\_\+range\+\_\+scl}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00074}{74}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_afe313e23afbc8dc0d5b002a053c5a5d3}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!angles@{angles}}
+\index{angles@{angles}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{angles}{angles}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_afe313e23afbc8dc0d5b002a053c5a5d3} 
+volatile bool angles}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00077}{77}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a24ceb984a1f38928a0907263a740fffd}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!board\_serial\_id@{board\_serial\_id}}
+\index{board\_serial\_id@{board\_serial\_id}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{board\_serial\_id}{board\_serial\_id}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a24ceb984a1f38928a0907263a740fffd} 
+uint32\+\_\+t board\+\_\+serial\+\_\+id}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00072}{72}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a5d6aac08beabb73cdb68e5fe7a3864e7}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!crc\_error@{crc\_error}}
+\index{crc\_error@{crc\_error}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{crc\_error}{crc\_error}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a5d6aac08beabb73cdb68e5fe7a3864e7} 
+volatile bool crc\+\_\+error}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00077}{77}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_ab18f63eb47a03db3d090fc72478f44ca}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!cs@{cs}}
+\index{cs@{cs}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{cs}{cs}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_ab18f63eb47a03db3d090fc72478f44ca} 
+const uint8\+\_\+t cs}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00074}{74}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_ab8dce3f29174f8b069593b5dde2dbb6c}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!device@{device}}
+\index{device@{device}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{device}{device}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_ab8dce3f29174f8b069593b5dde2dbb6c} 
+enum \mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49e}{device\+\_\+type}} device}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00073}{73}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_ac30355235d44e8f7b0a538a510bcbbeb}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!down@{down}}
+\index{down@{down}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{down}{down}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_ac30355235d44e8f7b0a538a510bcbbeb} 
+bool down}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00079}{79}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_af690dee00ffdcc8b958b41539c269ba3}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!features@{features}}
+\index{features@{features}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{features}{features}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_af690dee00ffdcc8b958b41539c269ba3} 
+volatile bool features}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00077}{77}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a06fac485042f320032149dfa554010f9}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!host\_serial\_id@{host\_serial\_id}}
+\index{host\_serial\_id@{host\_serial\_id}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{host\_serial\_id}{host\_serial\_id}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a06fac485042f320032149dfa554010f9} 
+uint64\+\_\+t host\+\_\+serial\+\_\+id}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00078}{78}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_afb17dfdd5055912f3ecae33575d82de5}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!id@{id}}
+\index{id@{id}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_afb17dfdd5055912f3ecae33575d82de5} 
+const uint16\+\_\+t id}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00071}{71}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a5e8e0659d8bb5467b677bbb7a675edb2}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!init\_good@{init\_good}}
+\index{init\_good@{init\_good}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{init\_good}{init\_good}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a5e8e0659d8bb5467b677bbb7a675edb2} 
+volatile bool init\+\_\+good}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00083}{83}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a18a0f1e6c3d21c252b14ea6ae162e2ff}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!locked@{locked}}
+\index{locked@{locked}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{locked}{locked}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a18a0f1e6c3d21c252b14ea6ae162e2ff} 
+bool locked}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00079}{79}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a2b52ec34dead60ac21090fc0c42dcffa}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!log\_timeout@{log\_timeout}}
+\index{log\_timeout@{log\_timeout}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{log\_timeout}{log\_timeout}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a2b52ec34dead60ac21090fc0c42dcffa} 
+uint32\+\_\+t log\+\_\+timeout}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00076}{76}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a7690a7b781ca66910b91ed84868a3748}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!online@{online}}
+\index{online@{online}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{online}{online}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a7690a7b781ca66910b91ed84868a3748} 
+volatile bool online}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00077}{77}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a26b2efa792334cce1cd82d1c63754539}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!op@{op}}
+\index{op@{op}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{op}{op}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a26b2efa792334cce1cd82d1c63754539} 
+\mbox{\hyperlink{imu_8h_a0cea943302f8cd908b5b6e8210a1e6ed}{op\+\_\+t}} op}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00082}{82}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!rbuf32@{rbuf32}}
+\index{rbuf32@{rbuf32}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{rbuf32}{rbuf32}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a65f6a8d7c04725bb8eff52d4175ddaa3} 
+uint32\+\_\+t rbuf32\mbox{[}\mbox{\hyperlink{imu_8h_affb2811e116f9173f27bad456930b26d}{IMU\+\_\+\+BUF32}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00080}{80}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a9ded2d87e35817a6b9aa5eb7e4e9267e}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!rs@{rs}}
+\index{rs@{rs}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{rs}{rs}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a9ded2d87e35817a6b9aa5eb7e4e9267e} 
+uint32\+\_\+t rs}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00076}{76}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a75c5f99182d351e5683295e906f78c0e}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!run@{run}}
+\index{run@{run}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{run}{run}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a75c5f99182d351e5683295e906f78c0e} 
+volatile bool run}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00077}{77}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a0df3896092a3da8e7adfe414279b1875}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!serial1@{serial1}}
+\index{serial1@{serial1}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{serial1}{serial1}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a0df3896092a3da8e7adfe414279b1875} 
+uint16\+\_\+t serial1}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00081}{81}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a5d749b287de76c6f607e4bb50a454377}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!serial2@{serial2}}
+\index{serial2@{serial2}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{serial2}{serial2}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a5d749b287de76c6f607e4bb50a454377} 
+uint16\+\_\+t serial2}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00081}{81}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_ac21541eadc49786e6119bf2d58e3387a}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!spi\_bytes@{spi\_bytes}}
+\index{spi\_bytes@{spi\_bytes}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{spi\_bytes}{spi\_bytes}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_ac21541eadc49786e6119bf2d58e3387a} 
+const uint8\+\_\+t spi\+\_\+bytes}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00074}{74}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a3c59346dd338708c94ca75cf21b78195}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!ss@{ss}}
+\index{ss@{ss}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{ss}{ss}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a3c59346dd338708c94ca75cf21b78195} 
+uint32\+\_\+t ss}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00076}{76}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a8648fe0d0198fbe7e4b578b109d5acd8}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!tbuf32@{tbuf32}}
+\index{tbuf32@{tbuf32}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{tbuf32}{tbuf32}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a8648fe0d0198fbe7e4b578b109d5acd8} 
+uint32\+\_\+t tbuf32\mbox{[}\mbox{\hyperlink{imu_8h_affb2811e116f9173f27bad456930b26d}{IMU\+\_\+\+BUF32}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00080}{80}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a317657785799a0fc05128b769ae85ced}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!update@{update}}
+\index{update@{update}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{update}{update}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a317657785799a0fc05128b769ae85ced} 
+volatile bool update}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00077}{77}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{struct__imu__cmd__t_a595442f48f6c5bacbe8cf8a1baae7019}\index{\_imu\_cmd\_t@{\_imu\_cmd\_t}!warn@{warn}}
+\index{warn@{warn}!\_imu\_cmd\_t@{\_imu\_cmd\_t}}
+\doxysubsubsection{\texorpdfstring{warn}{warn}}
+{\footnotesize\ttfamily \label{struct__imu__cmd__t_a595442f48f6c5bacbe8cf8a1baae7019} 
+bool warn}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00079}{79}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{imu_8h}{imu.\+h}}\end{DoxyCompactItemize}

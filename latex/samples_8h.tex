@@ -1,0 +1,513 @@
+\doxysection{src/samples.h File Reference}
+\hypertarget{samples_8h}{}\label{samples_8h}\index{src/samples.h@{src/samples.h}}
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}definitions.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{samples_8h_ada0b114f23c80b8974c88a07a2ab95b2}{FE\+\_\+\+DRIVER}}~"{}V1.\+06"{}
+\item 
+\#define \mbox{\hyperlink{samples_8h_a5ad7985c1093115fe85cc849285008a8}{FE\+\_\+\+ALIAS}}~"{}PIC32\+AK FE"{}
+\item 
+\#define \mbox{\hyperlink{samples_8h_a893757c91e4b9276cbe4a437ed46539f}{SCA3300}}
+\item 
+\#define \mbox{\hyperlink{samples_8h_a4dbf7ce504cd560dfba86f65cc82b37d}{IMU\+\_\+\+ID}}~3
+\item 
+\#define \mbox{\hyperlink{samples_8h_a2c38bbaa576e38355809f6fc0364a596}{IMU\+\_\+\+BUF}}~256
+\item 
+\#define \mbox{\hyperlink{samples_8h_aea160c487952f2544b535ecb96030b47}{FFT\+\_\+\+BUF}}~64
+\item 
+\#define \mbox{\hyperlink{samples_8h_a82d2f0afaf6d4d819b53d23baa815fff}{SAMPLE\+\_\+\+BUF}}~32
+\item 
+\#define \mbox{\hyperlink{samples_8h_a4ee91f572e738d8a878f236b33a0f2e0}{SAMPLE\+\_\+\+TIMEOUT}}~2
+\item 
+\#define \mbox{\hyperlink{samples_8h_a1b4858e54d0834ad487441021a68ee4a}{NUM\+\_\+\+ADC}}~2
+\item 
+\#define \mbox{\hyperlink{samples_8h_a1fec1b19567570d10d7fdd9badbfe27b}{ADC1\+\_\+D}}~0
+\item 
+\#define \mbox{\hyperlink{samples_8h_a05137a89502e7d09114c89f9e1ed958e}{ADC2\+\_\+D}}~1
+\item 
+\#define \mbox{\hyperlink{samples_8h_aede749afd9d20b01b07c86dfdf548682}{ADC\+\_\+\+SAMC}}~7
+\item 
+\#define \mbox{\hyperlink{samples_8h_a86652dd8d8b8dbb140c3eb9f436b9f72}{ADC1\+\_\+\+SCALE}}~0.\+000403900f
+\item 
+\#define \mbox{\hyperlink{samples_8h_a6e1e03bf557a8a75d81ec160dc9453ad}{ADC2\+\_\+\+SCALE}}~0.\+000402000f
+\item 
+\#define \mbox{\hyperlink{samples_8h_af027cb63984e20bccf24386ca6789ef0}{DAC1\+\_\+\+CAL}}~1256
+\item 
+\#define \mbox{\hyperlink{samples_8h_add75d488f9ccb48881198f8b0bf02a00}{DIS\+\_\+\+TICKS}}~100
+\item 
+\#define \mbox{\hyperlink{samples_8h_a0610177f03758f5adbaac3b9730c026a}{IMU\+\_\+\+TICKS}}~1
+\item 
+\#define \mbox{\hyperlink{samples_8h_ae07270d3243ddd4cf4a0fa5ae378c27d}{GFX\+\_\+\+TICKS}}~30000
+\item 
+\#define \mbox{\hyperlink{samples_8h_a72b4bdc5ef8f31563e58847df9ce2d4b}{ISOO3\+\_\+\+PORT\+\_\+G}}~\mbox{\hyperlink{plib__gpio_8h_af199b2c491f8d5d7b8e1ee2b0268dca8}{ISO3\+\_\+\+O\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{samples_8h_a75012d38d9723eec222a7c9812d0b3f2}{ISOO4\+\_\+\+PORT\+\_\+G}}~\mbox{\hyperlink{plib__gpio_8h_ac683580b1c7b18dcf75250b0223dd543}{ISO4\+\_\+\+O\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{samples_8h_aa61c51cbc9c806e5aa14f10a0beee95f}{ISOI1\+\_\+\+LAT\+\_\+S}}~\mbox{\hyperlink{plib__gpio_8h_a7875f58407d8515c78579efa22ff8e2a}{ISO1\+\_\+\+S\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{samples_8h_a0f230ba4e8be206619fc2f2bf167d5b5}{ISOI1\+\_\+\+LAT\+\_\+C}}~\mbox{\hyperlink{plib__gpio_8h_abfdce8ed683a0896d5fb2bd8f4121b7e}{ISO1\+\_\+\+S\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{samples_8h_a052158b7096379da65599401b451bb4f}{ISOI1\+\_\+\+LAT\+\_\+L}}~\mbox{\hyperlink{plib__gpio_8h_aee0c75f15b45cbd35390d5b950b1607c}{ISO1\+\_\+\+S\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{samples_8h_a70d117cae3af0a11ef92caad5b151cfd}{ISOI2\+\_\+\+LAT\+\_\+S}}~\mbox{\hyperlink{plib__gpio_8h_ad46d0bb8b7bcb5dc2ce5b32084ca5cc2}{ISO2\+\_\+\+S\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{samples_8h_ad53438bfdc9b5266c6f12c5326e809a3}{ISOI2\+\_\+\+LAT\+\_\+C}}~\mbox{\hyperlink{plib__gpio_8h_ae4172be591e4ebeec6a80d92baf863e9}{ISO2\+\_\+\+S\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{samples_8h_a6d4036aeb1dcf8bb86cc57a171acc6bb}{ISOI2\+\_\+\+LAT\+\_\+L}}~\mbox{\hyperlink{plib__gpio_8h_a5b189c26636eaef32c0e9164f87a14ea}{ISO2\+\_\+\+S\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{samples_8h_a076094be689417c1efe87726300545b2}{RETRIGGER\+\_\+\+TIME}}~200
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebd}{iss\+\_\+sample\+\_\+type}} \{ \newline
+\mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda9d584d43c8ee431ca56e50152179493b}{ISS\+\_\+\+INIT}} = 0
+, \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda398ef0fa84d47f7903f4ad140ef0794e}{ISS\+\_\+\+PAGE}}
+, \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebdad705d3dd7ff526a9ba3136da14152bea}{ISS\+\_\+\+STORE}}
+, \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda97832b15a1c9ce0e4bcc669b5ae1652a}{ISS\+\_\+\+NULL}}
+, \newline
+\mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebdad563266716629cd2103576e3d6e8446a}{ISS\+\_\+\+LAST}}
+ \}
+\item 
+enum \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ced}{iss\+\_\+chip\+\_\+type}} \{ \newline
+\mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda9da2b4f092fb3b9b5935043763790289}{ISS\+\_\+\+ISS\+\_\+\+UNK}} = 0
+, \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736cedad7890a5361d2eae2645f9c3af6e134cb}{ISS\+\_\+\+ISS\+\_\+8\+Mb}}
+, \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda6e4011928a7f4b6cb7f23536145bfdda}{ISS\+\_\+\+ISS\+\_\+16\+Mb}}
+, \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736cedafb71264dbca82960f0036d69986bd683}{ISS\+\_\+\+ISS\+\_\+32\+Mb}}
+, \newline
+\mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda960ca9c980b660f9f6111f83ee7b348f}{ISS\+\_\+\+ISS\+\_\+\+BAD}}
+, \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda140ba0540ab5c2bc12ddc3280855a92d}{ISS\+\_\+\+ISS\+\_\+\+LAST}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{samples_8h_afadbe86295797c3abbee652d1022ce22}{fe\+\_\+version}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{samples_8h_a119095ec252e2213e9f3a9617cd25c86}{SW1\+\_\+\+SET}}
+\item 
+bool \mbox{\hyperlink{samples_8h_ab70a2d838b1f089ac6964cf3b1a1942c}{SW2\+\_\+\+SET}}
+\item 
+double \mbox{\hyperlink{samples_8h_af8bcd1db96c6cacf2141f04f9fb28a3d}{adc1\+\_\+scaled}}
+\item 
+double \mbox{\hyperlink{samples_8h_a7dc1f1c0333aa598042cec53a5acf12d}{adc2\+\_\+scaled}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{samples_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{samples_8h_a1fec1b19567570d10d7fdd9badbfe27b}\index{samples.h@{samples.h}!ADC1\_D@{ADC1\_D}}
+\index{ADC1\_D@{ADC1\_D}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{ADC1\_D}{ADC1\_D}}
+{\footnotesize\ttfamily \label{samples_8h_a1fec1b19567570d10d7fdd9badbfe27b} 
+\#define ADC1\+\_\+D~0}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00037}{37}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a86652dd8d8b8dbb140c3eb9f436b9f72}\index{samples.h@{samples.h}!ADC1\_SCALE@{ADC1\_SCALE}}
+\index{ADC1\_SCALE@{ADC1\_SCALE}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{ADC1\_SCALE}{ADC1\_SCALE}}
+{\footnotesize\ttfamily \label{samples_8h_a86652dd8d8b8dbb140c3eb9f436b9f72} 
+\#define ADC1\+\_\+\+SCALE~0.\+000403900f}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00041}{41}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a05137a89502e7d09114c89f9e1ed958e}\index{samples.h@{samples.h}!ADC2\_D@{ADC2\_D}}
+\index{ADC2\_D@{ADC2\_D}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{ADC2\_D}{ADC2\_D}}
+{\footnotesize\ttfamily \label{samples_8h_a05137a89502e7d09114c89f9e1ed958e} 
+\#define ADC2\+\_\+D~1}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00038}{38}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a6e1e03bf557a8a75d81ec160dc9453ad}\index{samples.h@{samples.h}!ADC2\_SCALE@{ADC2\_SCALE}}
+\index{ADC2\_SCALE@{ADC2\_SCALE}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{ADC2\_SCALE}{ADC2\_SCALE}}
+{\footnotesize\ttfamily \label{samples_8h_a6e1e03bf557a8a75d81ec160dc9453ad} 
+\#define ADC2\+\_\+\+SCALE~0.\+000402000f}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00042}{42}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_aede749afd9d20b01b07c86dfdf548682}\index{samples.h@{samples.h}!ADC\_SAMC@{ADC\_SAMC}}
+\index{ADC\_SAMC@{ADC\_SAMC}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_SAMC}{ADC\_SAMC}}
+{\footnotesize\ttfamily \label{samples_8h_aede749afd9d20b01b07c86dfdf548682} 
+\#define ADC\+\_\+\+SAMC~7}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00039}{39}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_af027cb63984e20bccf24386ca6789ef0}\index{samples.h@{samples.h}!DAC1\_CAL@{DAC1\_CAL}}
+\index{DAC1\_CAL@{DAC1\_CAL}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{DAC1\_CAL}{DAC1\_CAL}}
+{\footnotesize\ttfamily \label{samples_8h_af027cb63984e20bccf24386ca6789ef0} 
+\#define DAC1\+\_\+\+CAL~1256}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00044}{44}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_add75d488f9ccb48881198f8b0bf02a00}\index{samples.h@{samples.h}!DIS\_TICKS@{DIS\_TICKS}}
+\index{DIS\_TICKS@{DIS\_TICKS}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_TICKS}{DIS\_TICKS}}
+{\footnotesize\ttfamily \label{samples_8h_add75d488f9ccb48881198f8b0bf02a00} 
+\#define DIS\+\_\+\+TICKS~100}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00046}{46}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a5ad7985c1093115fe85cc849285008a8}\index{samples.h@{samples.h}!FE\_ALIAS@{FE\_ALIAS}}
+\index{FE\_ALIAS@{FE\_ALIAS}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{FE\_ALIAS}{FE\_ALIAS}}
+{\footnotesize\ttfamily \label{samples_8h_a5ad7985c1093115fe85cc849285008a8} 
+\#define FE\+\_\+\+ALIAS~"{}PIC32\+AK FE"{}}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00024}{24}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_ada0b114f23c80b8974c88a07a2ab95b2}\index{samples.h@{samples.h}!FE\_DRIVER@{FE\_DRIVER}}
+\index{FE\_DRIVER@{FE\_DRIVER}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{FE\_DRIVER}{FE\_DRIVER}}
+{\footnotesize\ttfamily \label{samples_8h_ada0b114f23c80b8974c88a07a2ab95b2} 
+\#define FE\+\_\+\+DRIVER~"{}V1.\+06"{}}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00023}{23}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_aea160c487952f2544b535ecb96030b47}\index{samples.h@{samples.h}!FFT\_BUF@{FFT\_BUF}}
+\index{FFT\_BUF@{FFT\_BUF}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{FFT\_BUF}{FFT\_BUF}}
+{\footnotesize\ttfamily \label{samples_8h_aea160c487952f2544b535ecb96030b47} 
+\#define FFT\+\_\+\+BUF~64}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00032}{32}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_ae07270d3243ddd4cf4a0fa5ae378c27d}\index{samples.h@{samples.h}!GFX\_TICKS@{GFX\_TICKS}}
+\index{GFX\_TICKS@{GFX\_TICKS}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{GFX\_TICKS}{GFX\_TICKS}}
+{\footnotesize\ttfamily \label{samples_8h_ae07270d3243ddd4cf4a0fa5ae378c27d} 
+\#define GFX\+\_\+\+TICKS~30000}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00048}{48}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a2c38bbaa576e38355809f6fc0364a596}\index{samples.h@{samples.h}!IMU\_BUF@{IMU\_BUF}}
+\index{IMU\_BUF@{IMU\_BUF}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_BUF}{IMU\_BUF}}
+{\footnotesize\ttfamily \label{samples_8h_a2c38bbaa576e38355809f6fc0364a596} 
+\#define IMU\+\_\+\+BUF~256}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00031}{31}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a4dbf7ce504cd560dfba86f65cc82b37d}\index{samples.h@{samples.h}!IMU\_ID@{IMU\_ID}}
+\index{IMU\_ID@{IMU\_ID}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_ID}{IMU\_ID}}
+{\footnotesize\ttfamily \label{samples_8h_a4dbf7ce504cd560dfba86f65cc82b37d} 
+\#define IMU\+\_\+\+ID~3}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00029}{29}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a0610177f03758f5adbaac3b9730c026a}\index{samples.h@{samples.h}!IMU\_TICKS@{IMU\_TICKS}}
+\index{IMU\_TICKS@{IMU\_TICKS}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_TICKS}{IMU\_TICKS}}
+{\footnotesize\ttfamily \label{samples_8h_a0610177f03758f5adbaac3b9730c026a} 
+\#define IMU\+\_\+\+TICKS~1}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00047}{47}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a0f230ba4e8be206619fc2f2bf167d5b5}\index{samples.h@{samples.h}!ISOI1\_LAT\_C@{ISOI1\_LAT\_C}}
+\index{ISOI1\_LAT\_C@{ISOI1\_LAT\_C}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{ISOI1\_LAT\_C}{ISOI1\_LAT\_C}}
+{\footnotesize\ttfamily \label{samples_8h_a0f230ba4e8be206619fc2f2bf167d5b5} 
+\#define ISOI1\+\_\+\+LAT\+\_\+C~\mbox{\hyperlink{plib__gpio_8h_abfdce8ed683a0896d5fb2bd8f4121b7e}{ISO1\+\_\+\+S\+\_\+\+Clear}}()}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00057}{57}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a052158b7096379da65599401b451bb4f}\index{samples.h@{samples.h}!ISOI1\_LAT\_L@{ISOI1\_LAT\_L}}
+\index{ISOI1\_LAT\_L@{ISOI1\_LAT\_L}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{ISOI1\_LAT\_L}{ISOI1\_LAT\_L}}
+{\footnotesize\ttfamily \label{samples_8h_a052158b7096379da65599401b451bb4f} 
+\#define ISOI1\+\_\+\+LAT\+\_\+L~\mbox{\hyperlink{plib__gpio_8h_aee0c75f15b45cbd35390d5b950b1607c}{ISO1\+\_\+\+S\+\_\+\+Get}}()}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00058}{58}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_aa61c51cbc9c806e5aa14f10a0beee95f}\index{samples.h@{samples.h}!ISOI1\_LAT\_S@{ISOI1\_LAT\_S}}
+\index{ISOI1\_LAT\_S@{ISOI1\_LAT\_S}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{ISOI1\_LAT\_S}{ISOI1\_LAT\_S}}
+{\footnotesize\ttfamily \label{samples_8h_aa61c51cbc9c806e5aa14f10a0beee95f} 
+\#define ISOI1\+\_\+\+LAT\+\_\+S~\mbox{\hyperlink{plib__gpio_8h_a7875f58407d8515c78579efa22ff8e2a}{ISO1\+\_\+\+S\+\_\+\+Set}}()}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00056}{56}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_ad53438bfdc9b5266c6f12c5326e809a3}\index{samples.h@{samples.h}!ISOI2\_LAT\_C@{ISOI2\_LAT\_C}}
+\index{ISOI2\_LAT\_C@{ISOI2\_LAT\_C}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{ISOI2\_LAT\_C}{ISOI2\_LAT\_C}}
+{\footnotesize\ttfamily \label{samples_8h_ad53438bfdc9b5266c6f12c5326e809a3} 
+\#define ISOI2\+\_\+\+LAT\+\_\+C~\mbox{\hyperlink{plib__gpio_8h_ae4172be591e4ebeec6a80d92baf863e9}{ISO2\+\_\+\+S\+\_\+\+Clear}}()}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00061}{61}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a6d4036aeb1dcf8bb86cc57a171acc6bb}\index{samples.h@{samples.h}!ISOI2\_LAT\_L@{ISOI2\_LAT\_L}}
+\index{ISOI2\_LAT\_L@{ISOI2\_LAT\_L}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{ISOI2\_LAT\_L}{ISOI2\_LAT\_L}}
+{\footnotesize\ttfamily \label{samples_8h_a6d4036aeb1dcf8bb86cc57a171acc6bb} 
+\#define ISOI2\+\_\+\+LAT\+\_\+L~\mbox{\hyperlink{plib__gpio_8h_a5b189c26636eaef32c0e9164f87a14ea}{ISO2\+\_\+\+S\+\_\+\+Get}}()}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00062}{62}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a70d117cae3af0a11ef92caad5b151cfd}\index{samples.h@{samples.h}!ISOI2\_LAT\_S@{ISOI2\_LAT\_S}}
+\index{ISOI2\_LAT\_S@{ISOI2\_LAT\_S}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{ISOI2\_LAT\_S}{ISOI2\_LAT\_S}}
+{\footnotesize\ttfamily \label{samples_8h_a70d117cae3af0a11ef92caad5b151cfd} 
+\#define ISOI2\+\_\+\+LAT\+\_\+S~\mbox{\hyperlink{plib__gpio_8h_ad46d0bb8b7bcb5dc2ce5b32084ca5cc2}{ISO2\+\_\+\+S\+\_\+\+Set}}()}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00060}{60}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a72b4bdc5ef8f31563e58847df9ce2d4b}\index{samples.h@{samples.h}!ISOO3\_PORT\_G@{ISOO3\_PORT\_G}}
+\index{ISOO3\_PORT\_G@{ISOO3\_PORT\_G}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{ISOO3\_PORT\_G}{ISOO3\_PORT\_G}}
+{\footnotesize\ttfamily \label{samples_8h_a72b4bdc5ef8f31563e58847df9ce2d4b} 
+\#define ISOO3\+\_\+\+PORT\+\_\+G~\mbox{\hyperlink{plib__gpio_8h_af199b2c491f8d5d7b8e1ee2b0268dca8}{ISO3\+\_\+\+O\+\_\+\+Get}}()}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00053}{53}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a75012d38d9723eec222a7c9812d0b3f2}\index{samples.h@{samples.h}!ISOO4\_PORT\_G@{ISOO4\_PORT\_G}}
+\index{ISOO4\_PORT\_G@{ISOO4\_PORT\_G}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{ISOO4\_PORT\_G}{ISOO4\_PORT\_G}}
+{\footnotesize\ttfamily \label{samples_8h_a75012d38d9723eec222a7c9812d0b3f2} 
+\#define ISOO4\+\_\+\+PORT\+\_\+G~\mbox{\hyperlink{plib__gpio_8h_ac683580b1c7b18dcf75250b0223dd543}{ISO4\+\_\+\+O\+\_\+\+Get}}()}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00054}{54}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a1b4858e54d0834ad487441021a68ee4a}\index{samples.h@{samples.h}!NUM\_ADC@{NUM\_ADC}}
+\index{NUM\_ADC@{NUM\_ADC}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_ADC}{NUM\_ADC}}
+{\footnotesize\ttfamily \label{samples_8h_a1b4858e54d0834ad487441021a68ee4a} 
+\#define NUM\+\_\+\+ADC~2}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00036}{36}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a076094be689417c1efe87726300545b2}\index{samples.h@{samples.h}!RETRIGGER\_TIME@{RETRIGGER\_TIME}}
+\index{RETRIGGER\_TIME@{RETRIGGER\_TIME}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{RETRIGGER\_TIME}{RETRIGGER\_TIME}}
+{\footnotesize\ttfamily \label{samples_8h_a076094be689417c1efe87726300545b2} 
+\#define RETRIGGER\+\_\+\+TIME~200}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00064}{64}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a82d2f0afaf6d4d819b53d23baa815fff}\index{samples.h@{samples.h}!SAMPLE\_BUF@{SAMPLE\_BUF}}
+\index{SAMPLE\_BUF@{SAMPLE\_BUF}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{SAMPLE\_BUF}{SAMPLE\_BUF}}
+{\footnotesize\ttfamily \label{samples_8h_a82d2f0afaf6d4d819b53d23baa815fff} 
+\#define SAMPLE\+\_\+\+BUF~32}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00033}{33}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a4ee91f572e738d8a878f236b33a0f2e0}\index{samples.h@{samples.h}!SAMPLE\_TIMEOUT@{SAMPLE\_TIMEOUT}}
+\index{SAMPLE\_TIMEOUT@{SAMPLE\_TIMEOUT}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{SAMPLE\_TIMEOUT}{SAMPLE\_TIMEOUT}}
+{\footnotesize\ttfamily \label{samples_8h_a4ee91f572e738d8a878f236b33a0f2e0} 
+\#define SAMPLE\+\_\+\+TIMEOUT~2}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00034}{34}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a893757c91e4b9276cbe4a437ed46539f}\index{samples.h@{samples.h}!SCA3300@{SCA3300}}
+\index{SCA3300@{SCA3300}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300}{SCA3300}}
+{\footnotesize\ttfamily \label{samples_8h_a893757c91e4b9276cbe4a437ed46539f} 
+\#define SCA3300}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00028}{28}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{samples_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{samples_8h_a4f75b37d979be10bf97f422eb6736ced}\index{samples.h@{samples.h}!iss\_chip\_type@{iss\_chip\_type}}
+\index{iss\_chip\_type@{iss\_chip\_type}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{iss\_chip\_type}{iss\_chip\_type}}
+{\footnotesize\ttfamily \label{samples_8h_a4f75b37d979be10bf97f422eb6736ced} 
+enum \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ced}{iss\+\_\+chip\+\_\+type}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ISS\_ISS\_UNK@{ISS\_ISS\_UNK}!samples.h@{samples.h}}\index{samples.h@{samples.h}!ISS\_ISS\_UNK@{ISS\_ISS\_UNK}}}\Hypertarget{samples_8h_a4f75b37d979be10bf97f422eb6736ceda9da2b4f092fb3b9b5935043763790289}\label{samples_8h_a4f75b37d979be10bf97f422eb6736ceda9da2b4f092fb3b9b5935043763790289} 
+ISS\+\_\+\+ISS\+\_\+\+UNK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ISS\_ISS\_8Mb@{ISS\_ISS\_8Mb}!samples.h@{samples.h}}\index{samples.h@{samples.h}!ISS\_ISS\_8Mb@{ISS\_ISS\_8Mb}}}\Hypertarget{samples_8h_a4f75b37d979be10bf97f422eb6736cedad7890a5361d2eae2645f9c3af6e134cb}\label{samples_8h_a4f75b37d979be10bf97f422eb6736cedad7890a5361d2eae2645f9c3af6e134cb} 
+ISS\+\_\+\+ISS\+\_\+8\+Mb&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ISS\_ISS\_16Mb@{ISS\_ISS\_16Mb}!samples.h@{samples.h}}\index{samples.h@{samples.h}!ISS\_ISS\_16Mb@{ISS\_ISS\_16Mb}}}\Hypertarget{samples_8h_a4f75b37d979be10bf97f422eb6736ceda6e4011928a7f4b6cb7f23536145bfdda}\label{samples_8h_a4f75b37d979be10bf97f422eb6736ceda6e4011928a7f4b6cb7f23536145bfdda} 
+ISS\+\_\+\+ISS\+\_\+16\+Mb&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ISS\_ISS\_32Mb@{ISS\_ISS\_32Mb}!samples.h@{samples.h}}\index{samples.h@{samples.h}!ISS\_ISS\_32Mb@{ISS\_ISS\_32Mb}}}\Hypertarget{samples_8h_a4f75b37d979be10bf97f422eb6736cedafb71264dbca82960f0036d69986bd683}\label{samples_8h_a4f75b37d979be10bf97f422eb6736cedafb71264dbca82960f0036d69986bd683} 
+ISS\+\_\+\+ISS\+\_\+32\+Mb&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ISS\_ISS\_BAD@{ISS\_ISS\_BAD}!samples.h@{samples.h}}\index{samples.h@{samples.h}!ISS\_ISS\_BAD@{ISS\_ISS\_BAD}}}\Hypertarget{samples_8h_a4f75b37d979be10bf97f422eb6736ceda960ca9c980b660f9f6111f83ee7b348f}\label{samples_8h_a4f75b37d979be10bf97f422eb6736ceda960ca9c980b660f9f6111f83ee7b348f} 
+ISS\+\_\+\+ISS\+\_\+\+BAD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ISS\_ISS\_LAST@{ISS\_ISS\_LAST}!samples.h@{samples.h}}\index{samples.h@{samples.h}!ISS\_ISS\_LAST@{ISS\_ISS\_LAST}}}\Hypertarget{samples_8h_a4f75b37d979be10bf97f422eb6736ceda140ba0540ab5c2bc12ddc3280855a92d}\label{samples_8h_a4f75b37d979be10bf97f422eb6736ceda140ba0540ab5c2bc12ddc3280855a92d} 
+ISS\+\_\+\+ISS\+\_\+\+LAST&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00095}{95}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebd}\index{samples.h@{samples.h}!iss\_sample\_type@{iss\_sample\_type}}
+\index{iss\_sample\_type@{iss\_sample\_type}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{iss\_sample\_type}{iss\_sample\_type}}
+{\footnotesize\ttfamily \label{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebd} 
+enum \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebd}{iss\+\_\+sample\+\_\+type}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ISS\_INIT@{ISS\_INIT}!samples.h@{samples.h}}\index{samples.h@{samples.h}!ISS\_INIT@{ISS\_INIT}}}\Hypertarget{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda9d584d43c8ee431ca56e50152179493b}\label{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda9d584d43c8ee431ca56e50152179493b} 
+ISS\+\_\+\+INIT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ISS\_PAGE@{ISS\_PAGE}!samples.h@{samples.h}}\index{samples.h@{samples.h}!ISS\_PAGE@{ISS\_PAGE}}}\Hypertarget{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda398ef0fa84d47f7903f4ad140ef0794e}\label{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda398ef0fa84d47f7903f4ad140ef0794e} 
+ISS\+\_\+\+PAGE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ISS\_STORE@{ISS\_STORE}!samples.h@{samples.h}}\index{samples.h@{samples.h}!ISS\_STORE@{ISS\_STORE}}}\Hypertarget{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebdad705d3dd7ff526a9ba3136da14152bea}\label{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebdad705d3dd7ff526a9ba3136da14152bea} 
+ISS\+\_\+\+STORE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ISS\_NULL@{ISS\_NULL}!samples.h@{samples.h}}\index{samples.h@{samples.h}!ISS\_NULL@{ISS\_NULL}}}\Hypertarget{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda97832b15a1c9ce0e4bcc669b5ae1652a}\label{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda97832b15a1c9ce0e4bcc669b5ae1652a} 
+ISS\+\_\+\+NULL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ISS\_LAST@{ISS\_LAST}!samples.h@{samples.h}}\index{samples.h@{samples.h}!ISS\_LAST@{ISS\_LAST}}}\Hypertarget{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebdad563266716629cd2103576e3d6e8446a}\label{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebdad563266716629cd2103576e3d6e8446a} 
+ISS\+\_\+\+LAST&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00087}{87}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{samples_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{samples_8h_afadbe86295797c3abbee652d1022ce22}\index{samples.h@{samples.h}!fe\_version@{fe\_version}}
+\index{fe\_version@{fe\_version}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{fe\_version()}{fe\_version()}}
+{\footnotesize\ttfamily \label{samples_8h_afadbe86295797c3abbee652d1022ce22} 
+void fe\+\_\+version (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00234}{234}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{samples_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{samples_8h_af8bcd1db96c6cacf2141f04f9fb28a3d}\index{samples.h@{samples.h}!adc1\_scaled@{adc1\_scaled}}
+\index{adc1\_scaled@{adc1\_scaled}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{adc1\_scaled}{adc1\_scaled}}
+{\footnotesize\ttfamily \label{samples_8h_af8bcd1db96c6cacf2141f04f9fb28a3d} 
+double adc1\+\_\+scaled\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00029}{29}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{samples_8h_a7dc1f1c0333aa598042cec53a5acf12d}\index{samples.h@{samples.h}!adc2\_scaled@{adc2\_scaled}}
+\index{adc2\_scaled@{adc2\_scaled}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{adc2\_scaled}{adc2\_scaled}}
+{\footnotesize\ttfamily \label{samples_8h_a7dc1f1c0333aa598042cec53a5acf12d} 
+double adc2\+\_\+scaled}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00085}{85}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+
+\Hypertarget{samples_8h_a119095ec252e2213e9f3a9617cd25c86}\index{samples.h@{samples.h}!SW1\_SET@{SW1\_SET}}
+\index{SW1\_SET@{SW1\_SET}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{SW1\_SET}{SW1\_SET}}
+{\footnotesize\ttfamily \label{samples_8h_a119095ec252e2213e9f3a9617cd25c86} 
+bool SW1\+\_\+\+SET\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00026}{26}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{samples_8h_ab70a2d838b1f089ac6964cf3b1a1942c}\index{samples.h@{samples.h}!SW2\_SET@{SW2\_SET}}
+\index{SW2\_SET@{SW2\_SET}!samples.h@{samples.h}}
+\doxysubsubsection{\texorpdfstring{SW2\_SET}{SW2\_SET}}
+{\footnotesize\ttfamily \label{samples_8h_ab70a2d838b1f089ac6964cf3b1a1942c} 
+bool SW2\+\_\+\+SET}
+
+
+
+Definition at line \mbox{\hyperlink{samples_8h_source_l00084}{84}} of file \mbox{\hyperlink{samples_8h_source}{samples.\+h}}.
+

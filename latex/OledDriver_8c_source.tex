@@ -1,0 +1,654 @@
+\doxysection{Oled\+Driver.\+c}
+\hypertarget{OledDriver_8c_source}{}\label{OledDriver_8c_source}\index{src/lcd\_drv/OledDriver.c@{src/lcd\_drv/OledDriver.c}}
+\mbox{\hyperlink{OledDriver_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00001}00001\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ OledDriver.c\ \ \ \ -\/-\/\ Graphics\ Driver\ Library\ for\ OLED\ Display\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00005}00005\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00006}00006\ \textcolor{comment}{/*\ \ Author:\ \ \ \ \ Gene\ Apperson\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00007}00007\ \textcolor{comment}{/*\ \ Copyright\ 2011,\ Digilent\ Inc.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00008}00008\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00009}00009\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00010}00010\ \textcolor{comment}{\ \ This\ library\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00011}00011\ \textcolor{comment}{\ \ modify\ it\ under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00012}00012\ \textcolor{comment}{\ \ License\ as\ published\ by\ the\ Free\ Software\ Foundation;\ either}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00013}00013\ \textcolor{comment}{\ \ version\ 2.1\ of\ the\ License,\ or\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00014}00014\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00015}00015\ \textcolor{comment}{\ \ This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00016}00016\ \textcolor{comment}{\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00017}00017\ \textcolor{comment}{\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00018}00018\ \textcolor{comment}{\ \ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00019}00019\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00020}00020\ \textcolor{comment}{\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00021}00021\ \textcolor{comment}{\ \ License\ along\ with\ this\ library;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00022}00022\ \textcolor{comment}{\ \ Foundation,\ Inc.,\ 51\ Franklin\ St,\ Fifth\ Floor,\ Boston,\ MA\ \ 02110-\/1301\ \ USA}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00023}00023\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00024}00024\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00025}00025\ \textcolor{comment}{/*\ \ Module\ Description:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00026}00026\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00027}00027\ \textcolor{comment}{/*\ \ This\ is\ part\ of\ the\ device\ driver\ software\ for\ the\ OLED\ bit\ mapped\ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00028}00028\ \textcolor{comment}{/*\ \ display\ on\ the\ Digilent\ Basic\ I/O\ Shield.\ This\ module\ contains\ the\ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00029}00029\ \textcolor{comment}{/*\ \ initialization\ functions\ and\ basic\ display\ control\ functions.\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00030}00030\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00031}00031\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00032}00032\ \textcolor{comment}{/*\ \ Revision\ History:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00033}00033\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00034}00034\ \textcolor{comment}{/*\ \ 04/29/2011(GeneA):\ Created\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00035}00035\ \textcolor{comment}{/*\ \ 08/03/2011(GeneA):\ added\ functions\ to\ shut\ down\ the\ display\ and\ to\ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00036}00036\ \textcolor{comment}{/*\ \ \ \ \ \ turn\ the\ display\ on\ and\ off.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00037}00037\ \textcolor{comment}{/*\ \ 01/04/2012(GeneA):\ Changed\ use\ of\ DelayMs\ to\ using\ standard\ delay\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00038}00038\ \textcolor{comment}{/*\ \ \ \ \ \ function.\ Removed\ delay.h\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00039}00039\ \textcolor{comment}{/*\ \ 05/11/2017(FGB):\ convert\ XC32\ and\ Harmony\ 2.0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00040}00040\ \textcolor{comment}{/*\ \ 08/01/2020(FGB):\ convert\ to\ Harmony\ 3.0\ for\ pic32mk\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00041}00041\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00042}00042\ \textcolor{comment}{\ *\ \ LCD\ graphic\ display\ routines}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00043}00043\ \textcolor{comment}{\ *\ \ machine\ dependant\ hardware\ routines\ should\ be\ here}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00044}00044\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00045}00045\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00048}00048\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00049}00049\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ Include\ File\ Definitions\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00050}00050\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00052}00052\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lcd__drv_8h}{lcd\_drv.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00053}00053\ \textcolor{comment}{//\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00054}00054\ \textcolor{comment}{//\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00056}00056\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00057}00057\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ Local\ Symbol\ Definitions\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00059}00059\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00063}00063\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00064}00064\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ Global\ Variables\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00065}00065\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00066}\mbox{\hyperlink{OledDriver_8c_a43d6d693bb79ac33047e7ebc60c08b72}{00066}}\ \textcolor{keyword}{volatile}\ uint8\_t\ \mbox{\hyperlink{OledDriver_8c_a43d6d693bb79ac33047e7ebc60c08b72}{disp\_frame}}\ =\ \mbox{\hyperlink{lcd__drv_8h_a3fb3ae31dac8b11662f324325ffef519}{lcd\_frame}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00068}00068\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00069}00069\ \textcolor{comment}{\ *\ various\ fonts\ locations}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00070}00070\ \textcolor{comment}{\ *\ types\ have\ been\ checked}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00071}00071\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00072}00072\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ uint8\_t\ \mbox{\hyperlink{ChrFont0_8c_a981efd5221d2f59a56b0044db9ab7879}{rgbOledFont0}}[];}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00073}00073\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{OledChar_8c_a0a2b795be12ab950bdd0a9e9111f06c3}{rgbOledFontUser}}[\mbox{\hyperlink{OledDriver_8h_a0050b54c2a43adee0e768e229ed369c1}{cbOledFontUser}}];}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00074}00074\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ uint8\_t\ \mbox{\hyperlink{FillPat_8c_a553f61aff53e2ea39ebd64db6d225e8a}{rgbFillPat}}[];}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00076}00076\ \textcolor{comment}{/*\ Coordinates\ of\ current\ pixel\ location\ on\ the\ display.\ The\ origin}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00077}00077\ \textcolor{comment}{\ **\ is\ at\ the\ upper\ left\ of\ the\ display.\ X\ increases\ to\ the\ right}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00078}00078\ \textcolor{comment}{\ **\ and\ y\ increases\ going\ down.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00079}00079\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00080}\mbox{\hyperlink{OledChar_8h_aba2c26434c72817686c9aa23940621e4}{00080}}\ int32\_t\ \mbox{\hyperlink{OledChar_8h_aba2c26434c72817686c9aa23940621e4}{xcoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00081}\mbox{\hyperlink{OledChar_8h_a73468af1151bacd629a6873b9261e9cc}{00081}}\ int32\_t\ \mbox{\hyperlink{OledChar_8h_a73468af1151bacd629a6873b9261e9cc}{ycoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00083}\mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{00083}}\ uint8\_t\ *\ \mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}};\ \textcolor{comment}{//address\ of\ byte\ corresponding\ to\ current\ location}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00084}\mbox{\hyperlink{OledChar_8h_a38730da0dc7102d6d531ccc7fa5b3fc4}{00084}}\ int32\_t\ \mbox{\hyperlink{OledChar_8h_a38730da0dc7102d6d531ccc7fa5b3fc4}{bnOledCur}};\ \textcolor{comment}{//bit\ number\ of\ bit\ corresponding\ to\ current\ location}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00085}\mbox{\hyperlink{OledDriver_8c_a15754096bf5303f0ac535d020b4021a0}{00085}}\ uint8\_t\ \mbox{\hyperlink{OledDriver_8c_a15754096bf5303f0ac535d020b4021a0}{clrOledCur}};\ \textcolor{comment}{//drawing\ color\ to\ use}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00086}\mbox{\hyperlink{OledDriver_8c_a184e6fd0c5c99f06cd3d632b4c123068}{00086}}\ uint8\_t\ *\ \mbox{\hyperlink{OledDriver_8c_a184e6fd0c5c99f06cd3d632b4c123068}{pbOledPatCur}};\ \textcolor{comment}{//current\ fill\ pattern}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00087}\mbox{\hyperlink{OledChar_8h_abf4f3edb1b57df35366939971631723f}{00087}}\ int32\_t\ \mbox{\hyperlink{OledChar_8h_abf4f3edb1b57df35366939971631723f}{fOledCharUpdate}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00089}\mbox{\hyperlink{OledChar_8h_aa573176e4a221cecf8eede784cc26421}{00089}}\ int32\_t\ \mbox{\hyperlink{OledChar_8h_aa573176e4a221cecf8eede784cc26421}{dxcoOledFontCur}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00090}\mbox{\hyperlink{OledChar_8h_aaf58d5202e2b1db0bd83fc04e9196eac}{00090}}\ int32\_t\ \mbox{\hyperlink{OledChar_8h_aaf58d5202e2b1db0bd83fc04e9196eac}{dycoOledFontCur}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00092}\mbox{\hyperlink{OledChar_8h_a0438ad9d3d66dc18d5e5e8235d9bd0c4}{00092}}\ uint8\_t\ *\ \mbox{\hyperlink{OledChar_8h_a0438ad9d3d66dc18d5e5e8235d9bd0c4}{pbOledFontCur}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00093}\mbox{\hyperlink{OledChar_8h_a086d81ef12ef8daac41aa99368905473}{00093}}\ uint8\_t\ *\ \mbox{\hyperlink{OledChar_8h_a086d81ef12ef8daac41aa99368905473}{pbOledFontUser}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00095}00095\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00096}00096\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ Local\ Variables\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00097}00097\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00099}00099\ \textcolor{comment}{/*\ This\ array\ is\ the\ offscreen\ frame\ buffer\ used\ for\ rendering.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00100}00100\ \textcolor{comment}{\ **\ It\ isn't\ possible\ to\ read\ back\ frome\ the\ OLED\ display\ device,}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00101}00101\ \textcolor{comment}{\ **\ so\ display\ data\ is\ rendered\ into\ this\ offscreen\ buffer\ and\ then}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00102}00102\ \textcolor{comment}{\ **\ copied\ to\ the\ display.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00103}00103\ \textcolor{comment}{\ *\ \ must\ be\ in\ uncached\ memory\ for\ pic32\ DMA\ so\ use\ \_\_attribute\_\_((coherent))}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00104}00104\ \textcolor{comment}{\ *\ DMA0\ SPI\ TX\ transfers\ DATA,\ CMD}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00105}00105\ \textcolor{comment}{\ *\ DMA1\ GLCD\ buffer\ transfers}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00106}00106\ \textcolor{comment}{\ *\ DMA2\ SPI\ TX\ transfers\ CMD,\ NOT\ USED}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00107}00107\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00108}00108\ \textcolor{preprocessor}{\#ifdef\ \_\_32MK0512MCJ048\_\_\ \ \ }\textcolor{comment}{//\ NO\ bank\ 2\ for\ this\ CPU\ so\ memory\ is\ in\ bank\ 1}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00109}00109\ uint8\_t\ \mbox{\hyperlink{OledDriver_8c_a0361bc12809ad6765b2aa2538022cc8f}{\_\_attribute\_\_}}((address(\mbox{\hyperlink{lcd__drv_8h_a8d7bd7d547b12ee3c6a267ad57ab46d3}{BANK1}}),\ coherent))\ \mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}}[\mbox{\hyperlink{OledDriver_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cbOledDispMax}}];\ \textcolor{comment}{//\ two\ display\ buffers\ for\ page\ flipping}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00110}00110\ uint8\_t\ \mbox{\hyperlink{OledDriver_8c_a0361bc12809ad6765b2aa2538022cc8f}{\_\_attribute\_\_}}((address(\mbox{\hyperlink{lcd__drv_8h_a8d7bd7d547b12ee3c6a267ad57ab46d3}{BANK1}}\ +\ \mbox{\hyperlink{OledDriver_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cbOledDispMax}}),\ coherent))\ \mbox{\hyperlink{OledGrph_8h_aa1d8073a5fa4014b799b72a3f0c7e27e}{rgbOledBmp1}}[\mbox{\hyperlink{OledDriver_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cbOledDispMax}}];}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00111}00111\ \textcolor{preprocessor}{\#ifdef\ USE\_DMA}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00112}00112\ \textcolor{keyword}{static}\ uint8\_t\ \mbox{\hyperlink{OledDriver_8c_a0361bc12809ad6765b2aa2538022cc8f}{\_\_attribute\_\_}}((address(\mbox{\hyperlink{lcd__drv_8h_a8d7bd7d547b12ee3c6a267ad57ab46d3}{BANK1}}\ -\/\ 8),\ coherent))\ rgbOledBmp\_blank[4]\ =\ \{0x00,\ 0x00,\ 0x00,\ 0x00\};\ \textcolor{comment}{//\ 32-\/bit\ frame-\/buffer\ clearing\ variable}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00113}00113\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00114}00114\ \textcolor{keyword}{volatile}\ uint8\_t\ \mbox{\hyperlink{OledDriver_8c_a0361bc12809ad6765b2aa2538022cc8f}{\_\_attribute\_\_}}((address(\mbox{\hyperlink{lcd__drv_8h_a8d7bd7d547b12ee3c6a267ad57ab46d3}{BANK1}}\ -\/\ 16),\ coherent))\ \mbox{\hyperlink{dogm-graphic_8h_af8b961cd9a0d5145a7179e93a24a6b22}{rgbOledBmp\_page}}[5];}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00115}00115\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00117}00117\ \textcolor{preprocessor}{\#ifdef\ \_\_32MZ1025W104132\_\_\ \ }\textcolor{comment}{//\ bank\ 2\ for\ this\ CPU}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00118}00118\ uint8\_t\ \mbox{\hyperlink{OledDriver_8c_a0361bc12809ad6765b2aa2538022cc8f}{\_\_attribute\_\_}}((address(\mbox{\hyperlink{lcd__drv_8h_a0bd289e48aaf00c5d668738b94c0ddf4}{BANK2}}),\ coherent))\ \mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}}[\mbox{\hyperlink{OledDriver_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cbOledDispMax}}];\ \textcolor{comment}{//\ two\ display\ buffers\ for\ page\ flipping}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00119}00119\ uint8\_t\ \mbox{\hyperlink{OledDriver_8c_a0361bc12809ad6765b2aa2538022cc8f}{\_\_attribute\_\_}}((address(\mbox{\hyperlink{lcd__drv_8h_a0bd289e48aaf00c5d668738b94c0ddf4}{BANK2}}\ +\ \mbox{\hyperlink{OledDriver_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cbOledDispMax}}),\ coherent))\ \mbox{\hyperlink{OledGrph_8h_aa1d8073a5fa4014b799b72a3f0c7e27e}{rgbOledBmp1}}[\mbox{\hyperlink{OledDriver_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cbOledDispMax}}];}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00120}00120\ \textcolor{preprocessor}{\#ifdef\ USE\_DMA}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00121}00121\ \textcolor{keyword}{static}\ uint8\_t\ \mbox{\hyperlink{OledDriver_8c_a0361bc12809ad6765b2aa2538022cc8f}{\_\_attribute\_\_}}((address(\mbox{\hyperlink{lcd__drv_8h_a0bd289e48aaf00c5d668738b94c0ddf4}{BANK2}}\ -\/\ 8),\ coherent))\ rgbOledBmp\_blank[4]\ =\ \{0x00,\ 0x00,\ 0x00,\ 0x00\};\ \textcolor{comment}{//\ 32-\/bit\ frame-\/buffer\ clearing\ variable}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00122}00122\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00123}00123\ \textcolor{keyword}{volatile}\ uint8\_t\ \mbox{\hyperlink{OledDriver_8c_a0361bc12809ad6765b2aa2538022cc8f}{\_\_attribute\_\_}}((address(\mbox{\hyperlink{lcd__drv_8h_a0bd289e48aaf00c5d668738b94c0ddf4}{BANK2}}\ -\/\ 16),\ coherent))\ \mbox{\hyperlink{dogm-graphic_8h_af8b961cd9a0d5145a7179e93a24a6b22}{rgbOledBmp\_page}}[5];}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00124}00124\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00126}\mbox{\hyperlink{OledDriver_8c_a0361bc12809ad6765b2aa2538022cc8f}{00126}}\ uint8\_t\ \ \mbox{\hyperlink{OledDriver_8c_a0361bc12809ad6765b2aa2538022cc8f}{\_\_attribute\_\_}}((address(\mbox{\hyperlink{lcd__drv_8h_add2a051bc4cb4f64740d8d6ce7093868}{XRAM}})))\ \mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}}[\mbox{\hyperlink{OledDriver_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cbOledDispMax}}];\ \textcolor{comment}{//\ one\ display\ buffer,\ no\ page\ flipping}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00127}00127\ \textcolor{comment}{//uint8\_t\ rgbOledBmp1[cbOledDispMax];}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00128}00128\ \textcolor{comment}{//static\ uint8\_t\ rgbOledBmp\_blank[4]\ =\ \{0x00,\ 0x00,\ 0x00,\ 0x00\};\ //\ 32-\/bit\ frame-\/buffer\ clearing\ variable}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00129}00129\ \textcolor{keyword}{volatile}\ uint8\_t\ \mbox{\hyperlink{dogm-graphic_8h_af8b961cd9a0d5145a7179e93a24a6b22}{rgbOledBmp\_page}}[5];}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00131}00131\ \textcolor{keyword}{static}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70}{DMA\_RUN\_STATE}}\ dstate\ =\ \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70af6bbc96e60d52154781538058b8b2c24}{D\_idle}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00133}00133\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *build\_date\ =\ \_\_DATE\_\_,\ *build\_time\ =\ \_\_TIME\_\_;}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00135}00135\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00136}00136\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ Forward\ Declarations\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00137}00137\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00139}00139\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_a5166e1143e3ae9463c5b63f65dc64c84}{OledHostInit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00140}00140\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_a6c10e118d85689bdd3b55c79744e6036}{OledHostTerm}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00141}00141\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_ae135ad1230ec0864875404237dcdae68}{OledDevInit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00142}00142\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_a8be60d6c210519e015955cf00b297821}{OledDevTerm}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00143}00143\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_aef469fed0455df86486cc7d48f58f783}{OledDvrInit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00144}00144\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_af1b82b33b22ef3b62cb45d922d696ca1}{OledPutBuffer}}(int32\_t\ cb,\ uint8\_t\ *\ rgbTx);}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00146}00146\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_af391854c1bcb58a35a6d642ce339c39b}{CBDmaChannelHandler}}(\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\_TRANSFER\_EVENT}},\ uintptr\_t);}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00147}00147\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_a37a325295a74d53d0f76ad4d142fba53}{SPI1DmaChannelHandler}}(\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\_TRANSFER\_EVENT}},\ uintptr\_t);}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00148}00148\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_a6abb172ba4fef1840e72fd37620bd331}{SPI1DmaChannelHandler\_State}}(\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\_TRANSFER\_EVENT}},\ uintptr\_t);}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00149}00149\ uint16\_t\ \mbox{\hyperlink{OledDriver_8c_a203cbb8627e834216b284d33fc3df538}{SPI1\_to\_Buffer}}(uint8\_t\ *,\ uint16\_t,\ uint8\_t\ *);}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00151}00151\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{dogm-graphic_8h_abb2e3f826b25b9b0694206524a5f73a5}{RS\_SetLow}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00152}00152\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{dogm-graphic_8h_aee6ff1cb279057329093f8b51ce5c9e6}{RS\_SetHigh}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00153}00153\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{dogm-graphic_8h_adea766ebd85f9348263fad0c66a72664}{CSB\_SetLow}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00154}00154\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{dogm-graphic_8h_a0ca838e774f098451ab78ae17a07f9a9}{CSB\_SetHigh}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00155}00155\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{dogm-graphic_8h_a78c8168887b73cf7dcd1d6a4b516696f}{SPI1\_Exchange8bit}}(uint8\_t);}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00158}00158\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00159}00159\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ Procedure\ Definitions\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00160}00160\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00162}00162\ \textcolor{comment}{/***\ \ \ \ OledInit}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00163}00163\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00164}00164\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00165}00165\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00166}00166\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00167}00167\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00168}00168\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00169}00169\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00170}00170\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00171}00171\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00172}00172\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00173}00173\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00174}00174\ \textcolor{comment}{\ **\ \ \ \ \ Initialize\ the\ OLED\ display\ subsystem.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00175}00175\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00177}00177\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8h_a11720eb1002774b7a17f14b56ff44af8}{OledInit}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00178}00178\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00179}00179\ \ \ \ \ \textcolor{comment}{/*\ Init\ the\ memory\ variables\ used\ to\ control\ access\ to\ the}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00180}00180\ \textcolor{comment}{\ \ \ \ \ **\ display.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00181}00181\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00182}00182\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_aef469fed0455df86486cc7d48f58f783}{OledDvrInit}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00183}00183\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00184}00184\ \textcolor{comment}{\ \ \ \ \ *\ init\ DMA}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00185}00185\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00186}00186\ \textcolor{preprocessor}{\#ifdef\ USE\_DMA}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00187}00187\ \textcolor{preprocessor}{\#ifdef\ DMA\_STATE\_M}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00188}00188\ \ \ \ \ \mbox{\hyperlink{plib__dma_8c_a14ca97886207fe4b4ed2a0d41ab6213e}{DMA\_ChannelCallbackRegister}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}},\ \mbox{\hyperlink{OledDriver_8c_a6abb172ba4fef1840e72fd37620bd331}{SPI1DmaChannelHandler\_State}},\ 0);\ \textcolor{comment}{//\ end\ of\ LCD\ buffer\ transfer\ interrupt\ function}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00189}00189\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00190}00190\ \ \ \ \ \mbox{\hyperlink{plib__dma_8c_a14ca97886207fe4b4ed2a0d41ab6213e}{DMA\_ChannelCallbackRegister}}(\mbox{\hyperlink{plib__dma_8h_a283364370e9876af6406b9fa70e2944f}{DMA\_CHANNEL\_1}},\ \mbox{\hyperlink{OledDriver_8c_af391854c1bcb58a35a6d642ce339c39b}{CBDmaChannelHandler}},\ 0);\ \textcolor{comment}{//\ end\ of\ buffer\ clear\ transfer\ interrupt\ function}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00191}00191\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00193}00193\ \ \ \ \ \textcolor{comment}{/*\ Clear\ the\ display.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00194}00194\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00195}00195\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_ac33652401561bede6a56b8ff6f9cc16f}{OledClear}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00196}00196\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00198}00198\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00200}00200\ \textcolor{comment}{/***\ \ \ \ OledTerm}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00201}00201\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00202}00202\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00203}00203\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00204}00204\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00205}00205\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00206}00206\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00207}00207\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00208}00208\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00209}00209\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00210}00210\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00211}00211\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00212}00212\ \textcolor{comment}{\ **\ \ \ \ \ Shut\ down\ the\ OLED\ display.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00213}00213\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00215}\mbox{\hyperlink{OledDriver_8c_a791149d7264a4fb69761c91b96bcf71b}{00215}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_a791149d7264a4fb69761c91b96bcf71b}{OledTerm}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00216}00216\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00217}00217\ \ \ \ \ \textcolor{comment}{/*\ Shut\ down\ the\ OLED\ display\ hardware.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00218}00218\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00219}00219\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_a8be60d6c210519e015955cf00b297821}{OledDevTerm}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00221}00221\ \ \ \ \ \textcolor{comment}{/*\ Release\ the\ PIC32\ peripherals\ being\ used.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00222}00222\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00223}00223\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_a6c10e118d85689bdd3b55c79744e6036}{OledHostTerm}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00224}00224\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00226}00226\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00228}00228\ \textcolor{comment}{/***\ \ \ \ OledHostInit}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00229}00229\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00230}00230\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00231}00231\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00232}00232\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00233}00233\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00234}00234\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00235}00235\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00236}00236\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00237}00237\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00238}00238\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00239}00239\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00240}00240\ \textcolor{comment}{\ **\ \ \ \ \ Perform\ PIC32\ device\ initialization\ to\ prepare\ for\ use}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00241}00241\ \textcolor{comment}{\ **\ \ \ \ \ of\ the\ OLED\ display.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00242}00242\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00244}\mbox{\hyperlink{OledDriver_8c_a5166e1143e3ae9463c5b63f65dc64c84}{00244}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_a5166e1143e3ae9463c5b63f65dc64c84}{OledHostInit}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00245}00245\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00246}00246\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00247}00247\ \textcolor{comment}{\ \ \ \ \ *\ dogm\ does\ the\ init}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00248}00248\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00249}00249\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00251}00251\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00253}00253\ \textcolor{comment}{/***\ \ \ \ OledHostTerm}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00254}00254\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00255}00255\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00256}00256\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00257}00257\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00258}00258\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00259}00259\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00260}00260\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00261}00261\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00262}00262\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00263}00263\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00264}00264\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00265}00265\ \textcolor{comment}{\ **\ \ \ \ \ Release\ processor\ resources\ used\ by\ the\ library}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00266}00266\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00268}\mbox{\hyperlink{OledDriver_8c_a6c10e118d85689bdd3b55c79744e6036}{00268}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_a6c10e118d85689bdd3b55c79744e6036}{OledHostTerm}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00269}00269\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00270}00270\ \ \ \ \ \textcolor{comment}{//\ does\ nothing,\ the\ display\ and\ SPI\ port\ remains\ active}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00271}00271\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00273}00273\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00275}00275\ \textcolor{comment}{/***\ \ \ \ OledDvrInit}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00276}00276\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00277}00277\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00278}00278\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00279}00279\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00280}00280\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00281}00281\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00282}00282\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00283}00283\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00284}00284\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00285}00285\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00286}00286\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00287}00287\ \textcolor{comment}{\ **\ \ \ \ \ Initialize\ the\ OLED\ software\ system}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00288}00288\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00290}\mbox{\hyperlink{OledDriver_8c_aef469fed0455df86486cc7d48f58f783}{00290}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_aef469fed0455df86486cc7d48f58f783}{OledDvrInit}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00291}00291\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00292}00292\ \ \ \ \ int32\_t\ ib;}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00294}00294\ \ \ \ \ \textcolor{comment}{/*\ Init\ the\ parameters\ for\ the\ default\ font}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00295}00295\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00296}00296\ \ \ \ \ \mbox{\hyperlink{OledChar_8h_aa573176e4a221cecf8eede784cc26421}{dxcoOledFontCur}}\ =\ \mbox{\hyperlink{OledDriver_8h_aff992d945652fb2ff64d48b785431c3a}{cbOledChar}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00297}00297\ \ \ \ \ \mbox{\hyperlink{OledChar_8h_aaf58d5202e2b1db0bd83fc04e9196eac}{dycoOledFontCur}}\ =\ 8;}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00298}00298\ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a0438ad9d3d66dc18d5e5e8235d9bd0c4}{pbOledFontCur}}\ =\ (uint8\_t\ *)\ \mbox{\hyperlink{ChrFont0_8c_a981efd5221d2f59a56b0044db9ab7879}{rgbOledFont0}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00299}00299\ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a086d81ef12ef8daac41aa99368905473}{pbOledFontUser}}\ =\ \mbox{\hyperlink{OledChar_8c_a0a2b795be12ab950bdd0a9e9111f06c3}{rgbOledFontUser}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00301}00301\ \ \ \ \ \textcolor{keywordflow}{for}\ (ib\ =\ 0;\ ib\ <\ \mbox{\hyperlink{OledDriver_8h_a0050b54c2a43adee0e768e229ed369c1}{cbOledFontUser}};\ ib++)\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00302}00302\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledChar_8c_a0a2b795be12ab950bdd0a9e9111f06c3}{rgbOledFontUser}}[ib]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00303}00303\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00305}00305\ \ \ \ \ \mbox{\hyperlink{OledChar_8c_ac29b53e8ae123191742819736b1c7558}{xchOledMax}}\ =\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}}\ /\ \mbox{\hyperlink{OledChar_8h_aa573176e4a221cecf8eede784cc26421}{dxcoOledFontCur}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00306}00306\ \ \ \ \ \mbox{\hyperlink{OledChar_8c_ae8ce138befa5ab1f93d4f0bca13520f3}{ychOledMax}}\ =\ \mbox{\hyperlink{OledDriver_8h_aef3f6635387d347d272bbe5772b96da1}{crowOledMax}}\ /\ \mbox{\hyperlink{OledChar_8h_aaf58d5202e2b1db0bd83fc04e9196eac}{dycoOledFontCur}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00308}00308\ \ \ \ \ \textcolor{comment}{/*\ Set\ the\ default\ character\ cursor\ position.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00309}00309\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00310}00310\ \ \ \ \ \mbox{\hyperlink{OledChar_8c_adde84bb2eb479c0635e03e3e90fd3a68}{OledSetCursor}}(0,\ 0);}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00311}00311\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00312}00312\ \ \ \ \ \textcolor{comment}{/*\ Set\ the\ default\ foreground\ draw\ color\ and\ fill\ pattern}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00313}00313\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00314}00314\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_a15754096bf5303f0ac535d020b4021a0}{clrOledCur}}\ =\ 0x01;}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00315}00315\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_a184e6fd0c5c99f06cd3d632b4c123068}{pbOledPatCur}}\ =\ (uint8\_t\ *)\ \mbox{\hyperlink{FillPat_8c_a553f61aff53e2ea39ebd64db6d225e8a}{rgbFillPat}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00316}00316\ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_a8201d9bbc776be2a7fc5d57f9a58e07c}{OledSetDrawMode}}(\mbox{\hyperlink{OledDriver_8h_a9128c67fb83b328b70fbb230caf303be}{modOledSet}});}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00318}00318\ \ \ \ \ \textcolor{comment}{/*\ Default\ the\ character\ routines\ to\ manual}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00319}00319\ \textcolor{comment}{\ \ \ \ \ **\ updates\ to\ the\ display.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00320}00320\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00321}00321\ \ \ \ \ \mbox{\hyperlink{OledChar_8h_abf4f3edb1b57df35366939971631723f}{fOledCharUpdate}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00322}00322\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00323}00323\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00324}00324\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00326}00326\ \textcolor{comment}{/***\ \ \ \ OledDevInit}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00327}00327\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00328}00328\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00329}00329\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00330}00330\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00331}00331\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00332}00332\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00333}00333\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00334}00334\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00335}00335\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00336}00336\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00337}00337\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00338}00338\ \textcolor{comment}{\ **\ \ \ \ \ Initialize\ the\ OLED\ display\ controller\ and\ turn\ the\ display\ on.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00339}00339\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00340}00340\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00342}\mbox{\hyperlink{OledDriver_8c_ae135ad1230ec0864875404237dcdae68}{00342}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_ae135ad1230ec0864875404237dcdae68}{OledDevInit}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00343}00343\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00344}00344\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00345}00345\ \textcolor{comment}{\ \ \ \ \ *\ handled\ by\ dogm-\/graphics}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00346}00346\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00347}00347\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00348}00348\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00349}00349\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00351}00351\ \textcolor{comment}{/***\ \ \ \ OledDevTerm}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00352}00352\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00353}00353\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00354}00354\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00355}00355\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00356}00356\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00357}00357\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00358}00358\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00359}00359\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00360}00360\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00361}00361\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00362}00362\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00363}00363\ \textcolor{comment}{\ **\ \ \ \ \ Shut\ down\ the\ OLED\ display\ hardware}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00364}00364\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00365}00365\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00366}\mbox{\hyperlink{OledDriver_8c_a8be60d6c210519e015955cf00b297821}{00366}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_a8be60d6c210519e015955cf00b297821}{OledDevTerm}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00367}00367\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00368}00368\ \ \ \ \ \textcolor{comment}{/*\ Send\ the\ Display\ Off\ command.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00369}00369\ \textcolor{comment}{\ \ \ \ \ *\ does\ nothing}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00370}00370\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00371}00371\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00373}00373\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00374}00374\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00375}00375\ \textcolor{comment}{/***\ \ \ \ OledDisplayOn}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00376}00376\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00377}00377\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00378}00378\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00379}00379\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00380}00380\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00381}00381\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00382}00382\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00383}00383\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00384}00384\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00385}00385\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00386}00386\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00387}00387\ \textcolor{comment}{\ **\ \ \ \ \ Turn\ the\ display\ on.\ This\ assumes\ that\ the\ display\ has}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00388}00388\ \textcolor{comment}{\ **\ \ \ \ \ already\ been\ powered\ on\ and\ initialized.\ All\ it\ does}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00389}00389\ \textcolor{comment}{\ **\ \ \ \ \ is\ send\ the\ display\ on\ command.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00390}00390\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00391}00391\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00392}\mbox{\hyperlink{OledDriver_8c_aa6948206248a6fc7672d9272afb31200}{00392}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_aa6948206248a6fc7672d9272afb31200}{OledDisplayOn}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00393}00393\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00394}00394\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00395}00395\ \textcolor{comment}{\ \ \ \ \ *\ does\ nothing}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00396}00396\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00397}00397\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00398}00398\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00399}00399\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00400}00400\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00401}00401\ \textcolor{comment}{/***\ \ \ \ OledDisplayOff}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00402}00402\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00403}00403\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00404}00404\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00405}00405\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00406}00406\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00407}00407\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00408}00408\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00409}00409\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00410}00410\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00411}00411\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00412}00412\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00413}00413\ \textcolor{comment}{\ **\ \ \ \ \ Turn\ the\ display\ off.\ This\ does\ not\ power\ the\ display}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00414}00414\ \textcolor{comment}{\ **\ \ \ \ \ down.\ All\ it\ does\ is\ send\ the\ display\ off\ command.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00415}00415\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00416}00416\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00417}\mbox{\hyperlink{OledDriver_8c_aad39f47a4a67e81eb4682bc2dc77f7f0}{00417}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_aad39f47a4a67e81eb4682bc2dc77f7f0}{OledDisplayOff}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00418}00418\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00419}00419\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00420}00420\ \textcolor{comment}{\ \ \ \ \ *\ does\ nothing}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00421}00421\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00422}00422\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00423}00423\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00424}00424\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00425}00425\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00426}00426\ \textcolor{comment}{/***\ \ \ \ OledClear}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00427}00427\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00428}00428\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00429}00429\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00430}00430\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00431}00431\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00432}00432\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00433}00433\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00434}00434\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00435}00435\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00436}00436\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00437}00437\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00438}00438\ \textcolor{comment}{\ **\ \ \ \ \ Clear\ the\ display.\ This\ clears\ the\ memory\ buffer\ and\ then}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00439}00439\ \textcolor{comment}{\ **\ \ \ \ \ updates\ the\ display.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00440}00440\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00441}00441\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00442}\mbox{\hyperlink{OledDriver_8c_ac33652401561bede6a56b8ff6f9cc16f}{00442}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_ac33652401561bede6a56b8ff6f9cc16f}{OledClear}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00443}00443\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00444}00444\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_a5e6f21d563c9ea1ace995d76b872105e}{OledClearBuffer}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00445}00445\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_ad1c508e21d80c901ee119631b8d06349}{wait\_lcd\_done}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00446}00446\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_a32ce948207504099331c3911b0fd743b}{OledUpdate}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00447}00447\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00448}00448\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00449}00449\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00450}00450\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00451}00451\ \textcolor{comment}{/***\ \ \ \ OledClearBuffer}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00452}00452\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00453}00453\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00454}00454\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00455}00455\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00456}00456\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00457}00457\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00458}00458\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00459}00459\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00460}00460\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00461}00461\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00462}00462\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00463}00463\ \textcolor{comment}{\ **\ \ \ \ \ Clear\ the\ display\ memory\ buffer.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00464}00464\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00465}00465\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00466}00466\ \textcolor{comment}{/*\ just\ clears\ a\ output\ timing\ flag\ bit\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00467}\mbox{\hyperlink{OledDriver_8c_af391854c1bcb58a35a6d642ce339c39b}{00467}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_af391854c1bcb58a35a6d642ce339c39b}{CBDmaChannelHandler}}(\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\_TRANSFER\_EVENT}}\ event,\ uintptr\_t\ contextHandle)}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00468}00468\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00469}00469\ \ \ \ \ \textcolor{keywordflow}{if}\ (event\ ==\ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7dc5a006aeed94643a591f8fb093f446}{DMA\_TRANSFER\_EVENT\_COMPLETE}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00470}00470\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00471}00471\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00472}00472\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00473}00473\ \textcolor{comment}{\ *\ zero\ the\ display\ buffer}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00474}00474\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00475}\mbox{\hyperlink{OledDriver_8c_a5e6f21d563c9ea1ace995d76b872105e}{00475}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_a5e6f21d563c9ea1ace995d76b872105e}{OledClearBuffer}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00476}00476\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00477}00477\ \ \ \ \ uint8\_t\ *\ pb;}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00478}00478\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00479}00479\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledDriver_8c_a43d6d693bb79ac33047e7ebc60c08b72}{disp\_frame}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00480}00480\ \ \ \ \ \ \ \ \ pb\ =\ \mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00481}00481\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00482}00482\ \ \ \ \ \ \ \ \ pb\ =\ \mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00483}00483\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00484}00484\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00485}00485\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00486}00486\ \textcolor{comment}{\ \ \ \ \ *\ DMAC\_ChannelCallbackRegister\ in\ OledInit}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00487}00487\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00488}00488\ \ \ \ \ \textcolor{keywordflow}{while}\ (dstate\ !=\ \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70af6bbc96e60d52154781538058b8b2c24}{D\_idle}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00489}00489\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00490}00490\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_ad1c508e21d80c901ee119631b8d06349}{wait\_lcd\_done}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00491}00491\ \ \ \ \ memset(pb,\ 0,\ \mbox{\hyperlink{OledDriver_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cbOledDispMax}});}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00492}00492\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00493}00493\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00494}00494\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00495}00495\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00496}00496\ \textcolor{comment}{/***\ \ \ \ OledUpdate}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00497}00497\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00498}00498\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00499}00499\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00500}00500\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00501}00501\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00502}00502\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00503}00503\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00504}00504\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00505}00505\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00506}00506\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00507}00507\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00508}00508\ \textcolor{comment}{\ **\ \ \ \ \ Update\ the\ OLED\ display\ with\ the\ contents\ of\ the\ memory\ buffer}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00509}00509\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00510}00510\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00511}\mbox{\hyperlink{OledDriver_8c_a32ce948207504099331c3911b0fd743b}{00511}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_a32ce948207504099331c3911b0fd743b}{OledUpdate}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00512}00512\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00513}00513\ \textcolor{preprocessor}{\#ifdef\ DMA\_STATE\_M}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00514}00514\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_ad1c508e21d80c901ee119631b8d06349}{wait\_lcd\_done}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00515}00515\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_a6abb172ba4fef1840e72fd37620bd331}{SPI1DmaChannelHandler\_State}}(0,\ \mbox{\hyperlink{lcd__drv_8h_ae28ba5114dc2e9ecb89ccf9b623e938f}{DMA\_MAGIC}});\ \textcolor{comment}{//\ set\ DMA\ state\ machine\ init\ mode\ to\ start\ transfers}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00516}00516\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00517}00517\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00518}00518\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00519}00519\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00520}00520\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00521}00521\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00522}00522\ \textcolor{comment}{\ *\ start\ a\ GLCD\ update:\ Called\ in\ user\ code\ with\ contextHandle\ set\ to\ DMA\_MAGIC\ for\ a\ background\ screen\ update,}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00523}00523\ \textcolor{comment}{\ *\ during\ background\ transfers\ this\ function\ is\ used\ as\ the\ callback\ for\ DMA\ transfer\ complete\ events\ to}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00524}00524\ \textcolor{comment}{\ *\ sequence\ commands\ and\ data\ to\ the\ GLCD\ via\ the\ SPI\ port\ using\ the\ dstate\ ENUM\ variable}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00525}00525\ \textcolor{comment}{\ *\ dstate\ is\ set\ to\ 'D\_idle'\ when\ the\ complete\ set\ of\ transfers\ is\ done.}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00526}00526\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00527}\mbox{\hyperlink{OledDriver_8c_a6abb172ba4fef1840e72fd37620bd331}{00527}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_a6abb172ba4fef1840e72fd37620bd331}{SPI1DmaChannelHandler\_State}}(\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\_TRANSFER\_EVENT}}\ event,\ uintptr\_t\ contextHandle)}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00528}00528\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00529}00529\ \ \ \ \ \textcolor{keyword}{static}\ int32\_t\ ipag\ =\ 0;\ \textcolor{comment}{//\ buffer\ page\ number}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00530}00530\ \ \ \ \ \textcolor{keyword}{static}\ uint8\_t*\ pb;\ \textcolor{comment}{//\ buffer\ page\ address}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00531}00531\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00532}00532\ \ \ \ \ \textcolor{comment}{//\ back\ to\ mainline\ code,\ GLCD\ updates\ in\ background\ using\ DMA\ and\ interrupts}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00533}00533\ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8h_a9baf0f553677c1b15ad7bdb3db090d0d}{LCD\_UNSELECT}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00534}00534\ \ \ \ \ \textcolor{keywordflow}{if}\ (contextHandle\ ==\ \mbox{\hyperlink{lcd__drv_8h_ae28ba5114dc2e9ecb89ccf9b623e938f}{DMA\_MAGIC}})\ \{\ \textcolor{comment}{//\ re-\/init\ state\ machine\ for\ next\ GLCD\ update}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00535}00535\ \ \ \ \ \ \ \ \ dstate\ =\ \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70ad72486ccb9975ab81be92be3221b4119}{D\_init}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00536}00536\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00537}00537\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00538}00538\ \ \ \ \ \textcolor{keywordflow}{switch}\ (dstate)\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00539}00539\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70ad72486ccb9975ab81be92be3221b4119}{D\_init}}:}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00540}00540\ \ \ \ \ \ \ \ \ ipag\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00541}00541\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledDriver_8c_a43d6d693bb79ac33047e7ebc60c08b72}{disp\_frame}})\ \{\ \textcolor{comment}{//\ select\ flipper\ buffer,\ only\ one\ page\ with\ PIC32A}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00542}00542\ \ \ \ \ \ \ \ \ \ \ \ \ pb\ =\ \mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00543}00543\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00544}00544\ \ \ \ \ \ \ \ \ \ \ \ \ pb\ =\ \mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00545}00545\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00546}00546\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ FALLTHRU\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00547}00547\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70a576c5788a8a2e04a2ba9fcba05a4fadd}{D\_page}}:\ \textcolor{comment}{//\ send\ the\ page\ address\ commands\ via\ DMA}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00548}00548\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8h_aef94b6006e3be81c083f212ddf7594f8}{LCD\_SELECT}}();\ \textcolor{comment}{//\ enable\ the\ GLCD\ chip\ for\ SPI\ transfers}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00549}00549\ \ \ \ \ \ \ \ \ dstate\ =\ \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70a3e16f2aaa1311c0d5f53f3f7d6007f1e}{D\_buffer}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00550}00550\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8c_acd2a8f58d292326a114a97651505c569}{lcd\_moveto\_xy}}(ipag,\ 0);\ \textcolor{comment}{//\ calculate\ address\ data\ nibbles\ and\ store\ in\ rgbOledBmp\_page\ array}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00551}00551\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00552}00552\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ DMA\_ChannelCallbackRegister\ and\ SPI\ setup\ in\ OledInit}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00553}00553\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00554}00554\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8h_a862fb937aea315a4b269a1279810d42c}{LCD\_CMD}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00555}00555\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__dma_8c_a7ca594a7f34b0fa562f1e8fcce2b0279}{DMA\_ChannelTransfer}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}},\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *)\ \mbox{\hyperlink{dogm-graphic_8h_af8b961cd9a0d5145a7179e93a24a6b22}{rgbOledBmp\_page}},\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*)\ \&SPI1BUF,\ (\textcolor{keywordtype}{size\_t})\ 4);}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00556}00556\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00557}00557\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70a3e16f2aaa1311c0d5f53f3f7d6007f1e}{D\_buffer}}:\ \textcolor{comment}{//\ send\ the\ GLCD\ buffer\ data\ via\ DMA}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00558}00558\ \ \ \ \ \ \ \ \ ipag++;}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00559}00559\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ipag\ <=\ \mbox{\hyperlink{OledDriver_8h_a55eaa351fe43dc769f8ff2f890792ea5}{cpagOledMax}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00560}00560\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8h_aef94b6006e3be81c083f212ddf7594f8}{LCD\_SELECT}}();\ \textcolor{comment}{//\ enable\ the\ GLCD\ chip\ for\ SPI\ transfers}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00561}00561\ \ \ \ \ \ \ \ \ \ \ \ \ dstate\ =\ \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70a576c5788a8a2e04a2ba9fcba05a4fadd}{D\_page}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00562}00562\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8h_ab188fccda054d7fa2e5a5d0f4416d50f}{LCD\_DRAM}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00563}00563\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__dma_8c_a7ca594a7f34b0fa562f1e8fcce2b0279}{DMA\_ChannelTransfer}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}},\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *)\ pb,\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*)\ \&SPI1BUF,\ (\textcolor{keywordtype}{size\_t})\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}});}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00564}00564\ \ \ \ \ \ \ \ \ \ \ \ \ pb\ +=\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00565}00565\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00566}00566\ \ \ \ \ \ \ \ \ \ \ \ \ dstate\ =\ \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70af6bbc96e60d52154781538058b8b2c24}{D\_idle}};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8h_a9baf0f553677c1b15ad7bdb3db090d0d}{LCD\_UNSELECT}}();\ \textcolor{comment}{//\ all\ done\ with\ the\ GLCD}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00568}00568\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00569}00569\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00570}00570\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70af6bbc96e60d52154781538058b8b2c24}{D\_idle}}:}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00571}00571\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00572}00572\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8h_a9baf0f553677c1b15ad7bdb3db090d0d}{LCD\_UNSELECT}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00573}00573\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00574}00574\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00575}00575\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00576}00576\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00577}00577\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00578}00578\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00579}00579\ \textcolor{comment}{/***\ \ \ \ OledPutBuffer}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00580}00580\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00581}00581\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00582}00582\ \textcolor{comment}{\ **\ \ \ \ \ cb\ \ \ \ \ \ -\/\ number\ of\ bytes\ to\ send}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00583}00583\ \textcolor{comment}{\ **\ \ \ \ \ rgbTx\ \ \ -\/\ pointer\ to\ the\ buffer\ to\ send}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00584}00584\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00585}00585\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00586}00586\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00587}00587\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00588}00588\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00589}00589\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00590}00590\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00591}00591\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00592}00592\ \textcolor{comment}{\ **\ \ \ \ \ Send\ the\ bytes\ specified\ in\ rgbTx\ to\ the\ slave\ OLED}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00593}00593\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00594}00594\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00595}00595\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00596}\mbox{\hyperlink{OledDriver_8c_af1b82b33b22ef3b62cb45d922d696ca1}{00596}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_af1b82b33b22ef3b62cb45d922d696ca1}{OledPutBuffer}}(int32\_t\ cb,\ uint8\_t\ *\ rgbTx)}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00597}00597\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00598}00598\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_a203cbb8627e834216b284d33fc3df538}{SPI1\_to\_Buffer}}(rgbTx,\ cb,\ NULL);}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00599}00599\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00600}00600\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00601}\mbox{\hyperlink{OledDriver_8c_a37a325295a74d53d0f76ad4d142fba53}{00601}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_a37a325295a74d53d0f76ad4d142fba53}{SPI1DmaChannelHandler}}(\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\_TRANSFER\_EVENT}}\ event,\ uintptr\_t\ contextHandle)}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00602}00602\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00603}00603\ \ \ \ \ \textcolor{keywordflow}{if}\ (event\ ==\ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7dc5a006aeed94643a591f8fb093f446}{DMA\_TRANSFER\_EVENT\_COMPLETE}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00604}00604\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00605}00605\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8h_a9baf0f553677c1b15ad7bdb3db090d0d}{LCD\_UNSELECT}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00606}00606\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00607}00607\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00608}00608\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00609}\mbox{\hyperlink{OledDriver_8c_a203cbb8627e834216b284d33fc3df538}{00609}}\ uint16\_t\ \mbox{\hyperlink{OledDriver_8c_a203cbb8627e834216b284d33fc3df538}{SPI1\_to\_Buffer}}(uint8\_t\ *dataIn,\ uint16\_t\ bufLen,\ uint8\_t\ *dataOut)}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00610}00610\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00611}00611\ \ \ \ \ uint16\_t\ bytesWritten\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00612}00612\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00613}00613\ \textcolor{preprocessor}{\#ifdef\ USE\_DMA}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00614}00614\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_ad1c508e21d80c901ee119631b8d06349}{wait\_lcd\_done}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00615}00615\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00616}00616\ \textcolor{comment}{\ \ \ \ \ *\ DMAC\_ChannelCallbackRegister\ and\ SPI\ setup\ in\ OledInit}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00617}00617\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00618}00618\ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8h_aef94b6006e3be81c083f212ddf7594f8}{LCD\_SELECT}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00619}00619\ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8h_a862fb937aea315a4b269a1279810d42c}{LCD\_CMD}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00620}00620\ \ \ \ \ \mbox{\hyperlink{plib__dma_8c_a7ca594a7f34b0fa562f1e8fcce2b0279}{DMA\_ChannelTransfer}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}},\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *)\ \mbox{\hyperlink{dogm-graphic_8h_af8b961cd9a0d5145a7179e93a24a6b22}{rgbOledBmp\_page}},\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*)\ \&SPI1BUF,\ (\textcolor{keywordtype}{size\_t})\ 4);}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00621}00621\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_ad1c508e21d80c901ee119631b8d06349}{wait\_lcd\_done}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00622}00622\ \ \ \ \ bytesWritten\ =\ bufLen;}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00623}00623\ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8h_aef94b6006e3be81c083f212ddf7594f8}{LCD\_SELECT}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00624}00624\ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8h_ab188fccda054d7fa2e5a5d0f4416d50f}{LCD\_DRAM}}();}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00625}00625\ \ \ \ \ \textcolor{keywordflow}{if}\ (bufLen\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00626}00626\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__dma_8c_a7ca594a7f34b0fa562f1e8fcce2b0279}{DMA\_ChannelTransfer}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}},\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *)\ dataIn,\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*)\ \&SPI1BUF,\ (\textcolor{keywordtype}{size\_t})\ bufLen);}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00627}00627\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00628}00628\ \ \ \ \ \textcolor{keywordflow}{return}\ bytesWritten;}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00629}00629\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00630}00630\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00631}00631\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00632}00632\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00633}\mbox{\hyperlink{OledDriver_8c_ad1c508e21d80c901ee119631b8d06349}{00633}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_ad1c508e21d80c901ee119631b8d06349}{wait\_lcd\_done}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00634}00634\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00635}00635\ \textcolor{preprocessor}{\#ifdef\ USE\_DMA}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00636}00636\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{plib__dma_8c_af34816ed03c5a669f4bc4361f7a38e58}{DMA\_ChannelIsBusy}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}}))\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00637}00637\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00638}00638\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{plib__dma_8c_af34816ed03c5a669f4bc4361f7a38e58}{DMA\_ChannelIsBusy}}(\mbox{\hyperlink{plib__dma_8h_a283364370e9876af6406b9fa70e2944f}{DMA\_CHANNEL\_1}}))\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00639}00639\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00640}00640\ \ \ \ \ \textcolor{comment}{//\ \ while\ (DMA\_ChannelIsBusy(DMA\_CHANNEL\_2))\ \{}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00641}00641\ \ \ \ \ \textcolor{comment}{//\ \ \};}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00642}00642\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00643}00643\ \}}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00644}00644\ }
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00645}\mbox{\hyperlink{lcd__drv_8h_ab6098d47500e515bc4be91e216ac7247}{00645}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledDriver_8c_ab6098d47500e515bc4be91e216ac7247}{lcd\_version}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00646}00646\ \{}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00647}00647\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)r-\/-\/-\/\ \%s\ Driver\ Version\ \ \%s\ \%s\ \%s\ -\/-\/-\/\(\backslash\)r\(\backslash\)n"{}},\ \mbox{\hyperlink{lcd__drv_8h_a9a07c3a7a957a6d7618aec359ac6109c}{LCD\_ALIAS}},\ \mbox{\hyperlink{lcd__drv_8h_a1fd4f93490098466f83201fbb7f43303}{LCD\_DRIVER}},\ build\_date,\ build\_time);}
+\DoxyCodeLine{\Hypertarget{OledDriver_8c_source_l00648}00648\ \}}
+
+\end{DoxyCode}

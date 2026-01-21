@@ -1,0 +1,110 @@
+\doxysection{src/config/default/peripheral/cmp\+\_\+dac/plib\+\_\+cmp1.h File Reference}
+\hypertarget{plib__cmp1_8h}{}\label{plib__cmp1_8h}\index{src/config/default/peripheral/cmp\_dac/plib\_cmp1.h@{src/config/default/peripheral/cmp\_dac/plib\_cmp1.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}device.\+h"{}}\newline
+{\ttfamily \#include "{}plib\+\_\+cmp\+\_\+common.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8h_a15f83d86150ed883eed46ea5982754b7}{CMP1\+\_\+\+DAC\+\_\+\+CLOCK\+\_\+\+FREQUENCY}}~8000000\+UL
+\begin{DoxyCompactList}\small\item\em This macro defines input clock for CMP1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__cmp1_8h_a84bc24b25eabe4579b0322971bd1d86a}{CMP1\+\_\+\+Initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the CMP1 module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__cmp1_8h_a69de2a268b86d261dc404a2188a77d77}{CMP1\+\_\+\+Deinitialize}} (void)
+\begin{DoxyCompactList}\small\item\em Deinitializes the CMP1 to POR values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__cmp1_8h_aa86800dfb91878cc975b5cf1523bad1b}{CMP1\+\_\+\+Calibrate}} (void)
+\begin{DoxyCompactList}\small\item\em Calibrates the CMP1 module and enables ripple reduction mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{plib__cmp1_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{plib__cmp1_8h_a15f83d86150ed883eed46ea5982754b7}\index{plib\_cmp1.h@{plib\_cmp1.h}!CMP1\_DAC\_CLOCK\_FREQUENCY@{CMP1\_DAC\_CLOCK\_FREQUENCY}}
+\index{CMP1\_DAC\_CLOCK\_FREQUENCY@{CMP1\_DAC\_CLOCK\_FREQUENCY}!plib\_cmp1.h@{plib\_cmp1.h}}
+\doxysubsubsection{\texorpdfstring{CMP1\_DAC\_CLOCK\_FREQUENCY}{CMP1\_DAC\_CLOCK\_FREQUENCY}}
+{\footnotesize\ttfamily \label{plib__cmp1_8h_a15f83d86150ed883eed46ea5982754b7} 
+\#define CMP1\+\_\+\+DAC\+\_\+\+CLOCK\+\_\+\+FREQUENCY~8000000\+UL}
+
+
+
+This macro defines input clock for CMP1. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8h_source_l00057}{57}} of file \mbox{\hyperlink{plib__cmp1_8h_source}{plib\+\_\+cmp1.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{plib__cmp1_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__cmp1_8h_aa86800dfb91878cc975b5cf1523bad1b}\index{plib\_cmp1.h@{plib\_cmp1.h}!CMP1\_Calibrate@{CMP1\_Calibrate}}
+\index{CMP1\_Calibrate@{CMP1\_Calibrate}!plib\_cmp1.h@{plib\_cmp1.h}}
+\doxysubsubsection{\texorpdfstring{CMP1\_Calibrate()}{CMP1\_Calibrate()}}
+{\footnotesize\ttfamily \label{plib__cmp1_8h_aa86800dfb91878cc975b5cf1523bad1b} 
+void CMP1\+\_\+\+Calibrate (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Calibrates the CMP1 module and enables ripple reduction mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00143}{143}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8h_a69de2a268b86d261dc404a2188a77d77}\index{plib\_cmp1.h@{plib\_cmp1.h}!CMP1\_Deinitialize@{CMP1\_Deinitialize}}
+\index{CMP1\_Deinitialize@{CMP1\_Deinitialize}!plib\_cmp1.h@{plib\_cmp1.h}}
+\doxysubsubsection{\texorpdfstring{CMP1\_Deinitialize()}{CMP1\_Deinitialize()}}
+{\footnotesize\ttfamily \label{plib__cmp1_8h_a69de2a268b86d261dc404a2188a77d77} 
+void CMP1\+\_\+\+Deinitialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Deinitializes the CMP1 to POR values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00127}{127}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8h_a84bc24b25eabe4579b0322971bd1d86a}\index{plib\_cmp1.h@{plib\_cmp1.h}!CMP1\_Initialize@{CMP1\_Initialize}}
+\index{CMP1\_Initialize@{CMP1\_Initialize}!plib\_cmp1.h@{plib\_cmp1.h}}
+\doxysubsubsection{\texorpdfstring{CMP1\_Initialize()}{CMP1\_Initialize()}}
+{\footnotesize\ttfamily \label{plib__cmp1_8h_a84bc24b25eabe4579b0322971bd1d86a} 
+void CMP1\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initialize the CMP1 module. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00102}{102}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+

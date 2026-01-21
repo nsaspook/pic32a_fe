@@ -1,0 +1,258 @@
+\doxysection{src/config/default/toolchain\+\_\+specifics.h File Reference}
+\hypertarget{toolchain__specifics_8h}{}\label{toolchain__specifics_8h}\index{src/config/default/toolchain\_specifics.h@{src/config/default/toolchain\_specifics.h}}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_afa9fbc67c23846c8b73d6f0afcfafec8}{NO\+\_\+\+INIT}}~\mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((section("{}.no\+\_\+init"{})))
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_ae8ca0534520a46af46ec830d5fccab63}{SECTION}}(a)
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_a1378040bcf22428955c6e3ce9c2053cd}{\+\_\+\+\_\+\+ASM}}~\+\_\+\+\_\+asm\+\_\+\+\_\+
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_ade2d8d7118f8ff49547f60aa0c3382bb}{\+\_\+\+\_\+\+INLINE}}~\+\_\+\+\_\+inline\+\_\+\+\_\+
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}}~static \+\_\+\+\_\+inline\+\_\+\+\_\+
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}}
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_a153a4a31b276a9758959580538720a51}{\+\_\+\+\_\+\+NO\+\_\+\+RETURN}}~\mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((\+\_\+\+\_\+noreturn\+\_\+\+\_\+))
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_a3e40e4c553fc11588f7a4c2a19e789e0}{\+\_\+\+\_\+\+USED}}~\mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((used))
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_ac607bf387b29162be6a9b77fc7999539}{\+\_\+\+\_\+\+WEAK}}~\mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((weak))
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_abe8996d3d985ee1529475443cc635bf1}{\+\_\+\+\_\+\+PACKED}}~\mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((packed, aligned(1)))
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_a4dbb70fab85207c27b581ecb6532b314}{\+\_\+\+\_\+\+PACKED\+\_\+\+STRUCT}}~struct \mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((packed, aligned(1)))
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_a6fba34d08b0a526830b4231d2ea0b89a}{\+\_\+\+\_\+\+PACKED\+\_\+\+UNION}}~union \mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((packed, aligned(1)))
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_a029a6c58a632ce2d2f41df95fa6165f2}{\+\_\+\+\_\+\+COHERENT}}
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_aa65ef8f7a5e8b7a6ea6c1d48b4c78e55}{\+\_\+\+\_\+\+ALIGNED}}(x)
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_a378ac21329d33f561f90265eef89f564}{\+\_\+\+\_\+\+RESTRICT}}
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_af89f60b07247176687889ade776c8e10}{CACHE\+\_\+\+LINE\+\_\+\+SIZE}}~(4u)
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_a437105e333a87b371d62d1552ab1d832}{CACHE\+\_\+\+ALIGN}}
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_a94c90dc6d5b0385240cdbce63d370de3}{CACHE\+\_\+\+ALIGNED\+\_\+\+SIZE\+\_\+\+GET}}(size)
+\item 
+\#define \mbox{\hyperlink{toolchain__specifics_8h_a1a68ccfd3004874777b6e405aafd0bd5}{FORMAT\+\_\+\+ATTRIBUTE}}(archetype,  string\+\_\+index,  first\+\_\+to\+\_\+check)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{toolchain__specifics_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{toolchain__specifics_8h_aa65ef8f7a5e8b7a6ea6c1d48b4c78e55}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!\_\_ALIGNED@{\_\_ALIGNED}}
+\index{\_\_ALIGNED@{\_\_ALIGNED}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ALIGNED}{\_\_ALIGNED}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_aa65ef8f7a5e8b7a6ea6c1d48b4c78e55} 
+\#define \+\_\+\+\_\+\+ALIGNED(\begin{DoxyParamCaption}\item[{}]{x}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\_\_attribute\_\_}}((aligned(x)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00069}{69}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_a1378040bcf22428955c6e3ce9c2053cd}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!\_\_ASM@{\_\_ASM}}
+\index{\_\_ASM@{\_\_ASM}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ASM}{\_\_ASM}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_a1378040bcf22428955c6e3ce9c2053cd} 
+\#define \+\_\+\+\_\+\+ASM~\+\_\+\+\_\+asm\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00036}{36}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_a029a6c58a632ce2d2f41df95fa6165f2}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!\_\_COHERENT@{\_\_COHERENT}}
+\index{\_\_COHERENT@{\_\_COHERENT}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{\_\_COHERENT}{\_\_COHERENT}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_a029a6c58a632ce2d2f41df95fa6165f2} 
+\#define \+\_\+\+\_\+\+COHERENT}
+
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00066}{66}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_ade2d8d7118f8ff49547f60aa0c3382bb}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!\_\_INLINE@{\_\_INLINE}}
+\index{\_\_INLINE@{\_\_INLINE}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{\_\_INLINE}{\_\_INLINE}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_ade2d8d7118f8ff49547f60aa0c3382bb} 
+\#define \+\_\+\+\_\+\+INLINE~\+\_\+\+\_\+inline\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00039}{39}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_a153a4a31b276a9758959580538720a51}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!\_\_NO\_RETURN@{\_\_NO\_RETURN}}
+\index{\_\_NO\_RETURN@{\_\_NO\_RETURN}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{\_\_NO\_RETURN}{\_\_NO\_RETURN}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_a153a4a31b276a9758959580538720a51} 
+\#define \+\_\+\+\_\+\+NO\+\_\+\+RETURN~\mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((\+\_\+\+\_\+noreturn\+\_\+\+\_\+))}
+
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00048}{48}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_abe8996d3d985ee1529475443cc635bf1}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!\_\_PACKED@{\_\_PACKED}}
+\index{\_\_PACKED@{\_\_PACKED}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{\_\_PACKED}{\_\_PACKED}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_abe8996d3d985ee1529475443cc635bf1} 
+\#define \+\_\+\+\_\+\+PACKED~\mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((packed, aligned(1)))}
+
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00057}{57}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_a4dbb70fab85207c27b581ecb6532b314}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!\_\_PACKED\_STRUCT@{\_\_PACKED\_STRUCT}}
+\index{\_\_PACKED\_STRUCT@{\_\_PACKED\_STRUCT}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{\_\_PACKED\_STRUCT}{\_\_PACKED\_STRUCT}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_a4dbb70fab85207c27b581ecb6532b314} 
+\#define \+\_\+\+\_\+\+PACKED\+\_\+\+STRUCT~struct \mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((packed, aligned(1)))}
+
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00060}{60}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_a6fba34d08b0a526830b4231d2ea0b89a}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!\_\_PACKED\_UNION@{\_\_PACKED\_UNION}}
+\index{\_\_PACKED\_UNION@{\_\_PACKED\_UNION}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{\_\_PACKED\_UNION}{\_\_PACKED\_UNION}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_a6fba34d08b0a526830b4231d2ea0b89a} 
+\#define \+\_\+\+\_\+\+PACKED\+\_\+\+UNION~union \mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((packed, aligned(1)))}
+
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00063}{63}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_a378ac21329d33f561f90265eef89f564}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!\_\_RESTRICT@{\_\_RESTRICT}}
+\index{\_\_RESTRICT@{\_\_RESTRICT}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{\_\_RESTRICT}{\_\_RESTRICT}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_a378ac21329d33f561f90265eef89f564} 
+\#define \+\_\+\+\_\+\+RESTRICT}
+
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00072}{72}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_ab904513442afdf77d4f8c74f23cbb040}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!\_\_STATIC\_FORCEINLINE@{\_\_STATIC\_FORCEINLINE}}
+\index{\_\_STATIC\_FORCEINLINE@{\_\_STATIC\_FORCEINLINE}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{\_\_STATIC\_FORCEINLINE}{\_\_STATIC\_FORCEINLINE}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_ab904513442afdf77d4f8c74f23cbb040} 
+\#define \+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}
+
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00045}{45}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!\_\_STATIC\_INLINE@{\_\_STATIC\_INLINE}}
+\index{\_\_STATIC\_INLINE@{\_\_STATIC\_INLINE}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{\_\_STATIC\_INLINE}{\_\_STATIC\_INLINE}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c} 
+\#define \+\_\+\+\_\+\+STATIC\+\_\+\+INLINE~static \+\_\+\+\_\+inline\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00042}{42}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_a3e40e4c553fc11588f7a4c2a19e789e0}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!\_\_USED@{\_\_USED}}
+\index{\_\_USED@{\_\_USED}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{\_\_USED}{\_\_USED}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_a3e40e4c553fc11588f7a4c2a19e789e0} 
+\#define \+\_\+\+\_\+\+USED~\mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((used))}
+
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00051}{51}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_ac607bf387b29162be6a9b77fc7999539}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!\_\_WEAK@{\_\_WEAK}}
+\index{\_\_WEAK@{\_\_WEAK}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{\_\_WEAK}{\_\_WEAK}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_ac607bf387b29162be6a9b77fc7999539} 
+\#define \+\_\+\+\_\+\+WEAK~\mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((weak))}
+
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00054}{54}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_a437105e333a87b371d62d1552ab1d832}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!CACHE\_ALIGN@{CACHE\_ALIGN}}
+\index{CACHE\_ALIGN@{CACHE\_ALIGN}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{CACHE\_ALIGN}{CACHE\_ALIGN}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_a437105e333a87b371d62d1552ab1d832} 
+\#define CACHE\+\_\+\+ALIGN}
+
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00076}{76}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_a94c90dc6d5b0385240cdbce63d370de3}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!CACHE\_ALIGNED\_SIZE\_GET@{CACHE\_ALIGNED\_SIZE\_GET}}
+\index{CACHE\_ALIGNED\_SIZE\_GET@{CACHE\_ALIGNED\_SIZE\_GET}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{CACHE\_ALIGNED\_SIZE\_GET}{CACHE\_ALIGNED\_SIZE\_GET}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_a94c90dc6d5b0385240cdbce63d370de3} 
+\#define CACHE\+\_\+\+ALIGNED\+\_\+\+SIZE\+\_\+\+GET(\begin{DoxyParamCaption}\item[{}]{size}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((size)\ +\ ((((size)\ \%\ (\mbox{\hyperlink{toolchain__specifics_8h_af89f60b07247176687889ade776c8e10}{CACHE\_LINE\_SIZE}}))!=\ 0U)?\ ((\mbox{\hyperlink{toolchain__specifics_8h_af89f60b07247176687889ade776c8e10}{CACHE\_LINE\_SIZE}})\ -\/\ ((size)\ \%\ (\mbox{\hyperlink{toolchain__specifics_8h_af89f60b07247176687889ade776c8e10}{CACHE\_LINE\_SIZE}})))\ :\ (0U)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00078}{78}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_af89f60b07247176687889ade776c8e10}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!CACHE\_LINE\_SIZE@{CACHE\_LINE\_SIZE}}
+\index{CACHE\_LINE\_SIZE@{CACHE\_LINE\_SIZE}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{CACHE\_LINE\_SIZE}{CACHE\_LINE\_SIZE}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_af89f60b07247176687889ade776c8e10} 
+\#define CACHE\+\_\+\+LINE\+\_\+\+SIZE~(4u)}
+
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00075}{75}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_a1a68ccfd3004874777b6e405aafd0bd5}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!FORMAT\_ATTRIBUTE@{FORMAT\_ATTRIBUTE}}
+\index{FORMAT\_ATTRIBUTE@{FORMAT\_ATTRIBUTE}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{FORMAT\_ATTRIBUTE}{FORMAT\_ATTRIBUTE}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_a1a68ccfd3004874777b6e405aafd0bd5} 
+\#define FORMAT\+\_\+\+ATTRIBUTE(\begin{DoxyParamCaption}\item[{}]{archetype}{, }\item[{}]{string\+\_\+index}{, }\item[{}]{first\+\_\+to\+\_\+check}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\_\_attribute\_\_}}\ ((format\ (archetype,\ string\_index,\ first\_to\_check)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00081}{81}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_afa9fbc67c23846c8b73d6f0afcfafec8}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!NO\_INIT@{NO\_INIT}}
+\index{NO\_INIT@{NO\_INIT}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{NO\_INIT}{NO\_INIT}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_afa9fbc67c23846c8b73d6f0afcfafec8} 
+\#define NO\+\_\+\+INIT~\mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((section("{}.no\+\_\+init"{})))}
+
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00029}{29}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+
+\Hypertarget{toolchain__specifics_8h_ae8ca0534520a46af46ec830d5fccab63}\index{toolchain\_specifics.h@{toolchain\_specifics.h}!SECTION@{SECTION}}
+\index{SECTION@{SECTION}!toolchain\_specifics.h@{toolchain\_specifics.h}}
+\doxysubsubsection{\texorpdfstring{SECTION}{SECTION}}
+{\footnotesize\ttfamily \label{toolchain__specifics_8h_ae8ca0534520a46af46ec830d5fccab63} 
+\#define SECTION(\begin{DoxyParamCaption}\item[{}]{a}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\_\_attribute\_\_}}((\_\_section\_\_(a)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{toolchain__specifics_8h_source_l00030}{30}} of file \mbox{\hyperlink{toolchain__specifics_8h_source}{toolchain\+\_\+specifics.\+h}}.
+

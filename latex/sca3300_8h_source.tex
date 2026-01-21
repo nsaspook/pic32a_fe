@@ -1,0 +1,98 @@
+\doxysection{sca3300.\+h}
+\hypertarget{sca3300_8h_source}{}\label{sca3300_8h_source}\index{src/sca3300.h@{src/sca3300.h}}
+\mbox{\hyperlink{sca3300_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00002}00002\ \textcolor{comment}{\ *\ File:\ \ \ sca3300.h}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00003}00003\ \textcolor{comment}{\ *\ Author:\ nsasp}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Created\ on\ August\ 31,\ 2022,\ 6:28\ PM}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00006}00006\ \textcolor{comment}{\ *\ SPI\ mode\ 0,\ 8MHz,\ 32-\/bit\ transfers}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00007}00007\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00009}00009\ \textcolor{preprocessor}{\#ifndef\ SCA3300\_H}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00010}00010\ \textcolor{preprocessor}{\#define\ SCA3300\_H}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00012}00012\ \textcolor{preprocessor}{\#ifdef\ \ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00013}00013\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00014}00014\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00015}00015\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00016}00016\ \textcolor{comment}{\ \ \ \ \ *\ using\ code\ from\ Linux\ IIO\ driver\ for\ sca3300\ https://elixir.bootlin.com/linux/latest/source/drivers/iio/accel/sca3300.c}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00017}00017\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <stddef.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Defines\ NULL}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <stdbool.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Defines\ true}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <stdlib.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Defines\ EXIT\_FAILURE}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{definitions_8h}{definitions.h}}"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ SYS\ function\ prototypes}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{imu_8h}{imu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{timers_8h}{timers.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00028}\mbox{\hyperlink{sca3300_8h_a7d71913189b0cdd364a8ff73d46da77a}{00028}}\ \textcolor{preprocessor}{\#define\ SCA3300\_DRIVER\ \ "{}V1.008"{}}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00029}\mbox{\hyperlink{sca3300_8h_a9497fa51b10dd545513a403eadd7fc56}{00029}}\ \textcolor{preprocessor}{\#define\ SCA3300\_ALIAS\ \ \ "{}SCx3300"{}}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00031}00031\ \ \ \ \ \textcolor{comment}{/*\ Device\ commands\ and\ response\ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00032}\mbox{\hyperlink{sca3300_8h_a9a12fd81b8ea3213d6245e60948faf00}{00032}}\ \textcolor{preprocessor}{\#define\ SCA3300\_REG\_WHOAMI\ \ 0x10}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00033}\mbox{\hyperlink{sca3300_8h_a5578dbde381c291d166f24162e759c97}{00033}}\ \textcolor{preprocessor}{\#define\ SCA3300\_WHOAMI\_ID\ \ \ 0x51}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00034}\mbox{\hyperlink{sca3300_8h_ac60b1d05eddcb2b0b3468676d16bec14}{00034}}\ \textcolor{preprocessor}{\#define\ SCA3300\_WHOAMI\_ID\_SCL\ \ \ 0xC1}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00035}\mbox{\hyperlink{sca3300_8h_a98d9922a2764e9b3ff3cc696f84447d5}{00035}}\ \textcolor{preprocessor}{\#define\ SCA3300\_WHOAMI\_32B\ \ 0x40000091}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00036}\mbox{\hyperlink{sca3300_8h_a06e371b5cd0728fe6533ec7ce8c95608}{00036}}\ \textcolor{preprocessor}{\#define\ SCA3300\_SWRESET\_32B\ 0xB4002098}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00037}\mbox{\hyperlink{sca3300_8h_ae77d3edfee8c4d7d91df1074a4c29b12}{00037}}\ \textcolor{preprocessor}{\#define\ SCA3300\_RS\_32B\ \ \ \ \ \ 0x180000E5}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00038}\mbox{\hyperlink{sca3300_8h_aa596e0fc257f47e36e93f355763ebd06}{00038}}\ \textcolor{preprocessor}{\#define\ SCA3300\_ACC\_X\_32B\ \ \ 0x040000F7}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00039}\mbox{\hyperlink{sca3300_8h_aa10b79b8845269ff9ff27dec9fad5d8e}{00039}}\ \textcolor{preprocessor}{\#define\ SCA3300\_ACC\_Y\_32B\ \ \ 0x080000FD}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00040}\mbox{\hyperlink{sca3300_8h_adda4c65ae4d13bab6733a8ffc0f5ff8e}{00040}}\ \textcolor{preprocessor}{\#define\ SCA3300\_ACC\_Z\_32B\ \ \ 0x0C0000FB}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00041}\mbox{\hyperlink{sca3300_8h_a57a1d1c31be910c9848fd609bafab5dc}{00041}}\ \textcolor{preprocessor}{\#define\ SCA3300\_TEMP\_32B\ \ \ \ 0x140000EF}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00042}\mbox{\hyperlink{sca3300_8h_aa732e2596097d207f0e6ebf6a488b606}{00042}}\ \textcolor{preprocessor}{\#define\ SCA3300\_MODE1\ \ \ \ \ \ \ 0xB400001F}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00043}\mbox{\hyperlink{sca3300_8h_a63ffe5fd9966718b098feb351bd0651d}{00043}}\ \textcolor{preprocessor}{\#define\ SCA3300\_MODE2\ \ \ \ \ \ \ 0xB4000102}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00044}\mbox{\hyperlink{sca3300_8h_a46394d93a092af45b4d06b783c250bc8}{00044}}\ \textcolor{preprocessor}{\#define\ SCA3300\_MODE3\ \ \ \ \ \ \ 0xB4000225}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00045}\mbox{\hyperlink{sca3300_8h_a02286a62ac68ba9c6c558777a2d3572c}{00045}}\ \textcolor{preprocessor}{\#define\ SCA3300\_MODE4\ \ \ \ \ \ \ 0xB4000338}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00046}\mbox{\hyperlink{sca3300_8h_af036f0411faa2f48c93986080a3af768}{00046}}\ \textcolor{preprocessor}{\#define\ SCL3300\_MODE1\ \ \ \ \ \ \ 0xB400001F}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00047}\mbox{\hyperlink{sca3300_8h_a20799da10997baa1f1377eddb407e40e}{00047}}\ \textcolor{preprocessor}{\#define\ SCL3300\_MODE2\ \ \ \ \ \ \ 0xB4000102}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00048}\mbox{\hyperlink{sca3300_8h_a962d5341cc5cd092514b6b375f41d284}{00048}}\ \textcolor{preprocessor}{\#define\ SCL3300\_MODE3\ \ \ \ \ \ \ 0xB4000225}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00049}\mbox{\hyperlink{sca3300_8h_a47bf61ef4a5203bbec695c84e8f0b22c}{00049}}\ \textcolor{preprocessor}{\#define\ SCL3300\_MODE4\ \ \ \ \ \ \ 0xB4000338}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00050}\mbox{\hyperlink{sca3300_8h_a1f7d7801098b57dfc576977325fdd189}{00050}}\ \textcolor{preprocessor}{\#define\ SCL3300\_ANGLE\ \ \ \ \ \ \ 0xB0001F6F}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00051}\mbox{\hyperlink{sca3300_8h_a737d78fe06a268d1cf937243907de4f8}{00051}}\ \textcolor{preprocessor}{\#define\ SCL3300\_E\_FLAG1\ \ \ \ \ 0x1C0000E3}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00052}\mbox{\hyperlink{sca3300_8h_ae8c71cdf4528f9a01632790ff62a2f5e}{00052}}\ \textcolor{preprocessor}{\#define\ SCL3300\_E\_FLAG2\ \ \ \ \ 0x200000C1}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00053}\mbox{\hyperlink{sca3300_8h_a85da9ed0d0e53634e8f5efd9d888416d}{00053}}\ \textcolor{preprocessor}{\#define\ SCL3300\_ANG\_X\_32B\ \ \ 0x240000C7}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00054}\mbox{\hyperlink{sca3300_8h_ae66e70d1212568c75291ccd3aaf4d9c3}{00054}}\ \textcolor{preprocessor}{\#define\ SCL3300\_ANG\_Y\_32B\ \ \ 0x280000CD}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00055}\mbox{\hyperlink{sca3300_8h_a1a11799bfb40780ba728bf53c143d01e}{00055}}\ \textcolor{preprocessor}{\#define\ SCL3300\_ANG\_Z\_32B\ \ \ 0x2C0000CB}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00056}\mbox{\hyperlink{sca3300_8h_a8a024beff236ae360560b81c898d5d69}{00056}}\ \textcolor{preprocessor}{\#define\ SCA3300\_BANK0\ \ \ \ \ \ \ \ \ \ \ 0xFC000073}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00057}\mbox{\hyperlink{sca3300_8h_ad807bd90070a7b364104efbe9dedee7c}{00057}}\ \textcolor{preprocessor}{\#define\ SCA3300\_BANK1\ \ \ \ \ \ \ \ \ \ \ 0xFC00016E}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00058}\mbox{\hyperlink{sca3300_8h_aa207e106469a595ef26cbc312e5a61a7}{00058}}\ \textcolor{preprocessor}{\#define\ SCA3300\_READ\_BANK\ \ \ \ \ \ \ 0x7C0000B3}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00059}\mbox{\hyperlink{sca3300_8h_ace0c10f5a4615bfed092913e615e00e6}{00059}}\ \textcolor{preprocessor}{\#define\ SCA3300\_SERIAL1\ \ \ \ \ \ \ \ \ 0x640000A7}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00060}\mbox{\hyperlink{sca3300_8h_a9c1803ddfea46fe6377df4d022792d36}{00060}}\ \textcolor{preprocessor}{\#define\ SCA3300\_SERIAL2\ \ \ \ \ \ \ \ \ 0x680000AD}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00062}\mbox{\hyperlink{sca3300_8h_a3f95a5d45506f7524aefbc49402fefc1}{00062}}\ \textcolor{preprocessor}{\#define\ SCA3300\_CHIP\_ID\_DELAY\ \ \ \ \ \ \ 10000\ \ \ }\textcolor{comment}{//\ ID\ command\ repeat\ delays\ in\ usec}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00063}\mbox{\hyperlink{sca3300_8h_ae12bd71407176b50566a590b3fea5b8f}{00063}}\ \textcolor{preprocessor}{\#define\ SCA3300\_CHIP\_SWR\_DELAY\ \ \ \ \ \ 10000\ \ \ }\textcolor{comment}{//\ chip\ software\ reset\ delay}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00064}\mbox{\hyperlink{sca3300_8h_a399539eb3ec88b367c7089343e9b47d4}{00064}}\ \textcolor{preprocessor}{\#define\ SCA3300\_CHIP\_MODE\_DELAY\ \ \ \ \ 100000\ \ }\textcolor{comment}{//\ chip\ G\ mode\ setup\ delay}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00065}\mbox{\hyperlink{sca3300_8h_a8f31d2d5e96271c8bc6821cc6912f655}{00065}}\ \textcolor{preprocessor}{\#define\ SCA3300\_CHIP\_CS\_DELAY\ \ \ \ \ \ \ 11\ \ }\textcolor{comment}{//\ CS\ high\ min\ duration\ between\ toggles}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00066}\mbox{\hyperlink{sca3300_8h_a6ec43f291beb51a1c3a230921a4b5535}{00066}}\ \textcolor{preprocessor}{\#define\ SCA3300\_CHIP\_BTYES\_PER\_SPI\ \ 4\ \ \ }\textcolor{comment}{//\ 32-\/bit\ transfers,\ 4\ bytes}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00068}00068\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \ *\ function\ pointer\ templates}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00071}00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sca3300_8h_a645c5283a656f0485c1076dd0ee5a376}{sca3300\_set\_spimode}}(\textcolor{keywordtype}{void}\ *);}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00072}00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{sca3300_8h_aec385926516bc9d464e2dd266b21960e}{sca3300\_getid}}(\textcolor{keywordtype}{void}\ *);}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00073}00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{sca3300_8h_a52eba9e1b4e01a3dc1efa21224d22e17}{sca3300\_getserial}}(\textcolor{keywordtype}{void}\ *);}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00074}00074\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{sca3300_8h_afea96a030e5888b7c6c14d884bbc7112}{sca3300\_getdata}}(\textcolor{keywordtype}{void}\ *);}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00075}00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sca3300_8h_a3d4574e29cfd3d283efb1c63a7887fa8}{sca3300\_version}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00077}\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7}{00077}}\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7}{sca3300\_crc\_check}}\ \{}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00078}\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{00078}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\_REC}}\ =\ 0,\ \textcolor{comment}{//\ first\ item\ in\ the\ 32-\/bit\ receiver\ buffer}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00079}\mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7ac4879af7e94a1226229552f205a290e4}{00079}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7ac4879af7e94a1226229552f205a290e4}{SCA3300\_TRM}}\ =\ 0,\ \textcolor{comment}{//\ first\ item\ in\ the\ 32-\/bit\ transmit\ buffer}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00080}00080\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00081}00081\ \ \ \ \ \textcolor{keyword}{extern}\ uint32\_t\ \mbox{\hyperlink{main_8c_a24ceb984a1f38928a0907263a740fffd}{board\_serial\_id}};}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00083}00083\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{sca3300_8h_a177f6fc7663da568fda8b262fc354459}{CalculateCRC}}(uint32\_t);}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00084}00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{sca3300_8h_a325bef854c0f98651bf31c693e992576}{sca3300\_imu\_transfer}}(\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *,\ uint32\_t);}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00085}00085\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{sca3300_8h_a41e9423810f941564c56dacf566b51b1}{sca3300\_check\_crc}}(\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *,\ uint8\_t);}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00087}00087\ \textcolor{preprocessor}{\#ifdef\ \ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00089}00089\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00091}00091\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ SCA3300\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{sca3300_8h_source_l00092}00092\ }
+
+\end{DoxyCode}

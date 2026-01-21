@@ -1,0 +1,46 @@
+\doxysection{is66.\+h}
+\hypertarget{is66_8h_source}{}\label{is66_8h_source}\index{src/is66.h@{src/is66.h}}
+\mbox{\hyperlink{is66_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00002}00002\ \textcolor{comment}{\ *\ File:\ \ \ is66.h}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00003}00003\ \textcolor{comment}{\ *\ Author:\ root}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Created\ on\ November\ 6,\ 2025,\ 6:21\ PM}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00006}00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ IS66\_H}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ IS66\_H}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00011}00011\ \textcolor{preprocessor}{\#ifdef\ \ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00012}00012\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00013}00013\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <xc.h>}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{definitions_8h}{definitions.h}}"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ SYS\ function\ prototypes}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{samples_8h}{samples.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{is66_8c_a4d98b7ebad3f662ed5e15422b2915a29}{iss\_read\_id\_buffer}}[];}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ uint32\_t\ \mbox{\hyperlink{is66_8c_a312605fd6d3fd9505d1a1d426f17aa98}{total\_sample\_triggers}};}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{extern}\ uint32\_t\ \mbox{\hyperlink{is66_8c_a6657f51d8c9dc9f0369871c6539370f8}{total\_iss\_triggers}};}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ uint16\_t\ \mbox{\hyperlink{is66_8c_aa452a5bcc359992d4537d2a6fe55739b}{adc\_result}}[];}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{extern}\ uint16\_t\ \mbox{\hyperlink{is66_8c_a79bba47664e6de1d559e63f6286846c0}{adc\_iss\_result}}[];}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00028}00028\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ced}{iss\_chip\_type}}\ \mbox{\hyperlink{is66_8c_a3d36bb7b12bb16e58b1d2d48ff844ea2}{iss\_chip}};}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00030}00030\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ced}{iss\_chip\_type}}\ \mbox{\hyperlink{is66_8h_a70e4bb1fa8c55b914f00a037cd6e911e}{ISS\_read\_id}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{is66_8h_a412852a239ccc537da518353047ff351}{ADC\_DMA\_write}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{is66_8h_ab27a70787cea807938240b8882a2c69c}{ADC\_DMA\_read}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{is66_8h_ab25243c319bcf989de811bf5a7194c53}{ADC\_DMA\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00035}00035\ \textcolor{preprocessor}{\#ifdef\ \ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00037}00037\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00039}00039\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ IS66\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{is66_8h_source_l00040}00040\ }
+
+\end{DoxyCode}

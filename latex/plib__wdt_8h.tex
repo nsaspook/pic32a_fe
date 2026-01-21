@@ -1,0 +1,87 @@
+\doxysection{src/config/default/peripheral/wdt/plib\+\_\+wdt.h File Reference}
+\hypertarget{plib__wdt_8h}{}\label{plib__wdt_8h}\index{src/config/default/peripheral/wdt/plib\_wdt.h@{src/config/default/peripheral/wdt/plib\_wdt.h}}
+{\ttfamily \#include "{}device.\+h"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{plib__wdt_8h_a56df28edee71c1989a5e8396f0a0d59f}{WDT\+\_\+\+Is\+Enabled}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if the Watchdog Timer is enabled. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__wdt_8h_ad44e01d5d037f8753017faa5400a1a65}{WDT\+\_\+\+Is\+Window\+Enabled}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if the window mode of the Watchdog Timer is enabled. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__wdt_8h_aa62cc060323fd3bec8fd8bd78feeab44}{WDT\+\_\+\+Clear}} (void)
+\begin{DoxyCompactList}\small\item\em Clears the Watchdog Timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{plib__wdt_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__wdt_8h_aa62cc060323fd3bec8fd8bd78feeab44}\index{plib\_wdt.h@{plib\_wdt.h}!WDT\_Clear@{WDT\_Clear}}
+\index{WDT\_Clear@{WDT\_Clear}!plib\_wdt.h@{plib\_wdt.h}}
+\doxysubsubsection{\texorpdfstring{WDT\_Clear()}{WDT\_Clear()}}
+{\footnotesize\ttfamily \label{plib__wdt_8h_aa62cc060323fd3bec8fd8bd78feeab44} 
+void WDT\+\_\+\+Clear (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Clears the Watchdog Timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+WDT must be enabled using WDT\+\_\+\+Enable(). 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+None This function resets the Watchdog Timer to prevent it from expiring. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__wdt_8c_source_l00062}{62}} of file \mbox{\hyperlink{plib__wdt_8c_source}{plib\+\_\+wdt.\+c}}.
+
+\Hypertarget{plib__wdt_8h_a56df28edee71c1989a5e8396f0a0d59f}\index{plib\_wdt.h@{plib\_wdt.h}!WDT\_IsEnabled@{WDT\_IsEnabled}}
+\index{WDT\_IsEnabled@{WDT\_IsEnabled}!plib\_wdt.h@{plib\_wdt.h}}
+\doxysubsubsection{\texorpdfstring{WDT\_IsEnabled()}{WDT\_IsEnabled()}}
+{\footnotesize\ttfamily \label{plib__wdt_8h_a56df28edee71c1989a5e8396f0a0d59f} 
+bool WDT\+\_\+\+Is\+Enabled (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the Watchdog Timer is enabled. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool -\/ true if enabled, false if disabled. This function returns true if the Watchdog Timer is enabled, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__wdt_8c_source_l00051}{51}} of file \mbox{\hyperlink{plib__wdt_8c_source}{plib\+\_\+wdt.\+c}}.
+
+\Hypertarget{plib__wdt_8h_ad44e01d5d037f8753017faa5400a1a65}\index{plib\_wdt.h@{plib\_wdt.h}!WDT\_IsWindowEnabled@{WDT\_IsWindowEnabled}}
+\index{WDT\_IsWindowEnabled@{WDT\_IsWindowEnabled}!plib\_wdt.h@{plib\_wdt.h}}
+\doxysubsubsection{\texorpdfstring{WDT\_IsWindowEnabled()}{WDT\_IsWindowEnabled()}}
+{\footnotesize\ttfamily \label{plib__wdt_8h_ad44e01d5d037f8753017faa5400a1a65} 
+bool WDT\+\_\+\+Is\+Window\+Enabled (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the window mode of the Watchdog Timer is enabled. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool -\/ true if window mode is enabled, false if disabled. This function returns true if the window mode is enabled, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__wdt_8c_source_l00057}{57}} of file \mbox{\hyperlink{plib__wdt_8c_source}{plib\+\_\+wdt.\+c}}.
+

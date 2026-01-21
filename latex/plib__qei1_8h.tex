@@ -1,0 +1,91 @@
+\doxysection{src/config/default/peripheral/qei/plib\+\_\+qei1.h File Reference}
+\hypertarget{plib__qei1_8h}{}\label{plib__qei1_8h}\index{src/config/default/peripheral/qei/plib\_qei1.h@{src/config/default/peripheral/qei/plib\_qei1.h}}
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{plib__qei1_8h_a31fbf59d6a64fa60b8c19007dd98165d}{QEI\+\_\+\+MODE}} \{ \mbox{\hyperlink{plib__qei1_8h_a31fbf59d6a64fa60b8c19007dd98165da7981d91b8de8b01aaa78b188ed72875c}{QEI\+\_\+\+MODE\+\_\+\+FREE\+\_\+\+RUNNING}} = 0
+, \mbox{\hyperlink{plib__qei1_8h_a31fbf59d6a64fa60b8c19007dd98165dad1ff9b9911cca5d09ca3b11d15897924}{QEI\+\_\+\+MODE\+\_\+\+RESET\+\_\+\+ON\+\_\+\+INDEX}} = 1
+, \mbox{\hyperlink{plib__qei1_8h_a31fbf59d6a64fa60b8c19007dd98165da4f137c0e87a05cff038ff52ffac97251}{QEI\+\_\+\+MODE\+\_\+\+MODULO\+\_\+\+COUNT}} = 6
+ \}
+\begin{DoxyCompactList}\small\item\em Defines the QEI operating mode. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7}{QEI\+\_\+\+IMV\+\_\+\+STATE}} \{ \newline
+\mbox{\hyperlink{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7a9d9f3d42f8d585f76534a2207d8bf881}{QEI\+\_\+\+IMV\+\_\+\+STATE\+\_\+\+A0\+B0}} = 0
+, \mbox{\hyperlink{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7a0feb0bcb906ebbe7a81ff85c45fdb582}{QEI\+\_\+\+IMV\+\_\+\+STATE\+\_\+\+A1\+B0}} = 1
+, \mbox{\hyperlink{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7af38a2fa519fa39e0011c3372642dd339}{QEI\+\_\+\+IMV\+\_\+\+STATE\+\_\+\+A0\+B1}} = 2
+, \mbox{\hyperlink{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7a45d5b705acfa096fded1511a6f1dd5c4}{QEI\+\_\+\+IMV\+\_\+\+STATE\+\_\+\+A1\+B1}} = 3
+, \newline
+\mbox{\hyperlink{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7a6b2fdba336161e2f98a658b084e2c4ed}{QEI\+\_\+\+MAX\+\_\+\+IMV\+\_\+\+STATE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Defines the QEI Index Match Value states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{plib__qei1_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7}\index{plib\_qei1.h@{plib\_qei1.h}!QEI\_IMV\_STATE@{QEI\_IMV\_STATE}}
+\index{QEI\_IMV\_STATE@{QEI\_IMV\_STATE}!plib\_qei1.h@{plib\_qei1.h}}
+\doxysubsubsection{\texorpdfstring{QEI\_IMV\_STATE}{QEI\_IMV\_STATE}}
+{\footnotesize\ttfamily \label{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7} 
+enum \mbox{\hyperlink{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7}{QEI\+\_\+\+IMV\+\_\+\+STATE}}}
+
+
+
+Defines the QEI Index Match Value states. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QEI\_IMV\_STATE\_A0B0@{QEI\_IMV\_STATE\_A0B0}!plib\_qei1.h@{plib\_qei1.h}}\index{plib\_qei1.h@{plib\_qei1.h}!QEI\_IMV\_STATE\_A0B0@{QEI\_IMV\_STATE\_A0B0}}}\Hypertarget{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7a9d9f3d42f8d585f76534a2207d8bf881}\label{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7a9d9f3d42f8d585f76534a2207d8bf881} 
+QEI\+\_\+\+IMV\+\_\+\+STATE\+\_\+\+A0\+B0&Index Match Value State \+: QEA = 0 and QEB = 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QEI\_IMV\_STATE\_A1B0@{QEI\_IMV\_STATE\_A1B0}!plib\_qei1.h@{plib\_qei1.h}}\index{plib\_qei1.h@{plib\_qei1.h}!QEI\_IMV\_STATE\_A1B0@{QEI\_IMV\_STATE\_A1B0}}}\Hypertarget{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7a0feb0bcb906ebbe7a81ff85c45fdb582}\label{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7a0feb0bcb906ebbe7a81ff85c45fdb582} 
+QEI\+\_\+\+IMV\+\_\+\+STATE\+\_\+\+A1\+B0&Index Match Value State \+: QEA = 1 and QEB = 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QEI\_IMV\_STATE\_A0B1@{QEI\_IMV\_STATE\_A0B1}!plib\_qei1.h@{plib\_qei1.h}}\index{plib\_qei1.h@{plib\_qei1.h}!QEI\_IMV\_STATE\_A0B1@{QEI\_IMV\_STATE\_A0B1}}}\Hypertarget{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7af38a2fa519fa39e0011c3372642dd339}\label{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7af38a2fa519fa39e0011c3372642dd339} 
+QEI\+\_\+\+IMV\+\_\+\+STATE\+\_\+\+A0\+B1&Index Match Value State \+: QEA = 0 and QEB = 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QEI\_IMV\_STATE\_A1B1@{QEI\_IMV\_STATE\_A1B1}!plib\_qei1.h@{plib\_qei1.h}}\index{plib\_qei1.h@{plib\_qei1.h}!QEI\_IMV\_STATE\_A1B1@{QEI\_IMV\_STATE\_A1B1}}}\Hypertarget{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7a45d5b705acfa096fded1511a6f1dd5c4}\label{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7a45d5b705acfa096fded1511a6f1dd5c4} 
+QEI\+\_\+\+IMV\+\_\+\+STATE\+\_\+\+A1\+B1&Index Match Value State \+: QEA = 1 and QEB = 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QEI\_MAX\_IMV\_STATE@{QEI\_MAX\_IMV\_STATE}!plib\_qei1.h@{plib\_qei1.h}}\index{plib\_qei1.h@{plib\_qei1.h}!QEI\_MAX\_IMV\_STATE@{QEI\_MAX\_IMV\_STATE}}}\Hypertarget{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7a6b2fdba336161e2f98a658b084e2c4ed}\label{plib__qei1_8h_a1e6de747200d6ec26bb71cbb0eca55d7a6b2fdba336161e2f98a658b084e2c4ed} 
+QEI\+\_\+\+MAX\+\_\+\+IMV\+\_\+\+STATE&Maximum configurable Index Match Value State \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8h_source_l00076}{76}} of file \mbox{\hyperlink{plib__qei1_8h_source}{plib\+\_\+qei1.\+h}}.
+
+\Hypertarget{plib__qei1_8h_a31fbf59d6a64fa60b8c19007dd98165d}\index{plib\_qei1.h@{plib\_qei1.h}!QEI\_MODE@{QEI\_MODE}}
+\index{QEI\_MODE@{QEI\_MODE}!plib\_qei1.h@{plib\_qei1.h}}
+\doxysubsubsection{\texorpdfstring{QEI\_MODE}{QEI\_MODE}}
+{\footnotesize\ttfamily \label{plib__qei1_8h_a31fbf59d6a64fa60b8c19007dd98165d} 
+enum \mbox{\hyperlink{plib__qei1_8h_a31fbf59d6a64fa60b8c19007dd98165d}{QEI\+\_\+\+MODE}}}
+
+
+
+Defines the QEI operating mode. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QEI\_MODE\_FREE\_RUNNING@{QEI\_MODE\_FREE\_RUNNING}!plib\_qei1.h@{plib\_qei1.h}}\index{plib\_qei1.h@{plib\_qei1.h}!QEI\_MODE\_FREE\_RUNNING@{QEI\_MODE\_FREE\_RUNNING}}}\Hypertarget{plib__qei1_8h_a31fbf59d6a64fa60b8c19007dd98165da7981d91b8de8b01aaa78b188ed72875c}\label{plib__qei1_8h_a31fbf59d6a64fa60b8c19007dd98165da7981d91b8de8b01aaa78b188ed72875c} 
+QEI\+\_\+\+MODE\+\_\+\+FREE\+\_\+\+RUNNING&Index input event does not affect position counter \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QEI\_MODE\_RESET\_ON\_INDEX@{QEI\_MODE\_RESET\_ON\_INDEX}!plib\_qei1.h@{plib\_qei1.h}}\index{plib\_qei1.h@{plib\_qei1.h}!QEI\_MODE\_RESET\_ON\_INDEX@{QEI\_MODE\_RESET\_ON\_INDEX}}}\Hypertarget{plib__qei1_8h_a31fbf59d6a64fa60b8c19007dd98165dad1ff9b9911cca5d09ca3b11d15897924}\label{plib__qei1_8h_a31fbf59d6a64fa60b8c19007dd98165dad1ff9b9911cca5d09ca3b11d15897924} 
+QEI\+\_\+\+MODE\+\_\+\+RESET\+\_\+\+ON\+\_\+\+INDEX&Every index input event resets the position counter \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QEI\_MODE\_MODULO\_COUNT@{QEI\_MODE\_MODULO\_COUNT}!plib\_qei1.h@{plib\_qei1.h}}\index{plib\_qei1.h@{plib\_qei1.h}!QEI\_MODE\_MODULO\_COUNT@{QEI\_MODE\_MODULO\_COUNT}}}\Hypertarget{plib__qei1_8h_a31fbf59d6a64fa60b8c19007dd98165da4f137c0e87a05cff038ff52ffac97251}\label{plib__qei1_8h_a31fbf59d6a64fa60b8c19007dd98165da4f137c0e87a05cff038ff52ffac97251} 
+QEI\+\_\+\+MODE\+\_\+\+MODULO\+\_\+\+COUNT&Modulo Count mode for position counter \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8h_source_l00066}{66}} of file \mbox{\hyperlink{plib__qei1_8h_source}{plib\+\_\+qei1.\+h}}.
+

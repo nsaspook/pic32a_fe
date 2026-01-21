@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['sca3300_5facc_5fx_0',['SCA3300_ACC_X',['../imu_8h.html#ac1923978d59aaa20bc92a3e6eab21df0a09aba5dfb003791824b96a8ff90c6c7c',1,'imu.h']]],
+  ['sca3300_5facc_5fy_1',['SCA3300_ACC_Y',['../imu_8h.html#ac1923978d59aaa20bc92a3e6eab21df0a7ad6b073e8dac09229cb97c715807b1b',1,'imu.h']]],
+  ['sca3300_5facc_5fz_2',['SCA3300_ACC_Z',['../imu_8h.html#ac1923978d59aaa20bc92a3e6eab21df0a7e5b67920fb2120226f081dc66a9abde',1,'imu.h']]],
+  ['sca3300_5frec_3',['SCA3300_REC',['../sca3300_8h.html#a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e',1,'sca3300.h']]],
+  ['sca3300_5ftemp_4',['SCA3300_TEMP',['../imu_8h.html#ac1923978d59aaa20bc92a3e6eab21df0a055dd00780191649f593245dafa9ee2a',1,'imu.h']]],
+  ['sca3300_5ftimestamp_5',['SCA3300_TIMESTAMP',['../imu_8h.html#ac1923978d59aaa20bc92a3e6eab21df0a1078286d84eb35e41aef1cc6ae0f357f',1,'imu.h']]],
+  ['sca3300_5ftrm_6',['SCA3300_TRM',['../sca3300_8h.html#a853fe96554303d893dc0c6ba099ab9d7ac4879af7e94a1226229552f205a290e4',1,'sca3300.h']]],
+  ['scl3300_5fang_5fx_7',['SCL3300_ANG_X',['../imu_8h.html#ac1923978d59aaa20bc92a3e6eab21df0ac56cb30a49f7dc6d4337e785a2c2f8e2',1,'imu.h']]],
+  ['scl3300_5fang_5fy_8',['SCL3300_ANG_Y',['../imu_8h.html#ac1923978d59aaa20bc92a3e6eab21df0a119a52f885dbfc7baa5e5e80a9d2add1',1,'imu.h']]],
+  ['scl3300_5fang_5fz_9',['SCL3300_ANG_Z',['../imu_8h.html#ac1923978d59aaa20bc92a3e6eab21df0af083bf4a68434483a81948391ebd4c35',1,'imu.h']]],
+  ['scl3300_5flast_10',['SCL3300_LAST',['../imu_8h.html#ac1923978d59aaa20bc92a3e6eab21df0a538ffe0b669a7165dd2c8cbf786b63b9',1,'imu.h']]],
+  ['spi_5fclock_5fphase_5finvalid_11',['SPI_CLOCK_PHASE_INVALID',['../plib__spi__host__common_8h.html#af99b25d28248bf5dd2f801290d79a2b0acc16c586a89f8b79b4ec6e61d9cf0623',1,'plib_spi_host_common.h']]],
+  ['spi_5fclock_5fphase_5fleading_5fedge_12',['SPI_CLOCK_PHASE_LEADING_EDGE',['../plib__spi__host__common_8h.html#af99b25d28248bf5dd2f801290d79a2b0aa414f0d6de6c3140fa79fe129b9b731a',1,'plib_spi_host_common.h']]],
+  ['spi_5fclock_5fphase_5ftrailing_5fedge_13',['SPI_CLOCK_PHASE_TRAILING_EDGE',['../plib__spi__host__common_8h.html#af99b25d28248bf5dd2f801290d79a2b0ad42e678e8530aec81d79b177f646c383',1,'plib_spi_host_common.h']]],
+  ['spi_5fclock_5fpolarity_5fidle_5fhigh_14',['SPI_CLOCK_POLARITY_IDLE_HIGH',['../plib__spi__host__common_8h.html#a3829e2fbb9ba66694cac033ae8dbfa64aa82cddd6b50d58de08457c571dba7284',1,'plib_spi_host_common.h']]],
+  ['spi_5fclock_5fpolarity_5fidle_5flow_15',['SPI_CLOCK_POLARITY_IDLE_LOW',['../plib__spi__host__common_8h.html#a3829e2fbb9ba66694cac033ae8dbfa64abe157ad19731c08747d2b64fad0ca599',1,'plib_spi_host_common.h']]],
+  ['spi_5fclock_5fpolarity_5finvalid_16',['SPI_CLOCK_POLARITY_INVALID',['../plib__spi__host__common_8h.html#a3829e2fbb9ba66694cac033ae8dbfa64a9cbbb13a80654e0548518c26d90af41e',1,'plib_spi_host_common.h']]],
+  ['spi_5fdata_5fbits_5f8_17',['SPI_DATA_BITS_8',['../plib__spi__host__common_8h.html#ad4f4485c3d777c62a6a242c8b5e8ca85a69055b82a537b36b688e59260fa4df54',1,'plib_spi_host_common.h']]],
+  ['spi_5fdata_5fbits_5finvalid_18',['SPI_DATA_BITS_INVALID',['../plib__spi__host__common_8h.html#ad4f4485c3d777c62a6a242c8b5e8ca85a3f3c632bba6b6382b0b984d5857dec07',1,'plib_spi_host_common.h']]]
+];

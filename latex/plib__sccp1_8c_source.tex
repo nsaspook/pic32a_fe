@@ -1,0 +1,151 @@
+\doxysection{plib\+\_\+sccp1.\+c}
+\hypertarget{plib__sccp1_8c_source}{}\label{plib__sccp1_8c_source}\index{src/config/default/peripheral/ccp/plib\_sccp1.c@{src/config/default/peripheral/ccp/plib\_sccp1.c}}
+\mbox{\hyperlink{plib__sccp1_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00002}00002\ \textcolor{comment}{\ \ CCP\ Peripheral\ Library\ Interface\ Source\ File}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00004}00004\ \textcolor{comment}{\ \ Company}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00006}00006\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_sccp1.c}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00010}00010\ \textcolor{comment}{\ \ Summary}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00011}00011\ \textcolor{comment}{\ \ \ \ SCCP1\ peripheral\ library\ source\ file.}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00013}00013\ \textcolor{comment}{\ \ Description}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ implements\ the\ interface\ to\ the\ CCP\ peripheral\ library.\ \ This}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00015}00015\ \textcolor{comment}{\ \ \ \ library\ provides\ access\ to\ and\ control\ of\ the\ associated\ peripheral}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00016}00016\ \textcolor{comment}{\ \ \ \ instance.}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00017}00017\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00018}00018\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00020}00020\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00021}00021\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00022}00022\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00023}00023\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00024}00024\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00025}00025\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00026}00026\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00027}00027\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00028}00028\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00029}00029\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00030}00030\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00031}00031\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00032}00032\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00033}00033\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00034}00034\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00035}00035\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00036}00036\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00037}00037\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00038}00038\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00039}00039\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00040}00040\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00041}00041\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00042}00042\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00043}00043\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00046}00046\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00047}00047\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00048}00048\ \textcolor{comment}{//\ Section:\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00049}00049\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00050}00050\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00052}00052\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{device_8h}{device.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00053}00053\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib__sccp1_8h}{plib\_sccp1.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00054}00054\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{interrupts_8h}{interrupts.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00056}00056\ \textcolor{keyword}{static}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{structCCP__TIMER__OBJECT}{CCP\_TIMER\_OBJECT}}\ sccp1Obj;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00059}\mbox{\hyperlink{plib__sccp1_8c_a9eb2b20e93af41872b622d0b6358f987}{00059}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__sccp1_8c_a9eb2b20e93af41872b622d0b6358f987}{SCCP1\_TimerInitialize}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00060}00060\ \{}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00061}00061\ \ \ \ \ \textcolor{comment}{/*\ Disable\ Timer\ */}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00062}00062\ \ \ \ \ CCP1CON1\ \&=\ \string~\_CCP1CON1\_ON\_MASK;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00064}00064\ \ \ \ \ CCP1CON1\ =\ 0x400120;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00066}00066\ \ \ \ \ CCP1CON2\ =\ 0x0;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00068}00068\ \ \ \ \ CCP1CON3\ =\ 0x0;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00070}00070\ \ \ \ \ \textcolor{comment}{/*\ Clear\ counter\ */}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00071}00071\ \ \ \ \ CCP1TMR\ =\ 0x0;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00073}00073\ \ \ \ \ \textcolor{comment}{/*Set\ period\ */}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00074}00074\ \ \ \ \ CCP1PR\ =\ 999U;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00076}00076\ \ \ \ \ IEC1\ |=\ \_IEC1\_CCT1IE\_MASK;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00081}\mbox{\hyperlink{plib__sccp1_8c_a712f6d85f566f3b7431fc61d7356b2fc}{00081}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__sccp1_8c_a712f6d85f566f3b7431fc61d7356b2fc}{SCCP1\_TimerStart}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00082}00082\ \{}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00083}00083\ \ \ \ \ CCP1CON1\ |=\ \_CCP1CON1\_ON\_MASK;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00084}00084\ \}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00087}\mbox{\hyperlink{plib__sccp1_8c_a3da456c0e3a4764050aeb5879a263cb1}{00087}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__sccp1_8c_a3da456c0e3a4764050aeb5879a263cb1}{SCCP1\_TimerStop}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00088}00088\ \{}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00089}00089\ \ \ \ \ CCP1CON1\ \&=\ \string~\_CCP1CON1\_ON\_MASK;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00090}00090\ \}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00092}\mbox{\hyperlink{plib__sccp1_8c_aba6df6bb97ba312c53c5001c6fff3794}{00092}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__sccp1_8c_aba6df6bb97ba312c53c5001c6fff3794}{SCCP1\_Timer32bitPeriodSet}}(uint32\_t\ period)}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00093}00093\ \{}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00094}00094\ \ \ \ \ CCP1PR\ \ =\ period;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00095}00095\ \}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00097}\mbox{\hyperlink{plib__sccp1_8c_a060672dac229c38c751be13d6175412d}{00097}}\ uint32\_t\ \mbox{\hyperlink{plib__sccp1_8c_a060672dac229c38c751be13d6175412d}{SCCP1\_Timer32bitPeriodGet}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00098}00098\ \{}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{return}\ CCP1PR;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00100}00100\ \}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00102}\mbox{\hyperlink{plib__sccp1_8c_a4fae9d42e3263c77a1df831a563b293c}{00102}}\ uint32\_t\ \mbox{\hyperlink{plib__sccp1_8c_a4fae9d42e3263c77a1df831a563b293c}{SCCP1\_Timer32bitCounterGet}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00103}00103\ \{}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00104}00104\ \ \ \ \ \textcolor{keywordflow}{return}\ (CCP1TMR);}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00105}00105\ \}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00108}\mbox{\hyperlink{plib__sccp1_8c_aa6d9966a506a49c1a4dd9e46b9387488}{00108}}\ uint32\_t\ \mbox{\hyperlink{plib__sccp1_8c_aa6d9966a506a49c1a4dd9e46b9387488}{SCCP1\_TimerFrequencyGet}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00109}00109\ \{}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00110}00110\ \ \ \ \ \textcolor{keywordflow}{return}\ (1000000);}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00111}00111\ \}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00113}\mbox{\hyperlink{plib__sccp1_8c_a065104e40a00c6733ccffd0203a0283d}{00113}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__sccp1_8c_a065104e40a00c6733ccffd0203a0283d}{\_\_attribute\_\_}}((used))\ \mbox{\hyperlink{interrupts_8h_a6b5d87dd93761a4c96c167e29672edb8}{CCT1\_InterruptHandler}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00114}00114\ \{}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00115}00115\ \ \ \ \ \textcolor{comment}{/*\ Additional\ local\ variable\ to\ prevent\ MISRA\ C\ violations\ (Rule\ 13.x)\ */}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00116}00116\ \ \ \ \ uintptr\_t\ context\ =\ sccp1Obj.\mbox{\hyperlink{structCCP__TIMER__OBJECT_afb301b46bf1bb94237366e0db5c62810}{context}};}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00117}00117\ \ \ \ \ uint32\_t\ status\ =\ IFS1bits.CCT1IF;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00118}00118\ \ \ \ \ IFS1\ \&=\ \string~\_IFS1\_CCT1IF\_MASK;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00120}00120\ \ \ \ \ \textcolor{keywordflow}{if}((sccp1Obj.callback\_fn\ !=\ NULL))}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00121}00121\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ sccp1Obj.callback\_fn(status,\ context);}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00123}00123\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00124}00124\ \}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00127}\mbox{\hyperlink{plib__sccp1_8c_ac2a0da42110eacc548c6015df64cd284}{00127}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__sccp1_8c_ac2a0da42110eacc548c6015df64cd284}{SCCP1\_TimerInterruptEnable}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00128}00128\ \{}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00130}00130\ \ \ \ \ IEC1\ |=\ \_IEC1\_CCT1IE\_MASK;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00131}00131\ \}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00134}\mbox{\hyperlink{plib__sccp1_8c_a7d8f81de94dbc9c4bb28d9651f982f4d}{00134}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__sccp1_8c_a7d8f81de94dbc9c4bb28d9651f982f4d}{SCCP1\_TimerInterruptDisable}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00135}00135\ \{}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00136}00136\ \ \ \ \ IEC1\ \&=\ \string~\_IEC1\_CCT1IE\_MASK;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00137}00137\ \}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00140}\mbox{\hyperlink{plib__sccp1_8c_abd734914e85f0b83a6e7bbef2d81f65a}{00140}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__sccp1_8c_abd734914e85f0b83a6e7bbef2d81f65a}{SCCP1\_TimerCallbackRegister}}(\ \mbox{\hyperlink{plib__ccp__common_8h_a996299eba3ea5d5f581691356a40e4fb}{CCP\_TIMER\_CALLBACK}}\ callback\_fn,\ uintptr\_t\ context\ )}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00141}00141\ \{}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00142}00142\ \ \ \ \ \textcolor{comment}{/*\ Save\ callback\_fn\ and\ context\ in\ local\ memory\ */}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00143}00143\ \ \ \ \ sccp1Obj.callback\_fn\ =\ callback\_fn;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00144}00144\ \ \ \ \ sccp1Obj.context\ =\ context;}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8c_source_l00145}00145\ \}}
+
+\end{DoxyCode}

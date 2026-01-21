@@ -1,0 +1,606 @@
+\doxysection{src/sca3300.h File Reference}
+\hypertarget{sca3300_8h}{}\label{sca3300_8h}\index{src/sca3300.h@{src/sca3300.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}definitions.\+h"{}}\newline
+{\ttfamily \#include "{}imu.\+h"{}}\newline
+{\ttfamily \#include "{}timers.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a7d71913189b0cdd364a8ff73d46da77a}{SCA3300\+\_\+\+DRIVER}}~"{}V1.\+008"{}
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a9497fa51b10dd545513a403eadd7fc56}{SCA3300\+\_\+\+ALIAS}}~"{}SCx3300"{}
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a9a12fd81b8ea3213d6245e60948faf00}{SCA3300\+\_\+\+REG\+\_\+\+WHOAMI}}~0x10
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a5578dbde381c291d166f24162e759c97}{SCA3300\+\_\+\+WHOAMI\+\_\+\+ID}}~0x51
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_ac60b1d05eddcb2b0b3468676d16bec14}{SCA3300\+\_\+\+WHOAMI\+\_\+\+ID\+\_\+\+SCL}}~0x\+C1
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a98d9922a2764e9b3ff3cc696f84447d5}{SCA3300\+\_\+\+WHOAMI\+\_\+32B}}~0x40000091
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a06e371b5cd0728fe6533ec7ce8c95608}{SCA3300\+\_\+\+SWRESET\+\_\+32B}}~0x\+B4002098
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_ae77d3edfee8c4d7d91df1074a4c29b12}{SCA3300\+\_\+\+RS\+\_\+32B}}~0x180000\+E5
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_aa596e0fc257f47e36e93f355763ebd06}{SCA3300\+\_\+\+ACC\+\_\+\+X\+\_\+32B}}~0x040000\+F7
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_aa10b79b8845269ff9ff27dec9fad5d8e}{SCA3300\+\_\+\+ACC\+\_\+\+Y\+\_\+32B}}~0x080000\+FD
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_adda4c65ae4d13bab6733a8ffc0f5ff8e}{SCA3300\+\_\+\+ACC\+\_\+\+Z\+\_\+32B}}~0x0\+C0000\+FB
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a57a1d1c31be910c9848fd609bafab5dc}{SCA3300\+\_\+\+TEMP\+\_\+32B}}~0x140000\+EF
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_aa732e2596097d207f0e6ebf6a488b606}{SCA3300\+\_\+\+MODE1}}~0x\+B400001F
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a63ffe5fd9966718b098feb351bd0651d}{SCA3300\+\_\+\+MODE2}}~0x\+B4000102
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a46394d93a092af45b4d06b783c250bc8}{SCA3300\+\_\+\+MODE3}}~0x\+B4000225
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a02286a62ac68ba9c6c558777a2d3572c}{SCA3300\+\_\+\+MODE4}}~0x\+B4000338
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_af036f0411faa2f48c93986080a3af768}{SCL3300\+\_\+\+MODE1}}~0x\+B400001F
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a20799da10997baa1f1377eddb407e40e}{SCL3300\+\_\+\+MODE2}}~0x\+B4000102
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a962d5341cc5cd092514b6b375f41d284}{SCL3300\+\_\+\+MODE3}}~0x\+B4000225
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a47bf61ef4a5203bbec695c84e8f0b22c}{SCL3300\+\_\+\+MODE4}}~0x\+B4000338
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a1f7d7801098b57dfc576977325fdd189}{SCL3300\+\_\+\+ANGLE}}~0x\+B0001\+F6F
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a737d78fe06a268d1cf937243907de4f8}{SCL3300\+\_\+\+E\+\_\+\+FLAG1}}~0x1\+C0000\+E3
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_ae8c71cdf4528f9a01632790ff62a2f5e}{SCL3300\+\_\+\+E\+\_\+\+FLAG2}}~0x200000\+C1
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a85da9ed0d0e53634e8f5efd9d888416d}{SCL3300\+\_\+\+ANG\+\_\+\+X\+\_\+32B}}~0x240000\+C7
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_ae66e70d1212568c75291ccd3aaf4d9c3}{SCL3300\+\_\+\+ANG\+\_\+\+Y\+\_\+32B}}~0x280000\+CD
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a1a11799bfb40780ba728bf53c143d01e}{SCL3300\+\_\+\+ANG\+\_\+\+Z\+\_\+32B}}~0x2\+C0000\+CB
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a8a024beff236ae360560b81c898d5d69}{SCA3300\+\_\+\+BANK0}}~0x\+FC000073
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_ad807bd90070a7b364104efbe9dedee7c}{SCA3300\+\_\+\+BANK1}}~0x\+FC00016E
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_aa207e106469a595ef26cbc312e5a61a7}{SCA3300\+\_\+\+READ\+\_\+\+BANK}}~0x7\+C0000\+B3
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_ace0c10f5a4615bfed092913e615e00e6}{SCA3300\+\_\+\+SERIAL1}}~0x640000\+A7
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a9c1803ddfea46fe6377df4d022792d36}{SCA3300\+\_\+\+SERIAL2}}~0x680000\+AD
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a3f95a5d45506f7524aefbc49402fefc1}{SCA3300\+\_\+\+CHIP\+\_\+\+ID\+\_\+\+DELAY}}~10000
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_ae12bd71407176b50566a590b3fea5b8f}{SCA3300\+\_\+\+CHIP\+\_\+\+SWR\+\_\+\+DELAY}}~10000
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a399539eb3ec88b367c7089343e9b47d4}{SCA3300\+\_\+\+CHIP\+\_\+\+MODE\+\_\+\+DELAY}}~100000
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a8f31d2d5e96271c8bc6821cc6912f655}{SCA3300\+\_\+\+CHIP\+\_\+\+CS\+\_\+\+DELAY}}~11
+\item 
+\#define \mbox{\hyperlink{sca3300_8h_a6ec43f291beb51a1c3a230921a4b5535}{SCA3300\+\_\+\+CHIP\+\_\+\+BTYES\+\_\+\+PER\+\_\+\+SPI}}~4
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7}{sca3300\+\_\+crc\+\_\+check}} \{ \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}{SCA3300\+\_\+\+REC}} = 0
+, \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7ac4879af7e94a1226229552f205a290e4}{SCA3300\+\_\+\+TRM}} = 0
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sca3300_8h_a645c5283a656f0485c1076dd0ee5a376}{sca3300\+\_\+set\+\_\+spimode}} (void \texorpdfstring{$\ast$}{*})
+\item 
+bool \mbox{\hyperlink{sca3300_8h_aec385926516bc9d464e2dd266b21960e}{sca3300\+\_\+getid}} (void \texorpdfstring{$\ast$}{*})
+\item 
+bool \mbox{\hyperlink{sca3300_8h_a52eba9e1b4e01a3dc1efa21224d22e17}{sca3300\+\_\+getserial}} (void \texorpdfstring{$\ast$}{*})
+\item 
+bool \mbox{\hyperlink{sca3300_8h_afea96a030e5888b7c6c14d884bbc7112}{sca3300\+\_\+getdata}} (void \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{sca3300_8h_a3d4574e29cfd3d283efb1c63a7887fa8}{sca3300\+\_\+version}} (void)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{sca3300_8h_a177f6fc7663da568fda8b262fc354459}{Calculate\+CRC}} (uint32\+\_\+t)
+\item 
+bool \mbox{\hyperlink{sca3300_8h_a325bef854c0f98651bf31c693e992576}{sca3300\+\_\+imu\+\_\+transfer}} (\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}, uint32\+\_\+t)
+\item 
+bool \mbox{\hyperlink{sca3300_8h_a41e9423810f941564c56dacf566b51b1}{sca3300\+\_\+check\+\_\+crc}} (\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}, uint8\+\_\+t)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{sca3300_8h_a24ceb984a1f38928a0907263a740fffd}{board\+\_\+serial\+\_\+id}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{sca3300_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{sca3300_8h_aa596e0fc257f47e36e93f355763ebd06}\index{sca3300.h@{sca3300.h}!SCA3300\_ACC\_X\_32B@{SCA3300\_ACC\_X\_32B}}
+\index{SCA3300\_ACC\_X\_32B@{SCA3300\_ACC\_X\_32B}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_ACC\_X\_32B}{SCA3300\_ACC\_X\_32B}}
+{\footnotesize\ttfamily \label{sca3300_8h_aa596e0fc257f47e36e93f355763ebd06} 
+\#define SCA3300\+\_\+\+ACC\+\_\+\+X\+\_\+32B~0x040000\+F7}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00038}{38}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_aa10b79b8845269ff9ff27dec9fad5d8e}\index{sca3300.h@{sca3300.h}!SCA3300\_ACC\_Y\_32B@{SCA3300\_ACC\_Y\_32B}}
+\index{SCA3300\_ACC\_Y\_32B@{SCA3300\_ACC\_Y\_32B}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_ACC\_Y\_32B}{SCA3300\_ACC\_Y\_32B}}
+{\footnotesize\ttfamily \label{sca3300_8h_aa10b79b8845269ff9ff27dec9fad5d8e} 
+\#define SCA3300\+\_\+\+ACC\+\_\+\+Y\+\_\+32B~0x080000\+FD}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00039}{39}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_adda4c65ae4d13bab6733a8ffc0f5ff8e}\index{sca3300.h@{sca3300.h}!SCA3300\_ACC\_Z\_32B@{SCA3300\_ACC\_Z\_32B}}
+\index{SCA3300\_ACC\_Z\_32B@{SCA3300\_ACC\_Z\_32B}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_ACC\_Z\_32B}{SCA3300\_ACC\_Z\_32B}}
+{\footnotesize\ttfamily \label{sca3300_8h_adda4c65ae4d13bab6733a8ffc0f5ff8e} 
+\#define SCA3300\+\_\+\+ACC\+\_\+\+Z\+\_\+32B~0x0\+C0000\+FB}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00040}{40}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a9497fa51b10dd545513a403eadd7fc56}\index{sca3300.h@{sca3300.h}!SCA3300\_ALIAS@{SCA3300\_ALIAS}}
+\index{SCA3300\_ALIAS@{SCA3300\_ALIAS}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_ALIAS}{SCA3300\_ALIAS}}
+{\footnotesize\ttfamily \label{sca3300_8h_a9497fa51b10dd545513a403eadd7fc56} 
+\#define SCA3300\+\_\+\+ALIAS~"{}SCx3300"{}}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00029}{29}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a8a024beff236ae360560b81c898d5d69}\index{sca3300.h@{sca3300.h}!SCA3300\_BANK0@{SCA3300\_BANK0}}
+\index{SCA3300\_BANK0@{SCA3300\_BANK0}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_BANK0}{SCA3300\_BANK0}}
+{\footnotesize\ttfamily \label{sca3300_8h_a8a024beff236ae360560b81c898d5d69} 
+\#define SCA3300\+\_\+\+BANK0~0x\+FC000073}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00056}{56}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_ad807bd90070a7b364104efbe9dedee7c}\index{sca3300.h@{sca3300.h}!SCA3300\_BANK1@{SCA3300\_BANK1}}
+\index{SCA3300\_BANK1@{SCA3300\_BANK1}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_BANK1}{SCA3300\_BANK1}}
+{\footnotesize\ttfamily \label{sca3300_8h_ad807bd90070a7b364104efbe9dedee7c} 
+\#define SCA3300\+\_\+\+BANK1~0x\+FC00016E}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00057}{57}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a6ec43f291beb51a1c3a230921a4b5535}\index{sca3300.h@{sca3300.h}!SCA3300\_CHIP\_BTYES\_PER\_SPI@{SCA3300\_CHIP\_BTYES\_PER\_SPI}}
+\index{SCA3300\_CHIP\_BTYES\_PER\_SPI@{SCA3300\_CHIP\_BTYES\_PER\_SPI}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_CHIP\_BTYES\_PER\_SPI}{SCA3300\_CHIP\_BTYES\_PER\_SPI}}
+{\footnotesize\ttfamily \label{sca3300_8h_a6ec43f291beb51a1c3a230921a4b5535} 
+\#define SCA3300\+\_\+\+CHIP\+\_\+\+BTYES\+\_\+\+PER\+\_\+\+SPI~4}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00066}{66}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a8f31d2d5e96271c8bc6821cc6912f655}\index{sca3300.h@{sca3300.h}!SCA3300\_CHIP\_CS\_DELAY@{SCA3300\_CHIP\_CS\_DELAY}}
+\index{SCA3300\_CHIP\_CS\_DELAY@{SCA3300\_CHIP\_CS\_DELAY}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_CHIP\_CS\_DELAY}{SCA3300\_CHIP\_CS\_DELAY}}
+{\footnotesize\ttfamily \label{sca3300_8h_a8f31d2d5e96271c8bc6821cc6912f655} 
+\#define SCA3300\+\_\+\+CHIP\+\_\+\+CS\+\_\+\+DELAY~11}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00065}{65}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a3f95a5d45506f7524aefbc49402fefc1}\index{sca3300.h@{sca3300.h}!SCA3300\_CHIP\_ID\_DELAY@{SCA3300\_CHIP\_ID\_DELAY}}
+\index{SCA3300\_CHIP\_ID\_DELAY@{SCA3300\_CHIP\_ID\_DELAY}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_CHIP\_ID\_DELAY}{SCA3300\_CHIP\_ID\_DELAY}}
+{\footnotesize\ttfamily \label{sca3300_8h_a3f95a5d45506f7524aefbc49402fefc1} 
+\#define SCA3300\+\_\+\+CHIP\+\_\+\+ID\+\_\+\+DELAY~10000}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00062}{62}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a399539eb3ec88b367c7089343e9b47d4}\index{sca3300.h@{sca3300.h}!SCA3300\_CHIP\_MODE\_DELAY@{SCA3300\_CHIP\_MODE\_DELAY}}
+\index{SCA3300\_CHIP\_MODE\_DELAY@{SCA3300\_CHIP\_MODE\_DELAY}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_CHIP\_MODE\_DELAY}{SCA3300\_CHIP\_MODE\_DELAY}}
+{\footnotesize\ttfamily \label{sca3300_8h_a399539eb3ec88b367c7089343e9b47d4} 
+\#define SCA3300\+\_\+\+CHIP\+\_\+\+MODE\+\_\+\+DELAY~100000}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00064}{64}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_ae12bd71407176b50566a590b3fea5b8f}\index{sca3300.h@{sca3300.h}!SCA3300\_CHIP\_SWR\_DELAY@{SCA3300\_CHIP\_SWR\_DELAY}}
+\index{SCA3300\_CHIP\_SWR\_DELAY@{SCA3300\_CHIP\_SWR\_DELAY}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_CHIP\_SWR\_DELAY}{SCA3300\_CHIP\_SWR\_DELAY}}
+{\footnotesize\ttfamily \label{sca3300_8h_ae12bd71407176b50566a590b3fea5b8f} 
+\#define SCA3300\+\_\+\+CHIP\+\_\+\+SWR\+\_\+\+DELAY~10000}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00063}{63}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a7d71913189b0cdd364a8ff73d46da77a}\index{sca3300.h@{sca3300.h}!SCA3300\_DRIVER@{SCA3300\_DRIVER}}
+\index{SCA3300\_DRIVER@{SCA3300\_DRIVER}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_DRIVER}{SCA3300\_DRIVER}}
+{\footnotesize\ttfamily \label{sca3300_8h_a7d71913189b0cdd364a8ff73d46da77a} 
+\#define SCA3300\+\_\+\+DRIVER~"{}V1.\+008"{}}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00028}{28}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_aa732e2596097d207f0e6ebf6a488b606}\index{sca3300.h@{sca3300.h}!SCA3300\_MODE1@{SCA3300\_MODE1}}
+\index{SCA3300\_MODE1@{SCA3300\_MODE1}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_MODE1}{SCA3300\_MODE1}}
+{\footnotesize\ttfamily \label{sca3300_8h_aa732e2596097d207f0e6ebf6a488b606} 
+\#define SCA3300\+\_\+\+MODE1~0x\+B400001F}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00042}{42}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a63ffe5fd9966718b098feb351bd0651d}\index{sca3300.h@{sca3300.h}!SCA3300\_MODE2@{SCA3300\_MODE2}}
+\index{SCA3300\_MODE2@{SCA3300\_MODE2}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_MODE2}{SCA3300\_MODE2}}
+{\footnotesize\ttfamily \label{sca3300_8h_a63ffe5fd9966718b098feb351bd0651d} 
+\#define SCA3300\+\_\+\+MODE2~0x\+B4000102}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00043}{43}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a46394d93a092af45b4d06b783c250bc8}\index{sca3300.h@{sca3300.h}!SCA3300\_MODE3@{SCA3300\_MODE3}}
+\index{SCA3300\_MODE3@{SCA3300\_MODE3}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_MODE3}{SCA3300\_MODE3}}
+{\footnotesize\ttfamily \label{sca3300_8h_a46394d93a092af45b4d06b783c250bc8} 
+\#define SCA3300\+\_\+\+MODE3~0x\+B4000225}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00044}{44}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a02286a62ac68ba9c6c558777a2d3572c}\index{sca3300.h@{sca3300.h}!SCA3300\_MODE4@{SCA3300\_MODE4}}
+\index{SCA3300\_MODE4@{SCA3300\_MODE4}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_MODE4}{SCA3300\_MODE4}}
+{\footnotesize\ttfamily \label{sca3300_8h_a02286a62ac68ba9c6c558777a2d3572c} 
+\#define SCA3300\+\_\+\+MODE4~0x\+B4000338}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00045}{45}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_aa207e106469a595ef26cbc312e5a61a7}\index{sca3300.h@{sca3300.h}!SCA3300\_READ\_BANK@{SCA3300\_READ\_BANK}}
+\index{SCA3300\_READ\_BANK@{SCA3300\_READ\_BANK}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_READ\_BANK}{SCA3300\_READ\_BANK}}
+{\footnotesize\ttfamily \label{sca3300_8h_aa207e106469a595ef26cbc312e5a61a7} 
+\#define SCA3300\+\_\+\+READ\+\_\+\+BANK~0x7\+C0000\+B3}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00058}{58}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a9a12fd81b8ea3213d6245e60948faf00}\index{sca3300.h@{sca3300.h}!SCA3300\_REG\_WHOAMI@{SCA3300\_REG\_WHOAMI}}
+\index{SCA3300\_REG\_WHOAMI@{SCA3300\_REG\_WHOAMI}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_REG\_WHOAMI}{SCA3300\_REG\_WHOAMI}}
+{\footnotesize\ttfamily \label{sca3300_8h_a9a12fd81b8ea3213d6245e60948faf00} 
+\#define SCA3300\+\_\+\+REG\+\_\+\+WHOAMI~0x10}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00032}{32}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_ae77d3edfee8c4d7d91df1074a4c29b12}\index{sca3300.h@{sca3300.h}!SCA3300\_RS\_32B@{SCA3300\_RS\_32B}}
+\index{SCA3300\_RS\_32B@{SCA3300\_RS\_32B}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_RS\_32B}{SCA3300\_RS\_32B}}
+{\footnotesize\ttfamily \label{sca3300_8h_ae77d3edfee8c4d7d91df1074a4c29b12} 
+\#define SCA3300\+\_\+\+RS\+\_\+32B~0x180000\+E5}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00037}{37}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_ace0c10f5a4615bfed092913e615e00e6}\index{sca3300.h@{sca3300.h}!SCA3300\_SERIAL1@{SCA3300\_SERIAL1}}
+\index{SCA3300\_SERIAL1@{SCA3300\_SERIAL1}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_SERIAL1}{SCA3300\_SERIAL1}}
+{\footnotesize\ttfamily \label{sca3300_8h_ace0c10f5a4615bfed092913e615e00e6} 
+\#define SCA3300\+\_\+\+SERIAL1~0x640000\+A7}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00059}{59}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a9c1803ddfea46fe6377df4d022792d36}\index{sca3300.h@{sca3300.h}!SCA3300\_SERIAL2@{SCA3300\_SERIAL2}}
+\index{SCA3300\_SERIAL2@{SCA3300\_SERIAL2}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_SERIAL2}{SCA3300\_SERIAL2}}
+{\footnotesize\ttfamily \label{sca3300_8h_a9c1803ddfea46fe6377df4d022792d36} 
+\#define SCA3300\+\_\+\+SERIAL2~0x680000\+AD}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00060}{60}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a06e371b5cd0728fe6533ec7ce8c95608}\index{sca3300.h@{sca3300.h}!SCA3300\_SWRESET\_32B@{SCA3300\_SWRESET\_32B}}
+\index{SCA3300\_SWRESET\_32B@{SCA3300\_SWRESET\_32B}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_SWRESET\_32B}{SCA3300\_SWRESET\_32B}}
+{\footnotesize\ttfamily \label{sca3300_8h_a06e371b5cd0728fe6533ec7ce8c95608} 
+\#define SCA3300\+\_\+\+SWRESET\+\_\+32B~0x\+B4002098}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00036}{36}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a57a1d1c31be910c9848fd609bafab5dc}\index{sca3300.h@{sca3300.h}!SCA3300\_TEMP\_32B@{SCA3300\_TEMP\_32B}}
+\index{SCA3300\_TEMP\_32B@{SCA3300\_TEMP\_32B}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_TEMP\_32B}{SCA3300\_TEMP\_32B}}
+{\footnotesize\ttfamily \label{sca3300_8h_a57a1d1c31be910c9848fd609bafab5dc} 
+\#define SCA3300\+\_\+\+TEMP\+\_\+32B~0x140000\+EF}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00041}{41}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a98d9922a2764e9b3ff3cc696f84447d5}\index{sca3300.h@{sca3300.h}!SCA3300\_WHOAMI\_32B@{SCA3300\_WHOAMI\_32B}}
+\index{SCA3300\_WHOAMI\_32B@{SCA3300\_WHOAMI\_32B}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_WHOAMI\_32B}{SCA3300\_WHOAMI\_32B}}
+{\footnotesize\ttfamily \label{sca3300_8h_a98d9922a2764e9b3ff3cc696f84447d5} 
+\#define SCA3300\+\_\+\+WHOAMI\+\_\+32B~0x40000091}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00035}{35}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a5578dbde381c291d166f24162e759c97}\index{sca3300.h@{sca3300.h}!SCA3300\_WHOAMI\_ID@{SCA3300\_WHOAMI\_ID}}
+\index{SCA3300\_WHOAMI\_ID@{SCA3300\_WHOAMI\_ID}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_WHOAMI\_ID}{SCA3300\_WHOAMI\_ID}}
+{\footnotesize\ttfamily \label{sca3300_8h_a5578dbde381c291d166f24162e759c97} 
+\#define SCA3300\+\_\+\+WHOAMI\+\_\+\+ID~0x51}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00033}{33}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_ac60b1d05eddcb2b0b3468676d16bec14}\index{sca3300.h@{sca3300.h}!SCA3300\_WHOAMI\_ID\_SCL@{SCA3300\_WHOAMI\_ID\_SCL}}
+\index{SCA3300\_WHOAMI\_ID\_SCL@{SCA3300\_WHOAMI\_ID\_SCL}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_WHOAMI\_ID\_SCL}{SCA3300\_WHOAMI\_ID\_SCL}}
+{\footnotesize\ttfamily \label{sca3300_8h_ac60b1d05eddcb2b0b3468676d16bec14} 
+\#define SCA3300\+\_\+\+WHOAMI\+\_\+\+ID\+\_\+\+SCL~0x\+C1}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00034}{34}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a85da9ed0d0e53634e8f5efd9d888416d}\index{sca3300.h@{sca3300.h}!SCL3300\_ANG\_X\_32B@{SCL3300\_ANG\_X\_32B}}
+\index{SCL3300\_ANG\_X\_32B@{SCL3300\_ANG\_X\_32B}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCL3300\_ANG\_X\_32B}{SCL3300\_ANG\_X\_32B}}
+{\footnotesize\ttfamily \label{sca3300_8h_a85da9ed0d0e53634e8f5efd9d888416d} 
+\#define SCL3300\+\_\+\+ANG\+\_\+\+X\+\_\+32B~0x240000\+C7}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00053}{53}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_ae66e70d1212568c75291ccd3aaf4d9c3}\index{sca3300.h@{sca3300.h}!SCL3300\_ANG\_Y\_32B@{SCL3300\_ANG\_Y\_32B}}
+\index{SCL3300\_ANG\_Y\_32B@{SCL3300\_ANG\_Y\_32B}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCL3300\_ANG\_Y\_32B}{SCL3300\_ANG\_Y\_32B}}
+{\footnotesize\ttfamily \label{sca3300_8h_ae66e70d1212568c75291ccd3aaf4d9c3} 
+\#define SCL3300\+\_\+\+ANG\+\_\+\+Y\+\_\+32B~0x280000\+CD}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00054}{54}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a1a11799bfb40780ba728bf53c143d01e}\index{sca3300.h@{sca3300.h}!SCL3300\_ANG\_Z\_32B@{SCL3300\_ANG\_Z\_32B}}
+\index{SCL3300\_ANG\_Z\_32B@{SCL3300\_ANG\_Z\_32B}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCL3300\_ANG\_Z\_32B}{SCL3300\_ANG\_Z\_32B}}
+{\footnotesize\ttfamily \label{sca3300_8h_a1a11799bfb40780ba728bf53c143d01e} 
+\#define SCL3300\+\_\+\+ANG\+\_\+\+Z\+\_\+32B~0x2\+C0000\+CB}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00055}{55}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a1f7d7801098b57dfc576977325fdd189}\index{sca3300.h@{sca3300.h}!SCL3300\_ANGLE@{SCL3300\_ANGLE}}
+\index{SCL3300\_ANGLE@{SCL3300\_ANGLE}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCL3300\_ANGLE}{SCL3300\_ANGLE}}
+{\footnotesize\ttfamily \label{sca3300_8h_a1f7d7801098b57dfc576977325fdd189} 
+\#define SCL3300\+\_\+\+ANGLE~0x\+B0001\+F6F}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00050}{50}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a737d78fe06a268d1cf937243907de4f8}\index{sca3300.h@{sca3300.h}!SCL3300\_E\_FLAG1@{SCL3300\_E\_FLAG1}}
+\index{SCL3300\_E\_FLAG1@{SCL3300\_E\_FLAG1}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCL3300\_E\_FLAG1}{SCL3300\_E\_FLAG1}}
+{\footnotesize\ttfamily \label{sca3300_8h_a737d78fe06a268d1cf937243907de4f8} 
+\#define SCL3300\+\_\+\+E\+\_\+\+FLAG1~0x1\+C0000\+E3}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00051}{51}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_ae8c71cdf4528f9a01632790ff62a2f5e}\index{sca3300.h@{sca3300.h}!SCL3300\_E\_FLAG2@{SCL3300\_E\_FLAG2}}
+\index{SCL3300\_E\_FLAG2@{SCL3300\_E\_FLAG2}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCL3300\_E\_FLAG2}{SCL3300\_E\_FLAG2}}
+{\footnotesize\ttfamily \label{sca3300_8h_ae8c71cdf4528f9a01632790ff62a2f5e} 
+\#define SCL3300\+\_\+\+E\+\_\+\+FLAG2~0x200000\+C1}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00052}{52}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_af036f0411faa2f48c93986080a3af768}\index{sca3300.h@{sca3300.h}!SCL3300\_MODE1@{SCL3300\_MODE1}}
+\index{SCL3300\_MODE1@{SCL3300\_MODE1}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCL3300\_MODE1}{SCL3300\_MODE1}}
+{\footnotesize\ttfamily \label{sca3300_8h_af036f0411faa2f48c93986080a3af768} 
+\#define SCL3300\+\_\+\+MODE1~0x\+B400001F}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00046}{46}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a20799da10997baa1f1377eddb407e40e}\index{sca3300.h@{sca3300.h}!SCL3300\_MODE2@{SCL3300\_MODE2}}
+\index{SCL3300\_MODE2@{SCL3300\_MODE2}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCL3300\_MODE2}{SCL3300\_MODE2}}
+{\footnotesize\ttfamily \label{sca3300_8h_a20799da10997baa1f1377eddb407e40e} 
+\#define SCL3300\+\_\+\+MODE2~0x\+B4000102}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00047}{47}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a962d5341cc5cd092514b6b375f41d284}\index{sca3300.h@{sca3300.h}!SCL3300\_MODE3@{SCL3300\_MODE3}}
+\index{SCL3300\_MODE3@{SCL3300\_MODE3}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCL3300\_MODE3}{SCL3300\_MODE3}}
+{\footnotesize\ttfamily \label{sca3300_8h_a962d5341cc5cd092514b6b375f41d284} 
+\#define SCL3300\+\_\+\+MODE3~0x\+B4000225}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00048}{48}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+\Hypertarget{sca3300_8h_a47bf61ef4a5203bbec695c84e8f0b22c}\index{sca3300.h@{sca3300.h}!SCL3300\_MODE4@{SCL3300\_MODE4}}
+\index{SCL3300\_MODE4@{SCL3300\_MODE4}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{SCL3300\_MODE4}{SCL3300\_MODE4}}
+{\footnotesize\ttfamily \label{sca3300_8h_a47bf61ef4a5203bbec695c84e8f0b22c} 
+\#define SCL3300\+\_\+\+MODE4~0x\+B4000338}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00049}{49}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{sca3300_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7}\index{sca3300.h@{sca3300.h}!sca3300\_crc\_check@{sca3300\_crc\_check}}
+\index{sca3300\_crc\_check@{sca3300\_crc\_check}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{sca3300\_crc\_check}{sca3300\_crc\_check}}
+{\footnotesize\ttfamily \label{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7} 
+enum \mbox{\hyperlink{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7}{sca3300\+\_\+crc\+\_\+check}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCA3300\_REC@{SCA3300\_REC}!sca3300.h@{sca3300.h}}\index{sca3300.h@{sca3300.h}!SCA3300\_REC@{SCA3300\_REC}}}\Hypertarget{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e}\label{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7a5bccb00217ebcea455dc079f4dafca8e} 
+SCA3300\+\_\+\+REC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCA3300\_TRM@{SCA3300\_TRM}!sca3300.h@{sca3300.h}}\index{sca3300.h@{sca3300.h}!SCA3300\_TRM@{SCA3300\_TRM}}}\Hypertarget{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7ac4879af7e94a1226229552f205a290e4}\label{sca3300_8h_a853fe96554303d893dc0c6ba099ab9d7ac4879af7e94a1226229552f205a290e4} 
+SCA3300\+\_\+\+TRM&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{sca3300_8h_source_l00077}{77}} of file \mbox{\hyperlink{sca3300_8h_source}{sca3300.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{sca3300_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{sca3300_8h_a177f6fc7663da568fda8b262fc354459}\index{sca3300.h@{sca3300.h}!CalculateCRC@{CalculateCRC}}
+\index{CalculateCRC@{CalculateCRC}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{CalculateCRC()}{CalculateCRC()}}
+{\footnotesize\ttfamily \label{sca3300_8h_a177f6fc7663da568fda8b262fc354459} 
+uint8\+\_\+t Calculate\+CRC (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00019}{19}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8h_a41e9423810f941564c56dacf566b51b1}\index{sca3300.h@{sca3300.h}!sca3300\_check\_crc@{sca3300\_check\_crc}}
+\index{sca3300\_check\_crc@{sca3300\_check\_crc}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{sca3300\_check\_crc()}{sca3300\_check\_crc()}}
+{\footnotesize\ttfamily \label{sca3300_8h_a41e9423810f941564c56dacf566b51b1} 
+bool sca3300\+\_\+check\+\_\+crc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{imu}{, }\item[{uint8\+\_\+t}]{option}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00052}{52}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8h_afea96a030e5888b7c6c14d884bbc7112}\index{sca3300.h@{sca3300.h}!sca3300\_getdata@{sca3300\_getdata}}
+\index{sca3300\_getdata@{sca3300\_getdata}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{sca3300\_getdata()}{sca3300\_getdata()}}
+{\footnotesize\ttfamily \label{sca3300_8h_afea96a030e5888b7c6c14d884bbc7112} 
+bool sca3300\+\_\+getdata (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{imup}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00098}{98}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8h_aec385926516bc9d464e2dd266b21960e}\index{sca3300.h@{sca3300.h}!sca3300\_getid@{sca3300\_getid}}
+\index{sca3300\_getid@{sca3300\_getid}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{sca3300\_getid()}{sca3300\_getid()}}
+{\footnotesize\ttfamily \label{sca3300_8h_aec385926516bc9d464e2dd266b21960e} 
+bool sca3300\+\_\+getid (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{imup}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00165}{165}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8h_a52eba9e1b4e01a3dc1efa21224d22e17}\index{sca3300.h@{sca3300.h}!sca3300\_getserial@{sca3300\_getserial}}
+\index{sca3300\_getserial@{sca3300\_getserial}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{sca3300\_getserial()}{sca3300\_getserial()}}
+{\footnotesize\ttfamily \label{sca3300_8h_a52eba9e1b4e01a3dc1efa21224d22e17} 
+bool sca3300\+\_\+getserial (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{imup}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00200}{200}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8h_a325bef854c0f98651bf31c693e992576}\index{sca3300.h@{sca3300.h}!sca3300\_imu\_transfer@{sca3300\_imu\_transfer}}
+\index{sca3300\_imu\_transfer@{sca3300\_imu\_transfer}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{sca3300\_imu\_transfer()}{sca3300\_imu\_transfer()}}
+{\footnotesize\ttfamily \label{sca3300_8h_a325bef854c0f98651bf31c693e992576} 
+bool sca3300\+\_\+imu\+\_\+transfer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{imu}{, }\item[{uint32\+\_\+t}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00071}{71}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8h_a645c5283a656f0485c1076dd0ee5a376}\index{sca3300.h@{sca3300.h}!sca3300\_set\_spimode@{sca3300\_set\_spimode}}
+\index{sca3300\_set\_spimode@{sca3300\_set\_spimode}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{sca3300\_set\_spimode()}{sca3300\_set\_spimode()}}
+{\footnotesize\ttfamily \label{sca3300_8h_a645c5283a656f0485c1076dd0ee5a376} 
+void sca3300\+\_\+set\+\_\+spimode (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{imup}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00227}{227}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8h_a3d4574e29cfd3d283efb1c63a7887fa8}\index{sca3300.h@{sca3300.h}!sca3300\_version@{sca3300\_version}}
+\index{sca3300\_version@{sca3300\_version}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{sca3300\_version()}{sca3300\_version()}}
+{\footnotesize\ttfamily \label{sca3300_8h_a3d4574e29cfd3d283efb1c63a7887fa8} 
+void sca3300\+\_\+version (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00309}{309}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{sca3300_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{sca3300_8h_a24ceb984a1f38928a0907263a740fffd}\index{sca3300.h@{sca3300.h}!board\_serial\_id@{board\_serial\_id}}
+\index{board\_serial\_id@{board\_serial\_id}!sca3300.h@{sca3300.h}}
+\doxysubsubsection{\texorpdfstring{board\_serial\_id}{board\_serial\_id}}
+{\footnotesize\ttfamily \label{sca3300_8h_a24ceb984a1f38928a0907263a740fffd} 
+uint32\+\_\+t board\+\_\+serial\+\_\+id\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00028}{28}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+

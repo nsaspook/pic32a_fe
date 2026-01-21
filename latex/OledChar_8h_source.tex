@@ -1,0 +1,75 @@
+\doxysection{Oled\+Char.\+h}
+\hypertarget{OledChar_8h_source}{}\label{OledChar_8h_source}\index{src/lcd\_drv/OledChar.h@{src/lcd\_drv/OledChar.h}}
+\mbox{\hyperlink{OledChar_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00001}00001\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ OledChar.h\ \ -\/-\/\ \ Interface\ Declarations\ for\ OledChar.c\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00005}00005\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00006}00006\ \textcolor{comment}{/*\ \ Author:\ \ \ \ \ Gene\ Apperson\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00007}00007\ \textcolor{comment}{/*\ \ Copyright\ 2011,\ Digilent\ Inc.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00008}00008\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00009}00009\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00010}00010\ \textcolor{comment}{\ \ This\ library\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00011}00011\ \textcolor{comment}{\ \ modify\ it\ under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00012}00012\ \textcolor{comment}{\ \ License\ as\ published\ by\ the\ Free\ Software\ Foundation;\ either}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00013}00013\ \textcolor{comment}{\ \ version\ 2.1\ of\ the\ License,\ or\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00014}00014\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00015}00015\ \textcolor{comment}{\ \ This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00016}00016\ \textcolor{comment}{\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00017}00017\ \textcolor{comment}{\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00018}00018\ \textcolor{comment}{\ \ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00019}00019\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00020}00020\ \textcolor{comment}{\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00021}00021\ \textcolor{comment}{\ \ License\ along\ with\ this\ library;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00022}00022\ \textcolor{comment}{\ \ Foundation,\ Inc.,\ 51\ Franklin\ St,\ Fifth\ Floor,\ Boston,\ MA\ \ 02110-\/1301\ \ USA}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00023}00023\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00024}00024\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00025}00025\ \textcolor{comment}{/*\ \ File\ Description:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00026}00026\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00027}00027\ \textcolor{comment}{/*\ \ Interface\ to\ OledChar.c\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00028}00028\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00029}00029\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00030}00030\ \textcolor{comment}{/*\ \ Revision\ History:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00031}00031\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00032}00032\ \textcolor{comment}{/*\ \ 06/01/2011(GeneA):\ created\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00033}00033\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00034}00034\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00036}00036\ \textcolor{preprocessor}{\#if\ !defined(OLEDCHAR\_H)}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00037}00037\ \textcolor{preprocessor}{\#define\ OLEDCHAR\_H}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00039}00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lcd__drv_8h}{lcd\_drv.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00041}00041\ \textcolor{keyword}{extern}\ int32\_t\ \mbox{\hyperlink{OledChar_8h_aba2c26434c72817686c9aa23940621e4}{xcoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00042}00042\ \textcolor{keyword}{extern}\ int32\_t\ \mbox{\hyperlink{OledChar_8h_a73468af1151bacd629a6873b9261e9cc}{ycoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00044}00044\ \textcolor{keyword}{extern}\ uint8\_t\ *\ \mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00045}00045\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{OledChar_8h_a527a340e0948aaab2e8b90ab1f7ddd1d}{mskOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00046}00046\ \textcolor{keyword}{extern}\ int32\_t\ \mbox{\hyperlink{OledChar_8h_a38730da0dc7102d6d531ccc7fa5b3fc4}{bnOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00047}00047\ \textcolor{keyword}{extern}\ int32\_t\ \mbox{\hyperlink{OledChar_8h_abf4f3edb1b57df35366939971631723f}{fOledCharUpdate}};}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00049}00049\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{OledChar_8h_a3235cd7f495b077bc90587505a1a8cf4}{rgbOledBmp}}[];}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00051}00051\ \textcolor{keyword}{extern}\ int32\_t\ \mbox{\hyperlink{OledChar_8h_aa573176e4a221cecf8eede784cc26421}{dxcoOledFontCur}};}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00052}00052\ \textcolor{keyword}{extern}\ int32\_t\ \mbox{\hyperlink{OledChar_8h_aaf58d5202e2b1db0bd83fc04e9196eac}{dycoOledFontCur}};}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00054}00054\ \textcolor{keyword}{extern}\ uint8\_t\ *\ \mbox{\hyperlink{OledChar_8h_a0438ad9d3d66dc18d5e5e8235d9bd0c4}{pbOledFontCur}};}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00055}00055\ \textcolor{keyword}{extern}\ uint8\_t\ *\ \mbox{\hyperlink{OledChar_8h_a086d81ef12ef8daac41aa99368905473}{pbOledFontUser}};}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00057}00057\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledChar_8h_adde84bb2eb479c0635e03e3e90fd3a68}{OledSetCursor}}(int32\_t\ xch,\ int32\_t\ ych);}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00058}00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledChar_8h_aa3b0dd66c2b4b57d78870a659792da5d}{OledGetCursor}}(int32\_t\ *\ pxcy,\ int32\_t\ *\ pych);}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00059}00059\ int32\_t\ \mbox{\hyperlink{OledChar_8h_a21e2c5f559f3387b0ae882e76a455965}{OledDefUserChar}}(\textcolor{keywordtype}{char}\ ch,\ uint8\_t\ *\ pbDef);}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00060}00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledChar_8h_af7a7ecdeee850a7d1d22d980fa58f6ce}{OledSetCharUpdate}}(int32\_t\ f);}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00061}00061\ int32\_t\ \mbox{\hyperlink{OledChar_8h_af8d6ed98afe7bd64211dc8734eea65d7}{OledGetCharUpdate}}();}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00062}00062\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledChar_8h_a03bbcc3394f632c7ca375b4ef75b42e4}{OledPutChar}}(\textcolor{keywordtype}{char}\ ch);}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00063}00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledChar_8h_ab674cfca43bece7efc51eb24c061cbd3}{OledPutString}}(\textcolor{keywordtype}{char}\ *\ sz);}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00065}00065\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00067}00067\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{OledChar_8h_source_l00069}00069\ \textcolor{comment}{/************************************************************************/}}
+
+\end{DoxyCode}

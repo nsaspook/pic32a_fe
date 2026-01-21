@@ -1,0 +1,1142 @@
+\doxysection{Oled\+Grph.\+c}
+\hypertarget{OledGrph_8c_source}{}\label{OledGrph_8c_source}\index{src/lcd\_drv/OledGrph.c@{src/lcd\_drv/OledGrph.c}}
+\mbox{\hyperlink{OledGrph_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00001}00001\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ OledGrph.c\ \ -\/-\/\ \ OLED\ Display\ Graphics\ Routines\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00005}00005\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00006}00006\ \textcolor{comment}{/*\ \ Author:\ \ \ \ \ Gene\ Apperson\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00007}00007\ \textcolor{comment}{/*\ \ Copyright\ 2011,\ Digilent\ Inc.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00008}00008\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00009}00009\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00010}00010\ \textcolor{comment}{\ \ This\ library\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00011}00011\ \textcolor{comment}{\ \ modify\ it\ under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00012}00012\ \textcolor{comment}{\ \ License\ as\ published\ by\ the\ Free\ Software\ Foundation;\ either}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00013}00013\ \textcolor{comment}{\ \ version\ 2.1\ of\ the\ License,\ or\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00014}00014\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00015}00015\ \textcolor{comment}{\ \ This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00016}00016\ \textcolor{comment}{\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00017}00017\ \textcolor{comment}{\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00018}00018\ \textcolor{comment}{\ \ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00019}00019\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00020}00020\ \textcolor{comment}{\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00021}00021\ \textcolor{comment}{\ \ License\ along\ with\ this\ library;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00022}00022\ \textcolor{comment}{\ \ Foundation,\ Inc.,\ 51\ Franklin\ St,\ Fifth\ Floor,\ Boston,\ MA\ \ 02110-\/1301\ \ USA}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00023}00023\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00024}00024\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00025}00025\ \textcolor{comment}{/*\ \ Module\ Description:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00026}00026\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00027}00027\ \textcolor{comment}{/*\ \ This\ module\ contains\ the\ implementation\ of\ the\ graphics\ functions\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00028}00028\ \textcolor{comment}{/*\ \ for\ the\ OLED\ display\ driver.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00029}00029\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00030}00030\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00031}00031\ \textcolor{comment}{/*\ \ Revision\ History:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00032}00032\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00033}00033\ \textcolor{comment}{/*\ \ 06/03/2011(GeneA):\ created\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00034}00034\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00035}00035\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00037}00037\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{OledGrph_8h}{OledGrph.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00038}00038\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00040}\mbox{\hyperlink{OledGrph_8c_a85a92b2266c5abbb4f4b5c7abb1946ef}{00040}}\ uint8\_t(*\mbox{\hyperlink{OledGrph_8c_a85a92b2266c5abbb4f4b5c7abb1946ef}{pfnDoRop}})(uint8\_t\ bPix,\ uint8\_t\ bDsp,\ uint8\_t\ mskPix);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00041}\mbox{\hyperlink{OledGrph_8c_ae21b7800aaa67dfa9c94fd3afec04488}{00041}}\ int32\_t\ \mbox{\hyperlink{OledGrph_8c_ae21b7800aaa67dfa9c94fd3afec04488}{modOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00043}00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_ad3f02c3a14e4d9ec11d1c3f5a0a5d13f}{OledMoveDown}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00044}00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_a48e16af9c911b96906e338b0229c2552}{OledMoveUp}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00045}00045\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_aaad60f722931ac3182eb2cf2b24ad4d1}{OledMoveRight}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00046}00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_adc85ba23f46969ae36db62e8982bdbae}{OledMoveLeft}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00047}00047\ uint8\_t\ \mbox{\hyperlink{OledGrph_8c_a05a32f96ab21e92bd9ef766fcca3fa1f}{OledRopSet}}(uint8\_t\ bPix,\ uint8\_t\ bDsp,\ uint8\_t\ mskPix);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00048}00048\ uint8\_t\ \mbox{\hyperlink{OledGrph_8c_ac7c87c852cf783c0e16d55822f91f5e4}{OledRopOr}}(uint8\_t\ bPix,\ uint8\_t\ bDsp,\ uint8\_t\ mskPix);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00049}00049\ uint8\_t\ \mbox{\hyperlink{OledGrph_8c_accb3fe4ce133315190bfaa58d7d23561}{OledRopAnd}}(uint8\_t\ bPix,\ uint8\_t\ bDsp,\ uint8\_t\ mskPix);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00050}00050\ uint8\_t\ \mbox{\hyperlink{OledGrph_8c_a3a4fcc23c3f7f0ef7fb968b24373b964}{OledRopXor}}(uint8\_t\ bPix,\ uint8\_t\ bDsp,\ uint8\_t\ mskPix);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00051}00051\ int32\_t\ \mbox{\hyperlink{OledGrph_8c_ab94975bcf673ab1cd9bc2f0100cdb029}{OledClampXco}}(int32\_t\ xco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00052}00052\ int32\_t\ \mbox{\hyperlink{OledGrph_8c_ae3da90227578d2f5ea4c8c7fcbae4632}{OledClampYco}}(int32\_t\ yco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00054}00054\ \textcolor{comment}{/***\ \ \ \ OledMoveTo}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00055}00055\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00056}00056\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00057}00057\ \textcolor{comment}{\ **\ \ \ \ \ xco\ \ \ \ \ \ \ \ \ -\/\ x\ coordinate}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00058}00058\ \textcolor{comment}{\ **\ \ \ \ \ yco\ \ \ \ \ \ \ \ \ -\/\ y\ coordinate}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00059}00059\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00060}00060\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00061}00061\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00062}00062\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00063}00063\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00064}00064\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00065}00065\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00066}00066\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00067}00067\ \textcolor{comment}{\ **\ \ \ \ \ Set\ the\ current\ graphics\ drawing\ position.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00068}00068\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00070}\mbox{\hyperlink{OledGrph_8c_aaaaa25deda6bd735234ff6fc8764f330}{00070}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_aaaaa25deda6bd735234ff6fc8764f330}{OledMoveTo}}(int32\_t\ xco,\ int32\_t\ yco)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00071}00071\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00072}00072\ \ \ \ \ \textcolor{comment}{/*\ Clamp\ the\ specified\ coordinates\ to\ the\ display\ surface}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00073}00073\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00074}00074\ \ \ \ \ xco\ =\ \mbox{\hyperlink{OledGrph_8c_ab94975bcf673ab1cd9bc2f0100cdb029}{OledClampXco}}(xco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00075}00075\ \ \ \ \ yco\ =\ \mbox{\hyperlink{OledGrph_8c_ae3da90227578d2f5ea4c8c7fcbae4632}{OledClampYco}}(yco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00077}00077\ \ \ \ \ \textcolor{comment}{/*\ Save\ the\ current\ position.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00078}00078\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00079}00079\ \ \ \ \ \mbox{\hyperlink{OledChar_8h_aba2c26434c72817686c9aa23940621e4}{xcoOledCur}}\ =\ xco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00080}00080\ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a73468af1151bacd629a6873b9261e9cc}{ycoOledCur}}\ =\ yco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00082}00082\ \ \ \ \ \textcolor{comment}{/*\ Compute\ the\ display\ access\ parameters\ corresponding\ to}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00083}00083\ \textcolor{comment}{\ \ \ \ \ **\ the\ specified\ position.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00084}00084\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledDriver_8c_a43d6d693bb79ac33047e7ebc60c08b72}{disp\_frame}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ =\ \&\mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}}[((yco\ /\ 8)\ *\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}})\ +\ xco];}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00087}00087\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ =\ \&\mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}}[((yco\ /\ 8)\ *\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}})\ +\ xco];}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00089}00089\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00090}00090\ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a38730da0dc7102d6d531ccc7fa5b3fc4}{bnOledCur}}\ =\ yco\ \&\ 7;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00091}00091\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00093}00093\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00095}00095\ \textcolor{comment}{/***\ \ \ \ OledGetPos}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00096}00096\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00097}00097\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00098}00098\ \textcolor{comment}{\ **\ \ \ \ \ pxco\ \ \ \ -\/\ variable\ to\ receive\ x\ coordinate}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00099}00099\ \textcolor{comment}{\ **\ \ \ \ \ pyco\ \ \ \ -\/\ variable\ to\ receive\ y\ coordinate}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00100}00100\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00101}00101\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00102}00102\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00103}00103\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00104}00104\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00105}00105\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00106}00106\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00107}00107\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00108}00108\ \textcolor{comment}{\ **\ \ \ \ \ Fetch\ the\ current\ graphics\ drawing\ position}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00109}00109\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00111}\mbox{\hyperlink{OledGrph_8c_a389849d31ba5f4263c1e4c33ba4d6072}{00111}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_a389849d31ba5f4263c1e4c33ba4d6072}{OledGetPos}}(int32\_t\ *\ pxco,\ int32\_t\ *\ pyco)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00112}00112\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00113}00113\ \ \ \ \ *pxco\ =\ \mbox{\hyperlink{OledChar_8h_aba2c26434c72817686c9aa23940621e4}{xcoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00114}00114\ \ \ \ \ *pyco\ =\ \mbox{\hyperlink{OledChar_8h_a73468af1151bacd629a6873b9261e9cc}{ycoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00115}00115\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00117}00117\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00119}00119\ \textcolor{comment}{/***\ \ \ \ OledSetDrawColor}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00120}00120\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00121}00121\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00122}00122\ \textcolor{comment}{\ **\ \ \ \ \ clr\ \ \ \ \ -\/\ drawing\ color\ to\ set}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00123}00123\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00124}00124\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00125}00125\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00126}00126\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00127}00127\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00128}00128\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00129}00129\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00130}00130\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00131}00131\ \textcolor{comment}{\ **\ \ \ \ \ Set\ the\ foreground\ color\ used\ for\ pixel\ draw\ operations.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00132}00132\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00134}\mbox{\hyperlink{OledGrph_8c_adb5685c4eae56199c19c0c72a810aa95}{00134}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_adb5685c4eae56199c19c0c72a810aa95}{OledSetDrawColor}}(uint8\_t\ clr)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00135}00135\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00136}00136\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_a15754096bf5303f0ac535d020b4021a0}{clrOledCur}}\ =\ clr\ \&\ 0x01;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00137}00137\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00139}00139\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00141}00141\ \textcolor{comment}{/***\ \ \ \ OledGetStdPattern}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00142}00142\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00143}00143\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00144}00144\ \textcolor{comment}{\ **\ \ \ \ \ ipat\ \ \ \ \ \ \ \ -\/\ index\ to\ standard\ fill\ pattern}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00145}00145\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00146}00146\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00147}00147\ \textcolor{comment}{\ **\ \ \ \ \ returns\ a\ pointer\ to\ the\ standard\ fill\ pattern}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00148}00148\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00149}00149\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00150}00150\ \textcolor{comment}{\ **\ \ \ \ \ returns\ pattern\ 0\ if\ index\ out\ of\ range}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00151}00151\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00152}00152\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00153}00153\ \textcolor{comment}{\ **\ \ \ \ \ Return\ a\ pointer\ to\ the\ byte\ array\ for\ the\ specified}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00154}00154\ \textcolor{comment}{\ **\ \ \ \ \ standard\ fill\ pattern.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00155}00155\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00157}\mbox{\hyperlink{OledGrph_8c_a1d79a8b82b9e29ddb070cedb1c745279}{00157}}\ uint8\_t\ *\ \mbox{\hyperlink{OledGrph_8c_a1d79a8b82b9e29ddb070cedb1c745279}{OledGetStdPattern}}(int32\_t\ ipat)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00158}00158\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00159}00159\ \ \ \ \ \textcolor{keywordflow}{return}(uint8\_t\ *)\ \mbox{\hyperlink{FillPat_8c_a553f61aff53e2ea39ebd64db6d225e8a}{rgbFillPat}}\ +\ 8\ *\ ipat;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00160}00160\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00162}00162\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00164}00164\ \textcolor{comment}{/***\ \ \ \ OledSetFillPattern}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00165}00165\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00166}00166\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00167}00167\ \textcolor{comment}{\ **\ \ \ \ \ pbPat\ \ \ -\/\ pointer\ to\ the\ fill\ pattern}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00168}00168\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00169}00169\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00170}00170\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00171}00171\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00172}00172\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00173}00173\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00174}00174\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00175}00175\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00176}00176\ \textcolor{comment}{\ **\ \ \ \ \ Set\ a\ pointer\ to\ the\ current\ fill\ pattern\ to\ use.\ A\ fill}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00177}00177\ \textcolor{comment}{\ **\ \ \ \ \ pattern\ is\ an\ array\ of\ 8\ bytes.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00178}00178\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00180}\mbox{\hyperlink{OledGrph_8c_aff53f837d4fc21314818b1743821ce9f}{00180}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_aff53f837d4fc21314818b1743821ce9f}{OledSetFillPattern}}(uint8\_t\ *\ pbPat)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00181}00181\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00182}00182\ \ \ \ \ \mbox{\hyperlink{OledDriver_8c_a184e6fd0c5c99f06cd3d632b4c123068}{pbOledPatCur}}\ =\ pbPat;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00183}00183\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00185}00185\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00187}00187\ \textcolor{comment}{/***\ \ \ \ OledSetDrawMode}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00188}00188\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00189}00189\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00190}00190\ \textcolor{comment}{\ **\ \ \ \ \ mod\ \ \ \ \ -\/\ drawing\ mode\ to\ select}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00191}00191\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00192}00192\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00193}00193\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00194}00194\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00195}00195\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00196}00196\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00197}00197\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00198}00198\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00199}00199\ \textcolor{comment}{\ **\ \ \ \ \ Set\ the\ specified\ mode\ as\ the\ current\ drawing\ mode.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00200}00200\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00202}\mbox{\hyperlink{OledGrph_8c_a8201d9bbc776be2a7fc5d57f9a58e07c}{00202}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_a8201d9bbc776be2a7fc5d57f9a58e07c}{OledSetDrawMode}}(int32\_t\ mod)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00203}00203\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00204}00204\ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_ae21b7800aaa67dfa9c94fd3afec04488}{modOledCur}}\ =\ mod;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00206}00206\ \ \ \ \ \textcolor{keywordflow}{switch}\ (mod)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00207}00207\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{OledDriver_8h_a9128c67fb83b328b70fbb230caf303be}{modOledSet}}:}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00208}00208\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_a85a92b2266c5abbb4f4b5c7abb1946ef}{pfnDoRop}}\ =\ \mbox{\hyperlink{OledGrph_8c_a05a32f96ab21e92bd9ef766fcca3fa1f}{OledRopSet}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00209}00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00211}00211\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{OledDriver_8h_addc67f4a2ffdc0fb7be6c78334ab9c0a}{modOledOr}}:}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_a85a92b2266c5abbb4f4b5c7abb1946ef}{pfnDoRop}}\ =\ \mbox{\hyperlink{OledGrph_8c_ac7c87c852cf783c0e16d55822f91f5e4}{OledRopOr}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00213}00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00215}00215\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{OledDriver_8h_a4e018ab2a983107f4afab9a30aa19f37}{modOledAnd}}:}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_a85a92b2266c5abbb4f4b5c7abb1946ef}{pfnDoRop}}\ =\ \mbox{\hyperlink{OledGrph_8c_accb3fe4ce133315190bfaa58d7d23561}{OledRopAnd}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00218}00218\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00219}00219\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{OledDriver_8h_a9bd1a17559010159535109b2c1de5fa8}{modOledXor}}:}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00220}00220\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_a85a92b2266c5abbb4f4b5c7abb1946ef}{pfnDoRop}}\ =\ \mbox{\hyperlink{OledGrph_8c_a3a4fcc23c3f7f0ef7fb968b24373b964}{OledRopXor}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00223}00223\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00224}00224\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_ae21b7800aaa67dfa9c94fd3afec04488}{modOledCur}}\ =\ \mbox{\hyperlink{OledDriver_8h_a9128c67fb83b328b70fbb230caf303be}{modOledSet}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00225}00225\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_a85a92b2266c5abbb4f4b5c7abb1946ef}{pfnDoRop}}\ =\ \mbox{\hyperlink{OledGrph_8c_a05a32f96ab21e92bd9ef766fcca3fa1f}{OledRopSet}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00226}00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00227}00227\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00228}00228\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00230}00230\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00232}00232\ \textcolor{comment}{/***\ \ \ \ OledGetDrawMode}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00233}00233\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00234}00234\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00235}00235\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00236}00236\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00237}00237\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00238}00238\ \textcolor{comment}{\ **\ \ \ \ \ returns\ current\ drawing\ mode}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00239}00239\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00240}00240\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00241}00241\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00242}00242\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00243}00243\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00244}00244\ \textcolor{comment}{\ **\ \ \ \ \ Get\ the\ current\ drawing\ mode}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00245}00245\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00247}\mbox{\hyperlink{OledGrph_8c_a6892d31b9b6a7570f7cee837662290a8}{00247}}\ int32\_t\ \mbox{\hyperlink{OledGrph_8c_a6892d31b9b6a7570f7cee837662290a8}{OledGetDrawMode}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00248}00248\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00249}00249\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{OledGrph_8c_ae21b7800aaa67dfa9c94fd3afec04488}{modOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00250}00250\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00252}00252\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00254}00254\ \textcolor{comment}{/***\ \ \ \ OledDrawPixel}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00255}00255\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00256}00256\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00257}00257\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00258}00258\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00259}00259\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00260}00260\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00261}00261\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00262}00262\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00263}00263\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00264}00264\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00265}00265\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00266}00266\ \textcolor{comment}{\ **\ \ \ \ \ Set\ the\ pixel\ at\ the\ current\ drawing\ location\ to\ the}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00267}00267\ \textcolor{comment}{\ **\ \ \ \ \ specified\ value.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00268}00268\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00270}\mbox{\hyperlink{OledGrph_8c_a092e1531d811ef3ede5918885639a588}{00270}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_a092e1531d811ef3ede5918885639a588}{OledDrawPixel}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00271}00271\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00272}00272\ \ \ \ \ *\mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ =\ (*pfnDoRop)((\mbox{\hyperlink{OledDriver_8c_a15754096bf5303f0ac535d020b4021a0}{clrOledCur}}\ <<\ \mbox{\hyperlink{OledChar_8h_a38730da0dc7102d6d531ccc7fa5b3fc4}{bnOledCur}}),\ *\mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}},\ (1\ <<\ \mbox{\hyperlink{OledChar_8h_a38730da0dc7102d6d531ccc7fa5b3fc4}{bnOledCur}}));}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00273}00273\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00275}00275\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00277}00277\ \textcolor{comment}{/***\ \ \ \ OledGetPixel}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00278}00278\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00279}00279\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00280}00280\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00281}00281\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00282}00282\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00283}00283\ \textcolor{comment}{\ **\ \ \ \ \ returns\ pixel\ value\ at\ current\ drawing\ location}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00284}00284\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00285}00285\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00286}00286\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00287}00287\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00288}00288\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00289}00289\ \textcolor{comment}{\ **\ \ \ \ \ Return\ the\ value\ of\ the\ pixel\ at\ the\ current\ drawing\ location}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00290}00290\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00291}00291\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00292}\mbox{\hyperlink{OledGrph_8c_ad1f8ca5fb5bfbe205cb3a71458af9a55}{00292}}\ uint8\_t\ \mbox{\hyperlink{OledGrph_8c_ad1f8ca5fb5bfbe205cb3a71458af9a55}{OledGetPixel}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00293}00293\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00294}00294\ \ \ \ \ \textcolor{keywordflow}{return}(*\mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ \&\ (1\ <<\ \mbox{\hyperlink{OledChar_8h_a38730da0dc7102d6d531ccc7fa5b3fc4}{bnOledCur}}))\ !=\ 0\ ?\ 1\ :\ 0;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00295}00295\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00297}00297\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00299}00299\ \textcolor{comment}{/***\ \ \ \ OledLineTo}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00300}00300\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00301}00301\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00302}00302\ \textcolor{comment}{\ **\ \ \ \ \ xco\ \ \ \ \ \ \ \ \ -\/\ x\ coordinate}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00303}00303\ \textcolor{comment}{\ **\ \ \ \ \ yco\ \ \ \ \ \ \ \ \ -\/\ y\ coordinate}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00304}00304\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00305}00305\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00306}00306\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00307}00307\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00308}00308\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00309}00309\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00310}00310\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00311}00311\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00312}00312\ \textcolor{comment}{\ **\ \ \ \ \ Draw\ a\ line\ from\ the\ current\ position\ to\ the\ specified}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00313}00313\ \textcolor{comment}{\ **\ \ \ \ \ position.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00314}00314\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00316}\mbox{\hyperlink{OledGrph_8c_afaf4173abdcaa7b3ed06037b9d400b94}{00316}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_afaf4173abdcaa7b3ed06037b9d400b94}{OledLineTo}}(int32\_t\ xco,\ int32\_t\ yco)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00317}00317\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00318}00318\ \ \ \ \ int32\_t\ err;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00319}00319\ \ \ \ \ int32\_t\ del;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00320}00320\ \ \ \ \ int32\_t\ lim;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00321}00321\ \ \ \ \ int32\_t\ cpx;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00322}00322\ \ \ \ \ int32\_t\ dxco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00323}00323\ \ \ \ \ int32\_t\ dyco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00324}00324\ \ \ \ \ void\ (*pfnMajor)(void);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00325}00325\ \ \ \ \ void\ (*pfnMinor)(void);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00327}00327\ \ \ \ \ \textcolor{comment}{/*\ Clamp\ the\ point\ to\ be\ on\ the\ display.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00328}00328\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00329}00329\ \ \ \ \ xco\ =\ \mbox{\hyperlink{OledGrph_8c_ab94975bcf673ab1cd9bc2f0100cdb029}{OledClampXco}}(xco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00330}00330\ \ \ \ \ yco\ =\ \mbox{\hyperlink{OledGrph_8c_ae3da90227578d2f5ea4c8c7fcbae4632}{OledClampYco}}(yco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00331}00331\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00332}00332\ \ \ \ \ \textcolor{comment}{/*\ Determine\ which\ octant\ the\ line\ occupies}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00333}00333\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00334}00334\ \ \ \ \ dxco\ =\ xco\ -\/\ \mbox{\hyperlink{OledChar_8h_aba2c26434c72817686c9aa23940621e4}{xcoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00335}00335\ \ \ \ \ dyco\ =\ yco\ -\/\ \mbox{\hyperlink{OledChar_8h_a73468af1151bacd629a6873b9261e9cc}{ycoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00336}00336\ \ \ \ \ \textcolor{keywordflow}{if}\ (labs(dxco)\ >=\ labs(dyco))\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00337}00337\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Line\ is\ x-\/major}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00338}00338\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00339}00339\ \ \ \ \ \ \ \ \ lim\ =\ labs(dxco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00340}00340\ \ \ \ \ \ \ \ \ del\ =\ labs(dyco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00341}00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dxco\ >=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ pfnMajor\ =\ \mbox{\hyperlink{OledGrph_8c_aaad60f722931ac3182eb2cf2b24ad4d1}{OledMoveRight}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00343}00343\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00344}00344\ \ \ \ \ \ \ \ \ \ \ \ \ pfnMajor\ =\ \mbox{\hyperlink{OledGrph_8c_adc85ba23f46969ae36db62e8982bdbae}{OledMoveLeft}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00345}00345\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00346}00346\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00347}00347\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dyco\ >=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ pfnMinor\ =\ \mbox{\hyperlink{OledGrph_8c_ad3f02c3a14e4d9ec11d1c3f5a0a5d13f}{OledMoveDown}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00349}00349\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ pfnMinor\ =\ \mbox{\hyperlink{OledGrph_8c_a48e16af9c911b96906e338b0229c2552}{OledMoveUp}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00351}00351\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00352}00352\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00353}00353\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Line\ is\ y-\/major}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00354}00354\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00355}00355\ \ \ \ \ \ \ \ \ lim\ =\ labs(dyco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00356}00356\ \ \ \ \ \ \ \ \ del\ =\ labs(dxco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00357}00357\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dyco\ >=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00358}00358\ \ \ \ \ \ \ \ \ \ \ \ \ pfnMajor\ =\ \mbox{\hyperlink{OledGrph_8c_ad3f02c3a14e4d9ec11d1c3f5a0a5d13f}{OledMoveDown}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00359}00359\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \ \ pfnMajor\ =\ \mbox{\hyperlink{OledGrph_8c_a48e16af9c911b96906e338b0229c2552}{OledMoveUp}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00361}00361\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00362}00362\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00363}00363\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dxco\ >=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00364}00364\ \ \ \ \ \ \ \ \ \ \ \ \ pfnMinor\ =\ \mbox{\hyperlink{OledGrph_8c_aaad60f722931ac3182eb2cf2b24ad4d1}{OledMoveRight}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00365}00365\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ pfnMinor\ =\ \mbox{\hyperlink{OledGrph_8c_adc85ba23f46969ae36db62e8982bdbae}{OledMoveLeft}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00367}00367\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00368}00368\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00370}00370\ \ \ \ \ \textcolor{comment}{/*\ Render\ the\ line.\ The\ algorithm\ is:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00371}00371\ \textcolor{comment}{\ \ \ \ \ **\ \ \ \ \ Write\ the\ current\ pixel}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00372}00372\ \textcolor{comment}{\ \ \ \ \ **\ \ \ \ \ Move\ one\ pixel\ on\ the\ major\ axis}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00373}00373\ \textcolor{comment}{\ \ \ \ \ **\ \ \ \ \ Add\ the\ minor\ axis\ delta\ to\ the\ error\ accumulator}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00374}00374\ \textcolor{comment}{\ \ \ \ \ **\ \ \ \ \ if\ the\ error\ accumulator\ is\ greater\ than\ the\ major\ axis\ delta}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00375}00375\ \textcolor{comment}{\ \ \ \ \ **\ \ \ \ \ \ \ \ \ Move\ one\ pixel\ in\ the\ minor\ axis}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00376}00376\ \textcolor{comment}{\ \ \ \ \ **\ \ \ \ \ \ \ \ \ Subtract\ major\ axis\ delta\ from\ error\ accumulator}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00377}00377\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00378}00378\ \ \ \ \ err\ =\ lim\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00379}00379\ \ \ \ \ cpx\ =\ lim;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00380}00380\ \ \ \ \ \textcolor{keywordflow}{while}\ (cpx\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00381}00381\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_a092e1531d811ef3ede5918885639a588}{OledDrawPixel}}();}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00382}00382\ \ \ \ \ \ \ \ \ (*pfnMajor)();}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00383}00383\ \ \ \ \ \ \ \ \ err\ +=\ del;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00384}00384\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (err\ >\ lim)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00385}00385\ \ \ \ \ \ \ \ \ \ \ \ \ err\ -\/=\ lim;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00386}00386\ \ \ \ \ \ \ \ \ \ \ \ \ (*pfnMinor)();}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00387}00387\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00388}00388\ \ \ \ \ \ \ \ \ cpx\ -\/=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00389}00389\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00391}00391\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ current\ location\ variables.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00392}00392\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00393}00393\ \ \ \ \ \mbox{\hyperlink{OledChar_8h_aba2c26434c72817686c9aa23940621e4}{xcoOledCur}}\ =\ xco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00394}00394\ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a73468af1151bacd629a6873b9261e9cc}{ycoOledCur}}\ =\ yco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00395}00395\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00396}00396\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00397}00397\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00398}00398\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00399}00399\ \textcolor{comment}{/***\ \ \ \ OledDrawRect}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00400}00400\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00401}00401\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00402}00402\ \textcolor{comment}{\ **\ \ \ \ \ xco\ \ \ \ \ -\/\ x\ coordinate\ of\ other\ corner}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00403}00403\ \textcolor{comment}{\ **\ \ \ \ \ yco\ \ \ \ \ -\/\ y\ coordinate\ of\ other\ corner}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00404}00404\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00405}00405\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00406}00406\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00407}00407\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00408}00408\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00409}00409\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00410}00410\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00411}00411\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00412}00412\ \textcolor{comment}{\ **\ \ \ \ \ Draw\ a\ rectangle\ bounded\ by\ the\ current\ location\ and}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00413}00413\ \textcolor{comment}{\ **\ \ \ \ \ the\ specified\ location.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00414}00414\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00415}00415\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00416}\mbox{\hyperlink{OledGrph_8c_a81a4711526d3798c9d0293ec96569c95}{00416}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_a81a4711526d3798c9d0293ec96569c95}{OledDrawRect}}(int32\_t\ xco,\ int32\_t\ yco)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00417}00417\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00418}00418\ \ \ \ \ int32\_t\ xco1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00419}00419\ \ \ \ \ int32\_t\ yco1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00420}00420\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00421}00421\ \ \ \ \ \textcolor{comment}{/*\ Clamp\ the\ point\ to\ be\ on\ the\ display.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00422}00422\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00423}00423\ \ \ \ \ xco\ =\ \mbox{\hyperlink{OledGrph_8c_ab94975bcf673ab1cd9bc2f0100cdb029}{OledClampXco}}(xco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00424}00424\ \ \ \ \ yco\ =\ \mbox{\hyperlink{OledGrph_8c_ae3da90227578d2f5ea4c8c7fcbae4632}{OledClampYco}}(yco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00425}00425\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00426}00426\ \ \ \ \ xco1\ =\ \mbox{\hyperlink{OledChar_8h_aba2c26434c72817686c9aa23940621e4}{xcoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00427}00427\ \ \ \ \ yco1\ =\ \mbox{\hyperlink{OledChar_8h_a73468af1151bacd629a6873b9261e9cc}{ycoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00428}00428\ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_afaf4173abdcaa7b3ed06037b9d400b94}{OledLineTo}}(xco,\ yco1);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00429}00429\ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_afaf4173abdcaa7b3ed06037b9d400b94}{OledLineTo}}(xco,\ yco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00430}00430\ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_afaf4173abdcaa7b3ed06037b9d400b94}{OledLineTo}}(xco1,\ yco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00431}00431\ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_afaf4173abdcaa7b3ed06037b9d400b94}{OledLineTo}}(xco1,\ yco1);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00432}00432\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00433}00433\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00434}00434\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00435}00435\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00436}00436\ \textcolor{comment}{/***\ \ \ \ OledFillRect}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00437}00437\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00438}00438\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00439}00439\ \textcolor{comment}{\ **\ \ \ \ \ xco\ \ \ \ \ -\/\ x\ coordinate\ of\ other\ corner}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00440}00440\ \textcolor{comment}{\ **\ \ \ \ \ yco\ \ \ \ \ -\/\ y\ coordinate\ of\ other\ corner}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00441}00441\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00442}00442\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00443}00443\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00444}00444\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00445}00445\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00446}00446\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00447}00447\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00448}00448\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00449}00449\ \textcolor{comment}{\ **\ \ \ \ \ Fill\ a\ rectangle\ bounded\ by\ the\ current\ location\ and}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00450}00450\ \textcolor{comment}{\ **\ \ \ \ \ the\ specified\ location.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00451}00451\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00452}00452\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00453}\mbox{\hyperlink{OledGrph_8c_a1fe2c0db47db4779c4be66775b17e842}{00453}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_a1fe2c0db47db4779c4be66775b17e842}{OledFillRect}}(int32\_t\ xco,\ int32\_t\ yco)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00454}00454\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00455}00455\ \ \ \ \ int32\_t\ xcoLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00456}00456\ \ \ \ \ int32\_t\ xcoRight;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00457}00457\ \ \ \ \ int32\_t\ ycoTop;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00458}00458\ \ \ \ \ int32\_t\ ycoBottom;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00459}00459\ \ \ \ \ int32\_t\ ibPat;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00460}00460\ \ \ \ \ uint8\_t\ *\ pbCur;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00461}00461\ \ \ \ \ uint8\_t\ *\ pbLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00462}00462\ \ \ \ \ int32\_t\ xcoCur;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00463}00463\ \ \ \ \ uint8\_t\ mskPat;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00464}00464\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00465}00465\ \ \ \ \ \textcolor{comment}{/*\ Clamp\ the\ point\ to\ be\ on\ the\ display.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00466}00466\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00467}00467\ \ \ \ \ xco\ =\ \mbox{\hyperlink{OledGrph_8c_ab94975bcf673ab1cd9bc2f0100cdb029}{OledClampXco}}(xco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00468}00468\ \ \ \ \ yco\ =\ \mbox{\hyperlink{OledGrph_8c_ae3da90227578d2f5ea4c8c7fcbae4632}{OledClampYco}}(yco);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00469}00469\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00470}00470\ \ \ \ \ \textcolor{comment}{/*\ Set\ up\ the\ four\ sides\ of\ the\ rectangle.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00471}00471\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00472}00472\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledChar_8h_aba2c26434c72817686c9aa23940621e4}{xcoOledCur}}\ <\ xco)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00473}00473\ \ \ \ \ \ \ \ \ xcoLeft\ =\ \mbox{\hyperlink{OledChar_8h_aba2c26434c72817686c9aa23940621e4}{xcoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00474}00474\ \ \ \ \ \ \ \ \ xcoRight\ =\ xco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00475}00475\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00476}00476\ \ \ \ \ \ \ \ \ xcoLeft\ =\ xco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00477}00477\ \ \ \ \ \ \ \ \ xcoRight\ =\ \mbox{\hyperlink{OledChar_8h_aba2c26434c72817686c9aa23940621e4}{xcoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00478}00478\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00479}00479\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00480}00480\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledChar_8h_a73468af1151bacd629a6873b9261e9cc}{ycoOledCur}}\ <\ yco)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00481}00481\ \ \ \ \ \ \ \ \ ycoTop\ =\ \mbox{\hyperlink{OledChar_8h_a73468af1151bacd629a6873b9261e9cc}{ycoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00482}00482\ \ \ \ \ \ \ \ \ ycoBottom\ =\ yco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00483}00483\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00484}00484\ \ \ \ \ \ \ \ \ ycoTop\ =\ yco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00485}00485\ \ \ \ \ \ \ \ \ ycoBottom\ =\ \mbox{\hyperlink{OledChar_8h_a73468af1151bacd629a6873b9261e9cc}{ycoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00486}00486\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00487}00487\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00488}00488\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00489}00489\ \ \ \ \ \textcolor{keywordflow}{while}\ (ycoTop\ <=\ ycoBottom)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00490}00490\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Compute\ the\ address\ of\ the\ left\ edge\ of\ the\ rectangle\ for\ this}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00491}00491\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ **\ stripe\ across\ the\ rectangle.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00492}00492\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00493}00493\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledDriver_8c_a43d6d693bb79ac33047e7ebc60c08b72}{disp\_frame}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00494}00494\ \ \ \ \ \ \ \ \ \ \ \ \ pbLeft\ =\ \&\mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}}[((ycoTop\ /\ 8)\ *\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}})\ +\ xcoLeft];}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00495}00495\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00496}00496\ \ \ \ \ \ \ \ \ \ \ \ \ pbLeft\ =\ \&\mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}}[((ycoTop\ /\ 8)\ *\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}})\ +\ xcoLeft];}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00497}00497\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00498}00498\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00499}00499\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Generate\ a\ mask\ to\ preserve\ any\ low\ bits\ in\ the\ byte\ that\ aren't}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00500}00500\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ **\ part\ of\ the\ rectangle\ being\ filled.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00501}00501\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00502}00502\ \ \ \ \ \ \ \ \ mskPat\ =\ (1\ <<\ (ycoTop\ \&\ 0x07))\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00503}00503\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00504}00504\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Combine\ with\ a\ mask\ to\ preserve\ any\ upper\ bits\ in\ the\ byte\ that\ aren't}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00505}00505\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ **\ part\ of\ the\ rectangle\ being\ filled.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00506}00506\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ **\ This\ mask\ will\ end\ up\ not\ preserving\ any\ bits\ for\ bytes\ that\ are\ in}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00507}00507\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ **\ the\ middle\ of\ the\ rectangle\ vertically.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00508}00508\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00509}00509\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((ycoTop\ /\ 8)\ ==\ (ycoBottom\ /\ 8))\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00510}00510\ \ \ \ \ \ \ \ \ \ \ \ \ mskPat\ |=\ \string~((1\ <<\ ((ycoBottom\ \&\ 0x07)\ +\ 1))\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00511}00511\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00512}00512\ \ \ \ \ \ \ \ \ ibPat\ =\ xcoLeft\ \&\ 0x07;\ \textcolor{comment}{//index\ to\ first\ pattern\ byte}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00513}00513\ \ \ \ \ \ \ \ \ xcoCur\ =\ xcoLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00514}00514\ \ \ \ \ \ \ \ \ pbCur\ =\ pbLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00515}00515\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00516}00516\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Loop\ through\ all\ of\ the\ bytes\ horizontally\ making\ up\ this\ stripe}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00517}00517\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ **\ of\ the\ rectangle.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00518}00518\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00519}00519\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (xcoCur\ <=\ xcoRight)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00520}00520\ \ \ \ \ \ \ \ \ \ \ \ \ *pbCur\ =\ (*pfnDoRop)(*(\mbox{\hyperlink{OledDriver_8c_a184e6fd0c5c99f06cd3d632b4c123068}{pbOledPatCur}}\ +\ ibPat),\ *pbCur,\ \string~mskPat);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00521}00521\ \ \ \ \ \ \ \ \ \ \ \ \ xcoCur\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00522}00522\ \ \ \ \ \ \ \ \ \ \ \ \ pbCur\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00523}00523\ \ \ \ \ \ \ \ \ \ \ \ \ ibPat\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00524}00524\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ibPat\ >\ 7)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00525}00525\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ibPat\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00526}00526\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00527}00527\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00528}00528\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Advance\ to\ the\ next\ horizontal\ stripe.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00529}00529\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00530}00530\ \ \ \ \ \ \ \ \ ycoTop\ =\ 8\ *\ ((ycoTop\ /\ 8)\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00531}00531\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00532}00532\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00533}00533\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00534}00534\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00535}00535\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00536}00536\ \textcolor{comment}{/***\ \ \ \ OledGetBmp}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00537}00537\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00538}00538\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00539}00539\ \textcolor{comment}{\ **\ \ \ \ \ dxco\ \ \ \ \ \ \ \ -\/\ width\ of\ bitmap}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00540}00540\ \textcolor{comment}{\ **\ \ \ \ \ dyco\ \ \ \ \ \ \ \ -\/\ height\ of\ bitmap}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00541}00541\ \textcolor{comment}{\ **\ \ \ \ \ pbBits\ \ \ \ \ \ -\/\ pointer\ to\ the\ bitmap\ bits\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00542}00542\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00543}00543\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00544}00544\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00545}00545\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00546}00546\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00547}00547\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00548}00548\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00549}00549\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00550}00550\ \textcolor{comment}{\ **\ \ \ \ \ This\ routine\ will\ get\ the\ bits\ corresponding\ to\ the}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00551}00551\ \textcolor{comment}{\ **\ \ \ \ \ rectangle\ implied\ by\ the\ current\ location\ and\ the}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00552}00552\ \textcolor{comment}{\ **\ \ \ \ \ specified\ width\ and\ height.\ The\ buffer\ specified}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00553}00553\ \textcolor{comment}{\ **\ \ \ \ \ by\ pbBits\ must\ be\ large\ enough\ to\ hold\ the\ resulting}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00554}00554\ \textcolor{comment}{\ **\ \ \ \ \ bytes.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00555}00555\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00556}00556\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00557}\mbox{\hyperlink{OledGrph_8c_ae2cbbe0aa06d6b59799dda16f002d554}{00557}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_ae2cbbe0aa06d6b59799dda16f002d554}{OledGetBmp}}(int32\_t\ dxco,\ int32\_t\ dyco,\ uint8\_t\ *\ pbBits)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00558}00558\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00559}00559\ \ \ \ \ int32\_t\ xcoLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00560}00560\ \ \ \ \ int32\_t\ xcoRight;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00561}00561\ \ \ \ \ int32\_t\ ycoTop;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00562}00562\ \ \ \ \ int32\_t\ ycoBottom;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00563}00563\ \ \ \ \ uint8\_t\ *\ pbDspCur;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00564}00564\ \ \ \ \ uint8\_t\ *\ pbDspLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00565}00565\ \ \ \ \ uint8\_t\ *\ pbBmpCur;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00566}00566\ \ \ \ \ uint8\_t\ *\ pbBmpLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00567}00567\ \ \ \ \ int32\_t\ xcoCur;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00568}00568\ \ \ \ \ int32\_t\ bnAlign;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00569}00569\ \ \ \ \ uint8\_t\ mskEnd;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00570}00570\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00571}00571\ \ \ \ \ \textcolor{comment}{/*\ Set\ up\ the\ four\ sides\ of\ the\ source\ rectangle.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00572}00572\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00573}00573\ \ \ \ \ xcoLeft\ =\ \mbox{\hyperlink{OledChar_8h_aba2c26434c72817686c9aa23940621e4}{xcoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00574}00574\ \ \ \ \ xcoRight\ =\ xcoLeft\ +\ dxco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00575}00575\ \ \ \ \ \textcolor{keywordflow}{if}\ (xcoRight\ >=\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00576}00576\ \ \ \ \ \ \ \ \ xcoRight\ =\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}}\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00577}00577\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00578}00578\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00579}00579\ \ \ \ \ ycoTop\ =\ \mbox{\hyperlink{OledChar_8h_a73468af1151bacd629a6873b9261e9cc}{ycoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00580}00580\ \ \ \ \ ycoBottom\ =\ ycoTop\ +\ dyco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00581}00581\ \ \ \ \ \textcolor{keywordflow}{if}\ (ycoBottom\ >=\ \mbox{\hyperlink{OledDriver_8h_aef3f6635387d347d272bbe5772b96da1}{crowOledMax}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00582}00582\ \ \ \ \ \ \ \ \ ycoBottom\ =\ \mbox{\hyperlink{OledDriver_8h_aef3f6635387d347d272bbe5772b96da1}{crowOledMax}}\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00583}00583\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00584}00584\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00585}00585\ \ \ \ \ bnAlign\ =\ ycoTop\ \&\ 0x07;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00586}00586\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledDriver_8c_a43d6d693bb79ac33047e7ebc60c08b72}{disp\_frame}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00587}00587\ \ \ \ \ \ \ \ \ pbDspLeft\ =\ \&\mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}}[((ycoTop\ /\ 8)\ *\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}})\ +\ xcoLeft];}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00588}00588\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00589}00589\ \ \ \ \ \ \ \ \ pbDspLeft\ =\ \&\mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}}[((ycoTop\ /\ 8)\ *\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}})\ +\ xcoLeft];}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00590}00590\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00591}00591\ \ \ \ \ pbBmpLeft\ =\ pbBits;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00592}00592\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00593}00593\ \ \ \ \ \textcolor{keywordflow}{while}\ (ycoTop\ <\ ycoBottom)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00594}00594\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00595}00595\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((ycoTop\ /\ 8)\ ==\ ((ycoBottom\ -\/\ 1)\ /\ 8))\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00596}00596\ \ \ \ \ \ \ \ \ \ \ \ \ mskEnd\ =\ ((1\ <<\ (((ycoBottom\ -\/\ 1)\&0x07)\ +\ 1))\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00597}00597\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00598}00598\ \ \ \ \ \ \ \ \ \ \ \ \ mskEnd\ =\ 0xFF;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00599}00599\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00600}00600\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00601}00601\ \ \ \ \ \ \ \ \ xcoCur\ =\ xcoLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00602}00602\ \ \ \ \ \ \ \ \ pbDspCur\ =\ pbDspLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00603}00603\ \ \ \ \ \ \ \ \ pbBmpCur\ =\ pbBmpLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00604}00604\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00605}00605\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Loop\ through\ all\ of\ the\ bytes\ horizontally\ making\ up\ this\ stripe}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00606}00606\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ **\ of\ the\ rectangle.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00607}00607\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00608}00608\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bnAlign\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00609}00609\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (xcoCur\ <\ xcoRight)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00610}00610\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *pbBmpCur\ =\ (*pbDspCur)\ \&\ mskEnd;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00611}00611\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xcoCur\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00612}00612\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbBmpCur\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00613}00613\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbDspCur\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00614}00614\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00615}00615\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00616}00616\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (xcoCur\ <\ xcoRight)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00617}00617\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ bTmp\ =\ *pbDspCur;}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00618}00618\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ bTmp\ =\ *(pbDspCur\ +\ ccolOledMax);}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00619}00619\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *pbBmpCur\ =\ ((*pbDspCur\ >>\ bnAlign)\ |}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00620}00620\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((*(pbDspCur\ +\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}}))\ <<\ (8\ -\/\ bnAlign)))\ \&\ mskEnd;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00621}00621\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xcoCur\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00622}00622\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbBmpCur\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00623}00623\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbDspCur\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00624}00624\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00625}00625\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00626}00626\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00627}00627\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Advance\ to\ the\ next\ horizontal\ stripe.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00628}00628\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00629}00629\ \ \ \ \ \ \ \ \ ycoTop\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00630}00630\ \ \ \ \ \ \ \ \ pbDspLeft\ +=\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00631}00631\ \ \ \ \ \ \ \ \ pbBmpLeft\ +=\ dxco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00632}00632\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00633}00633\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00634}00634\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00635}00635\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00636}00636\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00637}00637\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00638}00638\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00639}00639\ \textcolor{comment}{/***\ \ \ \ OledPutBmp}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00640}00640\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00641}00641\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00642}00642\ \textcolor{comment}{\ **\ \ \ \ \ dxco\ \ \ \ \ \ \ \ -\/\ width\ of\ bitmap}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00643}00643\ \textcolor{comment}{\ **\ \ \ \ \ dyco\ \ \ \ \ \ \ \ -\/\ height\ of\ bitmap}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00644}00644\ \textcolor{comment}{\ **\ \ \ \ \ pbBits\ \ \ \ \ \ -\/\ pointer\ to\ the\ bitmap\ bits\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00645}00645\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00646}00646\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00647}00647\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00648}00648\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00649}00649\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00650}00650\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00651}00651\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00652}00652\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00653}00653\ \textcolor{comment}{\ **\ \ \ \ \ This\ routine\ will\ put\ the\ specified\ bitmap\ into\ the\ display}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00654}00654\ \textcolor{comment}{\ **\ \ \ \ \ buffer\ at\ the\ current\ location.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00655}00655\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00656}00656\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00657}\mbox{\hyperlink{OledGrph_8c_a6771f12f02a21c47f7c4b00c5da7e3a1}{00657}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_a6771f12f02a21c47f7c4b00c5da7e3a1}{OledPutBmp}}(int32\_t\ dxco,\ int32\_t\ dyco,\ uint8\_t\ *\ pbBits)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00658}00658\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00659}00659\ \ \ \ \ int32\_t\ xcoLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00660}00660\ \ \ \ \ int32\_t\ xcoRight;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00661}00661\ \ \ \ \ int32\_t\ ycoTop;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00662}00662\ \ \ \ \ int32\_t\ ycoBottom;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00663}00663\ \ \ \ \ uint8\_t\ *\ pbDspCur;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00664}00664\ \ \ \ \ uint8\_t\ *\ pbDspLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00665}00665\ \ \ \ \ uint8\_t\ *\ pbBmpCur;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00666}00666\ \ \ \ \ uint8\_t\ *\ pbBmpLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00667}00667\ \ \ \ \ int32\_t\ xcoCur;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00668}00668\ \ \ \ \ uint8\_t\ bBmp;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00669}00669\ \ \ \ \ uint8\_t\ mskEnd;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00670}00670\ \ \ \ \ uint8\_t\ mskUpper;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00671}00671\ \ \ \ \ uint8\_t\ mskLower;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00672}00672\ \ \ \ \ int32\_t\ bnAlign;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00673}00673\ \ \ \ \ int32\_t\ fTop;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00674}00674\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00675}00675\ \ \ \ \ \textcolor{comment}{/*\ Set\ up\ the\ four\ sides\ of\ the\ destination\ rectangle.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00676}00676\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00677}00677\ \ \ \ \ xcoLeft\ =\ \mbox{\hyperlink{OledChar_8h_aba2c26434c72817686c9aa23940621e4}{xcoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00678}00678\ \ \ \ \ xcoRight\ =\ xcoLeft\ +\ dxco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00679}00679\ \ \ \ \ \textcolor{keywordflow}{if}\ (xcoRight\ >=\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00680}00680\ \ \ \ \ \ \ \ \ xcoRight\ =\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}}\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00681}00681\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00682}00682\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00683}00683\ \ \ \ \ ycoTop\ =\ \mbox{\hyperlink{OledChar_8h_a73468af1151bacd629a6873b9261e9cc}{ycoOledCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00684}00684\ \ \ \ \ ycoBottom\ =\ ycoTop\ +\ dyco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00685}00685\ \ \ \ \ \textcolor{keywordflow}{if}\ (ycoBottom\ >=\ \mbox{\hyperlink{OledDriver_8h_aef3f6635387d347d272bbe5772b96da1}{crowOledMax}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00686}00686\ \ \ \ \ \ \ \ \ ycoBottom\ =\ \mbox{\hyperlink{OledDriver_8h_aef3f6635387d347d272bbe5772b96da1}{crowOledMax}}\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00687}00687\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00688}00688\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00689}00689\ \ \ \ \ bnAlign\ =\ ycoTop\ \&\ 0x07;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00690}00690\ \ \ \ \ mskUpper\ =\ (1\ <<\ bnAlign)\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00691}00691\ \ \ \ \ mskLower\ =\ \string~mskUpper;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00692}00692\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledDriver_8c_a43d6d693bb79ac33047e7ebc60c08b72}{disp\_frame}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00693}00693\ \ \ \ \ \ \ \ \ pbDspLeft\ =\ \&\mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}}[((ycoTop\ /\ 8)\ *\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}})\ +\ xcoLeft];}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00694}00694\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00695}00695\ \ \ \ \ \ \ \ \ pbDspLeft\ =\ \&\mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}}[((ycoTop\ /\ 8)\ *\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}})\ +\ xcoLeft];}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00696}00696\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00697}00697\ \ \ \ \ pbBmpLeft\ =\ pbBits;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00698}00698\ \ \ \ \ fTop\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00699}00699\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00700}00700\ \ \ \ \ \textcolor{keywordflow}{while}\ (ycoTop\ <\ ycoBottom)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00701}00701\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Combine\ with\ a\ mask\ to\ preserve\ any\ upper\ bits\ in\ the\ byte\ that\ aren't}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00702}00702\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ **\ part\ of\ the\ rectangle\ being\ filled.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00703}00703\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ **\ This\ mask\ will\ end\ up\ not\ preserving\ any\ bits\ for\ bytes\ that\ are\ in}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00704}00704\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ **\ the\ middle\ of\ the\ rectangle\ vertically.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00705}00705\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00706}00706\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((ycoTop\ /\ 8)\ ==\ ((ycoBottom\ -\/\ 1)\ /\ 8))\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00707}00707\ \ \ \ \ \ \ \ \ \ \ \ \ mskEnd\ =\ ((1\ <<\ (((ycoBottom\ -\/\ 1)\&0x07)\ +\ 1))\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00708}00708\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00709}00709\ \ \ \ \ \ \ \ \ \ \ \ \ mskEnd\ =\ 0xFF;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00710}00710\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00711}00711\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fTop)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00712}00712\ \ \ \ \ \ \ \ \ \ \ \ \ mskEnd\ \&=\ \string~mskUpper;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00713}00713\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00714}00714\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00715}00715\ \ \ \ \ \ \ \ \ xcoCur\ =\ xcoLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00716}00716\ \ \ \ \ \ \ \ \ pbDspCur\ =\ pbDspLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00717}00717\ \ \ \ \ \ \ \ \ pbBmpCur\ =\ pbBmpLeft;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00718}00718\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00719}00719\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Loop\ through\ all\ of\ the\ bytes\ horizontally\ making\ up\ this\ stripe}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00720}00720\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ **\ of\ the\ rectangle.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00721}00721\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00722}00722\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bnAlign\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00723}00723\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (xcoCur\ <\ xcoRight)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00724}00724\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *pbDspCur\ =\ (*pfnDoRop)(*pbBmpCur,\ *pbDspCur,\ mskEnd);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00725}00725\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xcoCur\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00726}00726\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbDspCur\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00727}00727\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbBmpCur\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00728}00728\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00729}00729\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00730}00730\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (xcoCur\ <\ xcoRight)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00731}00731\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bBmp\ =\ ((*pbBmpCur)\ <<\ bnAlign);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00732}00732\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!fTop)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00733}00733\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bBmp\ |=\ ((*(pbBmpCur\ -\/\ dxco)\ >>\ (8\ -\/\ bnAlign))\ \&\ \string~mskLower);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00734}00734\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00735}00735\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bBmp\ \&=\ mskEnd;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00736}00736\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *pbDspCur\ =\ (*pfnDoRop)(bBmp,\ *pbDspCur,\ mskEnd);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00737}00737\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xcoCur\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00738}00738\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbDspCur\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00739}00739\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbBmpCur\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00740}00740\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00741}00741\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00742}00742\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00743}00743\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Advance\ to\ the\ next\ horizontal\ stripe.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00744}00744\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00745}00745\ \ \ \ \ \ \ \ \ ycoTop\ =\ 8\ *\ ((ycoTop\ /\ 8)\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00746}00746\ \ \ \ \ \ \ \ \ pbDspLeft\ +=\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00747}00747\ \ \ \ \ \ \ \ \ pbBmpLeft\ +=\ dxco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00748}00748\ \ \ \ \ \ \ \ \ fTop\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00749}00749\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00750}00750\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00751}00751\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00752}00752\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00753}00753\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00754}00754\ \textcolor{comment}{/***\ \ \ \ OledDrawChar}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00755}00755\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00756}00756\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00757}00757\ \textcolor{comment}{\ **\ \ \ \ \ ch\ \ \ \ \ \ \ \ \ \ -\/\ character\ to\ write\ to\ display}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00758}00758\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00759}00759\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00760}00760\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00761}00761\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00762}00762\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00763}00763\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00764}00764\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00765}00765\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00766}00766\ \textcolor{comment}{\ **\ \ \ \ \ Write\ the\ specified\ character\ to\ the\ display\ at\ the\ current}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00767}00767\ \textcolor{comment}{\ **\ \ \ \ \ cursor\ position\ and\ advance\ the\ cursor.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00768}00768\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00769}00769\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00770}\mbox{\hyperlink{OledGrph_8c_a4aea9704a3eecc7b78ba4eda883b7257}{00770}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_a4aea9704a3eecc7b78ba4eda883b7257}{OledDrawChar}}(\textcolor{keywordtype}{char}\ ch)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00771}00771\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00772}00772\ \ \ \ \ uint8\_t\ *\ pbFont;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00773}00773\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00774}00774\ \ \ \ \ \textcolor{keywordflow}{if}\ ((ch\ \&\ 0x80)\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00775}00775\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00776}00776\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00777}00777\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00778}00778\ \ \ \ \ \textcolor{keywordflow}{if}\ (ch\ <\ \mbox{\hyperlink{OledDriver_8h_a9e324336da0d4ad14b0672c5a167ffc1}{chOledUserMax}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00779}00779\ \ \ \ \ \ \ \ \ pbFont\ =\ \mbox{\hyperlink{OledChar_8h_a086d81ef12ef8daac41aa99368905473}{pbOledFontUser}}\ +\ ch*\mbox{\hyperlink{OledDriver_8h_aff992d945652fb2ff64d48b785431c3a}{cbOledChar}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00780}00780\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((ch\ \&\ 0x80)\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00781}00781\ \ \ \ \ \ \ \ \ pbFont\ =\ \mbox{\hyperlink{OledChar_8h_a0438ad9d3d66dc18d5e5e8235d9bd0c4}{pbOledFontCur}}\ +\ (ch\ -\/\ \mbox{\hyperlink{OledDriver_8h_a9e324336da0d4ad14b0672c5a167ffc1}{chOledUserMax}})\ *\ \mbox{\hyperlink{OledDriver_8h_aff992d945652fb2ff64d48b785431c3a}{cbOledChar}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00782}00782\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00783}00783\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00784}00784\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00785}00785\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00786}00786\ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_a6771f12f02a21c47f7c4b00c5da7e3a1}{OledPutBmp}}(\mbox{\hyperlink{OledChar_8h_aa573176e4a221cecf8eede784cc26421}{dxcoOledFontCur}},\ \mbox{\hyperlink{OledChar_8h_aaf58d5202e2b1db0bd83fc04e9196eac}{dycoOledFontCur}},\ pbFont);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00787}00787\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00788}00788\ \ \ \ \ \mbox{\hyperlink{OledChar_8h_aba2c26434c72817686c9aa23940621e4}{xcoOledCur}}\ +=\ \mbox{\hyperlink{OledChar_8h_aa573176e4a221cecf8eede784cc26421}{dxcoOledFontCur}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00789}00789\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00790}00790\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00791}00791\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00792}00792\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00793}00793\ \textcolor{comment}{/***\ \ \ \ OledDrawString}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00794}00794\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00795}00795\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00796}00796\ \textcolor{comment}{\ **\ \ \ \ \ sz\ \ \ \ \ \ -\/\ pointer\ to\ the\ null\ terminated\ string}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00797}00797\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00798}00798\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00799}00799\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00800}00800\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00801}00801\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00802}00802\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00803}00803\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00804}00804\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00805}00805\ \textcolor{comment}{\ **\ \ \ \ \ Write\ the\ specified\ null\ terminated\ character\ string\ to\ the}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00806}00806\ \textcolor{comment}{\ **\ \ \ \ \ display\ and\ advance\ the\ cursor.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00807}00807\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00808}00808\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00809}\mbox{\hyperlink{OledGrph_8c_ae0c816344c04becb25f57ba7b3559439}{00809}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_ae0c816344c04becb25f57ba7b3559439}{OledDrawString}}(\textcolor{keywordtype}{char}\ *\ sz)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00810}00810\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00811}00811\ \ \ \ \ \textcolor{keywordflow}{while}\ (*sz\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00812}00812\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_a4aea9704a3eecc7b78ba4eda883b7257}{OledDrawChar}}(*sz);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00813}00813\ \ \ \ \ \ \ \ \ sz\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00814}00814\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00815}00815\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00816}00816\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00817}00817\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00818}00818\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ Internal\ Support\ Routines\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00819}00819\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00820}00820\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00821}00821\ \textcolor{comment}{/***\ \ \ \ OledRopSet}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00822}00822\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00823}00823\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00824}00824\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00825}00825\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00826}00826\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00827}00827\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00828}00828\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00829}00829\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00830}00830\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00831}00831\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00832}00832\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00833}\mbox{\hyperlink{OledGrph_8c_a05a32f96ab21e92bd9ef766fcca3fa1f}{00833}}\ uint8\_t\ \mbox{\hyperlink{OledGrph_8c_a05a32f96ab21e92bd9ef766fcca3fa1f}{OledRopSet}}(uint8\_t\ bPix,\ uint8\_t\ bDsp,\ uint8\_t\ mskPix)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00834}00834\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00835}00835\ \ \ \ \ \textcolor{keywordflow}{return}(bDsp\ \&\ \string~mskPix)\ |\ (bPix\ \&\ mskPix);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00836}00836\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00837}00837\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00838}00838\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00839}00839\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00840}00840\ \textcolor{comment}{/***\ \ \ \ OledRopOr}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00841}00841\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00842}00842\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00843}00843\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00844}00844\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00845}00845\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00846}00846\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00847}00847\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00848}00848\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00849}00849\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00850}00850\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00851}00851\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00852}\mbox{\hyperlink{OledGrph_8c_ac7c87c852cf783c0e16d55822f91f5e4}{00852}}\ uint8\_t\ \mbox{\hyperlink{OledGrph_8c_ac7c87c852cf783c0e16d55822f91f5e4}{OledRopOr}}(uint8\_t\ bPix,\ uint8\_t\ bDsp,\ uint8\_t\ mskPix)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00853}00853\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00854}00854\ \ \ \ \ \textcolor{keywordflow}{return}\ bDsp\ |\ (bPix\ \&\ mskPix);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00855}00855\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00856}00856\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00857}00857\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00858}00858\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00859}00859\ \textcolor{comment}{/***\ \ \ \ OledRopAnd}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00860}00860\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00861}00861\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00862}00862\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00863}00863\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00864}00864\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00865}00865\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00866}00866\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00867}00867\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00868}00868\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00869}00869\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00870}00870\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00871}\mbox{\hyperlink{OledGrph_8c_accb3fe4ce133315190bfaa58d7d23561}{00871}}\ uint8\_t\ \mbox{\hyperlink{OledGrph_8c_accb3fe4ce133315190bfaa58d7d23561}{OledRopAnd}}(uint8\_t\ bPix,\ uint8\_t\ bDsp,\ uint8\_t\ mskPix)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00872}00872\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00873}00873\ \ \ \ \ \textcolor{keywordflow}{return}\ bDsp\ \&\ (bPix\ \&\ mskPix);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00874}00874\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00875}00875\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00876}00876\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00877}00877\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00878}00878\ \textcolor{comment}{/***\ \ \ \ OledRopXor}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00879}00879\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00880}00880\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00881}00881\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00882}00882\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00883}00883\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00884}00884\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00885}00885\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00886}00886\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00887}00887\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00888}00888\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00889}00889\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00890}\mbox{\hyperlink{OledGrph_8c_a3a4fcc23c3f7f0ef7fb968b24373b964}{00890}}\ uint8\_t\ \mbox{\hyperlink{OledGrph_8c_a3a4fcc23c3f7f0ef7fb968b24373b964}{OledRopXor}}(uint8\_t\ bPix,\ uint8\_t\ bDsp,\ uint8\_t\ mskPix)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00891}00891\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00892}00892\ \ \ \ \ \textcolor{keywordflow}{return}\ bDsp\ \string^\ (bPix\ \&\ mskPix);}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00893}00893\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00894}00894\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00895}00895\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00896}00896\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00897}00897\ \textcolor{comment}{/***\ \ \ \ OledMoveUp}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00898}00898\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00899}00899\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00900}00900\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00901}00901\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00902}00902\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00903}00903\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00904}00904\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00905}00905\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00906}00906\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00907}00907\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00908}00908\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00909}00909\ \textcolor{comment}{\ **\ \ \ \ \ Updates\ global\ variables\ related\ to\ current\ position\ on\ the}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00910}00910\ \textcolor{comment}{\ **\ \ \ \ \ display.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00911}00911\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00912}00912\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00913}\mbox{\hyperlink{OledGrph_8c_a48e16af9c911b96906e338b0229c2552}{00913}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_a48e16af9c911b96906e338b0229c2552}{OledMoveUp}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00914}00914\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00915}00915\ \ \ \ \ \textcolor{comment}{/*\ Go\ up\ one\ bit\ position\ in\ the\ current\ byte.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00916}00916\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00917}00917\ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a38730da0dc7102d6d531ccc7fa5b3fc4}{bnOledCur}}\ -\/=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00918}00918\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00919}00919\ \ \ \ \ \textcolor{comment}{/*\ If\ we\ have\ gone\ off\ the\ end\ of\ the\ current\ byte}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00920}00920\ \textcolor{comment}{\ \ \ \ \ **\ go\ up\ 1\ page.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00921}00921\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00922}00922\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledChar_8h_a38730da0dc7102d6d531ccc7fa5b3fc4}{bnOledCur}}\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00923}00923\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a38730da0dc7102d6d531ccc7fa5b3fc4}{bnOledCur}}\ =\ 7;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00924}00924\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ -\/=\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00925}00925\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ If\ we\ have\ gone\ off\ of\ the\ top\ of\ the\ display,}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00926}00926\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ **\ go\ back\ down.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00927}00927\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00928}00928\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledDriver_8c_a43d6d693bb79ac33047e7ebc60c08b72}{disp\_frame}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00929}00929\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ <\ \mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00930}00930\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ +=\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00931}00931\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00932}00932\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00933}00933\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ <\ \mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00934}00934\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ +=\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00935}00935\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00936}00936\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00937}00937\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00938}00938\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00939}00939\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00940}00940\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00941}00941\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00942}00942\ \textcolor{comment}{/***\ \ \ \ OledMoveDown}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00943}00943\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00944}00944\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00945}00945\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00946}00946\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00947}00947\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00948}00948\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00949}00949\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00950}00950\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00951}00951\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00952}00952\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00953}00953\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00954}00954\ \textcolor{comment}{\ **\ \ \ \ \ Updates\ global\ variables\ related\ to\ current\ position\ on\ the}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00955}00955\ \textcolor{comment}{\ **\ \ \ \ \ display.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00956}00956\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00957}00957\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00958}\mbox{\hyperlink{OledGrph_8c_ad3f02c3a14e4d9ec11d1c3f5a0a5d13f}{00958}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_ad3f02c3a14e4d9ec11d1c3f5a0a5d13f}{OledMoveDown}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00959}00959\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00960}00960\ \ \ \ \ \textcolor{comment}{/*\ Go\ down\ one\ bit\ position\ in\ the\ current\ byte.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00961}00961\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00962}00962\ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a38730da0dc7102d6d531ccc7fa5b3fc4}{bnOledCur}}\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00963}00963\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00964}00964\ \ \ \ \ \textcolor{comment}{/*\ If\ we\ have\ gone\ off\ the\ end\ of\ the\ current\ byte,}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00965}00965\ \textcolor{comment}{\ \ \ \ \ **\ go\ down\ one\ page\ in\ the\ display\ memory.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00966}00966\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00967}00967\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledChar_8h_a38730da0dc7102d6d531ccc7fa5b3fc4}{bnOledCur}}\ >\ 7)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00968}00968\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a38730da0dc7102d6d531ccc7fa5b3fc4}{bnOledCur}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00969}00969\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ +=\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00970}00970\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ If\ we\ have\ gone\ off\ the\ end\ of\ the\ display\ memory}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00971}00971\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ **\ go\ back\ up\ a\ page.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00972}00972\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00973}00973\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledDriver_8c_a43d6d693bb79ac33047e7ebc60c08b72}{disp\_frame}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00974}00974\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ >=\ \mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}}\ +\ \mbox{\hyperlink{OledDriver_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cbOledDispMax}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00975}00975\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ -\/=\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00976}00976\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00977}00977\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00978}00978\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ >=\ \mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}}\ +\ \mbox{\hyperlink{OledDriver_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cbOledDispMax}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00979}00979\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ -\/=\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00980}00980\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00981}00981\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00982}00982\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00983}00983\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00984}00984\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00985}00985\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00986}00986\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00987}00987\ \textcolor{comment}{/***\ \ \ \ OledMoveLeft}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00988}00988\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00989}00989\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00990}00990\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00991}00991\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00992}00992\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00993}00993\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00994}00994\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00995}00995\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00996}00996\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00997}00997\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00998}00998\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l00999}00999\ \textcolor{comment}{\ **\ \ \ \ \ Updates\ global\ variables\ related\ to\ current\ position\ on\ the}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01000}01000\ \textcolor{comment}{\ **\ \ \ \ \ display.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01001}01001\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01002}01002\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01003}\mbox{\hyperlink{OledGrph_8c_adc85ba23f46969ae36db62e8982bdbae}{01003}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_adc85ba23f46969ae36db62e8982bdbae}{OledMoveLeft}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01004}01004\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01005}01005\ \ \ \ \ \textcolor{comment}{/*\ Are\ we\ at\ the\ left\ edge\ of\ the\ display\ already}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01006}01006\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01007}01007\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledDriver_8c_a43d6d693bb79ac33047e7ebc60c08b72}{disp\_frame}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01008}01008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((\mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ -\/\ \mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}})\ \&\ ((\mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}}\ <<\ 1)\ -\/\ 1))\ ==\ 0)\ \{\ \textcolor{comment}{//\ check\ for\ bad\ edge\ limiting}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01009}01009\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01010}01010\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01011}01011\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01012}01012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((\mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ -\/\ \mbox{\hyperlink{OledGrph_8h_aaaa7e5acfa8e3ede5c3e0f3ba12d6cc9}{rgbOledBmp0}})\ \&\ ((\mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}}\ <<\ 1)\ -\/\ 1))\ ==\ 0)\ \{\ \textcolor{comment}{//\ check\ for\ bad\ edge\ limiting}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01013}01013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01014}01014\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01015}01015\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01016}01016\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01017}01017\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01018}01018\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01019}01019\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01020}01020\ \ \ \ \ \textcolor{comment}{/*\ Not\ at\ the\ left\ edge,\ so\ go\ back\ one\ byte.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01021}01021\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01022}01022\ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ -\/=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01023}01023\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01024}01024\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01025}01025\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01026}01026\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01027}01027\ \textcolor{comment}{/***\ \ \ \ OledMoveRight}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01028}01028\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01029}01029\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01030}01030\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01031}01031\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01032}01032\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01033}01033\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01034}01034\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01035}01035\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01036}01036\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01037}01037\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01038}01038\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01039}01039\ \textcolor{comment}{\ **\ \ \ \ \ Updates\ global\ variables\ related\ to\ current\ position\ on\ the}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01040}01040\ \textcolor{comment}{\ **\ \ \ \ \ display.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01041}01041\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01042}01042\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01043}\mbox{\hyperlink{OledGrph_8c_aaad60f722931ac3182eb2cf2b24ad4d1}{01043}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{OledGrph_8c_aaad60f722931ac3182eb2cf2b24ad4d1}{OledMoveRight}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01044}01044\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01045}01045\ \ \ \ \ \textcolor{comment}{/*\ Are\ we\ at\ the\ right\ edge\ of\ the\ display\ already}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01046}01046\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01047}01047\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{OledDriver_8c_a43d6d693bb79ac33047e7ebc60c08b72}{disp\_frame}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01048}01048\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ if\ (((pbOledCur\ -\/\ rgbOledBmp0)\ \&\ (ccolOledMax\ -\/\ 1))\ ==\ ((ccolOledMax\ <<\ 1)\ -\/\ 1))\ \{\ //\ check\ for\ bad\ edge\ limiting}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01049}01049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ return;}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01050}01050\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01051}01051\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01052}01052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ if\ (((pbOledCur\ -\/\ rgbOledBmp1)\ \&\ (ccolOledMax\ -\/\ 1))\ ==\ ((ccolOledMax\ <<\ 1)\ -\/\ 1))\ \{\ //\ check\ for\ bad\ edge\ limiting}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01053}01053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ return;}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01054}01054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01055}01055\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01056}01056\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01057}01057\ \ \ \ \ \textcolor{comment}{/*\ Not\ at\ the\ right\ edge,\ so\ go\ forward\ one\ byte}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01058}01058\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01059}01059\ \ \ \ \ \mbox{\hyperlink{OledChar_8h_a9e8622a77554dce9ee4d8cf6a66ee1df}{pbOledCur}}\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01060}01060\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01061}01061\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01062}01062\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01063}01063\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01064}01064\ \textcolor{comment}{/***\ \ \ \ OledClampXco}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01065}01065\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01066}01066\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01067}01067\ \textcolor{comment}{\ **\ \ \ \ \ xco\ \ \ \ \ -\/\ x\ value\ to\ clamp}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01068}01068\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01069}01069\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01070}01070\ \textcolor{comment}{\ **\ \ \ \ \ Returns\ clamped\ x\ value}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01071}01071\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01072}01072\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01073}01073\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01074}01074\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01075}01075\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01076}01076\ \textcolor{comment}{\ **\ \ \ \ \ This\ routine\ forces\ the\ x\ value\ to\ be\ on\ the\ display.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01077}01077\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01078}01078\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01079}\mbox{\hyperlink{OledGrph_8c_ab94975bcf673ab1cd9bc2f0100cdb029}{01079}}\ int32\_t\ \mbox{\hyperlink{OledGrph_8c_ab94975bcf673ab1cd9bc2f0100cdb029}{OledClampXco}}(int32\_t\ xco)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01080}01080\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01081}01081\ \ \ \ \ \textcolor{keywordflow}{if}\ (xco\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01082}01082\ \ \ \ \ \ \ \ \ xco\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01083}01083\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01084}01084\ \ \ \ \ \textcolor{keywordflow}{if}\ (xco\ >=\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01085}01085\ \ \ \ \ \ \ \ \ xco\ =\ \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccolOledMax}}\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01086}01086\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01087}01087\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01088}01088\ \ \ \ \ \textcolor{keywordflow}{return}\ xco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01089}01089\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01090}01090\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01091}01091\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01092}01092\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01093}01093\ \textcolor{comment}{/***\ \ \ \ OledClampYco}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01094}01094\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01095}01095\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01096}01096\ \textcolor{comment}{\ **\ \ \ \ \ yco\ \ \ \ \ -\/\ y\ value\ to\ clamp}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01097}01097\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01098}01098\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01099}01099\ \textcolor{comment}{\ **\ \ \ \ \ Returns\ clamped\ y\ value}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01100}01100\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01101}01101\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01102}01102\ \textcolor{comment}{\ **\ \ \ \ \ none}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01103}01103\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01104}01104\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01105}01105\ \textcolor{comment}{\ **\ \ \ \ \ This\ routine\ forces\ the\ y\ value\ to\ be\ on\ the\ display.}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01106}01106\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01107}01107\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01108}\mbox{\hyperlink{OledGrph_8c_ae3da90227578d2f5ea4c8c7fcbae4632}{01108}}\ int32\_t\ \mbox{\hyperlink{OledGrph_8c_ae3da90227578d2f5ea4c8c7fcbae4632}{OledClampYco}}(int32\_t\ yco)}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01109}01109\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01110}01110\ \ \ \ \ \textcolor{keywordflow}{if}\ (yco\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01111}01111\ \ \ \ \ \ \ \ \ yco\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01112}01112\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01113}01113\ \ \ \ \ \textcolor{keywordflow}{if}\ (yco\ >=\ \mbox{\hyperlink{OledDriver_8h_aef3f6635387d347d272bbe5772b96da1}{crowOledMax}})\ \{}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01114}01114\ \ \ \ \ \ \ \ \ yco\ =\ \mbox{\hyperlink{OledDriver_8h_aef3f6635387d347d272bbe5772b96da1}{crowOledMax}}\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01115}01115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01116}01116\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01117}01117\ \ \ \ \ \textcolor{keywordflow}{return}\ yco;}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01118}01118\ \}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01119}01119\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01120}01120\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01121}01121\ \textcolor{comment}{/***\ \ \ \ ProcName}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01122}01122\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01123}01123\ \textcolor{comment}{\ **\ Parameters:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01124}01124\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01125}01125\ \textcolor{comment}{\ **\ Return\ Value:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01126}01126\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01127}01127\ \textcolor{comment}{\ **\ Errors:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01128}01128\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01129}01129\ \textcolor{comment}{\ **\ Description:}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01130}01130\ \textcolor{comment}{\ **}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01131}01131\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01132}01132\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01133}01133\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01134}01134\ }
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01135}01135\ \textcolor{comment}{/************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{OledGrph_8c_source_l01136}01136\ }
+
+\end{DoxyCode}

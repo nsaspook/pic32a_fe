@@ -1,0 +1,139 @@
+\doxysection{imu.\+c}
+\hypertarget{imu_8c_source}{}\label{imu_8c_source}\index{src/imu.c@{src/imu.c}}
+\mbox{\hyperlink{imu_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{imu_8h}{imu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00003}00003\ \textcolor{preprocessor}{\#ifdef\ IMU\_TABLE}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00004}00004\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ imu\_table[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00005}00005\ \ \ \ \ \mbox{\hyperlink{imu_8h_a0b442bd2f0026bd6c2f3f47e9e662c4f}{BMA490\_ACCEL\_MG\_LSB\_2G}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00006}00006\ \ \ \ \ \mbox{\hyperlink{imu_8h_ac72d72b5f8bdf4ff5711544ad31f0611}{BMA490\_ACCEL\_MG\_LSB\_4G}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00007}00007\ \ \ \ \ \mbox{\hyperlink{imu_8h_a0c46acda4cd04227b4b76b6486be700c}{BMA490\_ACCEL\_MG\_LSB\_8G}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00008}00008\ \ \ \ \ \mbox{\hyperlink{imu_8h_a5a3c3203f4225004daa8c0b80b8fddb8}{BMA490\_ACCEL\_MG\_LSB\_16G}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\_ACCEL\_MG\_SCALE}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00010}00010\ \ \ \ \ \mbox{\hyperlink{imu_8h_a83bea6eab886f2565e81c18ebe3ede92}{SCA3300\_ACCEL\_MG\_LSB\_15G}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{imu_8h_a1f967b7aaff342434961377e8d95c424}{SCA3300\_ACCEL\_MG\_LSB\_3G}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{imu_8h_a2afdd90f529cc2ad58903cd9330e456d}{SCA3300\_ACCEL\_MG\_LSB\_6G}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{imu_8h_a6c912e0a8f09a88bf366d8a3f82a30ed}{SCL3300\_ACCEL\_MG\_LSB\_12G}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{imu_8h_a6500fa36ef70cf163ca3e423398b914b}{SCL3300\_ACCEL\_MG\_LSB\_24G}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{imu_8h_a67f9c93f458869e053d5fc840a8c8884}{SCL3300\_INC1}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{imu_8h_aa0513fbcbf1c3008de78484769f6bf00}{SCL3300\_INC2}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00017}00017\ \};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00018}00018\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00020}00020\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ imu\_name\ [][8]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00021}00021\ \ \ \ \ \textcolor{stringliteral}{"{}BMA4x0"{}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00022}00022\ \ \ \ \ \textcolor{stringliteral}{"{}SCA3300"{}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00023}00023\ \ \ \ \ \textcolor{stringliteral}{"{}SCL3300"{}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00024}00024\ \ \ \ \ \textcolor{stringliteral}{"{}BMA400"{}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00025}00025\ \ \ \ \ \textcolor{stringliteral}{"{}BNO086"{}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00026}00026\ \ \ \ \ \textcolor{stringliteral}{"{}NO\ IMU\ "{}},}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00027}00027\ \};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00029}\mbox{\hyperlink{imu_8c_aa44b4ee76afc216a55c2e95621ef232b}{00029}}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{imu_8c_aa44b4ee76afc216a55c2e95621ef232b}{imu\_buffer}}[\mbox{\hyperlink{samples_8h_a2c38bbaa576e38355809f6fc0364a596}{IMU\_BUF}}];}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00030}00030\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsca3300__data}{sca3300\_data}}\ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00032}\mbox{\hyperlink{imu_8c_a4e855ffc7977d37a9c2ed98530e382d2}{00032}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{imu_8c_a4e855ffc7977d37a9c2ed98530e382d2}{get\_imu\_scale}}(\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *\ imu)}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00033}00033\ \{}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{double}\ accelRange\ =\ \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\_ACCEL\_MG\_SCALE}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (imu)\ \{\ \textcolor{comment}{//\ null\ pointer\ check}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00038}00038\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ load\ the\ proper\ scaling\ constants}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00039}00039\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a84248bdf132b0f7128ad039d81e9f12f}{acc\_range}})\ \{}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccaf2e346bff1927a59e98ad4efa0c3d099}{range\_bno}}:}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ accelRange\ =\ \mbox{\hyperlink{imu_8h_a69cdbf3d0cd231d6fd65f8d561377b90}{IMU\_BNO\_ACCEL\_MG\_SCALE\_0}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccad7f0b71032bf3847743aa44db1c88eef}{range\_16g}}:}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ accelRange\ =\ \mbox{\hyperlink{imu_8h_a5a3c3203f4225004daa8c0b80b8fddb8}{BMA490\_ACCEL\_MG\_LSB\_16G}}\ *\ \mbox{\hyperlink{imu_8h_a6a18693366caed099bbd7c5300fa446b}{GRAVITY\_EARTH}}\ *\ \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\_ACCEL\_MG\_SCALE}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca73028b2ce23b42206cbc04d5d5ae4248}{range\_8g}}:}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ accelRange\ =\ \mbox{\hyperlink{imu_8h_a0c46acda4cd04227b4b76b6486be700c}{BMA490\_ACCEL\_MG\_LSB\_8G}}\ *\ \mbox{\hyperlink{imu_8h_a6a18693366caed099bbd7c5300fa446b}{GRAVITY\_EARTH}}\ *\ \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\_ACCEL\_MG\_SCALE}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccaa51ea867a11c8d81499675c11bf987f2}{range\_4g}}:}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ accelRange\ =\ \mbox{\hyperlink{imu_8h_ac72d72b5f8bdf4ff5711544ad31f0611}{BMA490\_ACCEL\_MG\_LSB\_4G}}\ *\ \mbox{\hyperlink{imu_8h_a6a18693366caed099bbd7c5300fa446b}{GRAVITY\_EARTH}}\ *\ \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\_ACCEL\_MG\_SCALE}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccafdf3128454b5b7593e89bc6b225eccba}{range\_15g}}:}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccacf0d3108495b72f6cb21d4f5f401f4d5}{range\_15gl}}:}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ accelRange\ =\ \mbox{\hyperlink{imu_8h_a83bea6eab886f2565e81c18ebe3ede92}{SCA3300\_ACCEL\_MG\_LSB\_15G}}\ *\ \mbox{\hyperlink{imu_8h_a6a18693366caed099bbd7c5300fa446b}{GRAVITY\_EARTH}}\ *\ \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\_ACCEL\_MG\_SCALE}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca80d8d84062d8489e9ec5361058345fc9}{range\_3g}}:}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ accelRange\ =\ \mbox{\hyperlink{imu_8h_a1f967b7aaff342434961377e8d95c424}{SCA3300\_ACCEL\_MG\_LSB\_3G}}\ *\ \mbox{\hyperlink{imu_8h_a6a18693366caed099bbd7c5300fa446b}{GRAVITY\_EARTH}}\ *\ \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\_ACCEL\_MG\_SCALE}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca52f7e2c4bcd5fafd18875f2e8c78ccb5}{range\_6g}}:}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ accelRange\ =\ \mbox{\hyperlink{imu_8h_a2afdd90f529cc2ad58903cd9330e456d}{SCA3300\_ACCEL\_MG\_LSB\_6G}}\ *\ \mbox{\hyperlink{imu_8h_a6a18693366caed099bbd7c5300fa446b}{GRAVITY\_EARTH}}\ *\ \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\_ACCEL\_MG\_SCALE}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccacd5cfafe71ce581b36c70d83cb36901c}{range\_12g}}:}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ accelRange\ =\ \mbox{\hyperlink{imu_8h_a6c912e0a8f09a88bf366d8a3f82a30ed}{SCL3300\_ACCEL\_MG\_LSB\_12G}}\ *\ \mbox{\hyperlink{imu_8h_a6a18693366caed099bbd7c5300fa446b}{GRAVITY\_EARTH}}\ *\ \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\_ACCEL\_MG\_SCALE}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccac22ef99054fa7f5053bef38e71116236}{range\_24g}}:}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ accelRange\ =\ \mbox{\hyperlink{imu_8h_a6500fa36ef70cf163ca3e423398b914b}{SCL3300\_ACCEL\_MG\_LSB\_24G}}\ *\ \mbox{\hyperlink{imu_8h_a6a18693366caed099bbd7c5300fa446b}{GRAVITY\_EARTH}}\ *\ \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\_ACCEL\_MG\_SCALE}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccab07641e9f620a11abdd8c8fbfadaa523}{range\_inc1}}:}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ accelRange\ =\ (double)\ \mbox{\hyperlink{imu_8h_a67f9c93f458869e053d5fc840a8c8884}{SCL3300\_INC1}}\ *\ \mbox{\hyperlink{imu_8h_a6a18693366caed099bbd7c5300fa446b}{GRAVITY\_EARTH}}\ *\ \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\_ACCEL\_MG\_SCALE}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca0a500b4d000964e88bf38d321a98893e}{range\_inc2}}:}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ accelRange\ =\ (double)\ \mbox{\hyperlink{imu_8h_aa0513fbcbf1c3008de78484769f6bf00}{SCL3300\_INC2}}\ *\ \mbox{\hyperlink{imu_8h_a6a18693366caed099bbd7c5300fa446b}{GRAVITY\_EARTH}}\ *\ \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\_ACCEL\_MG\_SCALE}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca7bd8713c9fd46e3ba219b4d516112332}{range\_2g}}:}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ accelRange\ =\ \mbox{\hyperlink{imu_8h_a0b442bd2f0026bd6c2f3f47e9e662c4f}{BMA490\_ACCEL\_MG\_LSB\_2G}}\ *\ \mbox{\hyperlink{imu_8h_a6a18693366caed099bbd7c5300fa446b}{GRAVITY\_EARTH}}\ *\ \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\_ACCEL\_MG\_SCALE}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_ab8dce3f29174f8b069593b5dde2dbb6c}{device}}\ ==\ \mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea16aef4f73511e64b227ad9c21da175a8}{IMU\_SCA3300}})\ \{}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ accelRange\ =\ (double)\ \mbox{\hyperlink{imu_8h_a83bea6eab886f2565e81c18ebe3ede92}{SCA3300\_ACCEL\_MG\_LSB\_15G}}\ *\ \mbox{\hyperlink{imu_8h_a6a18693366caed099bbd7c5300fa446b}{GRAVITY\_EARTH}}\ *\ \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\_ACCEL\_MG\_SCALE}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a84248bdf132b0f7128ad039d81e9f12f}{acc\_range}}\ =\ \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccafdf3128454b5b7593e89bc6b225eccba}{range\_15g}};\ \textcolor{comment}{//\ update\ imu\ data\ structure}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ accelRange\ =\ (double)\ \mbox{\hyperlink{imu_8h_a6c912e0a8f09a88bf366d8a3f82a30ed}{SCL3300\_ACCEL\_MG\_LSB\_12G}}\ *\ \mbox{\hyperlink{imu_8h_a6a18693366caed099bbd7c5300fa446b}{GRAVITY\_EARTH}}\ *\ \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\_ACCEL\_MG\_SCALE}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_a84248bdf132b0f7128ad039d81e9f12f}{acc\_range}}\ =\ \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccacd5cfafe71ce581b36c70d83cb36901c}{range\_12g}};\ \textcolor{comment}{//\ update\ imu\ data\ structure}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00088}00088\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{return}\ accelRange;}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00090}00090\ \}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00092}\mbox{\hyperlink{imu_8c_a34c9549be6917aac7c43fd759fc698db}{00092}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{imu_8c_a34c9549be6917aac7c43fd759fc698db}{getAllData}}(\mbox{\hyperlink{imu_8h_aca01ad5ca4539cd86c8aac1b490e8fa5}{sSensorData\_t}}\ *\mbox{\hyperlink{main_8c_a5535498c52fc232645826b1b70daaf4a}{accel}},\ \mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *\ imu)}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00093}00093\ \{}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00094}00094\ \ \ \ \ int16\_t\ x,\ y,\ z;}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00095}00095\ \ \ \ \ int16\_t\ \mbox{\hyperlink{gfx_8c_a8195a9951cb249d0edaa287b10e736b4}{xa}},\ \mbox{\hyperlink{gfx_8c_a488101b14665bda8f3a47a6713838373}{ya}},\ \mbox{\hyperlink{gfx_8c_afca86ebf04474546477f157527736886}{za}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00096}00096\ \ \ \ \ \textcolor{keywordtype}{double}\ accelRange;}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00098}00098\ \ \ \ \ accelRange\ =\ \mbox{\hyperlink{imu_8c_a4e855ffc7977d37a9c2ed98530e382d2}{get\_imu\_scale}}(imu);}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00100}00100\ \ \ \ \ \textcolor{comment}{//\ munge\ data\ to\ proper\ format\ for\ logging}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00101}00101\ \ \ \ \ \textcolor{keywordflow}{if}\ (imu)\ \{\ \textcolor{comment}{//\ null\ pointer\ check}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main_8c_a5535498c52fc232645826b1b70daaf4a}{accel}})\ \{\ \textcolor{comment}{//\ null\ pointer\ check}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.channels[\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a09aba5dfb003791824b96a8ff90c6c7c}{SCA3300\_ACC\_X}}];}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ x\ =\ -\/x;\ //\ invert\ sign,\ no\ bit-\/twiddling}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ y\ =\ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.channels[\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a7ad6b073e8dac09229cb97c715807b1b}{SCA3300\_ACC\_Y}}];}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ y\ =\ -\/y;\ //\ invert\ sign}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ z\ =\ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.channels[\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a7e5b67920fb2120226f081dc66a9abde}{SCA3300\_ACC\_Z}}];}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a5535498c52fc232645826b1b70daaf4a}{accel}}-\/>sensortime\ =\ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.ts;\ \textcolor{comment}{//\ time\ log\ each\ accel\ measurement\ from\ TIMER}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a5535498c52fc232645826b1b70daaf4a}{accel}}-\/>sensortemp\ =\ \mbox{\hyperlink{imu_8h_ac02a5a67e0612d6cb90e61cc23398701}{TEMPERATURE\_OFFSET}}\ +\ (\mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.channels[\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a055dd00780191649f593245dafa9ee2a}{SCA3300\_TEMP}}]\ /\ \mbox{\hyperlink{imu_8h_ac4faa00e162199fe2361581395e2d439}{TEMPERATURE\_RES}});}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gfx_8c_a8195a9951cb249d0edaa287b10e736b4}{xa}}\ =\ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.channels[\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0ac56cb30a49f7dc6d4337e785a2c2f8e2}{SCL3300\_ANG\_X}}];}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gfx_8c_a488101b14665bda8f3a47a6713838373}{ya}}\ =\ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.channels[\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a119a52f885dbfc7baa5e5e80a9d2add1}{SCL3300\_ANG\_Y}}];}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gfx_8c_afca86ebf04474546477f157527736886}{za}}\ =\ \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}.scan.channels[\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0af083bf4a68434483a81948391ebd4c35}{SCL3300\_ANG\_Z}}];}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a5535498c52fc232645826b1b70daaf4a}{accel}}-\/>xa\ =\ (double)\ \mbox{\hyperlink{gfx_8c_a8195a9951cb249d0edaa287b10e736b4}{xa}}\ /\ \mbox{\hyperlink{imu_8h_a88a6f72884862267027127fc0284c85b}{ANGLE\_RES1}}\ *\ \mbox{\hyperlink{imu_8h_a0dc909a967deea456f958379763fc135}{ANGLE\_RES2}};\ \textcolor{comment}{//\ scale\ angle\ data}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a5535498c52fc232645826b1b70daaf4a}{accel}}-\/>ya\ =\ (double)\ \mbox{\hyperlink{gfx_8c_a488101b14665bda8f3a47a6713838373}{ya}}\ /\ \mbox{\hyperlink{imu_8h_a88a6f72884862267027127fc0284c85b}{ANGLE\_RES1}}\ *\ \mbox{\hyperlink{imu_8h_a0dc909a967deea456f958379763fc135}{ANGLE\_RES2}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a5535498c52fc232645826b1b70daaf4a}{accel}}-\/>za\ =\ (double)\ \mbox{\hyperlink{gfx_8c_afca86ebf04474546477f157527736886}{za}}\ /\ \mbox{\hyperlink{imu_8h_a88a6f72884862267027127fc0284c85b}{ANGLE\_RES1}}\ *\ \mbox{\hyperlink{imu_8h_a0dc909a967deea456f958379763fc135}{ANGLE\_RES2}};}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a5535498c52fc232645826b1b70daaf4a}{accel}}-\/>x\ =\ (double)\ x\ *\ accelRange;\ \textcolor{comment}{//\ scale\ to\ the\ correct\ units}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a5535498c52fc232645826b1b70daaf4a}{accel}}-\/>y\ =\ (double)\ y\ *\ accelRange;}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a5535498c52fc232645826b1b70daaf4a}{accel}}-\/>z\ =\ (double)\ z\ *\ accelRange;}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00120}00120\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00121}00121\ \}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00123}\mbox{\hyperlink{imu_8c_a2c872862798cc4612874df73afb8b2e5}{00123}}\ \textcolor{keyword}{const}\ uint8\_t\ *\ \mbox{\hyperlink{imu_8c_a2c872862798cc4612874df73afb8b2e5}{imu\_string}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\_cmd\_t}}\ *\ imu)}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00124}00124\ \{}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00125}00125\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ *\ str\_ptr\ =\ imu\_name[\mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49eac9ad05a91c2fd5b44c8a985061a1a77a}{IMU\_NONE}}];}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00127}00127\ \ \ \ \ \textcolor{keywordflow}{if}\ (imu)\ \{\ \textcolor{comment}{//\ null\ pointer\ check}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_ab8dce3f29174f8b069593b5dde2dbb6c}{device}}\ <\ \mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea9a3be9849df048a187900fa12cd1ea1f}{IMU\_LAST}})\ \{}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ str\_ptr\ =\ imu\_name[imu-\/>\mbox{\hyperlink{struct__imu__cmd__t_ab8dce3f29174f8b069593b5dde2dbb6c}{device}}];}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00131}00131\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00132}00132\ \ \ \ \ \textcolor{keywordflow}{return}\ str\_ptr;\ \textcolor{comment}{//\ return\ name\ string}}
+\DoxyCodeLine{\Hypertarget{imu_8c_source_l00133}00133\ \}}
+
+\end{DoxyCode}

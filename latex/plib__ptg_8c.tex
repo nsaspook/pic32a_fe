@@ -1,0 +1,917 @@
+\doxysection{src/config/default/peripheral/ptg/plib\+\_\+ptg.c File Reference}
+\hypertarget{plib__ptg_8c}{}\label{plib__ptg_8c}\index{src/config/default/peripheral/ptg/plib\_ptg.c@{src/config/default/peripheral/ptg/plib\_ptg.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}device.\+h"{}}\newline
+{\ttfamily \#include "{}plib\+\_\+ptg.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a2dfe1e66a82f6078072159c880d6c4b3}{PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+\+DISABLED}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a938d2a088ea9b92b90bce56e887f69ab}{PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+8}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_abaf35bb6a4f34e5847c913c3e066e1f6}{PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+16}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a1f24661edfcc294e691a9ca7db763f4e}{PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+32}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_ad41abc76facc51006c1de41b4a37e8c5}{PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+64}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(4) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a85375b2a46feee101d4a7a80795fcea4}{PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+128}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(5) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a492ec41978250807983a3718234b9220}{PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+256}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(6) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a4d3a3978e2b1568ab7f7a5690ac98fd9}{PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+512}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(7) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a02fc52df7bc3a5dfb64cebc402b05bd9}{PTGCON\+\_\+\+PTGITM\+\_\+\+MODE\+\_\+0}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a830c7b6aac8c94b1c928e34a707749bc}{PTGCON\+\_\+\+PTGITM\+\_\+\+MODE\+\_\+1}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a109e1923ea39ae3cb51c88f46f65d2e3}{PTGCON\+\_\+\+PTGITM\+\_\+\+MODE\+\_\+2}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a91c2c9a43f9f415b6f15a5588039517e}{PTGCON\+\_\+\+PTGITM\+\_\+\+MODE\+\_\+3}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a2892e9b953284c49b292ec9797aee554}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+1}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a9d982f8089f0cedac7d49bed9acf8644}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+2}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a63bef2569cf32377557d17e37d834d1c}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+3}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a2785bd7efb7efd1ddf63d1cb81a71919}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+4}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_accab3e0cfd06ebb856c4910488fa0a4f}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+5}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(4) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a887faa1639624073ebebb07b41ab7ee0}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+6}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(5) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a635bcf54eac04548bb34c9a77a7ce346}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+7}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(6) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a99f4521f0f5e80b717b47cf32aebcd7e}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+8}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(7) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_ac6ae2c58ae858ebf87f96421c8b33cdf}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+9}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(8) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_ab051d46cfd99ae26c1d195f427f96f5d}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+10}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(9) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a47eb3c19c28637f73b132005cda6c024}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+11}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(10) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_aca4f6dd66c540df30cbdf5e1a6f586b4}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+12}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(11) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a6a72aa63a92aa22abb178c289e2536d8}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+13}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(12) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a98912f1b271af5e8c0a1f0ace0e6cbae}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+14}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(13) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_acca177a5024b8311aee63e2564738144}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+15}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(14) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a2c713ee3af6b87b55811ba2794273519}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+16}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(15) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a78d06e9fe5b83cc9615c9200bb56448b}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+17}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(16) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a3cd0c721ca8c1b839bc66f6afaa90421}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+18}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(17) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a9e103e5d26febc9453770a0d5414a3ea}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+19}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(18) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a39f479c520dc7f2d01566eba77294985}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+20}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(19) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_af0b4a003bb5d7cacf2fa8691016e563d}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+21}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(20) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a64f43c9b807875d9181e1fce92dfe9a1}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+22}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(21) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a4b625f5919aaade81588d1bcb886b70c}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+23}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(22) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_ac8cb23234bff9a57e078c341a6e8734d}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+24}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(23) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a72820bde706cb993ef93d3ce3a6f8795}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+25}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(24) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_aaa7def64b80d56645b689381e4ef9b8f}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+26}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(25) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_af0ebd2bb8568f5635f5f1f58a4868880}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+27}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(26) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_af368723dc4b84afd1f4e5250da2de4ea}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+28}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(27) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a62167befde5af7c89a7ceb0d3bc89a3f}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+29}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(28) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a15f3b3d8877f869f880f92fc740e29b5}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+30}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(29) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a201e27bcb06f6dae5c11939f023064b7}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+31}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(30) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8c_a9c318fcd87c9aade7feb64a1ab2ffa01}{PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+32}}~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(31) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__ptg_8c_af7bff23231eea7446adcf1a84fec8eaf}{PTG\+\_\+\+Initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes PTG module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__ptg_8c_a3fadf36eda7a28884ba18ced6c1b2d4e}{PTG\+\_\+\+Deinitialize}} (void)
+\begin{DoxyCompactList}\small\item\em Deinitializes the PTG peripheral of the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__ptg_8c_a79f9906529b915821ebe7968529ad84a}{PTG\+\_\+\+Enable}} (void)
+\begin{DoxyCompactList}\small\item\em Enables the PTG peripheral of the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__ptg_8c_a62f8a9ffe3604f672de2f00e45be373b}{PTG\+\_\+\+Step\+Sequence\+Start}} (void)
+\begin{DoxyCompactList}\small\item\em Starts the step sequence of the PTG peripheral of the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__ptg_8c_a2e83317bcf25d6e66da39dd89f8708c0}{PTG\+\_\+\+Software\+Trigger\+Set}} (void)
+\begin{DoxyCompactList}\small\item\em Activates the software trigger of the PTG peripheral of the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__ptg_8c_a05ab94c855db5c94f39fdebf6ebdb9e1}{PTG\+\_\+\+Software\+Trigger\+Clear}} (void)
+\begin{DoxyCompactList}\small\item\em Clears the software trigger of the PTG peripheral of the device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__ptg_8c_ad5060e3f7d6c3064b52d4aa686a2ba27}{PTG\+\_\+\+Watchdog\+Timeout\+Status\+Get}} (void)
+\begin{DoxyCompactList}\small\item\em Indicates the status of the watchdog timeout status of the PTG Peripheral of the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__ptg_8c_a7fdecd2f7d360691d1424fdaff7e1630}{PTG\+\_\+\+Step\+Sequence\+Stop}} (void)
+\begin{DoxyCompactList}\small\item\em Stops the step sequence of the PTG peripheral of the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__ptg_8c_a58aa65517d610207ce1d691f55acaa08}{PTG\+\_\+\+Disable}} (void)
+\begin{DoxyCompactList}\small\item\em Disables the PTG peripheral of the device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{plib__ptg_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{plib__ptg_8c_a2892e9b953284c49b292ec9797aee554}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_1@{PTGCON\_PTGDIV\_DIVIDE\_BY\_1}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_1@{PTGCON\_PTGDIV\_DIVIDE\_BY\_1}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_1}{PTGCON\_PTGDIV\_DIVIDE\_BY\_1}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a2892e9b953284c49b292ec9797aee554} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+1~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00066}{66}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_ab051d46cfd99ae26c1d195f427f96f5d}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_10@{PTGCON\_PTGDIV\_DIVIDE\_BY\_10}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_10@{PTGCON\_PTGDIV\_DIVIDE\_BY\_10}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_10}{PTGCON\_PTGDIV\_DIVIDE\_BY\_10}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_ab051d46cfd99ae26c1d195f427f96f5d} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+10~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(9) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00075}{75}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a47eb3c19c28637f73b132005cda6c024}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_11@{PTGCON\_PTGDIV\_DIVIDE\_BY\_11}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_11@{PTGCON\_PTGDIV\_DIVIDE\_BY\_11}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_11}{PTGCON\_PTGDIV\_DIVIDE\_BY\_11}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a47eb3c19c28637f73b132005cda6c024} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+11~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(10) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00076}{76}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_aca4f6dd66c540df30cbdf5e1a6f586b4}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_12@{PTGCON\_PTGDIV\_DIVIDE\_BY\_12}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_12@{PTGCON\_PTGDIV\_DIVIDE\_BY\_12}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_12}{PTGCON\_PTGDIV\_DIVIDE\_BY\_12}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_aca4f6dd66c540df30cbdf5e1a6f586b4} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+12~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(11) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00077}{77}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a6a72aa63a92aa22abb178c289e2536d8}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_13@{PTGCON\_PTGDIV\_DIVIDE\_BY\_13}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_13@{PTGCON\_PTGDIV\_DIVIDE\_BY\_13}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_13}{PTGCON\_PTGDIV\_DIVIDE\_BY\_13}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a6a72aa63a92aa22abb178c289e2536d8} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+13~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(12) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00078}{78}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a98912f1b271af5e8c0a1f0ace0e6cbae}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_14@{PTGCON\_PTGDIV\_DIVIDE\_BY\_14}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_14@{PTGCON\_PTGDIV\_DIVIDE\_BY\_14}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_14}{PTGCON\_PTGDIV\_DIVIDE\_BY\_14}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a98912f1b271af5e8c0a1f0ace0e6cbae} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+14~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(13) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00079}{79}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_acca177a5024b8311aee63e2564738144}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_15@{PTGCON\_PTGDIV\_DIVIDE\_BY\_15}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_15@{PTGCON\_PTGDIV\_DIVIDE\_BY\_15}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_15}{PTGCON\_PTGDIV\_DIVIDE\_BY\_15}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_acca177a5024b8311aee63e2564738144} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+15~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(14) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00080}{80}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a2c713ee3af6b87b55811ba2794273519}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_16@{PTGCON\_PTGDIV\_DIVIDE\_BY\_16}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_16@{PTGCON\_PTGDIV\_DIVIDE\_BY\_16}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_16}{PTGCON\_PTGDIV\_DIVIDE\_BY\_16}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a2c713ee3af6b87b55811ba2794273519} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+16~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(15) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00081}{81}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a78d06e9fe5b83cc9615c9200bb56448b}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_17@{PTGCON\_PTGDIV\_DIVIDE\_BY\_17}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_17@{PTGCON\_PTGDIV\_DIVIDE\_BY\_17}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_17}{PTGCON\_PTGDIV\_DIVIDE\_BY\_17}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a78d06e9fe5b83cc9615c9200bb56448b} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+17~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(16) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00082}{82}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a3cd0c721ca8c1b839bc66f6afaa90421}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_18@{PTGCON\_PTGDIV\_DIVIDE\_BY\_18}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_18@{PTGCON\_PTGDIV\_DIVIDE\_BY\_18}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_18}{PTGCON\_PTGDIV\_DIVIDE\_BY\_18}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a3cd0c721ca8c1b839bc66f6afaa90421} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+18~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(17) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00083}{83}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a9e103e5d26febc9453770a0d5414a3ea}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_19@{PTGCON\_PTGDIV\_DIVIDE\_BY\_19}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_19@{PTGCON\_PTGDIV\_DIVIDE\_BY\_19}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_19}{PTGCON\_PTGDIV\_DIVIDE\_BY\_19}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a9e103e5d26febc9453770a0d5414a3ea} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+19~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(18) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00084}{84}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a9d982f8089f0cedac7d49bed9acf8644}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_2@{PTGCON\_PTGDIV\_DIVIDE\_BY\_2}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_2@{PTGCON\_PTGDIV\_DIVIDE\_BY\_2}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_2}{PTGCON\_PTGDIV\_DIVIDE\_BY\_2}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a9d982f8089f0cedac7d49bed9acf8644} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+2~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00067}{67}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a39f479c520dc7f2d01566eba77294985}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_20@{PTGCON\_PTGDIV\_DIVIDE\_BY\_20}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_20@{PTGCON\_PTGDIV\_DIVIDE\_BY\_20}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_20}{PTGCON\_PTGDIV\_DIVIDE\_BY\_20}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a39f479c520dc7f2d01566eba77294985} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+20~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(19) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00085}{85}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_af0b4a003bb5d7cacf2fa8691016e563d}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_21@{PTGCON\_PTGDIV\_DIVIDE\_BY\_21}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_21@{PTGCON\_PTGDIV\_DIVIDE\_BY\_21}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_21}{PTGCON\_PTGDIV\_DIVIDE\_BY\_21}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_af0b4a003bb5d7cacf2fa8691016e563d} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+21~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(20) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00086}{86}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a64f43c9b807875d9181e1fce92dfe9a1}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_22@{PTGCON\_PTGDIV\_DIVIDE\_BY\_22}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_22@{PTGCON\_PTGDIV\_DIVIDE\_BY\_22}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_22}{PTGCON\_PTGDIV\_DIVIDE\_BY\_22}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a64f43c9b807875d9181e1fce92dfe9a1} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+22~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(21) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00087}{87}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a4b625f5919aaade81588d1bcb886b70c}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_23@{PTGCON\_PTGDIV\_DIVIDE\_BY\_23}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_23@{PTGCON\_PTGDIV\_DIVIDE\_BY\_23}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_23}{PTGCON\_PTGDIV\_DIVIDE\_BY\_23}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a4b625f5919aaade81588d1bcb886b70c} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+23~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(22) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00088}{88}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_ac8cb23234bff9a57e078c341a6e8734d}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_24@{PTGCON\_PTGDIV\_DIVIDE\_BY\_24}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_24@{PTGCON\_PTGDIV\_DIVIDE\_BY\_24}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_24}{PTGCON\_PTGDIV\_DIVIDE\_BY\_24}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_ac8cb23234bff9a57e078c341a6e8734d} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+24~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(23) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00089}{89}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a72820bde706cb993ef93d3ce3a6f8795}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_25@{PTGCON\_PTGDIV\_DIVIDE\_BY\_25}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_25@{PTGCON\_PTGDIV\_DIVIDE\_BY\_25}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_25}{PTGCON\_PTGDIV\_DIVIDE\_BY\_25}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a72820bde706cb993ef93d3ce3a6f8795} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+25~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(24) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00090}{90}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_aaa7def64b80d56645b689381e4ef9b8f}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_26@{PTGCON\_PTGDIV\_DIVIDE\_BY\_26}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_26@{PTGCON\_PTGDIV\_DIVIDE\_BY\_26}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_26}{PTGCON\_PTGDIV\_DIVIDE\_BY\_26}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_aaa7def64b80d56645b689381e4ef9b8f} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+26~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(25) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00091}{91}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_af0ebd2bb8568f5635f5f1f58a4868880}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_27@{PTGCON\_PTGDIV\_DIVIDE\_BY\_27}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_27@{PTGCON\_PTGDIV\_DIVIDE\_BY\_27}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_27}{PTGCON\_PTGDIV\_DIVIDE\_BY\_27}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_af0ebd2bb8568f5635f5f1f58a4868880} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+27~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(26) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00092}{92}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_af368723dc4b84afd1f4e5250da2de4ea}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_28@{PTGCON\_PTGDIV\_DIVIDE\_BY\_28}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_28@{PTGCON\_PTGDIV\_DIVIDE\_BY\_28}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_28}{PTGCON\_PTGDIV\_DIVIDE\_BY\_28}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_af368723dc4b84afd1f4e5250da2de4ea} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+28~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(27) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00093}{93}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a62167befde5af7c89a7ceb0d3bc89a3f}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_29@{PTGCON\_PTGDIV\_DIVIDE\_BY\_29}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_29@{PTGCON\_PTGDIV\_DIVIDE\_BY\_29}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_29}{PTGCON\_PTGDIV\_DIVIDE\_BY\_29}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a62167befde5af7c89a7ceb0d3bc89a3f} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+29~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(28) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00094}{94}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a63bef2569cf32377557d17e37d834d1c}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_3@{PTGCON\_PTGDIV\_DIVIDE\_BY\_3}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_3@{PTGCON\_PTGDIV\_DIVIDE\_BY\_3}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_3}{PTGCON\_PTGDIV\_DIVIDE\_BY\_3}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a63bef2569cf32377557d17e37d834d1c} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+3~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00068}{68}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a15f3b3d8877f869f880f92fc740e29b5}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_30@{PTGCON\_PTGDIV\_DIVIDE\_BY\_30}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_30@{PTGCON\_PTGDIV\_DIVIDE\_BY\_30}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_30}{PTGCON\_PTGDIV\_DIVIDE\_BY\_30}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a15f3b3d8877f869f880f92fc740e29b5} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+30~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(29) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00095}{95}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a201e27bcb06f6dae5c11939f023064b7}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_31@{PTGCON\_PTGDIV\_DIVIDE\_BY\_31}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_31@{PTGCON\_PTGDIV\_DIVIDE\_BY\_31}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_31}{PTGCON\_PTGDIV\_DIVIDE\_BY\_31}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a201e27bcb06f6dae5c11939f023064b7} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+31~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(30) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00096}{96}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a9c318fcd87c9aade7feb64a1ab2ffa01}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_32@{PTGCON\_PTGDIV\_DIVIDE\_BY\_32}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_32@{PTGCON\_PTGDIV\_DIVIDE\_BY\_32}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_32}{PTGCON\_PTGDIV\_DIVIDE\_BY\_32}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a9c318fcd87c9aade7feb64a1ab2ffa01} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+32~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(31) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00097}{97}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a2785bd7efb7efd1ddf63d1cb81a71919}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_4@{PTGCON\_PTGDIV\_DIVIDE\_BY\_4}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_4@{PTGCON\_PTGDIV\_DIVIDE\_BY\_4}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_4}{PTGCON\_PTGDIV\_DIVIDE\_BY\_4}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a2785bd7efb7efd1ddf63d1cb81a71919} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+4~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00069}{69}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_accab3e0cfd06ebb856c4910488fa0a4f}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_5@{PTGCON\_PTGDIV\_DIVIDE\_BY\_5}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_5@{PTGCON\_PTGDIV\_DIVIDE\_BY\_5}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_5}{PTGCON\_PTGDIV\_DIVIDE\_BY\_5}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_accab3e0cfd06ebb856c4910488fa0a4f} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+5~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(4) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00070}{70}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a887faa1639624073ebebb07b41ab7ee0}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_6@{PTGCON\_PTGDIV\_DIVIDE\_BY\_6}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_6@{PTGCON\_PTGDIV\_DIVIDE\_BY\_6}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_6}{PTGCON\_PTGDIV\_DIVIDE\_BY\_6}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a887faa1639624073ebebb07b41ab7ee0} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+6~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(5) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00071}{71}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a635bcf54eac04548bb34c9a77a7ce346}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_7@{PTGCON\_PTGDIV\_DIVIDE\_BY\_7}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_7@{PTGCON\_PTGDIV\_DIVIDE\_BY\_7}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_7}{PTGCON\_PTGDIV\_DIVIDE\_BY\_7}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a635bcf54eac04548bb34c9a77a7ce346} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+7~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(6) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00072}{72}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a99f4521f0f5e80b717b47cf32aebcd7e}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_8@{PTGCON\_PTGDIV\_DIVIDE\_BY\_8}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_8@{PTGCON\_PTGDIV\_DIVIDE\_BY\_8}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_8}{PTGCON\_PTGDIV\_DIVIDE\_BY\_8}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a99f4521f0f5e80b717b47cf32aebcd7e} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+8~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(7) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00073}{73}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_ac6ae2c58ae858ebf87f96421c8b33cdf}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGDIV\_DIVIDE\_BY\_9@{PTGCON\_PTGDIV\_DIVIDE\_BY\_9}}
+\index{PTGCON\_PTGDIV\_DIVIDE\_BY\_9@{PTGCON\_PTGDIV\_DIVIDE\_BY\_9}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGDIV\_DIVIDE\_BY\_9}{PTGCON\_PTGDIV\_DIVIDE\_BY\_9}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_ac6ae2c58ae858ebf87f96421c8b33cdf} 
+\#define PTGCON\+\_\+\+PTGDIV\+\_\+\+DIVIDE\+\_\+\+BY\+\_\+9~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(8) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00074}{74}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a02fc52df7bc3a5dfb64cebc402b05bd9}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGITM\_MODE\_0@{PTGCON\_PTGITM\_MODE\_0}}
+\index{PTGCON\_PTGITM\_MODE\_0@{PTGCON\_PTGITM\_MODE\_0}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGITM\_MODE\_0}{PTGCON\_PTGITM\_MODE\_0}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a02fc52df7bc3a5dfb64cebc402b05bd9} 
+\#define PTGCON\+\_\+\+PTGITM\+\_\+\+MODE\+\_\+0~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00061}{61}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a830c7b6aac8c94b1c928e34a707749bc}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGITM\_MODE\_1@{PTGCON\_PTGITM\_MODE\_1}}
+\index{PTGCON\_PTGITM\_MODE\_1@{PTGCON\_PTGITM\_MODE\_1}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGITM\_MODE\_1}{PTGCON\_PTGITM\_MODE\_1}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a830c7b6aac8c94b1c928e34a707749bc} 
+\#define PTGCON\+\_\+\+PTGITM\+\_\+\+MODE\+\_\+1~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00062}{62}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a109e1923ea39ae3cb51c88f46f65d2e3}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGITM\_MODE\_2@{PTGCON\_PTGITM\_MODE\_2}}
+\index{PTGCON\_PTGITM\_MODE\_2@{PTGCON\_PTGITM\_MODE\_2}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGITM\_MODE\_2}{PTGCON\_PTGITM\_MODE\_2}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a109e1923ea39ae3cb51c88f46f65d2e3} 
+\#define PTGCON\+\_\+\+PTGITM\+\_\+\+MODE\+\_\+2~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00063}{63}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a91c2c9a43f9f415b6f15a5588039517e}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGITM\_MODE\_3@{PTGCON\_PTGITM\_MODE\_3}}
+\index{PTGCON\_PTGITM\_MODE\_3@{PTGCON\_PTGITM\_MODE\_3}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGITM\_MODE\_3}{PTGCON\_PTGITM\_MODE\_3}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a91c2c9a43f9f415b6f15a5588039517e} 
+\#define PTGCON\+\_\+\+PTGITM\+\_\+\+MODE\+\_\+3~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGITM\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00064}{64}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a85375b2a46feee101d4a7a80795fcea4}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGWDT\_TIMEOUT\_128@{PTGCON\_PTGWDT\_TIMEOUT\_128}}
+\index{PTGCON\_PTGWDT\_TIMEOUT\_128@{PTGCON\_PTGWDT\_TIMEOUT\_128}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGWDT\_TIMEOUT\_128}{PTGCON\_PTGWDT\_TIMEOUT\_128}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a85375b2a46feee101d4a7a80795fcea4} 
+\#define PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+128~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(5) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00057}{57}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_abaf35bb6a4f34e5847c913c3e066e1f6}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGWDT\_TIMEOUT\_16@{PTGCON\_PTGWDT\_TIMEOUT\_16}}
+\index{PTGCON\_PTGWDT\_TIMEOUT\_16@{PTGCON\_PTGWDT\_TIMEOUT\_16}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGWDT\_TIMEOUT\_16}{PTGCON\_PTGWDT\_TIMEOUT\_16}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_abaf35bb6a4f34e5847c913c3e066e1f6} 
+\#define PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+16~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00054}{54}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a492ec41978250807983a3718234b9220}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGWDT\_TIMEOUT\_256@{PTGCON\_PTGWDT\_TIMEOUT\_256}}
+\index{PTGCON\_PTGWDT\_TIMEOUT\_256@{PTGCON\_PTGWDT\_TIMEOUT\_256}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGWDT\_TIMEOUT\_256}{PTGCON\_PTGWDT\_TIMEOUT\_256}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a492ec41978250807983a3718234b9220} 
+\#define PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+256~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(6) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00058}{58}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a1f24661edfcc294e691a9ca7db763f4e}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGWDT\_TIMEOUT\_32@{PTGCON\_PTGWDT\_TIMEOUT\_32}}
+\index{PTGCON\_PTGWDT\_TIMEOUT\_32@{PTGCON\_PTGWDT\_TIMEOUT\_32}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGWDT\_TIMEOUT\_32}{PTGCON\_PTGWDT\_TIMEOUT\_32}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a1f24661edfcc294e691a9ca7db763f4e} 
+\#define PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+32~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00055}{55}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a4d3a3978e2b1568ab7f7a5690ac98fd9}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGWDT\_TIMEOUT\_512@{PTGCON\_PTGWDT\_TIMEOUT\_512}}
+\index{PTGCON\_PTGWDT\_TIMEOUT\_512@{PTGCON\_PTGWDT\_TIMEOUT\_512}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGWDT\_TIMEOUT\_512}{PTGCON\_PTGWDT\_TIMEOUT\_512}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a4d3a3978e2b1568ab7f7a5690ac98fd9} 
+\#define PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+512~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(7) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00059}{59}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_ad41abc76facc51006c1de41b4a37e8c5}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGWDT\_TIMEOUT\_64@{PTGCON\_PTGWDT\_TIMEOUT\_64}}
+\index{PTGCON\_PTGWDT\_TIMEOUT\_64@{PTGCON\_PTGWDT\_TIMEOUT\_64}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGWDT\_TIMEOUT\_64}{PTGCON\_PTGWDT\_TIMEOUT\_64}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_ad41abc76facc51006c1de41b4a37e8c5} 
+\#define PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+64~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(4) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00056}{56}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a938d2a088ea9b92b90bce56e887f69ab}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGWDT\_TIMEOUT\_8@{PTGCON\_PTGWDT\_TIMEOUT\_8}}
+\index{PTGCON\_PTGWDT\_TIMEOUT\_8@{PTGCON\_PTGWDT\_TIMEOUT\_8}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGWDT\_TIMEOUT\_8}{PTGCON\_PTGWDT\_TIMEOUT\_8}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a938d2a088ea9b92b90bce56e887f69ab} 
+\#define PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+8~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00053}{53}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a2dfe1e66a82f6078072159c880d6c4b3}\index{plib\_ptg.c@{plib\_ptg.c}!PTGCON\_PTGWDT\_TIMEOUT\_DISABLED@{PTGCON\_PTGWDT\_TIMEOUT\_DISABLED}}
+\index{PTGCON\_PTGWDT\_TIMEOUT\_DISABLED@{PTGCON\_PTGWDT\_TIMEOUT\_DISABLED}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTGCON\_PTGWDT\_TIMEOUT\_DISABLED}{PTGCON\_PTGWDT\_TIMEOUT\_DISABLED}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a2dfe1e66a82f6078072159c880d6c4b3} 
+\#define PTGCON\+\_\+\+PTGWDT\+\_\+\+TIMEOUT\+\_\+\+DISABLED~((uint32\+\_\+t)(\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$\+\_\+\+PTGCON\+\_\+\+PTGWDT\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00052}{52}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{plib__ptg_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__ptg_8c_a3fadf36eda7a28884ba18ced6c1b2d4e}\index{plib\_ptg.c@{plib\_ptg.c}!PTG\_Deinitialize@{PTG\_Deinitialize}}
+\index{PTG\_Deinitialize@{PTG\_Deinitialize}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTG\_Deinitialize()}{PTG\_Deinitialize()}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a3fadf36eda7a28884ba18ced6c1b2d4e} 
+void PTG\+\_\+\+Deinitialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Deinitializes the PTG peripheral of the device. 
+
+This function deinitializes the PTG Peripheral Library (PLIB) of the device, returning the PTG peripheral to its default reset state. After calling this function, the PTG peripheral will no longer be operational, and any subsequent PTG operations will fail until re-\/initialization using the PTG\+\_\+\+Initialize API.
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been initialized using the PTG\+\_\+\+Initialize API.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function should be called when the PTG peripheral is no longer required to release resources and ensure proper reset behavior.
+\end{DoxyNote}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a3fadf36eda7a28884ba18ced6c1b2d4e}{PTG\_Deinitialize}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00157}{157}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a58aa65517d610207ce1d691f55acaa08}\index{plib\_ptg.c@{plib\_ptg.c}!PTG\_Disable@{PTG\_Disable}}
+\index{PTG\_Disable@{PTG\_Disable}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTG\_Disable()}{PTG\_Disable()}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a58aa65517d610207ce1d691f55acaa08} 
+void PTG\+\_\+\+Disable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Disables the PTG peripheral of the device. 
+
+This function disables the PTG Peripheral Library (PLIB) of the device, for its desired use
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been initialized using the PTG\+\_\+\+Initialize API. The peripheral should be enabled using the \doxylink{plib__ptg_8h_a79f9906529b915821ebe7968529ad84a}{PTG\+\_\+\+Enable()} API.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function should be called when the PTG peripheral is required to disable
+\end{DoxyNote}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a58aa65517d610207ce1d691f55acaa08}{PTG\_Disable}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00205}{205}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a79f9906529b915821ebe7968529ad84a}\index{plib\_ptg.c@{plib\_ptg.c}!PTG\_Enable@{PTG\_Enable}}
+\index{PTG\_Enable@{PTG\_Enable}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTG\_Enable()}{PTG\_Enable()}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a79f9906529b915821ebe7968529ad84a} 
+void PTG\+\_\+\+Enable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Enables the PTG peripheral of the device. 
+
+This function enables the PTG Peripheral Library (PLIB) of the device, for its desired use
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been initialized using the PTG\+\_\+\+Initialize API.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function should be called when the PTG peripheral is required to enable
+\end{DoxyNote}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a79f9906529b915821ebe7968529ad84a}{PTG\_Enable}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00175}{175}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_af7bff23231eea7446adcf1a84fec8eaf}\index{plib\_ptg.c@{plib\_ptg.c}!PTG\_Initialize@{PTG\_Initialize}}
+\index{PTG\_Initialize@{PTG\_Initialize}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTG\_Initialize()}{PTG\_Initialize()}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_af7bff23231eea7446adcf1a84fec8eaf} 
+void PTG\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes PTG module. 
+
+This function initializes the PTG Peripheral Library (PLIB) of the device with the values configured in the MCC GUI. Once the peripheral is initialized, Step Sequence APIs can be used to start the Step Sequence
+
+\begin{DoxyPrecond}{Precondition}
+MCC GUI should be configured with the correct values.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none ~\newline
+
+\end{DoxyReturn}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{SYSTEM\_Initialize();}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a79f9906529b915821ebe7968529ad84a}{PTG\_Enable}}();}
+\DoxyCodeLine{PTG\_StartStepSequence();}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{while}\ (1)}
+\DoxyCodeLine{\ \ \{\ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{plib__ptg_8c_a2e83317bcf25d6e66da39dd89f8708c0}{PTG\_SoftwareTriggerSet}}();\ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{bool}\ wdtBit\ =\ \mbox{\hyperlink{plib__ptg_8c_ad5060e3f7d6c3064b52d4aa686a2ba27}{PTG\_WatchdogTimeoutStatusGet}}();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(wdtBit)\{\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__ptg_8c_a7fdecd2f7d360691d1424fdaff7e1630}{PTG\_StepSequenceStop}}();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__ptg_8c_a58aa65517d610207ce1d691f55acaa08}{PTG\_Disable}}();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+Step Commands
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00100}{100}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a05ab94c855db5c94f39fdebf6ebdb9e1}\index{plib\_ptg.c@{plib\_ptg.c}!PTG\_SoftwareTriggerClear@{PTG\_SoftwareTriggerClear}}
+\index{PTG\_SoftwareTriggerClear@{PTG\_SoftwareTriggerClear}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTG\_SoftwareTriggerClear()}{PTG\_SoftwareTriggerClear()}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a05ab94c855db5c94f39fdebf6ebdb9e1} 
+void PTG\+\_\+\+Software\+Trigger\+Clear (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Clears the software trigger of the PTG peripheral of the device. 
+
+This function clears the software trigger bit PTGSWT of the PTGCON register
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been enabled using the PTG\+\_\+\+Enable API. The Step Sequence configurations should be carefully made in the MCC GUI
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+@\+Note This API is added to resolve the Errata issue. After executing the wait for software trigger step command followed by the same command, the PTGSWT bit is not cleared by hardware.
+
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a05ab94c855db5c94f39fdebf6ebdb9e1}{PTG\_SoftwareTriggerClear}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00190}{190}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a2e83317bcf25d6e66da39dd89f8708c0}\index{plib\_ptg.c@{plib\_ptg.c}!PTG\_SoftwareTriggerSet@{PTG\_SoftwareTriggerSet}}
+\index{PTG\_SoftwareTriggerSet@{PTG\_SoftwareTriggerSet}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTG\_SoftwareTriggerSet()}{PTG\_SoftwareTriggerSet()}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a2e83317bcf25d6e66da39dd89f8708c0} 
+void PTG\+\_\+\+Software\+Trigger\+Set (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Activates the software trigger of the PTG peripheral of the device. 
+
+This function initiates the step sequence for the PTG peripheral of the device This process begins the programmed sequence of operations. Ensures the device performs Step Commands in the correct order.
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been enabled using the PTG\+\_\+\+Enable API. The Step Sequence configurations should be carefully made in the MCC GUI
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function should be called when the PTG peripheral is required to set the software trigger
+\end{DoxyNote}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a2e83317bcf25d6e66da39dd89f8708c0}{PTG\_SoftwareTriggerSet}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00185}{185}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a62f8a9ffe3604f672de2f00e45be373b}\index{plib\_ptg.c@{plib\_ptg.c}!PTG\_StepSequenceStart@{PTG\_StepSequenceStart}}
+\index{PTG\_StepSequenceStart@{PTG\_StepSequenceStart}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTG\_StepSequenceStart()}{PTG\_StepSequenceStart()}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a62f8a9ffe3604f672de2f00e45be373b} 
+void PTG\+\_\+\+Step\+Sequence\+Start (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Starts the step sequence of the PTG peripheral of the device. 
+
+This function initiates the step sequence for the PTG peripheral of the device This process begins the programmed sequence of operations. Ensures the device performs Step Commands in the correct order.
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been enabled using the PTG\+\_\+\+Enable API. The Step Sequence configurations should be carefully made in the MCC GUI
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function should be called when the PTG peripheral is required to start the step sequence
+\end{DoxyNote}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a62f8a9ffe3604f672de2f00e45be373b}{PTG\_StepSequenceStart}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00180}{180}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_a7fdecd2f7d360691d1424fdaff7e1630}\index{plib\_ptg.c@{plib\_ptg.c}!PTG\_StepSequenceStop@{PTG\_StepSequenceStop}}
+\index{PTG\_StepSequenceStop@{PTG\_StepSequenceStop}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTG\_StepSequenceStop()}{PTG\_StepSequenceStop()}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_a7fdecd2f7d360691d1424fdaff7e1630} 
+void PTG\+\_\+\+Step\+Sequence\+Stop (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Stops the step sequence of the PTG peripheral of the device. 
+
+Halts the ongoing step sequence of the PTG peripheral in the device. This action interrupts the programmed series of operations. Ensures the device ceases its current step commands immediately
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been enabled using the PTG\+\_\+\+Enable API. The Step Sequence configurations should be carefully made in the MCC GUI and step sequence should be started with the PTG\+\_\+\+Step\+Sequence\+Start API.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function should be called when the PTG peripheral is required to stop the step sequence
+\end{DoxyNote}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a7fdecd2f7d360691d1424fdaff7e1630}{PTG\_StepSequenceStop}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00200}{200}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8c_ad5060e3f7d6c3064b52d4aa686a2ba27}\index{plib\_ptg.c@{plib\_ptg.c}!PTG\_WatchdogTimeoutStatusGet@{PTG\_WatchdogTimeoutStatusGet}}
+\index{PTG\_WatchdogTimeoutStatusGet@{PTG\_WatchdogTimeoutStatusGet}!plib\_ptg.c@{plib\_ptg.c}}
+\doxysubsubsection{\texorpdfstring{PTG\_WatchdogTimeoutStatusGet()}{PTG\_WatchdogTimeoutStatusGet()}}
+{\footnotesize\ttfamily \label{plib__ptg_8c_ad5060e3f7d6c3064b52d4aa686a2ba27} 
+bool PTG\+\_\+\+Watchdog\+Timeout\+Status\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Indicates the status of the watchdog timeout status of the PTG Peripheral of the device. 
+
+This function displays the current status of the watchdog timeout for the PTG peripheral of the device. This information helps monitor whether the watchdog timer has expired. Ensures timely detection and response to potential system issues.
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been enabled using the PTG\+\_\+\+Enable API. The Step Sequence configurations should be carefully made in the MCC GUI
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+true -\/ PTG watchdog timeout occurred 
+
+false -\/ PTG watchdog timeout not occurred ~\newline
+
+\end{DoxyReturn}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_ad5060e3f7d6c3064b52d4aa686a2ba27}{PTG\_WatchdogTimeoutStatusGet}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00195}{195}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+

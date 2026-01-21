@@ -1,0 +1,356 @@
+\doxysection{src/lcd\+\_\+drv/\+Oled\+Grph.c File Reference}
+\hypertarget{OledGrph_8c}{}\label{OledGrph_8c}\index{src/lcd\_drv/OledGrph.c@{src/lcd\_drv/OledGrph.c}}
+{\ttfamily \#include "{}Oled\+Grph.\+h"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{OledGrph_8c_ad3f02c3a14e4d9ec11d1c3f5a0a5d13f}{Oled\+Move\+Down}} (void)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_a48e16af9c911b96906e338b0229c2552}{Oled\+Move\+Up}} (void)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_aaad60f722931ac3182eb2cf2b24ad4d1}{Oled\+Move\+Right}} (void)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_adc85ba23f46969ae36db62e8982bdbae}{Oled\+Move\+Left}} (void)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{OledGrph_8c_a05a32f96ab21e92bd9ef766fcca3fa1f}{Oled\+Rop\+Set}} (uint8\+\_\+t b\+Pix, uint8\+\_\+t b\+Dsp, uint8\+\_\+t msk\+Pix)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{OledGrph_8c_ac7c87c852cf783c0e16d55822f91f5e4}{Oled\+Rop\+Or}} (uint8\+\_\+t b\+Pix, uint8\+\_\+t b\+Dsp, uint8\+\_\+t msk\+Pix)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{OledGrph_8c_accb3fe4ce133315190bfaa58d7d23561}{Oled\+Rop\+And}} (uint8\+\_\+t b\+Pix, uint8\+\_\+t b\+Dsp, uint8\+\_\+t msk\+Pix)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{OledGrph_8c_a3a4fcc23c3f7f0ef7fb968b24373b964}{Oled\+Rop\+Xor}} (uint8\+\_\+t b\+Pix, uint8\+\_\+t b\+Dsp, uint8\+\_\+t msk\+Pix)
+\item 
+int32\+\_\+t \mbox{\hyperlink{OledGrph_8c_ab94975bcf673ab1cd9bc2f0100cdb029}{Oled\+Clamp\+Xco}} (int32\+\_\+t xco)
+\item 
+int32\+\_\+t \mbox{\hyperlink{OledGrph_8c_ae3da90227578d2f5ea4c8c7fcbae4632}{Oled\+Clamp\+Yco}} (int32\+\_\+t yco)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_aaaaa25deda6bd735234ff6fc8764f330}{Oled\+Move\+To}} (int32\+\_\+t xco, int32\+\_\+t yco)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_a389849d31ba5f4263c1e4c33ba4d6072}{Oled\+Get\+Pos}} (int32\+\_\+t \texorpdfstring{$\ast$}{*}pxco, int32\+\_\+t \texorpdfstring{$\ast$}{*}pyco)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_adb5685c4eae56199c19c0c72a810aa95}{Oled\+Set\+Draw\+Color}} (uint8\+\_\+t clr)
+\item 
+uint8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{OledGrph_8c_a1d79a8b82b9e29ddb070cedb1c745279}{Oled\+Get\+Std\+Pattern}} (int32\+\_\+t ipat)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_aff53f837d4fc21314818b1743821ce9f}{Oled\+Set\+Fill\+Pattern}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}pb\+Pat)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_a8201d9bbc776be2a7fc5d57f9a58e07c}{Oled\+Set\+Draw\+Mode}} (int32\+\_\+t mod)
+\item 
+int32\+\_\+t \mbox{\hyperlink{OledGrph_8c_a6892d31b9b6a7570f7cee837662290a8}{Oled\+Get\+Draw\+Mode}} (void)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_a092e1531d811ef3ede5918885639a588}{Oled\+Draw\+Pixel}} (void)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{OledGrph_8c_ad1f8ca5fb5bfbe205cb3a71458af9a55}{Oled\+Get\+Pixel}} (void)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_afaf4173abdcaa7b3ed06037b9d400b94}{Oled\+Line\+To}} (int32\+\_\+t xco, int32\+\_\+t yco)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_a81a4711526d3798c9d0293ec96569c95}{Oled\+Draw\+Rect}} (int32\+\_\+t xco, int32\+\_\+t yco)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_a1fe2c0db47db4779c4be66775b17e842}{Oled\+Fill\+Rect}} (int32\+\_\+t xco, int32\+\_\+t yco)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_ae2cbbe0aa06d6b59799dda16f002d554}{Oled\+Get\+Bmp}} (int32\+\_\+t dxco, int32\+\_\+t dyco, uint8\+\_\+t \texorpdfstring{$\ast$}{*}pb\+Bits)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_a6771f12f02a21c47f7c4b00c5da7e3a1}{Oled\+Put\+Bmp}} (int32\+\_\+t dxco, int32\+\_\+t dyco, uint8\+\_\+t \texorpdfstring{$\ast$}{*}pb\+Bits)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_a4aea9704a3eecc7b78ba4eda883b7257}{Oled\+Draw\+Char}} (char ch)
+\item 
+void \mbox{\hyperlink{OledGrph_8c_ae0c816344c04becb25f57ba7b3559439}{Oled\+Draw\+String}} (char \texorpdfstring{$\ast$}{*}sz)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{OledGrph_8c_a85a92b2266c5abbb4f4b5c7abb1946ef}{pfn\+Do\+Rop}} )(uint8\+\_\+t b\+Pix, uint8\+\_\+t b\+Dsp, uint8\+\_\+t msk\+Pix)
+\item 
+int32\+\_\+t \mbox{\hyperlink{OledGrph_8c_ae21b7800aaa67dfa9c94fd3afec04488}{mod\+Oled\+Cur}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{OledGrph_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{OledGrph_8c_ab94975bcf673ab1cd9bc2f0100cdb029}\index{OledGrph.c@{OledGrph.c}!OledClampXco@{OledClampXco}}
+\index{OledClampXco@{OledClampXco}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledClampXco()}{OledClampXco()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_ab94975bcf673ab1cd9bc2f0100cdb029} 
+int32\+\_\+t Oled\+Clamp\+Xco (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{xco}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l01079}{1079}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_ae3da90227578d2f5ea4c8c7fcbae4632}\index{OledGrph.c@{OledGrph.c}!OledClampYco@{OledClampYco}}
+\index{OledClampYco@{OledClampYco}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledClampYco()}{OledClampYco()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_ae3da90227578d2f5ea4c8c7fcbae4632} 
+int32\+\_\+t Oled\+Clamp\+Yco (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{yco}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l01108}{1108}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_a4aea9704a3eecc7b78ba4eda883b7257}\index{OledGrph.c@{OledGrph.c}!OledDrawChar@{OledDrawChar}}
+\index{OledDrawChar@{OledDrawChar}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledDrawChar()}{OledDrawChar()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_a4aea9704a3eecc7b78ba4eda883b7257} 
+void Oled\+Draw\+Char (\begin{DoxyParamCaption}\item[{char}]{ch}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00770}{770}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_a092e1531d811ef3ede5918885639a588}\index{OledGrph.c@{OledGrph.c}!OledDrawPixel@{OledDrawPixel}}
+\index{OledDrawPixel@{OledDrawPixel}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledDrawPixel()}{OledDrawPixel()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_a092e1531d811ef3ede5918885639a588} 
+void Oled\+Draw\+Pixel (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00270}{270}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_a81a4711526d3798c9d0293ec96569c95}\index{OledGrph.c@{OledGrph.c}!OledDrawRect@{OledDrawRect}}
+\index{OledDrawRect@{OledDrawRect}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledDrawRect()}{OledDrawRect()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_a81a4711526d3798c9d0293ec96569c95} 
+void Oled\+Draw\+Rect (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{xco}{, }\item[{int32\+\_\+t}]{yco}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00416}{416}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_ae0c816344c04becb25f57ba7b3559439}\index{OledGrph.c@{OledGrph.c}!OledDrawString@{OledDrawString}}
+\index{OledDrawString@{OledDrawString}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledDrawString()}{OledDrawString()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_ae0c816344c04becb25f57ba7b3559439} 
+void Oled\+Draw\+String (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{sz}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00809}{809}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_a1fe2c0db47db4779c4be66775b17e842}\index{OledGrph.c@{OledGrph.c}!OledFillRect@{OledFillRect}}
+\index{OledFillRect@{OledFillRect}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledFillRect()}{OledFillRect()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_a1fe2c0db47db4779c4be66775b17e842} 
+void Oled\+Fill\+Rect (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{xco}{, }\item[{int32\+\_\+t}]{yco}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00453}{453}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_ae2cbbe0aa06d6b59799dda16f002d554}\index{OledGrph.c@{OledGrph.c}!OledGetBmp@{OledGetBmp}}
+\index{OledGetBmp@{OledGetBmp}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledGetBmp()}{OledGetBmp()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_ae2cbbe0aa06d6b59799dda16f002d554} 
+void Oled\+Get\+Bmp (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{dxco}{, }\item[{int32\+\_\+t}]{dyco}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{pb\+Bits}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00557}{557}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_a6892d31b9b6a7570f7cee837662290a8}\index{OledGrph.c@{OledGrph.c}!OledGetDrawMode@{OledGetDrawMode}}
+\index{OledGetDrawMode@{OledGetDrawMode}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledGetDrawMode()}{OledGetDrawMode()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_a6892d31b9b6a7570f7cee837662290a8} 
+int32\+\_\+t Oled\+Get\+Draw\+Mode (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00247}{247}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_ad1f8ca5fb5bfbe205cb3a71458af9a55}\index{OledGrph.c@{OledGrph.c}!OledGetPixel@{OledGetPixel}}
+\index{OledGetPixel@{OledGetPixel}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledGetPixel()}{OledGetPixel()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_ad1f8ca5fb5bfbe205cb3a71458af9a55} 
+uint8\+\_\+t Oled\+Get\+Pixel (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00292}{292}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_a389849d31ba5f4263c1e4c33ba4d6072}\index{OledGrph.c@{OledGrph.c}!OledGetPos@{OledGetPos}}
+\index{OledGetPos@{OledGetPos}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledGetPos()}{OledGetPos()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_a389849d31ba5f4263c1e4c33ba4d6072} 
+void Oled\+Get\+Pos (\begin{DoxyParamCaption}\item[{int32\+\_\+t \texorpdfstring{$\ast$}{*}}]{pxco}{, }\item[{int32\+\_\+t \texorpdfstring{$\ast$}{*}}]{pyco}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00111}{111}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_a1d79a8b82b9e29ddb070cedb1c745279}\index{OledGrph.c@{OledGrph.c}!OledGetStdPattern@{OledGetStdPattern}}
+\index{OledGetStdPattern@{OledGetStdPattern}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledGetStdPattern()}{OledGetStdPattern()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_a1d79a8b82b9e29ddb070cedb1c745279} 
+uint8\+\_\+t \texorpdfstring{$\ast$}{*} Oled\+Get\+Std\+Pattern (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{ipat}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00157}{157}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_afaf4173abdcaa7b3ed06037b9d400b94}\index{OledGrph.c@{OledGrph.c}!OledLineTo@{OledLineTo}}
+\index{OledLineTo@{OledLineTo}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledLineTo()}{OledLineTo()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_afaf4173abdcaa7b3ed06037b9d400b94} 
+void Oled\+Line\+To (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{xco}{, }\item[{int32\+\_\+t}]{yco}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00316}{316}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_ad3f02c3a14e4d9ec11d1c3f5a0a5d13f}\index{OledGrph.c@{OledGrph.c}!OledMoveDown@{OledMoveDown}}
+\index{OledMoveDown@{OledMoveDown}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledMoveDown()}{OledMoveDown()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_ad3f02c3a14e4d9ec11d1c3f5a0a5d13f} 
+void Oled\+Move\+Down (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00958}{958}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_adc85ba23f46969ae36db62e8982bdbae}\index{OledGrph.c@{OledGrph.c}!OledMoveLeft@{OledMoveLeft}}
+\index{OledMoveLeft@{OledMoveLeft}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledMoveLeft()}{OledMoveLeft()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_adc85ba23f46969ae36db62e8982bdbae} 
+void Oled\+Move\+Left (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l01003}{1003}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_aaad60f722931ac3182eb2cf2b24ad4d1}\index{OledGrph.c@{OledGrph.c}!OledMoveRight@{OledMoveRight}}
+\index{OledMoveRight@{OledMoveRight}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledMoveRight()}{OledMoveRight()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_aaad60f722931ac3182eb2cf2b24ad4d1} 
+void Oled\+Move\+Right (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l01043}{1043}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_aaaaa25deda6bd735234ff6fc8764f330}\index{OledGrph.c@{OledGrph.c}!OledMoveTo@{OledMoveTo}}
+\index{OledMoveTo@{OledMoveTo}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledMoveTo()}{OledMoveTo()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_aaaaa25deda6bd735234ff6fc8764f330} 
+void Oled\+Move\+To (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{xco}{, }\item[{int32\+\_\+t}]{yco}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00070}{70}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_a48e16af9c911b96906e338b0229c2552}\index{OledGrph.c@{OledGrph.c}!OledMoveUp@{OledMoveUp}}
+\index{OledMoveUp@{OledMoveUp}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledMoveUp()}{OledMoveUp()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_a48e16af9c911b96906e338b0229c2552} 
+void Oled\+Move\+Up (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00913}{913}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_a6771f12f02a21c47f7c4b00c5da7e3a1}\index{OledGrph.c@{OledGrph.c}!OledPutBmp@{OledPutBmp}}
+\index{OledPutBmp@{OledPutBmp}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledPutBmp()}{OledPutBmp()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_a6771f12f02a21c47f7c4b00c5da7e3a1} 
+void Oled\+Put\+Bmp (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{dxco}{, }\item[{int32\+\_\+t}]{dyco}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{pb\+Bits}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00657}{657}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_accb3fe4ce133315190bfaa58d7d23561}\index{OledGrph.c@{OledGrph.c}!OledRopAnd@{OledRopAnd}}
+\index{OledRopAnd@{OledRopAnd}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledRopAnd()}{OledRopAnd()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_accb3fe4ce133315190bfaa58d7d23561} 
+uint8\+\_\+t Oled\+Rop\+And (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{b\+Pix}{, }\item[{uint8\+\_\+t}]{b\+Dsp}{, }\item[{uint8\+\_\+t}]{msk\+Pix}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00871}{871}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_ac7c87c852cf783c0e16d55822f91f5e4}\index{OledGrph.c@{OledGrph.c}!OledRopOr@{OledRopOr}}
+\index{OledRopOr@{OledRopOr}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledRopOr()}{OledRopOr()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_ac7c87c852cf783c0e16d55822f91f5e4} 
+uint8\+\_\+t Oled\+Rop\+Or (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{b\+Pix}{, }\item[{uint8\+\_\+t}]{b\+Dsp}{, }\item[{uint8\+\_\+t}]{msk\+Pix}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00852}{852}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_a05a32f96ab21e92bd9ef766fcca3fa1f}\index{OledGrph.c@{OledGrph.c}!OledRopSet@{OledRopSet}}
+\index{OledRopSet@{OledRopSet}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledRopSet()}{OledRopSet()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_a05a32f96ab21e92bd9ef766fcca3fa1f} 
+uint8\+\_\+t Oled\+Rop\+Set (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{b\+Pix}{, }\item[{uint8\+\_\+t}]{b\+Dsp}{, }\item[{uint8\+\_\+t}]{msk\+Pix}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00833}{833}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_a3a4fcc23c3f7f0ef7fb968b24373b964}\index{OledGrph.c@{OledGrph.c}!OledRopXor@{OledRopXor}}
+\index{OledRopXor@{OledRopXor}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledRopXor()}{OledRopXor()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_a3a4fcc23c3f7f0ef7fb968b24373b964} 
+uint8\+\_\+t Oled\+Rop\+Xor (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{b\+Pix}{, }\item[{uint8\+\_\+t}]{b\+Dsp}{, }\item[{uint8\+\_\+t}]{msk\+Pix}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00890}{890}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_adb5685c4eae56199c19c0c72a810aa95}\index{OledGrph.c@{OledGrph.c}!OledSetDrawColor@{OledSetDrawColor}}
+\index{OledSetDrawColor@{OledSetDrawColor}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledSetDrawColor()}{OledSetDrawColor()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_adb5685c4eae56199c19c0c72a810aa95} 
+void Oled\+Set\+Draw\+Color (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{clr}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00134}{134}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_a8201d9bbc776be2a7fc5d57f9a58e07c}\index{OledGrph.c@{OledGrph.c}!OledSetDrawMode@{OledSetDrawMode}}
+\index{OledSetDrawMode@{OledSetDrawMode}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledSetDrawMode()}{OledSetDrawMode()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_a8201d9bbc776be2a7fc5d57f9a58e07c} 
+void Oled\+Set\+Draw\+Mode (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{mod}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00202}{202}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_aff53f837d4fc21314818b1743821ce9f}\index{OledGrph.c@{OledGrph.c}!OledSetFillPattern@{OledSetFillPattern}}
+\index{OledSetFillPattern@{OledSetFillPattern}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{OledSetFillPattern()}{OledSetFillPattern()}}
+{\footnotesize\ttfamily \label{OledGrph_8c_aff53f837d4fc21314818b1743821ce9f} 
+void Oled\+Set\+Fill\+Pattern (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{pb\+Pat}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00180}{180}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{OledGrph_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{OledGrph_8c_ae21b7800aaa67dfa9c94fd3afec04488}\index{OledGrph.c@{OledGrph.c}!modOledCur@{modOledCur}}
+\index{modOledCur@{modOledCur}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{modOledCur}{modOledCur}}
+{\footnotesize\ttfamily \label{OledGrph_8c_ae21b7800aaa67dfa9c94fd3afec04488} 
+int32\+\_\+t mod\+Oled\+Cur}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00041}{41}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+
+\Hypertarget{OledGrph_8c_a85a92b2266c5abbb4f4b5c7abb1946ef}\index{OledGrph.c@{OledGrph.c}!pfnDoRop@{pfnDoRop}}
+\index{pfnDoRop@{pfnDoRop}!OledGrph.c@{OledGrph.c}}
+\doxysubsubsection{\texorpdfstring{pfnDoRop}{pfnDoRop}}
+{\footnotesize\ttfamily \label{OledGrph_8c_a85a92b2266c5abbb4f4b5c7abb1946ef} 
+uint8\+\_\+t(\texorpdfstring{$\ast$}{*} pfn\+Do\+Rop) (uint8\+\_\+t b\+Pix, uint8\+\_\+t b\+Dsp, uint8\+\_\+t msk\+Pix) (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{b\+Pix}{, }\item[{uint8\+\_\+t}]{b\+Dsp}{, }\item[{uint8\+\_\+t}]{msk\+Pix}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledGrph_8c_source_l00040}{40}} of file \mbox{\hyperlink{OledGrph_8c_source}{Oled\+Grph.\+c}}.
+

@@ -1,0 +1,216 @@
+\doxysection{src/config/default/peripheral/clk/plib\+\_\+clk\+\_\+common.h File Reference}
+\hypertarget{plib__clk__common_8h}{}\label{plib__clk__common_8h}\index{src/config/default/peripheral/clk/plib\_clk\_common.h@{src/config/default/peripheral/clk/plib\_clk\_common.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCLOCK__CombinedFailObject}{CLOCK\+\_\+\+Combined\+Fail\+Object}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{plib__clk__common_8h_a1d2cf549c9fdbeb19cbd972e4de0a66d}{CLOCK\+\_\+\+Combined\+Fail\+Callback}}) (uintptr\+\_\+t context)
+\begin{DoxyCompactList}\small\item\em Clock-\/\+Fail callback function prototype. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1f}{CLOCK\+\_\+\+GENERATOR}} \{ \newline
+\mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa4f321132c12594fd292212a6b8660e94}{CLOCK\+\_\+\+GENERATOR\+\_\+1}} = 1
+, \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa6f453cbbf5c52804a3ca9390f7d626a9}{CLOCK\+\_\+\+GENERATOR\+\_\+2}} = 2
+, \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fac8fcdc24ebd65d443203d839644db669}{CLOCK\+\_\+\+GENERATOR\+\_\+3}} = 3
+, \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa4444eb822536fb64953e52c3b0eb9c98}{CLOCK\+\_\+\+GENERATOR\+\_\+6}} = 6
+, \newline
+\mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa9228fbdbf4ca94ca8a5dd289768b0ee1}{CLOCK\+\_\+\+GENERATOR\+\_\+7}} = 7
+, \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1facb09a5d25a098b850557772d287df9b7}{CLOCK\+\_\+\+GENERATOR\+\_\+9}} = 9
+, \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa5be2e0cff91e32f082ccad3083b13995}{CLOCK\+\_\+\+GENERATOR\+\_\+10}} = 10
+, \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1faf7c3b6e24d76169c387645847cba9532}{CLOCK\+\_\+\+GENERATOR\+\_\+12}} = 12
+, \newline
+\mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa0ebc6615d94a0ea9b88ea7205bda299c}{CLOCK\+\_\+\+SYSTEM}} = 1
+, \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa9fccc0ebd3a4cbb49b50444353aa12e6}{CLOCK\+\_\+\+FRC}} = 2
+, \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa472fc0f3c8697eb3152f936a7e29bf98}{CLOCK\+\_\+\+WDT}} = 3
+, \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa54794b068a16e66fff67e1898698ccf9}{CLOCK\+\_\+\+BFRC}} = 3
+, \newline
+\mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa3566d3a67ad653d6faed01af8e621a61}{CLOCK\+\_\+\+ADC}} = 6
+, \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fab01da9eb567b06924116d831ad130f65}{CLOCK\+\_\+\+CMP\+\_\+\+DAC}} = 7
+, \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa0383d5c64b8eae6f46958ea23973027e}{CLOCK\+\_\+\+SPI}} = 9
+, \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa2845bce5f73170d815b3da8eaa493078}{CLOCK\+\_\+\+PTG}} = 10
+, \newline
+\mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fad874fbd3b8e7f0ef0a5ac2573078a140}{CLOCK\+\_\+\+CCP}} = 12
+, \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa706dc66af1ebc1fd45ad8d812b4263d2}{CLOCK\+\_\+\+REFO1}} = 12
+ \}
+\item 
+enum \mbox{\hyperlink{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7}{CLOCK\+\_\+\+FAIL\+\_\+\+STATUS\+\_\+\+MASKS}} \{ \newline
+\mbox{\hyperlink{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7a4e633ebba3fc7c4872f12a583c517039}{CLOCK\+\_\+\+GEN1\+\_\+\+FAIL\+\_\+\+MASK}} = 0x1
+, \mbox{\hyperlink{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7acafdf8575dedddaf51100386504d0300}{CLOCK\+\_\+\+GEN2\+\_\+\+FAIL\+\_\+\+MASK}} = 0x2
+, \mbox{\hyperlink{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7a48cee9e933741ac8aca53ee3bac306c0}{CLOCK\+\_\+\+GEN3\+\_\+\+FAIL\+\_\+\+MASK}} = 0x4
+, \mbox{\hyperlink{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7aa3fc7c05cf1e7c9b71318806d88a1058}{CLOCK\+\_\+\+GEN6\+\_\+\+FAIL\+\_\+\+MASK}} = 0x20
+, \newline
+\mbox{\hyperlink{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7acb3c78023cd30891cc59c95fe1af0879}{CLOCK\+\_\+\+GEN7\+\_\+\+FAIL\+\_\+\+MASK}} = 0x40
+, \mbox{\hyperlink{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7a14a7f8a402a16a82e744dbf4a47571ec}{CLOCK\+\_\+\+GEN9\+\_\+\+FAIL\+\_\+\+MASK}} = 0x100
+, \mbox{\hyperlink{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7a99f73e3e12364521be6b83ad16ede7ed}{CLOCK\+\_\+\+GEN10\+\_\+\+FAIL\+\_\+\+MASK}} = 0x200
+, \mbox{\hyperlink{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7a842e5c007eddb63852bf6fd9d52a97e9}{CLOCK\+\_\+\+GEN12\+\_\+\+FAIL\+\_\+\+MASK}} = 0x800
+, \newline
+\mbox{\hyperlink{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7aa23774bac5e8be9fa07d736a4b073783}{CLOCK\+\_\+\+PLL1\+\_\+\+FAIL\+\_\+\+MASK}} = 0x1000000
+, \mbox{\hyperlink{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7ae6d2ec8bd867ddcc373b65fb95db4d4b}{CLOCK\+\_\+\+PLL2\+\_\+\+FAIL\+\_\+\+MASK}} = 0x2000000
+ \}
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{plib__clk__common_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{plib__clk__common_8h_a1d2cf549c9fdbeb19cbd972e4de0a66d}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_CombinedFailCallback@{CLOCK\_CombinedFailCallback}}
+\index{CLOCK\_CombinedFailCallback@{CLOCK\_CombinedFailCallback}!plib\_clk\_common.h@{plib\_clk\_common.h}}
+\doxysubsubsection{\texorpdfstring{CLOCK\_CombinedFailCallback}{CLOCK\_CombinedFailCallback}}
+{\footnotesize\ttfamily \label{plib__clk__common_8h_a1d2cf549c9fdbeb19cbd972e4de0a66d} 
+typedef void(\texorpdfstring{$\ast$}{*} CLOCK\+\_\+\+Combined\+Fail\+Callback) (uintptr\+\_\+t context)}
+
+
+
+Clock-\/\+Fail callback function prototype. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__clk__common_8h_source_l00099}{99}} of file \mbox{\hyperlink{plib__clk__common_8h_source}{plib\+\_\+clk\+\_\+common.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{plib__clk__common_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_FAIL\_STATUS\_MASKS@{CLOCK\_FAIL\_STATUS\_MASKS}}
+\index{CLOCK\_FAIL\_STATUS\_MASKS@{CLOCK\_FAIL\_STATUS\_MASKS}!plib\_clk\_common.h@{plib\_clk\_common.h}}
+\doxysubsubsection{\texorpdfstring{CLOCK\_FAIL\_STATUS\_MASKS}{CLOCK\_FAIL\_STATUS\_MASKS}}
+{\footnotesize\ttfamily \label{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7} 
+enum \mbox{\hyperlink{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7}{CLOCK\+\_\+\+FAIL\+\_\+\+STATUS\+\_\+\+MASKS}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GEN1\_FAIL\_MASK@{CLOCK\_GEN1\_FAIL\_MASK}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GEN1\_FAIL\_MASK@{CLOCK\_GEN1\_FAIL\_MASK}}}\Hypertarget{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7a4e633ebba3fc7c4872f12a583c517039}\label{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7a4e633ebba3fc7c4872f12a583c517039} 
+CLOCK\+\_\+\+GEN1\+\_\+\+FAIL\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GEN2\_FAIL\_MASK@{CLOCK\_GEN2\_FAIL\_MASK}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GEN2\_FAIL\_MASK@{CLOCK\_GEN2\_FAIL\_MASK}}}\Hypertarget{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7acafdf8575dedddaf51100386504d0300}\label{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7acafdf8575dedddaf51100386504d0300} 
+CLOCK\+\_\+\+GEN2\+\_\+\+FAIL\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GEN3\_FAIL\_MASK@{CLOCK\_GEN3\_FAIL\_MASK}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GEN3\_FAIL\_MASK@{CLOCK\_GEN3\_FAIL\_MASK}}}\Hypertarget{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7a48cee9e933741ac8aca53ee3bac306c0}\label{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7a48cee9e933741ac8aca53ee3bac306c0} 
+CLOCK\+\_\+\+GEN3\+\_\+\+FAIL\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GEN6\_FAIL\_MASK@{CLOCK\_GEN6\_FAIL\_MASK}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GEN6\_FAIL\_MASK@{CLOCK\_GEN6\_FAIL\_MASK}}}\Hypertarget{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7aa3fc7c05cf1e7c9b71318806d88a1058}\label{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7aa3fc7c05cf1e7c9b71318806d88a1058} 
+CLOCK\+\_\+\+GEN6\+\_\+\+FAIL\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GEN7\_FAIL\_MASK@{CLOCK\_GEN7\_FAIL\_MASK}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GEN7\_FAIL\_MASK@{CLOCK\_GEN7\_FAIL\_MASK}}}\Hypertarget{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7acb3c78023cd30891cc59c95fe1af0879}\label{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7acb3c78023cd30891cc59c95fe1af0879} 
+CLOCK\+\_\+\+GEN7\+\_\+\+FAIL\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GEN9\_FAIL\_MASK@{CLOCK\_GEN9\_FAIL\_MASK}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GEN9\_FAIL\_MASK@{CLOCK\_GEN9\_FAIL\_MASK}}}\Hypertarget{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7a14a7f8a402a16a82e744dbf4a47571ec}\label{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7a14a7f8a402a16a82e744dbf4a47571ec} 
+CLOCK\+\_\+\+GEN9\+\_\+\+FAIL\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GEN10\_FAIL\_MASK@{CLOCK\_GEN10\_FAIL\_MASK}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GEN10\_FAIL\_MASK@{CLOCK\_GEN10\_FAIL\_MASK}}}\Hypertarget{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7a99f73e3e12364521be6b83ad16ede7ed}\label{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7a99f73e3e12364521be6b83ad16ede7ed} 
+CLOCK\+\_\+\+GEN10\+\_\+\+FAIL\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GEN12\_FAIL\_MASK@{CLOCK\_GEN12\_FAIL\_MASK}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GEN12\_FAIL\_MASK@{CLOCK\_GEN12\_FAIL\_MASK}}}\Hypertarget{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7a842e5c007eddb63852bf6fd9d52a97e9}\label{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7a842e5c007eddb63852bf6fd9d52a97e9} 
+CLOCK\+\_\+\+GEN12\+\_\+\+FAIL\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_PLL1\_FAIL\_MASK@{CLOCK\_PLL1\_FAIL\_MASK}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_PLL1\_FAIL\_MASK@{CLOCK\_PLL1\_FAIL\_MASK}}}\Hypertarget{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7aa23774bac5e8be9fa07d736a4b073783}\label{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7aa23774bac5e8be9fa07d736a4b073783} 
+CLOCK\+\_\+\+PLL1\+\_\+\+FAIL\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_PLL2\_FAIL\_MASK@{CLOCK\_PLL2\_FAIL\_MASK}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_PLL2\_FAIL\_MASK@{CLOCK\_PLL2\_FAIL\_MASK}}}\Hypertarget{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7ae6d2ec8bd867ddcc373b65fb95db4d4b}\label{plib__clk__common_8h_a4df91d2fbb4ad24484fdc34655915ea7ae6d2ec8bd867ddcc373b65fb95db4d4b} 
+CLOCK\+\_\+\+PLL2\+\_\+\+FAIL\+\_\+\+MASK&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{plib__clk__common_8h_source_l00082}{82}} of file \mbox{\hyperlink{plib__clk__common_8h_source}{plib\+\_\+clk\+\_\+common.\+h}}.
+
+\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1f}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GENERATOR@{CLOCK\_GENERATOR}}
+\index{CLOCK\_GENERATOR@{CLOCK\_GENERATOR}!plib\_clk\_common.h@{plib\_clk\_common.h}}
+\doxysubsubsection{\texorpdfstring{CLOCK\_GENERATOR}{CLOCK\_GENERATOR}}
+{\footnotesize\ttfamily \label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1f} 
+enum \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1f}{CLOCK\+\_\+\+GENERATOR}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GENERATOR\_1@{CLOCK\_GENERATOR\_1}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GENERATOR\_1@{CLOCK\_GENERATOR\_1}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa4f321132c12594fd292212a6b8660e94}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa4f321132c12594fd292212a6b8660e94} 
+CLOCK\+\_\+\+GENERATOR\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GENERATOR\_2@{CLOCK\_GENERATOR\_2}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GENERATOR\_2@{CLOCK\_GENERATOR\_2}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa6f453cbbf5c52804a3ca9390f7d626a9}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa6f453cbbf5c52804a3ca9390f7d626a9} 
+CLOCK\+\_\+\+GENERATOR\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GENERATOR\_3@{CLOCK\_GENERATOR\_3}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GENERATOR\_3@{CLOCK\_GENERATOR\_3}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fac8fcdc24ebd65d443203d839644db669}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fac8fcdc24ebd65d443203d839644db669} 
+CLOCK\+\_\+\+GENERATOR\+\_\+3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GENERATOR\_6@{CLOCK\_GENERATOR\_6}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GENERATOR\_6@{CLOCK\_GENERATOR\_6}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa4444eb822536fb64953e52c3b0eb9c98}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa4444eb822536fb64953e52c3b0eb9c98} 
+CLOCK\+\_\+\+GENERATOR\+\_\+6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GENERATOR\_7@{CLOCK\_GENERATOR\_7}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GENERATOR\_7@{CLOCK\_GENERATOR\_7}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa9228fbdbf4ca94ca8a5dd289768b0ee1}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa9228fbdbf4ca94ca8a5dd289768b0ee1} 
+CLOCK\+\_\+\+GENERATOR\+\_\+7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GENERATOR\_9@{CLOCK\_GENERATOR\_9}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GENERATOR\_9@{CLOCK\_GENERATOR\_9}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1facb09a5d25a098b850557772d287df9b7}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1facb09a5d25a098b850557772d287df9b7} 
+CLOCK\+\_\+\+GENERATOR\+\_\+9&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GENERATOR\_10@{CLOCK\_GENERATOR\_10}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GENERATOR\_10@{CLOCK\_GENERATOR\_10}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa5be2e0cff91e32f082ccad3083b13995}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa5be2e0cff91e32f082ccad3083b13995} 
+CLOCK\+\_\+\+GENERATOR\+\_\+10&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_GENERATOR\_12@{CLOCK\_GENERATOR\_12}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_GENERATOR\_12@{CLOCK\_GENERATOR\_12}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1faf7c3b6e24d76169c387645847cba9532}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1faf7c3b6e24d76169c387645847cba9532} 
+CLOCK\+\_\+\+GENERATOR\+\_\+12&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_SYSTEM@{CLOCK\_SYSTEM}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_SYSTEM@{CLOCK\_SYSTEM}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa0ebc6615d94a0ea9b88ea7205bda299c}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa0ebc6615d94a0ea9b88ea7205bda299c} 
+CLOCK\+\_\+\+SYSTEM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_FRC@{CLOCK\_FRC}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_FRC@{CLOCK\_FRC}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa9fccc0ebd3a4cbb49b50444353aa12e6}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa9fccc0ebd3a4cbb49b50444353aa12e6} 
+CLOCK\+\_\+\+FRC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_WDT@{CLOCK\_WDT}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_WDT@{CLOCK\_WDT}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa472fc0f3c8697eb3152f936a7e29bf98}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa472fc0f3c8697eb3152f936a7e29bf98} 
+CLOCK\+\_\+\+WDT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_BFRC@{CLOCK\_BFRC}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_BFRC@{CLOCK\_BFRC}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa54794b068a16e66fff67e1898698ccf9}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa54794b068a16e66fff67e1898698ccf9} 
+CLOCK\+\_\+\+BFRC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_ADC@{CLOCK\_ADC}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_ADC@{CLOCK\_ADC}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa3566d3a67ad653d6faed01af8e621a61}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa3566d3a67ad653d6faed01af8e621a61} 
+CLOCK\+\_\+\+ADC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_CMP\_DAC@{CLOCK\_CMP\_DAC}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_CMP\_DAC@{CLOCK\_CMP\_DAC}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fab01da9eb567b06924116d831ad130f65}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fab01da9eb567b06924116d831ad130f65} 
+CLOCK\+\_\+\+CMP\+\_\+\+DAC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_SPI@{CLOCK\_SPI}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_SPI@{CLOCK\_SPI}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa0383d5c64b8eae6f46958ea23973027e}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa0383d5c64b8eae6f46958ea23973027e} 
+CLOCK\+\_\+\+SPI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_PTG@{CLOCK\_PTG}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_PTG@{CLOCK\_PTG}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa2845bce5f73170d815b3da8eaa493078}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa2845bce5f73170d815b3da8eaa493078} 
+CLOCK\+\_\+\+PTG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_CCP@{CLOCK\_CCP}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_CCP@{CLOCK\_CCP}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fad874fbd3b8e7f0ef0a5ac2573078a140}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fad874fbd3b8e7f0ef0a5ac2573078a140} 
+CLOCK\+\_\+\+CCP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLOCK\_REFO1@{CLOCK\_REFO1}!plib\_clk\_common.h@{plib\_clk\_common.h}}\index{plib\_clk\_common.h@{plib\_clk\_common.h}!CLOCK\_REFO1@{CLOCK\_REFO1}}}\Hypertarget{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa706dc66af1ebc1fd45ad8d812b4263d2}\label{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa706dc66af1ebc1fd45ad8d812b4263d2} 
+CLOCK\+\_\+\+REFO1&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{plib__clk__common_8h_source_l00058}{58}} of file \mbox{\hyperlink{plib__clk__common_8h_source}{plib\+\_\+clk\+\_\+common.\+h}}.
+

@@ -1,0 +1,3100 @@
+\doxysection{src/config/default/peripheral/gpio/plib\+\_\+gpio.h File Reference}
+\hypertarget{plib__gpio_8h}{}\label{plib__gpio_8h}\index{src/config/default/peripheral/gpio/plib\_gpio.h@{src/config/default/peripheral/gpio/plib\_gpio.h}}
+{\ttfamily \#include $<$device.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aa24c4203645538050045a3c9f4da4202}{TEST\+\_\+\+TP1\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_af4a105b3d8af02457e6eebca49314833}{TEST\+\_\+\+TP1\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_acb57fa1adaf4a9adf4990aea5fd1428c}{TEST\+\_\+\+TP1\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a031c1ab65452515fce8389d18e104264}{TEST\+\_\+\+TP1\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a663e6bcfacd76f7ee067d55f43914ba4}{TEST\+\_\+\+TP1\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aac3491c8594a4ce1c48c4904c9d65bd4}{TEST\+\_\+\+TP1\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a605abe9e47338efc2bf02fd6efa955f5}{TEST\+\_\+\+TP1\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_a16a70372ce8e0a51e7978aba12fbdd02}{GPIO\+\_\+\+PIN\+\_\+\+RA11}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a384cbd4989d2572c61b5127d30b0f48c}{DLED\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_af1c921b14fb84be3da64975a011240e7}{DLED\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ad040dbb305ef56309fd3abb6065752bf}{DLED\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a02218421d838193a2de44a916fa62fca}{DLED\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a4da18fde111505ffbe28ce4b5572eb52}{DLED\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a60a331932803a5be48ef214498603ee8}{DLED\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_abddaeb205a4610e8d39b1bd63a8d54cb}{DLED\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_ac8103be411695795e3e0498b345698ca}{GPIO\+\_\+\+PIN\+\_\+\+RB5}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a00f34603c5b3d9ef510d6a4c23aec9a5}{IMU\+\_\+\+CS\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aefa376b3de4b5b08fd0079c258f9158c}{IMU\+\_\+\+CS\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a29140d09785c75a3cc789015ccdc57fa}{IMU\+\_\+\+CS\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a5e0361f997c7a48cff245e887c3db3a7}{IMU\+\_\+\+CS\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a8656edb256085e751e43ed7e2f906317}{IMU\+\_\+\+CS\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a6f951d325513304cec5c0bd82d605db6}{IMU\+\_\+\+CS\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a6ed7e9a3c7803af585f72df5c159526e}{IMU\+\_\+\+CS\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_ab9af5d210c8fdc88b8b4c57cb37f0ed0}{GPIO\+\_\+\+PIN\+\_\+\+RB3}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a99a6893c3c6aea94ea8b4c312b001c3d}{SRAM\+\_\+\+CS\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a57975cb926a9d71776203b087bf33c88}{SRAM\+\_\+\+CS\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a7312f4d21fa686ccf75e62e5369c39bd}{SRAM\+\_\+\+CS\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a84579d97db1307d68a1111abd3a6d2b9}{SRAM\+\_\+\+CS\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aa3a1ef659404609deb886ac956ec16e3}{SRAM\+\_\+\+CS\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_afdf58a8060a34b7ed6177e0103dee6ba}{SRAM\+\_\+\+CS\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_abf7a18be6eb52119469730c9f6f6b3bb}{SRAM\+\_\+\+CS\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_a41a9e4ab6cf653bdace521b30f722e72}{GPIO\+\_\+\+PIN\+\_\+\+RB4}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a73074625bed9f4b1a159c0ac135bb58e}{GPIO\+\_\+\+RC6\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_afacd9c4523b408c34ffc0faa0235e409}{GPIO\+\_\+\+RC6\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a5db3ee7a59e678155b44eec4443746cf}{GPIO\+\_\+\+RC6\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a4e3e5f404457360d97093f0723352d53}{GPIO\+\_\+\+RC6\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a9362fbf88a13e94b7ab4a2a7ee2d80d0}{GPIO\+\_\+\+RC6\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a9499f1cc97d029828a58f443e41b5b19}{GPIO\+\_\+\+RC6\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a9a35e1886f1b3000eaf737aecfc140cd}{GPIO\+\_\+\+RC6\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_a927dca7c345f880574bc0ac910fa14ec}{GPIO\+\_\+\+PIN\+\_\+\+RC6}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a5711c3138cdec4642533ae00e069e23c}{GPIO\+\_\+\+RC7\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a3263569c5834c347bb2f0298e1170ead}{GPIO\+\_\+\+RC7\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ac04f0aa18440afefd798789f9d843795}{GPIO\+\_\+\+RC7\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a308cbff102ba07ac4222d906ca3fd9b4}{GPIO\+\_\+\+RC7\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_af9cca2bd59fb9eee078547fbe556e850}{GPIO\+\_\+\+RC7\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a191c8cb4a86fa35fb57d4ffb87dc6ed1}{GPIO\+\_\+\+RC7\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ab7a3210c17483d1f24e6637280beef15}{GPIO\+\_\+\+RC7\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_ae9f600eacea91ce99c570db3ec12041f}{GPIO\+\_\+\+PIN\+\_\+\+RC7}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a20a7b0d7549344abf75e8f40de7a71f6}{DIS\+\_\+\+RESET\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aa7e9cc3b199d399b94daa8cb848f8775}{DIS\+\_\+\+RESET\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a18ca530e982228c152ecd3427dee3f72}{DIS\+\_\+\+RESET\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_acc7430c381e120d5d2eb218d8cb6a253}{DIS\+\_\+\+RESET\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ab4b3c2e8fcfb076b474f6956ed7421f4}{DIS\+\_\+\+RESET\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a90a754e3ae46f4ba52763bb9d053d932}{DIS\+\_\+\+RESET\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aa49abf21c9a97b4df21cc8ed30c60ef1}{DIS\+\_\+\+RESET\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_aea934f9bb4ba1e927848dfeefa5de184}{GPIO\+\_\+\+PIN\+\_\+\+RC0}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a5c83c63156c3785ba38f32e663478aef}{DIS\+\_\+\+MODE\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a661e6e6aa14d62c183915cf80fa31b90}{DIS\+\_\+\+MODE\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a8ac7a7298a922765f2776e494bdc141d}{DIS\+\_\+\+MODE\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ae9258f2b32a4563159b29b69c57946e3}{DIS\+\_\+\+MODE\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a2b2da5dc6f7797f238eec6c29da207b3}{DIS\+\_\+\+MODE\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ac15ce0e8dd566324662ff27ea4ac1d64}{DIS\+\_\+\+MODE\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_afa343c8cc145aa12522f3e7793aa25bd}{DIS\+\_\+\+MODE\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_a19e36c140f7f6a9908b4162a533545e2}{GPIO\+\_\+\+PIN\+\_\+\+RC2}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a7f3d056f6d6359820b4a2a136ef23248}{TXDE\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aeff5200cfbf495fb084d3eefcd1a48b5}{TXDE\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a46649f945a397d6e372ac6aba8cf0fad}{TXDE\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ae74510398d1e18dc886a6261e6d508f0}{TXDE\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aee4fbc0a5bab53147e5fae17c77de0f3}{TXDE\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a289f3c10686140a60a83828d5283201c}{TXDE\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a931e99de40f428c9b0bd503a2cc0c152}{TXDE\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_aa01144bb13149a6c1b50d1ab234fdab0}{GPIO\+\_\+\+PIN\+\_\+\+RC5}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a23c33f241bda6bf3b92a8bad59d2618d}{TEST\+\_\+\+TP0\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a7965b1072ce55e0b8941572c4000fa94}{TEST\+\_\+\+TP0\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a918f3058b546a42ec55f33ea4075cca4}{TEST\+\_\+\+TP0\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a35d352df559c25d5c11e209d63c408b6}{TEST\+\_\+\+TP0\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a4a5a1ec2fca0438bca2fabef3702baf1}{TEST\+\_\+\+TP0\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a8a033801730cd5646655b5e6e541d562}{TEST\+\_\+\+TP0\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a8dae69813c2e3de14c9472adf4e387b7}{TEST\+\_\+\+TP0\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_a9aada190c0b19b77e298205c078c2e7d}{GPIO\+\_\+\+PIN\+\_\+\+RD9}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a3c0fdc4b76b0246d060b04d6677189b4}{RLED\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aa34d2dad1908ecb090c0da70b40f8557}{RLED\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a81d6509483dd585db7e0ec297e911ff4}{RLED\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a0f025f3cd81beb9b8754d836b014ab47}{RLED\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a77fa83e167673c6add8254e35a869d29}{RLED\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a092e4a3246c30e1c8094750a98d50d3f}{RLED\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_acaf3fd542c08bd1450c7af6dede94876}{RLED\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_a147f3de9ea62e447f4fa1f3a7a956659}{GPIO\+\_\+\+PIN\+\_\+\+RD0}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a7875f58407d8515c78579efa22ff8e2a}{ISO1\+\_\+\+S\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_abfdce8ed683a0896d5fb2bd8f4121b7e}{ISO1\+\_\+\+S\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a26133cd5a94fa7e661086a2ea56fca5c}{ISO1\+\_\+\+S\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a131b047c9c1bf8a44d0c5954c130a275}{ISO1\+\_\+\+S\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ae741863de53266f4d7a0b6a1c3b25b90}{ISO1\+\_\+\+S\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aee0c75f15b45cbd35390d5b950b1607c}{ISO1\+\_\+\+S\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ac134119c6929763638b11fc1ef83ced2}{ISO1\+\_\+\+S\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_af58423031606493702ab0040bf0d0ae4}{GPIO\+\_\+\+PIN\+\_\+\+RD1}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a64ec766fc0d3441a098cb21c1f54141f}{ISO3\+\_\+\+O\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a2220ffe1bcce2f3e10e21a14b9df37c3}{ISO3\+\_\+\+O\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a79425182f67dd4e22b3ce3de7d800f2d}{ISO3\+\_\+\+O\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a3acbaf85ea9d527f3f69c594b8e41734}{ISO3\+\_\+\+O\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_afa696b19b2788fccad140dbf049cd5fd}{ISO3\+\_\+\+O\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_af199b2c491f8d5d7b8e1ee2b0268dca8}{ISO3\+\_\+\+O\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a288d1db0a4f9dc0c0a8f02e01f2b74fc}{ISO3\+\_\+\+O\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_a29192aa01633ecbcce937fe468e13598}{GPIO\+\_\+\+PIN\+\_\+\+RD3}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ad46d0bb8b7bcb5dc2ce5b32084ca5cc2}{ISO2\+\_\+\+S\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ae4172be591e4ebeec6a80d92baf863e9}{ISO2\+\_\+\+S\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a7fc50a8ddbf9da1f601a21186272e396}{ISO2\+\_\+\+S\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ac62f246293bca5937390f06b7269f27e}{ISO2\+\_\+\+S\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a5fce78ae61f1101fef59d102d38524eb}{ISO2\+\_\+\+S\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a5b189c26636eaef32c0e9164f87a14ea}{ISO2\+\_\+\+S\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_af412cabfed0163100b2a6b1b133568bc}{ISO2\+\_\+\+S\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_a2c5e8ea4e9a8ddc3a952103cef43cb1a}{GPIO\+\_\+\+PIN\+\_\+\+RD5}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aab592eefa405b6d76ac7ea960273d0d0}{SW1\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a1d3fe396eaf18b1c521b885d0284e33a}{SW1\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ac00bfa21e8ef3419618050a122e8a710}{SW1\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a6794c2fbb3d572fb0c6aec3e22eb3374}{SW1\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a739f0171692e84e45b83ab034709a1ba}{SW1\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a90767174fd7eaecd5b74ea7edc31d84f}{SW1\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a3b206753e7f7b2e482816b53c6b8600c}{SW1\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_a9e17a0f43d10cd70261ef85799dd82c7}{GPIO\+\_\+\+PIN\+\_\+\+RD6}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ad0b358b77cbd247784e1160e4384b15c}{SW2\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aef66e045a8d3d82fd578de0f3f057c90}{SW2\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_abb461a49480cf6d1b33b805bc7e3985a}{SW2\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a4323cb99224d2fcd13edca60951088e3}{SW2\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a83e8404c0c967caa9e07993392299a4b}{SW2\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ae5b3a0ad1694c3ac55c2b1488c6acf0d}{SW2\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a5324908892138177958451638abfd1cc}{SW2\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_a2fb9180b244dcbb50c304817a6c10bb3}{GPIO\+\_\+\+PIN\+\_\+\+RD7}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ad0ae69ee0a1001fcdcf1c537959ec246}{ISO4\+\_\+\+O\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aa76326c9a0601dd7a8008cfc81a28f89}{ISO4\+\_\+\+O\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a85e5b0b5a0f7ea5d0ff25c5db0922943}{ISO4\+\_\+\+O\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a986177e915f7786444bfa85c036e88ed}{ISO4\+\_\+\+O\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a03312b8bef15f3293bf897319f7525ae}{ISO4\+\_\+\+O\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ac683580b1c7b18dcf75250b0223dd543}{ISO4\+\_\+\+O\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a5186acb4004262eac90db8d151ee67d4}{ISO4\+\_\+\+O\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_ad6aa52a9f0eedd87551e348885c01ee1}{GPIO\+\_\+\+PIN\+\_\+\+RD4}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a54e072b1ce1c11062fe3a1a57752ce14}{DIS\+\_\+\+CS\+\_\+\+Set}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a693f282ce14ec84436a208c45af407c4}{DIS\+\_\+\+CS\+\_\+\+Clear}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a87567570316ef742df404d117d0b7445}{DIS\+\_\+\+CS\+\_\+\+Toggle}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_af50894ffab73c67f1a895f5c90024469}{DIS\+\_\+\+CS\+\_\+\+Output\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a900ebec78464f6a1b3e0c15d1e0c4ad7}{DIS\+\_\+\+CS\+\_\+\+Input\+Enable}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a9834ed8ee19e30f970a977582c745a04}{DIS\+\_\+\+CS\+\_\+\+Get}}()
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a6dfed9144516401107440c140346a282}{DIS\+\_\+\+CS\+\_\+\+PIN}}~\mbox{\hyperlink{plib__gpio_8h_ab64cd0e35afb245b9b821803e5426106}{GPIO\+\_\+\+PIN\+\_\+\+RD11}}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a26c950f1ed9bbc330c8a1a778cbb30ac}{GPIO\+\_\+\+PORT\+\_\+A}}~(0U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a915dfdc360dea14ac6c91824d46de9be}{GPIO\+\_\+\+PORT\+\_\+B}}~(1U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a0b31f0cde4a9709b9e8467bcf01f0927}{GPIO\+\_\+\+PORT\+\_\+C}}~(2U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a9ecbfed3887b781b1f2bc77a36655372}{GPIO\+\_\+\+PORT\+\_\+D}}~(3U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a4274c3e5bb41771594548a86536e9ba6}{GPIO\+\_\+\+PIN\+\_\+\+RA0}}~(0U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ae78bbd06813189119a2ac80f1137d430}{GPIO\+\_\+\+PIN\+\_\+\+RA1}}~(1U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a173e06a2ef5406ebe632d21b425f2ba1}{GPIO\+\_\+\+PIN\+\_\+\+RA2}}~(2U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_af015bdae1d377e178ee95f272f58f29d}{GPIO\+\_\+\+PIN\+\_\+\+RA3}}~(3U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a96cad76a1191e7951edbee8bc10b1e76}{GPIO\+\_\+\+PIN\+\_\+\+RA4}}~(4U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a24b52389a07c475b3757d26a579a758a}{GPIO\+\_\+\+PIN\+\_\+\+RA5}}~(5U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a23f46f8d39cb0e7a5ae825f2f3e546d0}{GPIO\+\_\+\+PIN\+\_\+\+RA6}}~(6U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a18afb08f30723628eab86ffd71eb5644}{GPIO\+\_\+\+PIN\+\_\+\+RA7}}~(7U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a36a9efe30b393d7b4648d3bb701ee369}{GPIO\+\_\+\+PIN\+\_\+\+RA8}}~(8U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aaade2121aaa6d2ede13df7215b6f6b9a}{GPIO\+\_\+\+PIN\+\_\+\+RA9}}~(9U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a20543f5d7447edbe7a870fae6674a476}{GPIO\+\_\+\+PIN\+\_\+\+RA10}}~(10U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a16a70372ce8e0a51e7978aba12fbdd02}{GPIO\+\_\+\+PIN\+\_\+\+RA11}}~(11U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a8a3259392ca2f8b19bf2ea06468a65d8}{GPIO\+\_\+\+PIN\+\_\+\+RB0}}~(16U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a4a1d3bfdd342002087660c868e89e7fd}{GPIO\+\_\+\+PIN\+\_\+\+RB1}}~(17U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a176884a7c54d0a6290c73d1e3f69aab8}{GPIO\+\_\+\+PIN\+\_\+\+RB2}}~(18U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ab9af5d210c8fdc88b8b4c57cb37f0ed0}{GPIO\+\_\+\+PIN\+\_\+\+RB3}}~(19U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a41a9e4ab6cf653bdace521b30f722e72}{GPIO\+\_\+\+PIN\+\_\+\+RB4}}~(20U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ac8103be411695795e3e0498b345698ca}{GPIO\+\_\+\+PIN\+\_\+\+RB5}}~(21U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ae08a9737e0c2467beac8de240a28a94a}{GPIO\+\_\+\+PIN\+\_\+\+RB6}}~(22U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a442fb3c1f9f90a1aa4265a8129acd15d}{GPIO\+\_\+\+PIN\+\_\+\+RB7}}~(23U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a7cbf52b665026cec994980219d5c1ec4}{GPIO\+\_\+\+PIN\+\_\+\+RB8}}~(24U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aa7029b29bf2a8260c8df36d87b34784f}{GPIO\+\_\+\+PIN\+\_\+\+RB9}}~(25U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a01de710b5426a29b00f04e90bb350609}{GPIO\+\_\+\+PIN\+\_\+\+RB10}}~(26U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aa86b17e0ad68a7c5abf4750a17859d23}{GPIO\+\_\+\+PIN\+\_\+\+RB11}}~(27U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aea934f9bb4ba1e927848dfeefa5de184}{GPIO\+\_\+\+PIN\+\_\+\+RC0}}~(32U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a16ed2b56ba97dacc424a50f0cdde1edd}{GPIO\+\_\+\+PIN\+\_\+\+RC1}}~(33U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a19e36c140f7f6a9908b4162a533545e2}{GPIO\+\_\+\+PIN\+\_\+\+RC2}}~(34U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aeddf85f130e2a1ff49375dca79c86736}{GPIO\+\_\+\+PIN\+\_\+\+RC3}}~(35U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a02281584e5ed6bab5de1420c81cd1c06}{GPIO\+\_\+\+PIN\+\_\+\+RC4}}~(36U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_aa01144bb13149a6c1b50d1ab234fdab0}{GPIO\+\_\+\+PIN\+\_\+\+RC5}}~(37U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a927dca7c345f880574bc0ac910fa14ec}{GPIO\+\_\+\+PIN\+\_\+\+RC6}}~(38U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ae9f600eacea91ce99c570db3ec12041f}{GPIO\+\_\+\+PIN\+\_\+\+RC7}}~(39U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ad8bffc4a68d91b99425b38f4438dc0ee}{GPIO\+\_\+\+PIN\+\_\+\+RC8}}~(40U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a5fa123376fceaf886d09b87295891fde}{GPIO\+\_\+\+PIN\+\_\+\+RC9}}~(41U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_acaef77eda15f59c8e69b38c26a532cfb}{GPIO\+\_\+\+PIN\+\_\+\+RC10}}~(42U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a54a931f78fa4e4d0de139b52cd1b86c5}{GPIO\+\_\+\+PIN\+\_\+\+RC11}}~(43U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a147f3de9ea62e447f4fa1f3a7a956659}{GPIO\+\_\+\+PIN\+\_\+\+RD0}}~(48U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_af58423031606493702ab0040bf0d0ae4}{GPIO\+\_\+\+PIN\+\_\+\+RD1}}~(49U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ab847e3338fa5083b1afc92c006ca8663}{GPIO\+\_\+\+PIN\+\_\+\+RD2}}~(50U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a29192aa01633ecbcce937fe468e13598}{GPIO\+\_\+\+PIN\+\_\+\+RD3}}~(51U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ad6aa52a9f0eedd87551e348885c01ee1}{GPIO\+\_\+\+PIN\+\_\+\+RD4}}~(52U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a2c5e8ea4e9a8ddc3a952103cef43cb1a}{GPIO\+\_\+\+PIN\+\_\+\+RD5}}~(53U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a9e17a0f43d10cd70261ef85799dd82c7}{GPIO\+\_\+\+PIN\+\_\+\+RD6}}~(54U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a2fb9180b244dcbb50c304817a6c10bb3}{GPIO\+\_\+\+PIN\+\_\+\+RD7}}~(55U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ac92cacdfd5f406f9e3ef12b58861515d}{GPIO\+\_\+\+PIN\+\_\+\+RD8}}~(56U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a9aada190c0b19b77e298205c078c2e7d}{GPIO\+\_\+\+PIN\+\_\+\+RD9}}~(57U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a8caea3e464ab36bb1e0f46f212939005}{GPIO\+\_\+\+PIN\+\_\+\+RD10}}~(58U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_ab64cd0e35afb245b9b821803e5426106}{GPIO\+\_\+\+PIN\+\_\+\+RD11}}~(59U)
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8h_a9650623590156934db12aa770972879a}{GPIO\+\_\+\+PIN\+\_\+\+RD12}}~(60U)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}
+\begin{DoxyCompactList}\small\item\em GPIO Port Definition This identifies and defines the available GPIO Ports. \end{DoxyCompactList}\item 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__gpio_8h_a9c1920877b928a79c8cf48436b66f8f5}{GPIO\+\_\+\+PIN}}
+\begin{DoxyCompactList}\small\item\em GPIO Pins Definition. Identifies and defines the available GPIO Port Pins. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090}{GPIO\+\_\+\+INTERRUPT\+\_\+\+STYLE}} \{ \mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090aa4740f15873966505ad0f8e341b6fa9b}{GPIO\+\_\+\+INTERRUPT\+\_\+\+ON\+\_\+\+MISMATCH}}
+, \mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090ab164b5f93df82b84374a8c7f44193b44}{GPIO\+\_\+\+INTERRUPT\+\_\+\+ON\+\_\+\+POSITIVE\+\_\+\+EDGE}}
+, \mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090ade80f659147d5232e23acc4cdb22a448}{GPIO\+\_\+\+INTERRUPT\+\_\+\+ON\+\_\+\+NEGATIVE\+\_\+\+EDGE}}
+, \mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090a86672c92ccfeb9134057eafbf651b9cf}{GPIO\+\_\+\+INTERRUPT\+\_\+\+ON\+\_\+\+ANY\+\_\+\+EDGES}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__gpio_8h_af2c14d08f5cd6da2843b09b5329c5731}{GPIO\+\_\+\+Initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the GPIO library. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{plib__gpio_8h_abd65922a839af32d84c5651f6e5cf309}{GPIO\+\_\+\+Port\+Read}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port)
+\begin{DoxyCompactList}\small\item\em Reads all the I/O lines of the selected port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__gpio_8h_a7ba503984e354ffb977e967fb20c4513}{GPIO\+\_\+\+Port\+Write}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port, uint32\+\_\+t mask, uint32\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Write the value on the masked I/O lines of the selected port. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{plib__gpio_8h_a7aed251f9d02f9670ced5851b917b86f}{GPIO\+\_\+\+Port\+Latch\+Read}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port)
+\begin{DoxyCompactList}\small\item\em Read the latched value on all the I/O lines of the selected port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__gpio_8h_a467714d6c56b0e5ad2c3ac2a654ac10e}{GPIO\+\_\+\+Port\+Set}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Set the selected IO pins of a port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__gpio_8h_ac9e7c55ddfb33e03fe5ec101cf2ad591}{GPIO\+\_\+\+Port\+Clear}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Clear the selected IO pins of a port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__gpio_8h_a05cadea9630046fc07bc15a96e334e57}{GPIO\+\_\+\+Port\+Toggle}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Toggles the selected IO pins of a port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__gpio_8h_a8f5c3509c88c4ece894bdb2c74027726}{GPIO\+\_\+\+Port\+Input\+Enable}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Enables selected IO pins of a port as input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__gpio_8h_a9c7963889c02bf785a27eced1c4cf159}{GPIO\+\_\+\+Port\+Output\+Enable}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Enables selected IO pins of a port as output(s). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{plib__gpio_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{plib__gpio_8h_a693f282ce14ec84436a208c45af407c4}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_CS\_Clear@{DIS\_CS\_Clear}}
+\index{DIS\_CS\_Clear@{DIS\_CS\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_CS\_Clear}{DIS\_CS\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a693f282ce14ec84436a208c45af407c4} 
+\#define DIS\+\_\+\+CS\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD11\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00214}{214}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a9834ed8ee19e30f970a977582c745a04}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_CS\_Get@{DIS\_CS\_Get}}
+\index{DIS\_CS\_Get@{DIS\_CS\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_CS\_Get}{DIS\_CS\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a9834ed8ee19e30f970a977582c745a04} 
+\#define DIS\+\_\+\+CS\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTD\ >>\ 11)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00218}{218}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a900ebec78464f6a1b3e0c15d1e0c4ad7}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_CS\_InputEnable@{DIS\_CS\_InputEnable}}
+\index{DIS\_CS\_InputEnable@{DIS\_CS\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_CS\_InputEnable}{DIS\_CS\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a900ebec78464f6a1b3e0c15d1e0c4ad7} 
+\#define DIS\+\_\+\+CS\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD11\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00217}{217}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_af50894ffab73c67f1a895f5c90024469}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_CS\_OutputEnable@{DIS\_CS\_OutputEnable}}
+\index{DIS\_CS\_OutputEnable@{DIS\_CS\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_CS\_OutputEnable}{DIS\_CS\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_af50894ffab73c67f1a895f5c90024469} 
+\#define DIS\+\_\+\+CS\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD11\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00216}{216}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a6dfed9144516401107440c140346a282}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_CS\_PIN@{DIS\_CS\_PIN}}
+\index{DIS\_CS\_PIN@{DIS\_CS\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_CS\_PIN}{DIS\_CS\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a6dfed9144516401107440c140346a282} 
+\#define DIS\+\_\+\+CS\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_ab64cd0e35afb245b9b821803e5426106}{GPIO\+\_\+\+PIN\+\_\+\+RD11}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00219}{219}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a54e072b1ce1c11062fe3a1a57752ce14}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_CS\_Set@{DIS\_CS\_Set}}
+\index{DIS\_CS\_Set@{DIS\_CS\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_CS\_Set}{DIS\_CS\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a54e072b1ce1c11062fe3a1a57752ce14} 
+\#define DIS\+\_\+\+CS\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD11\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00213}{213}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a87567570316ef742df404d117d0b7445}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_CS\_Toggle@{DIS\_CS\_Toggle}}
+\index{DIS\_CS\_Toggle@{DIS\_CS\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_CS\_Toggle}{DIS\_CS\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a87567570316ef742df404d117d0b7445} 
+\#define DIS\+\_\+\+CS\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD11\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00215}{215}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a661e6e6aa14d62c183915cf80fa31b90}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_MODE\_Clear@{DIS\_MODE\_Clear}}
+\index{DIS\_MODE\_Clear@{DIS\_MODE\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_MODE\_Clear}{DIS\_MODE\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a661e6e6aa14d62c183915cf80fa31b90} 
+\#define DIS\+\_\+\+MODE\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATC2\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00124}{124}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ac15ce0e8dd566324662ff27ea4ac1d64}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_MODE\_Get@{DIS\_MODE\_Get}}
+\index{DIS\_MODE\_Get@{DIS\_MODE\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_MODE\_Get}{DIS\_MODE\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ac15ce0e8dd566324662ff27ea4ac1d64} 
+\#define DIS\+\_\+\+MODE\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTC\ >>\ 2)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00128}{128}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a2b2da5dc6f7797f238eec6c29da207b3}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_MODE\_InputEnable@{DIS\_MODE\_InputEnable}}
+\index{DIS\_MODE\_InputEnable@{DIS\_MODE\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_MODE\_InputEnable}{DIS\_MODE\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a2b2da5dc6f7797f238eec6c29da207b3} 
+\#define DIS\+\_\+\+MODE\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISC2\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00127}{127}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ae9258f2b32a4563159b29b69c57946e3}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_MODE\_OutputEnable@{DIS\_MODE\_OutputEnable}}
+\index{DIS\_MODE\_OutputEnable@{DIS\_MODE\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_MODE\_OutputEnable}{DIS\_MODE\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ae9258f2b32a4563159b29b69c57946e3} 
+\#define DIS\+\_\+\+MODE\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISC2\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00126}{126}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_afa343c8cc145aa12522f3e7793aa25bd}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_MODE\_PIN@{DIS\_MODE\_PIN}}
+\index{DIS\_MODE\_PIN@{DIS\_MODE\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_MODE\_PIN}{DIS\_MODE\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_afa343c8cc145aa12522f3e7793aa25bd} 
+\#define DIS\+\_\+\+MODE\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_a19e36c140f7f6a9908b4162a533545e2}{GPIO\+\_\+\+PIN\+\_\+\+RC2}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00129}{129}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a5c83c63156c3785ba38f32e663478aef}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_MODE\_Set@{DIS\_MODE\_Set}}
+\index{DIS\_MODE\_Set@{DIS\_MODE\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_MODE\_Set}{DIS\_MODE\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a5c83c63156c3785ba38f32e663478aef} 
+\#define DIS\+\_\+\+MODE\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATC2\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00123}{123}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a8ac7a7298a922765f2776e494bdc141d}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_MODE\_Toggle@{DIS\_MODE\_Toggle}}
+\index{DIS\_MODE\_Toggle@{DIS\_MODE\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_MODE\_Toggle}{DIS\_MODE\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a8ac7a7298a922765f2776e494bdc141d} 
+\#define DIS\+\_\+\+MODE\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATC2\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00125}{125}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aa7e9cc3b199d399b94daa8cb848f8775}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_RESET\_Clear@{DIS\_RESET\_Clear}}
+\index{DIS\_RESET\_Clear@{DIS\_RESET\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_RESET\_Clear}{DIS\_RESET\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aa7e9cc3b199d399b94daa8cb848f8775} 
+\#define DIS\+\_\+\+RESET\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATC0\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00115}{115}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a90a754e3ae46f4ba52763bb9d053d932}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_RESET\_Get@{DIS\_RESET\_Get}}
+\index{DIS\_RESET\_Get@{DIS\_RESET\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_RESET\_Get}{DIS\_RESET\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a90a754e3ae46f4ba52763bb9d053d932} 
+\#define DIS\+\_\+\+RESET\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTC\ >>\ 0)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00119}{119}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ab4b3c2e8fcfb076b474f6956ed7421f4}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_RESET\_InputEnable@{DIS\_RESET\_InputEnable}}
+\index{DIS\_RESET\_InputEnable@{DIS\_RESET\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_RESET\_InputEnable}{DIS\_RESET\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ab4b3c2e8fcfb076b474f6956ed7421f4} 
+\#define DIS\+\_\+\+RESET\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISC0\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00118}{118}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_acc7430c381e120d5d2eb218d8cb6a253}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_RESET\_OutputEnable@{DIS\_RESET\_OutputEnable}}
+\index{DIS\_RESET\_OutputEnable@{DIS\_RESET\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_RESET\_OutputEnable}{DIS\_RESET\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_acc7430c381e120d5d2eb218d8cb6a253} 
+\#define DIS\+\_\+\+RESET\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISC0\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00117}{117}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aa49abf21c9a97b4df21cc8ed30c60ef1}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_RESET\_PIN@{DIS\_RESET\_PIN}}
+\index{DIS\_RESET\_PIN@{DIS\_RESET\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_RESET\_PIN}{DIS\_RESET\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aa49abf21c9a97b4df21cc8ed30c60ef1} 
+\#define DIS\+\_\+\+RESET\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_aea934f9bb4ba1e927848dfeefa5de184}{GPIO\+\_\+\+PIN\+\_\+\+RC0}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00120}{120}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a20a7b0d7549344abf75e8f40de7a71f6}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_RESET\_Set@{DIS\_RESET\_Set}}
+\index{DIS\_RESET\_Set@{DIS\_RESET\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_RESET\_Set}{DIS\_RESET\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a20a7b0d7549344abf75e8f40de7a71f6} 
+\#define DIS\+\_\+\+RESET\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATC0\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00114}{114}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a18ca530e982228c152ecd3427dee3f72}\index{plib\_gpio.h@{plib\_gpio.h}!DIS\_RESET\_Toggle@{DIS\_RESET\_Toggle}}
+\index{DIS\_RESET\_Toggle@{DIS\_RESET\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DIS\_RESET\_Toggle}{DIS\_RESET\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a18ca530e982228c152ecd3427dee3f72} 
+\#define DIS\+\_\+\+RESET\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATC0\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00116}{116}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_af1c921b14fb84be3da64975a011240e7}\index{plib\_gpio.h@{plib\_gpio.h}!DLED\_Clear@{DLED\_Clear}}
+\index{DLED\_Clear@{DLED\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DLED\_Clear}{DLED\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_af1c921b14fb84be3da64975a011240e7} 
+\#define DLED\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATB5\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00070}{70}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a60a331932803a5be48ef214498603ee8}\index{plib\_gpio.h@{plib\_gpio.h}!DLED\_Get@{DLED\_Get}}
+\index{DLED\_Get@{DLED\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DLED\_Get}{DLED\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a60a331932803a5be48ef214498603ee8} 
+\#define DLED\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTB\ >>\ 5)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00074}{74}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a4da18fde111505ffbe28ce4b5572eb52}\index{plib\_gpio.h@{plib\_gpio.h}!DLED\_InputEnable@{DLED\_InputEnable}}
+\index{DLED\_InputEnable@{DLED\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DLED\_InputEnable}{DLED\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a4da18fde111505ffbe28ce4b5572eb52} 
+\#define DLED\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISB5\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00073}{73}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a02218421d838193a2de44a916fa62fca}\index{plib\_gpio.h@{plib\_gpio.h}!DLED\_OutputEnable@{DLED\_OutputEnable}}
+\index{DLED\_OutputEnable@{DLED\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DLED\_OutputEnable}{DLED\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a02218421d838193a2de44a916fa62fca} 
+\#define DLED\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISB5\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00072}{72}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_abddaeb205a4610e8d39b1bd63a8d54cb}\index{plib\_gpio.h@{plib\_gpio.h}!DLED\_PIN@{DLED\_PIN}}
+\index{DLED\_PIN@{DLED\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DLED\_PIN}{DLED\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_abddaeb205a4610e8d39b1bd63a8d54cb} 
+\#define DLED\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_ac8103be411695795e3e0498b345698ca}{GPIO\+\_\+\+PIN\+\_\+\+RB5}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00075}{75}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a384cbd4989d2572c61b5127d30b0f48c}\index{plib\_gpio.h@{plib\_gpio.h}!DLED\_Set@{DLED\_Set}}
+\index{DLED\_Set@{DLED\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DLED\_Set}{DLED\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a384cbd4989d2572c61b5127d30b0f48c} 
+\#define DLED\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATB5\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00069}{69}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ad040dbb305ef56309fd3abb6065752bf}\index{plib\_gpio.h@{plib\_gpio.h}!DLED\_Toggle@{DLED\_Toggle}}
+\index{DLED\_Toggle@{DLED\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{DLED\_Toggle}{DLED\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ad040dbb305ef56309fd3abb6065752bf} 
+\#define DLED\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATB5\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00071}{71}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a4274c3e5bb41771594548a86536e9ba6}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RA0@{GPIO\_PIN\_RA0}}
+\index{GPIO\_PIN\_RA0@{GPIO\_PIN\_RA0}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RA0}{GPIO\_PIN\_RA0}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a4274c3e5bb41771594548a86536e9ba6} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RA0~(0U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00244}{244}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ae78bbd06813189119a2ac80f1137d430}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RA1@{GPIO\_PIN\_RA1}}
+\index{GPIO\_PIN\_RA1@{GPIO\_PIN\_RA1}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RA1}{GPIO\_PIN\_RA1}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ae78bbd06813189119a2ac80f1137d430} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RA1~(1U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00245}{245}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a20543f5d7447edbe7a870fae6674a476}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RA10@{GPIO\_PIN\_RA10}}
+\index{GPIO\_PIN\_RA10@{GPIO\_PIN\_RA10}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RA10}{GPIO\_PIN\_RA10}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a20543f5d7447edbe7a870fae6674a476} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RA10~(10U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00254}{254}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a16a70372ce8e0a51e7978aba12fbdd02}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RA11@{GPIO\_PIN\_RA11}}
+\index{GPIO\_PIN\_RA11@{GPIO\_PIN\_RA11}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RA11}{GPIO\_PIN\_RA11}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a16a70372ce8e0a51e7978aba12fbdd02} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RA11~(11U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00255}{255}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a173e06a2ef5406ebe632d21b425f2ba1}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RA2@{GPIO\_PIN\_RA2}}
+\index{GPIO\_PIN\_RA2@{GPIO\_PIN\_RA2}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RA2}{GPIO\_PIN\_RA2}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a173e06a2ef5406ebe632d21b425f2ba1} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RA2~(2U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00246}{246}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_af015bdae1d377e178ee95f272f58f29d}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RA3@{GPIO\_PIN\_RA3}}
+\index{GPIO\_PIN\_RA3@{GPIO\_PIN\_RA3}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RA3}{GPIO\_PIN\_RA3}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_af015bdae1d377e178ee95f272f58f29d} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RA3~(3U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00247}{247}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a96cad76a1191e7951edbee8bc10b1e76}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RA4@{GPIO\_PIN\_RA4}}
+\index{GPIO\_PIN\_RA4@{GPIO\_PIN\_RA4}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RA4}{GPIO\_PIN\_RA4}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a96cad76a1191e7951edbee8bc10b1e76} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RA4~(4U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00248}{248}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a24b52389a07c475b3757d26a579a758a}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RA5@{GPIO\_PIN\_RA5}}
+\index{GPIO\_PIN\_RA5@{GPIO\_PIN\_RA5}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RA5}{GPIO\_PIN\_RA5}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a24b52389a07c475b3757d26a579a758a} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RA5~(5U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00249}{249}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a23f46f8d39cb0e7a5ae825f2f3e546d0}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RA6@{GPIO\_PIN\_RA6}}
+\index{GPIO\_PIN\_RA6@{GPIO\_PIN\_RA6}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RA6}{GPIO\_PIN\_RA6}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a23f46f8d39cb0e7a5ae825f2f3e546d0} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RA6~(6U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00250}{250}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a18afb08f30723628eab86ffd71eb5644}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RA7@{GPIO\_PIN\_RA7}}
+\index{GPIO\_PIN\_RA7@{GPIO\_PIN\_RA7}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RA7}{GPIO\_PIN\_RA7}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a18afb08f30723628eab86ffd71eb5644} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RA7~(7U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00251}{251}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a36a9efe30b393d7b4648d3bb701ee369}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RA8@{GPIO\_PIN\_RA8}}
+\index{GPIO\_PIN\_RA8@{GPIO\_PIN\_RA8}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RA8}{GPIO\_PIN\_RA8}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a36a9efe30b393d7b4648d3bb701ee369} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RA8~(8U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00252}{252}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aaade2121aaa6d2ede13df7215b6f6b9a}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RA9@{GPIO\_PIN\_RA9}}
+\index{GPIO\_PIN\_RA9@{GPIO\_PIN\_RA9}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RA9}{GPIO\_PIN\_RA9}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aaade2121aaa6d2ede13df7215b6f6b9a} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RA9~(9U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00253}{253}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a8a3259392ca2f8b19bf2ea06468a65d8}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RB0@{GPIO\_PIN\_RB0}}
+\index{GPIO\_PIN\_RB0@{GPIO\_PIN\_RB0}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RB0}{GPIO\_PIN\_RB0}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a8a3259392ca2f8b19bf2ea06468a65d8} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RB0~(16U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00256}{256}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a4a1d3bfdd342002087660c868e89e7fd}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RB1@{GPIO\_PIN\_RB1}}
+\index{GPIO\_PIN\_RB1@{GPIO\_PIN\_RB1}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RB1}{GPIO\_PIN\_RB1}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a4a1d3bfdd342002087660c868e89e7fd} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RB1~(17U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00257}{257}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a01de710b5426a29b00f04e90bb350609}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RB10@{GPIO\_PIN\_RB10}}
+\index{GPIO\_PIN\_RB10@{GPIO\_PIN\_RB10}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RB10}{GPIO\_PIN\_RB10}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a01de710b5426a29b00f04e90bb350609} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RB10~(26U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00266}{266}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aa86b17e0ad68a7c5abf4750a17859d23}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RB11@{GPIO\_PIN\_RB11}}
+\index{GPIO\_PIN\_RB11@{GPIO\_PIN\_RB11}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RB11}{GPIO\_PIN\_RB11}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aa86b17e0ad68a7c5abf4750a17859d23} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RB11~(27U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00267}{267}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a176884a7c54d0a6290c73d1e3f69aab8}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RB2@{GPIO\_PIN\_RB2}}
+\index{GPIO\_PIN\_RB2@{GPIO\_PIN\_RB2}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RB2}{GPIO\_PIN\_RB2}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a176884a7c54d0a6290c73d1e3f69aab8} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RB2~(18U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00258}{258}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ab9af5d210c8fdc88b8b4c57cb37f0ed0}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RB3@{GPIO\_PIN\_RB3}}
+\index{GPIO\_PIN\_RB3@{GPIO\_PIN\_RB3}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RB3}{GPIO\_PIN\_RB3}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ab9af5d210c8fdc88b8b4c57cb37f0ed0} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RB3~(19U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00259}{259}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a41a9e4ab6cf653bdace521b30f722e72}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RB4@{GPIO\_PIN\_RB4}}
+\index{GPIO\_PIN\_RB4@{GPIO\_PIN\_RB4}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RB4}{GPIO\_PIN\_RB4}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a41a9e4ab6cf653bdace521b30f722e72} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RB4~(20U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00260}{260}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ac8103be411695795e3e0498b345698ca}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RB5@{GPIO\_PIN\_RB5}}
+\index{GPIO\_PIN\_RB5@{GPIO\_PIN\_RB5}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RB5}{GPIO\_PIN\_RB5}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ac8103be411695795e3e0498b345698ca} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RB5~(21U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00261}{261}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ae08a9737e0c2467beac8de240a28a94a}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RB6@{GPIO\_PIN\_RB6}}
+\index{GPIO\_PIN\_RB6@{GPIO\_PIN\_RB6}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RB6}{GPIO\_PIN\_RB6}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ae08a9737e0c2467beac8de240a28a94a} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RB6~(22U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00262}{262}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a442fb3c1f9f90a1aa4265a8129acd15d}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RB7@{GPIO\_PIN\_RB7}}
+\index{GPIO\_PIN\_RB7@{GPIO\_PIN\_RB7}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RB7}{GPIO\_PIN\_RB7}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a442fb3c1f9f90a1aa4265a8129acd15d} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RB7~(23U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00263}{263}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a7cbf52b665026cec994980219d5c1ec4}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RB8@{GPIO\_PIN\_RB8}}
+\index{GPIO\_PIN\_RB8@{GPIO\_PIN\_RB8}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RB8}{GPIO\_PIN\_RB8}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a7cbf52b665026cec994980219d5c1ec4} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RB8~(24U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00264}{264}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aa7029b29bf2a8260c8df36d87b34784f}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RB9@{GPIO\_PIN\_RB9}}
+\index{GPIO\_PIN\_RB9@{GPIO\_PIN\_RB9}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RB9}{GPIO\_PIN\_RB9}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aa7029b29bf2a8260c8df36d87b34784f} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RB9~(25U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00265}{265}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aea934f9bb4ba1e927848dfeefa5de184}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RC0@{GPIO\_PIN\_RC0}}
+\index{GPIO\_PIN\_RC0@{GPIO\_PIN\_RC0}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RC0}{GPIO\_PIN\_RC0}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aea934f9bb4ba1e927848dfeefa5de184} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RC0~(32U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00268}{268}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a16ed2b56ba97dacc424a50f0cdde1edd}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RC1@{GPIO\_PIN\_RC1}}
+\index{GPIO\_PIN\_RC1@{GPIO\_PIN\_RC1}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RC1}{GPIO\_PIN\_RC1}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a16ed2b56ba97dacc424a50f0cdde1edd} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RC1~(33U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00269}{269}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_acaef77eda15f59c8e69b38c26a532cfb}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RC10@{GPIO\_PIN\_RC10}}
+\index{GPIO\_PIN\_RC10@{GPIO\_PIN\_RC10}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RC10}{GPIO\_PIN\_RC10}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_acaef77eda15f59c8e69b38c26a532cfb} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RC10~(42U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00278}{278}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a54a931f78fa4e4d0de139b52cd1b86c5}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RC11@{GPIO\_PIN\_RC11}}
+\index{GPIO\_PIN\_RC11@{GPIO\_PIN\_RC11}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RC11}{GPIO\_PIN\_RC11}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a54a931f78fa4e4d0de139b52cd1b86c5} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RC11~(43U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00279}{279}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a19e36c140f7f6a9908b4162a533545e2}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RC2@{GPIO\_PIN\_RC2}}
+\index{GPIO\_PIN\_RC2@{GPIO\_PIN\_RC2}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RC2}{GPIO\_PIN\_RC2}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a19e36c140f7f6a9908b4162a533545e2} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RC2~(34U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00270}{270}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aeddf85f130e2a1ff49375dca79c86736}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RC3@{GPIO\_PIN\_RC3}}
+\index{GPIO\_PIN\_RC3@{GPIO\_PIN\_RC3}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RC3}{GPIO\_PIN\_RC3}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aeddf85f130e2a1ff49375dca79c86736} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RC3~(35U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00271}{271}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a02281584e5ed6bab5de1420c81cd1c06}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RC4@{GPIO\_PIN\_RC4}}
+\index{GPIO\_PIN\_RC4@{GPIO\_PIN\_RC4}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RC4}{GPIO\_PIN\_RC4}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a02281584e5ed6bab5de1420c81cd1c06} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RC4~(36U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00272}{272}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aa01144bb13149a6c1b50d1ab234fdab0}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RC5@{GPIO\_PIN\_RC5}}
+\index{GPIO\_PIN\_RC5@{GPIO\_PIN\_RC5}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RC5}{GPIO\_PIN\_RC5}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aa01144bb13149a6c1b50d1ab234fdab0} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RC5~(37U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00273}{273}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a927dca7c345f880574bc0ac910fa14ec}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RC6@{GPIO\_PIN\_RC6}}
+\index{GPIO\_PIN\_RC6@{GPIO\_PIN\_RC6}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RC6}{GPIO\_PIN\_RC6}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a927dca7c345f880574bc0ac910fa14ec} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RC6~(38U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00274}{274}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ae9f600eacea91ce99c570db3ec12041f}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RC7@{GPIO\_PIN\_RC7}}
+\index{GPIO\_PIN\_RC7@{GPIO\_PIN\_RC7}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RC7}{GPIO\_PIN\_RC7}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ae9f600eacea91ce99c570db3ec12041f} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RC7~(39U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00275}{275}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ad8bffc4a68d91b99425b38f4438dc0ee}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RC8@{GPIO\_PIN\_RC8}}
+\index{GPIO\_PIN\_RC8@{GPIO\_PIN\_RC8}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RC8}{GPIO\_PIN\_RC8}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ad8bffc4a68d91b99425b38f4438dc0ee} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RC8~(40U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00276}{276}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a5fa123376fceaf886d09b87295891fde}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RC9@{GPIO\_PIN\_RC9}}
+\index{GPIO\_PIN\_RC9@{GPIO\_PIN\_RC9}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RC9}{GPIO\_PIN\_RC9}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a5fa123376fceaf886d09b87295891fde} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RC9~(41U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00277}{277}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a147f3de9ea62e447f4fa1f3a7a956659}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RD0@{GPIO\_PIN\_RD0}}
+\index{GPIO\_PIN\_RD0@{GPIO\_PIN\_RD0}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RD0}{GPIO\_PIN\_RD0}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a147f3de9ea62e447f4fa1f3a7a956659} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RD0~(48U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00280}{280}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_af58423031606493702ab0040bf0d0ae4}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RD1@{GPIO\_PIN\_RD1}}
+\index{GPIO\_PIN\_RD1@{GPIO\_PIN\_RD1}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RD1}{GPIO\_PIN\_RD1}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_af58423031606493702ab0040bf0d0ae4} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RD1~(49U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00281}{281}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a8caea3e464ab36bb1e0f46f212939005}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RD10@{GPIO\_PIN\_RD10}}
+\index{GPIO\_PIN\_RD10@{GPIO\_PIN\_RD10}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RD10}{GPIO\_PIN\_RD10}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a8caea3e464ab36bb1e0f46f212939005} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RD10~(58U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00290}{290}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ab64cd0e35afb245b9b821803e5426106}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RD11@{GPIO\_PIN\_RD11}}
+\index{GPIO\_PIN\_RD11@{GPIO\_PIN\_RD11}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RD11}{GPIO\_PIN\_RD11}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ab64cd0e35afb245b9b821803e5426106} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RD11~(59U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00291}{291}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a9650623590156934db12aa770972879a}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RD12@{GPIO\_PIN\_RD12}}
+\index{GPIO\_PIN\_RD12@{GPIO\_PIN\_RD12}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RD12}{GPIO\_PIN\_RD12}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a9650623590156934db12aa770972879a} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RD12~(60U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00292}{292}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ab847e3338fa5083b1afc92c006ca8663}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RD2@{GPIO\_PIN\_RD2}}
+\index{GPIO\_PIN\_RD2@{GPIO\_PIN\_RD2}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RD2}{GPIO\_PIN\_RD2}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ab847e3338fa5083b1afc92c006ca8663} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RD2~(50U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00282}{282}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a29192aa01633ecbcce937fe468e13598}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RD3@{GPIO\_PIN\_RD3}}
+\index{GPIO\_PIN\_RD3@{GPIO\_PIN\_RD3}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RD3}{GPIO\_PIN\_RD3}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a29192aa01633ecbcce937fe468e13598} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RD3~(51U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00283}{283}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ad6aa52a9f0eedd87551e348885c01ee1}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RD4@{GPIO\_PIN\_RD4}}
+\index{GPIO\_PIN\_RD4@{GPIO\_PIN\_RD4}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RD4}{GPIO\_PIN\_RD4}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ad6aa52a9f0eedd87551e348885c01ee1} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RD4~(52U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00284}{284}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a2c5e8ea4e9a8ddc3a952103cef43cb1a}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RD5@{GPIO\_PIN\_RD5}}
+\index{GPIO\_PIN\_RD5@{GPIO\_PIN\_RD5}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RD5}{GPIO\_PIN\_RD5}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a2c5e8ea4e9a8ddc3a952103cef43cb1a} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RD5~(53U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00285}{285}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a9e17a0f43d10cd70261ef85799dd82c7}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RD6@{GPIO\_PIN\_RD6}}
+\index{GPIO\_PIN\_RD6@{GPIO\_PIN\_RD6}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RD6}{GPIO\_PIN\_RD6}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a9e17a0f43d10cd70261ef85799dd82c7} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RD6~(54U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00286}{286}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a2fb9180b244dcbb50c304817a6c10bb3}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RD7@{GPIO\_PIN\_RD7}}
+\index{GPIO\_PIN\_RD7@{GPIO\_PIN\_RD7}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RD7}{GPIO\_PIN\_RD7}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a2fb9180b244dcbb50c304817a6c10bb3} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RD7~(55U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00287}{287}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ac92cacdfd5f406f9e3ef12b58861515d}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RD8@{GPIO\_PIN\_RD8}}
+\index{GPIO\_PIN\_RD8@{GPIO\_PIN\_RD8}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RD8}{GPIO\_PIN\_RD8}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ac92cacdfd5f406f9e3ef12b58861515d} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RD8~(56U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00288}{288}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a9aada190c0b19b77e298205c078c2e7d}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN\_RD9@{GPIO\_PIN\_RD9}}
+\index{GPIO\_PIN\_RD9@{GPIO\_PIN\_RD9}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_RD9}{GPIO\_PIN\_RD9}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a9aada190c0b19b77e298205c078c2e7d} 
+\#define GPIO\+\_\+\+PIN\+\_\+\+RD9~(57U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00289}{289}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a26c950f1ed9bbc330c8a1a778cbb30ac}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PORT\_A@{GPIO\_PORT\_A}}
+\index{GPIO\_PORT\_A@{GPIO\_PORT\_A}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PORT\_A}{GPIO\_PORT\_A}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a26c950f1ed9bbc330c8a1a778cbb30ac} 
+\#define GPIO\+\_\+\+PORT\+\_\+A~(0U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00221}{221}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a915dfdc360dea14ac6c91824d46de9be}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PORT\_B@{GPIO\_PORT\_B}}
+\index{GPIO\_PORT\_B@{GPIO\_PORT\_B}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PORT\_B}{GPIO\_PORT\_B}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a915dfdc360dea14ac6c91824d46de9be} 
+\#define GPIO\+\_\+\+PORT\+\_\+B~(1U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00222}{222}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a0b31f0cde4a9709b9e8467bcf01f0927}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PORT\_C@{GPIO\_PORT\_C}}
+\index{GPIO\_PORT\_C@{GPIO\_PORT\_C}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PORT\_C}{GPIO\_PORT\_C}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a0b31f0cde4a9709b9e8467bcf01f0927} 
+\#define GPIO\+\_\+\+PORT\+\_\+C~(2U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00223}{223}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a9ecbfed3887b781b1f2bc77a36655372}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PORT\_D@{GPIO\_PORT\_D}}
+\index{GPIO\_PORT\_D@{GPIO\_PORT\_D}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PORT\_D}{GPIO\_PORT\_D}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a9ecbfed3887b781b1f2bc77a36655372} 
+\#define GPIO\+\_\+\+PORT\+\_\+D~(3U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00224}{224}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_afacd9c4523b408c34ffc0faa0235e409}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_RC6\_Clear@{GPIO\_RC6\_Clear}}
+\index{GPIO\_RC6\_Clear@{GPIO\_RC6\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_RC6\_Clear}{GPIO\_RC6\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_afacd9c4523b408c34ffc0faa0235e409} 
+\#define GPIO\+\_\+\+RC6\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATC6\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00097}{97}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a9499f1cc97d029828a58f443e41b5b19}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_RC6\_Get@{GPIO\_RC6\_Get}}
+\index{GPIO\_RC6\_Get@{GPIO\_RC6\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_RC6\_Get}{GPIO\_RC6\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a9499f1cc97d029828a58f443e41b5b19} 
+\#define GPIO\+\_\+\+RC6\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTC\ >>\ 6)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00101}{101}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a9362fbf88a13e94b7ab4a2a7ee2d80d0}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_RC6\_InputEnable@{GPIO\_RC6\_InputEnable}}
+\index{GPIO\_RC6\_InputEnable@{GPIO\_RC6\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_RC6\_InputEnable}{GPIO\_RC6\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a9362fbf88a13e94b7ab4a2a7ee2d80d0} 
+\#define GPIO\+\_\+\+RC6\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISC6\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00100}{100}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a4e3e5f404457360d97093f0723352d53}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_RC6\_OutputEnable@{GPIO\_RC6\_OutputEnable}}
+\index{GPIO\_RC6\_OutputEnable@{GPIO\_RC6\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_RC6\_OutputEnable}{GPIO\_RC6\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a4e3e5f404457360d97093f0723352d53} 
+\#define GPIO\+\_\+\+RC6\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISC6\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00099}{99}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a9a35e1886f1b3000eaf737aecfc140cd}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_RC6\_PIN@{GPIO\_RC6\_PIN}}
+\index{GPIO\_RC6\_PIN@{GPIO\_RC6\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_RC6\_PIN}{GPIO\_RC6\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a9a35e1886f1b3000eaf737aecfc140cd} 
+\#define GPIO\+\_\+\+RC6\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_a927dca7c345f880574bc0ac910fa14ec}{GPIO\+\_\+\+PIN\+\_\+\+RC6}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00102}{102}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a73074625bed9f4b1a159c0ac135bb58e}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_RC6\_Set@{GPIO\_RC6\_Set}}
+\index{GPIO\_RC6\_Set@{GPIO\_RC6\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_RC6\_Set}{GPIO\_RC6\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a73074625bed9f4b1a159c0ac135bb58e} 
+\#define GPIO\+\_\+\+RC6\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATC6\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00096}{96}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a5db3ee7a59e678155b44eec4443746cf}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_RC6\_Toggle@{GPIO\_RC6\_Toggle}}
+\index{GPIO\_RC6\_Toggle@{GPIO\_RC6\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_RC6\_Toggle}{GPIO\_RC6\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a5db3ee7a59e678155b44eec4443746cf} 
+\#define GPIO\+\_\+\+RC6\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATC6\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00098}{98}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a3263569c5834c347bb2f0298e1170ead}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_RC7\_Clear@{GPIO\_RC7\_Clear}}
+\index{GPIO\_RC7\_Clear@{GPIO\_RC7\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_RC7\_Clear}{GPIO\_RC7\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a3263569c5834c347bb2f0298e1170ead} 
+\#define GPIO\+\_\+\+RC7\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATC7\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00106}{106}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a191c8cb4a86fa35fb57d4ffb87dc6ed1}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_RC7\_Get@{GPIO\_RC7\_Get}}
+\index{GPIO\_RC7\_Get@{GPIO\_RC7\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_RC7\_Get}{GPIO\_RC7\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a191c8cb4a86fa35fb57d4ffb87dc6ed1} 
+\#define GPIO\+\_\+\+RC7\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTC\ >>\ 7)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00110}{110}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_af9cca2bd59fb9eee078547fbe556e850}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_RC7\_InputEnable@{GPIO\_RC7\_InputEnable}}
+\index{GPIO\_RC7\_InputEnable@{GPIO\_RC7\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_RC7\_InputEnable}{GPIO\_RC7\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_af9cca2bd59fb9eee078547fbe556e850} 
+\#define GPIO\+\_\+\+RC7\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISC7\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00109}{109}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a308cbff102ba07ac4222d906ca3fd9b4}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_RC7\_OutputEnable@{GPIO\_RC7\_OutputEnable}}
+\index{GPIO\_RC7\_OutputEnable@{GPIO\_RC7\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_RC7\_OutputEnable}{GPIO\_RC7\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a308cbff102ba07ac4222d906ca3fd9b4} 
+\#define GPIO\+\_\+\+RC7\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISC7\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00108}{108}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ab7a3210c17483d1f24e6637280beef15}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_RC7\_PIN@{GPIO\_RC7\_PIN}}
+\index{GPIO\_RC7\_PIN@{GPIO\_RC7\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_RC7\_PIN}{GPIO\_RC7\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ab7a3210c17483d1f24e6637280beef15} 
+\#define GPIO\+\_\+\+RC7\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_ae9f600eacea91ce99c570db3ec12041f}{GPIO\+\_\+\+PIN\+\_\+\+RC7}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00111}{111}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a5711c3138cdec4642533ae00e069e23c}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_RC7\_Set@{GPIO\_RC7\_Set}}
+\index{GPIO\_RC7\_Set@{GPIO\_RC7\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_RC7\_Set}{GPIO\_RC7\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a5711c3138cdec4642533ae00e069e23c} 
+\#define GPIO\+\_\+\+RC7\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATC7\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00105}{105}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ac04f0aa18440afefd798789f9d843795}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_RC7\_Toggle@{GPIO\_RC7\_Toggle}}
+\index{GPIO\_RC7\_Toggle@{GPIO\_RC7\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_RC7\_Toggle}{GPIO\_RC7\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ac04f0aa18440afefd798789f9d843795} 
+\#define GPIO\+\_\+\+RC7\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATC7\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00107}{107}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aefa376b3de4b5b08fd0079c258f9158c}\index{plib\_gpio.h@{plib\_gpio.h}!IMU\_CS\_Clear@{IMU\_CS\_Clear}}
+\index{IMU\_CS\_Clear@{IMU\_CS\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_CS\_Clear}{IMU\_CS\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aefa376b3de4b5b08fd0079c258f9158c} 
+\#define IMU\+\_\+\+CS\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATB3\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00079}{79}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a6f951d325513304cec5c0bd82d605db6}\index{plib\_gpio.h@{plib\_gpio.h}!IMU\_CS\_Get@{IMU\_CS\_Get}}
+\index{IMU\_CS\_Get@{IMU\_CS\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_CS\_Get}{IMU\_CS\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a6f951d325513304cec5c0bd82d605db6} 
+\#define IMU\+\_\+\+CS\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTB\ >>\ 3)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00083}{83}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a8656edb256085e751e43ed7e2f906317}\index{plib\_gpio.h@{plib\_gpio.h}!IMU\_CS\_InputEnable@{IMU\_CS\_InputEnable}}
+\index{IMU\_CS\_InputEnable@{IMU\_CS\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_CS\_InputEnable}{IMU\_CS\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a8656edb256085e751e43ed7e2f906317} 
+\#define IMU\+\_\+\+CS\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISB3\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00082}{82}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a5e0361f997c7a48cff245e887c3db3a7}\index{plib\_gpio.h@{plib\_gpio.h}!IMU\_CS\_OutputEnable@{IMU\_CS\_OutputEnable}}
+\index{IMU\_CS\_OutputEnable@{IMU\_CS\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_CS\_OutputEnable}{IMU\_CS\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a5e0361f997c7a48cff245e887c3db3a7} 
+\#define IMU\+\_\+\+CS\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISB3\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00081}{81}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a6ed7e9a3c7803af585f72df5c159526e}\index{plib\_gpio.h@{plib\_gpio.h}!IMU\_CS\_PIN@{IMU\_CS\_PIN}}
+\index{IMU\_CS\_PIN@{IMU\_CS\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_CS\_PIN}{IMU\_CS\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a6ed7e9a3c7803af585f72df5c159526e} 
+\#define IMU\+\_\+\+CS\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_ab9af5d210c8fdc88b8b4c57cb37f0ed0}{GPIO\+\_\+\+PIN\+\_\+\+RB3}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00084}{84}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a00f34603c5b3d9ef510d6a4c23aec9a5}\index{plib\_gpio.h@{plib\_gpio.h}!IMU\_CS\_Set@{IMU\_CS\_Set}}
+\index{IMU\_CS\_Set@{IMU\_CS\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_CS\_Set}{IMU\_CS\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a00f34603c5b3d9ef510d6a4c23aec9a5} 
+\#define IMU\+\_\+\+CS\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATB3\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00078}{78}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a29140d09785c75a3cc789015ccdc57fa}\index{plib\_gpio.h@{plib\_gpio.h}!IMU\_CS\_Toggle@{IMU\_CS\_Toggle}}
+\index{IMU\_CS\_Toggle@{IMU\_CS\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_CS\_Toggle}{IMU\_CS\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a29140d09785c75a3cc789015ccdc57fa} 
+\#define IMU\+\_\+\+CS\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATB3\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00080}{80}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_abfdce8ed683a0896d5fb2bd8f4121b7e}\index{plib\_gpio.h@{plib\_gpio.h}!ISO1\_S\_Clear@{ISO1\_S\_Clear}}
+\index{ISO1\_S\_Clear@{ISO1\_S\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO1\_S\_Clear}{ISO1\_S\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_abfdce8ed683a0896d5fb2bd8f4121b7e} 
+\#define ISO1\+\_\+\+S\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD1\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00160}{160}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aee0c75f15b45cbd35390d5b950b1607c}\index{plib\_gpio.h@{plib\_gpio.h}!ISO1\_S\_Get@{ISO1\_S\_Get}}
+\index{ISO1\_S\_Get@{ISO1\_S\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO1\_S\_Get}{ISO1\_S\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aee0c75f15b45cbd35390d5b950b1607c} 
+\#define ISO1\+\_\+\+S\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTD\ >>\ 1)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00164}{164}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ae741863de53266f4d7a0b6a1c3b25b90}\index{plib\_gpio.h@{plib\_gpio.h}!ISO1\_S\_InputEnable@{ISO1\_S\_InputEnable}}
+\index{ISO1\_S\_InputEnable@{ISO1\_S\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO1\_S\_InputEnable}{ISO1\_S\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ae741863de53266f4d7a0b6a1c3b25b90} 
+\#define ISO1\+\_\+\+S\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD1\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00163}{163}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a131b047c9c1bf8a44d0c5954c130a275}\index{plib\_gpio.h@{plib\_gpio.h}!ISO1\_S\_OutputEnable@{ISO1\_S\_OutputEnable}}
+\index{ISO1\_S\_OutputEnable@{ISO1\_S\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO1\_S\_OutputEnable}{ISO1\_S\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a131b047c9c1bf8a44d0c5954c130a275} 
+\#define ISO1\+\_\+\+S\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD1\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00162}{162}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ac134119c6929763638b11fc1ef83ced2}\index{plib\_gpio.h@{plib\_gpio.h}!ISO1\_S\_PIN@{ISO1\_S\_PIN}}
+\index{ISO1\_S\_PIN@{ISO1\_S\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO1\_S\_PIN}{ISO1\_S\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ac134119c6929763638b11fc1ef83ced2} 
+\#define ISO1\+\_\+\+S\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_af58423031606493702ab0040bf0d0ae4}{GPIO\+\_\+\+PIN\+\_\+\+RD1}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00165}{165}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a7875f58407d8515c78579efa22ff8e2a}\index{plib\_gpio.h@{plib\_gpio.h}!ISO1\_S\_Set@{ISO1\_S\_Set}}
+\index{ISO1\_S\_Set@{ISO1\_S\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO1\_S\_Set}{ISO1\_S\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a7875f58407d8515c78579efa22ff8e2a} 
+\#define ISO1\+\_\+\+S\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD1\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00159}{159}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a26133cd5a94fa7e661086a2ea56fca5c}\index{plib\_gpio.h@{plib\_gpio.h}!ISO1\_S\_Toggle@{ISO1\_S\_Toggle}}
+\index{ISO1\_S\_Toggle@{ISO1\_S\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO1\_S\_Toggle}{ISO1\_S\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a26133cd5a94fa7e661086a2ea56fca5c} 
+\#define ISO1\+\_\+\+S\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD1\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00161}{161}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ae4172be591e4ebeec6a80d92baf863e9}\index{plib\_gpio.h@{plib\_gpio.h}!ISO2\_S\_Clear@{ISO2\_S\_Clear}}
+\index{ISO2\_S\_Clear@{ISO2\_S\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO2\_S\_Clear}{ISO2\_S\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ae4172be591e4ebeec6a80d92baf863e9} 
+\#define ISO2\+\_\+\+S\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD5\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00178}{178}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a5b189c26636eaef32c0e9164f87a14ea}\index{plib\_gpio.h@{plib\_gpio.h}!ISO2\_S\_Get@{ISO2\_S\_Get}}
+\index{ISO2\_S\_Get@{ISO2\_S\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO2\_S\_Get}{ISO2\_S\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a5b189c26636eaef32c0e9164f87a14ea} 
+\#define ISO2\+\_\+\+S\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTD\ >>\ 5)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00182}{182}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a5fce78ae61f1101fef59d102d38524eb}\index{plib\_gpio.h@{plib\_gpio.h}!ISO2\_S\_InputEnable@{ISO2\_S\_InputEnable}}
+\index{ISO2\_S\_InputEnable@{ISO2\_S\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO2\_S\_InputEnable}{ISO2\_S\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a5fce78ae61f1101fef59d102d38524eb} 
+\#define ISO2\+\_\+\+S\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD5\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00181}{181}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ac62f246293bca5937390f06b7269f27e}\index{plib\_gpio.h@{plib\_gpio.h}!ISO2\_S\_OutputEnable@{ISO2\_S\_OutputEnable}}
+\index{ISO2\_S\_OutputEnable@{ISO2\_S\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO2\_S\_OutputEnable}{ISO2\_S\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ac62f246293bca5937390f06b7269f27e} 
+\#define ISO2\+\_\+\+S\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD5\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00180}{180}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_af412cabfed0163100b2a6b1b133568bc}\index{plib\_gpio.h@{plib\_gpio.h}!ISO2\_S\_PIN@{ISO2\_S\_PIN}}
+\index{ISO2\_S\_PIN@{ISO2\_S\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO2\_S\_PIN}{ISO2\_S\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_af412cabfed0163100b2a6b1b133568bc} 
+\#define ISO2\+\_\+\+S\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_a2c5e8ea4e9a8ddc3a952103cef43cb1a}{GPIO\+\_\+\+PIN\+\_\+\+RD5}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00183}{183}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ad46d0bb8b7bcb5dc2ce5b32084ca5cc2}\index{plib\_gpio.h@{plib\_gpio.h}!ISO2\_S\_Set@{ISO2\_S\_Set}}
+\index{ISO2\_S\_Set@{ISO2\_S\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO2\_S\_Set}{ISO2\_S\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ad46d0bb8b7bcb5dc2ce5b32084ca5cc2} 
+\#define ISO2\+\_\+\+S\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD5\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00177}{177}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a7fc50a8ddbf9da1f601a21186272e396}\index{plib\_gpio.h@{plib\_gpio.h}!ISO2\_S\_Toggle@{ISO2\_S\_Toggle}}
+\index{ISO2\_S\_Toggle@{ISO2\_S\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO2\_S\_Toggle}{ISO2\_S\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a7fc50a8ddbf9da1f601a21186272e396} 
+\#define ISO2\+\_\+\+S\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD5\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00179}{179}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a2220ffe1bcce2f3e10e21a14b9df37c3}\index{plib\_gpio.h@{plib\_gpio.h}!ISO3\_O\_Clear@{ISO3\_O\_Clear}}
+\index{ISO3\_O\_Clear@{ISO3\_O\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO3\_O\_Clear}{ISO3\_O\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a2220ffe1bcce2f3e10e21a14b9df37c3} 
+\#define ISO3\+\_\+\+O\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD3\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00169}{169}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_af199b2c491f8d5d7b8e1ee2b0268dca8}\index{plib\_gpio.h@{plib\_gpio.h}!ISO3\_O\_Get@{ISO3\_O\_Get}}
+\index{ISO3\_O\_Get@{ISO3\_O\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO3\_O\_Get}{ISO3\_O\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_af199b2c491f8d5d7b8e1ee2b0268dca8} 
+\#define ISO3\+\_\+\+O\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTD\ >>\ 3)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00173}{173}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_afa696b19b2788fccad140dbf049cd5fd}\index{plib\_gpio.h@{plib\_gpio.h}!ISO3\_O\_InputEnable@{ISO3\_O\_InputEnable}}
+\index{ISO3\_O\_InputEnable@{ISO3\_O\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO3\_O\_InputEnable}{ISO3\_O\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_afa696b19b2788fccad140dbf049cd5fd} 
+\#define ISO3\+\_\+\+O\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD3\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00172}{172}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a3acbaf85ea9d527f3f69c594b8e41734}\index{plib\_gpio.h@{plib\_gpio.h}!ISO3\_O\_OutputEnable@{ISO3\_O\_OutputEnable}}
+\index{ISO3\_O\_OutputEnable@{ISO3\_O\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO3\_O\_OutputEnable}{ISO3\_O\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a3acbaf85ea9d527f3f69c594b8e41734} 
+\#define ISO3\+\_\+\+O\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD3\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00171}{171}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a288d1db0a4f9dc0c0a8f02e01f2b74fc}\index{plib\_gpio.h@{plib\_gpio.h}!ISO3\_O\_PIN@{ISO3\_O\_PIN}}
+\index{ISO3\_O\_PIN@{ISO3\_O\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO3\_O\_PIN}{ISO3\_O\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a288d1db0a4f9dc0c0a8f02e01f2b74fc} 
+\#define ISO3\+\_\+\+O\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_a29192aa01633ecbcce937fe468e13598}{GPIO\+\_\+\+PIN\+\_\+\+RD3}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00174}{174}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a64ec766fc0d3441a098cb21c1f54141f}\index{plib\_gpio.h@{plib\_gpio.h}!ISO3\_O\_Set@{ISO3\_O\_Set}}
+\index{ISO3\_O\_Set@{ISO3\_O\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO3\_O\_Set}{ISO3\_O\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a64ec766fc0d3441a098cb21c1f54141f} 
+\#define ISO3\+\_\+\+O\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD3\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00168}{168}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a79425182f67dd4e22b3ce3de7d800f2d}\index{plib\_gpio.h@{plib\_gpio.h}!ISO3\_O\_Toggle@{ISO3\_O\_Toggle}}
+\index{ISO3\_O\_Toggle@{ISO3\_O\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO3\_O\_Toggle}{ISO3\_O\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a79425182f67dd4e22b3ce3de7d800f2d} 
+\#define ISO3\+\_\+\+O\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD3\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00170}{170}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aa76326c9a0601dd7a8008cfc81a28f89}\index{plib\_gpio.h@{plib\_gpio.h}!ISO4\_O\_Clear@{ISO4\_O\_Clear}}
+\index{ISO4\_O\_Clear@{ISO4\_O\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO4\_O\_Clear}{ISO4\_O\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aa76326c9a0601dd7a8008cfc81a28f89} 
+\#define ISO4\+\_\+\+O\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD4\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00205}{205}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ac683580b1c7b18dcf75250b0223dd543}\index{plib\_gpio.h@{plib\_gpio.h}!ISO4\_O\_Get@{ISO4\_O\_Get}}
+\index{ISO4\_O\_Get@{ISO4\_O\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO4\_O\_Get}{ISO4\_O\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ac683580b1c7b18dcf75250b0223dd543} 
+\#define ISO4\+\_\+\+O\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTD\ >>\ 4)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00209}{209}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a03312b8bef15f3293bf897319f7525ae}\index{plib\_gpio.h@{plib\_gpio.h}!ISO4\_O\_InputEnable@{ISO4\_O\_InputEnable}}
+\index{ISO4\_O\_InputEnable@{ISO4\_O\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO4\_O\_InputEnable}{ISO4\_O\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a03312b8bef15f3293bf897319f7525ae} 
+\#define ISO4\+\_\+\+O\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD4\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00208}{208}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a986177e915f7786444bfa85c036e88ed}\index{plib\_gpio.h@{plib\_gpio.h}!ISO4\_O\_OutputEnable@{ISO4\_O\_OutputEnable}}
+\index{ISO4\_O\_OutputEnable@{ISO4\_O\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO4\_O\_OutputEnable}{ISO4\_O\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a986177e915f7786444bfa85c036e88ed} 
+\#define ISO4\+\_\+\+O\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD4\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00207}{207}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a5186acb4004262eac90db8d151ee67d4}\index{plib\_gpio.h@{plib\_gpio.h}!ISO4\_O\_PIN@{ISO4\_O\_PIN}}
+\index{ISO4\_O\_PIN@{ISO4\_O\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO4\_O\_PIN}{ISO4\_O\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a5186acb4004262eac90db8d151ee67d4} 
+\#define ISO4\+\_\+\+O\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_ad6aa52a9f0eedd87551e348885c01ee1}{GPIO\+\_\+\+PIN\+\_\+\+RD4}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00210}{210}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ad0ae69ee0a1001fcdcf1c537959ec246}\index{plib\_gpio.h@{plib\_gpio.h}!ISO4\_O\_Set@{ISO4\_O\_Set}}
+\index{ISO4\_O\_Set@{ISO4\_O\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO4\_O\_Set}{ISO4\_O\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ad0ae69ee0a1001fcdcf1c537959ec246} 
+\#define ISO4\+\_\+\+O\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD4\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00204}{204}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a85e5b0b5a0f7ea5d0ff25c5db0922943}\index{plib\_gpio.h@{plib\_gpio.h}!ISO4\_O\_Toggle@{ISO4\_O\_Toggle}}
+\index{ISO4\_O\_Toggle@{ISO4\_O\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ISO4\_O\_Toggle}{ISO4\_O\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a85e5b0b5a0f7ea5d0ff25c5db0922943} 
+\#define ISO4\+\_\+\+O\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD4\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00206}{206}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aa34d2dad1908ecb090c0da70b40f8557}\index{plib\_gpio.h@{plib\_gpio.h}!RLED\_Clear@{RLED\_Clear}}
+\index{RLED\_Clear@{RLED\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{RLED\_Clear}{RLED\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aa34d2dad1908ecb090c0da70b40f8557} 
+\#define RLED\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD0\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00151}{151}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a092e4a3246c30e1c8094750a98d50d3f}\index{plib\_gpio.h@{plib\_gpio.h}!RLED\_Get@{RLED\_Get}}
+\index{RLED\_Get@{RLED\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{RLED\_Get}{RLED\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a092e4a3246c30e1c8094750a98d50d3f} 
+\#define RLED\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTD\ >>\ 0)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00155}{155}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a77fa83e167673c6add8254e35a869d29}\index{plib\_gpio.h@{plib\_gpio.h}!RLED\_InputEnable@{RLED\_InputEnable}}
+\index{RLED\_InputEnable@{RLED\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{RLED\_InputEnable}{RLED\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a77fa83e167673c6add8254e35a869d29} 
+\#define RLED\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD0\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00154}{154}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a0f025f3cd81beb9b8754d836b014ab47}\index{plib\_gpio.h@{plib\_gpio.h}!RLED\_OutputEnable@{RLED\_OutputEnable}}
+\index{RLED\_OutputEnable@{RLED\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{RLED\_OutputEnable}{RLED\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a0f025f3cd81beb9b8754d836b014ab47} 
+\#define RLED\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD0\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00153}{153}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_acaf3fd542c08bd1450c7af6dede94876}\index{plib\_gpio.h@{plib\_gpio.h}!RLED\_PIN@{RLED\_PIN}}
+\index{RLED\_PIN@{RLED\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{RLED\_PIN}{RLED\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_acaf3fd542c08bd1450c7af6dede94876} 
+\#define RLED\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_a147f3de9ea62e447f4fa1f3a7a956659}{GPIO\+\_\+\+PIN\+\_\+\+RD0}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00156}{156}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a3c0fdc4b76b0246d060b04d6677189b4}\index{plib\_gpio.h@{plib\_gpio.h}!RLED\_Set@{RLED\_Set}}
+\index{RLED\_Set@{RLED\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{RLED\_Set}{RLED\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a3c0fdc4b76b0246d060b04d6677189b4} 
+\#define RLED\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD0\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00150}{150}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a81d6509483dd585db7e0ec297e911ff4}\index{plib\_gpio.h@{plib\_gpio.h}!RLED\_Toggle@{RLED\_Toggle}}
+\index{RLED\_Toggle@{RLED\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{RLED\_Toggle}{RLED\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a81d6509483dd585db7e0ec297e911ff4} 
+\#define RLED\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD0\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00152}{152}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a57975cb926a9d71776203b087bf33c88}\index{plib\_gpio.h@{plib\_gpio.h}!SRAM\_CS\_Clear@{SRAM\_CS\_Clear}}
+\index{SRAM\_CS\_Clear@{SRAM\_CS\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SRAM\_CS\_Clear}{SRAM\_CS\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a57975cb926a9d71776203b087bf33c88} 
+\#define SRAM\+\_\+\+CS\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATB4\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00088}{88}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_afdf58a8060a34b7ed6177e0103dee6ba}\index{plib\_gpio.h@{plib\_gpio.h}!SRAM\_CS\_Get@{SRAM\_CS\_Get}}
+\index{SRAM\_CS\_Get@{SRAM\_CS\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SRAM\_CS\_Get}{SRAM\_CS\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_afdf58a8060a34b7ed6177e0103dee6ba} 
+\#define SRAM\+\_\+\+CS\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTB\ >>\ 4)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00092}{92}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aa3a1ef659404609deb886ac956ec16e3}\index{plib\_gpio.h@{plib\_gpio.h}!SRAM\_CS\_InputEnable@{SRAM\_CS\_InputEnable}}
+\index{SRAM\_CS\_InputEnable@{SRAM\_CS\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SRAM\_CS\_InputEnable}{SRAM\_CS\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aa3a1ef659404609deb886ac956ec16e3} 
+\#define SRAM\+\_\+\+CS\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISB4\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00091}{91}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a84579d97db1307d68a1111abd3a6d2b9}\index{plib\_gpio.h@{plib\_gpio.h}!SRAM\_CS\_OutputEnable@{SRAM\_CS\_OutputEnable}}
+\index{SRAM\_CS\_OutputEnable@{SRAM\_CS\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SRAM\_CS\_OutputEnable}{SRAM\_CS\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a84579d97db1307d68a1111abd3a6d2b9} 
+\#define SRAM\+\_\+\+CS\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISB4\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00090}{90}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_abf7a18be6eb52119469730c9f6f6b3bb}\index{plib\_gpio.h@{plib\_gpio.h}!SRAM\_CS\_PIN@{SRAM\_CS\_PIN}}
+\index{SRAM\_CS\_PIN@{SRAM\_CS\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SRAM\_CS\_PIN}{SRAM\_CS\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_abf7a18be6eb52119469730c9f6f6b3bb} 
+\#define SRAM\+\_\+\+CS\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_a41a9e4ab6cf653bdace521b30f722e72}{GPIO\+\_\+\+PIN\+\_\+\+RB4}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00093}{93}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a99a6893c3c6aea94ea8b4c312b001c3d}\index{plib\_gpio.h@{plib\_gpio.h}!SRAM\_CS\_Set@{SRAM\_CS\_Set}}
+\index{SRAM\_CS\_Set@{SRAM\_CS\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SRAM\_CS\_Set}{SRAM\_CS\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a99a6893c3c6aea94ea8b4c312b001c3d} 
+\#define SRAM\+\_\+\+CS\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATB4\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00087}{87}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a7312f4d21fa686ccf75e62e5369c39bd}\index{plib\_gpio.h@{plib\_gpio.h}!SRAM\_CS\_Toggle@{SRAM\_CS\_Toggle}}
+\index{SRAM\_CS\_Toggle@{SRAM\_CS\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SRAM\_CS\_Toggle}{SRAM\_CS\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a7312f4d21fa686ccf75e62e5369c39bd} 
+\#define SRAM\+\_\+\+CS\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATB4\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00089}{89}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a1d3fe396eaf18b1c521b885d0284e33a}\index{plib\_gpio.h@{plib\_gpio.h}!SW1\_Clear@{SW1\_Clear}}
+\index{SW1\_Clear@{SW1\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SW1\_Clear}{SW1\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a1d3fe396eaf18b1c521b885d0284e33a} 
+\#define SW1\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD6\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00187}{187}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a90767174fd7eaecd5b74ea7edc31d84f}\index{plib\_gpio.h@{plib\_gpio.h}!SW1\_Get@{SW1\_Get}}
+\index{SW1\_Get@{SW1\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SW1\_Get}{SW1\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a90767174fd7eaecd5b74ea7edc31d84f} 
+\#define SW1\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTD\ >>\ 6)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00191}{191}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a739f0171692e84e45b83ab034709a1ba}\index{plib\_gpio.h@{plib\_gpio.h}!SW1\_InputEnable@{SW1\_InputEnable}}
+\index{SW1\_InputEnable@{SW1\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SW1\_InputEnable}{SW1\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a739f0171692e84e45b83ab034709a1ba} 
+\#define SW1\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD6\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00190}{190}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a6794c2fbb3d572fb0c6aec3e22eb3374}\index{plib\_gpio.h@{plib\_gpio.h}!SW1\_OutputEnable@{SW1\_OutputEnable}}
+\index{SW1\_OutputEnable@{SW1\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SW1\_OutputEnable}{SW1\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a6794c2fbb3d572fb0c6aec3e22eb3374} 
+\#define SW1\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD6\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00189}{189}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a3b206753e7f7b2e482816b53c6b8600c}\index{plib\_gpio.h@{plib\_gpio.h}!SW1\_PIN@{SW1\_PIN}}
+\index{SW1\_PIN@{SW1\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SW1\_PIN}{SW1\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a3b206753e7f7b2e482816b53c6b8600c} 
+\#define SW1\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_a9e17a0f43d10cd70261ef85799dd82c7}{GPIO\+\_\+\+PIN\+\_\+\+RD6}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00192}{192}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aab592eefa405b6d76ac7ea960273d0d0}\index{plib\_gpio.h@{plib\_gpio.h}!SW1\_Set@{SW1\_Set}}
+\index{SW1\_Set@{SW1\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SW1\_Set}{SW1\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aab592eefa405b6d76ac7ea960273d0d0} 
+\#define SW1\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD6\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00186}{186}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ac00bfa21e8ef3419618050a122e8a710}\index{plib\_gpio.h@{plib\_gpio.h}!SW1\_Toggle@{SW1\_Toggle}}
+\index{SW1\_Toggle@{SW1\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SW1\_Toggle}{SW1\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ac00bfa21e8ef3419618050a122e8a710} 
+\#define SW1\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD6\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00188}{188}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aef66e045a8d3d82fd578de0f3f057c90}\index{plib\_gpio.h@{plib\_gpio.h}!SW2\_Clear@{SW2\_Clear}}
+\index{SW2\_Clear@{SW2\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SW2\_Clear}{SW2\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aef66e045a8d3d82fd578de0f3f057c90} 
+\#define SW2\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD7\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00196}{196}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ae5b3a0ad1694c3ac55c2b1488c6acf0d}\index{plib\_gpio.h@{plib\_gpio.h}!SW2\_Get@{SW2\_Get}}
+\index{SW2\_Get@{SW2\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SW2\_Get}{SW2\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ae5b3a0ad1694c3ac55c2b1488c6acf0d} 
+\#define SW2\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTD\ >>\ 7)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00200}{200}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a83e8404c0c967caa9e07993392299a4b}\index{plib\_gpio.h@{plib\_gpio.h}!SW2\_InputEnable@{SW2\_InputEnable}}
+\index{SW2\_InputEnable@{SW2\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SW2\_InputEnable}{SW2\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a83e8404c0c967caa9e07993392299a4b} 
+\#define SW2\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD7\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00199}{199}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a4323cb99224d2fcd13edca60951088e3}\index{plib\_gpio.h@{plib\_gpio.h}!SW2\_OutputEnable@{SW2\_OutputEnable}}
+\index{SW2\_OutputEnable@{SW2\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SW2\_OutputEnable}{SW2\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a4323cb99224d2fcd13edca60951088e3} 
+\#define SW2\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD7\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00198}{198}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a5324908892138177958451638abfd1cc}\index{plib\_gpio.h@{plib\_gpio.h}!SW2\_PIN@{SW2\_PIN}}
+\index{SW2\_PIN@{SW2\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SW2\_PIN}{SW2\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a5324908892138177958451638abfd1cc} 
+\#define SW2\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_a2fb9180b244dcbb50c304817a6c10bb3}{GPIO\+\_\+\+PIN\+\_\+\+RD7}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00201}{201}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ad0b358b77cbd247784e1160e4384b15c}\index{plib\_gpio.h@{plib\_gpio.h}!SW2\_Set@{SW2\_Set}}
+\index{SW2\_Set@{SW2\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SW2\_Set}{SW2\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ad0b358b77cbd247784e1160e4384b15c} 
+\#define SW2\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD7\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00195}{195}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_abb461a49480cf6d1b33b805bc7e3985a}\index{plib\_gpio.h@{plib\_gpio.h}!SW2\_Toggle@{SW2\_Toggle}}
+\index{SW2\_Toggle@{SW2\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SW2\_Toggle}{SW2\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_abb461a49480cf6d1b33b805bc7e3985a} 
+\#define SW2\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD7\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00197}{197}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a7965b1072ce55e0b8941572c4000fa94}\index{plib\_gpio.h@{plib\_gpio.h}!TEST\_TP0\_Clear@{TEST\_TP0\_Clear}}
+\index{TEST\_TP0\_Clear@{TEST\_TP0\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TEST\_TP0\_Clear}{TEST\_TP0\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a7965b1072ce55e0b8941572c4000fa94} 
+\#define TEST\+\_\+\+TP0\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD9\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00142}{142}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a8a033801730cd5646655b5e6e541d562}\index{plib\_gpio.h@{plib\_gpio.h}!TEST\_TP0\_Get@{TEST\_TP0\_Get}}
+\index{TEST\_TP0\_Get@{TEST\_TP0\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TEST\_TP0\_Get}{TEST\_TP0\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a8a033801730cd5646655b5e6e541d562} 
+\#define TEST\+\_\+\+TP0\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTD\ >>\ 9)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00146}{146}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a4a5a1ec2fca0438bca2fabef3702baf1}\index{plib\_gpio.h@{plib\_gpio.h}!TEST\_TP0\_InputEnable@{TEST\_TP0\_InputEnable}}
+\index{TEST\_TP0\_InputEnable@{TEST\_TP0\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TEST\_TP0\_InputEnable}{TEST\_TP0\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a4a5a1ec2fca0438bca2fabef3702baf1} 
+\#define TEST\+\_\+\+TP0\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD9\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00145}{145}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a35d352df559c25d5c11e209d63c408b6}\index{plib\_gpio.h@{plib\_gpio.h}!TEST\_TP0\_OutputEnable@{TEST\_TP0\_OutputEnable}}
+\index{TEST\_TP0\_OutputEnable@{TEST\_TP0\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TEST\_TP0\_OutputEnable}{TEST\_TP0\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a35d352df559c25d5c11e209d63c408b6} 
+\#define TEST\+\_\+\+TP0\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISD9\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00144}{144}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a8dae69813c2e3de14c9472adf4e387b7}\index{plib\_gpio.h@{plib\_gpio.h}!TEST\_TP0\_PIN@{TEST\_TP0\_PIN}}
+\index{TEST\_TP0\_PIN@{TEST\_TP0\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TEST\_TP0\_PIN}{TEST\_TP0\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a8dae69813c2e3de14c9472adf4e387b7} 
+\#define TEST\+\_\+\+TP0\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_a9aada190c0b19b77e298205c078c2e7d}{GPIO\+\_\+\+PIN\+\_\+\+RD9}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00147}{147}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a23c33f241bda6bf3b92a8bad59d2618d}\index{plib\_gpio.h@{plib\_gpio.h}!TEST\_TP0\_Set@{TEST\_TP0\_Set}}
+\index{TEST\_TP0\_Set@{TEST\_TP0\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TEST\_TP0\_Set}{TEST\_TP0\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a23c33f241bda6bf3b92a8bad59d2618d} 
+\#define TEST\+\_\+\+TP0\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD9\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00141}{141}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a918f3058b546a42ec55f33ea4075cca4}\index{plib\_gpio.h@{plib\_gpio.h}!TEST\_TP0\_Toggle@{TEST\_TP0\_Toggle}}
+\index{TEST\_TP0\_Toggle@{TEST\_TP0\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TEST\_TP0\_Toggle}{TEST\_TP0\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a918f3058b546a42ec55f33ea4075cca4} 
+\#define TEST\+\_\+\+TP0\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATD9\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00143}{143}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_af4a105b3d8af02457e6eebca49314833}\index{plib\_gpio.h@{plib\_gpio.h}!TEST\_TP1\_Clear@{TEST\_TP1\_Clear}}
+\index{TEST\_TP1\_Clear@{TEST\_TP1\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TEST\_TP1\_Clear}{TEST\_TP1\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_af4a105b3d8af02457e6eebca49314833} 
+\#define TEST\+\_\+\+TP1\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATA11\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00061}{61}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aac3491c8594a4ce1c48c4904c9d65bd4}\index{plib\_gpio.h@{plib\_gpio.h}!TEST\_TP1\_Get@{TEST\_TP1\_Get}}
+\index{TEST\_TP1\_Get@{TEST\_TP1\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TEST\_TP1\_Get}{TEST\_TP1\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aac3491c8594a4ce1c48c4904c9d65bd4} 
+\#define TEST\+\_\+\+TP1\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTA\ >>\ 11)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00065}{65}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a663e6bcfacd76f7ee067d55f43914ba4}\index{plib\_gpio.h@{plib\_gpio.h}!TEST\_TP1\_InputEnable@{TEST\_TP1\_InputEnable}}
+\index{TEST\_TP1\_InputEnable@{TEST\_TP1\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TEST\_TP1\_InputEnable}{TEST\_TP1\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a663e6bcfacd76f7ee067d55f43914ba4} 
+\#define TEST\+\_\+\+TP1\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISA11\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00064}{64}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a031c1ab65452515fce8389d18e104264}\index{plib\_gpio.h@{plib\_gpio.h}!TEST\_TP1\_OutputEnable@{TEST\_TP1\_OutputEnable}}
+\index{TEST\_TP1\_OutputEnable@{TEST\_TP1\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TEST\_TP1\_OutputEnable}{TEST\_TP1\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a031c1ab65452515fce8389d18e104264} 
+\#define TEST\+\_\+\+TP1\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISA11\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00063}{63}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a605abe9e47338efc2bf02fd6efa955f5}\index{plib\_gpio.h@{plib\_gpio.h}!TEST\_TP1\_PIN@{TEST\_TP1\_PIN}}
+\index{TEST\_TP1\_PIN@{TEST\_TP1\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TEST\_TP1\_PIN}{TEST\_TP1\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a605abe9e47338efc2bf02fd6efa955f5} 
+\#define TEST\+\_\+\+TP1\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_a16a70372ce8e0a51e7978aba12fbdd02}{GPIO\+\_\+\+PIN\+\_\+\+RA11}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00066}{66}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aa24c4203645538050045a3c9f4da4202}\index{plib\_gpio.h@{plib\_gpio.h}!TEST\_TP1\_Set@{TEST\_TP1\_Set}}
+\index{TEST\_TP1\_Set@{TEST\_TP1\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TEST\_TP1\_Set}{TEST\_TP1\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aa24c4203645538050045a3c9f4da4202} 
+\#define TEST\+\_\+\+TP1\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATA11\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00060}{60}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_acb57fa1adaf4a9adf4990aea5fd1428c}\index{plib\_gpio.h@{plib\_gpio.h}!TEST\_TP1\_Toggle@{TEST\_TP1\_Toggle}}
+\index{TEST\_TP1\_Toggle@{TEST\_TP1\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TEST\_TP1\_Toggle}{TEST\_TP1\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_acb57fa1adaf4a9adf4990aea5fd1428c} 
+\#define TEST\+\_\+\+TP1\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATA11\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00062}{62}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aeff5200cfbf495fb084d3eefcd1a48b5}\index{plib\_gpio.h@{plib\_gpio.h}!TXDE\_Clear@{TXDE\_Clear}}
+\index{TXDE\_Clear@{TXDE\_Clear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TXDE\_Clear}{TXDE\_Clear}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aeff5200cfbf495fb084d3eefcd1a48b5} 
+\#define TXDE\+\_\+\+Clear(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATC5\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00133}{133}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a289f3c10686140a60a83828d5283201c}\index{plib\_gpio.h@{plib\_gpio.h}!TXDE\_Get@{TXDE\_Get}}
+\index{TXDE\_Get@{TXDE\_Get}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TXDE\_Get}{TXDE\_Get}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a289f3c10686140a60a83828d5283201c} 
+\#define TXDE\+\_\+\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PORTC\ >>\ 5)\ \&\ 0x1)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00137}{137}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_aee4fbc0a5bab53147e5fae17c77de0f3}\index{plib\_gpio.h@{plib\_gpio.h}!TXDE\_InputEnable@{TXDE\_InputEnable}}
+\index{TXDE\_InputEnable@{TXDE\_InputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TXDE\_InputEnable}{TXDE\_InputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_aee4fbc0a5bab53147e5fae17c77de0f3} 
+\#define TXDE\+\_\+\+Input\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISC5\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00136}{136}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ae74510398d1e18dc886a6261e6d508f0}\index{plib\_gpio.h@{plib\_gpio.h}!TXDE\_OutputEnable@{TXDE\_OutputEnable}}
+\index{TXDE\_OutputEnable@{TXDE\_OutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TXDE\_OutputEnable}{TXDE\_OutputEnable}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ae74510398d1e18dc886a6261e6d508f0} 
+\#define TXDE\+\_\+\+Output\+Enable(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_TRISC5\ =\ 0U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00135}{135}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a931e99de40f428c9b0bd503a2cc0c152}\index{plib\_gpio.h@{plib\_gpio.h}!TXDE\_PIN@{TXDE\_PIN}}
+\index{TXDE\_PIN@{TXDE\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TXDE\_PIN}{TXDE\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a931e99de40f428c9b0bd503a2cc0c152} 
+\#define TXDE\+\_\+\+PIN~\mbox{\hyperlink{plib__gpio_8h_aa01144bb13149a6c1b50d1ab234fdab0}{GPIO\+\_\+\+PIN\+\_\+\+RC5}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00138}{138}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a7f3d056f6d6359820b4a2a136ef23248}\index{plib\_gpio.h@{plib\_gpio.h}!TXDE\_Set@{TXDE\_Set}}
+\index{TXDE\_Set@{TXDE\_Set}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TXDE\_Set}{TXDE\_Set}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a7f3d056f6d6359820b4a2a136ef23248} 
+\#define TXDE\+\_\+\+Set(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATC5\ =\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00132}{132}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_a46649f945a397d6e372ac6aba8cf0fad}\index{plib\_gpio.h@{plib\_gpio.h}!TXDE\_Toggle@{TXDE\_Toggle}}
+\index{TXDE\_Toggle@{TXDE\_Toggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TXDE\_Toggle}{TXDE\_Toggle}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a46649f945a397d6e372ac6aba8cf0fad} 
+\#define TXDE\+\_\+\+Toggle(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\_LATC5\ \string^=\ 1U)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00134}{134}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{plib__gpio_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{plib__gpio_8h_a9c1920877b928a79c8cf48436b66f8f5}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PIN@{GPIO\_PIN}}
+\index{GPIO\_PIN@{GPIO\_PIN}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN}{GPIO\_PIN}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a9c1920877b928a79c8cf48436b66f8f5} 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__gpio_8h_a9c1920877b928a79c8cf48436b66f8f5}{GPIO\+\_\+\+PIN}}}
+
+
+
+GPIO Pins Definition. Identifies and defines the available GPIO Port Pins. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00297}{297}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+\Hypertarget{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PORT@{GPIO\_PORT}}
+\index{GPIO\_PORT@{GPIO\_PORT}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PORT}{GPIO\_PORT}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18} 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}
+
+
+
+GPIO Port Definition This identifies and defines the available GPIO Ports. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00230}{230}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{plib__gpio_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{plib__gpio_8h_a74da64436f101076ae747b5319311090}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_INTERRUPT\_STYLE@{GPIO\_INTERRUPT\_STYLE}}
+\index{GPIO\_INTERRUPT\_STYLE@{GPIO\_INTERRUPT\_STYLE}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_INTERRUPT\_STYLE}{GPIO\_INTERRUPT\_STYLE}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a74da64436f101076ae747b5319311090} 
+enum \mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090}{GPIO\+\_\+\+INTERRUPT\+\_\+\+STYLE}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_INTERRUPT\_ON\_MISMATCH@{GPIO\_INTERRUPT\_ON\_MISMATCH}!plib\_gpio.h@{plib\_gpio.h}}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_INTERRUPT\_ON\_MISMATCH@{GPIO\_INTERRUPT\_ON\_MISMATCH}}}\Hypertarget{plib__gpio_8h_a74da64436f101076ae747b5319311090aa4740f15873966505ad0f8e341b6fa9b}\label{plib__gpio_8h_a74da64436f101076ae747b5319311090aa4740f15873966505ad0f8e341b6fa9b} 
+GPIO\+\_\+\+INTERRUPT\+\_\+\+ON\+\_\+\+MISMATCH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_INTERRUPT\_ON\_POSITIVE\_EDGE@{GPIO\_INTERRUPT\_ON\_POSITIVE\_EDGE}!plib\_gpio.h@{plib\_gpio.h}}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_INTERRUPT\_ON\_POSITIVE\_EDGE@{GPIO\_INTERRUPT\_ON\_POSITIVE\_EDGE}}}\Hypertarget{plib__gpio_8h_a74da64436f101076ae747b5319311090ab164b5f93df82b84374a8c7f44193b44}\label{plib__gpio_8h_a74da64436f101076ae747b5319311090ab164b5f93df82b84374a8c7f44193b44} 
+GPIO\+\_\+\+INTERRUPT\+\_\+\+ON\+\_\+\+POSITIVE\+\_\+\+EDGE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_INTERRUPT\_ON\_NEGATIVE\_EDGE@{GPIO\_INTERRUPT\_ON\_NEGATIVE\_EDGE}!plib\_gpio.h@{plib\_gpio.h}}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_INTERRUPT\_ON\_NEGATIVE\_EDGE@{GPIO\_INTERRUPT\_ON\_NEGATIVE\_EDGE}}}\Hypertarget{plib__gpio_8h_a74da64436f101076ae747b5319311090ade80f659147d5232e23acc4cdb22a448}\label{plib__gpio_8h_a74da64436f101076ae747b5319311090ade80f659147d5232e23acc4cdb22a448} 
+GPIO\+\_\+\+INTERRUPT\+\_\+\+ON\+\_\+\+NEGATIVE\+\_\+\+EDGE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_INTERRUPT\_ON\_ANY\_EDGES@{GPIO\_INTERRUPT\_ON\_ANY\_EDGES}!plib\_gpio.h@{plib\_gpio.h}}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_INTERRUPT\_ON\_ANY\_EDGES@{GPIO\_INTERRUPT\_ON\_ANY\_EDGES}}}\Hypertarget{plib__gpio_8h_a74da64436f101076ae747b5319311090a86672c92ccfeb9134057eafbf651b9cf}\label{plib__gpio_8h_a74da64436f101076ae747b5319311090a86672c92ccfeb9134057eafbf651b9cf} 
+GPIO\+\_\+\+INTERRUPT\+\_\+\+ON\+\_\+\+ANY\+\_\+\+EDGES&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8h_source_l00236}{236}} of file \mbox{\hyperlink{plib__gpio_8h_source}{plib\+\_\+gpio.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{plib__gpio_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__gpio_8h_af2c14d08f5cd6da2843b09b5329c5731}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_Initialize@{GPIO\_Initialize}}
+\index{GPIO\_Initialize@{GPIO\_Initialize}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_Initialize()}{GPIO\_Initialize()}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_af2c14d08f5cd6da2843b09b5329c5731} 
+void GPIO\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the GPIO library. 
+
+This function initializes the GPIO library and all its ports and pins configured in the pin settings.
+
+\begin{DoxyPrecond}{Precondition}
+None
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None ~\newline
+
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00065}{65}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8h_ac9e7c55ddfb33e03fe5ec101cf2ad591}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PortClear@{GPIO\_PortClear}}
+\index{GPIO\_PortClear@{GPIO\_PortClear}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortClear()}{GPIO\_PortClear()}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_ac9e7c55ddfb33e03fe5ec101cf2ad591} 
+void GPIO\+\_\+\+Port\+Clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{, }\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Clear the selected IO pins of a port. 
+
+This function clears (to \textquotesingle{}0\textquotesingle{}) the selected IO pins of a port.
+
+\begin{DoxyPrecond}{Precondition}
+Selected pins of the port should be made output before clearing.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT} \\
+\hline
+\mbox{\texttt{ in}}  & {\em mask-\/} & A 32 bit value in which positions of 0s and 1s decide which IO pins of the selected port will be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None ~\newline
+
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00149}{149}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8h_a8f5c3509c88c4ece894bdb2c74027726}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PortInputEnable@{GPIO\_PortInputEnable}}
+\index{GPIO\_PortInputEnable@{GPIO\_PortInputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortInputEnable()}{GPIO\_PortInputEnable()}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a8f5c3509c88c4ece894bdb2c74027726} 
+void GPIO\+\_\+\+Port\+Input\+Enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{, }\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Enables selected IO pins of a port as input. 
+
+This function enables selected IO pins of a port as input.
+
+\begin{DoxyPrecond}{Precondition}
+None
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT} \\
+\hline
+\mbox{\texttt{ in}}  & {\em mask-\/} & A 32 bit value in which positions of 0s and 1s decide which IO pins of the selected port will be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00159}{159}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8h_a7aed251f9d02f9670ced5851b917b86f}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PortLatchRead@{GPIO\_PortLatchRead}}
+\index{GPIO\_PortLatchRead@{GPIO\_PortLatchRead}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortLatchRead()}{GPIO\_PortLatchRead()}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a7aed251f9d02f9670ced5851b917b86f} 
+uint32\+\_\+t GPIO\+\_\+\+Port\+Latch\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{}\end{DoxyParamCaption})}
+
+
+
+Read the latched value on all the I/O lines of the selected port. 
+
+This function reads the latched data values on all the I/O lines of the selected port. Bit values returned in each position indicate corresponding pin levels.
+
+\begin{DoxyPrecond}{Precondition}
+none
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+LAT register value
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00139}{139}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8h_a9c7963889c02bf785a27eced1c4cf159}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PortOutputEnable@{GPIO\_PortOutputEnable}}
+\index{GPIO\_PortOutputEnable@{GPIO\_PortOutputEnable}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortOutputEnable()}{GPIO\_PortOutputEnable()}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a9c7963889c02bf785a27eced1c4cf159} 
+void GPIO\+\_\+\+Port\+Output\+Enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{, }\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Enables selected IO pins of a port as output(s). 
+
+This function enables selected IO pins of the given port as output(s).
+
+\begin{DoxyPrecond}{Precondition}
+None
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT} \\
+\hline
+\mbox{\texttt{ in}}  & {\em mask-\/} & A 32 bit value in which positions of 0s and 1s decide which IO pins of the selected port will be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None ~\newline
+
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00164}{164}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8h_abd65922a839af32d84c5651f6e5cf309}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PortRead@{GPIO\_PortRead}}
+\index{GPIO\_PortRead@{GPIO\_PortRead}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortRead()}{GPIO\_PortRead()}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_abd65922a839af32d84c5651f6e5cf309} 
+uint32\+\_\+t GPIO\+\_\+\+Port\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{}\end{DoxyParamCaption})}
+
+
+
+Reads all the I/O lines of the selected port. 
+
+This function reads the live data values on all the I/O lines of the selected port. Bit values returned in each position indicate corresponding pin state.
+
+\begin{DoxyPrecond}{Precondition}
+Reading the I/O line levels requires the clock of the GPIO Controller to be enabled, otherwise this API reads the levels present on the I/O line at the time the clock was enabled.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Corresponding PORT register value
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00129}{129}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8h_a467714d6c56b0e5ad2c3ac2a654ac10e}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PortSet@{GPIO\_PortSet}}
+\index{GPIO\_PortSet@{GPIO\_PortSet}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortSet()}{GPIO\_PortSet()}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a467714d6c56b0e5ad2c3ac2a654ac10e} 
+void GPIO\+\_\+\+Port\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{, }\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Set the selected IO pins of a port. 
+
+This function sets (to \textquotesingle{}1\textquotesingle{}) the selected IO pins of a port.
+
+\begin{DoxyPrecond}{Precondition}
+Selected pins of the port should be made output before setting.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT} \\
+\hline
+\mbox{\texttt{ in}}  & {\em mask-\/} & A 32 bit value in which positions of 0s and 1s decide which IO pins of the selected port will be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None ~\newline
+
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00144}{144}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8h_a05cadea9630046fc07bc15a96e334e57}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PortToggle@{GPIO\_PortToggle}}
+\index{GPIO\_PortToggle@{GPIO\_PortToggle}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortToggle()}{GPIO\_PortToggle()}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a05cadea9630046fc07bc15a96e334e57} 
+void GPIO\+\_\+\+Port\+Toggle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{, }\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Toggles the selected IO pins of a port. 
+
+This function toggles (or invert) the selected IO pins of a port.
+
+\begin{DoxyPrecond}{Precondition}
+Selected pins of the port should be made output before toggling.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT} \\
+\hline
+\mbox{\texttt{ in}}  & {\em mask-\/} & A 32 bit value in which positions of 0s and 1s decide which IO pins of the selected port will be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None ~\newline
+
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00154}{154}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8h_a7ba503984e354ffb977e967fb20c4513}\index{plib\_gpio.h@{plib\_gpio.h}!GPIO\_PortWrite@{GPIO\_PortWrite}}
+\index{GPIO\_PortWrite@{GPIO\_PortWrite}!plib\_gpio.h@{plib\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortWrite()}{GPIO\_PortWrite()}}
+{\footnotesize\ttfamily \label{plib__gpio_8h_a7ba503984e354ffb977e967fb20c4513} 
+void GPIO\+\_\+\+Port\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{, }\item[{uint32\+\_\+t}]{mask}{, }\item[{uint32\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Write the value on the masked I/O lines of the selected port. 
+
+This function writes the data values driven on selected output lines of the selected port. Bit values in each position indicate corresponding pin levels.
+
+\begin{DoxyPrecond}{Precondition}
+Selected pins of the port should be made output before writing.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}\\
+\hline
+\mbox{\texttt{ in}}  & {\em mask-\/} & A 32 bit value in which positions of 0s and 1s decide which IO pins of the selected port will be written. \\
+\hline
+\mbox{\texttt{ in}}  & {\em value-\/} & Desired value to be written on the register\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None ~\newline
+
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00134}{134}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+

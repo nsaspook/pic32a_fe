@@ -1,0 +1,95 @@
+\doxysection{lcd\+\_\+drv.\+c}
+\hypertarget{lcd__drv_8c_source}{}\label{lcd__drv_8c_source}\index{src/lcd\_drv/lcd\_drv.c@{src/lcd\_drv/lcd\_drv.c}}
+\mbox{\hyperlink{lcd__drv_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lcd__drv_8h}{lcd\_drv.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <stddef.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Defines\ NULL}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <stdbool.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Defines\ true}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdlib.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Defines\ EXIT\_FAILURE}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{definitions_8h}{definitions.h}}"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ SYS\ function\ prototypes}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00007}00007\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00008}00008\ \textcolor{comment}{\ *\ This\ 'driver'is\ a\ merge\ of\ two\ \ libs\ so\ it's\ a\ bit\ of\ a\ jumble}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00009}00009\ \textcolor{comment}{\ *\ with\ hardware\ specific\ statements\ in\ at\ least\ two\ source\ files.}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00010}00010\ \textcolor{comment}{\ *\ Because\ the\ PIC32MK\ version\ will\ likely\ only\ be\ used\ with\ graphic}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00011}00011\ \textcolor{comment}{\ *\ displays\ much\ of\ the\ code\ is\ unused\ and\ will\ one-\/day\ be\ removed}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00012}00012\ \textcolor{comment}{\ *\ after\ functional\ testing\ is\ complete.}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00013}00013\ \textcolor{comment}{\ *\ 10/15/2021}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00014}00014\ \textcolor{comment}{\ *\ uses\ SPI1\ with\ a\ 15MHz\ clock\ for\ the\ LCD\ chip.\ }}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00017}00017\ \textcolor{keyword}{static}\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{bool}\ time\_done\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00019}00019\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ delay\_us(uint32\_t);}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00021}00021\ \textcolor{comment}{//static\ uint32\_t\ delay\_freq\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00023}\mbox{\hyperlink{lcd__drv_8c_ae9f2911f3a4932ced474fe61f055639a}{00023}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lcd__drv_8c_ae9f2911f3a4932ced474fe61f055639a}{init\_lcd\_drv}}(\mbox{\hyperlink{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25}{LCD\_DVR\_STATE}}\ init\_type)}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00024}00024\ \{}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{switch}\ (init\_type)\ \{}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25aae932c795b570905c45c7af7e94da104}{D\_MISC}}:}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25a11917c72a0931001d8b0d71421587158}{D\_BLANK}}:}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8h_a0ca838e774f098451ab78ae17a07f9a9}{CSB\_SetHigh}}();\ \textcolor{comment}{//\ select\ SPI\ GLCD\ display,\ DOGXL240\ @30MHz\ SPI\ clock}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8c_a6842775ba83d166f02b8fef8bb63b1e6}{lcd\_init}}();}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledDriver_8h_a11720eb1002774b7a17f14b56ff44af8}{OledInit}}();}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledChar_8c_af7a7ecdeee850a7d1d22d980fa58f6ce}{OledSetCharUpdate}}(0);\ \textcolor{comment}{//\ manual\ LCD\ screen\ updates\ for\ speed}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25ac75c6f68f73be2dbc7987ebe9133f00d}{D\_INIT}}:\ \textcolor{comment}{//\ send\ the\ GLCD\ buffer\ data\ via\ DMA}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8h_a0ca838e774f098451ab78ae17a07f9a9}{CSB\_SetHigh}}();\ \textcolor{comment}{//\ select\ SPI\ GLCD\ display,\ DOGXL240\ @30MHz\ SPI\ clock}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ delay\_us(\mbox{\hyperlink{eadog_8h_a1bfcdda7acef901d8b7787e0fc4cb439}{IS\_DELAYPOWERUP}});\ \textcolor{comment}{//\ >\ 400ms\ power\ up\ delay}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8c_a6842775ba83d166f02b8fef8bb63b1e6}{lcd\_init}}();}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledDriver_8h_a11720eb1002774b7a17f14b56ff44af8}{OledInit}}();}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledChar_8c_af7a7ecdeee850a7d1d22d980fa58f6ce}{OledSetCharUpdate}}(0);\ \textcolor{comment}{//\ manual\ LCD\ screen\ updates\ for\ speed}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_aaaaa25deda6bd735234ff6fc8764f330}{OledMoveTo}}(\mbox{\hyperlink{lcd__drv_8h_a967152594c989fb4bf673c153b85a999}{bmp\_x}},\ \mbox{\hyperlink{lcd__drv_8h_adc29079eb2346942f08de0487f871d8d}{bmp\_y}});\ \textcolor{comment}{//\ position\ image}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledGrph_8c_a6771f12f02a21c47f7c4b00c5da7e3a1}{OledPutBmp}}(\mbox{\hyperlink{lcd__drv_8h_a1192164d4e8b6535d60019de5a53d2d8}{bmp\_size}},\ \mbox{\hyperlink{lcd__drv_8h_a1192164d4e8b6535d60019de5a53d2d8}{bmp\_size}},\ (uint8\_t\ *)\ \mbox{\hyperlink{foo_8c_a761abd3ee7af5d1be4c6be9381b474e8}{foo\_map}});\ \textcolor{comment}{//\ upload\ bitmap\ image\ from\ C\ array}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ delay\_us(\mbox{\hyperlink{lcd__drv_8h_af0976879a0d8befe06e299fddf441956}{BMP\_DELAY}});\ \textcolor{comment}{//\ show\ image\ for\ a\ bit}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25ad480b7bdecce30a603e989887e112aba}{D\_INIT\_B}}:\ \textcolor{comment}{//\ send\ the\ GLCD\ buffer\ data\ via\ DMA}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8h_a0ca838e774f098451ab78ae17a07f9a9}{CSB\_SetHigh}}();\ \textcolor{comment}{//\ select\ SPI\ GLCD\ display,\ DOGXL240\ @30MHz\ SPI\ clock}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ delay\_us(\mbox{\hyperlink{eadog_8h_a1bfcdda7acef901d8b7787e0fc4cb439}{IS\_DELAYPOWERUP}});\ \textcolor{comment}{//\ >\ 400ms\ power\ up\ delay}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dogm-graphic_8c_a6842775ba83d166f02b8fef8bb63b1e6}{lcd\_init}}();}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledDriver_8h_a11720eb1002774b7a17f14b56ff44af8}{OledInit}}();}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{OledChar_8c_af7a7ecdeee850a7d1d22d980fa58f6ce}{OledSetCharUpdate}}(0);\ \textcolor{comment}{//\ manual\ LCD\ screen\ updates\ for\ speed}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00052}00052\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00056}00056\ \textcolor{comment}{/*\ This\ function\ is\ called\ after\ period\ expires\ */}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00057}\mbox{\hyperlink{lcd__drv_8c_a4e56cdf3cb8f3b23e2afcd41443b7ee2}{00057}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lcd__drv_8c_a4e56cdf3cb8f3b23e2afcd41443b7ee2}{SCCP1\_Callback\_InterruptHandler}}(uint32\_t\ status,\ uintptr\_t\ context)}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00058}00058\ \{}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00059}00059\ \ \ \ \ time\_done\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00060}00060\ \}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00062}00062\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00063}00063\ \textcolor{comment}{\ *\ microsecond\ busy\ wait\ delay,\ 90\ seconds\ MAX}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00064}00064\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00065}00065\ \textcolor{keywordtype}{void}\ delay\_us(uint32\_t\ us)}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00066}00066\ \{}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (us\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00070}00070\ \ \ \ \ time\_done\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{plib__sccp1_8c_abd734914e85f0b83a6e7bbef2d81f65a}{SCCP1\_TimerCallbackRegister}}(\mbox{\hyperlink{lcd__drv_8c_a4e56cdf3cb8f3b23e2afcd41443b7ee2}{SCCP1\_Callback\_InterruptHandler}},\ (uintptr\_t)\ NULL);}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00072}00072\ \ \ \ \ \mbox{\hyperlink{plib__sccp1_8c_aba6df6bb97ba312c53c5001c6fff3794}{SCCP1\_Timer32bitPeriodSet}}(us);}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00073}00073\ \ \ \ \ \mbox{\hyperlink{plib__sccp1_8c_a712f6d85f566f3b7431fc61d7356b2fc}{SCCP1\_TimerStart}}();}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{while}\ (!time\_done)\ \{}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00075}00075\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{plib__sccp1_8c_a3da456c0e3a4764050aeb5879a263cb1}{SCCP1\_TimerStop}}();}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00077}00077\ \}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00079}\mbox{\hyperlink{lcd__drv_8c_a1f00663dec9ababdae70f6d24e4ca0b1}{00079}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lcd__drv_8c_a1f00663dec9ababdae70f6d24e4ca0b1}{backlight\_on}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00080}00080\ \{}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{plib__gpio_8h_ac15ce0e8dd566324662ff27ea4ac1d64}{DIS\_MODE\_Get}}()\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a661e6e6aa14d62c183915cf80fa31b90}{DIS\_MODE\_Clear}}();}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00083}00083\ \}}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00085}\mbox{\hyperlink{lcd__drv_8c_a18be0212b9cc281e739bd8acc0c1aa78}{00085}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lcd__drv_8c_a18be0212b9cc281e739bd8acc0c1aa78}{backlight\_off}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00086}00086\ \{}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{plib__gpio_8h_ac15ce0e8dd566324662ff27ea4ac1d64}{DIS\_MODE\_Get}}()\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a5c83c63156c3785ba38f32e663478aef}{DIS\_MODE\_Set}}();}
+\DoxyCodeLine{\Hypertarget{lcd__drv_8c_source_l00089}00089\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,334 @@
+\doxysection{src/lcd\+\_\+drv/lcd\+\_\+drv.h File Reference}
+\hypertarget{lcd__drv_8h}{}\label{lcd__drv_8h}\index{src/lcd\_drv/lcd\_drv.h@{src/lcd\_drv/lcd\_drv.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}definitions.\+h"{}}\newline
+{\ttfamily \#include "{}../src/config/default/peripheral/spi/spi\+\_\+host/plib\+\_\+spi\+\_\+host\+\_\+common.\+h"{}}\newline
+{\ttfamily \#include "{}../src/config/default/peripheral/gpio/plib\+\_\+gpio.\+h"{}}\newline
+{\ttfamily \#include "{}../src/config/default/peripheral/dma/plib\+\_\+dma.\+h"{}}\newline
+{\ttfamily \#include "{}display\+\_\+type.\+h"{}}\newline
+{\ttfamily \#include "{}eadog.\+h"{}}\newline
+{\ttfamily \#include "{}dogm-\/graphic.\+h"{}}\newline
+{\ttfamily \#include "{}Oled\+Driver.\+h"{}}\newline
+{\ttfamily \#include "{}Oled\+Char.\+h"{}}\newline
+{\ttfamily \#include "{}Oled\+Grph.\+h"{}}\newline
+{\ttfamily \#include "{}device.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_ae28ba5114dc2e9ecb89ccf9b623e938f}{DMA\+\_\+\+MAGIC}}~1957
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_a95dc25e71503f6c12eeda9e8e09810d3}{USE\+\_\+\+DMA}}
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_a0e6a1199f3a4ddcdb3e5d09861eb2a06}{DMA\+\_\+\+GAP}}~1
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_afda9f43f612e69e8bcd280269e4ef490}{DMA\+\_\+\+STATE\+\_\+M}}
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_aa995cec5ddae2ab5dfab90a0c0a5c710}{EDOGS}}
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_af0976879a0d8befe06e299fddf441956}{BMP\+\_\+\+DELAY}}~1000000
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_a967152594c989fb4bf673c153b85a999}{bmp\+\_\+x}}~60
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_adc29079eb2346942f08de0487f871d8d}{bmp\+\_\+y}}~24
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_a1192164d4e8b6535d60019de5a53d2d8}{bmp\+\_\+size}}~100
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_a8d7bd7d547b12ee3c6a267ad57ab46d3}{BANK1}}~0x\+A000\+A000
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_a0bd289e48aaf00c5d668738b94c0ddf4}{BANK2}}~0x80030000
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_a91cf8a3364d72a6a88a32c682d86eb21}{YRAM}}~0x006000
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_add2a051bc4cb4f64740d8d6ce7093868}{XRAM}}~0x004000
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_a1fd4f93490098466f83201fbb7f43303}{LCD\+\_\+\+DRIVER}}~"{}V1.\+006"{}
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_a9a07c3a7a957a6d7618aec359ac6109c}{LCD\+\_\+\+ALIAS}}~"{}EADOG LCD"{}
+\item 
+\#define \mbox{\hyperlink{lcd__drv_8h_a3fb3ae31dac8b11662f324325ffef519}{lcd\+\_\+frame}}~0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25}{LCD\+\_\+\+DVR\+\_\+\+STATE}} \{ \mbox{\hyperlink{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25ac75c6f68f73be2dbc7987ebe9133f00d}{D\+\_\+\+INIT}}
+, \mbox{\hyperlink{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25aae932c795b570905c45c7af7e94da104}{D\+\_\+\+MISC}}
+, \mbox{\hyperlink{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25a11917c72a0931001d8b0d71421587158}{D\+\_\+\+BLANK}}
+, \mbox{\hyperlink{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25ad480b7bdecce30a603e989887e112aba}{D\+\_\+\+INIT\+\_\+B}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lcd__drv_8h_ae9f2911f3a4932ced474fe61f055639a}{init\+\_\+lcd\+\_\+drv}} (\mbox{\hyperlink{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25}{LCD\+\_\+\+DVR\+\_\+\+STATE}} init\+\_\+type)
+\item 
+void \mbox{\hyperlink{lcd__drv_8h_ab6098d47500e515bc4be91e216ac7247}{lcd\+\_\+version}} (void)
+\item 
+void \mbox{\hyperlink{lcd__drv_8h_a1f00663dec9ababdae70f6d24e4ca0b1}{backlight\+\_\+on}} (void)
+\item 
+void \mbox{\hyperlink{lcd__drv_8h_a18be0212b9cc281e739bd8acc0c1aa78}{backlight\+\_\+off}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{lcd__drv_8h_a761abd3ee7af5d1be4c6be9381b474e8}{foo\+\_\+map}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{lcd__drv_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{lcd__drv_8h_a8d7bd7d547b12ee3c6a267ad57ab46d3}\index{lcd\_drv.h@{lcd\_drv.h}!BANK1@{BANK1}}
+\index{BANK1@{BANK1}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{BANK1}{BANK1}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_a8d7bd7d547b12ee3c6a267ad57ab46d3} 
+\#define BANK1~0x\+A000\+A000}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00063}{63}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+\Hypertarget{lcd__drv_8h_a0bd289e48aaf00c5d668738b94c0ddf4}\index{lcd\_drv.h@{lcd\_drv.h}!BANK2@{BANK2}}
+\index{BANK2@{BANK2}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{BANK2}{BANK2}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_a0bd289e48aaf00c5d668738b94c0ddf4} 
+\#define BANK2~0x80030000}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00064}{64}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+\Hypertarget{lcd__drv_8h_af0976879a0d8befe06e299fddf441956}\index{lcd\_drv.h@{lcd\_drv.h}!BMP\_DELAY@{BMP\_DELAY}}
+\index{BMP\_DELAY@{BMP\_DELAY}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{BMP\_DELAY}{BMP\_DELAY}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_af0976879a0d8befe06e299fddf441956} 
+\#define BMP\+\_\+\+DELAY~1000000}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00059}{59}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+\Hypertarget{lcd__drv_8h_a1192164d4e8b6535d60019de5a53d2d8}\index{lcd\_drv.h@{lcd\_drv.h}!bmp\_size@{bmp\_size}}
+\index{bmp\_size@{bmp\_size}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{bmp\_size}{bmp\_size}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_a1192164d4e8b6535d60019de5a53d2d8} 
+\#define bmp\+\_\+size~100}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00062}{62}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+\Hypertarget{lcd__drv_8h_a967152594c989fb4bf673c153b85a999}\index{lcd\_drv.h@{lcd\_drv.h}!bmp\_x@{bmp\_x}}
+\index{bmp\_x@{bmp\_x}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{bmp\_x}{bmp\_x}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_a967152594c989fb4bf673c153b85a999} 
+\#define bmp\+\_\+x~60}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00060}{60}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+\Hypertarget{lcd__drv_8h_adc29079eb2346942f08de0487f871d8d}\index{lcd\_drv.h@{lcd\_drv.h}!bmp\_y@{bmp\_y}}
+\index{bmp\_y@{bmp\_y}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{bmp\_y}{bmp\_y}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_adc29079eb2346942f08de0487f871d8d} 
+\#define bmp\+\_\+y~24}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00061}{61}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+\Hypertarget{lcd__drv_8h_a0e6a1199f3a4ddcdb3e5d09861eb2a06}\index{lcd\_drv.h@{lcd\_drv.h}!DMA\_GAP@{DMA\_GAP}}
+\index{DMA\_GAP@{DMA\_GAP}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_GAP}{DMA\_GAP}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_a0e6a1199f3a4ddcdb3e5d09861eb2a06} 
+\#define DMA\+\_\+\+GAP~1}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00019}{19}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+\Hypertarget{lcd__drv_8h_ae28ba5114dc2e9ecb89ccf9b623e938f}\index{lcd\_drv.h@{lcd\_drv.h}!DMA\_MAGIC@{DMA\_MAGIC}}
+\index{DMA\_MAGIC@{DMA\_MAGIC}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_MAGIC}{DMA\_MAGIC}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_ae28ba5114dc2e9ecb89ccf9b623e938f} 
+\#define DMA\+\_\+\+MAGIC~1957}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00015}{15}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+\Hypertarget{lcd__drv_8h_afda9f43f612e69e8bcd280269e4ef490}\index{lcd\_drv.h@{lcd\_drv.h}!DMA\_STATE\_M@{DMA\_STATE\_M}}
+\index{DMA\_STATE\_M@{DMA\_STATE\_M}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_STATE\_M}{DMA\_STATE\_M}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_afda9f43f612e69e8bcd280269e4ef490} 
+\#define DMA\+\_\+\+STATE\+\_\+M}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00020}{20}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+\Hypertarget{lcd__drv_8h_aa995cec5ddae2ab5dfab90a0c0a5c710}\index{lcd\_drv.h@{lcd\_drv.h}!EDOGS@{EDOGS}}
+\index{EDOGS@{EDOGS}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{EDOGS}{EDOGS}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_aa995cec5ddae2ab5dfab90a0c0a5c710} 
+\#define EDOGS}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00023}{23}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+\Hypertarget{lcd__drv_8h_a9a07c3a7a957a6d7618aec359ac6109c}\index{lcd\_drv.h@{lcd\_drv.h}!LCD\_ALIAS@{LCD\_ALIAS}}
+\index{LCD\_ALIAS@{LCD\_ALIAS}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_ALIAS}{LCD\_ALIAS}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_a9a07c3a7a957a6d7618aec359ac6109c} 
+\#define LCD\+\_\+\+ALIAS~"{}EADOG LCD"{}}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00069}{69}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+\Hypertarget{lcd__drv_8h_a1fd4f93490098466f83201fbb7f43303}\index{lcd\_drv.h@{lcd\_drv.h}!LCD\_DRIVER@{LCD\_DRIVER}}
+\index{LCD\_DRIVER@{LCD\_DRIVER}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_DRIVER}{LCD\_DRIVER}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_a1fd4f93490098466f83201fbb7f43303} 
+\#define LCD\+\_\+\+DRIVER~"{}V1.\+006"{}}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00068}{68}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+\Hypertarget{lcd__drv_8h_a3fb3ae31dac8b11662f324325ffef519}\index{lcd\_drv.h@{lcd\_drv.h}!lcd\_frame@{lcd\_frame}}
+\index{lcd\_frame@{lcd\_frame}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{lcd\_frame}{lcd\_frame}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_a3fb3ae31dac8b11662f324325ffef519} 
+\#define lcd\+\_\+frame~0}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00078}{78}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+\Hypertarget{lcd__drv_8h_a95dc25e71503f6c12eeda9e8e09810d3}\index{lcd\_drv.h@{lcd\_drv.h}!USE\_DMA@{USE\_DMA}}
+\index{USE\_DMA@{USE\_DMA}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{USE\_DMA}{USE\_DMA}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_a95dc25e71503f6c12eeda9e8e09810d3} 
+\#define USE\+\_\+\+DMA}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00016}{16}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+\Hypertarget{lcd__drv_8h_add2a051bc4cb4f64740d8d6ce7093868}\index{lcd\_drv.h@{lcd\_drv.h}!XRAM@{XRAM}}
+\index{XRAM@{XRAM}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{XRAM}{XRAM}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_add2a051bc4cb4f64740d8d6ce7093868} 
+\#define XRAM~0x004000}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00066}{66}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+\Hypertarget{lcd__drv_8h_a91cf8a3364d72a6a88a32c682d86eb21}\index{lcd\_drv.h@{lcd\_drv.h}!YRAM@{YRAM}}
+\index{YRAM@{YRAM}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{YRAM}{YRAM}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_a91cf8a3364d72a6a88a32c682d86eb21} 
+\#define YRAM~0x006000}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00065}{65}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{lcd__drv_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25}\index{lcd\_drv.h@{lcd\_drv.h}!LCD\_DVR\_STATE@{LCD\_DVR\_STATE}}
+\index{LCD\_DVR\_STATE@{LCD\_DVR\_STATE}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_DVR\_STATE}{LCD\_DVR\_STATE}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25} 
+enum \mbox{\hyperlink{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25}{LCD\+\_\+\+DVR\+\_\+\+STATE}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\_INIT@{D\_INIT}!lcd\_drv.h@{lcd\_drv.h}}\index{lcd\_drv.h@{lcd\_drv.h}!D\_INIT@{D\_INIT}}}\Hypertarget{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25ac75c6f68f73be2dbc7987ebe9133f00d}\label{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25ac75c6f68f73be2dbc7987ebe9133f00d} 
+D\+\_\+\+INIT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\_MISC@{D\_MISC}!lcd\_drv.h@{lcd\_drv.h}}\index{lcd\_drv.h@{lcd\_drv.h}!D\_MISC@{D\_MISC}}}\Hypertarget{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25aae932c795b570905c45c7af7e94da104}\label{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25aae932c795b570905c45c7af7e94da104} 
+D\+\_\+\+MISC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\_BLANK@{D\_BLANK}!lcd\_drv.h@{lcd\_drv.h}}\index{lcd\_drv.h@{lcd\_drv.h}!D\_BLANK@{D\_BLANK}}}\Hypertarget{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25a11917c72a0931001d8b0d71421587158}\label{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25a11917c72a0931001d8b0d71421587158} 
+D\+\_\+\+BLANK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\_INIT\_B@{D\_INIT\_B}!lcd\_drv.h@{lcd\_drv.h}}\index{lcd\_drv.h@{lcd\_drv.h}!D\_INIT\_B@{D\_INIT\_B}}}\Hypertarget{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25ad480b7bdecce30a603e989887e112aba}\label{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25ad480b7bdecce30a603e989887e112aba} 
+D\+\_\+\+INIT\+\_\+B&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8h_source_l00071}{71}} of file \mbox{\hyperlink{lcd__drv_8h_source}{lcd\+\_\+drv.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{lcd__drv_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{lcd__drv_8h_a18be0212b9cc281e739bd8acc0c1aa78}\index{lcd\_drv.h@{lcd\_drv.h}!backlight\_off@{backlight\_off}}
+\index{backlight\_off@{backlight\_off}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{backlight\_off()}{backlight\_off()}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_a18be0212b9cc281e739bd8acc0c1aa78} 
+void backlight\+\_\+off (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8c_source_l00085}{85}} of file \mbox{\hyperlink{lcd__drv_8c_source}{lcd\+\_\+drv.\+c}}.
+
+\Hypertarget{lcd__drv_8h_a1f00663dec9ababdae70f6d24e4ca0b1}\index{lcd\_drv.h@{lcd\_drv.h}!backlight\_on@{backlight\_on}}
+\index{backlight\_on@{backlight\_on}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{backlight\_on()}{backlight\_on()}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_a1f00663dec9ababdae70f6d24e4ca0b1} 
+void backlight\+\_\+on (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8c_source_l00079}{79}} of file \mbox{\hyperlink{lcd__drv_8c_source}{lcd\+\_\+drv.\+c}}.
+
+\Hypertarget{lcd__drv_8h_ae9f2911f3a4932ced474fe61f055639a}\index{lcd\_drv.h@{lcd\_drv.h}!init\_lcd\_drv@{init\_lcd\_drv}}
+\index{init\_lcd\_drv@{init\_lcd\_drv}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{init\_lcd\_drv()}{init\_lcd\_drv()}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_ae9f2911f3a4932ced474fe61f055639a} 
+void init\+\_\+lcd\+\_\+drv (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lcd__drv_8h_a0dd4e86e6bca8dda3bdf77159ac3be25}{LCD\+\_\+\+DVR\+\_\+\+STATE}}}]{init\+\_\+type}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lcd__drv_8c_source_l00023}{23}} of file \mbox{\hyperlink{lcd__drv_8c_source}{lcd\+\_\+drv.\+c}}.
+
+\Hypertarget{lcd__drv_8h_ab6098d47500e515bc4be91e216ac7247}\index{lcd\_drv.h@{lcd\_drv.h}!lcd\_version@{lcd\_version}}
+\index{lcd\_version@{lcd\_version}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{lcd\_version()}{lcd\_version()}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_ab6098d47500e515bc4be91e216ac7247} 
+void lcd\+\_\+version (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8c_source_l00645}{645}} of file \mbox{\hyperlink{OledDriver_8c_source}{Oled\+Driver.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{lcd__drv_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{lcd__drv_8h_a761abd3ee7af5d1be4c6be9381b474e8}\index{lcd\_drv.h@{lcd\_drv.h}!foo\_map@{foo\_map}}
+\index{foo\_map@{foo\_map}!lcd\_drv.h@{lcd\_drv.h}}
+\doxysubsubsection{\texorpdfstring{foo\_map}{foo\_map}}
+{\footnotesize\ttfamily \label{lcd__drv_8h_a761abd3ee7af5d1be4c6be9381b474e8} 
+const uint8\+\_\+t foo\+\_\+map\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{foo_8c_source_l00009}{9}} of file \mbox{\hyperlink{foo_8c_source}{foo.\+c}}.
+

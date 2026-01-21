@@ -1,0 +1,130 @@
+\doxysection{plib\+\_\+clk.\+h}
+\hypertarget{plib__clk_8h_source}{}\label{plib__clk_8h_source}\index{src/config/default/peripheral/clk/plib\_clk.h@{src/config/default/peripheral/clk/plib\_clk.h}}
+\mbox{\hyperlink{plib__clk_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00002}00002\ \textcolor{comment}{\ \ clock\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00003}00003\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00006}00006\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_clk.h}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00009}00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ Clock\ PLIB\ Header\ File}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00012}00012\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ has\ prototype\ of\ all\ the\ interfaces\ provided\ for\ particular}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ Clock\ peripheral.}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00016}00016\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00017}00017\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00018}00018\ \ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00019}00019\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00020}00020\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00021}00021\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00022}00022\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00023}00023\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00024}00024\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00025}00025\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00026}00026\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00027}00027\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00028}00028\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00029}00029\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00030}00030\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00031}00031\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00032}00032\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00033}00033\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00034}00034\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00035}00035\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00036}00036\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00037}00037\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00038}00038\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00039}00039\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00040}00040\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifndef\ PLIB\_CLK\_H}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ PLIB\_CLK\_H}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00045}00045\ \textcolor{comment}{//\ /cond\ IGNORE\_THIS}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00046}00046\ \textcolor{comment}{/*\ Provide\ C++\ Compatibility\ */}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00047}00047\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00049}00049\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00051}00051\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00052}00052\ \textcolor{comment}{//\ /endcond}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00054}00054\ \textcolor{comment}{//\ Section:\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00056}00056\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{device_8h}{device.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00057}00057\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00058}00058\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00059}00059\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib__clk__common_8h}{plib\_clk\_common.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00061}00061\ \textcolor{comment}{//\ Section:\ CLOCK\ APIs}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00069}00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__clk_8h_a98390d19c7087c52765eab23eb8ded96}{CLOCK\_Initialize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00077}00077\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ CLOCK\_GeneratorFrequencyGet(\mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1f}{CLOCK\_GENERATOR}}\ generator)}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00078}00078\ \{}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00079}00079\ \ \ \ \ uint32\_t\ genFrequency\ =\ 0x0U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{switch}(generator)}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00082}00082\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa4f321132c12594fd292212a6b8660e94}{CLOCK\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ genFrequency\ =\ 200000000UL;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa6f453cbbf5c52804a3ca9390f7d626a9}{CLOCK\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ genFrequency\ =\ 8000000UL;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fac8fcdc24ebd65d443203d839644db669}{CLOCK\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ genFrequency\ =\ 8000000UL;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa4444eb822536fb64953e52c3b0eb9c98}{CLOCK\_GENERATOR\_6}}:}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ genFrequency\ =\ 200000000UL;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa9228fbdbf4ca94ca8a5dd289768b0ee1}{CLOCK\_GENERATOR\_7}}:}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ genFrequency\ =\ 8000000UL;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1facb09a5d25a098b850557772d287df9b7}{CLOCK\_GENERATOR\_9}}:}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ genFrequency\ =\ 143085391UL;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1fa5be2e0cff91e32f082ccad3083b13995}{CLOCK\_GENERATOR\_10}}:}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ genFrequency\ =\ 396000000UL;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__clk__common_8h_afc55060f10da3ab9ff0c06e52cf90d1faf7c3b6e24d76169c387645847cba9532}{CLOCK\_GENERATOR\_12}}:}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ genFrequency\ =\ 1000000UL;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00107}00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Do\ Nothing*/}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00110}00110\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00111}00111\ \ \ \ \ \textcolor{keywordflow}{return}\ genFrequency;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00112}00112\ \}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00122}00122\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ CLOCK\_FailStatusGet(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00123}00123\ \{}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00124}00124\ \ \ \ \ uint32\_t\ failStatus\ =\ (uint32\_t)CLKFAIL;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00125}00125\ \ \ \ \ CLKFAIL\ =\ \ 0x0U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00126}00126\ \ \ \ \ \textcolor{keywordflow}{return}\ failStatus;\ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00127}00127\ \}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00130}00130\ \textcolor{comment}{//\ /cond\ IGNORE\_THIS}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00131}00131\ \textcolor{comment}{/*\ Provide\ C++\ Compatibility\ */}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00132}00132\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00134}00134\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00136}00136\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00137}00137\ \textcolor{comment}{//\ /endcond}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00139}00139\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLIB\_CLK\_H}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00141}00141\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00142}00142\ \textcolor{comment}{\ End\ of\ File}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00143}00143\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8h_source_l00144}00144\ }
+
+\end{DoxyCode}

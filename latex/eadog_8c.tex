@@ -1,0 +1,349 @@
+\doxysection{src/lcd\+\_\+drv/eadog.c File Reference}
+\hypertarget{eadog_8c}{}\label{eadog_8c}\index{src/lcd\_drv/eadog.c@{src/lcd\_drv/eadog.c}}
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include "{}eadog.\+h"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{eadog_8c_a9873575542a1dc5e70c7e8343cdf1997}{SPI1\+\_\+\+CON\+\_\+\+MSTEN}}~(1 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+MSTEN\+\_\+\+POSITION)
+\item 
+\#define \mbox{\hyperlink{eadog_8c_ac99c9ad8c9e3203e1a43bdbbb9f85cf5}{SPI1\+\_\+\+CON\+\_\+\+CKP}}~(1 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+CKP\+\_\+\+POSITION)
+\item 
+\#define \mbox{\hyperlink{eadog_8c_afb67a93080a106f7ec061f5a36c4874c}{SPI1\+\_\+\+CON\+\_\+\+CKE}}~(0 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+CKE\+\_\+\+POSITION)
+\item 
+\#define \mbox{\hyperlink{eadog_8c_a0b0237394e5a0e1c9c2e0628595bf7bf}{SPI1\+\_\+\+CON\+\_\+\+MODE\+\_\+32\+\_\+\+MODE\+\_\+16}}~(0 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+MODE16\+\_\+\+POSITION)
+\item 
+\#define \mbox{\hyperlink{eadog_8c_a8d04b8bbfe8174b940f8af4a5541c817}{SPI1\+\_\+\+CON\+\_\+\+ENHBUF}}~(1 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+ENHBUF\+\_\+\+POSITION)
+\item 
+\#define \mbox{\hyperlink{eadog_8c_a2b8ab929420d683c5cee2c21f798fef0}{SPI1\+\_\+\+CON\+\_\+\+MCLKSEL}}~(0 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+MCLKSEL\+\_\+\+POSITION)
+\item 
+\#define \mbox{\hyperlink{eadog_8c_a1039eb6d1288abee9a80b5966f4fdb01}{SPI1\+\_\+\+CON\+\_\+\+MSSEN}}~(0 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+MSSEN\+\_\+\+POSITION)
+\item 
+\#define \mbox{\hyperlink{eadog_8c_a7c7d86c6fca66ffdd00ea3ad19bc73bf}{SPI1\+\_\+\+CON\+\_\+\+SMP}}~(0 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+SMP\+\_\+\+POSITION)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{eadog_8c_ab91195691643a5cc7630c8c016d7472a}{Re\+Set\+\_\+\+Set\+Low}} (void)
+\item 
+void \mbox{\hyperlink{eadog_8c_a35a02b7682b9393aab0eb72a107647a9}{Re\+Set\+\_\+\+Set\+High}} (void)
+\item 
+void \mbox{\hyperlink{eadog_8c_abb2e3f826b25b9b0694206524a5f73a5}{RS\+\_\+\+Set\+Low}} (void)
+\item 
+void \mbox{\hyperlink{eadog_8c_aee6ff1cb279057329093f8b51ce5c9e6}{RS\+\_\+\+Set\+High}} (void)
+\item 
+void \mbox{\hyperlink{eadog_8c_adea766ebd85f9348263fad0c66a72664}{CSB\+\_\+\+Set\+Low}} (void)
+\item 
+void \mbox{\hyperlink{eadog_8c_a0ca838e774f098451ab78ae17a07f9a9}{CSB\+\_\+\+Set\+High}} (void)
+\item 
+void \mbox{\hyperlink{eadog_8c_a33d4144c686f338a501a164a4bff30be}{SPI1\+\_\+\+Exchange8bit}} (uint8\+\_\+t data)
+\item 
+void \mbox{\hyperlink{eadog_8c_a4dee4d50b6e921622da310eeca33d81b}{SPI1\+\_\+\+Exchange\+Buffer}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t len)
+\item 
+void \mbox{\hyperlink{eadog_8c_a8ae1626500453fd6c71c95a8a88c29d7}{wdtdelay}} (const uint32\+\_\+t delay)
+\item 
+void \mbox{\hyperlink{eadog_8c_a4cdbdfc36c314afb59655c3937ecce96}{init\+\_\+display}} (void)
+\item 
+void \mbox{\hyperlink{eadog_8c_a012b70e817b582af428c3dc8043ff04c}{ea\+Dog\+M\+\_\+\+Write\+Chr}} (const int8\+\_\+t value)
+\item 
+void \mbox{\hyperlink{eadog_8c_a38560127e69611361f6edc5b83c9518f}{ea\+Dog\+M\+\_\+\+Write\+Command}} (const uint8\+\_\+t cmd)
+\item 
+void \mbox{\hyperlink{eadog_8c_a14d6c8d2a272183e99a56fdf118a8dc8}{ea\+Dog\+M\+\_\+\+Set\+Pos}} (const uint8\+\_\+t r, const uint8\+\_\+t c)
+\item 
+void \mbox{\hyperlink{eadog_8c_a2276e41b9d632dd7ace4bf60bd595b2c}{ea\+Dog\+M\+\_\+\+Clear\+Row}} (const uint8\+\_\+t r)
+\item 
+void \mbox{\hyperlink{eadog_8c_a354a7869fc0c21ba6ac9176523c70406}{ea\+Dog\+M\+\_\+\+Write\+String}} (char \texorpdfstring{$\ast$}{*}str\+Ptr)
+\item 
+void \mbox{\hyperlink{eadog_8c_a469b07cd52f5a0a71c589c78ded7ca3b}{ea\+Dog\+M\+\_\+\+Write\+String\+At\+Pos}} (const uint8\+\_\+t r, const uint8\+\_\+t c, char \texorpdfstring{$\ast$}{*}str\+Ptr)
+\item 
+void \mbox{\hyperlink{eadog_8c_a17a54ec270917dabd85aa5d66c809346}{ea\+Dog\+M\+\_\+\+Write\+Int\+At\+Pos}} (uint8\+\_\+t r, uint8\+\_\+t c, uint8\+\_\+t i)
+\item 
+void \mbox{\hyperlink{eadog_8c_af8cafa3b7042fa75d2d06e63b518705a}{ea\+Dog\+M\+\_\+\+Write\+Byte\+To\+CGRAM}} (uint8\+\_\+t ndx, uint8\+\_\+t data)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSPI__OBJECT}{SPI\+\_\+\+OBJECT}} \mbox{\hyperlink{eadog_8c_ab16015a8f1e53bd4019c4e019dd2358d}{spi1\+Obj}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{eadog_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{eadog_8c_afb67a93080a106f7ec061f5a36c4874c}\index{eadog.c@{eadog.c}!SPI1\_CON\_CKE@{SPI1\_CON\_CKE}}
+\index{SPI1\_CON\_CKE@{SPI1\_CON\_CKE}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_CON\_CKE}{SPI1\_CON\_CKE}}
+{\footnotesize\ttfamily \label{eadog_8c_afb67a93080a106f7ec061f5a36c4874c} 
+\#define SPI1\+\_\+\+CON\+\_\+\+CKE~(0 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+CKE\+\_\+\+POSITION)}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00034}{34}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_ac99c9ad8c9e3203e1a43bdbbb9f85cf5}\index{eadog.c@{eadog.c}!SPI1\_CON\_CKP@{SPI1\_CON\_CKP}}
+\index{SPI1\_CON\_CKP@{SPI1\_CON\_CKP}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_CON\_CKP}{SPI1\_CON\_CKP}}
+{\footnotesize\ttfamily \label{eadog_8c_ac99c9ad8c9e3203e1a43bdbbb9f85cf5} 
+\#define SPI1\+\_\+\+CON\+\_\+\+CKP~(1 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+CKP\+\_\+\+POSITION)}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00033}{33}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a8d04b8bbfe8174b940f8af4a5541c817}\index{eadog.c@{eadog.c}!SPI1\_CON\_ENHBUF@{SPI1\_CON\_ENHBUF}}
+\index{SPI1\_CON\_ENHBUF@{SPI1\_CON\_ENHBUF}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_CON\_ENHBUF}{SPI1\_CON\_ENHBUF}}
+{\footnotesize\ttfamily \label{eadog_8c_a8d04b8bbfe8174b940f8af4a5541c817} 
+\#define SPI1\+\_\+\+CON\+\_\+\+ENHBUF~(1 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+ENHBUF\+\_\+\+POSITION)}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00036}{36}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a2b8ab929420d683c5cee2c21f798fef0}\index{eadog.c@{eadog.c}!SPI1\_CON\_MCLKSEL@{SPI1\_CON\_MCLKSEL}}
+\index{SPI1\_CON\_MCLKSEL@{SPI1\_CON\_MCLKSEL}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_CON\_MCLKSEL}{SPI1\_CON\_MCLKSEL}}
+{\footnotesize\ttfamily \label{eadog_8c_a2b8ab929420d683c5cee2c21f798fef0} 
+\#define SPI1\+\_\+\+CON\+\_\+\+MCLKSEL~(0 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+MCLKSEL\+\_\+\+POSITION)}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00037}{37}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a0b0237394e5a0e1c9c2e0628595bf7bf}\index{eadog.c@{eadog.c}!SPI1\_CON\_MODE\_32\_MODE\_16@{SPI1\_CON\_MODE\_32\_MODE\_16}}
+\index{SPI1\_CON\_MODE\_32\_MODE\_16@{SPI1\_CON\_MODE\_32\_MODE\_16}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_CON\_MODE\_32\_MODE\_16}{SPI1\_CON\_MODE\_32\_MODE\_16}}
+{\footnotesize\ttfamily \label{eadog_8c_a0b0237394e5a0e1c9c2e0628595bf7bf} 
+\#define SPI1\+\_\+\+CON\+\_\+\+MODE\+\_\+32\+\_\+\+MODE\+\_\+16~(0 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+MODE16\+\_\+\+POSITION)}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00035}{35}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a1039eb6d1288abee9a80b5966f4fdb01}\index{eadog.c@{eadog.c}!SPI1\_CON\_MSSEN@{SPI1\_CON\_MSSEN}}
+\index{SPI1\_CON\_MSSEN@{SPI1\_CON\_MSSEN}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_CON\_MSSEN}{SPI1\_CON\_MSSEN}}
+{\footnotesize\ttfamily \label{eadog_8c_a1039eb6d1288abee9a80b5966f4fdb01} 
+\#define SPI1\+\_\+\+CON\+\_\+\+MSSEN~(0 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+MSSEN\+\_\+\+POSITION)}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00038}{38}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a9873575542a1dc5e70c7e8343cdf1997}\index{eadog.c@{eadog.c}!SPI1\_CON\_MSTEN@{SPI1\_CON\_MSTEN}}
+\index{SPI1\_CON\_MSTEN@{SPI1\_CON\_MSTEN}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_CON\_MSTEN}{SPI1\_CON\_MSTEN}}
+{\footnotesize\ttfamily \label{eadog_8c_a9873575542a1dc5e70c7e8343cdf1997} 
+\#define SPI1\+\_\+\+CON\+\_\+\+MSTEN~(1 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+MSTEN\+\_\+\+POSITION)}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00032}{32}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a7c7d86c6fca66ffdd00ea3ad19bc73bf}\index{eadog.c@{eadog.c}!SPI1\_CON\_SMP@{SPI1\_CON\_SMP}}
+\index{SPI1\_CON\_SMP@{SPI1\_CON\_SMP}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_CON\_SMP}{SPI1\_CON\_SMP}}
+{\footnotesize\ttfamily \label{eadog_8c_a7c7d86c6fca66ffdd00ea3ad19bc73bf} 
+\#define SPI1\+\_\+\+CON\+\_\+\+SMP~(0 $<$$<$ \+\_\+\+SPI1\+CON\+\_\+\+SMP\+\_\+\+POSITION)}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00039}{39}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{eadog_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{eadog_8c_a0ca838e774f098451ab78ae17a07f9a9}\index{eadog.c@{eadog.c}!CSB\_SetHigh@{CSB\_SetHigh}}
+\index{CSB\_SetHigh@{CSB\_SetHigh}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{CSB\_SetHigh()}{CSB\_SetHigh()}}
+{\footnotesize\ttfamily \label{eadog_8c_a0ca838e774f098451ab78ae17a07f9a9} 
+void CSB\+\_\+\+Set\+High (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00077}{77}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_adea766ebd85f9348263fad0c66a72664}\index{eadog.c@{eadog.c}!CSB\_SetLow@{CSB\_SetLow}}
+\index{CSB\_SetLow@{CSB\_SetLow}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{CSB\_SetLow()}{CSB\_SetLow()}}
+{\footnotesize\ttfamily \label{eadog_8c_adea766ebd85f9348263fad0c66a72664} 
+void CSB\+\_\+\+Set\+Low (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00071}{71}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a2276e41b9d632dd7ace4bf60bd595b2c}\index{eadog.c@{eadog.c}!eaDogM\_ClearRow@{eaDogM\_ClearRow}}
+\index{eaDogM\_ClearRow@{eaDogM\_ClearRow}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{eaDogM\_ClearRow()}{eaDogM\_ClearRow()}}
+{\footnotesize\ttfamily \label{eadog_8c_a2276e41b9d632dd7ace4bf60bd595b2c} 
+void ea\+Dog\+M\+\_\+\+Clear\+Row (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{r}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00177}{177}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a14d6c8d2a272183e99a56fdf118a8dc8}\index{eadog.c@{eadog.c}!eaDogM\_SetPos@{eaDogM\_SetPos}}
+\index{eaDogM\_SetPos@{eaDogM\_SetPos}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{eaDogM\_SetPos()}{eaDogM\_SetPos()}}
+{\footnotesize\ttfamily \label{eadog_8c_a14d6c8d2a272183e99a56fdf118a8dc8} 
+void ea\+Dog\+M\+\_\+\+Set\+Pos (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{r}{, }\item[{const uint8\+\_\+t}]{c}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00170}{170}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_af8cafa3b7042fa75d2d06e63b518705a}\index{eadog.c@{eadog.c}!eaDogM\_WriteByteToCGRAM@{eaDogM\_WriteByteToCGRAM}}
+\index{eaDogM\_WriteByteToCGRAM@{eaDogM\_WriteByteToCGRAM}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{eaDogM\_WriteByteToCGRAM()}{eaDogM\_WriteByteToCGRAM()}}
+{\footnotesize\ttfamily \label{eadog_8c_af8cafa3b7042fa75d2d06e63b518705a} 
+void ea\+Dog\+M\+\_\+\+Write\+Byte\+To\+CGRAM (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{ndx}{, }\item[{uint8\+\_\+t}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00224}{224}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a012b70e817b582af428c3dc8043ff04c}\index{eadog.c@{eadog.c}!eaDogM\_WriteChr@{eaDogM\_WriteChr}}
+\index{eaDogM\_WriteChr@{eaDogM\_WriteChr}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{eaDogM\_WriteChr()}{eaDogM\_WriteChr()}}
+{\footnotesize\ttfamily \label{eadog_8c_a012b70e817b582af428c3dc8043ff04c} 
+void ea\+Dog\+M\+\_\+\+Write\+Chr (\begin{DoxyParamCaption}\item[{const int8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00160}{160}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a38560127e69611361f6edc5b83c9518f}\index{eadog.c@{eadog.c}!eaDogM\_WriteCommand@{eaDogM\_WriteCommand}}
+\index{eaDogM\_WriteCommand@{eaDogM\_WriteCommand}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{eaDogM\_WriteCommand()}{eaDogM\_WriteCommand()}}
+{\footnotesize\ttfamily \label{eadog_8c_a38560127e69611361f6edc5b83c9518f} 
+void ea\+Dog\+M\+\_\+\+Write\+Command (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{cmd}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00165}{165}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a17a54ec270917dabd85aa5d66c809346}\index{eadog.c@{eadog.c}!eaDogM\_WriteIntAtPos@{eaDogM\_WriteIntAtPos}}
+\index{eaDogM\_WriteIntAtPos@{eaDogM\_WriteIntAtPos}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{eaDogM\_WriteIntAtPos()}{eaDogM\_WriteIntAtPos()}}
+{\footnotesize\ttfamily \label{eadog_8c_a17a54ec270917dabd85aa5d66c809346} 
+void ea\+Dog\+M\+\_\+\+Write\+Int\+At\+Pos (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{r}{, }\item[{uint8\+\_\+t}]{c}{, }\item[{uint8\+\_\+t}]{i}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00212}{212}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a354a7869fc0c21ba6ac9176523c70406}\index{eadog.c@{eadog.c}!eaDogM\_WriteString@{eaDogM\_WriteString}}
+\index{eaDogM\_WriteString@{eaDogM\_WriteString}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{eaDogM\_WriteString()}{eaDogM\_WriteString()}}
+{\footnotesize\ttfamily \label{eadog_8c_a354a7869fc0c21ba6ac9176523c70406} 
+void ea\+Dog\+M\+\_\+\+Write\+String (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str\+Ptr}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00186}{186}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a469b07cd52f5a0a71c589c78ded7ca3b}\index{eadog.c@{eadog.c}!eaDogM\_WriteStringAtPos@{eaDogM\_WriteStringAtPos}}
+\index{eaDogM\_WriteStringAtPos@{eaDogM\_WriteStringAtPos}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{eaDogM\_WriteStringAtPos()}{eaDogM\_WriteStringAtPos()}}
+{\footnotesize\ttfamily \label{eadog_8c_a469b07cd52f5a0a71c589c78ded7ca3b} 
+void ea\+Dog\+M\+\_\+\+Write\+String\+At\+Pos (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{r}{, }\item[{const uint8\+\_\+t}]{c}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{str\+Ptr}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00201}{201}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a4cdbdfc36c314afb59655c3937ecce96}\index{eadog.c@{eadog.c}!init\_display@{init\_display}}
+\index{init\_display@{init\_display}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{init\_display()}{init\_display()}}
+{\footnotesize\ttfamily \label{eadog_8c_a4cdbdfc36c314afb59655c3937ecce96} 
+void init\+\_\+display (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00107}{107}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a35a02b7682b9393aab0eb72a107647a9}\index{eadog.c@{eadog.c}!ReSet\_SetHigh@{ReSet\_SetHigh}}
+\index{ReSet\_SetHigh@{ReSet\_SetHigh}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{ReSet\_SetHigh()}{ReSet\_SetHigh()}}
+{\footnotesize\ttfamily \label{eadog_8c_a35a02b7682b9393aab0eb72a107647a9} 
+void Re\+Set\+\_\+\+Set\+High (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00053}{53}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_ab91195691643a5cc7630c8c016d7472a}\index{eadog.c@{eadog.c}!ReSet\_SetLow@{ReSet\_SetLow}}
+\index{ReSet\_SetLow@{ReSet\_SetLow}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{ReSet\_SetLow()}{ReSet\_SetLow()}}
+{\footnotesize\ttfamily \label{eadog_8c_ab91195691643a5cc7630c8c016d7472a} 
+void Re\+Set\+\_\+\+Set\+Low (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00047}{47}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_aee6ff1cb279057329093f8b51ce5c9e6}\index{eadog.c@{eadog.c}!RS\_SetHigh@{RS\_SetHigh}}
+\index{RS\_SetHigh@{RS\_SetHigh}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{RS\_SetHigh()}{RS\_SetHigh()}}
+{\footnotesize\ttfamily \label{eadog_8c_aee6ff1cb279057329093f8b51ce5c9e6} 
+void RS\+\_\+\+Set\+High (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00065}{65}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_abb2e3f826b25b9b0694206524a5f73a5}\index{eadog.c@{eadog.c}!RS\_SetLow@{RS\_SetLow}}
+\index{RS\_SetLow@{RS\_SetLow}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{RS\_SetLow()}{RS\_SetLow()}}
+{\footnotesize\ttfamily \label{eadog_8c_abb2e3f826b25b9b0694206524a5f73a5} 
+void RS\+\_\+\+Set\+Low (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00059}{59}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a33d4144c686f338a501a164a4bff30be}\index{eadog.c@{eadog.c}!SPI1\_Exchange8bit@{SPI1\_Exchange8bit}}
+\index{SPI1\_Exchange8bit@{SPI1\_Exchange8bit}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_Exchange8bit()}{SPI1\_Exchange8bit()}}
+{\footnotesize\ttfamily \label{eadog_8c_a33d4144c686f338a501a164a4bff30be} 
+void SPI1\+\_\+\+Exchange8bit (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00083}{83}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a4dee4d50b6e921622da310eeca33d81b}\index{eadog.c@{eadog.c}!SPI1\_ExchangeBuffer@{SPI1\_ExchangeBuffer}}
+\index{SPI1\_ExchangeBuffer@{SPI1\_ExchangeBuffer}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_ExchangeBuffer()}{SPI1\_ExchangeBuffer()}}
+{\footnotesize\ttfamily \label{eadog_8c_a4dee4d50b6e921622da310eeca33d81b} 
+void SPI1\+\_\+\+Exchange\+Buffer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint16\+\_\+t}]{len}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00089}{89}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+\Hypertarget{eadog_8c_a8ae1626500453fd6c71c95a8a88c29d7}\index{eadog.c@{eadog.c}!wdtdelay@{wdtdelay}}
+\index{wdtdelay@{wdtdelay}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{wdtdelay()}{wdtdelay()}}
+{\footnotesize\ttfamily \label{eadog_8c_a8ae1626500453fd6c71c95a8a88c29d7} 
+void wdtdelay (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{delay}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eadog_8c_source_l00095}{95}} of file \mbox{\hyperlink{eadog_8c_source}{eadog.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{eadog_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{eadog_8c_ab16015a8f1e53bd4019c4e019dd2358d}\index{eadog.c@{eadog.c}!spi1Obj@{spi1Obj}}
+\index{spi1Obj@{spi1Obj}!eadog.c@{eadog.c}}
+\doxysubsubsection{\texorpdfstring{spi1Obj}{spi1Obj}}
+{\footnotesize\ttfamily \label{eadog_8c_ab16015a8f1e53bd4019c4e019dd2358d} 
+\mbox{\hyperlink{structSPI__OBJECT}{SPI\+\_\+\+OBJECT}} spi1\+Obj\hspace{0.3cm}{\ttfamily [extern]}}
+

@@ -1,0 +1,92 @@
+\doxysection{toolchain\+\_\+specifics.\+h}
+\hypertarget{toolchain__specifics_8h_source}{}\label{toolchain__specifics_8h_source}\index{src/config/default/toolchain\_specifics.h@{src/config/default/toolchain\_specifics.h}}
+\mbox{\hyperlink{toolchain__specifics_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00002}00002\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00003}00003\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00004}00004\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00005}00005\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00006}00006\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00007}00007\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00008}00008\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00009}00009\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00010}00010\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00011}00011\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00012}00012\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00013}00013\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00014}00014\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00015}00015\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00016}00016\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00017}00017\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00018}00018\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00019}00019\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00020}00020\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00021}00021\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00022}00022\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00024}00024\ \textcolor{preprocessor}{\#ifndef\ TOOLCHAIN\_SPECIFICS\_H}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00025}00025\ \textcolor{preprocessor}{\#define\ TOOLCHAIN\_SPECIFICS\_H}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00027}00027\ \textcolor{comment}{//\#include\ <sys/types.h>}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00029}\mbox{\hyperlink{toolchain__specifics_8h_afa9fbc67c23846c8b73d6f0afcfafec8}{00029}}\ \textcolor{preprocessor}{\#define\ NO\_INIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_((section("{}.no\_init"{})))}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00030}\mbox{\hyperlink{toolchain__specifics_8h_ae8ca0534520a46af46ec830d5fccab63}{00030}}\ \textcolor{preprocessor}{\#define\ SECTION(a)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_((\_\_section\_\_(a)))}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00032}00032\ \textcolor{comment}{/*\ MISRAC\ 2023\ deviation\ block\ start\ */}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00033}00033\ \textcolor{comment}{/*\ MISRA\ C-\/2023\ Rule\ 21.1\ deviated\ 13\ times.\ Deviation\ record\ ID\ -\/\ \ H3\_MISRAC\_2023\_R\_21\_1\_DR\_3\ */}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00034}00034\ \textcolor{comment}{/*\ MISRA\ C-\/2023\ Rule\ 21.2\ deviated\ 26\ times.\ Deviation\ record\ ID\ -\/\ \ H3\_MISRAC\_2023\_R\_21\_2\_DR\_3\ */}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00035}00035\ \textcolor{preprocessor}{\#ifndef\ \ \ \_\_ASM}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00036}\mbox{\hyperlink{toolchain__specifics_8h_a1378040bcf22428955c6e3ce9c2053cd}{00036}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_ASM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\_\_}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00037}00037\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00038}00038\ \textcolor{preprocessor}{\#ifndef\ \ \ \_\_INLINE}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00039}\mbox{\hyperlink{toolchain__specifics_8h_ade2d8d7118f8ff49547f60aa0c3382bb}{00039}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_INLINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_inline\_\_}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00040}00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00041}00041\ \textcolor{preprocessor}{\#ifndef\ \ \ \_\_STATIC\_INLINE}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00042}\mbox{\hyperlink{toolchain__specifics_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{00042}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_STATIC\_INLINE\ \ \ \ \ \ \ \ \ \ \ \ static\ \_\_inline\_\_}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00043}00043\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00044}00044\ \textcolor{preprocessor}{\#ifndef\ \ \ \_\_STATIC\_FORCEINLINE}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00045}\mbox{\hyperlink{toolchain__specifics_8h_ab904513442afdf77d4f8c74f23cbb040}{00045}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_STATIC\_FORCEINLINE}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00046}00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00047}00047\ \textcolor{preprocessor}{\#ifndef\ \ \ \_\_NO\_RETURN}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00048}\mbox{\hyperlink{toolchain__specifics_8h_a153a4a31b276a9758959580538720a51}{00048}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_NO\_RETURN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_((\_\_noreturn\_\_))}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00049}00049\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00050}00050\ \textcolor{preprocessor}{\#ifndef\ \ \ \_\_USED}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00051}\mbox{\hyperlink{toolchain__specifics_8h_a3e40e4c553fc11588f7a4c2a19e789e0}{00051}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_USED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_((used))}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00052}00052\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00053}00053\ \textcolor{preprocessor}{\#ifndef\ \ \ \_\_WEAK}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00054}\mbox{\hyperlink{toolchain__specifics_8h_ac607bf387b29162be6a9b77fc7999539}{00054}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_WEAK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_((weak))}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00055}00055\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00056}00056\ \textcolor{preprocessor}{\#ifndef\ \ \ \_\_PACKED}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00057}\mbox{\hyperlink{toolchain__specifics_8h_abe8996d3d985ee1529475443cc635bf1}{00057}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_PACKED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_((packed,\ aligned(1)))}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00058}00058\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00059}00059\ \textcolor{preprocessor}{\#ifndef\ \ \ \_\_PACKED\_STRUCT}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00060}\mbox{\hyperlink{toolchain__specifics_8h_a4dbb70fab85207c27b581ecb6532b314}{00060}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_PACKED\_STRUCT\ \ \ \ \ \ \ \ \ \ \ \ struct\ \_\_attribute\_\_((packed,\ aligned(1)))}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00061}00061\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00062}00062\ \textcolor{preprocessor}{\#ifndef\ \ \ \_\_PACKED\_UNION}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00063}\mbox{\hyperlink{toolchain__specifics_8h_a6fba34d08b0a526830b4231d2ea0b89a}{00063}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_PACKED\_UNION\ \ \ \ \ \ \ \ \ \ \ \ \ union\ \_\_attribute\_\_((packed,\ aligned(1)))}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00064}00064\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00065}00065\ \textcolor{preprocessor}{\#ifndef\ \ \ \_\_COHERENT}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00066}\mbox{\hyperlink{toolchain__specifics_8h_a029a6c58a632ce2d2f41df95fa6165f2}{00066}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_COHERENT}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00067}00067\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00068}00068\ \textcolor{preprocessor}{\#ifndef\ \ \ \_\_ALIGNED}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00069}\mbox{\hyperlink{toolchain__specifics_8h_aa65ef8f7a5e8b7a6ea6c1d48b4c78e55}{00069}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_ALIGNED(x)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_((aligned(x)))}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00070}00070\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00071}00071\ \textcolor{preprocessor}{\#ifndef\ \ \ \_\_RESTRICT}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00072}\mbox{\hyperlink{toolchain__specifics_8h_a378ac21329d33f561f90265eef89f564}{00072}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_RESTRICT}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00073}00073\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00075}\mbox{\hyperlink{toolchain__specifics_8h_af89f60b07247176687889ade776c8e10}{00075}}\ \textcolor{preprocessor}{\#define\ CACHE\_LINE\_SIZE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (4u)}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00076}\mbox{\hyperlink{toolchain__specifics_8h_a437105e333a87b371d62d1552ab1d832}{00076}}\ \textcolor{preprocessor}{\#define\ CACHE\_ALIGN}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00078}\mbox{\hyperlink{toolchain__specifics_8h_a94c90dc6d5b0385240cdbce63d370de3}{00078}}\ \textcolor{preprocessor}{\#define\ CACHE\_ALIGNED\_SIZE\_GET(size)\ \ \ \ \ ((size)\ +\ ((((size)\ \%\ (CACHE\_LINE\_SIZE))!=\ 0U)?\ ((CACHE\_LINE\_SIZE)\ -\/\ ((size)\ \%\ (CACHE\_LINE\_SIZE)))\ :\ (0U)))}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00080}00080\ \textcolor{preprocessor}{\#ifndef\ FORMAT\_ATTRIBUTE}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00081}\mbox{\hyperlink{toolchain__specifics_8h_a1a68ccfd3004874777b6e405aafd0bd5}{00081}}\ \textcolor{preprocessor}{\ \ \ \#define\ FORMAT\_ATTRIBUTE(archetype,\ string\_index,\ first\_to\_check)\ \ \_\_attribute\_\_\ ((format\ (archetype,\ string\_index,\ first\_to\_check)))}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00082}00082\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00085}00085\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ end\ of\ header}}
+\DoxyCodeLine{\Hypertarget{toolchain__specifics_8h_source_l00086}00086\ }
+
+\end{DoxyCode}

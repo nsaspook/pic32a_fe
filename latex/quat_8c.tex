@@ -1,0 +1,302 @@
+\doxysection{src/quat.c File Reference}
+\hypertarget{quat_8c}{}\label{quat_8c}\index{src/quat.c@{src/quat.c}}
+{\ttfamily \#include "{}quat.\+h"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{quat_8c_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}}~(3.\+14159265358979323846)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{quat_8c_a1b0e1fcb269b45176e68d2ea0ce882d0}{Quaternion\+\_\+set}} (double w, double v1, double v2, double v3, \mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}output)
+\item 
+void \mbox{\hyperlink{quat_8c_abdf288d98555fc3e893ca9fbc6ef967c}{Quaternion\+\_\+set\+Identity}} (\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}q)
+\item 
+void \mbox{\hyperlink{quat_8c_af3e1f7c8e8bb723e883ced9ca219bb93}{Quaternion\+\_\+copy}} (\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}q, \mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}output)
+\item 
+bool \mbox{\hyperlink{quat_8c_adc51e048c03dc6d98519a69ca19f364c}{Quaternion\+\_\+equal}} (\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gfx_8c_ae7d1cbce8e6278e6be3b7182c32cba06}{q1}}, \mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gfx_8c_a38fdb098df9deba94b3b76b1293aeb33}{q2}})
+\item 
+void \mbox{\hyperlink{quat_8c_a56e781233afb30cb47f60411a39d00fe}{Quaternion\+\_\+fprint}} (FILE \texorpdfstring{$\ast$}{*}file, \mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}q)
+\item 
+void \mbox{\hyperlink{quat_8c_a9b5bfabd49e4ae08830af7ccb9316a80}{Quaternion\+\_\+from\+Axis\+Angle}} (double axis\mbox{[}3\mbox{]}, double angle, \mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}output)
+\item 
+double \mbox{\hyperlink{quat_8c_a6240e62a0012906fb3ee2d5625f6497e}{Quaternion\+\_\+to\+Axis\+Angle}} (\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}q, double output\mbox{[}3\mbox{]})
+\item 
+void \mbox{\hyperlink{quat_8c_aaec25fe97f2ae666118d274967c3a40c}{Quaternion\+\_\+from\+XRotation}} (double angle, \mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}output)
+\item 
+void \mbox{\hyperlink{quat_8c_a1fe87ce051fa9d8704731030c2f9ebc6}{Quaternion\+\_\+from\+YRotation}} (double angle, \mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}output)
+\item 
+void \mbox{\hyperlink{quat_8c_a395478a47330a1bf968f8131231d885d}{Quaternion\+\_\+from\+ZRotation}} (double angle, \mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}output)
+\item 
+void \mbox{\hyperlink{quat_8c_a69829b54472200921e5b52d032bc0d5b}{Quaternion\+\_\+from\+Euler\+ZYX}} (double euler\+ZYX\mbox{[}3\mbox{]}, \mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}output)
+\item 
+void \mbox{\hyperlink{quat_8c_ab76a77abdf76ae393b506fb797128a66}{Quaternion\+\_\+to\+Euler\+ZYX}} (\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}q, double output\mbox{[}3\mbox{]})
+\item 
+void \mbox{\hyperlink{quat_8c_ae13c13e3ab9b512f7c17240274514e6d}{Quaternion\+\_\+conjugate}} (\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}q, \mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}output)
+\item 
+double \mbox{\hyperlink{quat_8c_a064535252142bf442c426308b3eaebcc}{Quaternion\+\_\+norm}} (\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}q)
+\item 
+void \mbox{\hyperlink{quat_8c_ae638c8f31b364f73f4407f1b809afcbd}{Quaternion\+\_\+normalize}} (\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}q, \mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}output)
+\item 
+void \mbox{\hyperlink{quat_8c_a52180e0cd2c11d553124c21f71c34af5}{Quaternion\+\_\+multiply}} (\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gfx_8c_ae7d1cbce8e6278e6be3b7182c32cba06}{q1}}, \mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gfx_8c_a38fdb098df9deba94b3b76b1293aeb33}{q2}}, \mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}output)
+\item 
+void \mbox{\hyperlink{quat_8c_a07a987098b85251e8d3d710f15e09f79}{Quaternion\+\_\+rotate}} (\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}q, double v\mbox{[}3\mbox{]}, double output\mbox{[}3\mbox{]})
+\item 
+void \mbox{\hyperlink{quat_8c_a0349aecbad63518cada7f83e4599f8a5}{Quaternion\+\_\+slerp}} (\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gfx_8c_ae7d1cbce8e6278e6be3b7182c32cba06}{q1}}, \mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gfx_8c_a38fdb098df9deba94b3b76b1293aeb33}{q2}}, double t, \mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}output)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{quat_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{quat_8c_ae71449b1cc6e6250b91f539153a7a0d3}\index{quat.c@{quat.c}!M\_PI@{M\_PI}}
+\index{M\_PI@{M\_PI}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{M\_PI}{M\_PI}}
+{\footnotesize\ttfamily \label{quat_8c_ae71449b1cc6e6250b91f539153a7a0d3} 
+\#define M\+\_\+\+PI~(3.\+14159265358979323846)}
+
+
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00026}{26}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{quat_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{quat_8c_ae13c13e3ab9b512f7c17240274514e6d}\index{quat.c@{quat.c}!Quaternion\_conjugate@{Quaternion\_conjugate}}
+\index{Quaternion\_conjugate@{Quaternion\_conjugate}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_conjugate()}{Quaternion\_conjugate()}}
+{\footnotesize\ttfamily \label{quat_8c_ae13c13e3ab9b512f7c17240274514e6d} 
+void Quaternion\+\_\+conjugate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{q}{, }\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
+
+Calculates the conjugate of the quaternion\+: (w, -\/v) 
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00157}{157}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_af3e1f7c8e8bb723e883ced9ca219bb93}\index{quat.c@{quat.c}!Quaternion\_copy@{Quaternion\_copy}}
+\index{Quaternion\_copy@{Quaternion\_copy}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_copy()}{Quaternion\_copy()}}
+{\footnotesize\ttfamily \label{quat_8c_af3e1f7c8e8bb723e883ced9ca219bb93} 
+void Quaternion\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{q}{, }\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
+
+Copies one quaternion to another. 
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00044}{44}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_adc51e048c03dc6d98519a69ca19f364c}\index{quat.c@{quat.c}!Quaternion\_equal@{Quaternion\_equal}}
+\index{Quaternion\_equal@{Quaternion\_equal}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_equal()}{Quaternion\_equal()}}
+{\footnotesize\ttfamily \label{quat_8c_adc51e048c03dc6d98519a69ca19f364c} 
+bool Quaternion\+\_\+equal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{q1}{, }\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{q2}{}\end{DoxyParamCaption})}
+
+Tests if all quaternion values are equal (using QUATERNION\+\_\+\+EPS). 
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00049}{49}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_a56e781233afb30cb47f60411a39d00fe}\index{quat.c@{quat.c}!Quaternion\_fprint@{Quaternion\_fprint}}
+\index{Quaternion\_fprint@{Quaternion\_fprint}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_fprint()}{Quaternion\_fprint()}}
+{\footnotesize\ttfamily \label{quat_8c_a56e781233afb30cb47f60411a39d00fe} 
+void Quaternion\+\_\+fprint (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{file}{, }\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{q}{}\end{DoxyParamCaption})}
+
+Print the quaternion to a given file (e.\+g., stderr). 
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00058}{58}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_a9b5bfabd49e4ae08830af7ccb9316a80}\index{quat.c@{quat.c}!Quaternion\_fromAxisAngle@{Quaternion\_fromAxisAngle}}
+\index{Quaternion\_fromAxisAngle@{Quaternion\_fromAxisAngle}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_fromAxisAngle()}{Quaternion\_fromAxisAngle()}}
+{\footnotesize\ttfamily \label{quat_8c_a9b5bfabd49e4ae08830af7ccb9316a80} 
+void Quaternion\+\_\+from\+Axis\+Angle (\begin{DoxyParamCaption}\item[{double}]{axis}{\mbox{[}3\mbox{]}, }\item[{double}]{angle}{, }\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
+
+Set the quaternion to the equivalent of axis-\/angle rotation. 
+\begin{DoxyParams}{Parameters}
+{\em axis} & The axis of the rotation (should be normalized). \\
+\hline
+{\em angle} & Rotation angle in radians. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00065}{65}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_a69829b54472200921e5b52d032bc0d5b}\index{quat.c@{quat.c}!Quaternion\_fromEulerZYX@{Quaternion\_fromEulerZYX}}
+\index{Quaternion\_fromEulerZYX@{Quaternion\_fromEulerZYX}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_fromEulerZYX()}{Quaternion\_fromEulerZYX()}}
+{\footnotesize\ttfamily \label{quat_8c_a69829b54472200921e5b52d032bc0d5b} 
+void Quaternion\+\_\+from\+Euler\+ZYX (\begin{DoxyParamCaption}\item[{double}]{euler\+ZYX}{\mbox{[}3\mbox{]}, }\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
+
+Set the quaternion to the equivalent of euler angles. 
+\begin{DoxyParams}{Parameters}
+{\em euler\+ZYX} & Euler angles in ZYX, but stored in array as \mbox{[}x\textquotesingle{}\textquotesingle{}, y\textquotesingle{}, z\mbox{]}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00118}{118}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_aaec25fe97f2ae666118d274967c3a40c}\index{quat.c@{quat.c}!Quaternion\_fromXRotation@{Quaternion\_fromXRotation}}
+\index{Quaternion\_fromXRotation@{Quaternion\_fromXRotation}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_fromXRotation()}{Quaternion\_fromXRotation()}}
+{\footnotesize\ttfamily \label{quat_8c_aaec25fe97f2ae666118d274967c3a40c} 
+void Quaternion\+\_\+from\+XRotation (\begin{DoxyParamCaption}\item[{double}]{angle}{, }\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
+
+Set the quaternion to the equivalent a rotation around the X-\/axis. 
+\begin{DoxyParams}{Parameters}
+{\em angle} & Rotation angle in radians. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00097}{97}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_a1fe87ce051fa9d8704731030c2f9ebc6}\index{quat.c@{quat.c}!Quaternion\_fromYRotation@{Quaternion\_fromYRotation}}
+\index{Quaternion\_fromYRotation@{Quaternion\_fromYRotation}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_fromYRotation()}{Quaternion\_fromYRotation()}}
+{\footnotesize\ttfamily \label{quat_8c_a1fe87ce051fa9d8704731030c2f9ebc6} 
+void Quaternion\+\_\+from\+YRotation (\begin{DoxyParamCaption}\item[{double}]{angle}{, }\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
+
+Set the quaternion to the equivalent a rotation around the Y-\/axis. 
+\begin{DoxyParams}{Parameters}
+{\em angle} & Rotation angle in radians. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00104}{104}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_a395478a47330a1bf968f8131231d885d}\index{quat.c@{quat.c}!Quaternion\_fromZRotation@{Quaternion\_fromZRotation}}
+\index{Quaternion\_fromZRotation@{Quaternion\_fromZRotation}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_fromZRotation()}{Quaternion\_fromZRotation()}}
+{\footnotesize\ttfamily \label{quat_8c_a395478a47330a1bf968f8131231d885d} 
+void Quaternion\+\_\+from\+ZRotation (\begin{DoxyParamCaption}\item[{double}]{angle}{, }\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
+
+Set the quaternion to the equivalent a rotation around the Z-\/axis. 
+\begin{DoxyParams}{Parameters}
+{\em angle} & Rotation angle in radians. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00111}{111}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_a52180e0cd2c11d553124c21f71c34af5}\index{quat.c@{quat.c}!Quaternion\_multiply@{Quaternion\_multiply}}
+\index{Quaternion\_multiply@{Quaternion\_multiply}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_multiply()}{Quaternion\_multiply()}}
+{\footnotesize\ttfamily \label{quat_8c_a52180e0cd2c11d553124c21f71c34af5} 
+void Quaternion\+\_\+multiply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{q1}{, }\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{q2}{, }\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
+
+Multiplies two quaternions\+: output = q1 \texorpdfstring{$\ast$}{*} q2 
+\begin{DoxyParams}{Parameters}
+{\em q1} & The rotation to apply on q2. \\
+\hline
+{\em q2} & The orientation to be rotated. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00184}{184}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_a064535252142bf442c426308b3eaebcc}\index{quat.c@{quat.c}!Quaternion\_norm@{Quaternion\_norm}}
+\index{Quaternion\_norm@{Quaternion\_norm}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_norm()}{Quaternion\_norm()}}
+{\footnotesize\ttfamily \label{quat_8c_a064535252142bf442c426308b3eaebcc} 
+double Quaternion\+\_\+norm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{q}{}\end{DoxyParamCaption})}
+
+Calculates the norm of a given quaternion\+: norm = sqrt(w\texorpdfstring{$\ast$}{*}w + v1\texorpdfstring{$\ast$}{*}v1 + v2\texorpdfstring{$\ast$}{*}v2 + v3\texorpdfstring{$\ast$}{*}v3) 
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00166}{166}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_ae638c8f31b364f73f4407f1b809afcbd}\index{quat.c@{quat.c}!Quaternion\_normalize@{Quaternion\_normalize}}
+\index{Quaternion\_normalize@{Quaternion\_normalize}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_normalize()}{Quaternion\_normalize()}}
+{\footnotesize\ttfamily \label{quat_8c_ae638c8f31b364f73f4407f1b809afcbd} 
+void Quaternion\+\_\+normalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{q}{, }\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
+
+Normalizes the quaternion. 
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00172}{172}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_a07a987098b85251e8d3d710f15e09f79}\index{quat.c@{quat.c}!Quaternion\_rotate@{Quaternion\_rotate}}
+\index{Quaternion\_rotate@{Quaternion\_rotate}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_rotate()}{Quaternion\_rotate()}}
+{\footnotesize\ttfamily \label{quat_8c_a07a987098b85251e8d3d710f15e09f79} 
+void Quaternion\+\_\+rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{q}{, }\item[{double}]{v}{\mbox{[}3\mbox{]}, }\item[{double}]{output}{\mbox{[}3\mbox{]}}\end{DoxyParamCaption})}
+
+Applies quaternion rotation to a given vector. 
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00204}{204}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_a1b0e1fcb269b45176e68d2ea0ce882d0}\index{quat.c@{quat.c}!Quaternion\_set@{Quaternion\_set}}
+\index{Quaternion\_set@{Quaternion\_set}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_set()}{Quaternion\_set()}}
+{\footnotesize\ttfamily \label{quat_8c_a1b0e1fcb269b45176e68d2ea0ce882d0} 
+void Quaternion\+\_\+set (\begin{DoxyParamCaption}\item[{double}]{w}{, }\item[{double}]{v1}{, }\item[{double}]{v2}{, }\item[{double}]{v3}{, }\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
+
+Sets the given values to the output quaternion. 
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00029}{29}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_abdf288d98555fc3e893ca9fbc6ef967c}\index{quat.c@{quat.c}!Quaternion\_setIdentity@{Quaternion\_setIdentity}}
+\index{Quaternion\_setIdentity@{Quaternion\_setIdentity}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_setIdentity()}{Quaternion\_setIdentity()}}
+{\footnotesize\ttfamily \label{quat_8c_abdf288d98555fc3e893ca9fbc6ef967c} 
+void Quaternion\+\_\+set\+Identity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{q}{}\end{DoxyParamCaption})}
+
+Sets quaternion to its identity. 
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00038}{38}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_a0349aecbad63518cada7f83e4599f8a5}\index{quat.c@{quat.c}!Quaternion\_slerp@{Quaternion\_slerp}}
+\index{Quaternion\_slerp@{Quaternion\_slerp}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_slerp()}{Quaternion\_slerp()}}
+{\footnotesize\ttfamily \label{quat_8c_a0349aecbad63518cada7f83e4599f8a5} 
+void Quaternion\+\_\+slerp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{q1}{, }\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{q2}{, }\item[{double}]{t}{, }\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
+
+Interpolates between two quaternions. 
+\begin{DoxyParams}{Parameters}
+{\em t} & Interpolation between the two quaternions \mbox{[}0, 1\mbox{]}. 0 is equal with q1, 1 is equal with q2, 0.\+5 is the middle between q1 and q2. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00241}{241}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_a6240e62a0012906fb3ee2d5625f6497e}\index{quat.c@{quat.c}!Quaternion\_toAxisAngle@{Quaternion\_toAxisAngle}}
+\index{Quaternion\_toAxisAngle@{Quaternion\_toAxisAngle}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_toAxisAngle()}{Quaternion\_toAxisAngle()}}
+{\footnotesize\ttfamily \label{quat_8c_a6240e62a0012906fb3ee2d5625f6497e} 
+double Quaternion\+\_\+to\+Axis\+Angle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{q}{, }\item[{double}]{output}{\mbox{[}3\mbox{]}}\end{DoxyParamCaption})}
+
+Calculates the rotation vector and angle of a quaternion. 
+\begin{DoxyParams}{Parameters}
+{\em output} & A 3D vector of the quaternion rotation axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The rotation angle in radians. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00076}{76}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+
+\Hypertarget{quat_8c_ab76a77abdf76ae393b506fb797128a66}\index{quat.c@{quat.c}!Quaternion\_toEulerZYX@{Quaternion\_toEulerZYX}}
+\index{Quaternion\_toEulerZYX@{Quaternion\_toEulerZYX}!quat.c@{quat.c}}
+\doxysubsubsection{\texorpdfstring{Quaternion\_toEulerZYX()}{Quaternion\_toEulerZYX()}}
+{\footnotesize\ttfamily \label{quat_8c_ab76a77abdf76ae393b506fb797128a66} 
+void Quaternion\+\_\+to\+Euler\+ZYX (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structQuaternion}{Quaternion}} \texorpdfstring{$\ast$}{*}}]{q}{, }\item[{double}]{output}{\mbox{[}3\mbox{]}}\end{DoxyParamCaption})}
+
+Calculates the euler angles of a quaternion. 
+\begin{DoxyParams}{Parameters}
+{\em output} & Euler angles in ZYX, but stored in array as \mbox{[}x\textquotesingle{}\textquotesingle{}, y\textquotesingle{}, z\mbox{]}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{quat_8c_source_l00135}{135}} of file \mbox{\hyperlink{quat_8c_source}{quat.\+c}}.
+

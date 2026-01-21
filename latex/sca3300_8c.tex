@@ -1,0 +1,151 @@
+\doxysection{src/sca3300.c File Reference}
+\hypertarget{sca3300_8c}{}\label{sca3300_8c}\index{src/sca3300.c@{src/sca3300.c}}
+{\ttfamily \#include "{}sca3300.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sca3300_8c_af0b04578bafcddc463b21b5bc5af5c7a}{imu\+\_\+cs\+\_\+cb}} (uintptr\+\_\+t)
+\item 
+void \mbox{\hyperlink{sca3300_8c_afd5e1cdf65a029c3d15f5a98d0285ec9}{sca3300\+\_\+cs\+\_\+disable}} (\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*})
+\item 
+uint8\+\_\+t \mbox{\hyperlink{sca3300_8c_a815009bfed8688813faaaddd4d08a5c4}{Calculate\+CRC}} (uint32\+\_\+t Data)
+\item 
+bool \mbox{\hyperlink{sca3300_8c_aededef9dbaa068c390a44864d074e303}{sca3300\+\_\+check\+\_\+crc}} (\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}imu, uint8\+\_\+t option)
+\item 
+bool \mbox{\hyperlink{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}{sca3300\+\_\+imu\+\_\+transfer}} (\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}imu, uint32\+\_\+t data)
+\item 
+bool \mbox{\hyperlink{sca3300_8c_a8764dea49b489954a6ab836d122615f9}{sca3300\+\_\+getdata}} (void \texorpdfstring{$\ast$}{*}imup)
+\item 
+bool \mbox{\hyperlink{sca3300_8c_a9e20e508f166d113f424d71ff107cbb0}{sca3300\+\_\+getid}} (void \texorpdfstring{$\ast$}{*}imup)
+\item 
+bool \mbox{\hyperlink{sca3300_8c_ab09a56ab42f9f60e715da2dc6375ee48}{sca3300\+\_\+getserial}} (void \texorpdfstring{$\ast$}{*}imup)
+\item 
+void \mbox{\hyperlink{sca3300_8c_a468f6da6b79a6210c0904a2a208bf19b}{sca3300\+\_\+set\+\_\+spimode}} (void \texorpdfstring{$\ast$}{*}imup)
+\item 
+void \mbox{\hyperlink{sca3300_8c_a3d4574e29cfd3d283efb1c63a7887fa8}{sca3300\+\_\+version}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsca3300__data}{sca3300\+\_\+data}} \mbox{\hyperlink{sca3300_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{sca3300_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{sca3300_8c_a815009bfed8688813faaaddd4d08a5c4}\index{sca3300.c@{sca3300.c}!CalculateCRC@{CalculateCRC}}
+\index{CalculateCRC@{CalculateCRC}!sca3300.c@{sca3300.c}}
+\doxysubsubsection{\texorpdfstring{CalculateCRC()}{CalculateCRC()}}
+{\footnotesize\ttfamily \label{sca3300_8c_a815009bfed8688813faaaddd4d08a5c4} 
+uint8\+\_\+t Calculate\+CRC (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00019}{19}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8c_af0b04578bafcddc463b21b5bc5af5c7a}\index{sca3300.c@{sca3300.c}!imu\_cs\_cb@{imu\_cs\_cb}}
+\index{imu\_cs\_cb@{imu\_cs\_cb}!sca3300.c@{sca3300.c}}
+\doxysubsubsection{\texorpdfstring{imu\_cs\_cb()}{imu\_cs\_cb()}}
+{\footnotesize\ttfamily \label{sca3300_8c_af0b04578bafcddc463b21b5bc5af5c7a} 
+void imu\+\_\+cs\+\_\+cb (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00294}{294}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8c_aededef9dbaa068c390a44864d074e303}\index{sca3300.c@{sca3300.c}!sca3300\_check\_crc@{sca3300\_check\_crc}}
+\index{sca3300\_check\_crc@{sca3300\_check\_crc}!sca3300.c@{sca3300.c}}
+\doxysubsubsection{\texorpdfstring{sca3300\_check\_crc()}{sca3300\_check\_crc()}}
+{\footnotesize\ttfamily \label{sca3300_8c_aededef9dbaa068c390a44864d074e303} 
+bool sca3300\+\_\+check\+\_\+crc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{imu}{, }\item[{uint8\+\_\+t}]{option}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00052}{52}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8c_afd5e1cdf65a029c3d15f5a98d0285ec9}\index{sca3300.c@{sca3300.c}!sca3300\_cs\_disable@{sca3300\_cs\_disable}}
+\index{sca3300\_cs\_disable@{sca3300\_cs\_disable}!sca3300.c@{sca3300.c}}
+\doxysubsubsection{\texorpdfstring{sca3300\_cs\_disable()}{sca3300\_cs\_disable()}}
+{\footnotesize\ttfamily \label{sca3300_8c_afd5e1cdf65a029c3d15f5a98d0285ec9} 
+void sca3300\+\_\+cs\+\_\+disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{imu}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00277}{277}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8c_a8764dea49b489954a6ab836d122615f9}\index{sca3300.c@{sca3300.c}!sca3300\_getdata@{sca3300\_getdata}}
+\index{sca3300\_getdata@{sca3300\_getdata}!sca3300.c@{sca3300.c}}
+\doxysubsubsection{\texorpdfstring{sca3300\_getdata()}{sca3300\_getdata()}}
+{\footnotesize\ttfamily \label{sca3300_8c_a8764dea49b489954a6ab836d122615f9} 
+bool sca3300\+\_\+getdata (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{imup}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00098}{98}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8c_a9e20e508f166d113f424d71ff107cbb0}\index{sca3300.c@{sca3300.c}!sca3300\_getid@{sca3300\_getid}}
+\index{sca3300\_getid@{sca3300\_getid}!sca3300.c@{sca3300.c}}
+\doxysubsubsection{\texorpdfstring{sca3300\_getid()}{sca3300\_getid()}}
+{\footnotesize\ttfamily \label{sca3300_8c_a9e20e508f166d113f424d71ff107cbb0} 
+bool sca3300\+\_\+getid (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{imup}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00165}{165}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8c_ab09a56ab42f9f60e715da2dc6375ee48}\index{sca3300.c@{sca3300.c}!sca3300\_getserial@{sca3300\_getserial}}
+\index{sca3300\_getserial@{sca3300\_getserial}!sca3300.c@{sca3300.c}}
+\doxysubsubsection{\texorpdfstring{sca3300\_getserial()}{sca3300\_getserial()}}
+{\footnotesize\ttfamily \label{sca3300_8c_ab09a56ab42f9f60e715da2dc6375ee48} 
+bool sca3300\+\_\+getserial (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{imup}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00200}{200}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e}\index{sca3300.c@{sca3300.c}!sca3300\_imu\_transfer@{sca3300\_imu\_transfer}}
+\index{sca3300\_imu\_transfer@{sca3300\_imu\_transfer}!sca3300.c@{sca3300.c}}
+\doxysubsubsection{\texorpdfstring{sca3300\_imu\_transfer()}{sca3300\_imu\_transfer()}}
+{\footnotesize\ttfamily \label{sca3300_8c_afe5a0f7a2cd466ca9a40a11b2e36775e} 
+bool sca3300\+\_\+imu\+\_\+transfer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{imu}{, }\item[{uint32\+\_\+t}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00071}{71}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8c_a468f6da6b79a6210c0904a2a208bf19b}\index{sca3300.c@{sca3300.c}!sca3300\_set\_spimode@{sca3300\_set\_spimode}}
+\index{sca3300\_set\_spimode@{sca3300\_set\_spimode}!sca3300.c@{sca3300.c}}
+\doxysubsubsection{\texorpdfstring{sca3300\_set\_spimode()}{sca3300\_set\_spimode()}}
+{\footnotesize\ttfamily \label{sca3300_8c_a468f6da6b79a6210c0904a2a208bf19b} 
+void sca3300\+\_\+set\+\_\+spimode (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{imup}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00227}{227}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+\Hypertarget{sca3300_8c_a3d4574e29cfd3d283efb1c63a7887fa8}\index{sca3300.c@{sca3300.c}!sca3300\_version@{sca3300\_version}}
+\index{sca3300\_version@{sca3300\_version}!sca3300.c@{sca3300.c}}
+\doxysubsubsection{\texorpdfstring{sca3300\_version()}{sca3300\_version()}}
+{\footnotesize\ttfamily \label{sca3300_8c_a3d4574e29cfd3d283efb1c63a7887fa8} 
+void sca3300\+\_\+version (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00309}{309}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{sca3300_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{sca3300_8c_a7dcb8ca661062edf9c2279487849f3d5}\index{sca3300.c@{sca3300.c}!sdata@{sdata}}
+\index{sdata@{sdata}!sca3300.c@{sca3300.c}}
+\doxysubsubsection{\texorpdfstring{sdata}{sdata}}
+{\footnotesize\ttfamily \label{sca3300_8c_a7dcb8ca661062edf9c2279487849f3d5} 
+struct \mbox{\hyperlink{structsca3300__data}{sca3300\+\_\+data}} sdata}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00014}{14}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+

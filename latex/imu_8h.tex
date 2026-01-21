@@ -1,0 +1,802 @@
+\doxysection{src/imu.h File Reference}
+\hypertarget{imu_8h}{}\label{imu_8h}\index{src/imu.h@{src/imu.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include "{}samples.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__sSensorData__t}{\+\_\+s\+Sensor\+Data\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct__op__t}{\+\_\+op\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct__imu__cmd__t}{\+\_\+imu\+\_\+cmd\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct__imu__host__t}{\+\_\+imu\+\_\+host\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structsca3300__data}{sca3300\+\_\+data}}
+\item 
+struct \mbox{\hyperlink{structsFFTData__t}{s\+FFTData\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{imu_8h_ac7dbefa0ecdd99ff3a5dc8180496b844}{IMU\+\_\+\+DRIVER}}~"{}V1.\+716"{}
+\item 
+\#define \mbox{\hyperlink{imu_8h_a094fe77a9605b526434d6968a9de7546}{IMU\+\_\+\+ALIAS}}~"{}IMU"{}
+\item 
+\#define \mbox{\hyperlink{imu_8h_a1de11b24f77a360798b3045daabfd2ec}{IMU\+\_\+\+ID\+\_\+\+DELAY}}~400
+\item 
+\#define \mbox{\hyperlink{imu_8h_ae63f67a6e8b63f236a1259dd50ff3a41}{IMU\+\_\+\+DATA\+\_\+\+RAW\+\_\+\+LEN}}~30
+\item 
+\#define \mbox{\hyperlink{imu_8h_a26fa33748a39da64c1e634c9b1d4b6e6}{IMU\+\_\+\+DATA\+\_\+\+BUFFER\+\_\+\+INDEX}}~1
+\item 
+\#define \mbox{\hyperlink{imu_8h_a0a57913c530cb631e3e1d0e7e24a30da}{IMU\+\_\+\+CS}}~0
+\item 
+\#define \mbox{\hyperlink{imu_8h_a918d810a95739a9f46ff39363a7261ea}{SCA\+\_\+\+LOG\+\_\+\+TIMEOUT}}~10
+\item 
+\#define \mbox{\hyperlink{imu_8h_affb2811e116f9173f27bad456930b26d}{IMU\+\_\+\+BUF32}}~2
+\item 
+\#define \mbox{\hyperlink{imu_8h_a6a18693366caed099bbd7c5300fa446b}{GRAVITY\+\_\+\+EARTH}}~(9.\+80665f)
+\item 
+\#define \mbox{\hyperlink{imu_8h_a9530bd62cc2647d3a4ad2bf3a9cf4696}{BMA400\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+2G}}~0.\+000980665f
+\item 
+\#define \mbox{\hyperlink{imu_8h_a0b442bd2f0026bd6c2f3f47e9e662c4f}{BMA490\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+2G}}~0.\+000061035f
+\begin{DoxyCompactList}\small\item\em Macro for mg per LSB at +/-\/ 2g sensitivity (1 LSB = 0.\+000061035mg) \texorpdfstring{$\ast$}{*}/. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{imu_8h_ac72d72b5f8bdf4ff5711544ad31f0611}{BMA490\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+4G}}~0.\+000122070f
+\begin{DoxyCompactList}\small\item\em Macro for mg per LSB at +/-\/ 4g sensitivity (1 LSB = 0.\+000122070mg) \texorpdfstring{$\ast$}{*}/. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{imu_8h_a0c46acda4cd04227b4b76b6486be700c}{BMA490\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+8G}}~0.\+000244141f
+\begin{DoxyCompactList}\small\item\em Macro for mg per LSB at +/-\/ 8g sensitivity (1 LSB = 0.\+000244141mg) \texorpdfstring{$\ast$}{*}/. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{imu_8h_a5a3c3203f4225004daa8c0b80b8fddb8}{BMA490\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+16G}}~0.\+000488281f
+\begin{DoxyCompactList}\small\item\em Macro for mg per LSB at +/-\/ 16g sensitivity (1 LSB = 0.\+000488281mg) \texorpdfstring{$\ast$}{*}/. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}{IMU\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+SCALE}}~1.\+000000000f
+\item 
+\#define \mbox{\hyperlink{imu_8h_a8d5b265a6a1b2079c9657a3492a7da8f}{IMU\+\_\+\+BNO\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+SCALE}}~0.\+9840000000f
+\item 
+\#define \mbox{\hyperlink{imu_8h_a69cdbf3d0cd231d6fd65f8d561377b90}{IMU\+\_\+\+BNO\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+SCALE\+\_\+0}}~0.\+9840000000f
+\item 
+\#define \mbox{\hyperlink{imu_8h_af098825216c1fbe90df50180d3c44e8a}{IMU\+\_\+\+BNO\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+SCALE\+\_\+1}}~0.\+9220000000f
+\item 
+\#define \mbox{\hyperlink{imu_8h_a83bea6eab886f2565e81c18ebe3ede92}{SCA3300\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+15G}}~0.\+000207000f
+\begin{DoxyCompactList}\small\item\em Macro for mg per LSB at +/-\/ 1.\+5g sensitivity LSB/g 5400. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{imu_8h_a1f967b7aaff342434961377e8d95c424}{SCA3300\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+3G}}~0.\+000395000f
+\begin{DoxyCompactList}\small\item\em Macro for mg per LSB at +/-\/ 3g sensitivity LSB/g 2700. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{imu_8h_a2afdd90f529cc2ad58903cd9330e456d}{SCA3300\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+6G}}~0.\+000765000f
+\begin{DoxyCompactList}\small\item\em Macro for mg per LSB at +/-\/ 6g sensitivity LSB/g 1350. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{imu_8h_a6c912e0a8f09a88bf366d8a3f82a30ed}{SCL3300\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+12G}}~0.\+000167400f
+\begin{DoxyCompactList}\small\item\em Macro for mg per LSB at +/-\/ 1.\+2g sensitivity LSB/g 6000. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{imu_8h_a6500fa36ef70cf163ca3e423398b914b}{SCL3300\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+24G}}~0.\+000333800f
+\begin{DoxyCompactList}\small\item\em Macro for mg per LSB at +/-\/ 2.\+4g sensitivity LSB/g 3000. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{imu_8h_a67f9c93f458869e053d5fc840a8c8884}{SCL3300\+\_\+\+INC1}}~0.\+000083700f
+\item 
+\#define \mbox{\hyperlink{imu_8h_aa0513fbcbf1c3008de78484769f6bf00}{SCL3300\+\_\+\+INC2}}~0.\+000083700f
+\item 
+\#define \mbox{\hyperlink{imu_8h_a88a6f72884862267027127fc0284c85b}{ANGLE\+\_\+\+RES1}}~16384.\+0f
+\item 
+\#define \mbox{\hyperlink{imu_8h_a0dc909a967deea456f958379763fc135}{ANGLE\+\_\+\+RES2}}~90.\+0f
+\item 
+\#define \mbox{\hyperlink{imu_8h_ac4faa00e162199fe2361581395e2d439}{TEMPERATURE\+\_\+\+RES}}~18.\+9f
+\item 
+\#define \mbox{\hyperlink{imu_8h_ac02a5a67e0612d6cb90e61cc23398701}{TEMPERATURE\+\_\+\+OFFSET}}~-\/273.\+0f
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__sSensorData__t}{\+\_\+s\+Sensor\+Data\+\_\+t}} \mbox{\hyperlink{imu_8h_aca01ad5ca4539cd86c8aac1b490e8fa5}{s\+Sensor\+Data\+\_\+t}}
+\item 
+typedef const struct \mbox{\hyperlink{struct__op__t}{\+\_\+op\+\_\+t}} \mbox{\hyperlink{imu_8h_a0cea943302f8cd908b5b6e8210a1e6ed}{op\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct__imu__cmd__t}{\+\_\+imu\+\_\+cmd\+\_\+t}} \mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct__imu__host__t}{\+\_\+imu\+\_\+host\+\_\+t}} \mbox{\hyperlink{imu_8h_ad5052d00b16a35d660f0391b29130feb}{imu\+\_\+host\+\_\+t}}
+\item 
+typedef struct s\+FFTData\+\_\+t \mbox{\hyperlink{imu_8h_a609ca226148d7034304f424eaa1c8b2d}{s\+FFTData\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49e}{device\+\_\+type}} \{ \newline
+\mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea8856144dbc37b9d1c37c018e8243ab7b}{IMU\+\_\+\+BMA490L}} = 0
+, \mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea16aef4f73511e64b227ad9c21da175a8}{IMU\+\_\+\+SCA3300}}
+, \mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea32f41e943d217e6bdb9dc7dbc380d11d}{IMU\+\_\+\+SCL3300}}
+, \mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea8c93ff8b3f9af92a8ad70c787ba26636}{IMU\+\_\+\+BMA400}}
+, \newline
+\mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea369dce5ab4ab6453141327d0821dee35}{IMU\+\_\+\+BNO086}}
+, \mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49eac9ad05a91c2fd5b44c8a985061a1a77a}{IMU\+\_\+\+NONE}}
+, \mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea9a3be9849df048a187900fa12cd1ea1f}{IMU\+\_\+\+LAST}}
+ \}
+\item 
+enum \mbox{\hyperlink{imu_8h_a193a68b30c7fc20e53143856a3851d68}{hcmd\+\_\+type}} \{ \newline
+\mbox{\hyperlink{imu_8h_a193a68b30c7fc20e53143856a3851d68a094200a3abdc9e02c6315ab408ed228e}{CMD\+\_\+\+UNLOCK}} = 0
+, \mbox{\hyperlink{imu_8h_a193a68b30c7fc20e53143856a3851d68a171a61e1f4e3aeffede191f404cf7aa5}{CMD\+\_\+\+LOCK}}
+, \mbox{\hyperlink{imu_8h_a193a68b30c7fc20e53143856a3851d68a4a50aeb212724c7aba03a4328bec09c9}{CMD\+\_\+\+SAFE}}
+, \mbox{\hyperlink{imu_8h_a193a68b30c7fc20e53143856a3851d68a71f775e4c979f2e6d7de3e9849e40c23}{CMD\+\_\+\+SPIN\+\_\+\+DOWN}}
+, \newline
+\mbox{\hyperlink{imu_8h_a193a68b30c7fc20e53143856a3851d68aabe48c8d5f2e2ea0d7fb34f01660a038}{CMD\+\_\+\+WARN\+\_\+\+ON}}
+, \mbox{\hyperlink{imu_8h_a193a68b30c7fc20e53143856a3851d68a7392357ca470db0e1e38fefcff56d837}{CMD\+\_\+\+WARN\+\_\+\+OFF}}
+, \mbox{\hyperlink{imu_8h_a193a68b30c7fc20e53143856a3851d68a43add34e0ccdb1ce00a21c0a0a28bf86}{CMD\+\_\+\+ACK}}
+, \mbox{\hyperlink{imu_8h_a193a68b30c7fc20e53143856a3851d68ad25e0784f94a2f2a0640b157f772c509}{CMD\+\_\+\+IDLE}}
+, \newline
+\mbox{\hyperlink{imu_8h_a193a68b30c7fc20e53143856a3851d68abfce04fb15238d7a5813659535ff2d81}{CMD\+\_\+\+ACTIVE}}
+, \mbox{\hyperlink{imu_8h_a193a68b30c7fc20e53143856a3851d68a574791bbfe67734c3fee594b7e5c7c50}{CMD\+\_\+\+LAST}}
+ \}
+\item 
+enum \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308cc}{accel\+\_\+g}} \{ \newline
+\mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca7bd8713c9fd46e3ba219b4d516112332}{range\+\_\+2g}} = 0
+, \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccaa51ea867a11c8d81499675c11bf987f2}{range\+\_\+4g}}
+, \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca73028b2ce23b42206cbc04d5d5ae4248}{range\+\_\+8g}}
+, \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccad7f0b71032bf3847743aa44db1c88eef}{range\+\_\+16g}}
+, \newline
+\mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccac176df3128d7227aeda031d1260d68aa}{range\+\_\+scale}}
+, \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccafdf3128454b5b7593e89bc6b225eccba}{range\+\_\+15g}}
+, \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca80d8d84062d8489e9ec5361058345fc9}{range\+\_\+3g}}
+, \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca52f7e2c4bcd5fafd18875f2e8c78ccb5}{range\+\_\+6g}}
+, \newline
+\mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccacf0d3108495b72f6cb21d4f5f401f4d5}{range\+\_\+15gl}}
+, \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccacd5cfafe71ce581b36c70d83cb36901c}{range\+\_\+12g}}
+, \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccac22ef99054fa7f5053bef38e71116236}{range\+\_\+24g}}
+, \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccab07641e9f620a11abdd8c8fbfadaa523}{range\+\_\+inc1}}
+, \newline
+\mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca0a500b4d000964e88bf38d321a98893e}{range\+\_\+inc2}}
+, \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccaf2e346bff1927a59e98ad4efa0c3d099}{range\+\_\+bno}}
+ \}
+\item 
+enum \mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0}{sca3300\+\_\+scan\+\_\+indexes}} \{ \newline
+\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a09aba5dfb003791824b96a8ff90c6c7c}{SCA3300\+\_\+\+ACC\+\_\+X}} = 0
+, \mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a7ad6b073e8dac09229cb97c715807b1b}{SCA3300\+\_\+\+ACC\+\_\+Y}}
+, \mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a7e5b67920fb2120226f081dc66a9abde}{SCA3300\+\_\+\+ACC\+\_\+Z}}
+, \mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a055dd00780191649f593245dafa9ee2a}{SCA3300\+\_\+\+TEMP}}
+, \newline
+\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a1078286d84eb35e41aef1cc6ae0f357f}{SCA3300\+\_\+\+TIMESTAMP}}
+, \mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0ac56cb30a49f7dc6d4337e785a2c2f8e2}{SCL3300\+\_\+\+ANG\+\_\+X}}
+, \mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a119a52f885dbfc7baa5e5e80a9d2add1}{SCL3300\+\_\+\+ANG\+\_\+Y}}
+, \mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0af083bf4a68434483a81948391ebd4c35}{SCL3300\+\_\+\+ANG\+\_\+Z}}
+, \newline
+\mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a538ffe0b669a7165dd2c8cbf786b63b9}{SCL3300\+\_\+\+LAST}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{imu_8h_a0131fa75677ca79873e3c59b01acba02}{get\+\_\+imu\+\_\+scale}} (\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{imu_8h_a987b92ee6198aa4b4f6380752533ff31}{get\+All\+Data}} (\mbox{\hyperlink{imu_8h_aca01ad5ca4539cd86c8aac1b490e8fa5}{s\+Sensor\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*})
+\item 
+const uint8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{imu_8h_aa6a887bec6218be4901aa3e3009b6997}{imu\+\_\+string}} (const \mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{imu_8h_aff284546c912fd68844750680b02b0e6}{imu\+\_\+buffer}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{imu_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{imu_8h_a88a6f72884862267027127fc0284c85b}\index{imu.h@{imu.h}!ANGLE\_RES1@{ANGLE\_RES1}}
+\index{ANGLE\_RES1@{ANGLE\_RES1}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{ANGLE\_RES1}{ANGLE\_RES1}}
+{\footnotesize\ttfamily \label{imu_8h_a88a6f72884862267027127fc0284c85b} 
+\#define ANGLE\+\_\+\+RES1~16384.\+0f}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00174}{174}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a0dc909a967deea456f958379763fc135}\index{imu.h@{imu.h}!ANGLE\_RES2@{ANGLE\_RES2}}
+\index{ANGLE\_RES2@{ANGLE\_RES2}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{ANGLE\_RES2}{ANGLE\_RES2}}
+{\footnotesize\ttfamily \label{imu_8h_a0dc909a967deea456f958379763fc135} 
+\#define ANGLE\+\_\+\+RES2~90.\+0f}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00175}{175}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a9530bd62cc2647d3a4ad2bf3a9cf4696}\index{imu.h@{imu.h}!BMA400\_ACCEL\_MG\_LSB\_2G@{BMA400\_ACCEL\_MG\_LSB\_2G}}
+\index{BMA400\_ACCEL\_MG\_LSB\_2G@{BMA400\_ACCEL\_MG\_LSB\_2G}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{BMA400\_ACCEL\_MG\_LSB\_2G}{BMA400\_ACCEL\_MG\_LSB\_2G}}
+{\footnotesize\ttfamily \label{imu_8h_a9530bd62cc2647d3a4ad2bf3a9cf4696} 
+\#define BMA400\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+2G~0.\+000980665f}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00157}{157}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a5a3c3203f4225004daa8c0b80b8fddb8}\index{imu.h@{imu.h}!BMA490\_ACCEL\_MG\_LSB\_16G@{BMA490\_ACCEL\_MG\_LSB\_16G}}
+\index{BMA490\_ACCEL\_MG\_LSB\_16G@{BMA490\_ACCEL\_MG\_LSB\_16G}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{BMA490\_ACCEL\_MG\_LSB\_16G}{BMA490\_ACCEL\_MG\_LSB\_16G}}
+{\footnotesize\ttfamily \label{imu_8h_a5a3c3203f4225004daa8c0b80b8fddb8} 
+\#define BMA490\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+16G~0.\+000488281f}
+
+
+
+Macro for mg per LSB at +/-\/ 16g sensitivity (1 LSB = 0.\+000488281mg) \texorpdfstring{$\ast$}{*}/. 
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00161}{161}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a0b442bd2f0026bd6c2f3f47e9e662c4f}\index{imu.h@{imu.h}!BMA490\_ACCEL\_MG\_LSB\_2G@{BMA490\_ACCEL\_MG\_LSB\_2G}}
+\index{BMA490\_ACCEL\_MG\_LSB\_2G@{BMA490\_ACCEL\_MG\_LSB\_2G}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{BMA490\_ACCEL\_MG\_LSB\_2G}{BMA490\_ACCEL\_MG\_LSB\_2G}}
+{\footnotesize\ttfamily \label{imu_8h_a0b442bd2f0026bd6c2f3f47e9e662c4f} 
+\#define BMA490\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+2G~0.\+000061035f}
+
+
+
+Macro for mg per LSB at +/-\/ 2g sensitivity (1 LSB = 0.\+000061035mg) \texorpdfstring{$\ast$}{*}/. 
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00158}{158}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_ac72d72b5f8bdf4ff5711544ad31f0611}\index{imu.h@{imu.h}!BMA490\_ACCEL\_MG\_LSB\_4G@{BMA490\_ACCEL\_MG\_LSB\_4G}}
+\index{BMA490\_ACCEL\_MG\_LSB\_4G@{BMA490\_ACCEL\_MG\_LSB\_4G}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{BMA490\_ACCEL\_MG\_LSB\_4G}{BMA490\_ACCEL\_MG\_LSB\_4G}}
+{\footnotesize\ttfamily \label{imu_8h_ac72d72b5f8bdf4ff5711544ad31f0611} 
+\#define BMA490\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+4G~0.\+000122070f}
+
+
+
+Macro for mg per LSB at +/-\/ 4g sensitivity (1 LSB = 0.\+000122070mg) \texorpdfstring{$\ast$}{*}/. 
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00159}{159}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a0c46acda4cd04227b4b76b6486be700c}\index{imu.h@{imu.h}!BMA490\_ACCEL\_MG\_LSB\_8G@{BMA490\_ACCEL\_MG\_LSB\_8G}}
+\index{BMA490\_ACCEL\_MG\_LSB\_8G@{BMA490\_ACCEL\_MG\_LSB\_8G}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{BMA490\_ACCEL\_MG\_LSB\_8G}{BMA490\_ACCEL\_MG\_LSB\_8G}}
+{\footnotesize\ttfamily \label{imu_8h_a0c46acda4cd04227b4b76b6486be700c} 
+\#define BMA490\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+8G~0.\+000244141f}
+
+
+
+Macro for mg per LSB at +/-\/ 8g sensitivity (1 LSB = 0.\+000244141mg) \texorpdfstring{$\ast$}{*}/. 
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00160}{160}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a6a18693366caed099bbd7c5300fa446b}\index{imu.h@{imu.h}!GRAVITY\_EARTH@{GRAVITY\_EARTH}}
+\index{GRAVITY\_EARTH@{GRAVITY\_EARTH}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{GRAVITY\_EARTH}{GRAVITY\_EARTH}}
+{\footnotesize\ttfamily \label{imu_8h_a6a18693366caed099bbd7c5300fa446b} 
+\#define GRAVITY\+\_\+\+EARTH~(9.\+80665f)}
+
+Earth\textquotesingle{}s gravity in m/s\texorpdfstring{$^\wedge$}{\string^}2 
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00153}{153}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4}\index{imu.h@{imu.h}!IMU\_ACCEL\_MG\_SCALE@{IMU\_ACCEL\_MG\_SCALE}}
+\index{IMU\_ACCEL\_MG\_SCALE@{IMU\_ACCEL\_MG\_SCALE}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_ACCEL\_MG\_SCALE}{IMU\_ACCEL\_MG\_SCALE}}
+{\footnotesize\ttfamily \label{imu_8h_a7714dd91c0c81bd9f2331865da7e60c4} 
+\#define IMU\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+SCALE~1.\+000000000f}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00162}{162}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a094fe77a9605b526434d6968a9de7546}\index{imu.h@{imu.h}!IMU\_ALIAS@{IMU\_ALIAS}}
+\index{IMU\_ALIAS@{IMU\_ALIAS}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_ALIAS}{IMU\_ALIAS}}
+{\footnotesize\ttfamily \label{imu_8h_a094fe77a9605b526434d6968a9de7546} 
+\#define IMU\+\_\+\+ALIAS~"{}IMU"{}}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00022}{22}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a8d5b265a6a1b2079c9657a3492a7da8f}\index{imu.h@{imu.h}!IMU\_BNO\_ACCEL\_MG\_SCALE@{IMU\_BNO\_ACCEL\_MG\_SCALE}}
+\index{IMU\_BNO\_ACCEL\_MG\_SCALE@{IMU\_BNO\_ACCEL\_MG\_SCALE}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_BNO\_ACCEL\_MG\_SCALE}{IMU\_BNO\_ACCEL\_MG\_SCALE}}
+{\footnotesize\ttfamily \label{imu_8h_a8d5b265a6a1b2079c9657a3492a7da8f} 
+\#define IMU\+\_\+\+BNO\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+SCALE~0.\+9840000000f}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00163}{163}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a69cdbf3d0cd231d6fd65f8d561377b90}\index{imu.h@{imu.h}!IMU\_BNO\_ACCEL\_MG\_SCALE\_0@{IMU\_BNO\_ACCEL\_MG\_SCALE\_0}}
+\index{IMU\_BNO\_ACCEL\_MG\_SCALE\_0@{IMU\_BNO\_ACCEL\_MG\_SCALE\_0}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_BNO\_ACCEL\_MG\_SCALE\_0}{IMU\_BNO\_ACCEL\_MG\_SCALE\_0}}
+{\footnotesize\ttfamily \label{imu_8h_a69cdbf3d0cd231d6fd65f8d561377b90} 
+\#define IMU\+\_\+\+BNO\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+SCALE\+\_\+0~0.\+9840000000f}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00164}{164}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_af098825216c1fbe90df50180d3c44e8a}\index{imu.h@{imu.h}!IMU\_BNO\_ACCEL\_MG\_SCALE\_1@{IMU\_BNO\_ACCEL\_MG\_SCALE\_1}}
+\index{IMU\_BNO\_ACCEL\_MG\_SCALE\_1@{IMU\_BNO\_ACCEL\_MG\_SCALE\_1}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_BNO\_ACCEL\_MG\_SCALE\_1}{IMU\_BNO\_ACCEL\_MG\_SCALE\_1}}
+{\footnotesize\ttfamily \label{imu_8h_af098825216c1fbe90df50180d3c44e8a} 
+\#define IMU\+\_\+\+BNO\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+SCALE\+\_\+1~0.\+9220000000f}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00165}{165}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_affb2811e116f9173f27bad456930b26d}\index{imu.h@{imu.h}!IMU\_BUF32@{IMU\_BUF32}}
+\index{IMU\_BUF32@{IMU\_BUF32}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_BUF32}{IMU\_BUF32}}
+{\footnotesize\ttfamily \label{imu_8h_affb2811e116f9173f27bad456930b26d} 
+\#define IMU\+\_\+\+BUF32~2}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00028}{28}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a0a57913c530cb631e3e1d0e7e24a30da}\index{imu.h@{imu.h}!IMU\_CS@{IMU\_CS}}
+\index{IMU\_CS@{IMU\_CS}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_CS}{IMU\_CS}}
+{\footnotesize\ttfamily \label{imu_8h_a0a57913c530cb631e3e1d0e7e24a30da} 
+\#define IMU\+\_\+\+CS~0}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00026}{26}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a26fa33748a39da64c1e634c9b1d4b6e6}\index{imu.h@{imu.h}!IMU\_DATA\_BUFFER\_INDEX@{IMU\_DATA\_BUFFER\_INDEX}}
+\index{IMU\_DATA\_BUFFER\_INDEX@{IMU\_DATA\_BUFFER\_INDEX}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_DATA\_BUFFER\_INDEX}{IMU\_DATA\_BUFFER\_INDEX}}
+{\footnotesize\ttfamily \label{imu_8h_a26fa33748a39da64c1e634c9b1d4b6e6} 
+\#define IMU\+\_\+\+DATA\+\_\+\+BUFFER\+\_\+\+INDEX~1}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00025}{25}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_ae63f67a6e8b63f236a1259dd50ff3a41}\index{imu.h@{imu.h}!IMU\_DATA\_RAW\_LEN@{IMU\_DATA\_RAW\_LEN}}
+\index{IMU\_DATA\_RAW\_LEN@{IMU\_DATA\_RAW\_LEN}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_DATA\_RAW\_LEN}{IMU\_DATA\_RAW\_LEN}}
+{\footnotesize\ttfamily \label{imu_8h_ae63f67a6e8b63f236a1259dd50ff3a41} 
+\#define IMU\+\_\+\+DATA\+\_\+\+RAW\+\_\+\+LEN~30}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00024}{24}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_ac7dbefa0ecdd99ff3a5dc8180496b844}\index{imu.h@{imu.h}!IMU\_DRIVER@{IMU\_DRIVER}}
+\index{IMU\_DRIVER@{IMU\_DRIVER}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_DRIVER}{IMU\_DRIVER}}
+{\footnotesize\ttfamily \label{imu_8h_ac7dbefa0ecdd99ff3a5dc8180496b844} 
+\#define IMU\+\_\+\+DRIVER~"{}V1.\+716"{}}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00021}{21}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a1de11b24f77a360798b3045daabfd2ec}\index{imu.h@{imu.h}!IMU\_ID\_DELAY@{IMU\_ID\_DELAY}}
+\index{IMU\_ID\_DELAY@{IMU\_ID\_DELAY}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_ID\_DELAY}{IMU\_ID\_DELAY}}
+{\footnotesize\ttfamily \label{imu_8h_a1de11b24f77a360798b3045daabfd2ec} 
+\#define IMU\+\_\+\+ID\+\_\+\+DELAY~400}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00023}{23}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a83bea6eab886f2565e81c18ebe3ede92}\index{imu.h@{imu.h}!SCA3300\_ACCEL\_MG\_LSB\_15G@{SCA3300\_ACCEL\_MG\_LSB\_15G}}
+\index{SCA3300\_ACCEL\_MG\_LSB\_15G@{SCA3300\_ACCEL\_MG\_LSB\_15G}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_ACCEL\_MG\_LSB\_15G}{SCA3300\_ACCEL\_MG\_LSB\_15G}}
+{\footnotesize\ttfamily \label{imu_8h_a83bea6eab886f2565e81c18ebe3ede92} 
+\#define SCA3300\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+15G~0.\+000207000f}
+
+
+
+Macro for mg per LSB at +/-\/ 1.\+5g sensitivity LSB/g 5400. 
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00166}{166}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a1f967b7aaff342434961377e8d95c424}\index{imu.h@{imu.h}!SCA3300\_ACCEL\_MG\_LSB\_3G@{SCA3300\_ACCEL\_MG\_LSB\_3G}}
+\index{SCA3300\_ACCEL\_MG\_LSB\_3G@{SCA3300\_ACCEL\_MG\_LSB\_3G}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_ACCEL\_MG\_LSB\_3G}{SCA3300\_ACCEL\_MG\_LSB\_3G}}
+{\footnotesize\ttfamily \label{imu_8h_a1f967b7aaff342434961377e8d95c424} 
+\#define SCA3300\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+3G~0.\+000395000f}
+
+
+
+Macro for mg per LSB at +/-\/ 3g sensitivity LSB/g 2700. 
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00167}{167}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a2afdd90f529cc2ad58903cd9330e456d}\index{imu.h@{imu.h}!SCA3300\_ACCEL\_MG\_LSB\_6G@{SCA3300\_ACCEL\_MG\_LSB\_6G}}
+\index{SCA3300\_ACCEL\_MG\_LSB\_6G@{SCA3300\_ACCEL\_MG\_LSB\_6G}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{SCA3300\_ACCEL\_MG\_LSB\_6G}{SCA3300\_ACCEL\_MG\_LSB\_6G}}
+{\footnotesize\ttfamily \label{imu_8h_a2afdd90f529cc2ad58903cd9330e456d} 
+\#define SCA3300\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+6G~0.\+000765000f}
+
+
+
+Macro for mg per LSB at +/-\/ 6g sensitivity LSB/g 1350. 
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00168}{168}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a918d810a95739a9f46ff39363a7261ea}\index{imu.h@{imu.h}!SCA\_LOG\_TIMEOUT@{SCA\_LOG\_TIMEOUT}}
+\index{SCA\_LOG\_TIMEOUT@{SCA\_LOG\_TIMEOUT}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{SCA\_LOG\_TIMEOUT}{SCA\_LOG\_TIMEOUT}}
+{\footnotesize\ttfamily \label{imu_8h_a918d810a95739a9f46ff39363a7261ea} 
+\#define SCA\+\_\+\+LOG\+\_\+\+TIMEOUT~10}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00027}{27}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a6c912e0a8f09a88bf366d8a3f82a30ed}\index{imu.h@{imu.h}!SCL3300\_ACCEL\_MG\_LSB\_12G@{SCL3300\_ACCEL\_MG\_LSB\_12G}}
+\index{SCL3300\_ACCEL\_MG\_LSB\_12G@{SCL3300\_ACCEL\_MG\_LSB\_12G}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{SCL3300\_ACCEL\_MG\_LSB\_12G}{SCL3300\_ACCEL\_MG\_LSB\_12G}}
+{\footnotesize\ttfamily \label{imu_8h_a6c912e0a8f09a88bf366d8a3f82a30ed} 
+\#define SCL3300\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+12G~0.\+000167400f}
+
+
+
+Macro for mg per LSB at +/-\/ 1.\+2g sensitivity LSB/g 6000. 
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00169}{169}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a6500fa36ef70cf163ca3e423398b914b}\index{imu.h@{imu.h}!SCL3300\_ACCEL\_MG\_LSB\_24G@{SCL3300\_ACCEL\_MG\_LSB\_24G}}
+\index{SCL3300\_ACCEL\_MG\_LSB\_24G@{SCL3300\_ACCEL\_MG\_LSB\_24G}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{SCL3300\_ACCEL\_MG\_LSB\_24G}{SCL3300\_ACCEL\_MG\_LSB\_24G}}
+{\footnotesize\ttfamily \label{imu_8h_a6500fa36ef70cf163ca3e423398b914b} 
+\#define SCL3300\+\_\+\+ACCEL\+\_\+\+MG\+\_\+\+LSB\+\_\+24G~0.\+000333800f}
+
+
+
+Macro for mg per LSB at +/-\/ 2.\+4g sensitivity LSB/g 3000. 
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00170}{170}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a67f9c93f458869e053d5fc840a8c8884}\index{imu.h@{imu.h}!SCL3300\_INC1@{SCL3300\_INC1}}
+\index{SCL3300\_INC1@{SCL3300\_INC1}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{SCL3300\_INC1}{SCL3300\_INC1}}
+{\footnotesize\ttfamily \label{imu_8h_a67f9c93f458869e053d5fc840a8c8884} 
+\#define SCL3300\+\_\+\+INC1~0.\+000083700f}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00171}{171}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_aa0513fbcbf1c3008de78484769f6bf00}\index{imu.h@{imu.h}!SCL3300\_INC2@{SCL3300\_INC2}}
+\index{SCL3300\_INC2@{SCL3300\_INC2}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{SCL3300\_INC2}{SCL3300\_INC2}}
+{\footnotesize\ttfamily \label{imu_8h_aa0513fbcbf1c3008de78484769f6bf00} 
+\#define SCL3300\+\_\+\+INC2~0.\+000083700f}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00172}{172}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_ac02a5a67e0612d6cb90e61cc23398701}\index{imu.h@{imu.h}!TEMPERATURE\_OFFSET@{TEMPERATURE\_OFFSET}}
+\index{TEMPERATURE\_OFFSET@{TEMPERATURE\_OFFSET}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{TEMPERATURE\_OFFSET}{TEMPERATURE\_OFFSET}}
+{\footnotesize\ttfamily \label{imu_8h_ac02a5a67e0612d6cb90e61cc23398701} 
+\#define TEMPERATURE\+\_\+\+OFFSET~-\/273.\+0f}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00177}{177}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_ac4faa00e162199fe2361581395e2d439}\index{imu.h@{imu.h}!TEMPERATURE\_RES@{TEMPERATURE\_RES}}
+\index{TEMPERATURE\_RES@{TEMPERATURE\_RES}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{TEMPERATURE\_RES}{TEMPERATURE\_RES}}
+{\footnotesize\ttfamily \label{imu_8h_ac4faa00e162199fe2361581395e2d439} 
+\#define TEMPERATURE\+\_\+\+RES~18.\+9f}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00176}{176}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{imu_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}\index{imu.h@{imu.h}!imu\_cmd\_t@{imu\_cmd\_t}}
+\index{imu\_cmd\_t@{imu\_cmd\_t}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{imu\_cmd\_t}{imu\_cmd\_t}}
+{\footnotesize\ttfamily \label{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c} 
+typedef struct \mbox{\hyperlink{struct__imu__cmd__t}{\+\_\+imu\+\_\+cmd\+\_\+t}} \mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}}}
+
+\Hypertarget{imu_8h_ad5052d00b16a35d660f0391b29130feb}\index{imu.h@{imu.h}!imu\_host\_t@{imu\_host\_t}}
+\index{imu\_host\_t@{imu\_host\_t}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{imu\_host\_t}{imu\_host\_t}}
+{\footnotesize\ttfamily \label{imu_8h_ad5052d00b16a35d660f0391b29130feb} 
+typedef struct \mbox{\hyperlink{struct__imu__host__t}{\+\_\+imu\+\_\+host\+\_\+t}} \mbox{\hyperlink{imu_8h_ad5052d00b16a35d660f0391b29130feb}{imu\+\_\+host\+\_\+t}}}
+
+\Hypertarget{imu_8h_a0cea943302f8cd908b5b6e8210a1e6ed}\index{imu.h@{imu.h}!op\_t@{op\_t}}
+\index{op\_t@{op\_t}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{op\_t}{op\_t}}
+{\footnotesize\ttfamily \label{imu_8h_a0cea943302f8cd908b5b6e8210a1e6ed} 
+typedef const struct \mbox{\hyperlink{struct__op__t}{\+\_\+op\+\_\+t}} \mbox{\hyperlink{imu_8h_a0cea943302f8cd908b5b6e8210a1e6ed}{op\+\_\+t}}}
+
+\Hypertarget{imu_8h_a609ca226148d7034304f424eaa1c8b2d}\index{imu.h@{imu.h}!sFFTData\_t@{sFFTData\_t}}
+\index{sFFTData\_t@{sFFTData\_t}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{sFFTData\_t}{sFFTData\_t}}
+{\footnotesize\ttfamily \label{imu_8h_a609ca226148d7034304f424eaa1c8b2d} 
+typedef struct s\+FFTData\+\_\+t s\+FFTData\+\_\+t}
+
+\Hypertarget{imu_8h_aca01ad5ca4539cd86c8aac1b490e8fa5}\index{imu.h@{imu.h}!sSensorData\_t@{sSensorData\_t}}
+\index{sSensorData\_t@{sSensorData\_t}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{sSensorData\_t}{sSensorData\_t}}
+{\footnotesize\ttfamily \label{imu_8h_aca01ad5ca4539cd86c8aac1b490e8fa5} 
+typedef struct \mbox{\hyperlink{struct__sSensorData__t}{\+\_\+s\+Sensor\+Data\+\_\+t}} \mbox{\hyperlink{imu_8h_aca01ad5ca4539cd86c8aac1b490e8fa5}{s\+Sensor\+Data\+\_\+t}}}
+
+
+
+\label{doc-enum-members}
+\Hypertarget{imu_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{imu_8h_a179ec1b76ad7a621d2518fa8c43308cc}\index{imu.h@{imu.h}!accel\_g@{accel\_g}}
+\index{accel\_g@{accel\_g}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{accel\_g}{accel\_g}}
+{\footnotesize\ttfamily \label{imu_8h_a179ec1b76ad7a621d2518fa8c43308cc} 
+enum \mbox{\hyperlink{imu_8h_a179ec1b76ad7a621d2518fa8c43308cc}{accel\+\_\+g}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{range\_2g@{range\_2g}!imu.h@{imu.h}}\index{imu.h@{imu.h}!range\_2g@{range\_2g}}}\Hypertarget{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca7bd8713c9fd46e3ba219b4d516112332}\label{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca7bd8713c9fd46e3ba219b4d516112332} 
+range\+\_\+2g&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{range\_4g@{range\_4g}!imu.h@{imu.h}}\index{imu.h@{imu.h}!range\_4g@{range\_4g}}}\Hypertarget{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccaa51ea867a11c8d81499675c11bf987f2}\label{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccaa51ea867a11c8d81499675c11bf987f2} 
+range\+\_\+4g&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{range\_8g@{range\_8g}!imu.h@{imu.h}}\index{imu.h@{imu.h}!range\_8g@{range\_8g}}}\Hypertarget{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca73028b2ce23b42206cbc04d5d5ae4248}\label{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca73028b2ce23b42206cbc04d5d5ae4248} 
+range\+\_\+8g&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{range\_16g@{range\_16g}!imu.h@{imu.h}}\index{imu.h@{imu.h}!range\_16g@{range\_16g}}}\Hypertarget{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccad7f0b71032bf3847743aa44db1c88eef}\label{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccad7f0b71032bf3847743aa44db1c88eef} 
+range\+\_\+16g&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{range\_scale@{range\_scale}!imu.h@{imu.h}}\index{imu.h@{imu.h}!range\_scale@{range\_scale}}}\Hypertarget{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccac176df3128d7227aeda031d1260d68aa}\label{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccac176df3128d7227aeda031d1260d68aa} 
+range\+\_\+scale&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{range\_15g@{range\_15g}!imu.h@{imu.h}}\index{imu.h@{imu.h}!range\_15g@{range\_15g}}}\Hypertarget{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccafdf3128454b5b7593e89bc6b225eccba}\label{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccafdf3128454b5b7593e89bc6b225eccba} 
+range\+\_\+15g&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{range\_3g@{range\_3g}!imu.h@{imu.h}}\index{imu.h@{imu.h}!range\_3g@{range\_3g}}}\Hypertarget{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca80d8d84062d8489e9ec5361058345fc9}\label{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca80d8d84062d8489e9ec5361058345fc9} 
+range\+\_\+3g&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{range\_6g@{range\_6g}!imu.h@{imu.h}}\index{imu.h@{imu.h}!range\_6g@{range\_6g}}}\Hypertarget{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca52f7e2c4bcd5fafd18875f2e8c78ccb5}\label{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca52f7e2c4bcd5fafd18875f2e8c78ccb5} 
+range\+\_\+6g&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{range\_15gl@{range\_15gl}!imu.h@{imu.h}}\index{imu.h@{imu.h}!range\_15gl@{range\_15gl}}}\Hypertarget{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccacf0d3108495b72f6cb21d4f5f401f4d5}\label{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccacf0d3108495b72f6cb21d4f5f401f4d5} 
+range\+\_\+15gl&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{range\_12g@{range\_12g}!imu.h@{imu.h}}\index{imu.h@{imu.h}!range\_12g@{range\_12g}}}\Hypertarget{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccacd5cfafe71ce581b36c70d83cb36901c}\label{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccacd5cfafe71ce581b36c70d83cb36901c} 
+range\+\_\+12g&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{range\_24g@{range\_24g}!imu.h@{imu.h}}\index{imu.h@{imu.h}!range\_24g@{range\_24g}}}\Hypertarget{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccac22ef99054fa7f5053bef38e71116236}\label{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccac22ef99054fa7f5053bef38e71116236} 
+range\+\_\+24g&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{range\_inc1@{range\_inc1}!imu.h@{imu.h}}\index{imu.h@{imu.h}!range\_inc1@{range\_inc1}}}\Hypertarget{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccab07641e9f620a11abdd8c8fbfadaa523}\label{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccab07641e9f620a11abdd8c8fbfadaa523} 
+range\+\_\+inc1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{range\_inc2@{range\_inc2}!imu.h@{imu.h}}\index{imu.h@{imu.h}!range\_inc2@{range\_inc2}}}\Hypertarget{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca0a500b4d000964e88bf38d321a98893e}\label{imu_8h_a179ec1b76ad7a621d2518fa8c43308cca0a500b4d000964e88bf38d321a98893e} 
+range\+\_\+inc2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{range\_bno@{range\_bno}!imu.h@{imu.h}}\index{imu.h@{imu.h}!range\_bno@{range\_bno}}}\Hypertarget{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccaf2e346bff1927a59e98ad4efa0c3d099}\label{imu_8h_a179ec1b76ad7a621d2518fa8c43308ccaf2e346bff1927a59e98ad4efa0c3d099} 
+range\+\_\+bno&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00111}{111}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49e}\index{imu.h@{imu.h}!device\_type@{device\_type}}
+\index{device\_type@{device\_type}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{device\_type}{device\_type}}
+{\footnotesize\ttfamily \label{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49e} 
+enum \mbox{\hyperlink{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49e}{device\+\_\+type}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IMU\_BMA490L@{IMU\_BMA490L}!imu.h@{imu.h}}\index{imu.h@{imu.h}!IMU\_BMA490L@{IMU\_BMA490L}}}\Hypertarget{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea8856144dbc37b9d1c37c018e8243ab7b}\label{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea8856144dbc37b9d1c37c018e8243ab7b} 
+IMU\+\_\+\+BMA490L&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IMU\_SCA3300@{IMU\_SCA3300}!imu.h@{imu.h}}\index{imu.h@{imu.h}!IMU\_SCA3300@{IMU\_SCA3300}}}\Hypertarget{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea16aef4f73511e64b227ad9c21da175a8}\label{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea16aef4f73511e64b227ad9c21da175a8} 
+IMU\+\_\+\+SCA3300&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IMU\_SCL3300@{IMU\_SCL3300}!imu.h@{imu.h}}\index{imu.h@{imu.h}!IMU\_SCL3300@{IMU\_SCL3300}}}\Hypertarget{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea32f41e943d217e6bdb9dc7dbc380d11d}\label{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea32f41e943d217e6bdb9dc7dbc380d11d} 
+IMU\+\_\+\+SCL3300&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IMU\_BMA400@{IMU\_BMA400}!imu.h@{imu.h}}\index{imu.h@{imu.h}!IMU\_BMA400@{IMU\_BMA400}}}\Hypertarget{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea8c93ff8b3f9af92a8ad70c787ba26636}\label{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea8c93ff8b3f9af92a8ad70c787ba26636} 
+IMU\+\_\+\+BMA400&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IMU\_BNO086@{IMU\_BNO086}!imu.h@{imu.h}}\index{imu.h@{imu.h}!IMU\_BNO086@{IMU\_BNO086}}}\Hypertarget{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea369dce5ab4ab6453141327d0821dee35}\label{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea369dce5ab4ab6453141327d0821dee35} 
+IMU\+\_\+\+BNO086&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IMU\_NONE@{IMU\_NONE}!imu.h@{imu.h}}\index{imu.h@{imu.h}!IMU\_NONE@{IMU\_NONE}}}\Hypertarget{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49eac9ad05a91c2fd5b44c8a985061a1a77a}\label{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49eac9ad05a91c2fd5b44c8a985061a1a77a} 
+IMU\+\_\+\+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IMU\_LAST@{IMU\_LAST}!imu.h@{imu.h}}\index{imu.h@{imu.h}!IMU\_LAST@{IMU\_LAST}}}\Hypertarget{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea9a3be9849df048a187900fa12cd1ea1f}\label{imu_8h_af2b559cc2ee2eaee47fe1f15cc99f49ea9a3be9849df048a187900fa12cd1ea1f} 
+IMU\+\_\+\+LAST&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00057}{57}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_a193a68b30c7fc20e53143856a3851d68}\index{imu.h@{imu.h}!hcmd\_type@{hcmd\_type}}
+\index{hcmd\_type@{hcmd\_type}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{hcmd\_type}{hcmd\_type}}
+{\footnotesize\ttfamily \label{imu_8h_a193a68b30c7fc20e53143856a3851d68} 
+enum \mbox{\hyperlink{imu_8h_a193a68b30c7fc20e53143856a3851d68}{hcmd\+\_\+type}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_UNLOCK@{CMD\_UNLOCK}!imu.h@{imu.h}}\index{imu.h@{imu.h}!CMD\_UNLOCK@{CMD\_UNLOCK}}}\Hypertarget{imu_8h_a193a68b30c7fc20e53143856a3851d68a094200a3abdc9e02c6315ab408ed228e}\label{imu_8h_a193a68b30c7fc20e53143856a3851d68a094200a3abdc9e02c6315ab408ed228e} 
+CMD\+\_\+\+UNLOCK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_LOCK@{CMD\_LOCK}!imu.h@{imu.h}}\index{imu.h@{imu.h}!CMD\_LOCK@{CMD\_LOCK}}}\Hypertarget{imu_8h_a193a68b30c7fc20e53143856a3851d68a171a61e1f4e3aeffede191f404cf7aa5}\label{imu_8h_a193a68b30c7fc20e53143856a3851d68a171a61e1f4e3aeffede191f404cf7aa5} 
+CMD\+\_\+\+LOCK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_SAFE@{CMD\_SAFE}!imu.h@{imu.h}}\index{imu.h@{imu.h}!CMD\_SAFE@{CMD\_SAFE}}}\Hypertarget{imu_8h_a193a68b30c7fc20e53143856a3851d68a4a50aeb212724c7aba03a4328bec09c9}\label{imu_8h_a193a68b30c7fc20e53143856a3851d68a4a50aeb212724c7aba03a4328bec09c9} 
+CMD\+\_\+\+SAFE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_SPIN\_DOWN@{CMD\_SPIN\_DOWN}!imu.h@{imu.h}}\index{imu.h@{imu.h}!CMD\_SPIN\_DOWN@{CMD\_SPIN\_DOWN}}}\Hypertarget{imu_8h_a193a68b30c7fc20e53143856a3851d68a71f775e4c979f2e6d7de3e9849e40c23}\label{imu_8h_a193a68b30c7fc20e53143856a3851d68a71f775e4c979f2e6d7de3e9849e40c23} 
+CMD\+\_\+\+SPIN\+\_\+\+DOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_WARN\_ON@{CMD\_WARN\_ON}!imu.h@{imu.h}}\index{imu.h@{imu.h}!CMD\_WARN\_ON@{CMD\_WARN\_ON}}}\Hypertarget{imu_8h_a193a68b30c7fc20e53143856a3851d68aabe48c8d5f2e2ea0d7fb34f01660a038}\label{imu_8h_a193a68b30c7fc20e53143856a3851d68aabe48c8d5f2e2ea0d7fb34f01660a038} 
+CMD\+\_\+\+WARN\+\_\+\+ON&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_WARN\_OFF@{CMD\_WARN\_OFF}!imu.h@{imu.h}}\index{imu.h@{imu.h}!CMD\_WARN\_OFF@{CMD\_WARN\_OFF}}}\Hypertarget{imu_8h_a193a68b30c7fc20e53143856a3851d68a7392357ca470db0e1e38fefcff56d837}\label{imu_8h_a193a68b30c7fc20e53143856a3851d68a7392357ca470db0e1e38fefcff56d837} 
+CMD\+\_\+\+WARN\+\_\+\+OFF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_ACK@{CMD\_ACK}!imu.h@{imu.h}}\index{imu.h@{imu.h}!CMD\_ACK@{CMD\_ACK}}}\Hypertarget{imu_8h_a193a68b30c7fc20e53143856a3851d68a43add34e0ccdb1ce00a21c0a0a28bf86}\label{imu_8h_a193a68b30c7fc20e53143856a3851d68a43add34e0ccdb1ce00a21c0a0a28bf86} 
+CMD\+\_\+\+ACK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_IDLE@{CMD\_IDLE}!imu.h@{imu.h}}\index{imu.h@{imu.h}!CMD\_IDLE@{CMD\_IDLE}}}\Hypertarget{imu_8h_a193a68b30c7fc20e53143856a3851d68ad25e0784f94a2f2a0640b157f772c509}\label{imu_8h_a193a68b30c7fc20e53143856a3851d68ad25e0784f94a2f2a0640b157f772c509} 
+CMD\+\_\+\+IDLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_ACTIVE@{CMD\_ACTIVE}!imu.h@{imu.h}}\index{imu.h@{imu.h}!CMD\_ACTIVE@{CMD\_ACTIVE}}}\Hypertarget{imu_8h_a193a68b30c7fc20e53143856a3851d68abfce04fb15238d7a5813659535ff2d81}\label{imu_8h_a193a68b30c7fc20e53143856a3851d68abfce04fb15238d7a5813659535ff2d81} 
+CMD\+\_\+\+ACTIVE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_LAST@{CMD\_LAST}!imu.h@{imu.h}}\index{imu.h@{imu.h}!CMD\_LAST@{CMD\_LAST}}}\Hypertarget{imu_8h_a193a68b30c7fc20e53143856a3851d68a574791bbfe67734c3fee594b7e5c7c50}\label{imu_8h_a193a68b30c7fc20e53143856a3851d68a574791bbfe67734c3fee594b7e5c7c50} 
+CMD\+\_\+\+LAST&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00086}{86}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+\Hypertarget{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0}\index{imu.h@{imu.h}!sca3300\_scan\_indexes@{sca3300\_scan\_indexes}}
+\index{sca3300\_scan\_indexes@{sca3300\_scan\_indexes}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{sca3300\_scan\_indexes}{sca3300\_scan\_indexes}}
+{\footnotesize\ttfamily \label{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0} 
+enum \mbox{\hyperlink{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0}{sca3300\+\_\+scan\+\_\+indexes}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCA3300\_ACC\_X@{SCA3300\_ACC\_X}!imu.h@{imu.h}}\index{imu.h@{imu.h}!SCA3300\_ACC\_X@{SCA3300\_ACC\_X}}}\Hypertarget{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a09aba5dfb003791824b96a8ff90c6c7c}\label{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a09aba5dfb003791824b96a8ff90c6c7c} 
+SCA3300\+\_\+\+ACC\+\_\+X&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCA3300\_ACC\_Y@{SCA3300\_ACC\_Y}!imu.h@{imu.h}}\index{imu.h@{imu.h}!SCA3300\_ACC\_Y@{SCA3300\_ACC\_Y}}}\Hypertarget{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a7ad6b073e8dac09229cb97c715807b1b}\label{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a7ad6b073e8dac09229cb97c715807b1b} 
+SCA3300\+\_\+\+ACC\+\_\+Y&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCA3300\_ACC\_Z@{SCA3300\_ACC\_Z}!imu.h@{imu.h}}\index{imu.h@{imu.h}!SCA3300\_ACC\_Z@{SCA3300\_ACC\_Z}}}\Hypertarget{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a7e5b67920fb2120226f081dc66a9abde}\label{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a7e5b67920fb2120226f081dc66a9abde} 
+SCA3300\+\_\+\+ACC\+\_\+Z&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCA3300\_TEMP@{SCA3300\_TEMP}!imu.h@{imu.h}}\index{imu.h@{imu.h}!SCA3300\_TEMP@{SCA3300\_TEMP}}}\Hypertarget{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a055dd00780191649f593245dafa9ee2a}\label{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a055dd00780191649f593245dafa9ee2a} 
+SCA3300\+\_\+\+TEMP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCA3300\_TIMESTAMP@{SCA3300\_TIMESTAMP}!imu.h@{imu.h}}\index{imu.h@{imu.h}!SCA3300\_TIMESTAMP@{SCA3300\_TIMESTAMP}}}\Hypertarget{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a1078286d84eb35e41aef1cc6ae0f357f}\label{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a1078286d84eb35e41aef1cc6ae0f357f} 
+SCA3300\+\_\+\+TIMESTAMP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCL3300\_ANG\_X@{SCL3300\_ANG\_X}!imu.h@{imu.h}}\index{imu.h@{imu.h}!SCL3300\_ANG\_X@{SCL3300\_ANG\_X}}}\Hypertarget{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0ac56cb30a49f7dc6d4337e785a2c2f8e2}\label{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0ac56cb30a49f7dc6d4337e785a2c2f8e2} 
+SCL3300\+\_\+\+ANG\+\_\+X&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCL3300\_ANG\_Y@{SCL3300\_ANG\_Y}!imu.h@{imu.h}}\index{imu.h@{imu.h}!SCL3300\_ANG\_Y@{SCL3300\_ANG\_Y}}}\Hypertarget{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a119a52f885dbfc7baa5e5e80a9d2add1}\label{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a119a52f885dbfc7baa5e5e80a9d2add1} 
+SCL3300\+\_\+\+ANG\+\_\+Y&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCL3300\_ANG\_Z@{SCL3300\_ANG\_Z}!imu.h@{imu.h}}\index{imu.h@{imu.h}!SCL3300\_ANG\_Z@{SCL3300\_ANG\_Z}}}\Hypertarget{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0af083bf4a68434483a81948391ebd4c35}\label{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0af083bf4a68434483a81948391ebd4c35} 
+SCL3300\+\_\+\+ANG\+\_\+Z&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SCL3300\_LAST@{SCL3300\_LAST}!imu.h@{imu.h}}\index{imu.h@{imu.h}!SCL3300\_LAST@{SCL3300\_LAST}}}\Hypertarget{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a538ffe0b669a7165dd2c8cbf786b63b9}\label{imu_8h_ac1923978d59aaa20bc92a3e6eab21df0a538ffe0b669a7165dd2c8cbf786b63b9} 
+SCL3300\+\_\+\+LAST&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{imu_8h_source_l00128}{128}} of file \mbox{\hyperlink{imu_8h_source}{imu.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{imu_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{imu_8h_a0131fa75677ca79873e3c59b01acba02}\index{imu.h@{imu.h}!get\_imu\_scale@{get\_imu\_scale}}
+\index{get\_imu\_scale@{get\_imu\_scale}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{get\_imu\_scale()}{get\_imu\_scale()}}
+{\footnotesize\ttfamily \label{imu_8h_a0131fa75677ca79873e3c59b01acba02} 
+double get\+\_\+imu\+\_\+scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{imu}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8c_source_l00032}{32}} of file \mbox{\hyperlink{imu_8c_source}{imu.\+c}}.
+
+\Hypertarget{imu_8h_a987b92ee6198aa4b4f6380752533ff31}\index{imu.h@{imu.h}!getAllData@{getAllData}}
+\index{getAllData@{getAllData}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{getAllData()}{getAllData()}}
+{\footnotesize\ttfamily \label{imu_8h_a987b92ee6198aa4b4f6380752533ff31} 
+void get\+All\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imu_8h_aca01ad5ca4539cd86c8aac1b490e8fa5}{s\+Sensor\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{accel}{, }\item[{\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{imu}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8c_source_l00092}{92}} of file \mbox{\hyperlink{imu_8c_source}{imu.\+c}}.
+
+\Hypertarget{imu_8h_aa6a887bec6218be4901aa3e3009b6997}\index{imu.h@{imu.h}!imu\_string@{imu\_string}}
+\index{imu\_string@{imu\_string}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{imu\_string()}{imu\_string()}}
+{\footnotesize\ttfamily \label{imu_8h_aa6a887bec6218be4901aa3e3009b6997} 
+const uint8\+\_\+t \texorpdfstring{$\ast$}{*} imu\+\_\+string (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{imu}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8c_source_l00123}{123}} of file \mbox{\hyperlink{imu_8c_source}{imu.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{imu_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{imu_8h_aff284546c912fd68844750680b02b0e6}\index{imu.h@{imu.h}!imu\_buffer@{imu\_buffer}}
+\index{imu\_buffer@{imu\_buffer}!imu.h@{imu.h}}
+\doxysubsubsection{\texorpdfstring{imu\_buffer}{imu\_buffer}}
+{\footnotesize\ttfamily \label{imu_8h_aff284546c912fd68844750680b02b0e6} 
+char imu\+\_\+buffer\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8c_source_l00029}{29}} of file \mbox{\hyperlink{imu_8c_source}{imu.\+c}}.
+

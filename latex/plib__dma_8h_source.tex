@@ -1,0 +1,191 @@
+\doxysection{plib\+\_\+dma.\+h}
+\hypertarget{plib__dma_8h_source}{}\label{plib__dma_8h_source}\index{src/config/default/peripheral/dma/plib\_dma.h@{src/config/default/peripheral/dma/plib\_dma.h}}
+\mbox{\hyperlink{plib__dma_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00002}00002\ \textcolor{comment}{\ \ DMA\ Peripheral\ Library\ Interface\ Header\ File}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00006}00006\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_dma.h}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ DMA\ peripheral\ library\ interface.}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ defines\ the\ interface\ to\ the\ DMA\ peripheral\ library.\ This}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ library\ provides\ access\ to\ and\ control\ of\ the\ DMA\ controller.}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00016}00016\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00017}00017\ \textcolor{comment}{\ \ Remarks:}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00018}00018\ \textcolor{comment}{\ \ \ \ None.}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00019}00019\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00020}00020\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00022}00022\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00023}00023\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00024}00024\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00025}00025\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00026}00026\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00027}00027\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00028}00028\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00029}00029\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00030}00030\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00031}00031\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00032}00032\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00033}00033\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00034}00034\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00035}00035\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00036}00036\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00037}00037\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00038}00038\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00039}00039\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00040}00040\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00041}00041\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00042}00042\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00043}00043\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00044}00044\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00045}00045\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00047}00047\ \textcolor{preprocessor}{\#ifndef\ PLIB\_DMA\_H\ \ \ \ }\textcolor{comment}{//\ Guards\ against\ multiple\ inclusion}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00048}00048\ \textcolor{preprocessor}{\#define\ PLIB\_DMA\_H}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00050}00050\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00051}00051\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00052}00052\ \textcolor{comment}{//\ Section:\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00053}00053\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00054}00054\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00056}00056\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{device_8h}{device.h}}>}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00057}00057\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00058}00058\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00060}00060\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00061}00061\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00063}00063\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00065}00065\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00066}00066\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00069}00069\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00070}00070\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00071}00071\ \textcolor{comment}{//\ Section:\ type\ definitions}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00072}00072\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00073}00073\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00075}00075\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00076}00076\ \textcolor{comment}{\ @enum\ \ \ \ \ \ \ \ \ DMA\_TRANSFER\_EVENT}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00077}00077\ \textcolor{comment}{\ @brief\ \ \ \ \ \ \ \ Identifies\ the\ status\ of\ the\ transfer\ event.}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00078}00078\ \textcolor{comment}{\ @details\ \ \ \ \ \ Used\ to\ report\ back,\ via\ registered\ callback,\ the\ status\ of\ a\ transaction.}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00079}00079\ \textcolor{comment}{\ @remarks\ \ \ \ \ \ None}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00080}00080\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00081}\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{00081}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00082}00082\ \{}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00083}00083\ \ \ \ \ \textcolor{comment}{/*\ No\ events\ yet.\ */}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00084}\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7a218399970d5d2dd06a83c974efff55}{00084}}\ \ \ \ \ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7a218399970d5d2dd06a83c974efff55}{DMA\_TRANSFER\_EVENT\_NONE}}\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00086}00086\ \ \ \ \ \textcolor{comment}{/*\ Data\ was\ transferred\ successfully.\ */}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00087}\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7dc5a006aeed94643a591f8fb093f446}{00087}}\ \ \ \ \ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7dc5a006aeed94643a591f8fb093f446}{DMA\_TRANSFER\_EVENT\_COMPLETE}}\ =\ 1,}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00089}00089\ \ \ \ \ \textcolor{comment}{/*\ Half\ Data\ is\ transferred\ */}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00090}\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa906bc18398e3dcc1893265a088638bca}{00090}}\ \ \ \ \ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa906bc18398e3dcc1893265a088638bca}{DMA\_TRANSFER\_EVENT\_HALF\_COMPLETE}}\ =\ 2,}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00092}00092\ \ \ \ \ \textcolor{comment}{/*\ Overrun\ error:\ The\ DMA\ channel\ cannot\ keep\ up\ with\ data\ rate\ requirements.\ */}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00093}\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa99c363861124843589b3271b54a54e85}{00093}}\ \ \ \ \ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa99c363861124843589b3271b54a54e85}{DMA\_OVERRUN\_ERROR}}\ =\ 3,}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00095}00095\ \ \ \ \ \textcolor{comment}{/*\ Pattern\ match\ detected\ */}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00096}\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaafe7698d91d97c347b0d26162b21d1486}{00096}}\ \ \ \ \ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaafe7698d91d97c347b0d26162b21d1486}{DMA\_PATTERN\_MATCH}}\ =\ 4}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00098}00098\ \}\ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\_TRANSFER\_EVENT}};}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00101}\mbox{\hyperlink{plib__dma_8h_ae4864a6166f77736d3a0dc75d3a0ce07}{00101}}\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{plib__dma_8h_ae4864a6166f77736d3a0dc75d3a0ce07}{DMA\_CHANNEL\_CALLBACK}})\ (\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\_TRANSFER\_EVENT}}\ status,\ uintptr\_t\ contextHandle);}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00104}00104\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00105}00105\ \textcolor{comment}{\ @struct\ \ \ \ \ \ \ DMA\_CHANNEL\_OBJECT}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00106}00106\ \textcolor{comment}{\ @brief\ \ \ \ \ \ \ \ Fundamental\ data\ object\ for\ a\ DMA\ channel.}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00107}00107\ \textcolor{comment}{\ @details\ \ \ \ \ \ Used\ by\ DMA\ logic\ to\ register/use\ a\ DMA\ callback,\ report\ back\ error\ information}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00108}00108\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ from\ the\ ISR\ handling\ a\ transfer\ event.}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00109}00109\ \textcolor{comment}{\ @remarks\ \ \ \ \ \ None}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00110}00110\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00111}\mbox{\hyperlink{structDMA__CHANNEL__OBJECT}{00111}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00112}00112\ \{}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00113}\mbox{\hyperlink{structDMA__CHANNEL__OBJECT_a0937b653999b14c16d75fc408f4dce05}{00113}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structDMA__CHANNEL__OBJECT_a0937b653999b14c16d75fc408f4dce05}{inUse}};}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00115}00115\ \ \ \ \ \textcolor{comment}{/*\ Call\ back\ function\ for\ this\ DMA\ channel\ */}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00116}\mbox{\hyperlink{structDMA__CHANNEL__OBJECT_af9fd298a2d03cf387a9dc468a75bcc05}{00116}}\ \ \ \ \ \mbox{\hyperlink{plib__dma_8h_ae4864a6166f77736d3a0dc75d3a0ce07}{DMA\_CHANNEL\_CALLBACK}}\ \ \mbox{\hyperlink{structDMA__CHANNEL__OBJECT_af9fd298a2d03cf387a9dc468a75bcc05}{callback}};}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00118}00118\ \ \ \ \ \textcolor{comment}{/*\ data\ or\ Event\ Context\ that\ will\ be\ returned\ at\ callback\ */}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00119}\mbox{\hyperlink{structDMA__CHANNEL__OBJECT_afb301b46bf1bb94237366e0db5c62810}{00119}}\ \ \ \ \ uintptr\_t\ \mbox{\hyperlink{structDMA__CHANNEL__OBJECT_afb301b46bf1bb94237366e0db5c62810}{context}};}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00121}00121\ \}\ \mbox{\hyperlink{structDMA__CHANNEL__OBJECT}{DMA\_CHANNEL\_OBJECT}};}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00124}00124\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00125}00125\ \textcolor{comment}{\ @brief\ \ \ \ \ \ \ \ Fundamental\ data\ object\ that\ represents\ DMA\ channel\ number.}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00126}00126\ \textcolor{comment}{\ @details\ \ \ \ \ \ None}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00127}00127\ \textcolor{comment}{\ @remarks\ \ \ \ \ \ None}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00128}00128\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00129}\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{00129}}\ \textcolor{preprocessor}{\#define\ \ \ \ DMA\_CHANNEL\_0\ \ \ \ \ \ \ \ \ \ \ \ \ (0x0U)}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00130}\mbox{\hyperlink{plib__dma_8h_a283364370e9876af6406b9fa70e2944f}{00130}}\ \textcolor{preprocessor}{\#define\ \ \ \ DMA\_CHANNEL\_1\ \ \ \ \ \ \ \ \ \ \ \ \ (0x1U)}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00131}\mbox{\hyperlink{plib__dma_8h_a51b51f5b39e23b28ad99520ad5be596f}{00131}}\ \textcolor{preprocessor}{\#define\ \ \ \ DMA\_CHANNEL\_4\ \ \ \ \ \ \ \ \ \ \ \ \ (0x4U)}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00132}\mbox{\hyperlink{plib__dma_8h_afbaa82f3cff89858e50363c04ed0cca0}{00132}}\ \textcolor{preprocessor}{\#define\ \ \ \ DMA\_CHANNEL\_5\ \ \ \ \ \ \ \ \ \ \ \ \ (0x5U)}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00134}\mbox{\hyperlink{plib__dma_8h_ad2fb834bcaba6a4f0b3a4bd7e13abf3f}{00134}}\ \textcolor{preprocessor}{\#define\ \ \ \ DMA\_NUMBER\_OF\_CHANNELS\ \ \ \ (0x6U)}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00136}\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{00136}}\ \textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}};}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00138}\mbox{\hyperlink{plib__dma_8h_a81f51f2bf80f7431b5808fb2de932a4c}{00138}}\ \textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__dma_8h_a81f51f2bf80f7431b5808fb2de932a4c}{DMA\_CHANNEL\_CONFIG}};}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00140}00140\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00141}00141\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00142}00142\ \textcolor{comment}{//\ Section:\ DMA\ API's}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00143}00143\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00144}00144\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00145}00145\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00166}00166\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8h_a3950883876bea54b441aaf14ff17d47e}{DMA\_Initialize}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00186}00186\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8h_a8fee79f4a211106481e6b1d021c6dab9}{DMA\_Deinitialize}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00246}00246\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__dma_8h_a7ca594a7f34b0fa562f1e8fcce2b0279}{DMA\_ChannelTransfer}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *srcAddr,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *destAddr,\ uint32\_t\ blockSize);}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00271}00271\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8h_ab817fbfc1e326643d2be11e19e9d3ecf}{DMA\_ChannelPatternMatchSetup}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel,\ uint32\_t\ patternMatchMask,\ uint32\_t\ patternMatchData);}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00287}00287\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8h_a594085216d6e1b258cf28e5aeddf5720}{DMA\_ChannelEnable}}\ (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00288}00288\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00306}00306\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8h_abba26334d232e9aff34af1b259bb90e5}{DMA\_ChannelDisable}}\ (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00320}00320\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8h_ad318df9071a043bf1bdcdb9db45fb236}{DMA\_ChannelPatternMatchEnable}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00334}00334\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8h_aee360bd6301f75d99e0245d9694951ce}{DMA\_ChannelPatternMatchDisable}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00335}00335\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00349}00349\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__dma_8h_af4a0fbb7b688934515327b83fe376803}{DMA\_IsSoftwareRequestPending}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00363}00363\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8h_a5bfc37cb3f3c004d66d8c2a3aab0c13b}{DMA\_ChannelSoftwareTriggerEnable}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel)\ ;}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00364}00364\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00382}00382\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__dma_8h_af34816ed03c5a669f4bc4361f7a38e58}{DMA\_ChannelIsBusy}}\ (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00383}00383\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00396}00396\ uint32\_t\ \mbox{\hyperlink{plib__dma_8h_a7223ed9d516ab40e057e88b668409739}{DMA\_ChannelGetTransferredCount}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00397}00397\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00410}00410\ \mbox{\hyperlink{plib__dma_8h_a81f51f2bf80f7431b5808fb2de932a4c}{DMA\_CHANNEL\_CONFIG}}\ \mbox{\hyperlink{plib__dma_8h_a277d25aec993e50ac797415ba8a1d732}{DMA\_ChannelSettingsGet}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel);}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00429}00429\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__dma_8h_aa3690fa60cd12eb817c922975bb42c25}{DMA\_ChannelSettingsSet}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel,\ \mbox{\hyperlink{plib__dma_8h_a81f51f2bf80f7431b5808fb2de932a4c}{DMA\_CHANNEL\_CONFIG}}\ setting);}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00430}00430\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00466}00466\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__dma_8h_a14ca97886207fe4b4ed2a0d41ab6213e}{DMA\_ChannelCallbackRegister}}(\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\_CHANNEL}}\ channel,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{plib__dma_8h_ae4864a6166f77736d3a0dc75d3a0ce07}{DMA\_CHANNEL\_CALLBACK}}\ eventHandler,\ \textcolor{keyword}{const}\ uintptr\_t\ contextHandle\ );}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00467}00467\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00468}00468\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00469}00469\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00470}00470\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00471}00471\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00472}00472\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00473}00473\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00474}00474\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00475}00475\ }
+\DoxyCodeLine{\Hypertarget{plib__dma_8h_source_l00476}00476\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PLIB\_DMA\_H}}
+
+\end{DoxyCode}

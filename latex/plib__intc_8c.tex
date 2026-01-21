@@ -1,0 +1,414 @@
+\doxysection{src/config/default/peripheral/intc/plib\+\_\+intc.c File Reference}
+\hypertarget{plib__intc_8c}{}\label{plib__intc_8c}\index{src/config/default/peripheral/intc/plib\_intc.c@{src/config/default/peripheral/intc/plib\_intc.c}}
+{\ttfamily \#include "{}plib\+\_\+intc.\+h"{}}\newline
+{\ttfamily \#include "{}interrupts.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__intc_8c_a38f3603a95981e4251aad3b2d3de4a6f}{INTC\+\_\+\+Initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Configures and initializes the interrupt subsystem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__intc_8c_a8234df304eca55100cd8b9568f601bb2}{INTC\+\_\+\+Source\+Enable}} (\mbox{\hyperlink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}} source)
+\begin{DoxyCompactList}\small\item\em Enables the interrupt source. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__intc_8c_ad9832ca11480e7f8a8b85f935c3b6d70}{INTC\+\_\+\+Source\+Disable}} (\mbox{\hyperlink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}} source)
+\begin{DoxyCompactList}\small\item\em Disables the interrupt source. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__intc_8c_a1e9754a9fc2de356efa149879ea71d3f}{INTC\+\_\+\+Source\+Is\+Enabled}} (\mbox{\hyperlink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}} source)
+\begin{DoxyCompactList}\small\item\em Gets the enable state of the interrupt source. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__intc_8c_a3d2eec0ba2f0e6ab6838a2fe1da41b36}{INTC\+\_\+\+Source\+Status\+Get}} (\mbox{\hyperlink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}} source)
+\begin{DoxyCompactList}\small\item\em Returns the status of the interrupt flag for the selected source. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__intc_8c_a0e32af61a8d313abd0e34104ff37b13b}{INTC\+\_\+\+Source\+Status\+Set}} (\mbox{\hyperlink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}} source)
+\begin{DoxyCompactList}\small\item\em Sets the status of the interrupt flag for the selected source. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__intc_8c_a67114e7ddcc0f4d31b3e2c9aae873019}{INTC\+\_\+\+Source\+Status\+Clear}} (\mbox{\hyperlink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}} source)
+\begin{DoxyCompactList}\small\item\em Clears the status of the interrupt flag for the selected source. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__intc_8c_a647b175f6dd7e272497bfba968424bf9}{INTC\+\_\+\+Enable}} (void)
+\begin{DoxyCompactList}\small\item\em Enables all global interrupts. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__intc_8c_afe3f4e86f2c70fbf2950e4c1aea13a1a}{INTC\+\_\+\+Disable}} (void)
+\begin{DoxyCompactList}\small\item\em Saves the current state of global interrupts and then disables all global interrupts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__intc_8c_a3e326de24a8e80abd14d07897f04e014}{INTC\+\_\+\+Restore}} (bool state)
+\begin{DoxyCompactList}\small\item\em Restores the state of global interrupts before the disable occurred. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{plib__intc_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__intc_8c_afe3f4e86f2c70fbf2950e4c1aea13a1a}\index{plib\_intc.c@{plib\_intc.c}!INTC\_Disable@{INTC\_Disable}}
+\index{INTC\_Disable@{INTC\_Disable}!plib\_intc.c@{plib\_intc.c}}
+\doxysubsubsection{\texorpdfstring{INTC\_Disable()}{INTC\_Disable()}}
+{\footnotesize\ttfamily \label{plib__intc_8c_afe3f4e86f2c70fbf2950e4c1aea13a1a} 
+bool INTC\+\_\+\+Disable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Saves the current state of global interrupts and then disables all global interrupts. 
+
+This function saves the current state of global interrupts and then disables all global interrupts, preventing further interrupts until they are explicitly re-\/enabled. The interrupt status is returned to allow restoring the previous interrupt state. \begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None.} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The interrupt status, which indicates the previous state of the global interrupts.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ prevStatus\ =\ \mbox{\hyperlink{plib__intc_8c_afe3f4e86f2c70fbf2950e4c1aea13a1a}{INTC\_Disable}}();}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__intc_8c_source_l00112}{112}} of file \mbox{\hyperlink{plib__intc_8c_source}{plib\+\_\+intc.\+c}}.
+
+\Hypertarget{plib__intc_8c_a647b175f6dd7e272497bfba968424bf9}\index{plib\_intc.c@{plib\_intc.c}!INTC\_Enable@{INTC\_Enable}}
+\index{INTC\_Enable@{INTC\_Enable}!plib\_intc.c@{plib\_intc.c}}
+\doxysubsubsection{\texorpdfstring{INTC\_Enable()}{INTC\_Enable()}}
+{\footnotesize\ttfamily \label{plib__intc_8c_a647b175f6dd7e272497bfba968424bf9} 
+void INTC\+\_\+\+Enable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Enables all global interrupts. 
+
+This function enables all global interrupts, allowing the system to respond to interrupt requests. \begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None.} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__intc_8c_a647b175f6dd7e272497bfba968424bf9}{INTC\_Enable}}();}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__intc_8c_source_l00107}{107}} of file \mbox{\hyperlink{plib__intc_8c_source}{plib\+\_\+intc.\+c}}.
+
+\Hypertarget{plib__intc_8c_a38f3603a95981e4251aad3b2d3de4a6f}\index{plib\_intc.c@{plib\_intc.c}!INTC\_Initialize@{INTC\_Initialize}}
+\index{INTC\_Initialize@{INTC\_Initialize}!plib\_intc.c@{plib\_intc.c}}
+\doxysubsubsection{\texorpdfstring{INTC\_Initialize()}{INTC\_Initialize()}}
+{\footnotesize\ttfamily \label{plib__intc_8c_a38f3603a95981e4251aad3b2d3de4a6f} 
+void INTC\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Configures and initializes the interrupt subsystem. 
+
+This function configures and initializes the interrupt subsystem appropriately for the current system design. \begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None.} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__intc_8c_a38f3603a95981e4251aad3b2d3de4a6f}{INTC\_Initialize}}();}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__intc_8c_source_l00047}{47}} of file \mbox{\hyperlink{plib__intc_8c_source}{plib\+\_\+intc.\+c}}.
+
+\Hypertarget{plib__intc_8c_a3e326de24a8e80abd14d07897f04e014}\index{plib\_intc.c@{plib\_intc.c}!INTC\_Restore@{INTC\_Restore}}
+\index{INTC\_Restore@{INTC\_Restore}!plib\_intc.c@{plib\_intc.c}}
+\doxysubsubsection{\texorpdfstring{INTC\_Restore()}{INTC\_Restore()}}
+{\footnotesize\ttfamily \label{plib__intc_8c_a3e326de24a8e80abd14d07897f04e014} 
+void INTC\+\_\+\+Restore (\begin{DoxyParamCaption}\item[{bool}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Restores the state of global interrupts before the disable occurred. 
+
+This function restores the state of global interrupts to the specified state that was saved prior to the disable operation. This is typically used to re-\/enable interrupts after they were temporarily disabled. \begin{DoxyPrecond}{Precondition}
+The state must be previously saved using the \doxylink{plib__intc_8h_afe3f4e86f2c70fbf2950e4c1aea13a1a}{INTC\+\_\+\+Disable()} function. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em state} & The interrupt status to restore, typically obtained from the \doxylink{plib__intc_8h_afe3f4e86f2c70fbf2950e4c1aea13a1a}{INTC\+\_\+\+Disable()} function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ prevStatus\ =\ \mbox{\hyperlink{plib__intc_8c_afe3f4e86f2c70fbf2950e4c1aea13a1a}{INTC\_Disable}}();}
+\DoxyCodeLine{\mbox{\hyperlink{plib__intc_8c_a8234df304eca55100cd8b9568f601bb2}{INTC\_SourceEnable}}(\mbox{\hyperlink{plib__intc_8h_a95afc240aabfd43c6e556e5995fc795a}{INT\_SOURCE\_INT0}});}
+\DoxyCodeLine{\mbox{\hyperlink{plib__intc_8c_a3e326de24a8e80abd14d07897f04e014}{INTC\_Restore}}(prevStatus);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__intc_8c_source_l00125}{125}} of file \mbox{\hyperlink{plib__intc_8c_source}{plib\+\_\+intc.\+c}}.
+
+\Hypertarget{plib__intc_8c_ad9832ca11480e7f8a8b85f935c3b6d70}\index{plib\_intc.c@{plib\_intc.c}!INTC\_SourceDisable@{INTC\_SourceDisable}}
+\index{INTC\_SourceDisable@{INTC\_SourceDisable}!plib\_intc.c@{plib\_intc.c}}
+\doxysubsubsection{\texorpdfstring{INTC\_SourceDisable()}{INTC\_SourceDisable()}}
+{\footnotesize\ttfamily \label{plib__intc_8c_ad9832ca11480e7f8a8b85f935c3b6d70} 
+void INTC\+\_\+\+Source\+Disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}}}]{source}{}\end{DoxyParamCaption})}
+
+
+
+Disables the interrupt source. 
+
+This function disables the given interrupt source. \begin{DoxyPrecond}{Precondition}
+The \doxylink{plib__intc_8h_a38f3603a95981e4251aad3b2d3de4a6f}{INTC\+\_\+\+Initialize()} function must have been called first. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & One of the possible values from \doxylink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This API performs a Read-\/\+Modify-\/\+Write (RMW) operation on the IECx register. To prevent race conditions, please disable global interrupts using {\ttfamily INTC\+\_\+\+Disable} API before calling this function.
+\end{DoxyNote}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ prevStatus\ =\ \mbox{\hyperlink{plib__intc_8c_afe3f4e86f2c70fbf2950e4c1aea13a1a}{INTC\_Disable}}();}
+\DoxyCodeLine{\mbox{\hyperlink{plib__intc_8c_ad9832ca11480e7f8a8b85f935c3b6d70}{INTC\_SourceDisable}}(\mbox{\hyperlink{plib__intc_8h_a95afc240aabfd43c6e556e5995fc795a}{INT\_SOURCE\_INT0}});}
+\DoxyCodeLine{\mbox{\hyperlink{plib__intc_8c_a3e326de24a8e80abd14d07897f04e014}{INTC\_Restore}}(prevStatus);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+This function implements an operation of the Source\+Control feature. This feature may not be available on all devices. Please refer to the specific device data sheet to determine availability. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__intc_8c_source_l00075}{75}} of file \mbox{\hyperlink{plib__intc_8c_source}{plib\+\_\+intc.\+c}}.
+
+\Hypertarget{plib__intc_8c_a8234df304eca55100cd8b9568f601bb2}\index{plib\_intc.c@{plib\_intc.c}!INTC\_SourceEnable@{INTC\_SourceEnable}}
+\index{INTC\_SourceEnable@{INTC\_SourceEnable}!plib\_intc.c@{plib\_intc.c}}
+\doxysubsubsection{\texorpdfstring{INTC\_SourceEnable()}{INTC\_SourceEnable()}}
+{\footnotesize\ttfamily \label{plib__intc_8c_a8234df304eca55100cd8b9568f601bb2} 
+void INTC\+\_\+\+Source\+Enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}}}]{source}{}\end{DoxyParamCaption})}
+
+
+
+Enables the interrupt source. 
+
+This function enables the interrupt source. The interrupt flag is set when the interrupt request is sampled. The pending interrupt request will not cause further processing if the interrupt is not enabled using this function or if interrupts are not enabled. \begin{DoxyPrecond}{Precondition}
+The \doxylink{plib__intc_8h_a38f3603a95981e4251aad3b2d3de4a6f}{INTC\+\_\+\+Initialize()} function must have been called first. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & One of the possible values from \doxylink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This API performs a Read-\/\+Modify-\/\+Write (RMW) operation on the IECx register. To prevent race conditions, please disable global interrupts using {\ttfamily INTC\+\_\+\+Disable} API before calling this function.
+\end{DoxyNote}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ prevStatus\ =\ \mbox{\hyperlink{plib__intc_8c_afe3f4e86f2c70fbf2950e4c1aea13a1a}{INTC\_Disable}}();}
+\DoxyCodeLine{\mbox{\hyperlink{plib__intc_8c_a8234df304eca55100cd8b9568f601bb2}{INTC\_SourceEnable}}(\mbox{\hyperlink{plib__intc_8h_a95afc240aabfd43c6e556e5995fc795a}{INT\_SOURCE\_INT0}});}
+\DoxyCodeLine{\mbox{\hyperlink{plib__intc_8c_a3e326de24a8e80abd14d07897f04e014}{INTC\_Restore}}(prevStatus);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+This function implements an operation of the Source\+Control feature. This feature may not be available on all devices. Please refer to the specific device data sheet to determine availability. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__intc_8c_source_l00069}{69}} of file \mbox{\hyperlink{plib__intc_8c_source}{plib\+\_\+intc.\+c}}.
+
+\Hypertarget{plib__intc_8c_a1e9754a9fc2de356efa149879ea71d3f}\index{plib\_intc.c@{plib\_intc.c}!INTC\_SourceIsEnabled@{INTC\_SourceIsEnabled}}
+\index{INTC\_SourceIsEnabled@{INTC\_SourceIsEnabled}!plib\_intc.c@{plib\_intc.c}}
+\doxysubsubsection{\texorpdfstring{INTC\_SourceIsEnabled()}{INTC\_SourceIsEnabled()}}
+{\footnotesize\ttfamily \label{plib__intc_8c_a1e9754a9fc2de356efa149879ea71d3f} 
+bool INTC\+\_\+\+Source\+Is\+Enabled (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}}}]{source}{}\end{DoxyParamCaption})}
+
+
+
+Gets the enable state of the interrupt source. 
+
+This function gets the enable state of the interrupt source. \begin{DoxyPrecond}{Precondition}
+The \doxylink{plib__intc_8h_a38f3603a95981e4251aad3b2d3de4a6f}{INTC\+\_\+\+Initialize()} function must have been called first. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & One of the possible values from \doxylink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item true\+: If the interrupt source is enabled
+\item false\+: If the interrupt source is disabled
+\end{DoxyItemize}
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}(\mbox{\hyperlink{plib__intc_8c_a1e9754a9fc2de356efa149879ea71d3f}{INTC\_SourceIsEnabled}}(\mbox{\hyperlink{plib__intc_8h_a95afc240aabfd43c6e556e5995fc795a}{INT\_SOURCE\_INT0}})\ !=\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{plib__intc_8c_a8234df304eca55100cd8b9568f601bb2}{INTC\_SourceEnable}}(\mbox{\hyperlink{plib__intc_8h_a95afc240aabfd43c6e556e5995fc795a}{INT\_SOURCE\_INT0}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+This function implements an operation of the Source\+Control feature. This feature may not be available on all devices. Please refer to the specific device data sheet to determine availability. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__intc_8c_source_l00081}{81}} of file \mbox{\hyperlink{plib__intc_8c_source}{plib\+\_\+intc.\+c}}.
+
+\Hypertarget{plib__intc_8c_a67114e7ddcc0f4d31b3e2c9aae873019}\index{plib\_intc.c@{plib\_intc.c}!INTC\_SourceStatusClear@{INTC\_SourceStatusClear}}
+\index{INTC\_SourceStatusClear@{INTC\_SourceStatusClear}!plib\_intc.c@{plib\_intc.c}}
+\doxysubsubsection{\texorpdfstring{INTC\_SourceStatusClear()}{INTC\_SourceStatusClear()}}
+{\footnotesize\ttfamily \label{plib__intc_8c_a67114e7ddcc0f4d31b3e2c9aae873019} 
+void INTC\+\_\+\+Source\+Status\+Clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}}}]{source}{}\end{DoxyParamCaption})}
+
+
+
+Clears the status of the interrupt flag for the selected source. 
+
+This function clears the status of the interrupt flag for the selected source. The flag is set when the interrupt request is identified. The pending interrupt request will not cause further processing if the interrupt is not enabled using the function INTC\+\_\+\+Source\+Enable or if interrupts are not enabled. \begin{DoxyPrecond}{Precondition}
+The \doxylink{plib__intc_8h_a38f3603a95981e4251aad3b2d3de4a6f}{INTC\+\_\+\+Initialize()} function must have been called first. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & One of the possible values from \doxylink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}(\mbox{\hyperlink{plib__intc_8c_a3d2eec0ba2f0e6ab6838a2fe1da41b36}{INTC\_SourceStatusGet}}(INT\_SOURCE\_CORE\_TIMER)\ !=\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{plib__intc_8c_a67114e7ddcc0f4d31b3e2c9aae873019}{INTC\_SourceStatusClear}}(INT\_SOURCE\_CORE\_TIMER);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+This function implements an operation of the Source\+Flag feature. This feature may not be available on all devices. Please refer to the specific device data sheet to determine availability. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__intc_8c_source_l00101}{101}} of file \mbox{\hyperlink{plib__intc_8c_source}{plib\+\_\+intc.\+c}}.
+
+\Hypertarget{plib__intc_8c_a3d2eec0ba2f0e6ab6838a2fe1da41b36}\index{plib\_intc.c@{plib\_intc.c}!INTC\_SourceStatusGet@{INTC\_SourceStatusGet}}
+\index{INTC\_SourceStatusGet@{INTC\_SourceStatusGet}!plib\_intc.c@{plib\_intc.c}}
+\doxysubsubsection{\texorpdfstring{INTC\_SourceStatusGet()}{INTC\_SourceStatusGet()}}
+{\footnotesize\ttfamily \label{plib__intc_8c_a3d2eec0ba2f0e6ab6838a2fe1da41b36} 
+bool INTC\+\_\+\+Source\+Status\+Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}}}]{source}{}\end{DoxyParamCaption})}
+
+
+
+Returns the status of the interrupt flag for the selected source. 
+
+This function returns the status of the interrupt flag for the selected source. The flag is set when the interrupt request is recognized. The pending interrupt request will not cause further processing if the interrupt is not enabled using the function INTC\+\_\+\+Source\+Enable or if interrupts are not enabled. \begin{DoxyPrecond}{Precondition}
+The \doxylink{plib__intc_8h_a38f3603a95981e4251aad3b2d3de4a6f}{INTC\+\_\+\+Initialize()} function must have been called first. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & One of the possible values from \doxylink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item true\+: If the interrupt request is recognized for the source
+\item false\+: If the interrupt request is not recognized for the source
+\end{DoxyItemize}
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}(\mbox{\hyperlink{plib__intc_8c_a3d2eec0ba2f0e6ab6838a2fe1da41b36}{INTC\_SourceStatusGet}}(\mbox{\hyperlink{plib__intc_8h_a95afc240aabfd43c6e556e5995fc795a}{INT\_SOURCE\_INT0}})\ !=\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{plib__intc_8c_a67114e7ddcc0f4d31b3e2c9aae873019}{INTC\_SourceStatusClear}}(\mbox{\hyperlink{plib__intc_8h_a95afc240aabfd43c6e556e5995fc795a}{INT\_SOURCE\_INT0}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+This function implements an operation of the Source\+Flag feature. This feature may not be available on all devices. Please refer to the specific device data sheet to determine availability. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__intc_8c_source_l00088}{88}} of file \mbox{\hyperlink{plib__intc_8c_source}{plib\+\_\+intc.\+c}}.
+
+\Hypertarget{plib__intc_8c_a0e32af61a8d313abd0e34104ff37b13b}\index{plib\_intc.c@{plib\_intc.c}!INTC\_SourceStatusSet@{INTC\_SourceStatusSet}}
+\index{INTC\_SourceStatusSet@{INTC\_SourceStatusSet}!plib\_intc.c@{plib\_intc.c}}
+\doxysubsubsection{\texorpdfstring{INTC\_SourceStatusSet()}{INTC\_SourceStatusSet()}}
+{\footnotesize\ttfamily \label{plib__intc_8c_a0e32af61a8d313abd0e34104ff37b13b} 
+void INTC\+\_\+\+Source\+Status\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}}}]{source}{}\end{DoxyParamCaption})}
+
+
+
+Sets the status of the interrupt flag for the selected source. 
+
+This function sets the status of the interrupt flag for the selected source. \begin{DoxyNote}{Note}
+This function will not be used during normal operation of the system. It is used to generate test interrupts for debug and testing purposes. 
+\end{DoxyNote}
+\begin{DoxyPrecond}{Precondition}
+The \doxylink{plib__intc_8h_a38f3603a95981e4251aad3b2d3de4a6f}{INTC\+\_\+\+Initialize()} function must have been called first. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em source} & One of the possible values from \doxylink{plib__intc_8h_aa2e9252a0a080ea339bc3aa06a6b7774}{INT\+\_\+\+SOURCE}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__intc_8c_a0e32af61a8d313abd0e34104ff37b13b}{INTC\_SourceStatusSet}}(INT\_SOURCE\_CORE\_TIMER);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+This function implements an operation of the Source\+Flag feature. This feature may not be available on all devices. Please refer to the specific device data sheet to determine availability. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__intc_8c_source_l00095}{95}} of file \mbox{\hyperlink{plib__intc_8c_source}{plib\+\_\+intc.\+c}}.
+

@@ -1,0 +1,106 @@
+\doxysection{plib\+\_\+sccp1.\+h}
+\hypertarget{plib__sccp1_8h_source}{}\label{plib__sccp1_8h_source}\index{src/config/default/peripheral/ccp/plib\_sccp1.h@{src/config/default/peripheral/ccp/plib\_sccp1.h}}
+\mbox{\hyperlink{plib__sccp1_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00002}00002\ \textcolor{comment}{\ \ Data\ Type\ definition\ of\ Timer\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00006}00006\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_sccp1.h}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ Data\ Type\ definition\ of\ the\ Timer\ Peripheral\ Interface\ Plib.}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ defines\ the\ Data\ Types\ for\ the\ Timer\ Plib.}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00015}00015\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00016}00016\ \textcolor{comment}{\ \ Remarks:}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00017}00017\ \textcolor{comment}{\ \ \ \ None.}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00018}00018\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00019}00019\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00021}00021\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00022}00022\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00023}00023\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00024}00024\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00025}00025\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00026}00026\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00027}00027\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00028}00028\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00029}00029\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00030}00030\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00031}00031\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00032}00032\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00033}00033\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00034}00034\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00035}00035\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00036}00036\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00037}00037\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00038}00038\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00039}00039\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00040}00040\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00041}00041\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00042}00042\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00044}00044\ \textcolor{preprocessor}{\#ifndef\ PLIB\_SCCP1\_H}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00045}00045\ \textcolor{preprocessor}{\#define\ PLIB\_SCCP1\_H}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00047}00047\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00048}00048\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00049}00049\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{device_8h}{device.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00050}00050\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib__ccp__common_8h}{plib\_ccp\_common.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00052}00052\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00053}00053\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00055}00055\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00057}00057\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00058}00058\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00060}00060\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00061}00061\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00062}00062\ \textcolor{comment}{//\ Section:\ Data\ Types}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00063}00063\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00064}00064\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00066}00066\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00067}00067\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00068}00068\ \textcolor{comment}{//\ Section:\ Interface\ Routines}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00069}00069\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00070}00070\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00072}00072\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00073}00073\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__sccp1_8h_a9eb2b20e93af41872b622d0b6358f987}{SCCP1\_TimerInitialize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00075}00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__sccp1_8h_a712f6d85f566f3b7431fc61d7356b2fc}{SCCP1\_TimerStart}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00077}00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__sccp1_8h_a3da456c0e3a4764050aeb5879a263cb1}{SCCP1\_TimerStop}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00079}00079\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__sccp1_8h_aba6df6bb97ba312c53c5001c6fff3794}{SCCP1\_Timer32bitPeriodSet}}(uint32\_t\ period);}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00081}00081\ uint32\_t\ \mbox{\hyperlink{plib__sccp1_8h_a060672dac229c38c751be13d6175412d}{SCCP1\_Timer32bitPeriodGet}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00083}00083\ uint32\_t\ \mbox{\hyperlink{plib__sccp1_8h_a4fae9d42e3263c77a1df831a563b293c}{SCCP1\_Timer32bitCounterGet}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00085}00085\ uint32\_t\ \mbox{\hyperlink{plib__sccp1_8h_aa6d9966a506a49c1a4dd9e46b9387488}{SCCP1\_TimerFrequencyGet}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00087}00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__sccp1_8h_ac2a0da42110eacc548c6015df64cd284}{SCCP1\_TimerInterruptEnable}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00089}00089\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__sccp1_8h_a7d8f81de94dbc9c4bb28d9651f982f4d}{SCCP1\_TimerInterruptDisable}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00091}00091\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__sccp1_8h_abd734914e85f0b83a6e7bbef2d81f65a}{SCCP1\_TimerCallbackRegister}}(\ \mbox{\hyperlink{plib__ccp__common_8h_a996299eba3ea5d5f581691356a40e4fb}{CCP\_TIMER\_CALLBACK}}\ callback\_fn,\ uintptr\_t\ context\ );}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00093}00093\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00094}00094\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00097}00097\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00098}00098\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{plib__sccp1_8h_source_l00100}00100\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PLIB\_SCCP1\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

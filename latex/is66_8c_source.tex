@@ -1,0 +1,261 @@
+\doxysection{is66.\+c}
+\hypertarget{is66_8c_source}{}\label{is66_8c_source}\index{src/is66.c@{src/is66.c}}
+\mbox{\hyperlink{is66_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00002}00002\ \textcolor{comment}{\ *\ is66\ setup\ and\ R/W\ functions}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00003}00003\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stddef.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Defines\ NULL}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdbool.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Defines\ true}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stdlib.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Defines\ EXIT\_FAILURE}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <ctype.h>}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{definitions_8h}{definitions.h}}"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ SYS\ function\ prototypes}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{samples_8h}{samples.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{timers_8h}{timers.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00015}00015\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ iss\_read\_id[\mbox{\hyperlink{samples_8h_a82d2f0afaf6d4d819b53d23baa815fff}{SAMPLE\_BUF}}]\ =\ \{0x9F\};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00016}00016\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ ISS\_PAGE\_WRITE\ =\ 0x02000000;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00017}00017\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint16\_t\ CDOWN\ =\ \mbox{\hyperlink{samples_8h_a4ee91f572e738d8a878f236b33a0f2e0}{SAMPLE\_TIMEOUT}};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00018}00018\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ retrigger\_time\ =\ \mbox{\hyperlink{samples_8h_a076094be689417c1efe87726300545b2}{RETRIGGER\_TIME}};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00019}00019\ \textcolor{keyword}{static}\ uint32\_t\ ISS\_PAGE\_WRITE\_CMD,\ iss\_page\_index,\ store\_count,\ cdown\ =\ CDOWN,}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00020}00020\ \ \ \ \ iss\_page\_write\_swap,\ iss\_page\_num\ =\ MAX\_ISS66\_PAGES\_32MBIT;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00022}\mbox{\hyperlink{is66_8c_a4d98b7ebad3f662ed5e15422b2915a29}{00022}}\ uint8\_t\ \mbox{\hyperlink{is66_8c_a4d98b7ebad3f662ed5e15422b2915a29}{iss\_read\_id\_buffer}}[\mbox{\hyperlink{samples_8h_a82d2f0afaf6d4d819b53d23baa815fff}{SAMPLE\_BUF}}];}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00023}\mbox{\hyperlink{is66_8c_a2e0a44e962cb72537212db318d247fc1}{00023}}\ uint8\_t\ \mbox{\hyperlink{is66_8c_a2e0a44e962cb72537212db318d247fc1}{iss\_adc\_read}}[\mbox{\hyperlink{samples_8h_a82d2f0afaf6d4d819b53d23baa815fff}{SAMPLE\_BUF}}]\ =\ \{0x0B,\ 0x01,\ 0x0c,\ 0x00,\ 0x00\};\ \textcolor{comment}{//\ ISS\ sram\ testing\ page}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00024}\mbox{\hyperlink{is66_8c_abf5ae0cb30d7618bd050814f44e441dc}{00024}}\ uint8\_t\ \mbox{\hyperlink{is66_8c_abf5ae0cb30d7618bd050814f44e441dc}{sram\_adc\_read}}[\mbox{\hyperlink{samples_8h_a82d2f0afaf6d4d819b53d23baa815fff}{SAMPLE\_BUF}}];}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00025}\mbox{\hyperlink{is66_8c_a79bba47664e6de1d559e63f6286846c0}{00025}}\ uint16\_t\ \mbox{\hyperlink{is66_8c_a79bba47664e6de1d559e63f6286846c0}{adc\_iss\_result}}[\mbox{\hyperlink{samples_8h_a1b4858e54d0834ad487441021a68ee4a}{NUM\_ADC}}]\ =\ \{0,\ 0\};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00027}\mbox{\hyperlink{is66_8c_a2ec2e5f463f039c4ab61e12a69467108}{00027}}\ \textcolor{keyword}{volatile}\ uint8\_t\ \mbox{\hyperlink{is66_8c_a2ec2e5f463f039c4ab61e12a69467108}{iss\_adc\_write}}[\mbox{\hyperlink{samples_8h_a82d2f0afaf6d4d819b53d23baa815fff}{SAMPLE\_BUF}}];\ \textcolor{comment}{//\ 1024\ bytes\ in\ each\ address\ page\ for\ sequential\ writes}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00028}\mbox{\hyperlink{is66_8c_a6657f51d8c9dc9f0369871c6539370f8}{00028}}\ \textcolor{keyword}{volatile}\ uint32\_t\ \mbox{\hyperlink{is66_8c_a312605fd6d3fd9505d1a1d426f17aa98}{total\_sample\_triggers}}\ =\ 0,\ \mbox{\hyperlink{is66_8c_a6657f51d8c9dc9f0369871c6539370f8}{total\_iss\_triggers}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00029}\mbox{\hyperlink{is66_8c_aa452a5bcc359992d4537d2a6fe55739b}{00029}}\ \textcolor{keyword}{volatile}\ uint16\_t\ \mbox{\hyperlink{is66_8c_aa452a5bcc359992d4537d2a6fe55739b}{adc\_result}}[\mbox{\hyperlink{samples_8h_a1b4858e54d0834ad487441021a68ee4a}{NUM\_ADC}}]\ =\ \{0,\ 0\};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00030}\mbox{\hyperlink{is66_8c_ad1de0c9558a87c8dc69a282dd60c7dce}{00030}}\ \textcolor{keyword}{volatile}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebd}{iss\_sample\_type}}\ \mbox{\hyperlink{is66_8c_ad1de0c9558a87c8dc69a282dd60c7dce}{iss\_state}}\ =\ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda9d584d43c8ee431ca56e50152179493b}{ISS\_INIT}};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00032}\mbox{\hyperlink{is66_8c_a3d36bb7b12bb16e58b1d2d48ff844ea2}{00032}}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ced}{iss\_chip\_type}}\ \mbox{\hyperlink{is66_8c_a3d36bb7b12bb16e58b1d2d48ff844ea2}{iss\_chip}}\ =\ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda9da2b4f092fb3b9b5935043763790289}{ISS\_ISS\_UNK}};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00033}00033\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ced}{iss\_chip\_type}}\ \mbox{\hyperlink{is66_8c_a70e4bb1fa8c55b914f00a037cd6e911e}{ISS\_read\_id}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00035}00035\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00036}00036\ \textcolor{comment}{\ *\ swapXX\ for\ iss66\ addresses}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00037}00037\ \textcolor{comment}{\ *\ The\ htonx()\ functions\ converts\ the\ unsigned\ integer\ from\ host\ byte\ order\ to\ network\ byte\ order}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00038}00038\ \textcolor{comment}{\ *\ as\ used\ on\ the\ Internet}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00039}00039\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00040}00040\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ uint16\_t\ htons(uint16\_t\ x)}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00041}00041\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{return}((x\ >>\ 8)\ \&\ 0x00FFUL)\ |\ ((x\ <<\ 8)\ \&\ 0xFF00UL);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00045}00045\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ uint32\_t\ htonl(uint32\_t\ x)}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{return}((x\ >>\ 24)\ \&\ 0x000000FFUL)\ |\ ((x\ <<\ 24)\ \&\ 0xFF000000UL)\ |}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ ((x\ >>\ 8)\ \&\ 0x0000FF00UL)\ |\ ((x\ <<\ 8)\ \&\ 0x00FF0000UL);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00051}00051\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00052}00052\ \textcolor{comment}{\ *\ setup\ the\ iss66\ command\ buffer\ and\ DMA\ the\ data\ to\ the\ chip}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00053}00053\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00054}\mbox{\hyperlink{is66_8c_a412852a239ccc537da518353047ff351}{00054}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{is66_8c_a412852a239ccc537da518353047ff351}{ADC\_DMA\_write}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00056}00056\ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_aa24c4203645538050045a3c9f4da4202}{TEST\_TP1\_Set}}();}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00057}00057\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00058}00058\ \textcolor{comment}{\ \ \ \ \ *\ trigger\ both\ ADC's\ using\ PTG\ trigger}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00059}00059\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{while}\ (AD1STATbits.CH6RDY\ ==\ 0\ \&\&\ AD2STATbits.CH4RDY\ ==\ 0);\ \textcolor{comment}{//\ conversions\ complete\ on\ both}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{is66_8c_aa452a5bcc359992d4537d2a6fe55739b}{adc\_result}}[\mbox{\hyperlink{samples_8h_a1fec1b19567570d10d7fdd9badbfe27b}{ADC1\_D}}]\ =\ (uint16\_t)\ AD1CH6DATA;\ \textcolor{comment}{//\ save\ as\ uint16\_t\ data}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00062}00062\ \ \ \ \ \mbox{\hyperlink{is66_8c_aa452a5bcc359992d4537d2a6fe55739b}{adc\_result}}[\mbox{\hyperlink{samples_8h_a05137a89502e7d09114c89f9e1ed958e}{ADC2\_D}}]\ =\ (uint16\_t)\ AD2CH4DATA;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00063}00063\ \ \ \ \ memcpy((\textcolor{keywordtype}{void}\ *)\ \&\mbox{\hyperlink{is66_8c_a2ec2e5f463f039c4ab61e12a69467108}{iss\_adc\_write}}[ADC\_SAMPLES\_START],\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *)\ \&\mbox{\hyperlink{is66_8c_aa452a5bcc359992d4537d2a6fe55739b}{adc\_result}}[\mbox{\hyperlink{samples_8h_a1fec1b19567570d10d7fdd9badbfe27b}{ADC1\_D}}],\ ADC\_SAMPLES\_SIZE);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00064}00064\ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_af4a105b3d8af02457e6eebca49314833}{TEST\_TP1\_Clear}}();}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{is66_8c_ad1de0c9558a87c8dc69a282dd60c7dce}{iss\_state}})\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda9d584d43c8ee431ca56e50152179493b}{ISS\_INIT}}:}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ store\_count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ ISS\_PAGE\_WRITE\_CMD\ =\ ISS\_PAGE\_WRITE;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ iss\_page\_index\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{is66_8c_ad1de0c9558a87c8dc69a282dd60c7dce}{iss\_state}}\ =\ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda398ef0fa84d47f7903f4ad140ef0794e}{ISS\_PAGE}};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ iss\_page\_write\_swap\ =\ htonl(ISS\_PAGE\_WRITE\_CMD);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda398ef0fa84d47f7903f4ad140ef0794e}{ISS\_PAGE}}:}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a23c33f241bda6bf3b92a8bad59d2618d}{TEST\_TP0\_Set}}();}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{plib__spi2__host_8c_aaaada0b426cd9b39e1d5b284372a7f87}{SPI2\_IsTransmitterBusy}}()\ \&\&\ -\/-\/cdown\ !=\ 0);\ \textcolor{comment}{//\ SPI\ buffer\ empty\ timeout}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ cdown\ =\ CDOWN;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a99a6893c3c6aea94ea8b4c312b001c3d}{SRAM\_CS\_Set}}();}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00080}00080\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ make\ sure\ DMA\ is\ ready\ for\ address\ sequence}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00081}00081\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{plib__dma_8c_af34816ed03c5a669f4bc4361f7a38e58}{DMA\_ChannelIsBusy}}(\mbox{\hyperlink{plib__dma_8h_afbaa82f3cff89858e50363c04ed0cca0}{DMA\_CHANNEL\_5}}))\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a57975cb926a9d71776203b087bf33c88}{SRAM\_CS\_Clear}}();\ \textcolor{comment}{//\ enable\ chip}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00086}00086\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ write\ sram\ chip\ data\ address}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00087}00087\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__dma_8c_a7ca594a7f34b0fa562f1e8fcce2b0279}{DMA\_ChannelTransfer}}(\mbox{\hyperlink{plib__dma_8h_afbaa82f3cff89858e50363c04ed0cca0}{DMA\_CHANNEL\_5}},\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *)\ \&iss\_page\_write\_swap,\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*)\ \&SPI2BUF,\ ISS\_WRITE\_CMD\_SIZE);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{is66_8c_a312605fd6d3fd9505d1a1d426f17aa98}{total\_sample\_triggers}}++;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (++iss\_page\_index\ >=\ iss\_page\_num)\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{is66_8c_ad1de0c9558a87c8dc69a282dd60c7dce}{iss\_state}}\ =\ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda9d584d43c8ee431ca56e50152179493b}{ISS\_INIT}};\ \textcolor{comment}{//\ back\ to\ init\ state}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{is66_8c_ad1de0c9558a87c8dc69a282dd60c7dce}{iss\_state}}\ =\ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebdad705d3dd7ff526a9ba3136da14152bea}{ISS\_STORE}};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ ISS\_PAGE\_WRITE\_CMD\ +=\ ISS66\_PAGE\_SIZE;\ \textcolor{comment}{//\ next\ full\ sram\ page}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ iss\_page\_write\_swap\ =\ htonl(ISS\_PAGE\_WRITE\_CMD);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a7965b1072ce55e0b8941572c4000fa94}{TEST\_TP0\_Clear}}();}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebdad705d3dd7ff526a9ba3136da14152bea}{ISS\_STORE}}:}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{plib__dma_8c_af34816ed03c5a669f4bc4361f7a38e58}{DMA\_ChannelIsBusy}}(\mbox{\hyperlink{plib__dma_8h_afbaa82f3cff89858e50363c04ed0cca0}{DMA\_CHANNEL\_5}}))\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a57975cb926a9d71776203b087bf33c88}{SRAM\_CS\_Clear}}();\ \textcolor{comment}{//\ enable\ chip}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__dma_8c_a7ca594a7f34b0fa562f1e8fcce2b0279}{DMA\_ChannelTransfer}}(\mbox{\hyperlink{plib__dma_8h_afbaa82f3cff89858e50363c04ed0cca0}{DMA\_CHANNEL\_5}},\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *)\ \&\mbox{\hyperlink{is66_8c_a2ec2e5f463f039c4ab61e12a69467108}{iss\_adc\_write}}[ADC\_SAMPLES\_START],\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*)\ \&SPI2BUF,\ ADC\_SAMPLES\_SIZE);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (++store\_count\ >=\ MAX\_ISS66\_SAMPLES)\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ store\_count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{is66_8c_ad1de0c9558a87c8dc69a282dd60c7dce}{iss\_state}}\ =\ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda398ef0fa84d47f7903f4ad140ef0794e}{ISS\_PAGE}};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda97832b15a1c9ce0e4bcc669b5ae1652a}{ISS\_NULL}}:}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00111}00111\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{is66_8c_ad1de0c9558a87c8dc69a282dd60c7dce}{iss\_state}}\ =\ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda9d584d43c8ee431ca56e50152179493b}{ISS\_INIT}};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00114}00114\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00115}00115\ \};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00117}00117\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00118}00118\ \textcolor{comment}{\ *\ iss66\ data\ reads\ using\ interrupt\ driver}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00119}00119\ \textcolor{comment}{\ *\ DMA\ on\ the\ todo\ list}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00120}00120\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00121}\mbox{\hyperlink{is66_8c_ab27a70787cea807938240b8882a2c69c}{00121}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{is66_8c_ab27a70787cea807938240b8882a2c69c}{ADC\_DMA\_read}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00122}00122\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00123}00123\ \ \ \ \ \mbox{\hyperlink{plib__sccp2_8c_af28f4e09d19478a212d23de0b2b8299c}{SCCP2\_TimerStop}}();}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00124}00124\ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a99a6893c3c6aea94ea8b4c312b001c3d}{SRAM\_CS\_Set}}();}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00125}00125\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{plib__dma_8c_af34816ed03c5a669f4bc4361f7a38e58}{DMA\_ChannelIsBusy}}(\mbox{\hyperlink{plib__dma_8h_afbaa82f3cff89858e50363c04ed0cca0}{DMA\_CHANNEL\_5}}))\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00126}00126\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00127}00127\ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a57975cb926a9d71776203b087bf33c88}{SRAM\_CS\_Clear}}();\ \textcolor{comment}{//\ CS\ will\ be\ set\ in\ ADC\_DMA\_WRITE}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00129}00129\ \textcolor{preprocessor}{\#ifndef\ ISS\_DMA\_READ}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00130}00130\ \ \ \ \ \mbox{\hyperlink{plib__spi2__host_8c_a093b235d103b5acf68454865c304834a}{SPI2\_WriteRead}}((\textcolor{keywordtype}{void}*)\ \mbox{\hyperlink{is66_8c_a2e0a44e962cb72537212db318d247fc1}{iss\_adc\_read}},\ ISS\_FAST\_CMD\_SIZE,\ (\textcolor{keywordtype}{void}*)\ \mbox{\hyperlink{is66_8c_abf5ae0cb30d7618bd050814f44e441dc}{sram\_adc\_read}},\ SRAM\_READ\_SAMPLES);\ \textcolor{comment}{//\ 4\ bytes\ for\ 32-\/bit\ command\ with\ 8\ extra\ clocks}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00131}00131\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{plib__spi2__host_8c_af4abb1b153cbfce63643463aeb851fab}{SPI2\_IsBusy}}());}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00132}00132\ \ \ \ \ \mbox{\hyperlink{is66_8c_a6657f51d8c9dc9f0369871c6539370f8}{total\_iss\_triggers}}++;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00133}00133\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00134}00134\ \ \ \ \ \mbox{\hyperlink{plib__dma_8c_a7ca594a7f34b0fa562f1e8fcce2b0279}{DMA\_ChannelTransfer}}(\mbox{\hyperlink{plib__dma_8h_a51b51f5b39e23b28ad99520ad5be596f}{DMA\_CHANNEL\_4}},\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *)\ \&SPI2BUF,\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*)\ \mbox{\hyperlink{is66_8c_abf5ae0cb30d7618bd050814f44e441dc}{sram\_adc\_read}},\ SRAM\_READ\_SAMPLES);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00135}00135\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00136}00136\ \textcolor{comment}{\ \ \ \ \ *\ write\ sram\ chip\ data\ address\ to\ start\ read\ processing}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00137}00137\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00138}00138\ \ \ \ \ \mbox{\hyperlink{plib__dma_8c_a7ca594a7f34b0fa562f1e8fcce2b0279}{DMA\_ChannelTransfer}}(\mbox{\hyperlink{plib__dma_8h_afbaa82f3cff89858e50363c04ed0cca0}{DMA\_CHANNEL\_5}},\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *)\ \mbox{\hyperlink{is66_8c_a2e0a44e962cb72537212db318d247fc1}{iss\_adc\_read}},\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*)\ \&SPI2BUF,\ SRAM\_READ\_SAMPLES);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00139}00139\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00140}00140\ \ \ \ \ \mbox{\hyperlink{plib__sccp2_8c_a5b8d50e2af6066e4ecbe4ce2dbe1cd9b}{SCCP2\_Timer32bitPeriodSet}}(retrigger\_time);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00141}00141\ \ \ \ \ \mbox{\hyperlink{plib__sccp2_8c_a95d57a4c086089af7a589fa2a4856213}{SCCP2\_TimerStart}}();}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00142}00142\ \ \ \ \ \mbox{\hyperlink{is66_8c_a79bba47664e6de1d559e63f6286846c0}{adc\_iss\_result}}[\mbox{\hyperlink{samples_8h_a1fec1b19567570d10d7fdd9badbfe27b}{ADC1\_D}}]\ =\ \mbox{\hyperlink{is66_8c_abf5ae0cb30d7618bd050814f44e441dc}{sram\_adc\_read}}[5]\ +\ (\mbox{\hyperlink{is66_8c_abf5ae0cb30d7618bd050814f44e441dc}{sram\_adc\_read}}[6]\ <<\ 8);\ \textcolor{comment}{//\ store\ 16-\/bit\ results\ into\ results\ array}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00143}00143\ \ \ \ \ \mbox{\hyperlink{is66_8c_a79bba47664e6de1d559e63f6286846c0}{adc\_iss\_result}}[\mbox{\hyperlink{samples_8h_a05137a89502e7d09114c89f9e1ed958e}{ADC2\_D}}]\ =\ \mbox{\hyperlink{is66_8c_abf5ae0cb30d7618bd050814f44e441dc}{sram\_adc\_read}}[7]\ +\ (\mbox{\hyperlink{is66_8c_abf5ae0cb30d7618bd050814f44e441dc}{sram\_adc\_read}}[8]\ <<\ 8);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00144}00144\ \};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00146}00146\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00147}00147\ \textcolor{comment}{\ *\ DMA\ write/read\ event\ call-\/backs}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00148}00148\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00149}\mbox{\hyperlink{is66_8c_a82d90aefa405f987db2eb344387ba006}{00149}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{is66_8c_a82d90aefa405f987db2eb344387ba006}{SPI2DmaChannelHandler\_State}}(\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\_TRANSFER\_EVENT}}\ event,\ uintptr\_t\ contextHandle)}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00150}00150\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00151}00151\ \ \ \ \ \textcolor{keywordflow}{if}\ (event\ ==\ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7dc5a006aeed94643a591f8fb093f446}{DMA\_TRANSFER\_EVENT\_COMPLETE}})\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00152}00152\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00153}00153\ \}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00155}\mbox{\hyperlink{is66_8c_a8a0511c3eaf57ffcd7fd92f409a4f8ee}{00155}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{is66_8c_a8a0511c3eaf57ffcd7fd92f409a4f8ee}{SPI2DmaChannelHandler\_State\_Read}}(\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\_TRANSFER\_EVENT}}\ event,\ uintptr\_t\ contextHandle)}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00156}00156\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00157}00157\ \ \ \ \ \textcolor{keywordflow}{if}\ (event\ ==\ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7dc5a006aeed94643a591f8fb093f446}{DMA\_TRANSFER\_EVENT\_COMPLETE}})\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00158}00158\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00159}00159\ \}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00161}00161\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00162}00162\ \textcolor{comment}{\ *\ Timer\ trigger\ for\ ADC\ conversion\ and\ iss66\ data\ writes}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00163}00163\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00164}\mbox{\hyperlink{is66_8c_aecdd2a05308f7a53815406c24a3aeee1}{00164}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{is66_8c_aecdd2a05308f7a53815406c24a3aeee1}{SCCP2\_Callback\_InterruptHandler}}(uint32\_t\ status,\ uintptr\_t\ context)}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00165}00165\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00166}00166\ \ \ \ \ \mbox{\hyperlink{is66_8c_a412852a239ccc537da518353047ff351}{ADC\_DMA\_write}}();}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00167}00167\ \}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00169}\mbox{\hyperlink{is66_8c_ab25243c319bcf989de811bf5a7194c53}{00169}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{is66_8c_ab25243c319bcf989de811bf5a7194c53}{ADC\_DMA\_init}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00170}00170\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00171}00171\ \ \ \ \ \textcolor{comment}{//\ Select\ conversion\ mode\ on\ channel\ 6\ to\ AN6}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00172}00172\ \ \ \ \ AD1CH6CONbits.MODE\ =\ 3;\ \textcolor{comment}{//\ 0\ =\ single,\ 3\ =\ oversample\ =\ 2}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00173}00173\ \ \ \ \ AD2CH4CONbits.MODE\ =\ 3;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00174}00174\ \ \ \ \ \textcolor{comment}{//\ Set\ number\ of\ conversions\ accumulated\ to\ 2\ because\ of\ back-\/to-\/back.}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00175}00175\ \ \ \ \ AD1CH6CONbits.ACCNUM\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00176}00176\ \ \ \ \ AD2CH4CONbits.ACCNUM\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00177}00177\ \ \ \ \ \textcolor{comment}{//\ The\ oversampling\ if\ started\ cannot\ be\ interrupted}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00178}00178\ \ \ \ \ \textcolor{comment}{//\ by\ a\ high\ priority\ channels\ conversion\ requests.}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00179}00179\ \ \ \ \ AD1CH6CONbits.ACCBRST\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00180}00180\ \ \ \ \ AD2CH4CONbits.ACCBRST\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00181}00181\ \ \ \ \ \textcolor{comment}{//\ PTG\ trigger\ will\ start\ conversions.}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00182}00182\ \ \ \ \ AD1CH6CONbits.TRG1SRC\ =\ 30;\ \textcolor{comment}{//\ PTG\ trigger\ 12}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00183}00183\ \ \ \ \ AD1CH6CONbits.TRG2SRC\ =\ 2;\ \textcolor{comment}{//\ back-\/to-\/back}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00184}00184\ \ \ \ \ AD2CH4CONbits.TRG1SRC\ =\ 30;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00185}00185\ \ \ \ \ AD2CH4CONbits.TRG2SRC\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00186}00186\ \ \ \ \ \textcolor{comment}{//\ Use\ a\ single-\/ended\ input.}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00187}00187\ \ \ \ \ AD1CH6CONbits.DIFF\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00188}00188\ \ \ \ \ \textcolor{comment}{//\ Select\ the\ AN6\ analog\ positive\ input/pin\ for\ the\ signal.}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00189}00189\ \ \ \ \ AD1CH6CONbits.PINSEL\ =\ 6;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00190}00190\ \ \ \ \ \textcolor{comment}{//\ Select\ signal\ sampling\ time\ (\ 0\ =\ TADs\ =\ 6.25nS).}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00191}00191\ \ \ \ \ AD1CH6CONbits.SAMC\ =\ \mbox{\hyperlink{samples_8h_aede749afd9d20b01b07c86dfdf548682}{ADC\_SAMC}};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00192}00192\ \ \ \ \ AD2CH4CONbits.SAMC\ =\ \mbox{\hyperlink{samples_8h_aede749afd9d20b01b07c86dfdf548682}{ADC\_SAMC}};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00193}00193\ \ \ \ \ \textcolor{comment}{//\ Enable\ repeat\ rate.}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00194}00194\ \ \ \ \ AD1CONbits.CALRATE\ =\ 1;\ \textcolor{comment}{//\ Recalibrate\ every\ 64\ seconds}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00195}00195\ \ \ \ \ AD2CONbits.CALRATE\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00196}00196\ \ \ \ \ \textcolor{comment}{//\ Enable\ auto\ calibration.}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00197}00197\ \ \ \ \ AD1CONbits.ACALEN\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00198}00198\ \ \ \ \ AD2CONbits.ACALEN\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00199}00199\ \ \ \ \ \textcolor{comment}{//\ Set\ ADC\ to\ RUN\ mode.}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00200}00200\ \ \ \ \ AD1CONbits.MODE\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00201}00201\ \ \ \ \ \textcolor{comment}{//\ Enable\ ADC.}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00202}00202\ \ \ \ \ AD1CONbits.ON\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00203}00203\ \ \ \ \ \textcolor{comment}{//\ Wait\ when\ ADC\ will\ be\ ready/calibrated.}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00204}00204\ \ \ \ \ \textcolor{keywordflow}{while}\ (AD1CONbits.ADRDY\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00206}00206\ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{is66_8c_a3d36bb7b12bb16e58b1d2d48ff844ea2}{iss\_chip}})\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00207}00207\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736cedafb71264dbca82960f0036d69986bd683}{ISS\_ISS\_32Mb}}:}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00208}00208\ \ \ \ \ \ \ \ \ iss\_page\_num\ =\ MAX\_ISS66\_PAGES\_32MBIT;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00209}00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00210}00210\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda6e4011928a7f4b6cb7f23536145bfdda}{ISS\_ISS\_16Mb}}:}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00211}00211\ \ \ \ \ \ \ \ \ iss\_page\_num\ =\ MAX\_ISS66\_PAGES\_16MBIT;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00213}00213\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00214}00214\ \ \ \ \ \ \ \ \ iss\_page\_num\ =\ MAX\_ISS66\_PAGES\_8MBIT;}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00215}00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00216}00216\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00218}00218\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00219}00219\ \textcolor{comment}{\ \ \ \ \ *\ setup\ the\ DMA\ and\ timer\ background\ tasks}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00220}00220\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00221}00221\ \ \ \ \ \mbox{\hyperlink{plib__dma_8c_a14ca97886207fe4b4ed2a0d41ab6213e}{DMA\_ChannelCallbackRegister}}(\mbox{\hyperlink{plib__dma_8h_afbaa82f3cff89858e50363c04ed0cca0}{DMA\_CHANNEL\_5}},\ \mbox{\hyperlink{is66_8c_a82d90aefa405f987db2eb344387ba006}{SPI2DmaChannelHandler\_State}},\ 0);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00222}00222\ \ \ \ \ \mbox{\hyperlink{plib__dma_8c_a14ca97886207fe4b4ed2a0d41ab6213e}{DMA\_ChannelCallbackRegister}}(\mbox{\hyperlink{plib__dma_8h_a51b51f5b39e23b28ad99520ad5be596f}{DMA\_CHANNEL\_4}},\ \mbox{\hyperlink{is66_8c_a8a0511c3eaf57ffcd7fd92f409a4f8ee}{SPI2DmaChannelHandler\_State\_Read}},\ 0);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00223}00223\ \ \ \ \ \mbox{\hyperlink{plib__sccp2_8c_a545d8c1e5e6eda1bf9e44090c8dff000}{SCCP2\_TimerCallbackRegister}}(\mbox{\hyperlink{is66_8c_aecdd2a05308f7a53815406c24a3aeee1}{SCCP2\_Callback\_InterruptHandler}},\ (uintptr\_t)\ NULL);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00224}00224\ \ \ \ \ \mbox{\hyperlink{plib__sccp2_8c_a5b8d50e2af6066e4ecbe4ce2dbe1cd9b}{SCCP2\_Timer32bitPeriodSet}}(retrigger\_time);\ \textcolor{comment}{//\ \ close\ to\ 2us\ between\ sample}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00225}00225\ \}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00227}00227\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00228}00228\ \textcolor{comment}{\ *\ get\ IS66/67\ SerialRAM\ chip\ codes}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00229}00229\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00230}\mbox{\hyperlink{is66_8c_a70e4bb1fa8c55b914f00a037cd6e911e}{00230}}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ced}{iss\_chip\_type}}\ \mbox{\hyperlink{is66_8c_a70e4bb1fa8c55b914f00a037cd6e911e}{ISS\_read\_id}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00231}00231\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00232}00232\ \ \ \ \ \mbox{\hyperlink{timers_8c_aa7ec4ef9616686e41f92a928010bc44f}{StartTimer}}(\mbox{\hyperlink{timers_8h_ad499250d949643c5a12161767059a3d2a3fcd67da3a26e2c81d9c5052ae2b5b9b}{TMR\_TEST}},\ 1);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00233}00233\ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a57975cb926a9d71776203b087bf33c88}{SRAM\_CS\_Clear}}();}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00234}00234\ \ \ \ \ \mbox{\hyperlink{plib__spi2__host_8c_a093b235d103b5acf68454865c304834a}{SPI2\_WriteRead}}((\textcolor{keywordtype}{void}\ *)\ iss\_read\_id,\ 12,\ \mbox{\hyperlink{is66_8c_a4d98b7ebad3f662ed5e15422b2915a29}{iss\_read\_id\_buffer}},\ 12);}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00235}00235\ \ \ \ \ \textcolor{keywordflow}{while}\ (!\mbox{\hyperlink{timers_8c_a6002dd7c7cad6fa060da2c3a93a481e9}{TimerDone}}(\mbox{\hyperlink{timers_8h_ad499250d949643c5a12161767059a3d2a3fcd67da3a26e2c81d9c5052ae2b5b9b}{TMR\_TEST}}))\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00236}00236\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00237}00237\ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a99a6893c3c6aea94ea8b4c312b001c3d}{SRAM\_CS\_Set}}();}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00238}00238\ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{is66_8c_a4d98b7ebad3f662ed5e15422b2915a29}{iss\_read\_id\_buffer}}[4]\ ==\ 0x9D)\ \&\&\ (\mbox{\hyperlink{is66_8c_a4d98b7ebad3f662ed5e15422b2915a29}{iss\_read\_id\_buffer}}[5]\ ==\ 0x5D))\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00239}00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{is66_8c_a4d98b7ebad3f662ed5e15422b2915a29}{iss\_read\_id\_buffer}}[6]\&0xF0)\ \{}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0x99:}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{is66_8c_a3d36bb7b12bb16e58b1d2d48ff844ea2}{iss\_chip}}\ =\ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736cedad7890a5361d2eae2645f9c3af6e134cb}{ISS\_ISS\_8Mb}};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0x20:}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{is66_8c_a3d36bb7b12bb16e58b1d2d48ff844ea2}{iss\_chip}}\ =\ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda6e4011928a7f4b6cb7f23536145bfdda}{ISS\_ISS\_16Mb}};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0x40:}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{is66_8c_a3d36bb7b12bb16e58b1d2d48ff844ea2}{iss\_chip}}\ =\ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736cedafb71264dbca82960f0036d69986bd683}{ISS\_ISS\_32Mb}};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00249}00249\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{is66_8c_a3d36bb7b12bb16e58b1d2d48ff844ea2}{iss\_chip}}\ =\ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda960ca9c980b660f9f6111f83ee7b348f}{ISS\_ISS\_BAD}};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00252}00252\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00253}00253\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00254}00254\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{is66_8c_a3d36bb7b12bb16e58b1d2d48ff844ea2}{iss\_chip}};}
+\DoxyCodeLine{\Hypertarget{is66_8c_source_l00255}00255\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,223 @@
+\doxysection{src/config/default/traps.h File Reference}
+\hypertarget{traps_8h}{}\label{traps_8h}\index{src/config/default/traps.h@{src/config/default/traps.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{traps_8h_a9c9ecb50cd7b22ddc71053c4b5347823}{TRAPS\+\_\+\+ILLEGAL\+\_\+\+INSTRUCTION}}~(0U)
+\item 
+\#define \mbox{\hyperlink{traps_8h_a65a971645b03e1d52859cef9aef1529a}{TRAPS\+\_\+\+ADDRESS\+\_\+\+ERR}}~(1U)
+\item 
+\#define \mbox{\hyperlink{traps_8h_a63c5cd35d3bc25a11219334c3956170b}{TRAPS\+\_\+\+STACK\+\_\+\+ERR}}~(2U)
+\item 
+\#define \mbox{\hyperlink{traps_8h_ae82d2f606f0a60958165c9d941b36d88}{TRAPS\+\_\+\+BUS\+\_\+\+CPU\+\_\+\+X\+\_\+\+ERR}}~(3U)
+\item 
+\#define \mbox{\hyperlink{traps_8h_aede9a5d0d5834062b129dd4be015f199}{TRAPS\+\_\+\+BUS\+\_\+\+CPU\+\_\+\+Y\+\_\+\+ERR}}~(4U)
+\item 
+\#define \mbox{\hyperlink{traps_8h_af7c5606adf8b1bf54f9c2a494c5fc5bf}{TRAPS\+\_\+\+BUS\+\_\+\+DMA\+\_\+\+ERR}}~(5U)
+\item 
+\#define \mbox{\hyperlink{traps_8h_ab8a37e9758fb18879487a9c69e5adcde}{TRAPS\+\_\+\+BUS\+\_\+\+CPU\+\_\+\+INSTR\+\_\+\+ERR}}~(6U)
+\item 
+\#define \mbox{\hyperlink{traps_8h_ac15de2eb22952e1d470d6217c4def4d1}{TRAPS\+\_\+\+DIV0\+\_\+\+ERR}}~(7U)
+\item 
+\#define \mbox{\hyperlink{traps_8h_ad62093dc285d37c14d5320eae49c1569}{TRAPS\+\_\+\+DMT\+\_\+\+ERR}}~(8U)
+\item 
+\#define \mbox{\hyperlink{traps_8h_a8783869b28b0f9261b977691be7982c6}{TRAPS\+\_\+\+WDT\+\_\+\+ERR}}~(9U)
+\item 
+\#define \mbox{\hyperlink{traps_8h_a88cdd89b38d5d9e3d5cc4ee432db26b9}{TRAPS\+\_\+\+XRAM\+\_\+\+ERR}}~(10U)
+\item 
+\#define \mbox{\hyperlink{traps_8h_a5d5278fb5cc488aa430ae7e7ae3e39b8}{TRAPS\+\_\+\+YRAM\+\_\+\+ERR}}~(11U)
+\item 
+\#define \mbox{\hyperlink{traps_8h_a21be59cc46cf1cbe6ba28342182c0ef1}{TRAPS\+\_\+\+SOFT\+\_\+\+ERR}}~(12U)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint32\+\_\+t \mbox{\hyperlink{traps_8h_a091b2110b7dee24020ef12d5d027eb22}{TRAPS\+\_\+\+ERROR\+\_\+\+CODE}}
+\begin{DoxyCompactList}\small\item\em TRAPS error codes Type Definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{traps_8h_a0473a78f8b449f70bd4e12c9986b54fc}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((weak, noreturn)) TRAPS\+\_\+halt\+\_\+on\+\_\+error(uint16\+\_\+t code)
+\begin{DoxyCompactList}\small\item\em Stores the trap error code and waits forever. This is a weak attribute function. The user can override and implement the same function without weak attribute. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{traps_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{traps_8h_a65a971645b03e1d52859cef9aef1529a}\index{traps.h@{traps.h}!TRAPS\_ADDRESS\_ERR@{TRAPS\_ADDRESS\_ERR}}
+\index{TRAPS\_ADDRESS\_ERR@{TRAPS\_ADDRESS\_ERR}!traps.h@{traps.h}}
+\doxysubsubsection{\texorpdfstring{TRAPS\_ADDRESS\_ERR}{TRAPS\_ADDRESS\_ERR}}
+{\footnotesize\ttfamily \label{traps_8h_a65a971645b03e1d52859cef9aef1529a} 
+\#define TRAPS\+\_\+\+ADDRESS\+\_\+\+ERR~(1U)}
+
+Address error Trap 
+
+Definition at line \mbox{\hyperlink{traps_8h_source_l00048}{48}} of file \mbox{\hyperlink{traps_8h_source}{traps.\+h}}.
+
+\Hypertarget{traps_8h_ab8a37e9758fb18879487a9c69e5adcde}\index{traps.h@{traps.h}!TRAPS\_BUS\_CPU\_INSTR\_ERR@{TRAPS\_BUS\_CPU\_INSTR\_ERR}}
+\index{TRAPS\_BUS\_CPU\_INSTR\_ERR@{TRAPS\_BUS\_CPU\_INSTR\_ERR}!traps.h@{traps.h}}
+\doxysubsubsection{\texorpdfstring{TRAPS\_BUS\_CPU\_INSTR\_ERR}{TRAPS\_BUS\_CPU\_INSTR\_ERR}}
+{\footnotesize\ttfamily \label{traps_8h_ab8a37e9758fb18879487a9c69e5adcde} 
+\#define TRAPS\+\_\+\+BUS\+\_\+\+CPU\+\_\+\+INSTR\+\_\+\+ERR~(6U)}
+
+Bus CPU Instruction Error Trap 
+
+Definition at line \mbox{\hyperlink{traps_8h_source_l00053}{53}} of file \mbox{\hyperlink{traps_8h_source}{traps.\+h}}.
+
+\Hypertarget{traps_8h_ae82d2f606f0a60958165c9d941b36d88}\index{traps.h@{traps.h}!TRAPS\_BUS\_CPU\_X\_ERR@{TRAPS\_BUS\_CPU\_X\_ERR}}
+\index{TRAPS\_BUS\_CPU\_X\_ERR@{TRAPS\_BUS\_CPU\_X\_ERR}!traps.h@{traps.h}}
+\doxysubsubsection{\texorpdfstring{TRAPS\_BUS\_CPU\_X\_ERR}{TRAPS\_BUS\_CPU\_X\_ERR}}
+{\footnotesize\ttfamily \label{traps_8h_ae82d2f606f0a60958165c9d941b36d88} 
+\#define TRAPS\+\_\+\+BUS\+\_\+\+CPU\+\_\+\+X\+\_\+\+ERR~(3U)}
+
+Bus CPU X Data Error Trap 
+
+Definition at line \mbox{\hyperlink{traps_8h_source_l00050}{50}} of file \mbox{\hyperlink{traps_8h_source}{traps.\+h}}.
+
+\Hypertarget{traps_8h_aede9a5d0d5834062b129dd4be015f199}\index{traps.h@{traps.h}!TRAPS\_BUS\_CPU\_Y\_ERR@{TRAPS\_BUS\_CPU\_Y\_ERR}}
+\index{TRAPS\_BUS\_CPU\_Y\_ERR@{TRAPS\_BUS\_CPU\_Y\_ERR}!traps.h@{traps.h}}
+\doxysubsubsection{\texorpdfstring{TRAPS\_BUS\_CPU\_Y\_ERR}{TRAPS\_BUS\_CPU\_Y\_ERR}}
+{\footnotesize\ttfamily \label{traps_8h_aede9a5d0d5834062b129dd4be015f199} 
+\#define TRAPS\+\_\+\+BUS\+\_\+\+CPU\+\_\+\+Y\+\_\+\+ERR~(4U)}
+
+Bus CPU Y Data Error Trap 
+
+Definition at line \mbox{\hyperlink{traps_8h_source_l00051}{51}} of file \mbox{\hyperlink{traps_8h_source}{traps.\+h}}.
+
+\Hypertarget{traps_8h_af7c5606adf8b1bf54f9c2a494c5fc5bf}\index{traps.h@{traps.h}!TRAPS\_BUS\_DMA\_ERR@{TRAPS\_BUS\_DMA\_ERR}}
+\index{TRAPS\_BUS\_DMA\_ERR@{TRAPS\_BUS\_DMA\_ERR}!traps.h@{traps.h}}
+\doxysubsubsection{\texorpdfstring{TRAPS\_BUS\_DMA\_ERR}{TRAPS\_BUS\_DMA\_ERR}}
+{\footnotesize\ttfamily \label{traps_8h_af7c5606adf8b1bf54f9c2a494c5fc5bf} 
+\#define TRAPS\+\_\+\+BUS\+\_\+\+DMA\+\_\+\+ERR~(5U)}
+
+Bus DMA Error Trap 
+
+Definition at line \mbox{\hyperlink{traps_8h_source_l00052}{52}} of file \mbox{\hyperlink{traps_8h_source}{traps.\+h}}.
+
+\Hypertarget{traps_8h_ac15de2eb22952e1d470d6217c4def4d1}\index{traps.h@{traps.h}!TRAPS\_DIV0\_ERR@{TRAPS\_DIV0\_ERR}}
+\index{TRAPS\_DIV0\_ERR@{TRAPS\_DIV0\_ERR}!traps.h@{traps.h}}
+\doxysubsubsection{\texorpdfstring{TRAPS\_DIV0\_ERR}{TRAPS\_DIV0\_ERR}}
+{\footnotesize\ttfamily \label{traps_8h_ac15de2eb22952e1d470d6217c4def4d1} 
+\#define TRAPS\+\_\+\+DIV0\+\_\+\+ERR~(7U)}
+
+Divide by zero Error Trap 
+
+Definition at line \mbox{\hyperlink{traps_8h_source_l00054}{54}} of file \mbox{\hyperlink{traps_8h_source}{traps.\+h}}.
+
+\Hypertarget{traps_8h_ad62093dc285d37c14d5320eae49c1569}\index{traps.h@{traps.h}!TRAPS\_DMT\_ERR@{TRAPS\_DMT\_ERR}}
+\index{TRAPS\_DMT\_ERR@{TRAPS\_DMT\_ERR}!traps.h@{traps.h}}
+\doxysubsubsection{\texorpdfstring{TRAPS\_DMT\_ERR}{TRAPS\_DMT\_ERR}}
+{\footnotesize\ttfamily \label{traps_8h_ad62093dc285d37c14d5320eae49c1569} 
+\#define TRAPS\+\_\+\+DMT\+\_\+\+ERR~(8U)}
+
+Generic DMT Error Trap 
+
+Definition at line \mbox{\hyperlink{traps_8h_source_l00055}{55}} of file \mbox{\hyperlink{traps_8h_source}{traps.\+h}}.
+
+\Hypertarget{traps_8h_a9c9ecb50cd7b22ddc71053c4b5347823}\index{traps.h@{traps.h}!TRAPS\_ILLEGAL\_INSTRUCTION@{TRAPS\_ILLEGAL\_INSTRUCTION}}
+\index{TRAPS\_ILLEGAL\_INSTRUCTION@{TRAPS\_ILLEGAL\_INSTRUCTION}!traps.h@{traps.h}}
+\doxysubsubsection{\texorpdfstring{TRAPS\_ILLEGAL\_INSTRUCTION}{TRAPS\_ILLEGAL\_INSTRUCTION}}
+{\footnotesize\ttfamily \label{traps_8h_a9c9ecb50cd7b22ddc71053c4b5347823} 
+\#define TRAPS\+\_\+\+ILLEGAL\+\_\+\+INSTRUCTION~(0U)}
+
+Illegal Instruction Trap 
+
+Definition at line \mbox{\hyperlink{traps_8h_source_l00047}{47}} of file \mbox{\hyperlink{traps_8h_source}{traps.\+h}}.
+
+\Hypertarget{traps_8h_a21be59cc46cf1cbe6ba28342182c0ef1}\index{traps.h@{traps.h}!TRAPS\_SOFT\_ERR@{TRAPS\_SOFT\_ERR}}
+\index{TRAPS\_SOFT\_ERR@{TRAPS\_SOFT\_ERR}!traps.h@{traps.h}}
+\doxysubsubsection{\texorpdfstring{TRAPS\_SOFT\_ERR}{TRAPS\_SOFT\_ERR}}
+{\footnotesize\ttfamily \label{traps_8h_a21be59cc46cf1cbe6ba28342182c0ef1} 
+\#define TRAPS\+\_\+\+SOFT\+\_\+\+ERR~(12U)}
+
+Generic Soft Trap 
+
+Definition at line \mbox{\hyperlink{traps_8h_source_l00059}{59}} of file \mbox{\hyperlink{traps_8h_source}{traps.\+h}}.
+
+\Hypertarget{traps_8h_a63c5cd35d3bc25a11219334c3956170b}\index{traps.h@{traps.h}!TRAPS\_STACK\_ERR@{TRAPS\_STACK\_ERR}}
+\index{TRAPS\_STACK\_ERR@{TRAPS\_STACK\_ERR}!traps.h@{traps.h}}
+\doxysubsubsection{\texorpdfstring{TRAPS\_STACK\_ERR}{TRAPS\_STACK\_ERR}}
+{\footnotesize\ttfamily \label{traps_8h_a63c5cd35d3bc25a11219334c3956170b} 
+\#define TRAPS\+\_\+\+STACK\+\_\+\+ERR~(2U)}
+
+Stack Error Trap 
+
+Definition at line \mbox{\hyperlink{traps_8h_source_l00049}{49}} of file \mbox{\hyperlink{traps_8h_source}{traps.\+h}}.
+
+\Hypertarget{traps_8h_a8783869b28b0f9261b977691be7982c6}\index{traps.h@{traps.h}!TRAPS\_WDT\_ERR@{TRAPS\_WDT\_ERR}}
+\index{TRAPS\_WDT\_ERR@{TRAPS\_WDT\_ERR}!traps.h@{traps.h}}
+\doxysubsubsection{\texorpdfstring{TRAPS\_WDT\_ERR}{TRAPS\_WDT\_ERR}}
+{\footnotesize\ttfamily \label{traps_8h_a8783869b28b0f9261b977691be7982c6} 
+\#define TRAPS\+\_\+\+WDT\+\_\+\+ERR~(9U)}
+
+Generic WDT Error Trap 
+
+Definition at line \mbox{\hyperlink{traps_8h_source_l00056}{56}} of file \mbox{\hyperlink{traps_8h_source}{traps.\+h}}.
+
+\Hypertarget{traps_8h_a88cdd89b38d5d9e3d5cc4ee432db26b9}\index{traps.h@{traps.h}!TRAPS\_XRAM\_ERR@{TRAPS\_XRAM\_ERR}}
+\index{TRAPS\_XRAM\_ERR@{TRAPS\_XRAM\_ERR}!traps.h@{traps.h}}
+\doxysubsubsection{\texorpdfstring{TRAPS\_XRAM\_ERR}{TRAPS\_XRAM\_ERR}}
+{\footnotesize\ttfamily \label{traps_8h_a88cdd89b38d5d9e3d5cc4ee432db26b9} 
+\#define TRAPS\+\_\+\+XRAM\+\_\+\+ERR~(10U)}
+
+Generic XRAM PWB DED Error Trap 
+
+Definition at line \mbox{\hyperlink{traps_8h_source_l00057}{57}} of file \mbox{\hyperlink{traps_8h_source}{traps.\+h}}.
+
+\Hypertarget{traps_8h_a5d5278fb5cc488aa430ae7e7ae3e39b8}\index{traps.h@{traps.h}!TRAPS\_YRAM\_ERR@{TRAPS\_YRAM\_ERR}}
+\index{TRAPS\_YRAM\_ERR@{TRAPS\_YRAM\_ERR}!traps.h@{traps.h}}
+\doxysubsubsection{\texorpdfstring{TRAPS\_YRAM\_ERR}{TRAPS\_YRAM\_ERR}}
+{\footnotesize\ttfamily \label{traps_8h_a5d5278fb5cc488aa430ae7e7ae3e39b8} 
+\#define TRAPS\+\_\+\+YRAM\+\_\+\+ERR~(11U)}
+
+Generic XRAM PWB DED Error Trap 
+
+Definition at line \mbox{\hyperlink{traps_8h_source_l00058}{58}} of file \mbox{\hyperlink{traps_8h_source}{traps.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{traps_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{traps_8h_a091b2110b7dee24020ef12d5d027eb22}\index{traps.h@{traps.h}!TRAPS\_ERROR\_CODE@{TRAPS\_ERROR\_CODE}}
+\index{TRAPS\_ERROR\_CODE@{TRAPS\_ERROR\_CODE}!traps.h@{traps.h}}
+\doxysubsubsection{\texorpdfstring{TRAPS\_ERROR\_CODE}{TRAPS\_ERROR\_CODE}}
+{\footnotesize\ttfamily \label{traps_8h_a091b2110b7dee24020ef12d5d027eb22} 
+typedef uint32\+\_\+t \mbox{\hyperlink{traps_8h_a091b2110b7dee24020ef12d5d027eb22}{TRAPS\+\_\+\+ERROR\+\_\+\+CODE}}}
+
+
+
+TRAPS error codes Type Definition. 
+
+Defines the type used to represent TRAPS error codes in the system. The value corresponds to various TRAPS error codes available in the device. 
+
+Definition at line \mbox{\hyperlink{traps_8h_source_l00067}{67}} of file \mbox{\hyperlink{traps_8h_source}{traps.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{traps_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{traps_8h_a0473a78f8b449f70bd4e12c9986b54fc}\index{traps.h@{traps.h}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!traps.h@{traps.h}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \label{traps_8h_a0473a78f8b449f70bd4e12c9986b54fc} 
+void \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(weak, noreturn)}]{}{}\end{DoxyParamCaption})}
+
+
+
+Stores the trap error code and waits forever. This is a weak attribute function. The user can override and implement the same function without weak attribute. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em code} & -\/ trap error code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{traps_8c_source_l00064}{64}} of file \mbox{\hyperlink{traps_8c_source}{traps.\+c}}.
+

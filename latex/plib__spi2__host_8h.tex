@@ -1,0 +1,598 @@
+\doxysection{src/config/default/peripheral/spi/spi\+\_\+host/plib\+\_\+spi2\+\_\+host.h File Reference}
+\hypertarget{plib__spi2__host_8h}{}\label{plib__spi2__host_8h}\index{src/config/default/peripheral/spi/spi\_host/plib\_spi2\_host.h@{src/config/default/peripheral/spi/spi\_host/plib\_spi2\_host.h}}
+{\ttfamily \#include "{}device.\+h"{}}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include "{}plib\+\_\+spi\+\_\+host\+\_\+common.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plib__spi2__host_8h_a062ee9dfb4b18530a19b2f86abb1115a}{SPI2\+\_\+\+Frequency\+Get}}()
+\begin{DoxyCompactList}\small\item\em This macro returns SPI clock frequency. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__spi2__host_8h_afd35ebaed0d19b1e14cf69a46b863eb8}{SPI2\+\_\+\+Initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the SPI peripheral of the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__spi2__host_8h_a815ad2f7fc385ad93d1d3c982dd69249}{SPI2\+\_\+\+Deinitialize}} (void)
+\begin{DoxyCompactList}\small\item\em Deinitializes the SPI peripheral of the device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__spi2__host_8h_a093b235d103b5acf68454865c304834a}{SPI2\+\_\+\+Write\+Read}} (void \texorpdfstring{$\ast$}{*}p\+Transmit\+Data, size\+\_\+t tx\+Size, void \texorpdfstring{$\ast$}{*}p\+Receive\+Data, size\+\_\+t rx\+Size)
+\begin{DoxyCompactList}\small\item\em Write and read data on the SPI peripheral. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__spi2__host_8h_a20a2e095db40cbdc75231572e642bead}{SPI2\+\_\+\+Write}} (void \texorpdfstring{$\ast$}{*}p\+Transmit\+Data, size\+\_\+t tx\+Size)
+\begin{DoxyCompactList}\small\item\em Writes data to the SPI peripheral. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__spi2__host_8h_a18f193152e981d2aa22d20e6c36991cb}{SPI2\+\_\+\+Read}} (void \texorpdfstring{$\ast$}{*}p\+Receive\+Data, size\+\_\+t rx\+Size)
+\begin{DoxyCompactList}\small\item\em Reads data on the SPI peripheral. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__spi2__host_8h_af412aaf7a65d53eb946a0f566695a0ea}{SPI2\+\_\+\+Transfer\+Setup}} (\mbox{\hyperlink{structSPI__TRANSFER__SETUP}{SPI\+\_\+\+TRANSFER\+\_\+\+SETUP}} \texorpdfstring{$\ast$}{*}setup, uint32\+\_\+t spi\+Source\+Clock)
+\begin{DoxyCompactList}\small\item\em Configures SPI operational parameters at runtime. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__spi2__host_8h_aaaada0b426cd9b39e1d5b284372a7f87}{SPI2\+\_\+\+Is\+Transmitter\+Busy}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the transfer status of the SPI peripheral. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__spi2__host_8h_af4abb1b153cbfce63643463aeb851fab}{SPI2\+\_\+\+Is\+Busy}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the transfer status of the SPI peripheral. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__spi2__host_8h_a06f4ba24ef3547bb59d5900755556e90}{SPI2\+\_\+\+Callback\+Register}} (\mbox{\hyperlink{plib__spi__host__common_8h_ae09d5880ae883eee1b2ef101e157e996}{SPI\+\_\+\+CALLBACK}} callback, uintptr\+\_\+t context)
+\begin{DoxyCompactList}\small\item\em Registers a callback function for SPI transfer completion events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{plib__spi2__host_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{plib__spi2__host_8h_a062ee9dfb4b18530a19b2f86abb1115a}\index{plib\_spi2\_host.h@{plib\_spi2\_host.h}!SPI2\_FrequencyGet@{SPI2\_FrequencyGet}}
+\index{SPI2\_FrequencyGet@{SPI2\_FrequencyGet}!plib\_spi2\_host.h@{plib\_spi2\_host.h}}
+\doxysubsubsection{\texorpdfstring{SPI2\_FrequencyGet}{SPI2\_FrequencyGet}}
+{\footnotesize\ttfamily \label{plib__spi2__host_8h_a062ee9dfb4b18530a19b2f86abb1115a} 
+\#define SPI2\+\_\+\+Frequency\+Get(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(uint32\_t)(143085391UL)}
+
+\end{DoxyCode}
+
+
+This macro returns SPI clock frequency. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__spi2__host_8h_source_l00061}{61}} of file \mbox{\hyperlink{plib__spi2__host_8h_source}{plib\+\_\+spi2\+\_\+host.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{plib__spi2__host_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__spi2__host_8h_a06f4ba24ef3547bb59d5900755556e90}\index{plib\_spi2\_host.h@{plib\_spi2\_host.h}!SPI2\_CallbackRegister@{SPI2\_CallbackRegister}}
+\index{SPI2\_CallbackRegister@{SPI2\_CallbackRegister}!plib\_spi2\_host.h@{plib\_spi2\_host.h}}
+\doxysubsubsection{\texorpdfstring{SPI2\_CallbackRegister()}{SPI2\_CallbackRegister()}}
+{\footnotesize\ttfamily \label{plib__spi2__host_8h_a06f4ba24ef3547bb59d5900755556e90} 
+void SPI2\+\_\+\+Callback\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__spi__host__common_8h_ae09d5880ae883eee1b2ef101e157e996}{SPI\+\_\+\+CALLBACK}}}]{callback}{, }\item[{uintptr\+\_\+t}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Registers a callback function for SPI transfer completion events. 
+
+This function allows the application to register a callback function that the PLIB will call when a requested data transfer operation has completed.
+
+The function also allows the application to specify a context value (usually a pointer to a structure or data) that is passed into the callback function when it is executed. The registered callback will be invoked from the peripheral interrupt context. Therefore, the callback function should be lightweight and quick.
+
+The callback function must be registered before initiating any transfer operation.
+
+\begin{DoxyPrecond}{Precondition}
+The {\ttfamily SPIx\+\_\+\+Initialize()} function must have been called. This function is only available if the library is configured for {\bfseries{interrupt mode}}.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em callback} & A pointer to a function with a calling signature defined by the {\ttfamily \doxylink{plib__spi__host__common_8h_ae09d5880ae883eee1b2ef101e157e996}{SPI\+\_\+\+CALLBACK}} or {\ttfamily SPI\+\_\+\+SLAVE\+\_\+\+CALLBACK} data type. Setting this to {\ttfamily NULL} disables the callback feature. \\
+\hline
+\mbox{\texttt{ in}}  & {\em context} & A value (usually a pointer) that is passed into the callback function when it is invoked.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+
+{\bfseries{SPI}} Host Mode(Non-\/blocking)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uint8\_t\ txBuffer[4];}
+\DoxyCodeLine{uint8\_t\ rxBuffer[10];}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ txSize\ =\ 4;}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ rxSize\ =\ 10;}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ reqAccepted;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ APP\_SPITransferHandler(uintptr\_t\ context)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{plib__spi1__host_8c_a0607cad7a6b302950091fea719146a54}{SPI1\_Initialize}}();}
+\DoxyCodeLine{\mbox{\hyperlink{plib__spi1__host_8c_a6b10327f8fc8b00db0553e5d62b696e6}{SPI1\_CallbackRegister}}(\&APP\_SPITransferHandler,\ (uintptr\_t)NULL);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\mbox{\hyperlink{plib__spi1__host_8c_ab7bbbbda03a203b88dfd796c5032cdd8}{SPI1\_WriteRead}}(\&txBuffer,\ txSize,\ \&rxBuffer,\ rxSize))}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__spi2__host_8c_source_l00211}{211}} of file \mbox{\hyperlink{plib__spi2__host_8c_source}{plib\+\_\+spi2\+\_\+host.\+c}}.
+
+\Hypertarget{plib__spi2__host_8h_a815ad2f7fc385ad93d1d3c982dd69249}\index{plib\_spi2\_host.h@{plib\_spi2\_host.h}!SPI2\_Deinitialize@{SPI2\_Deinitialize}}
+\index{SPI2\_Deinitialize@{SPI2\_Deinitialize}!plib\_spi2\_host.h@{plib\_spi2\_host.h}}
+\doxysubsubsection{\texorpdfstring{SPI2\_Deinitialize()}{SPI2\_Deinitialize()}}
+{\footnotesize\ttfamily \label{plib__spi2__host_8h_a815ad2f7fc385ad93d1d3c982dd69249} 
+void SPI2\+\_\+\+Deinitialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Deinitializes the SPI peripheral of the device. 
+
+This function deinitializes the SPI Peripheral Library (PLIB) of the device, returning the SPI peripheral to its default reset state. After calling this function, the SPI peripheral will no longer be operational, and any subsequent SPI operations will fail until re-\/initialization using the SPIx\+\_\+\+Initialize API.
+
+\begin{DoxyPrecond}{Precondition}
+The SPI peripheral must have been initialized using the SPIx\+\_\+\+Initialize API.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function should be called when the SPI peripheral is no longer required to release resources and ensure proper reset behavior.
+\end{DoxyNote}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__spi1__host_8c_a0607cad7a6b302950091fea719146a54}{SPI1\_Initialize}}();}
+\DoxyCodeLine{\mbox{\hyperlink{plib__spi1__host_8c_a35e445e1268256e17c999e392dfbd734}{SPI1\_Deinitialize}}();}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{plib__spi2__host_8c_source_l00120}{120}} of file \mbox{\hyperlink{plib__spi2__host_8c_source}{plib\+\_\+spi2\+\_\+host.\+c}}.
+
+\Hypertarget{plib__spi2__host_8h_afd35ebaed0d19b1e14cf69a46b863eb8}\index{plib\_spi2\_host.h@{plib\_spi2\_host.h}!SPI2\_Initialize@{SPI2\_Initialize}}
+\index{SPI2\_Initialize@{SPI2\_Initialize}!plib\_spi2\_host.h@{plib\_spi2\_host.h}}
+\doxysubsubsection{\texorpdfstring{SPI2\_Initialize()}{SPI2\_Initialize()}}
+{\footnotesize\ttfamily \label{plib__spi2__host_8h_afd35ebaed0d19b1e14cf69a46b863eb8} 
+void SPI2\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the SPI peripheral of the device. 
+
+This function initializes the SPI Peripheral Library (PLIB) of the device with the values configured in the MCC GUI. Once the peripheral is initialized, transfer APIs can be used to transfer the data.
+
+\begin{DoxyPrecond}{Precondition}
+MCC GUI should be configured with the correct values.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function must be called only once and before any other SPI function is called.
+\end{DoxyNote}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__spi1__host_8c_a0607cad7a6b302950091fea719146a54}{SPI1\_Initialize}}();}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{plib__spi2__host_8c_source_l00087}{87}} of file \mbox{\hyperlink{plib__spi2__host_8c_source}{plib\+\_\+spi2\+\_\+host.\+c}}.
+
+\Hypertarget{plib__spi2__host_8h_af4abb1b153cbfce63643463aeb851fab}\index{plib\_spi2\_host.h@{plib\_spi2\_host.h}!SPI2\_IsBusy@{SPI2\_IsBusy}}
+\index{SPI2\_IsBusy@{SPI2\_IsBusy}!plib\_spi2\_host.h@{plib\_spi2\_host.h}}
+\doxysubsubsection{\texorpdfstring{SPI2\_IsBusy()}{SPI2\_IsBusy()}}
+{\footnotesize\ttfamily \label{plib__spi2__host_8h_af4abb1b153cbfce63643463aeb851fab} 
+bool SPI2\+\_\+\+Is\+Busy (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the transfer status of the SPI peripheral. 
+
+In {\bfseries{host mode}}, this function returns {\ttfamily true} if the SPI peripheral is busy with a transfer. The application can use this function to check the SPI peripheral status before initiating another data transfer operation.
+
+The library does not allow a data transfer operation to start if another transfer operation is already in progress.
+
+This function can be used as an alternative to the callback function when the library operates in interrupt mode, allowing the application to implement a synchronous interface.
+
+\begin{DoxyPrecond}{Precondition}
+The {\ttfamily SPIx\+\_\+\+Initialize()} function must have been called, and the SPI peripheral must have been configured for {\bfseries{interrupt mode}} operation in MCC.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily true} -\/ Transfer is currently in progress ({\bfseries{host mode}}) or the chip select is in an active state ({\bfseries{slave mode}}).
+\item {\ttfamily false} -\/ Transfer is completed ({\bfseries{host mode}}) or the chip select is in an inactive state ({\bfseries{slave mode}}).
+\end{DoxyItemize}
+\end{DoxyReturn}
+{\bfseries{Example}} 
+
+{\bfseries{SPI}} {\bfseries{Transfer}} {\bfseries{Status}} {\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uint8\_t\ dataBuffer[20];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{plib__spi1__host_8c_a0607cad7a6b302950091fea719146a54}{SPI1\_Initialize}}();}
+\DoxyCodeLine{\mbox{\hyperlink{plib__spi1__host_8c_a17b63db3988b3bccfb3ad390409e35a8}{SPI1\_Write}}(dataBuffer,\ 20);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (\mbox{\hyperlink{plib__spi1__host_8c_a3ecd9d43324bcf0e55f1a00b2529417c}{SPI1\_IsBusy}}()\ ==\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ -\/\ Wait\ here\ until\ the\ transfer\ is\ complete.}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__spi2__host_8c_source_l00205}{205}} of file \mbox{\hyperlink{plib__spi2__host_8c_source}{plib\+\_\+spi2\+\_\+host.\+c}}.
+
+\Hypertarget{plib__spi2__host_8h_aaaada0b426cd9b39e1d5b284372a7f87}\index{plib\_spi2\_host.h@{plib\_spi2\_host.h}!SPI2\_IsTransmitterBusy@{SPI2\_IsTransmitterBusy}}
+\index{SPI2\_IsTransmitterBusy@{SPI2\_IsTransmitterBusy}!plib\_spi2\_host.h@{plib\_spi2\_host.h}}
+\doxysubsubsection{\texorpdfstring{SPI2\_IsTransmitterBusy()}{SPI2\_IsTransmitterBusy()}}
+{\footnotesize\ttfamily \label{plib__spi2__host_8h_aaaada0b426cd9b39e1d5b284372a7f87} 
+bool SPI2\+\_\+\+Is\+Transmitter\+Busy (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the transfer status of the SPI peripheral. 
+
+This function returns the current transfer status of the last successful Write or Read request on the SPI peripheral. It can be used to check whether the SPI peripheral is still busy with a transfer or if the transfer has been completed.
+
+\begin{DoxyPrecond}{Precondition}
+None.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None.} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the current transfer status\+:
+\begin{DoxyItemize}
+\item {\ttfamily true} -\/ Transfer is still in progress.
+\item {\ttfamily false} -\/ Transfer is completed.
+\end{DoxyItemize}
+\end{DoxyReturn}
+{\bfseries{Example}} 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/\ Check\ \textcolor{keywordflow}{if}\ the\ SPI\ transfer\ has\ completed}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\mbox{\hyperlink{plib__spi1__host_8c_adc45f406ddadec2616bef5c48622ab40}{SPI1\_IsTransmitterBusy}}()\ ==\ \textcolor{keyword}{false})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ -\/\ Data\ Transfer\ is\ complete,\ perform\ the\ next\ operation}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__spi2__host_8c_source_l00199}{199}} of file \mbox{\hyperlink{plib__spi2__host_8c_source}{plib\+\_\+spi2\+\_\+host.\+c}}.
+
+\Hypertarget{plib__spi2__host_8h_a18f193152e981d2aa22d20e6c36991cb}\index{plib\_spi2\_host.h@{plib\_spi2\_host.h}!SPI2\_Read@{SPI2\_Read}}
+\index{SPI2\_Read@{SPI2\_Read}!plib\_spi2\_host.h@{plib\_spi2\_host.h}}
+\doxysubsubsection{\texorpdfstring{SPI2\_Read()}{SPI2\_Read()}}
+{\footnotesize\ttfamily \label{plib__spi2__host_8h_a18f193152e981d2aa22d20e6c36991cb} 
+bool SPI2\+\_\+\+Read (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Receive\+Data}{, }\item[{size\+\_\+t}]{rx\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Reads data on the SPI peripheral. 
+
+This function reads "{}rx\+Size"{} number of bytes from the SPI peripheral. The received data is stored in the buffer pointed to by {\ttfamily p\+Rd\+Buffer}.
+
+
+\begin{DoxyItemize}
+\item When {\bfseries{interrupts are disabled}}, the function is blocking and will not return until all the requested data has been received. Upon successful completion, the function returns {\ttfamily true}.
+\item When {\bfseries{interrupts are enabled}}, the function is non-\/blocking and returns immediately. The data transfer continues in the SPI peripheral interrupt. The receive buffer provided to the function is owned by the PLIB until the transfer is complete and must not be modified by the application.
+\end{DoxyItemize}
+
+Only one transfer is allowed at any time. Transfer completion can be monitored using a callback function (registered before calling {\ttfamily SPIx\+\_\+\+Read()}) or by polling the {\ttfamily SPIx\+\_\+\+Is\+Busy()} function.
+
+\begin{DoxyPrecond}{Precondition}
+The {\ttfamily SPIx\+\_\+\+Initialize} function must have been called.
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+If interrupts are enabled, a callback must be registered using {\ttfamily SPIx\+\_\+\+Callback\+Register()} to receive transfer completion status.
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em p\+Rd\+Buffer} & Pointer to the buffer where the received data will be stored. In {\bfseries{interrupt mode}}, this buffer must not be modified until the transfer is complete and the callback has been called or {\ttfamily SPIx\+\_\+\+Is\+Busy()} returns {\ttfamily false}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rx\+Size} & Number of bytes to be received. This value is the byte size of the buffer, irrespective of 8/16/32-\/bit transfer mode.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily true} -\/ If configured for non-\/interrupt mode, the requested data has been received. If configured for interrupt mode, the transfer request was accepted successfully and will be processed in the interrupt.
+\item {\ttfamily false} -\/ If {\ttfamily p\+Rd\+Buffer} is {\ttfamily NULL} or {\ttfamily rx\+Size} is 0. In interrupt mode, the function also returns {\ttfamily false} if a transfer is already in progress.
+\end{DoxyItemize}
+\end{DoxyReturn}
+{\bfseries{Example}} 
+
+{\bfseries{SPI}} {\bfseries{Read}} {\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uint8\_t\ rxBuffer[10];}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ rxSize\ =\ 10;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ SPIEventHandler(uintptr\_t\ context)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ -\/\ Transfer\ was\ completed\ successfully;\ take\ appropriate\ action.}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{plib__spi1__host_8c_a0607cad7a6b302950091fea719146a54}{SPI1\_Initialize}}();}
+\DoxyCodeLine{\mbox{\hyperlink{plib__spi1__host_8c_a6b10327f8fc8b00db0553e5d62b696e6}{SPI1\_CallbackRegister}}(SPIEventHandler,\ (uintptr\_t)0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\mbox{\hyperlink{plib__spi1__host_8c_a496dd358c511d8c804fd1ef9c639f92e}{SPI1\_Read}}(\&rxBuffer,\ rxSize))}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ -\/\ Request\ was\ accepted\ successfully.}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ -\/\ Request\ was\ not\ accepted;\ retry\ with\ correct\ arguments.}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__spi2__host_8c_source_l00194}{194}} of file \mbox{\hyperlink{plib__spi2__host_8c_source}{plib\+\_\+spi2\+\_\+host.\+c}}.
+
+\Hypertarget{plib__spi2__host_8h_af412aaf7a65d53eb946a0f566695a0ea}\index{plib\_spi2\_host.h@{plib\_spi2\_host.h}!SPI2\_TransferSetup@{SPI2\_TransferSetup}}
+\index{SPI2\_TransferSetup@{SPI2\_TransferSetup}!plib\_spi2\_host.h@{plib\_spi2\_host.h}}
+\doxysubsubsection{\texorpdfstring{SPI2\_TransferSetup()}{SPI2\_TransferSetup()}}
+{\footnotesize\ttfamily \label{plib__spi2__host_8h_af412aaf7a65d53eb946a0f566695a0ea} 
+bool SPI2\+\_\+\+Transfer\+Setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSPI__TRANSFER__SETUP}{SPI\+\_\+\+TRANSFER\+\_\+\+SETUP}} \texorpdfstring{$\ast$}{*}}]{setup}{, }\item[{uint32\+\_\+t}]{spi\+Source\+Clock}{}\end{DoxyParamCaption})}
+
+
+
+Configures SPI operational parameters at runtime. 
+
+This function allows the application to change the SPI operational parameters at runtime. The application can thus override the MCC-\/defined configuration for these parameters. The parameters are specified via the {\ttfamily \doxylink{structSPI__TRANSFER__SETUP}{SPI\+\_\+\+TRANSFER\+\_\+\+SETUP}} structure. Each member of this structure should be initialized to the desired value.
+
+This function is particularly useful in scenarios where multiple SPI slaves are connected on the same SPI bus, each requiring different operational parameters. The function can configure the SPI Host to meet the communication needs of the current SPI slave.
+
+\begin{DoxyNote}{Note}
+Calling this function will affect any ongoing communication. The application must ensure that there is no ongoing communication on the SPI before calling this function.
+\end{DoxyNote}
+\begin{DoxyPrecond}{Precondition}
+SPI must first be initialized using {\ttfamily SPIx\+\_\+\+Initialize()}.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em setup} & Pointer to a {\ttfamily \doxylink{structSPI__TRANSFER__SETUP}{SPI\+\_\+\+TRANSFER\+\_\+\+SETUP}} structure containing the operational parameters. Each parameter must be specified, even if the parameter does not need to change. \\
+\hline
+\mbox{\texttt{ in}}  & {\em spi\+Source\+Clock} & SPI peripheral clock source frequency. If configured to 0, the PLIB takes the peripheral clock frequency from MCC.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily true} -\/ Setup was successful.
+\item {\ttfamily false} -\/ Setup failed because the {\ttfamily spi\+Source\+Clock} and SPI clock frequencies result in a baud rate that is out of the valid range.
+\end{DoxyItemize}
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structSPI__TRANSFER__SETUP}{SPI\_TRANSFER\_SETUP}}\ setup;}
+\DoxyCodeLine{setup.\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a13a57d4f9f72129d847edfebbdc7e71f}{clockFrequency}}\ =\ 1000000;}
+\DoxyCodeLine{setup.\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a1babbde781da3e40f2da32ef06faedde}{clockPhase}}\ =\ \mbox{\hyperlink{plib__spi__host__common_8h_af99b25d28248bf5dd2f801290d79a2b0ad42e678e8530aec81d79b177f646c383}{SPI\_CLOCK\_PHASE\_TRAILING\_EDGE}};}
+\DoxyCodeLine{setup.\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a39c28f6753b48f7ded7e5d5cf114c82c}{clockPolarity}}\ =\ \mbox{\hyperlink{plib__spi__host__common_8h_a3829e2fbb9ba66694cac033ae8dbfa64abe157ad19731c08747d2b64fad0ca599}{SPI\_CLOCK\_POLARITY\_IDLE\_LOW}};}
+\DoxyCodeLine{setup.\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a61358360a114db42544587290a58ec93}{dataBits}}\ =\ \mbox{\hyperlink{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85a69055b82a537b36b688e59260fa4df54}{SPI\_DATA\_BITS\_8}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ Assuming\ 30\ MHz\ as\ peripheral\ input\ clock\ frequency}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\mbox{\hyperlink{plib__spi1__host_8c_a76e389e1c7f3a7a61b61d32cadf7e4d3}{SPI1\_TransferSetup}}(\&setup,\ 30000000)\ ==\ \textcolor{keyword}{false})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ -\/\ This\ means\ setup\ could\ not\ be\ done,\ debug\ the\ reason.}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+The application needs to call this function only if the operational parameters need to differ from those configured in MCC. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{plib__spi2__host_8c_source_l00145}{145}} of file \mbox{\hyperlink{plib__spi2__host_8c_source}{plib\+\_\+spi2\+\_\+host.\+c}}.
+
+\Hypertarget{plib__spi2__host_8h_a20a2e095db40cbdc75231572e642bead}\index{plib\_spi2\_host.h@{plib\_spi2\_host.h}!SPI2\_Write@{SPI2\_Write}}
+\index{SPI2\_Write@{SPI2\_Write}!plib\_spi2\_host.h@{plib\_spi2\_host.h}}
+\doxysubsubsection{\texorpdfstring{SPI2\_Write()}{SPI2\_Write()}}
+{\footnotesize\ttfamily \label{plib__spi2__host_8h_a20a2e095db40cbdc75231572e642bead} 
+bool SPI2\+\_\+\+Write (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Transmit\+Data}{, }\item[{size\+\_\+t}]{tx\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Writes data to the SPI peripheral. 
+
+This function writes "{}tx\+Size"{} number of bytes to the SPI peripheral. The data pointed to by {\ttfamily p\+Wr\+Buffer} is transmitted.
+
+
+\begin{DoxyItemize}
+\item When {\bfseries{interrupts are disabled}}, the function is blocking. It will not return until all the requested data has been transmitted. Upon successful completion, the function returns {\ttfamily true}.
+\item When {\bfseries{interrupts are enabled}}, the function is non-\/blocking. It returns immediately, and the data transfer continues in the SPI peripheral interrupt. The application-\/specified transmit buffer is owned by the library until the transfer is complete. The buffer should not be modified by the application during this period.
+\end{DoxyItemize}
+
+Only one transfer is allowed at any time. Transfer completion can be monitored using a callback function (registered before calling {\ttfamily SPIx\+\_\+\+Write()}) or by polling the {\ttfamily SPIx\+\_\+\+Is\+Busy()} function.
+
+\begin{DoxyPrecond}{Precondition}
+The {\ttfamily SPIx\+\_\+\+Initialize} function must have been called.
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+For SPI host mode, if interrupts are enabled and transfer completion needs to be communicated back to the application, a callback must be registered using {\ttfamily SPIx\+\_\+\+Callback\+Register()} prior to calling this function.
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+Wr\+Buffer} & Pointer to the buffer containing the data to be transmitted. In {\bfseries{interrupt mode}}, this buffer should not be modified after calling the function and before the callback function has been executed or {\ttfamily SPIx\+\_\+\+Is\+Busy()} returns {\ttfamily false}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em tx\+Size} & Number of bytes to be transmitted. This value is the byte size of the buffer, irrespective of 8/16/32-\/bit transfer mode.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily true} -\/ If configured for non-\/interrupt mode, the requested data was successfully transmitted. If configured for interrupt mode, the transfer request was accepted and will be processed in the interrupt.
+\item {\ttfamily false} -\/ If {\ttfamily p\+Wr\+Buffer} is {\ttfamily NULL} or {\ttfamily tx\+Size} is 0. In interrupt mode, the function also returns {\ttfamily false} if a transfer is already in progress.
+\end{DoxyItemize}
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uint8\_t\ txBuffer[4];}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ txSize\ =\ 4;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ APP\_SPITransferHandler(uintptr\_t\ context)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ -\/\ Transfer\ completed\ successfully;\ take\ appropriate\ action.}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{plib__spi1__host_8c_a0607cad7a6b302950091fea719146a54}{SPI1\_Initialize}}();}
+\DoxyCodeLine{\mbox{\hyperlink{plib__spi1__host_8c_a6b10327f8fc8b00db0553e5d62b696e6}{SPI1\_CallbackRegister}}(\&APP\_SPITransferHandler,\ (uintptr\_t)NULL);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\mbox{\hyperlink{plib__spi1__host_8c_a17b63db3988b3bccfb3ad390409e35a8}{SPI1\_Write}}(\&txBuffer,\ txSize))}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ -\/\ Request\ accepted\ successfully.}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ -\/\ Request\ not\ accepted;\ retry\ with\ correct\ arguments.}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__spi2__host_8c_source_l00189}{189}} of file \mbox{\hyperlink{plib__spi2__host_8c_source}{plib\+\_\+spi2\+\_\+host.\+c}}.
+
+\Hypertarget{plib__spi2__host_8h_a093b235d103b5acf68454865c304834a}\index{plib\_spi2\_host.h@{plib\_spi2\_host.h}!SPI2\_WriteRead@{SPI2\_WriteRead}}
+\index{SPI2\_WriteRead@{SPI2\_WriteRead}!plib\_spi2\_host.h@{plib\_spi2\_host.h}}
+\doxysubsubsection{\texorpdfstring{SPI2\_WriteRead()}{SPI2\_WriteRead()}}
+{\footnotesize\ttfamily \label{plib__spi2__host_8h_a093b235d103b5acf68454865c304834a} 
+bool SPI2\+\_\+\+Write\+Read (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Transmit\+Data}{, }\item[{size\+\_\+t}]{tx\+Size}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Receive\+Data}{, }\item[{size\+\_\+t}]{rx\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Write and read data on the SPI peripheral. 
+
+This function transmits "{}tx\+Size"{} number of bytes and receives "{}rx\+Size"{} number of bytes on the SPI peripheral. Data pointed to by {\ttfamily p\+Transmit\+Data} is transmitted, and received data is saved in the location pointed to by {\ttfamily p\+Receive\+Data}. The function transfers the maximum of "{}tx\+Size"{} or "{}rx\+Size"{} data units until completion.
+
+
+\begin{DoxyItemize}
+\item When {\bfseries{interrupts are disabled}}, this function is blocking. It will not return until all requested data has been transferred. Upon successful completion, the function returns {\ttfamily true}.
+\item When {\bfseries{interrupts are enabled}}, this function is non-\/blocking. It returns immediately, while the transfer continues in the SPI interrupt. The transmit and receive buffers are owned by the library until the transfer is complete. Only one transfer is allowed at a time. Completion can be monitored using a callback function or polling with {\ttfamily SPIx\+\_\+\+Is\+Busy}.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+For non-\/blocking mode, a callback must be registered prior to calling this function if completion notifications are required.
+\end{DoxyNote}
+\begin{DoxyPrecond}{Precondition}
+The {\ttfamily SPIx\+\_\+\+Initialize} function must have been called. If the SPI instance is configured for interrupt mode and callback is needed, it must be registered using {\ttfamily SPIx\+\_\+\+Callback\+Register} before calling this function.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+Transmit\+Data} & Pointer to the data to be transmitted. Set this to {\ttfamily NULL} if only data reception is needed. The size of this buffer should match {\ttfamily tx\+Size}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em tx\+Size} & Number of bytes to be transmitted. This value is the byte size of the buffer, irrespective of 8/16/32-\/bit transfer mode. \\
+\hline
+\mbox{\texttt{ out}}  & {\em p\+Receive\+Data} & Pointer to the location where the received data is stored. Ensure sufficient memory is allocated for {\ttfamily rx\+Size} bytes. Set this to {\ttfamily NULL} if only data transmission is required. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rx\+Size} & Number of bytes to be received. Must be at least the sum of {\ttfamily tx\+Size} plus any additional bytes to receive. For example, if 3 bytes are transmitted and 10 bytes are to be received, {\ttfamily rx\+Size} must be 13.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily true} -\/ In blocking mode, all requested data was transmitted and received. In non-\/blocking mode, the request was successfully accepted for processing.
+\item {\ttfamily false} -\/ If both {\ttfamily p\+Transmit\+Data} and {\ttfamily p\+Receive\+Data} are {\ttfamily NULL}, or both {\ttfamily tx\+Size} and {\ttfamily rx\+Size} are 0. It also returns {\ttfamily false} if {\ttfamily tx\+Size} is non-\/zero but {\ttfamily p\+Transmit\+Data} is {\ttfamily NULL}, or {\ttfamily rx\+Size} is non-\/zero but {\ttfamily p\+Receive\+Data} is {\ttfamily NULL}. In non-\/blocking mode, the function fails if a transfer is already in progress.
+\end{DoxyItemize}
+\end{DoxyReturn}
+{\bfseries{Example}} 
+
+{\bfseries{Non-\/blocking}} Mode\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/\ Example\ of\ SPIx\_WriteRead()\ in\ interrupt\ mode\ with\ a\ callback\ function.}
+\DoxyCodeLine{}
+\DoxyCodeLine{uint8\_t\ txBuffer[4];}
+\DoxyCodeLine{uint8\_t\ rxBuffer[10];}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ txSize\ =\ 4;}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ rxSize\ =\ 10;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ APP\_SPITransferHandler(uintptr\_t\ context)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ -\/\ Transfer\ completed\ without\ error;\ take\ appropriate\ action.}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{plib__spi1__host_8c_a0607cad7a6b302950091fea719146a54}{SPI1\_Initialize}}();}
+\DoxyCodeLine{\mbox{\hyperlink{plib__spi1__host_8c_a6b10327f8fc8b00db0553e5d62b696e6}{SPI1\_CallbackRegister}}(\&APP\_SPITransferHandler,\ (uintptr\_t)NULL);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\mbox{\hyperlink{plib__spi1__host_8c_ab7bbbbda03a203b88dfd796c5032cdd8}{SPI1\_WriteRead}}(\&txBuffer,\ txSize,\ \&rxBuffer,\ rxSize))}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ -\/\ Request\ accepted\ successfully.}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ -\/\ Request\ not\ accepted;\ retry\ with\ correct\ arguments.}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Blocking}} Mode\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/\ Example\ of\ SPIx\_WriteRead()\ in\ blocking\ mode\ (non-\/interrupt).}
+\DoxyCodeLine{}
+\DoxyCodeLine{uint8\_t\ txBuffer[4];}
+\DoxyCodeLine{uint8\_t\ rxBuffer[10];}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ txSize\ =\ 4;}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ rxSize\ =\ 10;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{plib__spi1__host_8c_a0607cad7a6b302950091fea719146a54}{SPI1\_Initialize}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ This\ call\ blocks\ until\ the\ transfer\ completes.}
+\DoxyCodeLine{\mbox{\hyperlink{plib__spi1__host_8c_ab7bbbbda03a203b88dfd796c5032cdd8}{SPI1\_WriteRead}}(\&txBuffer,\ txSize,\ \&rxBuffer,\ rxSize);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__spi2__host_8c_source_l00249}{249}} of file \mbox{\hyperlink{plib__spi2__host_8c_source}{plib\+\_\+spi2\+\_\+host.\+c}}.
+

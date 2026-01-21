@@ -1,0 +1,170 @@
+\doxysection{src/config/default/traps.c File Reference}
+\hypertarget{traps_8c}{}\label{traps_8c}\index{src/config/default/traps.c@{src/config/default/traps.c}}
+{\ttfamily \#include $<$device.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}traps.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{traps_8c_afc1223fc26cddba5ffba1c5bd5def82f}{ERROR\+\_\+\+HANDLER}}~\mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((weak,interrupt,no\+\_\+auto\+\_\+psv, noreturn))
+\item 
+\#define \mbox{\hyperlink{traps_8c_a8d6c626527a12311e8a698a87daae6f7}{FAILSAFE\+\_\+\+STACK\+\_\+\+GUARDSIZE}}~8
+\item 
+\#define \mbox{\hyperlink{traps_8c_a122461b04cfa7647622e32febe6c54b3}{FAILSAFE\+\_\+\+STACK\+\_\+\+SIZE}}~32
+\item 
+\#define \mbox{\hyperlink{traps_8c_a2d61229a0547e9ce5b950ad90afac904}{SET\+\_\+\+STACK\+\_\+\+POINTER}}(stack)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{traps_8c_ad6ee1738d42d98eab03f5dacf3d7b76a}{\+\_\+\+Bus\+Error\+Trap}} (void)
+\item 
+void \mbox{\hyperlink{traps_8c_aa48029f50cb352440fded3326f868d9f}{\+\_\+\+Address\+Error\+Trap}} (void)
+\item 
+void \mbox{\hyperlink{traps_8c_ac04455675d99c4f4a07de1e9e707234d}{\+\_\+\+General\+Trap}} (void)
+\item 
+void \mbox{\hyperlink{traps_8c_ad90203bf1c9fd85cbf0c9853710322c6}{\+\_\+\+Math\+Error\+Trap}} (void)
+\item 
+void \mbox{\hyperlink{traps_8c_acfc238951fecae1385cc547f11422f15}{\+\_\+\+Stack\+Error\+Trap}} (void)
+\item 
+void \mbox{\hyperlink{traps_8c_a766780cddc60d3e1f3baf2c73f4e5087}{\+\_\+\+Illegal\+Instruction\+Trap}} (void)
+\item 
+void \mbox{\hyperlink{traps_8c_a1ec4b57d304202f03463af5b9d2ef4f0}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((weak, noreturn))
+\begin{DoxyCompactList}\small\item\em Stores the trap error code and waits forever. This is a weak attribute function. The user can override and implement the same function without weak attribute. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{traps_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{traps_8c_afc1223fc26cddba5ffba1c5bd5def82f}\index{traps.c@{traps.c}!ERROR\_HANDLER@{ERROR\_HANDLER}}
+\index{ERROR\_HANDLER@{ERROR\_HANDLER}!traps.c@{traps.c}}
+\doxysubsubsection{\texorpdfstring{ERROR\_HANDLER}{ERROR\_HANDLER}}
+{\footnotesize\ttfamily \label{traps_8c_afc1223fc26cddba5ffba1c5bd5def82f} 
+\#define ERROR\+\_\+\+HANDLER~\mbox{\hyperlink{interrupts_8c_adb815d582d49f6502acb0c843589dad7}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((weak,interrupt,no\+\_\+auto\+\_\+psv, noreturn))}
+
+
+
+Definition at line \mbox{\hyperlink{traps_8c_source_l00051}{51}} of file \mbox{\hyperlink{traps_8c_source}{traps.\+c}}.
+
+\Hypertarget{traps_8c_a8d6c626527a12311e8a698a87daae6f7}\index{traps.c@{traps.c}!FAILSAFE\_STACK\_GUARDSIZE@{FAILSAFE\_STACK\_GUARDSIZE}}
+\index{FAILSAFE\_STACK\_GUARDSIZE@{FAILSAFE\_STACK\_GUARDSIZE}!traps.c@{traps.c}}
+\doxysubsubsection{\texorpdfstring{FAILSAFE\_STACK\_GUARDSIZE}{FAILSAFE\_STACK\_GUARDSIZE}}
+{\footnotesize\ttfamily \label{traps_8c_a8d6c626527a12311e8a698a87daae6f7} 
+\#define FAILSAFE\+\_\+\+STACK\+\_\+\+GUARDSIZE~8}
+
+
+
+Definition at line \mbox{\hyperlink{traps_8c_source_l00052}{52}} of file \mbox{\hyperlink{traps_8c_source}{traps.\+c}}.
+
+\Hypertarget{traps_8c_a122461b04cfa7647622e32febe6c54b3}\index{traps.c@{traps.c}!FAILSAFE\_STACK\_SIZE@{FAILSAFE\_STACK\_SIZE}}
+\index{FAILSAFE\_STACK\_SIZE@{FAILSAFE\_STACK\_SIZE}!traps.c@{traps.c}}
+\doxysubsubsection{\texorpdfstring{FAILSAFE\_STACK\_SIZE}{FAILSAFE\_STACK\_SIZE}}
+{\footnotesize\ttfamily \label{traps_8c_a122461b04cfa7647622e32febe6c54b3} 
+\#define FAILSAFE\+\_\+\+STACK\+\_\+\+SIZE~32}
+
+
+
+Definition at line \mbox{\hyperlink{traps_8c_source_l00053}{53}} of file \mbox{\hyperlink{traps_8c_source}{traps.\+c}}.
+
+\Hypertarget{traps_8c_a2d61229a0547e9ce5b950ad90afac904}\index{traps.c@{traps.c}!SET\_STACK\_POINTER@{SET\_STACK\_POINTER}}
+\index{SET\_STACK\_POINTER@{SET\_STACK\_POINTER}!traps.c@{traps.c}}
+\doxysubsubsection{\texorpdfstring{SET\_STACK\_POINTER}{SET\_STACK\_POINTER}}
+{\footnotesize\ttfamily \label{traps_8c_a2d61229a0547e9ce5b950ad90afac904} 
+\#define SET\+\_\+\+STACK\+\_\+\+POINTER(\begin{DoxyParamCaption}\item[{}]{stack}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\_\_asm\_\_\ \textcolor{keyword}{volatile}\ (\textcolor{stringliteral}{"{}mov\ \%0,\ W15"{}}\ :\ :\ \textcolor{stringliteral}{"{}r"{}}(stack))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{traps_8c_source_l00079}{79}} of file \mbox{\hyperlink{traps_8c_source}{traps.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{traps_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{traps_8c_a1ec4b57d304202f03463af5b9d2ef4f0}\index{traps.c@{traps.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!traps.c@{traps.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \label{traps_8c_a1ec4b57d304202f03463af5b9d2ef4f0} 
+void \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(weak, noreturn)}]{}{}\end{DoxyParamCaption})}
+
+
+
+Stores the trap error code and waits forever. This is a weak attribute function. The user can override and implement the same function without weak attribute. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em code} & -\/ trap error code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{traps_8c_source_l00064}{64}} of file \mbox{\hyperlink{traps_8c_source}{traps.\+c}}.
+
+\Hypertarget{traps_8c_aa48029f50cb352440fded3326f868d9f}\index{traps.c@{traps.c}!\_AddressErrorTrap@{\_AddressErrorTrap}}
+\index{\_AddressErrorTrap@{\_AddressErrorTrap}!traps.c@{traps.c}}
+\doxysubsubsection{\texorpdfstring{\_AddressErrorTrap()}{\_AddressErrorTrap()}}
+{\footnotesize\ttfamily \label{traps_8c_aa48029f50cb352440fded3326f868d9f} 
+void \mbox{\hyperlink{traps_8c_afc1223fc26cddba5ffba1c5bd5def82f}{ERROR\+\_\+\+HANDLER}} \+\_\+\+Address\+Error\+Trap (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Address error. 
+
+Definition at line \mbox{\hyperlink{traps_8c_source_l00126}{126}} of file \mbox{\hyperlink{traps_8c_source}{traps.\+c}}.
+
+\Hypertarget{traps_8c_ad6ee1738d42d98eab03f5dacf3d7b76a}\index{traps.c@{traps.c}!\_BusErrorTrap@{\_BusErrorTrap}}
+\index{\_BusErrorTrap@{\_BusErrorTrap}!traps.c@{traps.c}}
+\doxysubsubsection{\texorpdfstring{\_BusErrorTrap()}{\_BusErrorTrap()}}
+{\footnotesize\ttfamily \label{traps_8c_ad6ee1738d42d98eab03f5dacf3d7b76a} 
+void \mbox{\hyperlink{traps_8c_afc1223fc26cddba5ffba1c5bd5def82f}{ERROR\+\_\+\+HANDLER}} \+\_\+\+Bus\+Error\+Trap (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Bus error. 
+
+Definition at line \mbox{\hyperlink{traps_8c_source_l00094}{94}} of file \mbox{\hyperlink{traps_8c_source}{traps.\+c}}.
+
+\Hypertarget{traps_8c_ac04455675d99c4f4a07de1e9e707234d}\index{traps.c@{traps.c}!\_GeneralTrap@{\_GeneralTrap}}
+\index{\_GeneralTrap@{\_GeneralTrap}!traps.c@{traps.c}}
+\doxysubsubsection{\texorpdfstring{\_GeneralTrap()}{\_GeneralTrap()}}
+{\footnotesize\ttfamily \label{traps_8c_ac04455675d99c4f4a07de1e9e707234d} 
+void \mbox{\hyperlink{traps_8c_afc1223fc26cddba5ffba1c5bd5def82f}{ERROR\+\_\+\+HANDLER}} \+\_\+\+General\+Trap (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+General error. 
+
+Definition at line \mbox{\hyperlink{traps_8c_source_l00133}{133}} of file \mbox{\hyperlink{traps_8c_source}{traps.\+c}}.
+
+\Hypertarget{traps_8c_a766780cddc60d3e1f3baf2c73f4e5087}\index{traps.c@{traps.c}!\_IllegalInstructionTrap@{\_IllegalInstructionTrap}}
+\index{\_IllegalInstructionTrap@{\_IllegalInstructionTrap}!traps.c@{traps.c}}
+\doxysubsubsection{\texorpdfstring{\_IllegalInstructionTrap()}{\_IllegalInstructionTrap()}}
+{\footnotesize\ttfamily \label{traps_8c_a766780cddc60d3e1f3baf2c73f4e5087} 
+void \mbox{\hyperlink{traps_8c_afc1223fc26cddba5ffba1c5bd5def82f}{ERROR\+\_\+\+HANDLER}} \+\_\+\+Illegal\+Instruction\+Trap (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Illegal instruction. 
+
+Definition at line \mbox{\hyperlink{traps_8c_source_l00178}{178}} of file \mbox{\hyperlink{traps_8c_source}{traps.\+c}}.
+
+\Hypertarget{traps_8c_ad90203bf1c9fd85cbf0c9853710322c6}\index{traps.c@{traps.c}!\_MathErrorTrap@{\_MathErrorTrap}}
+\index{\_MathErrorTrap@{\_MathErrorTrap}!traps.c@{traps.c}}
+\doxysubsubsection{\texorpdfstring{\_MathErrorTrap()}{\_MathErrorTrap()}}
+{\footnotesize\ttfamily \label{traps_8c_ad90203bf1c9fd85cbf0c9853710322c6} 
+void \mbox{\hyperlink{traps_8c_afc1223fc26cddba5ffba1c5bd5def82f}{ERROR\+\_\+\+HANDLER}} \+\_\+\+Math\+Error\+Trap (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Math error. 
+
+Definition at line \mbox{\hyperlink{traps_8c_source_l00158}{158}} of file \mbox{\hyperlink{traps_8c_source}{traps.\+c}}.
+
+\Hypertarget{traps_8c_acfc238951fecae1385cc547f11422f15}\index{traps.c@{traps.c}!\_StackErrorTrap@{\_StackErrorTrap}}
+\index{\_StackErrorTrap@{\_StackErrorTrap}!traps.c@{traps.c}}
+\doxysubsubsection{\texorpdfstring{\_StackErrorTrap()}{\_StackErrorTrap()}}
+{\footnotesize\ttfamily \label{traps_8c_acfc238951fecae1385cc547f11422f15} 
+void \mbox{\hyperlink{traps_8c_afc1223fc26cddba5ffba1c5bd5def82f}{ERROR\+\_\+\+HANDLER}} \+\_\+\+Stack\+Error\+Trap (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Stack error. 
+
+Definition at line \mbox{\hyperlink{traps_8c_source_l00165}{165}} of file \mbox{\hyperlink{traps_8c_source}{traps.\+c}}.
+

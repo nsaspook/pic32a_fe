@@ -1,0 +1,79 @@
+\doxysection{src/imu.c File Reference}
+\hypertarget{imu_8c}{}\label{imu_8c}\index{src/imu.c@{src/imu.c}}
+{\ttfamily \#include "{}imu.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{imu_8c_a4e855ffc7977d37a9c2ed98530e382d2}{get\+\_\+imu\+\_\+scale}} (\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}imu)
+\item 
+void \mbox{\hyperlink{imu_8c_a34c9549be6917aac7c43fd759fc698db}{get\+All\+Data}} (\mbox{\hyperlink{imu_8h_aca01ad5ca4539cd86c8aac1b490e8fa5}{s\+Sensor\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{main_8c_a5535498c52fc232645826b1b70daaf4a}{accel}}, \mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}imu)
+\item 
+const uint8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{imu_8c_a2c872862798cc4612874df73afb8b2e5}{imu\+\_\+string}} (const \mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}imu)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{imu_8c_aa44b4ee76afc216a55c2e95621ef232b}{imu\+\_\+buffer}} \mbox{[}\mbox{\hyperlink{samples_8h_a2c38bbaa576e38355809f6fc0364a596}{IMU\+\_\+\+BUF}}\mbox{]}
+\item 
+struct \mbox{\hyperlink{structsca3300__data}{sca3300\+\_\+data}} \mbox{\hyperlink{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}{sdata}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{imu_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{imu_8c_a4e855ffc7977d37a9c2ed98530e382d2}\index{imu.c@{imu.c}!get\_imu\_scale@{get\_imu\_scale}}
+\index{get\_imu\_scale@{get\_imu\_scale}!imu.c@{imu.c}}
+\doxysubsubsection{\texorpdfstring{get\_imu\_scale()}{get\_imu\_scale()}}
+{\footnotesize\ttfamily \label{imu_8c_a4e855ffc7977d37a9c2ed98530e382d2} 
+double get\+\_\+imu\+\_\+scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{imu}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8c_source_l00032}{32}} of file \mbox{\hyperlink{imu_8c_source}{imu.\+c}}.
+
+\Hypertarget{imu_8c_a34c9549be6917aac7c43fd759fc698db}\index{imu.c@{imu.c}!getAllData@{getAllData}}
+\index{getAllData@{getAllData}!imu.c@{imu.c}}
+\doxysubsubsection{\texorpdfstring{getAllData()}{getAllData()}}
+{\footnotesize\ttfamily \label{imu_8c_a34c9549be6917aac7c43fd759fc698db} 
+void get\+All\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{imu_8h_aca01ad5ca4539cd86c8aac1b490e8fa5}{s\+Sensor\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{accel}{, }\item[{\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{imu}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8c_source_l00092}{92}} of file \mbox{\hyperlink{imu_8c_source}{imu.\+c}}.
+
+\Hypertarget{imu_8c_a2c872862798cc4612874df73afb8b2e5}\index{imu.c@{imu.c}!imu\_string@{imu\_string}}
+\index{imu\_string@{imu\_string}!imu.c@{imu.c}}
+\doxysubsubsection{\texorpdfstring{imu\_string()}{imu\_string()}}
+{\footnotesize\ttfamily \label{imu_8c_a2c872862798cc4612874df73afb8b2e5} 
+const uint8\+\_\+t \texorpdfstring{$\ast$}{*} imu\+\_\+string (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{imu}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8c_source_l00123}{123}} of file \mbox{\hyperlink{imu_8c_source}{imu.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{imu_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{imu_8c_aa44b4ee76afc216a55c2e95621ef232b}\index{imu.c@{imu.c}!imu\_buffer@{imu\_buffer}}
+\index{imu\_buffer@{imu\_buffer}!imu.c@{imu.c}}
+\doxysubsubsection{\texorpdfstring{imu\_buffer}{imu\_buffer}}
+{\footnotesize\ttfamily \label{imu_8c_aa44b4ee76afc216a55c2e95621ef232b} 
+char imu\+\_\+buffer\mbox{[}\mbox{\hyperlink{samples_8h_a2c38bbaa576e38355809f6fc0364a596}{IMU\+\_\+\+BUF}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imu_8c_source_l00029}{29}} of file \mbox{\hyperlink{imu_8c_source}{imu.\+c}}.
+
+\Hypertarget{imu_8c_a7dcb8ca661062edf9c2279487849f3d5}\index{imu.c@{imu.c}!sdata@{sdata}}
+\index{sdata@{sdata}!imu.c@{imu.c}}
+\doxysubsubsection{\texorpdfstring{sdata}{sdata}}
+{\footnotesize\ttfamily \label{imu_8c_a7dcb8ca661062edf9c2279487849f3d5} 
+struct \mbox{\hyperlink{structsca3300__data}{sca3300\+\_\+data}} sdata\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{sca3300_8c_source_l00014}{14}} of file \mbox{\hyperlink{sca3300_8c_source}{sca3300.\+c}}.
+

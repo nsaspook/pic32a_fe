@@ -1,0 +1,597 @@
+\doxysection{plib\+\_\+clk.\+c}
+\hypertarget{plib__clk_8c_source}{}\label{plib__clk_8c_source}\index{src/config/default/peripheral/clk/plib\_clk.c@{src/config/default/peripheral/clk/plib\_clk.c}}
+\mbox{\hyperlink{plib__clk_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00002}00002\ \textcolor{comment}{\ \ Clock\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00006}00006\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_clk.c}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00011}00011\ \textcolor{comment}{\ \ \ \ Clock\ PLIB\ Source\ File}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00014}00014\ \textcolor{comment}{\ \ \ \ None}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00015}00015\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00016}00016\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00018}00018\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00019}00019\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00020}00020\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00021}00021\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00022}00022\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00023}00023\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00024}00024\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00025}00025\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00026}00026\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00027}00027\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00028}00028\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00029}00029\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00030}00030\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00031}00031\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00032}00032\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00033}00033\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00034}00034\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00035}00035\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00036}00036\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00037}00037\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00038}00038\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00039}00039\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00041}00041\ \textcolor{comment}{//\ Section:\ Includes}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00042}00042\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00043}00043\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00044}00044\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00045}00045\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{device_8h}{device.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00046}00046\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{interrupts_8h}{interrupts.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00047}00047\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib__clk_8h}{plib\_clk.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00048}00048\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib__clk__common_8h}{plib\_clk\_common.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00050}00050\ \textcolor{comment}{//\ Section:\ Macro\ Definitions}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00052}00052\ \textcolor{comment}{//CLOCK\ PLLxCON\ NOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00053}\mbox{\hyperlink{plib__clk_8c_a6a1b68068ef5e8118f9dfea803f580a9}{00053}}\ \textcolor{preprocessor}{\#define\ PLL1CON\_NOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PLL1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00054}\mbox{\hyperlink{plib__clk_8c_aa241fdc57fc1c98a287ce3c3e27c1524}{00054}}\ \textcolor{preprocessor}{\#define\ PLL1CON\_NOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PLL1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00055}\mbox{\hyperlink{plib__clk_8c_a8aecd02bbec19e253f2109a599946574}{00055}}\ \textcolor{preprocessor}{\#define\ PLL1CON\_NOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PLL1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00056}\mbox{\hyperlink{plib__clk_8c_ab6086044a4d8c6fb289f5e630b2e2aa0}{00056}}\ \textcolor{preprocessor}{\#define\ PLL1CON\_NOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PLL1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00057}\mbox{\hyperlink{plib__clk_8c_a0dcfdd06f64d154f7ddeae2a051ce293}{00057}}\ \textcolor{preprocessor}{\#define\ PLL1CON\_NOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_PLL1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00058}\mbox{\hyperlink{plib__clk_8c_a1689ea177df466577c8ab560d1dca53e}{00058}}\ \textcolor{preprocessor}{\#define\ PLL1CON\_NOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_PLL1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00059}\mbox{\hyperlink{plib__clk_8c_a626843055771be64ae1dc2229ef5f062}{00059}}\ \textcolor{preprocessor}{\#define\ PLL1CON\_BOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PLL1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00060}\mbox{\hyperlink{plib__clk_8c_a6eb68cca3a9bd6819281922898cb1ffe}{00060}}\ \textcolor{preprocessor}{\#define\ PLL1CON\_BOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PLL1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00061}\mbox{\hyperlink{plib__clk_8c_a0565daa4050d65a19c5e78c09da3de4e}{00061}}\ \textcolor{preprocessor}{\#define\ PLL1CON\_BOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PLL1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00062}\mbox{\hyperlink{plib__clk_8c_a339b2f3f19286dca704569d1b0b99a5c}{00062}}\ \textcolor{preprocessor}{\#define\ PLL1CON\_BOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PLL1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00063}\mbox{\hyperlink{plib__clk_8c_a3dc8ac1db290bc1bd53bc5596131d2a1}{00063}}\ \textcolor{preprocessor}{\#define\ PLL1CON\_BOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_PLL1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00064}\mbox{\hyperlink{plib__clk_8c_af4cb3728a801b7455e4e550bebc3a78f}{00064}}\ \textcolor{preprocessor}{\#define\ PLL1CON\_BOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_PLL1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00066}00066\ \textcolor{comment}{//CLOCK\ PLLxCON\ PLLPRE\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00067}\mbox{\hyperlink{plib__clk_8c_ab0e8c9a6c8a3a5bd75df7cadecf7302c}{00067}}\ \textcolor{preprocessor}{\#define\ PLL1DIV\_PLLPRE\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1DIV\_PLLPRE\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_PLL1DIV\_PLLPRE\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00068}00068\ \textcolor{comment}{//CLOCK\ PLLxCON\ PLLFBDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00069}\mbox{\hyperlink{plib__clk_8c_aef1744ca8ab368f5f4a14c58bce2c743}{00069}}\ \textcolor{preprocessor}{\#define\ PLL1DIV\_PLLFBDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1DIV\_PLLFBDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_PLL1DIV\_PLLFBDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00070}00070\ \textcolor{comment}{//CLOCK\ PLLxCON\ POSTDIV1\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00071}\mbox{\hyperlink{plib__clk_8c_a31600b109dbebbbf435acde395b64cd0}{00071}}\ \textcolor{preprocessor}{\#define\ PLL1DIV\_POSTDIV1\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1DIV\_POSTDIV1\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_PLL1DIV\_POSTDIV1\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00072}00072\ \textcolor{comment}{//CLOCK\ PLLxCON\ POSTDIV2\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00073}\mbox{\hyperlink{plib__clk_8c_a016e49b417f0b6e74391863106b84840}{00073}}\ \textcolor{preprocessor}{\#define\ PLL1DIV\_POSTDIV2\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL1DIV\_POSTDIV2\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_PLL1DIV\_POSTDIV2\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00075}00075\ \textcolor{comment}{//CLOCK\ VCOxDIV\ INTDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00076}\mbox{\hyperlink{plib__clk_8c_af5a4ff1978128b4493b8748cb611684f}{00076}}\ \textcolor{preprocessor}{\#define\ VCO1DIV\_INTDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_VCO1DIV\_INTDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_VCO1DIV\_INTDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00078}00078\ \textcolor{comment}{//CLOCK\ PLLxCON\ NOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00079}\mbox{\hyperlink{plib__clk_8c_a3ae6f207322bb426202b31c1c79571b3}{00079}}\ \textcolor{preprocessor}{\#define\ PLL2CON\_NOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PLL2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00080}\mbox{\hyperlink{plib__clk_8c_a1920e1f28c337823665ed084f427cbca}{00080}}\ \textcolor{preprocessor}{\#define\ PLL2CON\_NOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PLL2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00081}\mbox{\hyperlink{plib__clk_8c_a4a07eee7b53984b8275212663548b8b9}{00081}}\ \textcolor{preprocessor}{\#define\ PLL2CON\_NOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PLL2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00082}\mbox{\hyperlink{plib__clk_8c_a2a2edc3e47531c42791c5af28725c657}{00082}}\ \textcolor{preprocessor}{\#define\ PLL2CON\_NOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PLL2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00083}\mbox{\hyperlink{plib__clk_8c_a222c7f941313b993df2652f549fa9328}{00083}}\ \textcolor{preprocessor}{\#define\ PLL2CON\_NOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_PLL2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00084}\mbox{\hyperlink{plib__clk_8c_aa957269ce9510cbe5c91e013df8452a9}{00084}}\ \textcolor{preprocessor}{\#define\ PLL2CON\_NOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_PLL2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00085}\mbox{\hyperlink{plib__clk_8c_afde1f880b9cd33d1c5177a9140a9e57a}{00085}}\ \textcolor{preprocessor}{\#define\ PLL2CON\_BOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PLL2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00086}\mbox{\hyperlink{plib__clk_8c_a30998282eca1184fa0fd68ab516d58e8}{00086}}\ \textcolor{preprocessor}{\#define\ PLL2CON\_BOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PLL2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00087}\mbox{\hyperlink{plib__clk_8c_a291bdf7df4dada8bb9e292797e15dde6}{00087}}\ \textcolor{preprocessor}{\#define\ PLL2CON\_BOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PLL2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00088}\mbox{\hyperlink{plib__clk_8c_a330d247f93ca8bc8a394701487a1d757}{00088}}\ \textcolor{preprocessor}{\#define\ PLL2CON\_BOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PLL2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00089}\mbox{\hyperlink{plib__clk_8c_a804a75d425528553adfe5aa26d70201f}{00089}}\ \textcolor{preprocessor}{\#define\ PLL2CON\_BOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_PLL2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00090}\mbox{\hyperlink{plib__clk_8c_a74b3716cd9bdf64be0216fb1cf7ccf94}{00090}}\ \textcolor{preprocessor}{\#define\ PLL2CON\_BOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_PLL2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00092}00092\ \textcolor{comment}{//CLOCK\ PLLxCON\ PLLPRE\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00093}\mbox{\hyperlink{plib__clk_8c_a88153333f5c2bc9634e607f7375a906d}{00093}}\ \textcolor{preprocessor}{\#define\ PLL2DIV\_PLLPRE\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2DIV\_PLLPRE\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_PLL2DIV\_PLLPRE\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00094}00094\ \textcolor{comment}{//CLOCK\ PLLxCON\ PLLFBDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00095}\mbox{\hyperlink{plib__clk_8c_a397057f07835edec3d3dfa56f8509844}{00095}}\ \textcolor{preprocessor}{\#define\ PLL2DIV\_PLLFBDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2DIV\_PLLFBDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_PLL2DIV\_PLLFBDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00096}00096\ \textcolor{comment}{//CLOCK\ PLLxCON\ POSTDIV1\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00097}\mbox{\hyperlink{plib__clk_8c_aa3c92a8f35082b20b2593268f1fd05af}{00097}}\ \textcolor{preprocessor}{\#define\ PLL2DIV\_POSTDIV1\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2DIV\_POSTDIV1\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_PLL2DIV\_POSTDIV1\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00098}00098\ \textcolor{comment}{//CLOCK\ PLLxCON\ POSTDIV2\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00099}\mbox{\hyperlink{plib__clk_8c_addbf712a7b7883c8ebd39b0b50ed0837}{00099}}\ \textcolor{preprocessor}{\#define\ PLL2DIV\_POSTDIV2\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PLL2DIV\_POSTDIV2\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_PLL2DIV\_POSTDIV2\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00101}00101\ \textcolor{comment}{//CLOCK\ VCOxDIV\ INTDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00102}\mbox{\hyperlink{plib__clk_8c_a96dede340a042fd5cb0407440bf4bfb2}{00102}}\ \textcolor{preprocessor}{\#define\ VCO2DIV\_INTDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_VCO2DIV\_INTDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_VCO2DIV\_INTDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00104}00104\ \textcolor{comment}{//CLOCK\ CLKxCON\ NOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00105}\mbox{\hyperlink{plib__clk_8c_ab03b184745eb9b87215f548cb05b6397}{00105}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_NOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00106}\mbox{\hyperlink{plib__clk_8c_a324835aa14d8589802ea9bdb26d6cb95}{00106}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_NOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00107}\mbox{\hyperlink{plib__clk_8c_a374254aeef25e4f5a5d4bdf29bc45e6d}{00107}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_NOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00108}\mbox{\hyperlink{plib__clk_8c_a9fb5cf24facaafec2d884f46dbf23fef}{00108}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_NOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00109}\mbox{\hyperlink{plib__clk_8c_a423efbf9ee342350f5607d1c4f7e2cca}{00109}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_NOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00110}\mbox{\hyperlink{plib__clk_8c_a65413dc84a0f3eb2c377d0f1006f649e}{00110}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_NOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00111}\mbox{\hyperlink{plib__clk_8c_a4cf902c993afc25e911b1ade89ca13e8}{00111}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_NOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00112}\mbox{\hyperlink{plib__clk_8c_aed3c97cd3c8e0e847a030411089d8e6c}{00112}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_NOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00113}\mbox{\hyperlink{plib__clk_8c_ac9499797e98bc30eeda8ddaace84c072}{00113}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_NOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00114}\mbox{\hyperlink{plib__clk_8c_a273aca6a12c90c647e77a39313aa0792}{00114}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_NOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00115}\mbox{\hyperlink{plib__clk_8c_a4345e316df8dfba5c0e4df468d9250fa}{00115}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_NOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_NOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK1CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00117}00117\ \textcolor{comment}{//CLOCK\ CLKxCON\ BOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00118}\mbox{\hyperlink{plib__clk_8c_aa2f988fe05c65fa6ebf78017ecfa43b5}{00118}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_BOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00119}\mbox{\hyperlink{plib__clk_8c_ab8f8a30b832893f77c03f8b7fdf532d8}{00119}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_BOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00120}\mbox{\hyperlink{plib__clk_8c_afcd4ef7fca39d36a963f94e309bfd0e6}{00120}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_BOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00121}\mbox{\hyperlink{plib__clk_8c_add1610da5dbf463ea0e07a48fb5fb162}{00121}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_BOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00122}\mbox{\hyperlink{plib__clk_8c_af0594a6c19082bd79c6056588f1b394c}{00122}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_BOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00123}\mbox{\hyperlink{plib__clk_8c_ad14841519ef8375ed8e8a5d52159523b}{00123}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_BOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00124}\mbox{\hyperlink{plib__clk_8c_a086a5f8388d1423fdf19749b08626900}{00124}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_BOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00125}\mbox{\hyperlink{plib__clk_8c_ad7f5ce306347e3ce8c95d58009cff708}{00125}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_BOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00126}\mbox{\hyperlink{plib__clk_8c_a851d69ebf7ed66c44da98deb286260b7}{00126}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_BOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00127}\mbox{\hyperlink{plib__clk_8c_afd8bb014bf9846d05c39f09360b1cfba}{00127}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_BOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00128}\mbox{\hyperlink{plib__clk_8c_aeb8c0216b2585e0e06b3074dc6f33ad0}{00128}}\ \textcolor{preprocessor}{\#define\ CLK1CON\_BOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1CON\_BOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK1CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00130}00130\ \textcolor{comment}{//CLOCK\ CLKxCON\ INTDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00131}\mbox{\hyperlink{plib__clk_8c_a76e5415a800f4d0c72e66fdbe630b26e}{00131}}\ \textcolor{preprocessor}{\#define\ CLK1DIV\_INTDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1DIV\_INTDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK1DIV\_INTDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00132}00132\ \textcolor{comment}{//CLOCK\ CLKONxCON\ FRACDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00133}\mbox{\hyperlink{plib__clk_8c_a229cb03299b1c10f0b71520470c490fe}{00133}}\ \textcolor{preprocessor}{\#define\ CLK1DIV\_FRACDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK1DIV\_FRACDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK1DIV\_FRACDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00135}00135\ \textcolor{comment}{//CLOCK\ CLKxCON\ NOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00136}\mbox{\hyperlink{plib__clk_8c_a65ce4ecd0046b27a82beef6950d08cc4}{00136}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_NOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00137}\mbox{\hyperlink{plib__clk_8c_a43fab06c39fdbe056fd60d49ee7c5f7c}{00137}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_NOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00138}\mbox{\hyperlink{plib__clk_8c_a1fe4f3f06b3ef148e98444c5ad78dbfe}{00138}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_NOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00139}\mbox{\hyperlink{plib__clk_8c_a015a64075213a2c869269d32f6711c27}{00139}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_NOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00140}\mbox{\hyperlink{plib__clk_8c_a45a4a3573681bfc21800ec5d23bfb0f5}{00140}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_NOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00141}\mbox{\hyperlink{plib__clk_8c_a38770cd4506f18e39a03a6e8b4ef5557}{00141}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_NOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00142}\mbox{\hyperlink{plib__clk_8c_ac2115457c2a5e007e5189ff2e0574227}{00142}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_NOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00143}\mbox{\hyperlink{plib__clk_8c_a1ce79523c6e5b906341e49b2145d8d8a}{00143}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_NOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00144}\mbox{\hyperlink{plib__clk_8c_a2050418180229c6ab139cad02d67cee0}{00144}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_NOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00145}\mbox{\hyperlink{plib__clk_8c_a74fcf20bc5f6568857d413f9c1af3c5e}{00145}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_NOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00146}\mbox{\hyperlink{plib__clk_8c_a6bb56da211fa43d52925f1024b56a5f3}{00146}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_NOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_NOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK2CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00148}00148\ \textcolor{comment}{//CLOCK\ CLKxCON\ BOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00149}\mbox{\hyperlink{plib__clk_8c_abe9773e35552179e02ec5953d8b43153}{00149}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_BOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00150}\mbox{\hyperlink{plib__clk_8c_af07fa132bcd8646d79ee3e3e9db70a62}{00150}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_BOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00151}\mbox{\hyperlink{plib__clk_8c_a5e72af99542385d4a120e491581391f4}{00151}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_BOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00152}\mbox{\hyperlink{plib__clk_8c_a84dfb59c7ce18b93a62cc8bdf58936d7}{00152}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_BOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00153}\mbox{\hyperlink{plib__clk_8c_a0457eee25f5a5ab59333cce2b6623813}{00153}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_BOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00154}\mbox{\hyperlink{plib__clk_8c_ac6ce9251372f7c2cc26e8f32e12b0f42}{00154}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_BOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00155}\mbox{\hyperlink{plib__clk_8c_a9c0d50b79e6688e90316582f080014d3}{00155}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_BOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00156}\mbox{\hyperlink{plib__clk_8c_a4528843098a66e61b1cd7e4f68017ba3}{00156}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_BOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00157}\mbox{\hyperlink{plib__clk_8c_a4873195fdbf9ad9fc3182360f8ea8d01}{00157}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_BOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00158}\mbox{\hyperlink{plib__clk_8c_adb9dd232d6471e00901b69141f8cbf16}{00158}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_BOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00159}\mbox{\hyperlink{plib__clk_8c_a2dc2f6d44d494aac33f022d0cb847ed7}{00159}}\ \textcolor{preprocessor}{\#define\ CLK2CON\_BOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2CON\_BOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK2CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00161}00161\ \textcolor{comment}{//CLOCK\ CLKxCON\ INTDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00162}\mbox{\hyperlink{plib__clk_8c_a53113985cfe23bd5a84a053ff1b2342c}{00162}}\ \textcolor{preprocessor}{\#define\ CLK2DIV\_INTDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2DIV\_INTDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK2DIV\_INTDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00163}00163\ \textcolor{comment}{//CLOCK\ CLKONxCON\ FRACDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00164}\mbox{\hyperlink{plib__clk_8c_a451032e09f839e3d505b647465ae064a}{00164}}\ \textcolor{preprocessor}{\#define\ CLK2DIV\_FRACDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK2DIV\_FRACDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK2DIV\_FRACDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00166}00166\ \textcolor{comment}{//CLOCK\ CLKxCON\ NOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00167}\mbox{\hyperlink{plib__clk_8c_a9869282ab19e47bc7c99359d3c627f43}{00167}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_NOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_NOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK3CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00168}\mbox{\hyperlink{plib__clk_8c_a05af12293e788bfc53c05231cecadc68}{00168}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_NOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_NOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK3CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00169}\mbox{\hyperlink{plib__clk_8c_acaff922c2d9f1dd769252550714f4ce4}{00169}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_NOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_NOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK3CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00170}\mbox{\hyperlink{plib__clk_8c_ab59c41f5c48357542e12c38cba44b281}{00170}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_NOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_NOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK3CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00171}\mbox{\hyperlink{plib__clk_8c_a55d8a113c54d6ce0034b22004bec18f1}{00171}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_NOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_NOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK3CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00172}\mbox{\hyperlink{plib__clk_8c_aa3761e029e9f36165b7cb93cd59764b6}{00172}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_NOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_NOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK3CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00173}\mbox{\hyperlink{plib__clk_8c_a13eca461eb830e6a4da4daddcff24885}{00173}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_NOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_NOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK3CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00174}\mbox{\hyperlink{plib__clk_8c_a8efc9558f38d2d45b486c28e0a2c95a8}{00174}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_NOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_NOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK3CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00175}\mbox{\hyperlink{plib__clk_8c_a5ee8f824e9e86b17c41cceef26cb3ec9}{00175}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_NOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_NOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK3CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00176}\mbox{\hyperlink{plib__clk_8c_a88155f20b267f23e36abb1bd9a92afb6}{00176}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_NOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_NOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK3CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00177}\mbox{\hyperlink{plib__clk_8c_aa5e1bec784e9eedc5b40a22d5a23b3d5}{00177}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_NOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_NOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK3CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00179}00179\ \textcolor{comment}{//CLOCK\ CLKxCON\ BOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00180}\mbox{\hyperlink{plib__clk_8c_ab8d04b69120c346efb105a10afa4711b}{00180}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_BOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_BOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK3CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00181}\mbox{\hyperlink{plib__clk_8c_ab594f2269d9f97cb92023774738afa1e}{00181}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_BOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_BOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK3CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00182}\mbox{\hyperlink{plib__clk_8c_aafddaee7f89cd7582c3b414c9ae34018}{00182}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_BOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_BOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK3CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00183}\mbox{\hyperlink{plib__clk_8c_aebaeca19698e9c2afd6c4e86e8701ecc}{00183}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_BOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_BOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK3CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00184}\mbox{\hyperlink{plib__clk_8c_add7294f70ac9e63b3a049f63dd9c84dd}{00184}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_BOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_BOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK3CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00185}\mbox{\hyperlink{plib__clk_8c_a121b53b03d28695eab2b20fc7e0b2a71}{00185}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_BOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_BOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK3CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00186}\mbox{\hyperlink{plib__clk_8c_a11ce352e688400781bba3d4baaa3e2f6}{00186}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_BOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_BOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK3CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00187}\mbox{\hyperlink{plib__clk_8c_a44471c359c25fd316a07828d8e6dd709}{00187}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_BOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_BOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK3CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00188}\mbox{\hyperlink{plib__clk_8c_af5292050a73367dc827c8851a8f9e0f6}{00188}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_BOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_BOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK3CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00189}\mbox{\hyperlink{plib__clk_8c_ac05342d2d68e3566cf109dcfa0714dcf}{00189}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_BOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_BOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK3CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00190}\mbox{\hyperlink{plib__clk_8c_a9868e36bc136005e8153168491928bc4}{00190}}\ \textcolor{preprocessor}{\#define\ CLK3CON\_BOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3CON\_BOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK3CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00192}00192\ \textcolor{comment}{//CLOCK\ CLKxCON\ INTDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00193}\mbox{\hyperlink{plib__clk_8c_a69fcc611074ed318125acd6dd8ab8940}{00193}}\ \textcolor{preprocessor}{\#define\ CLK3DIV\_INTDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3DIV\_INTDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK3DIV\_INTDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00194}00194\ \textcolor{comment}{//CLOCK\ CLKONxCON\ FRACDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00195}\mbox{\hyperlink{plib__clk_8c_a543621810aff2a86a9cca3e5cd74e4ea}{00195}}\ \textcolor{preprocessor}{\#define\ CLK3DIV\_FRACDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK3DIV\_FRACDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK3DIV\_FRACDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00197}00197\ \textcolor{comment}{//CLOCK\ CLKxCON\ NOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00198}\mbox{\hyperlink{plib__clk_8c_a7bce09287621e47f04b34093e2e7fed1}{00198}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_NOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_NOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK6CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00199}\mbox{\hyperlink{plib__clk_8c_a03babda7ebce8516348aca473c1b44c1}{00199}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_NOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_NOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK6CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00200}\mbox{\hyperlink{plib__clk_8c_a6aa7374e25c63c16ff375fcaee4f303e}{00200}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_NOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_NOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK6CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00201}\mbox{\hyperlink{plib__clk_8c_aa7740e06b6983e6d306cc066d575e3fe}{00201}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_NOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_NOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK6CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00202}\mbox{\hyperlink{plib__clk_8c_a5292779f31383d0bfdefd43913864e91}{00202}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_NOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_NOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK6CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00203}\mbox{\hyperlink{plib__clk_8c_abb41f7cf8d97202b1f4bf76e6e69c6f6}{00203}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_NOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_NOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK6CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00204}\mbox{\hyperlink{plib__clk_8c_a66e35ae3f59339af79f68f39b3f2189f}{00204}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_NOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_NOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK6CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00205}\mbox{\hyperlink{plib__clk_8c_a55ea3a6667e3665b2a07db12825c3386}{00205}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_NOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_NOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK6CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00206}\mbox{\hyperlink{plib__clk_8c_a3107938b4e6f35a295d3ca803f6c02ef}{00206}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_NOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_NOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK6CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00207}\mbox{\hyperlink{plib__clk_8c_a652af366bd57c84ba59be852d7ceb9cf}{00207}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_NOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_NOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK6CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00208}\mbox{\hyperlink{plib__clk_8c_aeb2775695e4e32881e25e125024a41a4}{00208}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_NOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_NOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK6CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00210}00210\ \textcolor{comment}{//CLOCK\ CLKxCON\ BOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00211}\mbox{\hyperlink{plib__clk_8c_abd7eedde1bdd43de81e749290d07f2c2}{00211}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_BOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_BOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK6CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00212}\mbox{\hyperlink{plib__clk_8c_a3f42a81c0f4d39e2cd3d741b40100fd2}{00212}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_BOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_BOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK6CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00213}\mbox{\hyperlink{plib__clk_8c_ae6e6e7edb667a47bcc316529a3819658}{00213}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_BOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_BOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK6CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00214}\mbox{\hyperlink{plib__clk_8c_a347c8369bd5afef5caf509d575928203}{00214}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_BOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_BOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK6CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00215}\mbox{\hyperlink{plib__clk_8c_ac7117f9177804d87bb05d2424632eb19}{00215}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_BOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_BOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK6CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00216}\mbox{\hyperlink{plib__clk_8c_a6d4cf556bd73e9837ef39e8fe8d61ac6}{00216}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_BOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_BOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK6CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00217}\mbox{\hyperlink{plib__clk_8c_a1bffa216a5487e58fe08acf461382a17}{00217}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_BOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_BOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK6CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00218}\mbox{\hyperlink{plib__clk_8c_a3cbb78dd4ec071efd219dbeadd6230cc}{00218}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_BOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_BOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK6CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00219}\mbox{\hyperlink{plib__clk_8c_a1b7d0a5b349df2d789857b519fbbf03c}{00219}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_BOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_BOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK6CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00220}\mbox{\hyperlink{plib__clk_8c_aa2072e3096e67e592a94dbd3ae95ce56}{00220}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_BOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_BOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK6CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00221}\mbox{\hyperlink{plib__clk_8c_a968eb4be02eaa19cd9ae66a69449c5a7}{00221}}\ \textcolor{preprocessor}{\#define\ CLK6CON\_BOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6CON\_BOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK6CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00223}00223\ \textcolor{comment}{//CLOCK\ CLKxCON\ INTDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00224}\mbox{\hyperlink{plib__clk_8c_a1ddaa958b43e6e633ad25bfe35c69aae}{00224}}\ \textcolor{preprocessor}{\#define\ CLK6DIV\_INTDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6DIV\_INTDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK6DIV\_INTDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00225}00225\ \textcolor{comment}{//CLOCK\ CLKONxCON\ FRACDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00226}\mbox{\hyperlink{plib__clk_8c_a507c869826752435c0f867a33b5743ce}{00226}}\ \textcolor{preprocessor}{\#define\ CLK6DIV\_FRACDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK6DIV\_FRACDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK6DIV\_FRACDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00228}00228\ \textcolor{comment}{//CLOCK\ CLKxCON\ NOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00229}\mbox{\hyperlink{plib__clk_8c_a6ca4f9aeb34c8a2251007c7493b7eaf3}{00229}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_NOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_NOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK7CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00230}\mbox{\hyperlink{plib__clk_8c_a8406b6dae86323df2be0c06d40a3dc62}{00230}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_NOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_NOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK7CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00231}\mbox{\hyperlink{plib__clk_8c_a9beb48e93166ea78f47f5bad20804f1c}{00231}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_NOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_NOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK7CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00232}\mbox{\hyperlink{plib__clk_8c_a3fc7492fc347d62f844e8472110c5625}{00232}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_NOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_NOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK7CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00233}\mbox{\hyperlink{plib__clk_8c_ab86db8e72070a8c78c81f5501586d18f}{00233}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_NOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_NOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK7CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00234}\mbox{\hyperlink{plib__clk_8c_aa658e629b0dfef4c87e1e6a3815d8ad6}{00234}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_NOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_NOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK7CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00235}\mbox{\hyperlink{plib__clk_8c_a8b7589747e70c3b5445e2fa7855c7e00}{00235}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_NOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_NOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK7CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00236}\mbox{\hyperlink{plib__clk_8c_abc57fd6b08b27e7805ba6fdd9e71e765}{00236}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_NOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_NOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK7CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00237}\mbox{\hyperlink{plib__clk_8c_a763898208eee33727f3fc077286a4446}{00237}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_NOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_NOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK7CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00238}\mbox{\hyperlink{plib__clk_8c_aee9ace155514b5b6c51ec8e0ac14ea39}{00238}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_NOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_NOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK7CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00239}\mbox{\hyperlink{plib__clk_8c_a63800cc5cb66347965c785c05d938073}{00239}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_NOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_NOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK7CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00241}00241\ \textcolor{comment}{//CLOCK\ CLKxCON\ BOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00242}\mbox{\hyperlink{plib__clk_8c_a0e50b1558f155ebe49132e683d3c9750}{00242}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_BOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_BOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK7CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00243}\mbox{\hyperlink{plib__clk_8c_a900504f758eb968fe99f477c315ef838}{00243}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_BOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_BOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK7CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00244}\mbox{\hyperlink{plib__clk_8c_a645d31063f2d5b7d54edb0d72acfb4da}{00244}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_BOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_BOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK7CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00245}\mbox{\hyperlink{plib__clk_8c_a3524c35a0de165341c58fe7a511daaff}{00245}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_BOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_BOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK7CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00246}\mbox{\hyperlink{plib__clk_8c_a354c2721c1f827c2af448937be31c418}{00246}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_BOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_BOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK7CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00247}\mbox{\hyperlink{plib__clk_8c_ae8a4a66ba0b838f70f98453275c4c715}{00247}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_BOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_BOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK7CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00248}\mbox{\hyperlink{plib__clk_8c_a2d6ce2e01d5b2596cab8e026e25f11e2}{00248}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_BOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_BOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK7CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00249}\mbox{\hyperlink{plib__clk_8c_af4b7159f6d868fb7aec52d4bd3d700ff}{00249}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_BOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_BOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK7CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00250}\mbox{\hyperlink{plib__clk_8c_ac5f0debce19fd67374d34bb8f110122d}{00250}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_BOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_BOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK7CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00251}\mbox{\hyperlink{plib__clk_8c_a153145f6d6357fadc9df585f4bccd45b}{00251}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_BOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_BOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK7CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00252}\mbox{\hyperlink{plib__clk_8c_a6073e29a8e9150af02ba8fd5da801d9a}{00252}}\ \textcolor{preprocessor}{\#define\ CLK7CON\_BOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7CON\_BOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK7CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00254}00254\ \textcolor{comment}{//CLOCK\ CLKxCON\ INTDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00255}\mbox{\hyperlink{plib__clk_8c_aa5ab570880b9e772a1e029ff572b846f}{00255}}\ \textcolor{preprocessor}{\#define\ CLK7DIV\_INTDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7DIV\_INTDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK7DIV\_INTDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00256}00256\ \textcolor{comment}{//CLOCK\ CLKONxCON\ FRACDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00257}\mbox{\hyperlink{plib__clk_8c_a6233c488996406f214decb295100a7a7}{00257}}\ \textcolor{preprocessor}{\#define\ CLK7DIV\_FRACDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK7DIV\_FRACDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK7DIV\_FRACDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00259}00259\ \textcolor{comment}{//CLOCK\ CLKxCON\ NOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00260}\mbox{\hyperlink{plib__clk_8c_a1aba0ca06ac150ec4c6a2f0bb0e803d4}{00260}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_NOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_NOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK9CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00261}\mbox{\hyperlink{plib__clk_8c_a59f924a0d7dfcf6d37494c84d4dfada0}{00261}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_NOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_NOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK9CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00262}\mbox{\hyperlink{plib__clk_8c_a2b5554eb5b487ba3e0196a5770b3e651}{00262}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_NOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_NOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK9CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00263}\mbox{\hyperlink{plib__clk_8c_a670dbb76fa2cbd43b69bf2f632f32db1}{00263}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_NOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_NOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK9CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00264}\mbox{\hyperlink{plib__clk_8c_a230e0c6020662225dd7bfbcf1f40cc65}{00264}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_NOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_NOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK9CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00265}\mbox{\hyperlink{plib__clk_8c_a171e99d10887989347617fcbc09933a1}{00265}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_NOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_NOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK9CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00266}\mbox{\hyperlink{plib__clk_8c_a530cc7538fa0eed54ad00668837d7d63}{00266}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_NOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_NOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK9CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00267}\mbox{\hyperlink{plib__clk_8c_a965b52bac103e460c28da2343aaa8c5d}{00267}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_NOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_NOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK9CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00268}\mbox{\hyperlink{plib__clk_8c_a50de94ad858f358d79153246c763161c}{00268}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_NOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_NOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK9CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00269}\mbox{\hyperlink{plib__clk_8c_ab041f5ad893af83cc7e4d82b9f1aa25f}{00269}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_NOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_NOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK9CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00270}\mbox{\hyperlink{plib__clk_8c_a8cc8fdbefc5fcb9cdc334f7a983e90cb}{00270}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_NOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_NOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK9CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00272}00272\ \textcolor{comment}{//CLOCK\ CLKxCON\ BOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00273}\mbox{\hyperlink{plib__clk_8c_a3eec072c3c6df2b284cad56fc88c4914}{00273}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_BOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_BOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK9CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00274}\mbox{\hyperlink{plib__clk_8c_a89b698f0b094b5ad5766dc151756f931}{00274}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_BOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_BOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK9CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00275}\mbox{\hyperlink{plib__clk_8c_a7a9e165aeb9cc2b27bc3f56c08e46b51}{00275}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_BOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_BOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK9CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00276}\mbox{\hyperlink{plib__clk_8c_a10508c991d3eb15f8a149d806d7b85e3}{00276}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_BOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_BOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK9CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00277}\mbox{\hyperlink{plib__clk_8c_a45bf0a19c121c90693722b4db92d99f6}{00277}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_BOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_BOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK9CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00278}\mbox{\hyperlink{plib__clk_8c_ace1e0c40c3677d2ab21e30b82b54572e}{00278}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_BOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_BOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK9CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00279}\mbox{\hyperlink{plib__clk_8c_aed924763aa09e35e4801e36f0e7f8abd}{00279}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_BOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_BOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK9CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00280}\mbox{\hyperlink{plib__clk_8c_afb6e913c68187396ab411d7e8093392e}{00280}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_BOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_BOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK9CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00281}\mbox{\hyperlink{plib__clk_8c_a385792f7949146c56f8890c4cbd736e8}{00281}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_BOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_BOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK9CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00282}\mbox{\hyperlink{plib__clk_8c_a8ef9c2d20df75a9c77d403b5b19309bf}{00282}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_BOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_BOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK9CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00283}\mbox{\hyperlink{plib__clk_8c_aef9a7ff943f94019c5600e257df0f6bb}{00283}}\ \textcolor{preprocessor}{\#define\ CLK9CON\_BOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9CON\_BOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK9CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00285}00285\ \textcolor{comment}{//CLOCK\ CLKxCON\ INTDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00286}\mbox{\hyperlink{plib__clk_8c_a993dc6ac93be84b09eb91768867ce337}{00286}}\ \textcolor{preprocessor}{\#define\ CLK9DIV\_INTDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9DIV\_INTDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK9DIV\_INTDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00287}00287\ \textcolor{comment}{//CLOCK\ CLKONxCON\ FRACDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00288}\mbox{\hyperlink{plib__clk_8c_a20efbe86cddc77fbe97b0c7884a8e10e}{00288}}\ \textcolor{preprocessor}{\#define\ CLK9DIV\_FRACDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK9DIV\_FRACDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK9DIV\_FRACDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00290}00290\ \textcolor{comment}{//CLOCK\ CLKxCON\ NOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00291}\mbox{\hyperlink{plib__clk_8c_aa5f347b53fa0b28c719d92fc5fcec589}{00291}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_NOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_NOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK10CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00292}\mbox{\hyperlink{plib__clk_8c_ad932c99c246796c17460d936db0804e3}{00292}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_NOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_NOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK10CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00293}\mbox{\hyperlink{plib__clk_8c_a1c828e5e259a457d43978a22963a9bd8}{00293}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_NOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_NOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK10CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00294}\mbox{\hyperlink{plib__clk_8c_a26c21b45a4118e7080427251e7068abb}{00294}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_NOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_NOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK10CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00295}\mbox{\hyperlink{plib__clk_8c_a2e13b20bf9c84604ce3a8ffa966edb45}{00295}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_NOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_NOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK10CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00296}\mbox{\hyperlink{plib__clk_8c_a1998b6626773b337650db90decb1ea0a}{00296}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_NOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_NOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK10CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00297}\mbox{\hyperlink{plib__clk_8c_a9a65537eac26f44b5a241db139b7dd4e}{00297}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_NOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_NOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK10CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00298}\mbox{\hyperlink{plib__clk_8c_a65f913891754b043299078917c5bbdde}{00298}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_NOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_NOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK10CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00299}\mbox{\hyperlink{plib__clk_8c_a2a088822ab27de3401c1fa9ad74bee01}{00299}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_NOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_NOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK10CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00300}\mbox{\hyperlink{plib__clk_8c_acf57eb41c20f8796457a57bce70f8ae7}{00300}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_NOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_NOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK10CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00301}\mbox{\hyperlink{plib__clk_8c_aad1222ed272cf21559173c19e4c9c3ab}{00301}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_NOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_NOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK10CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00303}00303\ \textcolor{comment}{//CLOCK\ CLKxCON\ BOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00304}\mbox{\hyperlink{plib__clk_8c_a66fbc545494d6a39e52e50bd36e91950}{00304}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_BOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_BOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK10CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00305}\mbox{\hyperlink{plib__clk_8c_a38cf62d530dabb07c9afd1a05ae62cd3}{00305}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_BOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_BOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK10CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00306}\mbox{\hyperlink{plib__clk_8c_a00de31073991b7bd5086b13be309c366}{00306}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_BOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_BOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK10CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00307}\mbox{\hyperlink{plib__clk_8c_af384608c9290aaa96308355ee743bc1f}{00307}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_BOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_BOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK10CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00308}\mbox{\hyperlink{plib__clk_8c_a8b40adb8ff1bd8b98448756418517eb3}{00308}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_BOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_BOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK10CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00309}\mbox{\hyperlink{plib__clk_8c_a64ebe61198285676e2c12555ae75145b}{00309}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_BOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_BOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK10CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00310}\mbox{\hyperlink{plib__clk_8c_a0425a877645cbb76d15b09950239157d}{00310}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_BOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_BOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK10CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00311}\mbox{\hyperlink{plib__clk_8c_aa57b24d2f3751ea866337fe0dd79c5d8}{00311}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_BOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_BOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK10CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00312}\mbox{\hyperlink{plib__clk_8c_a8e3b76c28c9702898725a1408dc827bc}{00312}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_BOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_BOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK10CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00313}\mbox{\hyperlink{plib__clk_8c_ace40dfd5ea2dcf4b4d52291b41516759}{00313}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_BOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_BOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK10CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00314}\mbox{\hyperlink{plib__clk_8c_a168ad264c668aabe511d3cca250a4c16}{00314}}\ \textcolor{preprocessor}{\#define\ CLK10CON\_BOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10CON\_BOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK10CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00316}00316\ \textcolor{comment}{//CLOCK\ CLKxCON\ INTDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00317}\mbox{\hyperlink{plib__clk_8c_aee63791e3975f3391fa992c1dde69e53}{00317}}\ \textcolor{preprocessor}{\#define\ CLK10DIV\_INTDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10DIV\_INTDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK10DIV\_INTDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00318}00318\ \textcolor{comment}{//CLOCK\ CLKONxCON\ FRACDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00319}\mbox{\hyperlink{plib__clk_8c_ab9c9910c33aeea19341d78ce5cd3b002}{00319}}\ \textcolor{preprocessor}{\#define\ CLK10DIV\_FRACDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK10DIV\_FRACDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK10DIV\_FRACDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00320}00320\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00321}00321\ \textcolor{comment}{//CLOCK\ CLKxCON\ NOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00322}\mbox{\hyperlink{plib__clk_8c_afc69557dafa2fcc07c17f17fbedd45c9}{00322}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_NOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_NOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK12CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00323}\mbox{\hyperlink{plib__clk_8c_ab2cd4f46a105107e944c1c0649a236d1}{00323}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_NOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_NOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK12CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00324}\mbox{\hyperlink{plib__clk_8c_a0e037c991cb0835aabbcfaf5ba5446be}{00324}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_NOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_NOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK12CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00325}\mbox{\hyperlink{plib__clk_8c_aa3afdcfa3d067c3978a7ac85443509af}{00325}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_NOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_NOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK12CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00326}\mbox{\hyperlink{plib__clk_8c_a926974bdd919916e425c1cf930f17426}{00326}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_NOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_NOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK12CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00327}\mbox{\hyperlink{plib__clk_8c_a4db397da1cf028b03278bde29eb48754}{00327}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_NOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_NOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK12CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00328}\mbox{\hyperlink{plib__clk_8c_a1cb802ac2c6f53592c1be158d34fbb05}{00328}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_NOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_NOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK12CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00329}\mbox{\hyperlink{plib__clk_8c_a5a9b51f95bdca37c1504c51757421e6c}{00329}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_NOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_NOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK12CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00330}\mbox{\hyperlink{plib__clk_8c_aa6732fcb985bb2cc486119541c81c012}{00330}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_NOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_NOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK12CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00331}\mbox{\hyperlink{plib__clk_8c_ab76fe3ee8cc13013d8221d722c093268}{00331}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_NOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_NOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK12CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00332}\mbox{\hyperlink{plib__clk_8c_af2fef6f2c3ee794ab39fa8a7b14cd4b7}{00332}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_NOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_NOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK12CON\_NOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00334}00334\ \textcolor{comment}{//CLOCK\ CLKxCON\ BOSC\ options}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00335}\mbox{\hyperlink{plib__clk_8c_ae8c4e1ae527e13e3f6cd8be3bbd9f6b8}{00335}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_BOSC\_PGC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_BOSC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_CLK12CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00336}\mbox{\hyperlink{plib__clk_8c_a7f4779076c1cfc391f13b48e76ac4fa1}{00336}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_BOSC\_FRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_BOSC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_CLK12CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00337}\mbox{\hyperlink{plib__clk_8c_a9b8afb4292c796acada402e1f3923f0e}{00337}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_BOSC\_BFRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_BOSC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_CLK12CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00338}\mbox{\hyperlink{plib__clk_8c_a728ffe2da944022d4718539330a5aec8}{00338}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_BOSC\_POSC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_BOSC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_CLK12CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00339}\mbox{\hyperlink{plib__clk_8c_aae0e54564aa1eefc64095aab14de0c22}{00339}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_BOSC\_LPRC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_BOSC\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_CLK12CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00340}\mbox{\hyperlink{plib__clk_8c_aada19fffaae851d17925d37092e24b22}{00340}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_BOSC\_PLL1\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_BOSC\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_CLK12CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00341}\mbox{\hyperlink{plib__clk_8c_a6bff8c8e78232e218e014d915d9f5757}{00341}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_BOSC\_PLL2\_FOUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_BOSC\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_CLK12CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00342}\mbox{\hyperlink{plib__clk_8c_a7339b353c64efe065eaf0fab60c56da0}{00342}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_BOSC\_PLL1\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_BOSC\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_CLK12CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00343}\mbox{\hyperlink{plib__clk_8c_ad69ab68ece33e35650b875870807eb14}{00343}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_BOSC\_PLL2\_VCO\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_BOSC\_MASK\ \&\ ((uint32\_t)(8)\ <<\ \_CLK12CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00344}\mbox{\hyperlink{plib__clk_8c_a068ab1cbcb19d718b9ec11da6c313b63}{00344}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_BOSC\_REFI1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_BOSC\_MASK\ \&\ ((uint32\_t)(9)\ <<\ \_CLK12CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00345}\mbox{\hyperlink{plib__clk_8c_a21ccb1043dc20ee9b8f8a967a7b3a0c7}{00345}}\ \textcolor{preprocessor}{\#define\ CLK12CON\_BOSC\_REFI2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12CON\_BOSC\_MASK\ \&\ ((uint32\_t)(10)\ <<\ \_CLK12CON\_BOSC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00346}00346\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00347}00347\ \textcolor{comment}{//CLOCK\ CLKxCON\ INTDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00348}\mbox{\hyperlink{plib__clk_8c_a451f5e589947aae6436627efea240700}{00348}}\ \textcolor{preprocessor}{\#define\ CLK12DIV\_INTDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12DIV\_INTDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK12DIV\_INTDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00349}00349\ \textcolor{comment}{//CLOCK\ CLKONxCON\ FRACDIV\ set}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00350}\mbox{\hyperlink{plib__clk_8c_a1a5115b7ae39303f905422d0fec9040e}{00350}}\ \textcolor{preprocessor}{\#define\ CLK12DIV\_FRACDIV\_SET(value)\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_CLK12DIV\_FRACDIV\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_CLK12DIV\_FRACDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00351}00351\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00352}00352\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00353}\mbox{\hyperlink{plib__clk_8c_a9056177c7c31190393e366a17304fc33}{00353}}\ \textcolor{preprocessor}{\#define\ PLL1FOUT\_SOURCE\ \ \ \ \ \ \ \ \ 5U}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00354}\mbox{\hyperlink{plib__clk_8c_a57cd330ac9e417d2abac780833490da9}{00354}}\ \textcolor{preprocessor}{\#define\ PLL2VCODIV\_SOURCE\ \ \ \ \ \ \ 8U}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00355}00355\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00356}00356\ \textcolor{comment}{//\ Section:\ Static\ Variables}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00357}00357\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00359}00359\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00360}\mbox{\hyperlink{plib__clk_8c_a98390d19c7087c52765eab23eb8ded96}{00360}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__clk_8c_a98390d19c7087c52765eab23eb8ded96}{CLOCK\_Initialize}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00361}00361\ \{}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00362}00362\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00363}00363\ \textcolor{comment}{\ \ \ \ \ \ \ \ System\ Clock\ Source\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ PLL1\ FOUT}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00364}00364\ \textcolor{comment}{\ \ \ \ \ \ \ \ System/Generator\ 1\ frequency\ (Fosc)\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ 200.0\ MHz}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00365}00365\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00366}00366\ \textcolor{comment}{\ \ \ \ \ \ \ \ Clock\ Generator\ 2\ frequency\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ 8.0\ MHz}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00367}00367\ \textcolor{comment}{\ \ \ \ \ \ \ \ Clock\ Generator\ 3\ frequency\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ 8.0\ MHz}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00368}00368\ \textcolor{comment}{\ \ \ \ \ \ \ \ Clock\ Generator\ 6\ frequency\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ 200.0\ MHz}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00369}00369\ \textcolor{comment}{\ \ \ \ \ \ \ \ Clock\ Generator\ 7\ frequency\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ 8.0\ MHz}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00370}00370\ \textcolor{comment}{\ \ \ \ \ \ \ \ Clock\ Generator\ 9\ frequency\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ 143.085391\ MHz}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00371}00371\ \textcolor{comment}{\ \ \ \ \ \ \ \ Clock\ Generator\ 10\ frequency\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ 396.0\ MHz}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00372}00372\ \textcolor{comment}{\ \ \ \ \ \ \ \ Clock\ Generator\ 12\ frequency\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ 1.0\ MHz}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00373}00373\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00374}00374\ \textcolor{comment}{\ \ \ \ \ \ \ \ PLL\ 1\ frequency\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ 200.0\ MHz}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00375}00375\ \textcolor{comment}{\ \ \ \ \ \ \ \ PLL\ 1\ VCO\ Out\ frequency\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ 200.0\ MHz}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00376}00376\ \textcolor{comment}{\ \ \ \ \ \ \ \ PLL\ 2\ frequency\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ 792.0\ MHz}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00377}00377\ \textcolor{comment}{\ \ \ \ \ \ \ \ PLL\ 2\ VCO\ Out\ frequency\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ 396.0\ MHz}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00378}00378\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00379}00379\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00380}00380\ \ \ \ \ \textcolor{comment}{//Primary\ oscillator\ settings}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00381}00381\ \ \ \ \ OSCCFGbits.POSCMD\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00382}00382\ \ \ \ \ OSCCTRLbits.POSCEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00383}00383\ \ \ \ \ \textcolor{keywordflow}{while}(OSCCTRLbits.POSCRDY\ ==\ 0U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00384}00384\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00385}00385\ \ \ \ \ \textcolor{comment}{//If\ CLK\ GEN\ 1\ (system\ clock)\ is\ using\ a\ PLL,\ switch\ to\ FRC\ to\ avoid\ risk\ of\ over-\/clocking\ the\ CPU\ while\ changing\ PLL\ settings}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00386}00386\ \ \ \ \ uint32\_t\ currentSysClock\ =\ CLK1CONbits.COSC;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00387}00387\ \ \ \ \ \textcolor{keywordflow}{if}((currentSysClock\ >=\ \mbox{\hyperlink{plib__clk_8c_a9056177c7c31190393e366a17304fc33}{PLL1FOUT\_SOURCE}})\ \&\&\ (currentSysClock\ <=\ \mbox{\hyperlink{plib__clk_8c_a57cd330ac9e417d2abac780833490da9}{PLL2VCODIV\_SOURCE}}))}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00388}00388\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00389}00389\ \ \ \ \ \ \ \ \ CLK1CONbits.NOSC\ =\ 1U;\ \textcolor{comment}{//FRC\ as\ source}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00390}00390\ \ \ \ \ \ \ \ \ CLK1CONbits.OSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00391}00391\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(CLK1CONbits.OSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00392}00392\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00393}00393\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00394}00394\ \ \ \ \ \textcolor{comment}{//PLL\ 1\ settings}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00395}00395\ \ \ \ \ PLL1CON\ =\ (\_PLL1CON\_ON\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_ab6086044a4d8c6fb289f5e630b2e2aa0}{PLL1CON\_NOSC\_POSC}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a0565daa4050d65a19c5e78c09da3de4e}{PLL1CON\_BOSC\_BFRC}});}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00398}00398\ \ \ \ \ PLL1DIV\ =\ (\mbox{\hyperlink{plib__clk_8c_ab0e8c9a6c8a3a5bd75df7cadecf7302c}{PLL1DIV\_PLLPRE\_SET}}(1)}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00399}00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_aef1744ca8ab368f5f4a14c58bce2c743}{PLL1DIV\_PLLFBDIV\_SET}}(100)}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a31600b109dbebbbf435acde395b64cd0}{PLL1DIV\_POSTDIV1\_SET}}(1)}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00401}00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a016e49b417f0b6e74391863106b84840}{PLL1DIV\_POSTDIV2\_SET}}(4));}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00402}00402\ \ \ \ \ \textcolor{comment}{//Enable\ PLL\ Input\ and\ Feedback\ Divider\ update}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00403}00403\ \ \ \ \ PLL1CONbits.PLLSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00404}00404\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00405}00405\ \ \ \ \ \textcolor{keywordflow}{while}\ (PLL1CONbits.PLLSWEN\ ==\ 1)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00406}00406\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00407}00407\ \ \ \ \ PLL1CONbits.FOUTSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00408}00408\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00409}00409\ \ \ \ \ \textcolor{keywordflow}{while}\ (PLL1CONbits.FOUTSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00410}00410\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00411}00411\ \ \ \ \ \textcolor{comment}{//Enable\ clock\ switching}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00412}00412\ \ \ \ \ PLL1CONbits.OSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00413}00413\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00414}00414\ \ \ \ \ \textcolor{comment}{//Wait\ for\ switching}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00415}00415\ \ \ \ \ \textcolor{keywordflow}{while}(PLL1CONbits.OSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00416}00416\ \ \ \ \ \textcolor{comment}{//Wait\ for\ clock\ to\ be\ ready}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00417}00417\ \ \ \ \ \textcolor{keywordflow}{while}(OSCCTRLbits.PLL1RDY\ ==\ 0U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00418}00418\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00419}00419\ \ \ \ \ \textcolor{comment}{//Configure\ VCO\ Divider}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00420}00420\ \ \ \ \ VCO1DIV\ =\ \mbox{\hyperlink{plib__clk_8c_af5a4ff1978128b4493b8748cb611684f}{VCO1DIV\_INTDIV\_SET}}(2);}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00421}00421\ \ \ \ \ \textcolor{comment}{//Enable\ PLL\ VCO\ divider}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00422}00422\ \ \ \ \ PLL1CONbits.DIVSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00423}00423\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00424}00424\ \ \ \ \ \textcolor{comment}{//Wait\ for\ setup\ complete}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00425}00425\ \ \ \ \ \textcolor{keywordflow}{while}(PLL1CONbits.DIVSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00426}00426\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00427}00427\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00428}00428\ \ \ \ \ \textcolor{comment}{//Clearing\ ON\ shuts\ down\ oscillator\ when\ no\ downstream\ clkgen\ or\ peripheral\ is\ requesting\ the\ clock}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00429}00429\ \ \ \ \ PLL1CONbits.ON\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00430}00430\ \ \ \ \ \textcolor{comment}{//PLL\ 2\ settings}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00431}00431\ \ \ \ \ PLL2CON\ =\ (\_PLL2CON\_ON\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00432}00432\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a2a2edc3e47531c42791c5af28725c657}{PLL2CON\_NOSC\_POSC}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00433}00433\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a291bdf7df4dada8bb9e292797e15dde6}{PLL2CON\_BOSC\_BFRC}});}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00434}00434\ \ \ \ \ PLL2DIV\ =\ (\mbox{\hyperlink{plib__clk_8c_a88153333f5c2bc9634e607f7375a906d}{PLL2DIV\_PLLPRE\_SET}}(1)}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00435}00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a397057f07835edec3d3dfa56f8509844}{PLL2DIV\_PLLFBDIV\_SET}}(99)}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00436}00436\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_aa3c92a8f35082b20b2593268f1fd05af}{PLL2DIV\_POSTDIV1\_SET}}(1)}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00437}00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_addbf712a7b7883c8ebd39b0b50ed0837}{PLL2DIV\_POSTDIV2\_SET}}(1));}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00438}00438\ \ \ \ \ \textcolor{comment}{//Enable\ PLL\ Input\ and\ Feedback\ Divider\ update}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00439}00439\ \ \ \ \ PLL2CONbits.PLLSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00440}00440\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00441}00441\ \ \ \ \ \textcolor{keywordflow}{while}\ (PLL2CONbits.PLLSWEN\ ==\ 1)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00442}00442\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00443}00443\ \ \ \ \ PLL2CONbits.FOUTSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00444}00444\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00445}00445\ \ \ \ \ \textcolor{keywordflow}{while}\ (PLL2CONbits.FOUTSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00446}00446\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00447}00447\ \ \ \ \ \textcolor{comment}{//Enable\ clock\ switching}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00448}00448\ \ \ \ \ PLL2CONbits.OSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00449}00449\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00450}00450\ \ \ \ \ \textcolor{comment}{//Wait\ for\ switching}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00451}00451\ \ \ \ \ \textcolor{keywordflow}{while}(PLL2CONbits.OSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00452}00452\ \ \ \ \ \textcolor{comment}{//Wait\ for\ clock\ to\ be\ ready}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00453}00453\ \ \ \ \ \textcolor{keywordflow}{while}(OSCCTRLbits.PLL2RDY\ ==\ 0U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00454}00454\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00455}00455\ \ \ \ \ \textcolor{comment}{//Configure\ VCO\ Divider}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00456}00456\ \ \ \ \ VCO2DIV\ =\ \mbox{\hyperlink{plib__clk_8c_a96dede340a042fd5cb0407440bf4bfb2}{VCO2DIV\_INTDIV\_SET}}(1);}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00457}00457\ \ \ \ \ \textcolor{comment}{//Enable\ PLL\ VCO\ divider}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00458}00458\ \ \ \ \ PLL2CONbits.DIVSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00459}00459\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00460}00460\ \ \ \ \ \textcolor{comment}{//Wait\ for\ setup\ complete}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00461}00461\ \ \ \ \ \textcolor{keywordflow}{while}(PLL2CONbits.DIVSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00462}00462\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00463}00463\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00464}00464\ \ \ \ \ \textcolor{comment}{//Clearing\ ON\ shuts\ down\ oscillator\ when\ no\ downstream\ clkgen\ or\ peripheral\ is\ requesting\ the\ clock}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00465}00465\ \ \ \ \ PLL2CONbits.ON\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00466}00466\ \ \ \ \ \textcolor{comment}{//Clock\ Generator\ 1\ settings}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00467}00467\ \ \ \ \ CLK1CON\ =\ (\_CLK1CON\_ON\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00468}00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\_CLK1CON\_OE\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00469}00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a65413dc84a0f3eb2c377d0f1006f649e}{CLK1CON\_NOSC\_PLL1\_FOUT}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00470}00470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_afcd4ef7fca39d36a963f94e309bfd0e6}{CLK1CON\_BOSC\_BFRC}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00471}00471\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\_CLK1CON\_FSCMEN\_MASK);}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00472}00472\ \ \ \ \ \textcolor{comment}{//Enable\ clock\ switching}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00473}00473\ \ \ \ \ CLK1CONbits.OSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00474}00474\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00475}00475\ \ \ \ \ \textcolor{comment}{//Wait\ for\ clock\ switching\ complete}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00476}00476\ \ \ \ \ \textcolor{keywordflow}{while}(CLK1CONbits.OSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00477}00477\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00478}00478\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00479}00479\ \ \ \ \ \textcolor{comment}{//Clock\ Generator\ 2\ settings}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00480}00480\ \ \ \ \ CLK2CON\ =\ (\_CLK2CON\_ON\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00481}00481\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\_CLK2CON\_OE\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00482}00482\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a43fab06c39fdbe056fd60d49ee7c5f7c}{CLK2CON\_NOSC\_FRC}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00483}00483\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a5e72af99542385d4a120e491581391f4}{CLK2CON\_BOSC\_BFRC}});}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00484}00484\ \ \ \ \ \textcolor{comment}{//Enable\ clock\ switching}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00485}00485\ \ \ \ \ CLK2CONbits.OSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00486}00486\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00487}00487\ \ \ \ \ \textcolor{comment}{//Wait\ for\ clock\ switching\ complete}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00488}00488\ \ \ \ \ \textcolor{keywordflow}{while}(CLK2CONbits.OSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00489}00489\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00490}00490\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00491}00491\ \ \ \ \ \textcolor{comment}{//Clock\ Generator\ 3\ settings}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00492}00492\ \ \ \ \ CLK3CON\ =\ (\_CLK3CON\_ON\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00493}00493\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\_CLK3CON\_OE\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00494}00494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_acaff922c2d9f1dd769252550714f4ce4}{CLK3CON\_NOSC\_BFRC}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00495}00495\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_ab594f2269d9f97cb92023774738afa1e}{CLK3CON\_BOSC\_FRC}});}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00496}00496\ \ \ \ \ \textcolor{comment}{//Enable\ clock\ switching}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00497}00497\ \ \ \ \ CLK3CONbits.OSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00498}00498\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00499}00499\ \ \ \ \ \textcolor{comment}{//Wait\ for\ clock\ switching\ complete}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00500}00500\ \ \ \ \ \textcolor{keywordflow}{while}(CLK3CONbits.OSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00501}00501\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00502}00502\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00503}00503\ \ \ \ \ \textcolor{comment}{//Clock\ Generator\ 6\ settings}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00504}00504\ \ \ \ \ CLK6CON\ =\ (\_CLK6CON\_ON\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00505}00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\_CLK6CON\_OE\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00506}00506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_abb41f7cf8d97202b1f4bf76e6e69c6f6}{CLK6CON\_NOSC\_PLL1\_FOUT}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00507}00507\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_ae6e6e7edb667a47bcc316529a3819658}{CLK6CON\_BOSC\_BFRC}});}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00508}00508\ \ \ \ \ \textcolor{comment}{//Enable\ clock\ switching}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00509}00509\ \ \ \ \ CLK6CONbits.OSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00510}00510\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00511}00511\ \ \ \ \ \textcolor{comment}{//Wait\ for\ clock\ switching\ complete}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00512}00512\ \ \ \ \ \textcolor{keywordflow}{while}(CLK6CONbits.OSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00513}00513\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00514}00514\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00515}00515\ \ \ \ \ \textcolor{comment}{//Clock\ Generator\ 7\ settings}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00516}00516\ \ \ \ \ CLK7CON\ =\ (\_CLK7CON\_ON\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00517}00517\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\_CLK7CON\_OE\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00518}00518\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a3fc7492fc347d62f844e8472110c5625}{CLK7CON\_NOSC\_POSC}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00519}00519\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a645d31063f2d5b7d54edb0d72acfb4da}{CLK7CON\_BOSC\_BFRC}});}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00520}00520\ \ \ \ \ \textcolor{comment}{//Enable\ clock\ switching}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00521}00521\ \ \ \ \ CLK7CONbits.OSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00522}00522\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00523}00523\ \ \ \ \ \textcolor{comment}{//Wait\ for\ clock\ switching\ complete}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00524}00524\ \ \ \ \ \textcolor{keywordflow}{while}(CLK7CONbits.OSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00525}00525\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00526}00526\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00527}00527\ \ \ \ \ \textcolor{comment}{//Clock\ Generator\ 9\ settings}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00528}00528\ \ \ \ \ CLK9CON\ =\ (\_CLK9CON\_ON\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00529}00529\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\_CLK9CON\_OE\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00530}00530\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a530cc7538fa0eed54ad00668837d7d63}{CLK9CON\_NOSC\_PLL2\_FOUT}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00531}00531\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a10508c991d3eb15f8a149d806d7b85e3}{CLK9CON\_BOSC\_POSC}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00532}00532\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\_CLK9CON\_FSCMEN\_MASK);}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00533}00533\ \ \ \ \ CLK9DIV\ =\ (\mbox{\hyperlink{plib__clk_8c_a993dc6ac93be84b09eb91768867ce337}{CLK9DIV\_INTDIV\_SET}}(2)}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00534}00534\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a20efbe86cddc77fbe97b0c7884a8e10e}{CLK9DIV\_FRACDIV\_SET}}(393));}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00535}00535\ \ \ \ \ \textcolor{comment}{//Enable\ divide\ factors}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00536}00536\ \ \ \ \ CLK9CONbits.DIVSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00537}00537\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00538}00538\ \ \ \ \ \textcolor{comment}{//Wait\ for\ divide\ factors\ to\ get\ updated}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00539}00539\ \ \ \ \ \textcolor{keywordflow}{while}(CLK9CONbits.DIVSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00540}00540\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00541}00541\ \ \ \ \ \textcolor{comment}{//Enable\ clock\ switching}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00542}00542\ \ \ \ \ CLK9CONbits.OSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00543}00543\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00544}00544\ \ \ \ \ \textcolor{comment}{//Wait\ for\ clock\ switching\ complete}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00545}00545\ \ \ \ \ \textcolor{keywordflow}{while}(CLK9CONbits.OSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00546}00546\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00547}00547\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00548}00548\ \ \ \ \ \textcolor{comment}{//Clock\ Generator\ 10\ settings}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00549}00549\ \ \ \ \ CLK10CON\ =\ (\_CLK10CON\_ON\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00550}00550\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\_CLK10CON\_OE\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00551}00551\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a9a65537eac26f44b5a241db139b7dd4e}{CLK10CON\_NOSC\_PLL2\_FOUT}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00552}00552\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a64ebe61198285676e2c12555ae75145b}{CLK10CON\_BOSC\_PLL1\_FOUT}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00553}00553\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\_CLK10CON\_FSCMEN\_MASK);}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00554}00554\ \ \ \ \ CLK10DIV\ =\ (\mbox{\hyperlink{plib__clk_8c_aee63791e3975f3391fa992c1dde69e53}{CLK10DIV\_INTDIV\_SET}}(1)}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00555}00555\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_ab9c9910c33aeea19341d78ce5cd3b002}{CLK10DIV\_FRACDIV\_SET}}(0));}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00556}00556\ \ \ \ \ \textcolor{comment}{//Enable\ divide\ factors}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00557}00557\ \ \ \ \ CLK10CONbits.DIVSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00558}00558\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00559}00559\ \ \ \ \ \textcolor{comment}{//Wait\ for\ divide\ factors\ to\ get\ updated}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00560}00560\ \ \ \ \ \textcolor{keywordflow}{while}(CLK10CONbits.DIVSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00561}00561\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00562}00562\ \ \ \ \ \textcolor{comment}{//Enable\ clock\ switching}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00563}00563\ \ \ \ \ CLK10CONbits.OSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00564}00564\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00565}00565\ \ \ \ \ \textcolor{comment}{//Wait\ for\ clock\ switching\ complete}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00566}00566\ \ \ \ \ \textcolor{keywordflow}{while}(CLK10CONbits.OSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00567}00567\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00568}00568\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00569}00569\ \ \ \ \ \textcolor{comment}{//Clock\ Generator\ 12\ settings}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00570}00570\ \ \ \ \ CLK12CON\ =\ (\_CLK12CON\_ON\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00571}00571\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\_CLK12CON\_OE\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00572}00572\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_aa3afdcfa3d067c3978a7ac85443509af}{CLK12CON\_NOSC\_POSC}}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00573}00573\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a9b8afb4292c796acada402e1f3923f0e}{CLK12CON\_BOSC\_BFRC}});}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00574}00574\ \ \ \ \ CLK12DIV\ =\ (\mbox{\hyperlink{plib__clk_8c_a451f5e589947aae6436627efea240700}{CLK12DIV\_INTDIV\_SET}}(4)}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00575}00575\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__clk_8c_a1a5115b7ae39303f905422d0fec9040e}{CLK12DIV\_FRACDIV\_SET}}(0));}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00576}00576\ \ \ \ \ \textcolor{comment}{//Enable\ divide\ factors}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00577}00577\ \ \ \ \ CLK12CONbits.DIVSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00578}00578\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00579}00579\ \ \ \ \ \textcolor{comment}{//Wait\ for\ divide\ factors\ to\ get\ updated}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00580}00580\ \ \ \ \ \textcolor{keywordflow}{while}(CLK12CONbits.DIVSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00581}00581\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00582}00582\ \ \ \ \ \textcolor{comment}{//Enable\ clock\ switching}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00583}00583\ \ \ \ \ CLK12CONbits.OSWEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00584}00584\ \textcolor{preprocessor}{\#ifndef\ \_\_MPLAB\_DEBUGGER\_SIMULATOR}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00585}00585\ \ \ \ \ \textcolor{comment}{//Wait\ for\ clock\ switching\ complete}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00586}00586\ \ \ \ \ \textcolor{keywordflow}{while}(CLK12CONbits.OSWEN\ ==\ 1U)\{\};}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00587}00587\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00588}00588\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00589}00589\ \}}
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00590}00590\ }
+\DoxyCodeLine{\Hypertarget{plib__clk_8c_source_l00591}00591\ }
+
+\end{DoxyCode}

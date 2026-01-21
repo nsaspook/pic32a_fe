@@ -1,0 +1,213 @@
+\doxysection{plib\+\_\+ptg.\+c}
+\hypertarget{plib__ptg_8c_source}{}\label{plib__ptg_8c_source}\index{src/config/default/peripheral/ptg/plib\_ptg.c@{src/config/default/peripheral/ptg/plib\_ptg.c}}
+\mbox{\hyperlink{plib__ptg_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00002}00002\ \textcolor{comment}{\ \ ptg\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00006}00006\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_ptg.c}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00011}00011\ \textcolor{comment}{\ \ \ \ ptg\ PLIB\ Source\ File}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00014}00014\ \textcolor{comment}{\ \ \ \ None}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00015}00015\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00016}00016\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00018}00018\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00019}00019\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00020}00020\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00021}00021\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00022}00022\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00023}00023\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00024}00024\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00025}00025\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00026}00026\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00027}00027\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00028}00028\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00029}00029\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00030}00030\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00031}00031\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00032}00032\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00033}00033\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00034}00034\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00035}00035\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00036}00036\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00037}00037\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00038}00038\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00039}00039\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00041}00041\ \textcolor{comment}{//\ Section:\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00042}00042\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00043}00043\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00044}00044\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{device_8h}{device.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00045}00045\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib__ptg_8h}{plib\_ptg.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00047}00047\ \textcolor{comment}{//Section:\ Data\ Type\ Definitions}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00050}00050\ \textcolor{comment}{//Section:\ Macro\ Definitions}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00052}\mbox{\hyperlink{plib__ptg_8c_a2dfe1e66a82f6078072159c880d6c4b3}{00052}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGWDT\_TIMEOUT\_DISABLED\ \ \ \ \ \ ((uint32\_t)(\_PTGCON\_PTGWDT\_MASK\ \&\ ((uint32\_t)(0)\ <<\_PTGCON\_PTGWDT\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00053}\mbox{\hyperlink{plib__ptg_8c_a938d2a088ea9b92b90bce56e887f69ab}{00053}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGWDT\_TIMEOUT\_8\ \ \ \ \ \ ((uint32\_t)(\_PTGCON\_PTGWDT\_MASK\ \&\ ((uint32\_t)(1)\ <<\_PTGCON\_PTGWDT\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00054}\mbox{\hyperlink{plib__ptg_8c_abaf35bb6a4f34e5847c913c3e066e1f6}{00054}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGWDT\_TIMEOUT\_16\ \ \ \ \ \ ((uint32\_t)(\_PTGCON\_PTGWDT\_MASK\ \&\ ((uint32\_t)(2)\ <<\_PTGCON\_PTGWDT\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00055}\mbox{\hyperlink{plib__ptg_8c_a1f24661edfcc294e691a9ca7db763f4e}{00055}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGWDT\_TIMEOUT\_32\ \ \ \ \ \ ((uint32\_t)(\_PTGCON\_PTGWDT\_MASK\ \&\ ((uint32\_t)(3)\ <<\_PTGCON\_PTGWDT\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00056}\mbox{\hyperlink{plib__ptg_8c_ad41abc76facc51006c1de41b4a37e8c5}{00056}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGWDT\_TIMEOUT\_64\ \ \ \ \ \ ((uint32\_t)(\_PTGCON\_PTGWDT\_MASK\ \&\ ((uint32\_t)(4)\ <<\_PTGCON\_PTGWDT\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00057}\mbox{\hyperlink{plib__ptg_8c_a85375b2a46feee101d4a7a80795fcea4}{00057}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGWDT\_TIMEOUT\_128\ \ \ \ \ \ ((uint32\_t)(\_PTGCON\_PTGWDT\_MASK\ \&\ ((uint32\_t)(5)\ <<\_PTGCON\_PTGWDT\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00058}\mbox{\hyperlink{plib__ptg_8c_a492ec41978250807983a3718234b9220}{00058}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGWDT\_TIMEOUT\_256\ \ \ \ \ \ ((uint32\_t)(\_PTGCON\_PTGWDT\_MASK\ \&\ ((uint32\_t)(6)\ <<\_PTGCON\_PTGWDT\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00059}\mbox{\hyperlink{plib__ptg_8c_a4d3a3978e2b1568ab7f7a5690ac98fd9}{00059}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGWDT\_TIMEOUT\_512\ \ \ \ \ \ ((uint32\_t)(\_PTGCON\_PTGWDT\_MASK\ \&\ ((uint32\_t)(7)\ <<\_PTGCON\_PTGWDT\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00061}\mbox{\hyperlink{plib__ptg_8c_a02fc52df7bc3a5dfb64cebc402b05bd9}{00061}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGITM\_MODE\_0\ \ \ \ \ \ ((uint32\_t)(\_PTGCON\_PTGITM\_MASK\ \&\ ((uint32\_t)(0)\ <<\_PTGCON\_PTGITM\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00062}\mbox{\hyperlink{plib__ptg_8c_a830c7b6aac8c94b1c928e34a707749bc}{00062}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGITM\_MODE\_1\ \ \ \ \ \ ((uint32\_t)(\_PTGCON\_PTGITM\_MASK\ \&\ ((uint32\_t)(1)\ <<\_PTGCON\_PTGITM\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00063}\mbox{\hyperlink{plib__ptg_8c_a109e1923ea39ae3cb51c88f46f65d2e3}{00063}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGITM\_MODE\_2\ \ \ \ \ \ ((uint32\_t)(\_PTGCON\_PTGITM\_MASK\ \&\ ((uint32\_t)(2)\ <<\_PTGCON\_PTGITM\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00064}\mbox{\hyperlink{plib__ptg_8c_a91c2c9a43f9f415b6f15a5588039517e}{00064}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGITM\_MODE\_3\ \ \ \ \ \ ((uint32\_t)(\_PTGCON\_PTGITM\_MASK\ \&\ ((uint32\_t)(3)\ <<\_PTGCON\_PTGITM\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00066}\mbox{\hyperlink{plib__ptg_8c_a2892e9b953284c49b292ec9797aee554}{00066}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_1\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(0)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00067}\mbox{\hyperlink{plib__ptg_8c_a9d982f8089f0cedac7d49bed9acf8644}{00067}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_2\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(1)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00068}\mbox{\hyperlink{plib__ptg_8c_a63bef2569cf32377557d17e37d834d1c}{00068}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_3\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(2)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00069}\mbox{\hyperlink{plib__ptg_8c_a2785bd7efb7efd1ddf63d1cb81a71919}{00069}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_4\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(3)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00070}\mbox{\hyperlink{plib__ptg_8c_accab3e0cfd06ebb856c4910488fa0a4f}{00070}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_5\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(4)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00071}\mbox{\hyperlink{plib__ptg_8c_a887faa1639624073ebebb07b41ab7ee0}{00071}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_6\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(5)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00072}\mbox{\hyperlink{plib__ptg_8c_a635bcf54eac04548bb34c9a77a7ce346}{00072}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_7\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(6)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00073}\mbox{\hyperlink{plib__ptg_8c_a99f4521f0f5e80b717b47cf32aebcd7e}{00073}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_8\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(7)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00074}\mbox{\hyperlink{plib__ptg_8c_ac6ae2c58ae858ebf87f96421c8b33cdf}{00074}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_9\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(8)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00075}\mbox{\hyperlink{plib__ptg_8c_ab051d46cfd99ae26c1d195f427f96f5d}{00075}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_10\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(9)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00076}\mbox{\hyperlink{plib__ptg_8c_a47eb3c19c28637f73b132005cda6c024}{00076}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_11\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(10)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00077}\mbox{\hyperlink{plib__ptg_8c_aca4f6dd66c540df30cbdf5e1a6f586b4}{00077}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_12\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(11)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00078}\mbox{\hyperlink{plib__ptg_8c_a6a72aa63a92aa22abb178c289e2536d8}{00078}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_13\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(12)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00079}\mbox{\hyperlink{plib__ptg_8c_a98912f1b271af5e8c0a1f0ace0e6cbae}{00079}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_14\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(13)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00080}\mbox{\hyperlink{plib__ptg_8c_acca177a5024b8311aee63e2564738144}{00080}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_15\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(14)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00081}\mbox{\hyperlink{plib__ptg_8c_a2c713ee3af6b87b55811ba2794273519}{00081}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_16\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(15)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00082}\mbox{\hyperlink{plib__ptg_8c_a78d06e9fe5b83cc9615c9200bb56448b}{00082}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_17\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(16)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00083}\mbox{\hyperlink{plib__ptg_8c_a3cd0c721ca8c1b839bc66f6afaa90421}{00083}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_18\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(17)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00084}\mbox{\hyperlink{plib__ptg_8c_a9e103e5d26febc9453770a0d5414a3ea}{00084}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_19\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(18)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00085}\mbox{\hyperlink{plib__ptg_8c_a39f479c520dc7f2d01566eba77294985}{00085}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_20\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(19)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00086}\mbox{\hyperlink{plib__ptg_8c_af0b4a003bb5d7cacf2fa8691016e563d}{00086}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_21\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(20)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00087}\mbox{\hyperlink{plib__ptg_8c_a64f43c9b807875d9181e1fce92dfe9a1}{00087}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_22\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(21)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00088}\mbox{\hyperlink{plib__ptg_8c_a4b625f5919aaade81588d1bcb886b70c}{00088}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_23\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(22)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00089}\mbox{\hyperlink{plib__ptg_8c_ac8cb23234bff9a57e078c341a6e8734d}{00089}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_24\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(23)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00090}\mbox{\hyperlink{plib__ptg_8c_a72820bde706cb993ef93d3ce3a6f8795}{00090}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_25\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(24)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00091}\mbox{\hyperlink{plib__ptg_8c_aaa7def64b80d56645b689381e4ef9b8f}{00091}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_26\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(25)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00092}\mbox{\hyperlink{plib__ptg_8c_af0ebd2bb8568f5635f5f1f58a4868880}{00092}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_27\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(26)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00093}\mbox{\hyperlink{plib__ptg_8c_af368723dc4b84afd1f4e5250da2de4ea}{00093}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_28\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(27)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00094}\mbox{\hyperlink{plib__ptg_8c_a62167befde5af7c89a7ceb0d3bc89a3f}{00094}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_29\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(28)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00095}\mbox{\hyperlink{plib__ptg_8c_a15f3b3d8877f869f880f92fc740e29b5}{00095}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_30\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(29)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00096}\mbox{\hyperlink{plib__ptg_8c_a201e27bcb06f6dae5c11939f023064b7}{00096}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_31\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(30)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00097}\mbox{\hyperlink{plib__ptg_8c_a9c318fcd87c9aade7feb64a1ab2ffa01}{00097}}\ \textcolor{preprocessor}{\#define\ PTGCON\_PTGDIV\_DIVIDE\_BY\_32\ \ \ \ ((uint32\_t)(\_PTGCON\_PTGDIV\_MASK\ \&\ ((uint32\_t)(31)\ <<\_PTGCON\_PTGDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00099}00099\ \textcolor{comment}{//\ Section:\ PTG\ PLIB\ Routines}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00100}\mbox{\hyperlink{plib__ptg_8c_af7bff23231eea7446adcf1a84fec8eaf}{00100}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__ptg_8c_af7bff23231eea7446adcf1a84fec8eaf}{PTG\_Initialize}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00101}00101\ \{}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00102}00102\ \ \ \ \ PTGCON\ =\ (\mbox{\hyperlink{plib__ptg_8c_a2dfe1e66a82f6078072159c880d6c4b3}{PTGCON\_PTGWDT\_TIMEOUT\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__ptg_8c_a109e1923ea39ae3cb51c88f46f65d2e3}{PTGCON\_PTGITM\_MODE\_2}}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__ptg_8c_a2892e9b953284c49b292ec9797aee554}{PTGCON\_PTGDIV\_DIVIDE\_BY\_1}});}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00106}00106\ \ \ \ \ PTGBTE\ \ \ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00107}00107\ \ \ \ \ PTGHOLD\ \ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00108}00108\ \ \ \ \ PTGT0LIM\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00109}00109\ \ \ \ \ PTGT1LIM\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00110}00110\ \ \ \ \ PTGSDLIM\ =\ 0x13UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00111}00111\ \ \ \ \ PTGC0LIM\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00112}00112\ \ \ \ \ PTGC1LIM\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00113}00113\ \ \ \ \ PTGADJ\ \ \ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00114}00114\ \ \ \ \ PTGQPTR\ \ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00121}00121\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_af0d571a8c29ce30c181f100975be015b}{PTG\_STEP0}}\ =\ \mbox{\hyperlink{plib__ptg_8h_aeaea3c06389ba3230a519c861f263b58}{PTGTRIG}}\ |\ 0xcU;\ \textcolor{comment}{//Trigger\ for\ ADC\ Sample\ Trigger}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00122}00122\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a838e15348d2c293fdf9576abbda717ac}{PTG\_STEP1}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x6U;\ \textcolor{comment}{//Enable\ Step\ Delay\ Timer\ \ PTGSD}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00123}00123\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_ac1e815800cdc658e855b760e7e5d245e}{PTG\_STEP2}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a316c9a76dc53b7340797645edc5ceab1}{PTGJMP}}\ |\ 0x0U;\ \textcolor{comment}{//Jump\ to\ STEP0}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00124}00124\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_aaf1946eb8d2d7996719bc1250d98fa4c}{PTG\_STEP3}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00125}00125\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_afb3b691b543d9eef8335f2bb1879a89a}{PTG\_STEP4}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00126}00126\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_aa68235b91a7a94f31fb518ad3a873116}{PTG\_STEP5}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00127}00127\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_ac36646bf770a79b51ca0d9342a950365}{PTG\_STEP6}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00128}00128\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a7e1a25804f5d92ca72083bdd3cc9dec0}{PTG\_STEP7}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00129}00129\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_aa01c56afd2bf4921efcbb30de85a79e0}{PTG\_STEP8}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00130}00130\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a1d3610b56bec9ab92972515e31f3880e}{PTG\_STEP9}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00131}00131\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a7fd2c31061ae9072ba0ea4e099acdaa4}{PTG\_STEP10}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00132}00132\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_ab6de8cba8e4c5ed976e3d2ca4ef8da66}{PTG\_STEP11}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00133}00133\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a0a9ab5a33f6be82d155af532909ddb5d}{PTG\_STEP12}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00134}00134\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a088f81618397d87ed3ac1e23df37c97c}{PTG\_STEP13}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00135}00135\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_ae716de0026bd94049e2423c1cbda3b7b}{PTG\_STEP14}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00136}00136\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_aa1d8e0904a9635d7e590f85105bf64ac}{PTG\_STEP15}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00137}00137\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a4da076685f46dad973bc7fc43e3410a5}{PTG\_STEP16}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00138}00138\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_ab80b317f27b290fffcadfa0b27c77ba8}{PTG\_STEP17}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00139}00139\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a6129ee845ddf0f6fbe35311014d65dae}{PTG\_STEP18}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00140}00140\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_abdac3b0f428e15329190e3c46ac2094f}{PTG\_STEP19}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00141}00141\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_af0e5d188250d2155b8c4513843326957}{PTG\_STEP20}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00142}00142\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a426db0a8d679d6a9767017530ebbc4bf}{PTG\_STEP21}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00143}00143\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_aa52bdd88966612f1322a6fc585f6a955}{PTG\_STEP22}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00144}00144\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a405636d9172f5a3b682d999aca6219b4}{PTG\_STEP23}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00145}00145\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a9e700983924e00b6df981e854c0c1859}{PTG\_STEP24}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00146}00146\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a269f8f40174ef1ea0326116f7d9f01a8}{PTG\_STEP25}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00147}00147\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a6ea15fec1209637b66d22910d6ef0ab7}{PTG\_STEP26}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00148}00148\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a02766f4577b5484c4214b04c8b0c21ed}{PTG\_STEP27}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00149}00149\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_aaa03363284f5872be3470aa2fe5f0213}{PTG\_STEP28}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00150}00150\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a179bd811d1b5404f38032da9c4a6c500}{PTG\_STEP29}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00151}00151\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_a4fdc812a4df287ecdbd06abdc804915e}{PTG\_STEP30}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00152}00152\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8h_ab4cf115e0d354c15b55471f5c2641ebc}{PTG\_STEP31}}\ =\ \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}\ |\ 0x0U;\ \textcolor{comment}{//NOP}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00155}00155\ \}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00157}\mbox{\hyperlink{plib__ptg_8c_a3fadf36eda7a28884ba18ced6c1b2d4e}{00157}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__ptg_8c_a3fadf36eda7a28884ba18ced6c1b2d4e}{PTG\_Deinitialize}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00158}00158\ \{}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00159}00159\ \ \ \ \ \mbox{\hyperlink{plib__ptg_8c_a58aa65517d610207ce1d691f55acaa08}{PTG\_Disable}}();}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00161}00161\ \ \ \ \ PTGCON\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00162}00162\ \ \ \ \ PTGBTE\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00163}00163\ \ \ \ \ PTGHOLD\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00164}00164\ \ \ \ \ PTGT0LIM\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00165}00165\ \ \ \ \ PTGT1LIM\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00166}00166\ \ \ \ \ PTGSDLIM\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00167}00167\ \ \ \ \ PTGC0LIM\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00168}00168\ \ \ \ \ PTGC1LIM\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00169}00169\ \ \ \ \ PTGADJ\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00170}00170\ \ \ \ \ PTGL0\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00171}00171\ \ \ \ \ PTGQPTR\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00173}00173\ \}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00175}\mbox{\hyperlink{plib__ptg_8c_a79f9906529b915821ebe7968529ad84a}{00175}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__ptg_8c_a79f9906529b915821ebe7968529ad84a}{PTG\_Enable}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00176}00176\ \{}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00177}00177\ \ \ \ \ PTGCONbits.ON\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00178}00178\ \}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00180}\mbox{\hyperlink{plib__ptg_8c_a62f8a9ffe3604f672de2f00e45be373b}{00180}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__ptg_8c_a62f8a9ffe3604f672de2f00e45be373b}{PTG\_StepSequenceStart}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00181}00181\ \{}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00182}00182\ \ \ \ \ PTGCONbits.PTGSTRT\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00183}00183\ \}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00185}\mbox{\hyperlink{plib__ptg_8c_a2e83317bcf25d6e66da39dd89f8708c0}{00185}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__ptg_8c_a2e83317bcf25d6e66da39dd89f8708c0}{PTG\_SoftwareTriggerSet}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00186}00186\ \{}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00187}00187\ \ \ \ \ PTGCONbits.PTGSWT\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00188}00188\ \}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00190}\mbox{\hyperlink{plib__ptg_8c_a05ab94c855db5c94f39fdebf6ebdb9e1}{00190}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__ptg_8c_a05ab94c855db5c94f39fdebf6ebdb9e1}{PTG\_SoftwareTriggerClear}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00191}00191\ \{}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00192}00192\ \ \ \ \ PTGCONbits.PTGSWT\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00193}00193\ \}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00195}\mbox{\hyperlink{plib__ptg_8c_ad5060e3f7d6c3064b52d4aa686a2ba27}{00195}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__ptg_8c_ad5060e3f7d6c3064b52d4aa686a2ba27}{PTG\_WatchdogTimeoutStatusGet}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00196}00196\ \{}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00197}00197\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{bool})PTGCONbits.PTGWDTO;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00198}00198\ \}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00200}\mbox{\hyperlink{plib__ptg_8c_a7fdecd2f7d360691d1424fdaff7e1630}{00200}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__ptg_8c_a7fdecd2f7d360691d1424fdaff7e1630}{PTG\_StepSequenceStop}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00201}00201\ \{}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00202}00202\ \ \ \ \ PTGCONbits.PTGSTRT\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00203}00203\ \}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00205}\mbox{\hyperlink{plib__ptg_8c_a58aa65517d610207ce1d691f55acaa08}{00205}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__ptg_8c_a58aa65517d610207ce1d691f55acaa08}{PTG\_Disable}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00206}00206\ \{}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00207}00207\ \ \ \ \ PTGCONbits.ON\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00208}00208\ \}}
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{plib__ptg_8c_source_l00210}00210\ }
+
+\end{DoxyCode}

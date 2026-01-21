@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['adc2_5fchannelcallbackregister_0',['ADC2_ChannelCallbackRegister',['../plib__adc2_8c.html#a865f997d78a4998390e0c057cde2583c',1,'ADC2_ChannelCallbackRegister(ADC2_CHANNEL channel, ADC_CHANNEL_CALLBACK callback, uintptr_t context):&#160;plib_adc2.c'],['../plib__adc2_8h.html#a865f997d78a4998390e0c057cde2583c',1,'ADC2_ChannelCallbackRegister(ADC2_CHANNEL channel, ADC_CHANNEL_CALLBACK callback, uintptr_t context):&#160;plib_adc2.c']]],
+  ['adc2_5fdeinitialize_1',['ADC2_Deinitialize',['../plib__adc2_8c.html#ab43e3265a8ac9ae6135fbbf24ae02dcf',1,'ADC2_Deinitialize(void):&#160;plib_adc2.c'],['../plib__adc2_8h.html#ab43e3265a8ac9ae6135fbbf24ae02dcf',1,'ADC2_Deinitialize(void):&#160;plib_adc2.c']]],
+  ['adc2_5finitialize_2',['ADC2_Initialize',['../plib__adc2_8c.html#a987ebcb79cab29ecba0dc2983af54a74',1,'ADC2_Initialize(void):&#160;plib_adc2.c'],['../plib__adc2_8h.html#a987ebcb79cab29ecba0dc2983af54a74',1,'ADC2_Initialize(void):&#160;plib_adc2.c']]],
+  ['adc2_5fpwmtriggersourceset_3',['ADC2_PWMTriggerSourceSet',['../plib__adc2_8c.html#a06b5fb7fb15947da1d8d63a0ca06b1ab',1,'ADC2_PWMTriggerSourceSet(ADC2_CHANNEL channel, ADC2_PWM_INSTANCE pwmInstance, ADC_PWM_TRIGGERS triggerNumber):&#160;plib_adc2.c'],['../plib__adc2_8h.html#a06b5fb7fb15947da1d8d63a0ca06b1ab',1,'ADC2_PWMTriggerSourceSet(ADC2_CHANNEL channel, ADC2_PWM_INSTANCE pwmInstance, ADC_PWM_TRIGGERS triggerNumber):&#160;plib_adc2.c']]],
+  ['adc_5fdma_5finit_4',['ADC_DMA_init',['../is66_8c.html#ab25243c319bcf989de811bf5a7194c53',1,'ADC_DMA_init(void):&#160;is66.c'],['../is66_8h.html#ab25243c319bcf989de811bf5a7194c53',1,'ADC_DMA_init(void):&#160;is66.c']]],
+  ['adc_5fdma_5fread_5',['ADC_DMA_read',['../is66_8c.html#ab27a70787cea807938240b8882a2c69c',1,'ADC_DMA_read(void):&#160;is66.c'],['../is66_8h.html#ab27a70787cea807938240b8882a2c69c',1,'ADC_DMA_read(void):&#160;is66.c']]],
+  ['adc_5fdma_5fwrite_6',['ADC_DMA_write',['../is66_8c.html#a412852a239ccc537da518353047ff351',1,'ADC_DMA_write(void):&#160;is66.c'],['../is66_8h.html#a412852a239ccc537da518353047ff351',1,'ADC_DMA_write(void):&#160;is66.c']]]
+];

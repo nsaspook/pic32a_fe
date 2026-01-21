@@ -1,0 +1,113 @@
+\doxysection{plib\+\_\+adc\+\_\+common.\+h}
+\hypertarget{plib__adc__common_8h_source}{}\label{plib__adc__common_8h_source}\index{src/config/default/peripheral/adc/plib\_adc\_common.h@{src/config/default/peripheral/adc/plib\_adc\_common.h}}
+\mbox{\hyperlink{plib__adc__common_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00002}00002\ \textcolor{comment}{\ \ adc2\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00003}00003\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00006}00006\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_adc2\_common.h}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00009}00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ ADC\ Common\ Header\ File}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00012}00012\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ has\ prototype\ of\ all\ the\ interfaces\ which\ are\ common\ for\ all\ the}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ ADC\ peripherals.}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00016}00016\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00017}00017\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00018}00018\ \ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00019}00019\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00020}00020\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00021}00021\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00022}00022\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00023}00023\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00024}00024\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00025}00025\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00026}00026\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00027}00027\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00028}00028\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00029}00029\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00030}00030\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00031}00031\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00032}00032\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00033}00033\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00034}00034\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00035}00035\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00036}00036\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00037}00037\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00038}00038\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00039}00039\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00040}00040\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifndef\ PLIB\_ADC\_COMMON\_H}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ PLIB\_ADC\_COMMON\_H}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00045}00045\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00047}00047\ \textcolor{comment}{//\ /cond\ IGNORE\_THIS}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00048}00048\ \textcolor{comment}{/*\ Provide\ C++\ Compatibility\ */}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00049}00049\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00053}00053\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00054}00054\ \textcolor{comment}{//\ /endcond}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00056}00056\ \textcolor{comment}{//\ Section:\ Common\ Definitions}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00062}\mbox{\hyperlink{plib__adc__common_8h_a149ac70fba51af61abec9c9625d35e10}{00062}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00063}00063\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00064}\mbox{\hyperlink{plib__adc__common_8h_a149ac70fba51af61abec9c9625d35e10a50808182658b0ebf3c60aff5db32a3ba}{00064}}\ \ \ \ \ \mbox{\hyperlink{plib__adc__common_8h_a149ac70fba51af61abec9c9625d35e10a50808182658b0ebf3c60aff5db32a3ba}{ADC\_PWM\_TRIGGER\_1}}\ =\ 1,\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00065}\mbox{\hyperlink{plib__adc__common_8h_a149ac70fba51af61abec9c9625d35e10a8c6908e07bcf34b664e574db144f5a65}{00065}}\ \ \ \ \ \mbox{\hyperlink{plib__adc__common_8h_a149ac70fba51af61abec9c9625d35e10a8c6908e07bcf34b664e574db144f5a65}{ADC\_PWM\_TRIGGER\_2}}\ =\ 2,\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00066}00066\ \}\ \mbox{\hyperlink{plib__adc__common_8h_a149ac70fba51af61abec9c9625d35e10}{ADC\_PWM\_TRIGGERS}};}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00071}\mbox{\hyperlink{plib__adc__common_8h_a0ecb5177d11a20d79e3b20305e9d8fa0}{00071}}\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{plib__adc__common_8h_a0ecb5177d11a20d79e3b20305e9d8fa0}{ADC\_CHANNEL\_CALLBACK}})(uint32\_t\ result,\ uintptr\_t\ context);}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00076}\mbox{\hyperlink{plib__adc__common_8h_a573a287c4c67412c0563ff6a62b8ad58}{00076}}\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{plib__adc__common_8h_a573a287c4c67412c0563ff6a62b8ad58}{ADC\_CMP\_CALLBACK}})(uintptr\_t\ context);}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00081}\mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724}{00081}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00082}00082\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00083}\mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724ad19a00ecd7f67adcfba3bfbbfb1749c7}{00083}}\ \ \ \ \ \mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724ad19a00ecd7f67adcfba3bfbbfb1749c7}{INTERRUPT\_PRIORITY\_1}},}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00084}\mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724ada382f91a7e1103d640a913db84e9f02}{00084}}\ \ \ \ \ \mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724ada382f91a7e1103d640a913db84e9f02}{INTERRUPT\_PRIORITY\_2}},}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00085}\mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724a02809d582821b9006f4d0f52ef28493f}{00085}}\ \ \ \ \ \mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724a02809d582821b9006f4d0f52ef28493f}{INTERRUPT\_PRIORITY\_3}},}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00086}\mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724ab1ff36a71af3c58319262260e8d23fdf}{00086}}\ \ \ \ \ \mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724ab1ff36a71af3c58319262260e8d23fdf}{INTERRUPT\_PRIORITY\_4}},}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00087}\mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724abd86ab7cb3562840b2b9c619c1c60b25}{00087}}\ \ \ \ \ \mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724abd86ab7cb3562840b2b9c619c1c60b25}{INTERRUPT\_PRIORITY\_5}},}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00088}\mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724afce6ad1d42b98a5aae83d3102a94d5b3}{00088}}\ \ \ \ \ \mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724afce6ad1d42b98a5aae83d3102a94d5b3}{INTERRUPT\_PRIORITY\_6}},}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00089}\mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724a82f034fb9eb42944e124bba9a4f033ff}{00089}}\ \ \ \ \ \mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724a82f034fb9eb42944e124bba9a4f033ff}{INTERRUPT\_PRIORITY\_7}},}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00090}\mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724af5a4bd245cb39fc998ec53a938d1f7c7}{00090}}\ \ \ \ \ \mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724af5a4bd245cb39fc998ec53a938d1f7c7}{INTERRUPT\_MAX\_PRIORITY}}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00091}00091\ \}\ \mbox{\hyperlink{plib__adc__common_8h_afed282d24ae71205a254b4e1a4a29724}{INTERRUPT\_PRIORITY}};}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00093}00093\ \textcolor{comment}{//\ /cond\ IGNORE\_THIS}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00094}00094\ \textcolor{comment}{//\ Section:\ Local\ Objects\ ****\ Do\ Not\ Use\ ****}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00096}\mbox{\hyperlink{structADC__CHANNEL__OBJECT}{00096}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00097}00097\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00098}\mbox{\hyperlink{structADC__CHANNEL__OBJECT_a8d0bf7ce559a06bd156ce2ac1dd93ca0}{00098}}\ \ \ \ \ \mbox{\hyperlink{plib__adc__common_8h_a0ecb5177d11a20d79e3b20305e9d8fa0}{ADC\_CHANNEL\_CALLBACK}}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structADC__CHANNEL__OBJECT_a8d0bf7ce559a06bd156ce2ac1dd93ca0}{callback}};}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00099}\mbox{\hyperlink{structADC__CHANNEL__OBJECT_afb301b46bf1bb94237366e0db5c62810}{00099}}\ \ \ \ \ uintptr\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structADC__CHANNEL__OBJECT_afb301b46bf1bb94237366e0db5c62810}{context}};}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00100}00100\ \}\ \mbox{\hyperlink{structADC__CHANNEL__OBJECT}{ADC\_CHANNEL\_OBJECT}};}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00102}\mbox{\hyperlink{structADC__CMP__OBJECT}{00102}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00103}00103\ \{}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00104}\mbox{\hyperlink{structADC__CMP__OBJECT_a4bb2b23ca48f41132dd111e103afa97a}{00104}}\ \ \ \ \ \mbox{\hyperlink{plib__adc__common_8h_a573a287c4c67412c0563ff6a62b8ad58}{ADC\_CMP\_CALLBACK}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structADC__CMP__OBJECT_a4bb2b23ca48f41132dd111e103afa97a}{callback}};}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00105}\mbox{\hyperlink{structADC__CMP__OBJECT_afb301b46bf1bb94237366e0db5c62810}{00105}}\ \ \ \ \ uintptr\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structADC__CMP__OBJECT_afb301b46bf1bb94237366e0db5c62810}{context}};}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00106}00106\ \}\ \mbox{\hyperlink{structADC__CMP__OBJECT}{ADC\_CMP\_OBJECT}};}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00109}00109\ \textcolor{comment}{//\ /endcond}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00111}00111\ \textcolor{comment}{//\ /cond\ IGNORE\_THIS}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00112}00112\ \textcolor{comment}{/*\ Provide\ C++\ Compatibility\ */}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00113}00113\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00115}00115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00117}00117\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00118}00118\ \textcolor{comment}{//\ /endcond}}
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{plib__adc__common_8h_source_l00120}00120\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//PLIB\_ADC\_COMMON\_H}}
+
+\end{DoxyCode}

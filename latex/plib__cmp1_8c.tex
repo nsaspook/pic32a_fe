@@ -1,0 +1,406 @@
+\doxysection{src/config/default/peripheral/cmp\+\_\+dac/plib\+\_\+cmp1.c File Reference}
+\hypertarget{plib__cmp1_8c}{}\label{plib__cmp1_8c}\index{src/config/default/peripheral/cmp\_dac/plib\_cmp1.c@{src/config/default/peripheral/cmp\_dac/plib\_cmp1.c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}device.\+h"{}}\newline
+{\ttfamily \#include "{}interrupts.\+h"{}}\newline
+{\ttfamily \#include "{}plib\+\_\+cmp\+\_\+common.\+h"{}}\newline
+{\ttfamily \#include "{}plib\+\_\+cmp1.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_a7ffa769c6582097ec79a012b8994cb5a}{DACCTRL2\+\_\+\+SSTIME\+\_\+\+SET}}(value)
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_ae6c9153c0dcaf50a5135cc561aacc91b}{DACCTRL2\+\_\+\+TMODTIME\+\_\+\+SET}}(value)
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_a91911a02ddb21558c45297b4ad1ee32b}{DAC1\+CON\+\_\+\+TMCB\+\_\+\+SET}}(value)
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_aae39fef9101049a418575b6cdf1bcc6e}{DAC1\+CON\+\_\+\+IRQM\+\_\+\+DISABLED}}~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_a0cfe120a00b4b2a6fa9a8fd042b71232}{DAC1\+CON\+\_\+\+IRQM\+\_\+\+RISING}}~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_a83c5a96dcabaabf9a3fbc4a60c6d15e3}{DAC1\+CON\+\_\+\+IRQM\+\_\+\+FALLING}}~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_a5632bc9153e8b549540043a9416fbdaa}{DAC1\+CON\+\_\+\+IRQM\+\_\+\+RISING\+\_\+\+OR\+\_\+\+FALLING}}~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_af9995859dfca83274088da689ab3d015}{DAC1\+CON\+\_\+\+INSEL\+\_\+\+CMPxA}}~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_afefe98973b64c0d3d34a34589fc8b19d}{DAC1\+CON\+\_\+\+INSEL\+\_\+\+CMPxB}}~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_ae2c1316ea851f549affb63fccd51c8c1}{DAC1\+CON\+\_\+\+INSEL\+\_\+\+CMPxC}}~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_aa517f5214f6291d867971e6689c057dd}{DAC1\+CON\+\_\+\+INSEL\+\_\+\+CMPxD}}~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_aedb5f4d285535200ec7c1839418b365f}{DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+NO\+\_\+\+HYS}}~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_a720d1c39c1af9c5e6b40a869deeacb7a}{DAC1\+CON\+\_\+\+HYSSEL\+\_\+15\+\_\+mV}}~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_a1ee5050f1a00a61e94cff044e59a08a9}{DAC1\+CON\+\_\+\+HYSSEL\+\_\+30\+\_\+mV}}~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_a390acd1d989fd4c64bdaec149a79e7c5}{DAC1\+CON\+\_\+\+HYSSEL\+\_\+45\+\_\+mV}}~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_a7c2fafd470c9c0eb099dd6933688637f}{DAC1\+DAT\+\_\+\+DACDAT\+\_\+\+SET}}(value)
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_a918e81833fabdd3f9f4a9b161f15ff19}{DAC1\+DAT\+\_\+\+DACLOW\+\_\+\+SET}}(value)
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_abadfb14e9f81b1ad1c1c456c0d096980}{DAC1\+SLPCON\+\_\+\+HCFSEL\+\_\+\+SET}}(value)
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_a052086aa519e586cb0a629f01cf207dd}{DAC1\+SLPCON\+\_\+\+SLPSTOPA\+\_\+\+SET}}(value)
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_ad2f9c2de0236e97ebd71d6b6f8a5dbaa}{DAC1\+SLPCON\+\_\+\+SLPSTOPB\+\_\+\+SET}}(value)
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_acf80822605c73e19485b6a784a56873a}{DAC1\+SLPCON\+\_\+\+SLPSTRT\+\_\+\+SET}}(value)
+\item 
+\#define \mbox{\hyperlink{plib__cmp1_8c_aae459b6955b97cb47738a5f6d3c94e32}{CMP\+\_\+\+FPDMDAC\+\_\+\+ADDRESS}}~0x7\+F20\+B0\+UL
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__cmp1_8c_a84bc24b25eabe4579b0322971bd1d86a}{CMP1\+\_\+\+Initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the CMP1 module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__cmp1_8c_a69de2a268b86d261dc404a2188a77d77}{CMP1\+\_\+\+Deinitialize}} (void)
+\begin{DoxyCompactList}\small\item\em Deinitializes the CMP1 to POR values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__cmp1_8c_aa86800dfb91878cc975b5cf1523bad1b}{CMP1\+\_\+\+Calibrate}} (void)
+\begin{DoxyCompactList}\small\item\em Calibrates the CMP1 module and enables ripple reduction mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{plib__cmp1_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{plib__cmp1_8c_aae459b6955b97cb47738a5f6d3c94e32}\index{plib\_cmp1.c@{plib\_cmp1.c}!CMP\_FPDMDAC\_ADDRESS@{CMP\_FPDMDAC\_ADDRESS}}
+\index{CMP\_FPDMDAC\_ADDRESS@{CMP\_FPDMDAC\_ADDRESS}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{CMP\_FPDMDAC\_ADDRESS}{CMP\_FPDMDAC\_ADDRESS}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_aae459b6955b97cb47738a5f6d3c94e32} 
+\#define CMP\+\_\+\+FPDMDAC\+\_\+\+ADDRESS~0x7\+F20\+B0\+UL}
+
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00096}{96}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_a720d1c39c1af9c5e6b40a869deeacb7a}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1CON\_HYSSEL\_15\_mV@{DAC1CON\_HYSSEL\_15\_mV}}
+\index{DAC1CON\_HYSSEL\_15\_mV@{DAC1CON\_HYSSEL\_15\_mV}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1CON\_HYSSEL\_15\_mV}{DAC1CON\_HYSSEL\_15\_mV}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_a720d1c39c1af9c5e6b40a869deeacb7a} 
+\#define DAC1\+CON\+\_\+\+HYSSEL\+\_\+15\+\_\+mV~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00074}{74}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_a1ee5050f1a00a61e94cff044e59a08a9}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1CON\_HYSSEL\_30\_mV@{DAC1CON\_HYSSEL\_30\_mV}}
+\index{DAC1CON\_HYSSEL\_30\_mV@{DAC1CON\_HYSSEL\_30\_mV}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1CON\_HYSSEL\_30\_mV}{DAC1CON\_HYSSEL\_30\_mV}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_a1ee5050f1a00a61e94cff044e59a08a9} 
+\#define DAC1\+CON\+\_\+\+HYSSEL\+\_\+30\+\_\+mV~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00075}{75}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_a390acd1d989fd4c64bdaec149a79e7c5}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1CON\_HYSSEL\_45\_mV@{DAC1CON\_HYSSEL\_45\_mV}}
+\index{DAC1CON\_HYSSEL\_45\_mV@{DAC1CON\_HYSSEL\_45\_mV}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1CON\_HYSSEL\_45\_mV}{DAC1CON\_HYSSEL\_45\_mV}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_a390acd1d989fd4c64bdaec149a79e7c5} 
+\#define DAC1\+CON\+\_\+\+HYSSEL\+\_\+45\+\_\+mV~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00076}{76}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_aedb5f4d285535200ec7c1839418b365f}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1CON\_HYSSEL\_NO\_HYS@{DAC1CON\_HYSSEL\_NO\_HYS}}
+\index{DAC1CON\_HYSSEL\_NO\_HYS@{DAC1CON\_HYSSEL\_NO\_HYS}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1CON\_HYSSEL\_NO\_HYS}{DAC1CON\_HYSSEL\_NO\_HYS}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_aedb5f4d285535200ec7c1839418b365f} 
+\#define DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+NO\+\_\+\+HYS~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+HYSSEL\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00073}{73}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_af9995859dfca83274088da689ab3d015}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1CON\_INSEL\_CMPxA@{DAC1CON\_INSEL\_CMPxA}}
+\index{DAC1CON\_INSEL\_CMPxA@{DAC1CON\_INSEL\_CMPxA}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1CON\_INSEL\_CMPxA}{DAC1CON\_INSEL\_CMPxA}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_af9995859dfca83274088da689ab3d015} 
+\#define DAC1\+CON\+\_\+\+INSEL\+\_\+\+CMPxA~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00067}{67}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_afefe98973b64c0d3d34a34589fc8b19d}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1CON\_INSEL\_CMPxB@{DAC1CON\_INSEL\_CMPxB}}
+\index{DAC1CON\_INSEL\_CMPxB@{DAC1CON\_INSEL\_CMPxB}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1CON\_INSEL\_CMPxB}{DAC1CON\_INSEL\_CMPxB}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_afefe98973b64c0d3d34a34589fc8b19d} 
+\#define DAC1\+CON\+\_\+\+INSEL\+\_\+\+CMPxB~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00068}{68}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_ae2c1316ea851f549affb63fccd51c8c1}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1CON\_INSEL\_CMPxC@{DAC1CON\_INSEL\_CMPxC}}
+\index{DAC1CON\_INSEL\_CMPxC@{DAC1CON\_INSEL\_CMPxC}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1CON\_INSEL\_CMPxC}{DAC1CON\_INSEL\_CMPxC}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_ae2c1316ea851f549affb63fccd51c8c1} 
+\#define DAC1\+CON\+\_\+\+INSEL\+\_\+\+CMPxC~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00069}{69}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_aa517f5214f6291d867971e6689c057dd}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1CON\_INSEL\_CMPxD@{DAC1CON\_INSEL\_CMPxD}}
+\index{DAC1CON\_INSEL\_CMPxD@{DAC1CON\_INSEL\_CMPxD}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1CON\_INSEL\_CMPxD}{DAC1CON\_INSEL\_CMPxD}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_aa517f5214f6291d867971e6689c057dd} 
+\#define DAC1\+CON\+\_\+\+INSEL\+\_\+\+CMPxD~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+INSEL\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00070}{70}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_aae39fef9101049a418575b6cdf1bcc6e}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1CON\_IRQM\_DISABLED@{DAC1CON\_IRQM\_DISABLED}}
+\index{DAC1CON\_IRQM\_DISABLED@{DAC1CON\_IRQM\_DISABLED}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1CON\_IRQM\_DISABLED}{DAC1CON\_IRQM\_DISABLED}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_aae39fef9101049a418575b6cdf1bcc6e} 
+\#define DAC1\+CON\+\_\+\+IRQM\+\_\+\+DISABLED~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00061}{61}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_a83c5a96dcabaabf9a3fbc4a60c6d15e3}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1CON\_IRQM\_FALLING@{DAC1CON\_IRQM\_FALLING}}
+\index{DAC1CON\_IRQM\_FALLING@{DAC1CON\_IRQM\_FALLING}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1CON\_IRQM\_FALLING}{DAC1CON\_IRQM\_FALLING}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_a83c5a96dcabaabf9a3fbc4a60c6d15e3} 
+\#define DAC1\+CON\+\_\+\+IRQM\+\_\+\+FALLING~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00063}{63}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_a0cfe120a00b4b2a6fa9a8fd042b71232}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1CON\_IRQM\_RISING@{DAC1CON\_IRQM\_RISING}}
+\index{DAC1CON\_IRQM\_RISING@{DAC1CON\_IRQM\_RISING}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1CON\_IRQM\_RISING}{DAC1CON\_IRQM\_RISING}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_a0cfe120a00b4b2a6fa9a8fd042b71232} 
+\#define DAC1\+CON\+\_\+\+IRQM\+\_\+\+RISING~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00062}{62}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_a5632bc9153e8b549540043a9416fbdaa}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1CON\_IRQM\_RISING\_OR\_FALLING@{DAC1CON\_IRQM\_RISING\_OR\_FALLING}}
+\index{DAC1CON\_IRQM\_RISING\_OR\_FALLING@{DAC1CON\_IRQM\_RISING\_OR\_FALLING}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1CON\_IRQM\_RISING\_OR\_FALLING}{DAC1CON\_IRQM\_RISING\_OR\_FALLING}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_a5632bc9153e8b549540043a9416fbdaa} 
+\#define DAC1\+CON\+\_\+\+IRQM\+\_\+\+RISING\+\_\+\+OR\+\_\+\+FALLING~((uint32\+\_\+t)(\+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+DAC1\+CON\+\_\+\+IRQM\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00064}{64}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_a91911a02ddb21558c45297b4ad1ee32b}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1CON\_TMCB\_SET@{DAC1CON\_TMCB\_SET}}
+\index{DAC1CON\_TMCB\_SET@{DAC1CON\_TMCB\_SET}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1CON\_TMCB\_SET}{DAC1CON\_TMCB\_SET}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_a91911a02ddb21558c45297b4ad1ee32b} 
+\#define DAC1\+CON\+\_\+\+TMCB\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_DAC1CON\_TMCB\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_DAC1CON\_TMCB\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00058}{58}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_a7c2fafd470c9c0eb099dd6933688637f}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1DAT\_DACDAT\_SET@{DAC1DAT\_DACDAT\_SET}}
+\index{DAC1DAT\_DACDAT\_SET@{DAC1DAT\_DACDAT\_SET}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1DAT\_DACDAT\_SET}{DAC1DAT\_DACDAT\_SET}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_a7c2fafd470c9c0eb099dd6933688637f} 
+\#define DAC1\+DAT\+\_\+\+DACDAT\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_DAC1DAT\_DACDAT\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_DAC1DAT\_DACDAT\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00079}{79}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_a918e81833fabdd3f9f4a9b161f15ff19}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1DAT\_DACLOW\_SET@{DAC1DAT\_DACLOW\_SET}}
+\index{DAC1DAT\_DACLOW\_SET@{DAC1DAT\_DACLOW\_SET}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1DAT\_DACLOW\_SET}{DAC1DAT\_DACLOW\_SET}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_a918e81833fabdd3f9f4a9b161f15ff19} 
+\#define DAC1\+DAT\+\_\+\+DACLOW\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_DAC1DAT\_DACLOW\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_DAC1DAT\_DACLOW\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00082}{82}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_abadfb14e9f81b1ad1c1c456c0d096980}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1SLPCON\_HCFSEL\_SET@{DAC1SLPCON\_HCFSEL\_SET}}
+\index{DAC1SLPCON\_HCFSEL\_SET@{DAC1SLPCON\_HCFSEL\_SET}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1SLPCON\_HCFSEL\_SET}{DAC1SLPCON\_HCFSEL\_SET}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_abadfb14e9f81b1ad1c1c456c0d096980} 
+\#define DAC1\+SLPCON\+\_\+\+HCFSEL\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_DAC1SLPCON\_HCFSEL\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_DAC1SLPCON\_HCFSEL\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00085}{85}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_a052086aa519e586cb0a629f01cf207dd}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1SLPCON\_SLPSTOPA\_SET@{DAC1SLPCON\_SLPSTOPA\_SET}}
+\index{DAC1SLPCON\_SLPSTOPA\_SET@{DAC1SLPCON\_SLPSTOPA\_SET}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1SLPCON\_SLPSTOPA\_SET}{DAC1SLPCON\_SLPSTOPA\_SET}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_a052086aa519e586cb0a629f01cf207dd} 
+\#define DAC1\+SLPCON\+\_\+\+SLPSTOPA\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_DAC1SLPCON\_SLPSTOPA\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_DAC1SLPCON\_SLPSTOPA\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00088}{88}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_ad2f9c2de0236e97ebd71d6b6f8a5dbaa}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1SLPCON\_SLPSTOPB\_SET@{DAC1SLPCON\_SLPSTOPB\_SET}}
+\index{DAC1SLPCON\_SLPSTOPB\_SET@{DAC1SLPCON\_SLPSTOPB\_SET}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1SLPCON\_SLPSTOPB\_SET}{DAC1SLPCON\_SLPSTOPB\_SET}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_ad2f9c2de0236e97ebd71d6b6f8a5dbaa} 
+\#define DAC1\+SLPCON\+\_\+\+SLPSTOPB\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_DAC1SLPCON\_SLPSTOPB\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_DAC1SLPCON\_SLPSTOPB\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00091}{91}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_acf80822605c73e19485b6a784a56873a}\index{plib\_cmp1.c@{plib\_cmp1.c}!DAC1SLPCON\_SLPSTRT\_SET@{DAC1SLPCON\_SLPSTRT\_SET}}
+\index{DAC1SLPCON\_SLPSTRT\_SET@{DAC1SLPCON\_SLPSTRT\_SET}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DAC1SLPCON\_SLPSTRT\_SET}{DAC1SLPCON\_SLPSTRT\_SET}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_acf80822605c73e19485b6a784a56873a} 
+\#define DAC1\+SLPCON\+\_\+\+SLPSTRT\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_DAC1SLPCON\_SLPSTRT\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_DAC1SLPCON\_SLPSTRT\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00094}{94}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_a7ffa769c6582097ec79a012b8994cb5a}\index{plib\_cmp1.c@{plib\_cmp1.c}!DACCTRL2\_SSTIME\_SET@{DACCTRL2\_SSTIME\_SET}}
+\index{DACCTRL2\_SSTIME\_SET@{DACCTRL2\_SSTIME\_SET}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DACCTRL2\_SSTIME\_SET}{DACCTRL2\_SSTIME\_SET}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_a7ffa769c6582097ec79a012b8994cb5a} 
+\#define DACCTRL2\+\_\+\+SSTIME\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_DACCTRL2\_SSTIME\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_DACCTRL2\_SSTIME\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00052}{52}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_ae6c9153c0dcaf50a5135cc561aacc91b}\index{plib\_cmp1.c@{plib\_cmp1.c}!DACCTRL2\_TMODTIME\_SET@{DACCTRL2\_TMODTIME\_SET}}
+\index{DACCTRL2\_TMODTIME\_SET@{DACCTRL2\_TMODTIME\_SET}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{DACCTRL2\_TMODTIME\_SET}{DACCTRL2\_TMODTIME\_SET}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_ae6c9153c0dcaf50a5135cc561aacc91b} 
+\#define DACCTRL2\+\_\+\+TMODTIME\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_DACCTRL2\_TMODTIME\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_DACCTRL2\_TMODTIME\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00055}{55}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{plib__cmp1_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__cmp1_8c_aa86800dfb91878cc975b5cf1523bad1b}\index{plib\_cmp1.c@{plib\_cmp1.c}!CMP1\_Calibrate@{CMP1\_Calibrate}}
+\index{CMP1\_Calibrate@{CMP1\_Calibrate}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{CMP1\_Calibrate()}{CMP1\_Calibrate()}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_aa86800dfb91878cc975b5cf1523bad1b} 
+void CMP1\+\_\+\+Calibrate (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Calibrates the CMP1 module and enables ripple reduction mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00143}{143}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_a69de2a268b86d261dc404a2188a77d77}\index{plib\_cmp1.c@{plib\_cmp1.c}!CMP1\_Deinitialize@{CMP1\_Deinitialize}}
+\index{CMP1\_Deinitialize@{CMP1\_Deinitialize}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{CMP1\_Deinitialize()}{CMP1\_Deinitialize()}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_a69de2a268b86d261dc404a2188a77d77} 
+void CMP1\+\_\+\+Deinitialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Deinitializes the CMP1 to POR values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00127}{127}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+
+\Hypertarget{plib__cmp1_8c_a84bc24b25eabe4579b0322971bd1d86a}\index{plib\_cmp1.c@{plib\_cmp1.c}!CMP1\_Initialize@{CMP1\_Initialize}}
+\index{CMP1\_Initialize@{CMP1\_Initialize}!plib\_cmp1.c@{plib\_cmp1.c}}
+\doxysubsubsection{\texorpdfstring{CMP1\_Initialize()}{CMP1\_Initialize()}}
+{\footnotesize\ttfamily \label{plib__cmp1_8c_a84bc24b25eabe4579b0322971bd1d86a} 
+void CMP1\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initialize the CMP1 module. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__cmp1_8c_source_l00102}{102}} of file \mbox{\hyperlink{plib__cmp1_8c_source}{plib\+\_\+cmp1.\+c}}.
+

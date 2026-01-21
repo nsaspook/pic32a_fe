@@ -1,0 +1,83 @@
+\doxysection{interrupts.\+h}
+\hypertarget{interrupts_8h_source}{}\label{interrupts_8h_source}\index{src/config/default/interrupts.h@{src/config/default/interrupts.h}}
+\mbox{\hyperlink{interrupts_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00002}00002\ \textcolor{comment}{\ System\ Interrupts\ File}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00006}00006\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ interrupt.h}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ Interrupt\ vectors\ mapping}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ contains\ declarations\ of\ device\ vectors\ used\ by\ Harmony\ 3}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00015}00015\ \textcolor{comment}{\ *******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00017}00017\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00018}00018\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00019}00019\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00020}00020\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00021}00021\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00022}00022\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00023}00023\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00024}00024\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00025}00025\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00026}00026\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00027}00027\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00028}00028\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00029}00029\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00030}00030\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00031}00031\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00032}00032\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00033}00033\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00034}00034\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00035}00035\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00036}00036\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00037}00037\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00038}00038\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00039}00039\ \textcolor{comment}{\ *******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00040}00040\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifndef\ INTERRUPTS\_H}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ INTERRUPTS\_H}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00045}00045\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00046}00046\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00047}00047\ \textcolor{comment}{//\ Section:\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00048}00048\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00049}00049\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00050}00050\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00054}00054\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00055}00055\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00056}00056\ \textcolor{comment}{//\ Section:\ Handler\ Routines}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00057}00057\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00058}00058\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00059}\mbox{\hyperlink{interrupts_8h_ab95502510f8657cc9810a948a1aa3d05}{00059}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interrupts_8h_ab95502510f8657cc9810a948a1aa3d05}{T1\_InterruptHandler}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00060}\mbox{\hyperlink{interrupts_8h_a6b5d87dd93761a4c96c167e29672edb8}{00060}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interrupts_8h_a6b5d87dd93761a4c96c167e29672edb8}{CCT1\_InterruptHandler}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00061}\mbox{\hyperlink{interrupts_8h_a42778e07703c4a3a700b042dd478057a}{00061}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interrupts_8h_a42778e07703c4a3a700b042dd478057a}{CCT2\_InterruptHandler}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00062}\mbox{\hyperlink{interrupts_8h_a118b0079f920ed7b2ed02d3f43bfa69a}{00062}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interrupts_8h_a118b0079f920ed7b2ed02d3f43bfa69a}{SPI1RX\_InterruptHandler}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00063}\mbox{\hyperlink{interrupts_8h_ad0e373fe4f253be1230e04d0ca6ee9ca}{00063}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interrupts_8h_ad0e373fe4f253be1230e04d0ca6ee9ca}{SPI1TX\_InterruptHandler}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00064}\mbox{\hyperlink{interrupts_8h_a545c7174df34d65932507e777a6a1af7}{00064}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interrupts_8h_a545c7174df34d65932507e777a6a1af7}{SPI1E\_InterruptHandler}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00065}\mbox{\hyperlink{interrupts_8h_a9958b1b5a12bad2b63afe41a062112c1}{00065}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interrupts_8h_a9958b1b5a12bad2b63afe41a062112c1}{SPI2RX\_InterruptHandler}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00066}\mbox{\hyperlink{interrupts_8h_ac886f4835c1bf288e6fb678bc55c54f4}{00066}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interrupts_8h_ac886f4835c1bf288e6fb678bc55c54f4}{SPI2TX\_InterruptHandler}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00067}\mbox{\hyperlink{interrupts_8h_a0d914bd60ce383a3a6ec89268924268d}{00067}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interrupts_8h_a0d914bd60ce383a3a6ec89268924268d}{DMA0\_InterruptHandler}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00068}\mbox{\hyperlink{interrupts_8h_adc87dba8a74a39ae7488e19b422b0e60}{00068}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interrupts_8h_adc87dba8a74a39ae7488e19b422b0e60}{DMA1\_InterruptHandler}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00069}00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interrupts_8h_aeb8d69ca7df36c27ab0f45414a1d6a69}{U1RX\_InterruptHandler}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00070}00070\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interrupts_8h_a2a139b270fc9a4a8da1f57d43b2f7dd7}{U1TX\_InterruptHandler}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00071}00071\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interrupts_8h_a6db928c7913419f794fa3245e37c14e3}{U1E\_InterruptHandler}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00072}\mbox{\hyperlink{interrupts_8h_aab38e2d171a6766fb4e1236d8d307b0e}{00072}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interrupts_8h_aab38e2d171a6766fb4e1236d8d307b0e}{DMA4\_InterruptHandler}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00073}\mbox{\hyperlink{interrupts_8h_aa2ba365c56614432c3aa8fd605ab5efd}{00073}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interrupts_8h_aa2ba365c56614432c3aa8fd605ab5efd}{DMA5\_InterruptHandler}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{interrupts_8h_source_l00077}00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INTERRUPTS\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,402 @@
+\doxysection{src/config/default/peripheral/gpio/plib\+\_\+gpio.c File Reference}
+\hypertarget{plib__gpio_8c}{}\label{plib__gpio_8c}\index{src/config/default/peripheral/gpio/plib\_gpio.c@{src/config/default/peripheral/gpio/plib\_gpio.c}}
+{\ttfamily \#include "{}plib\+\_\+gpio.\+h"{}}\newline
+{\ttfamily \#include "{}interrupts.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plib__gpio_8c_ab1aff33343a04c2bafc0697a78c87567}{OFFSET\+\_\+\+REG}}~(uint32\+\_\+t)0x14\+UL
+\begin{DoxyCompactList}\small\item\em Offset value between registers LAT, TRIS, PORT. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plib__gpio_8c_aca609bcc78f4385693308a8feeaacffd}{OFFSET\+\_\+\+INT}}~(uint32\+\_\+t)0x24\+UL
+\begin{DoxyCompactList}\small\item\em Offset value between two interrupt registers CNEN0, CNEN1, CNCON. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plib__gpio_8c_aba9426af55c0245b4160b7decbd74101}{PINS\+\_\+\+PPSLock}}()
+\begin{DoxyCompactList}\small\item\em Macro to lock registers for PPS configuration. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plib__gpio_8c_a35483d2bcfa0c3b471c7e96be07636cb}{PINS\+\_\+\+PPSUnlock}}()
+\begin{DoxyCompactList}\small\item\em Macro to unlock registers for PPS configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__gpio_8c_af2c14d08f5cd6da2843b09b5329c5731}{GPIO\+\_\+\+Initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the GPIO library. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{plib__gpio_8c_abd65922a839af32d84c5651f6e5cf309}{GPIO\+\_\+\+Port\+Read}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port)
+\begin{DoxyCompactList}\small\item\em Reads all the I/O lines of the selected port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__gpio_8c_a7ba503984e354ffb977e967fb20c4513}{GPIO\+\_\+\+Port\+Write}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port, uint32\+\_\+t mask, uint32\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Write the value on the masked I/O lines of the selected port. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{plib__gpio_8c_a7aed251f9d02f9670ced5851b917b86f}{GPIO\+\_\+\+Port\+Latch\+Read}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port)
+\begin{DoxyCompactList}\small\item\em Read the latched value on all the I/O lines of the selected port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__gpio_8c_a467714d6c56b0e5ad2c3ac2a654ac10e}{GPIO\+\_\+\+Port\+Set}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Set the selected IO pins of a port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__gpio_8c_ac9e7c55ddfb33e03fe5ec101cf2ad591}{GPIO\+\_\+\+Port\+Clear}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Clear the selected IO pins of a port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__gpio_8c_a05cadea9630046fc07bc15a96e334e57}{GPIO\+\_\+\+Port\+Toggle}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Toggles the selected IO pins of a port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__gpio_8c_a8f5c3509c88c4ece894bdb2c74027726}{GPIO\+\_\+\+Port\+Input\+Enable}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Enables selected IO pins of a port as input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__gpio_8c_a9c7963889c02bf785a27eced1c4cf159}{GPIO\+\_\+\+Port\+Output\+Enable}} (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}} port, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Enables selected IO pins of a port as output(s). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{plib__gpio_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{plib__gpio_8c_aca609bcc78f4385693308a8feeaacffd}\index{plib\_gpio.c@{plib\_gpio.c}!OFFSET\_INT@{OFFSET\_INT}}
+\index{OFFSET\_INT@{OFFSET\_INT}!plib\_gpio.c@{plib\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{OFFSET\_INT}{OFFSET\_INT}}
+{\footnotesize\ttfamily \label{plib__gpio_8c_aca609bcc78f4385693308a8feeaacffd} 
+\#define OFFSET\+\_\+\+INT~(uint32\+\_\+t)0x24\+UL}
+
+
+
+Offset value between two interrupt registers CNEN0, CNEN1, CNCON. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00051}{51}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8c_ab1aff33343a04c2bafc0697a78c87567}\index{plib\_gpio.c@{plib\_gpio.c}!OFFSET\_REG@{OFFSET\_REG}}
+\index{OFFSET\_REG@{OFFSET\_REG}!plib\_gpio.c@{plib\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{OFFSET\_REG}{OFFSET\_REG}}
+{\footnotesize\ttfamily \label{plib__gpio_8c_ab1aff33343a04c2bafc0697a78c87567} 
+\#define OFFSET\+\_\+\+REG~(uint32\+\_\+t)0x14\+UL}
+
+
+
+Offset value between registers LAT, TRIS, PORT. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00046}{46}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8c_aba9426af55c0245b4160b7decbd74101}\index{plib\_gpio.c@{plib\_gpio.c}!PINS\_PPSLock@{PINS\_PPSLock}}
+\index{PINS\_PPSLock@{PINS\_PPSLock}!plib\_gpio.c@{plib\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{PINS\_PPSLock}{PINS\_PPSLock}}
+{\footnotesize\ttfamily \label{plib__gpio_8c_aba9426af55c0245b4160b7decbd74101} 
+\#define PINS\+\_\+\+PPSLock(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(RPCONbits.IOLOCK\ =\ 1)}
+
+\end{DoxyCode}
+
+
+Macro to lock registers for PPS configuration. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00056}{56}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8c_a35483d2bcfa0c3b471c7e96be07636cb}\index{plib\_gpio.c@{plib\_gpio.c}!PINS\_PPSUnlock@{PINS\_PPSUnlock}}
+\index{PINS\_PPSUnlock@{PINS\_PPSUnlock}!plib\_gpio.c@{plib\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{PINS\_PPSUnlock}{PINS\_PPSUnlock}}
+{\footnotesize\ttfamily \label{plib__gpio_8c_a35483d2bcfa0c3b471c7e96be07636cb} 
+\#define PINS\+\_\+\+PPSUnlock(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(RPCONbits.IOLOCK\ =\ 0)}
+
+\end{DoxyCode}
+
+
+Macro to unlock registers for PPS configuration. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00061}{61}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{plib__gpio_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__gpio_8c_af2c14d08f5cd6da2843b09b5329c5731}\index{plib\_gpio.c@{plib\_gpio.c}!GPIO\_Initialize@{GPIO\_Initialize}}
+\index{GPIO\_Initialize@{GPIO\_Initialize}!plib\_gpio.c@{plib\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_Initialize()}{GPIO\_Initialize()}}
+{\footnotesize\ttfamily \label{plib__gpio_8c_af2c14d08f5cd6da2843b09b5329c5731} 
+void GPIO\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the GPIO library. 
+
+This function initializes the GPIO library and all its ports and pins configured in the pin settings.
+
+\begin{DoxyPrecond}{Precondition}
+None
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None ~\newline
+
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00065}{65}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8c_ac9e7c55ddfb33e03fe5ec101cf2ad591}\index{plib\_gpio.c@{plib\_gpio.c}!GPIO\_PortClear@{GPIO\_PortClear}}
+\index{GPIO\_PortClear@{GPIO\_PortClear}!plib\_gpio.c@{plib\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortClear()}{GPIO\_PortClear()}}
+{\footnotesize\ttfamily \label{plib__gpio_8c_ac9e7c55ddfb33e03fe5ec101cf2ad591} 
+void GPIO\+\_\+\+Port\+Clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{, }\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Clear the selected IO pins of a port. 
+
+This function clears (to \textquotesingle{}0\textquotesingle{}) the selected IO pins of a port.
+
+\begin{DoxyPrecond}{Precondition}
+Selected pins of the port should be made output before clearing.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT} \\
+\hline
+\mbox{\texttt{ in}}  & {\em mask-\/} & A 32 bit value in which positions of 0s and 1s decide which IO pins of the selected port will be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None ~\newline
+
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00149}{149}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8c_a8f5c3509c88c4ece894bdb2c74027726}\index{plib\_gpio.c@{plib\_gpio.c}!GPIO\_PortInputEnable@{GPIO\_PortInputEnable}}
+\index{GPIO\_PortInputEnable@{GPIO\_PortInputEnable}!plib\_gpio.c@{plib\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortInputEnable()}{GPIO\_PortInputEnable()}}
+{\footnotesize\ttfamily \label{plib__gpio_8c_a8f5c3509c88c4ece894bdb2c74027726} 
+void GPIO\+\_\+\+Port\+Input\+Enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{, }\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Enables selected IO pins of a port as input. 
+
+This function enables selected IO pins of a port as input.
+
+\begin{DoxyPrecond}{Precondition}
+None
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT} \\
+\hline
+\mbox{\texttt{ in}}  & {\em mask-\/} & A 32 bit value in which positions of 0s and 1s decide which IO pins of the selected port will be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00159}{159}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8c_a7aed251f9d02f9670ced5851b917b86f}\index{plib\_gpio.c@{plib\_gpio.c}!GPIO\_PortLatchRead@{GPIO\_PortLatchRead}}
+\index{GPIO\_PortLatchRead@{GPIO\_PortLatchRead}!plib\_gpio.c@{plib\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortLatchRead()}{GPIO\_PortLatchRead()}}
+{\footnotesize\ttfamily \label{plib__gpio_8c_a7aed251f9d02f9670ced5851b917b86f} 
+uint32\+\_\+t GPIO\+\_\+\+Port\+Latch\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{}\end{DoxyParamCaption})}
+
+
+
+Read the latched value on all the I/O lines of the selected port. 
+
+This function reads the latched data values on all the I/O lines of the selected port. Bit values returned in each position indicate corresponding pin levels.
+
+\begin{DoxyPrecond}{Precondition}
+none
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+LAT register value
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00139}{139}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8c_a9c7963889c02bf785a27eced1c4cf159}\index{plib\_gpio.c@{plib\_gpio.c}!GPIO\_PortOutputEnable@{GPIO\_PortOutputEnable}}
+\index{GPIO\_PortOutputEnable@{GPIO\_PortOutputEnable}!plib\_gpio.c@{plib\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortOutputEnable()}{GPIO\_PortOutputEnable()}}
+{\footnotesize\ttfamily \label{plib__gpio_8c_a9c7963889c02bf785a27eced1c4cf159} 
+void GPIO\+\_\+\+Port\+Output\+Enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{, }\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Enables selected IO pins of a port as output(s). 
+
+This function enables selected IO pins of the given port as output(s).
+
+\begin{DoxyPrecond}{Precondition}
+None
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT} \\
+\hline
+\mbox{\texttt{ in}}  & {\em mask-\/} & A 32 bit value in which positions of 0s and 1s decide which IO pins of the selected port will be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None ~\newline
+
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00164}{164}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8c_abd65922a839af32d84c5651f6e5cf309}\index{plib\_gpio.c@{plib\_gpio.c}!GPIO\_PortRead@{GPIO\_PortRead}}
+\index{GPIO\_PortRead@{GPIO\_PortRead}!plib\_gpio.c@{plib\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortRead()}{GPIO\_PortRead()}}
+{\footnotesize\ttfamily \label{plib__gpio_8c_abd65922a839af32d84c5651f6e5cf309} 
+uint32\+\_\+t GPIO\+\_\+\+Port\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{}\end{DoxyParamCaption})}
+
+
+
+Reads all the I/O lines of the selected port. 
+
+This function reads the live data values on all the I/O lines of the selected port. Bit values returned in each position indicate corresponding pin state.
+
+\begin{DoxyPrecond}{Precondition}
+Reading the I/O line levels requires the clock of the GPIO Controller to be enabled, otherwise this API reads the levels present on the I/O line at the time the clock was enabled.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Corresponding PORT register value
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00129}{129}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8c_a467714d6c56b0e5ad2c3ac2a654ac10e}\index{plib\_gpio.c@{plib\_gpio.c}!GPIO\_PortSet@{GPIO\_PortSet}}
+\index{GPIO\_PortSet@{GPIO\_PortSet}!plib\_gpio.c@{plib\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortSet()}{GPIO\_PortSet()}}
+{\footnotesize\ttfamily \label{plib__gpio_8c_a467714d6c56b0e5ad2c3ac2a654ac10e} 
+void GPIO\+\_\+\+Port\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{, }\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Set the selected IO pins of a port. 
+
+This function sets (to \textquotesingle{}1\textquotesingle{}) the selected IO pins of a port.
+
+\begin{DoxyPrecond}{Precondition}
+Selected pins of the port should be made output before setting.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT} \\
+\hline
+\mbox{\texttt{ in}}  & {\em mask-\/} & A 32 bit value in which positions of 0s and 1s decide which IO pins of the selected port will be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None ~\newline
+
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00144}{144}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8c_a05cadea9630046fc07bc15a96e334e57}\index{plib\_gpio.c@{plib\_gpio.c}!GPIO\_PortToggle@{GPIO\_PortToggle}}
+\index{GPIO\_PortToggle@{GPIO\_PortToggle}!plib\_gpio.c@{plib\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortToggle()}{GPIO\_PortToggle()}}
+{\footnotesize\ttfamily \label{plib__gpio_8c_a05cadea9630046fc07bc15a96e334e57} 
+void GPIO\+\_\+\+Port\+Toggle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{, }\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Toggles the selected IO pins of a port. 
+
+This function toggles (or invert) the selected IO pins of a port.
+
+\begin{DoxyPrecond}{Precondition}
+Selected pins of the port should be made output before toggling.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT} \\
+\hline
+\mbox{\texttt{ in}}  & {\em mask-\/} & A 32 bit value in which positions of 0s and 1s decide which IO pins of the selected port will be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None ~\newline
+
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00154}{154}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+
+\Hypertarget{plib__gpio_8c_a7ba503984e354ffb977e967fb20c4513}\index{plib\_gpio.c@{plib\_gpio.c}!GPIO\_PortWrite@{GPIO\_PortWrite}}
+\index{GPIO\_PortWrite@{GPIO\_PortWrite}!plib\_gpio.c@{plib\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PortWrite()}{GPIO\_PortWrite()}}
+{\footnotesize\ttfamily \label{plib__gpio_8c_a7ba503984e354ffb977e967fb20c4513} 
+void GPIO\+\_\+\+Port\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}}}]{port}{, }\item[{uint32\+\_\+t}]{mask}{, }\item[{uint32\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Write the value on the masked I/O lines of the selected port. 
+
+This function writes the data values driven on selected output lines of the selected port. Bit values in each position indicate corresponding pin levels.
+
+\begin{DoxyPrecond}{Precondition}
+Selected pins of the port should be made output before writing.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port-\/} & One of the possible values from \doxylink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\+\_\+\+PORT}\\
+\hline
+\mbox{\texttt{ in}}  & {\em mask-\/} & A 32 bit value in which positions of 0s and 1s decide which IO pins of the selected port will be written. \\
+\hline
+\mbox{\texttt{ in}}  & {\em value-\/} & Desired value to be written on the register\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None ~\newline
+
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__gpio_8c_source_l00134}{134}} of file \mbox{\hyperlink{plib__gpio_8c_source}{plib\+\_\+gpio.\+c}}.
+

@@ -1,0 +1,60 @@
+\doxysection{xc32\+\_\+monitor.\+c}
+\hypertarget{xc32__monitor_8c_source}{}\label{xc32__monitor_8c_source}\index{src/config/default/stdio/xc32\_monitor.c@{src/config/default/stdio/xc32\_monitor.c}}
+\mbox{\hyperlink{xc32__monitor_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00002}00002\ \textcolor{comment}{\ Debug\ Console\ Source\ file}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00006}00006\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00008}00008\ \textcolor{comment}{\ \ \ \ xc32\_monitor.c}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00011}00011\ \textcolor{comment}{\ \ \ \ debug\ console\ Source\ File}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00014}00014\ \textcolor{comment}{\ \ \ \ None}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00015}00015\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00016}00016\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00018}00018\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00019}00019\ \textcolor{comment}{*\ Copyright\ (C)\ 2018\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00020}00020\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00021}00021\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00022}00022\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00023}00023\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00024}00024\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00025}00025\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00026}00026\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00027}00027\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00028}00028\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00029}00029\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00030}00030\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00031}00031\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00032}00032\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00033}00033\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00034}00034\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00035}00035\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00036}00036\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00037}00037\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00038}00038\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00039}00039\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00040}00040\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00042}00042\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{xc32__monitor_8c_ac6738c634183b93488d0758e096c5556}{read}}(\textcolor{keywordtype}{int}\ handle,\ \textcolor{keywordtype}{void}\ *buffer,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ len);}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00043}00043\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{xc32__monitor_8c_a504016d534f8880feec18670dfd8c019}{write}}(\textcolor{keywordtype}{int}\ handle,\ \textcolor{keywordtype}{void}\ *\ buffer,\ \textcolor{keywordtype}{size\_t}\ count);}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00046}\mbox{\hyperlink{xc32__monitor_8c_ac6738c634183b93488d0758e096c5556}{00046}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{xc32__monitor_8c_ac6738c634183b93488d0758e096c5556}{read}}(\textcolor{keywordtype}{int}\ handle,\ \textcolor{keywordtype}{void}\ *buffer,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ len)}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00047}00047\ \{}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00048}00048\ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00051}\mbox{\hyperlink{xc32__monitor_8c_a504016d534f8880feec18670dfd8c019}{00051}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{xc32__monitor_8c_a504016d534f8880feec18670dfd8c019}{write}}(\textcolor{keywordtype}{int}\ handle,\ \textcolor{keywordtype}{void}\ *\ buffer,\ \textcolor{keywordtype}{size\_t}\ count)}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00052}00052\ \{}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00053}00053\ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{xc32__monitor_8c_source_l00054}00054\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,71 @@
+\doxysection{plib\+\_\+cmp\+\_\+common.\+h}
+\hypertarget{plib__cmp__common_8h_source}{}\label{plib__cmp__common_8h_source}\index{src/config/default/peripheral/cmp\_dac/plib\_cmp\_common.h@{src/config/default/peripheral/cmp\_dac/plib\_cmp\_common.h}}
+\mbox{\hyperlink{plib__cmp__common_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00002}00002\ \textcolor{comment}{\ \ \$\{moduleName?lower\_case\}\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00003}00003\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00006}00006\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_\$\{moduleName?lower\_case\}\_common.h}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00009}00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ CMP\ Common\ Header\ File}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00012}00012\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ has\ prototype\ of\ all\ the\ interfaces\ which\ are\ common\ for\ all\ the}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ CMP\ peripherals.}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00016}00016\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00017}00017\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00018}00018\ \ }
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00019}00019\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00020}00020\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00021}00021\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00022}00022\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00023}00023\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00024}00024\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00025}00025\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00026}00026\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00027}00027\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00028}00028\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00029}00029\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00030}00030\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00031}00031\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00032}00032\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00033}00033\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00034}00034\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00035}00035\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00036}00036\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00037}00037\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00038}00038\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00039}00039\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00040}00040\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifndef\ PLIB\_CMP\_TYPES\_H}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ PLIB\_CMP\_TYPES\_H}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00050}\mbox{\hyperlink{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55}{00050}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00051}00051\ \{}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00052}\mbox{\hyperlink{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55af1e37fec146251672e65319771933b18}{00052}}\ \ \ \ \ \mbox{\hyperlink{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55af1e37fec146251672e65319771933b18}{CMP\_DAC\_SLOPE\_UPDATE\_IMMIDIATE}}\ =\ 0U,\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00053}\mbox{\hyperlink{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55a3aaa133eb3668b25aa4971a60de7134f}{00053}}\ \ \ \ \ \mbox{\hyperlink{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55a3aaa133eb3668b25aa4971a60de7134f}{CMP\_DAC\_SLOPE\_UPDATE\_TRIGGERED}}\ =\ 1U,\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00054}00054\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00055}00055\ \}\ \mbox{\hyperlink{plib__cmp__common_8h_a1d70fb74b64814f5090cf27e185c6b55}{CMP\_DAC\_SLOPE\_UPDATE\_MODE}};}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00062}\mbox{\hyperlink{plib__cmp__common_8h_a2a7a6f409207c955f95f356622717079}{00062}}\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{plib__cmp__common_8h_a2a7a6f409207c955f95f356622717079}{CMP\_CALLBACK}})\ (uintptr\_t\ contextHandle);}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00064}00064\ \textcolor{comment}{//\ /cond\ IGNORE\_THIS}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00065}00065\ \textcolor{comment}{//\ Section:\ Local\ Objects\ ****\ Do\ Not\ Use\ ****}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00066}\mbox{\hyperlink{structCMP__OBJECT}{00066}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00067}00067\ \{}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00068}\mbox{\hyperlink{structCMP__OBJECT_aaf07865fe659aeecb7b12ae6957191c8}{00068}}\ \ \ \ \ \mbox{\hyperlink{plib__cmp__common_8h_a2a7a6f409207c955f95f356622717079}{CMP\_CALLBACK}}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCMP__OBJECT_aaf07865fe659aeecb7b12ae6957191c8}{callback}};}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00069}\mbox{\hyperlink{structCMP__OBJECT_afb301b46bf1bb94237366e0db5c62810}{00069}}\ \ \ \ \ uintptr\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCMP__OBJECT_afb301b46bf1bb94237366e0db5c62810}{context}};}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00071}00071\ \}\ \mbox{\hyperlink{structCMP__OBJECT}{CMP\_OBJECT}};}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00073}00073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLIB\_CMP\_TYPES\_H}}
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{plib__cmp__common_8h_source_l00075}00075\ }
+
+\end{DoxyCode}

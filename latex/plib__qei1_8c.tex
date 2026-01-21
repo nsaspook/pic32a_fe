@@ -1,0 +1,273 @@
+\doxysection{src/config/default/peripheral/qei/plib\+\_\+qei1.c File Reference}
+\hypertarget{plib__qei1_8c}{}\label{plib__qei1_8c}\index{src/config/default/peripheral/qei/plib\_qei1.c@{src/config/default/peripheral/qei/plib\_qei1.c}}
+{\ttfamily \#include "{}plib\+\_\+qei1.\+h"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}device.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_a7b0ff8daa6f1e97b25e978d5e74e2898}{QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+1}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_a9e2f444d1707f58668f1d25cadb88a2d}{QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+2}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_a20310c75be46d2cacd8f2de4564d941c}{QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+4}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_ae3fb02fb8afc2b1704d7c60117210937}{QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+8}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_a38a559bb49c2e4417e0518b9e8481d32}{QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+16}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(4) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_a2b81d4ebb72b678967a5bd1b08a663ad}{QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+32}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(5) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_ab5d413547d213171abd0636efb06ce18}{QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+64}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(6) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_a135a71b3731fc8d2a0b968ee84017571}{QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+128}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(7) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_a00b3e9ef3d609d80883a1d0f4b2fc9a9}{QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+1}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_a5bf9c18456d9ba4ab103f241e1f636ef}{QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+2}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_a549630adaf2a266f2bb81f200b64406b}{QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+4}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_af9fd68cc49c5267570d0f17c319f32b9}{QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+8}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_af94a2021660a6f0f2d484bcd23fc6b60}{QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+16}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(4) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_a37b39ab41e27428c4af912bce2348949}{QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+32}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(5) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_a1b16dc8e26761529a2a8e1c4f2865bcd}{QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+64}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(6) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_a9534744dae946424ccf2fc208a111aa1}{QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+128}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(7) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_ae20b1213f848184784f2e483235fdbb6}{QEI1\+CON\+\_\+\+PIMOD\+\_\+\+FREE\+\_\+\+RUNNING}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+PIMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+PIMOD\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_af7ad93fac700b04a1e97892c27c5894b}{QEI1\+CON\+\_\+\+PIMOD\+\_\+\+RESET}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+PIMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+PIMOD\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__qei1_8c_ab3db50a52346e91133f48a86ba85a4e1}{QEI1\+CON\+\_\+\+PIMOD\+\_\+\+MODULO}}~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+PIMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(6) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+PIMOD\+\_\+\+POSITION)))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__qei1_8c_acf0bb5afe66543bb04f40d61e01afb8f}{QEI1\+\_\+\+Initialize}} (void)
+\item 
+void \mbox{\hyperlink{plib__qei1_8c_a8bd28c7989f9e7d1da0e6d5828e8242f}{QEI1\+\_\+\+Deinitialize}} (void)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{plib__qei1_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{plib__qei1_8c_a7b0ff8daa6f1e97b25e978d5e74e2898}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1CON\_INTDIV\_1\_1@{QEI1CON\_INTDIV\_1\_1}}
+\index{QEI1CON\_INTDIV\_1\_1@{QEI1CON\_INTDIV\_1\_1}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1CON\_INTDIV\_1\_1}{QEI1CON\_INTDIV\_1\_1}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_a7b0ff8daa6f1e97b25e978d5e74e2898} 
+\#define QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+1~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00051}{51}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_a135a71b3731fc8d2a0b968ee84017571}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1CON\_INTDIV\_1\_128@{QEI1CON\_INTDIV\_1\_128}}
+\index{QEI1CON\_INTDIV\_1\_128@{QEI1CON\_INTDIV\_1\_128}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1CON\_INTDIV\_1\_128}{QEI1CON\_INTDIV\_1\_128}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_a135a71b3731fc8d2a0b968ee84017571} 
+\#define QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+128~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(7) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00058}{58}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_a38a559bb49c2e4417e0518b9e8481d32}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1CON\_INTDIV\_1\_16@{QEI1CON\_INTDIV\_1\_16}}
+\index{QEI1CON\_INTDIV\_1\_16@{QEI1CON\_INTDIV\_1\_16}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1CON\_INTDIV\_1\_16}{QEI1CON\_INTDIV\_1\_16}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_a38a559bb49c2e4417e0518b9e8481d32} 
+\#define QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+16~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(4) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00055}{55}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_a9e2f444d1707f58668f1d25cadb88a2d}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1CON\_INTDIV\_1\_2@{QEI1CON\_INTDIV\_1\_2}}
+\index{QEI1CON\_INTDIV\_1\_2@{QEI1CON\_INTDIV\_1\_2}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1CON\_INTDIV\_1\_2}{QEI1CON\_INTDIV\_1\_2}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_a9e2f444d1707f58668f1d25cadb88a2d} 
+\#define QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+2~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00052}{52}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_a2b81d4ebb72b678967a5bd1b08a663ad}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1CON\_INTDIV\_1\_32@{QEI1CON\_INTDIV\_1\_32}}
+\index{QEI1CON\_INTDIV\_1\_32@{QEI1CON\_INTDIV\_1\_32}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1CON\_INTDIV\_1\_32}{QEI1CON\_INTDIV\_1\_32}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_a2b81d4ebb72b678967a5bd1b08a663ad} 
+\#define QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+32~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(5) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00056}{56}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_a20310c75be46d2cacd8f2de4564d941c}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1CON\_INTDIV\_1\_4@{QEI1CON\_INTDIV\_1\_4}}
+\index{QEI1CON\_INTDIV\_1\_4@{QEI1CON\_INTDIV\_1\_4}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1CON\_INTDIV\_1\_4}{QEI1CON\_INTDIV\_1\_4}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_a20310c75be46d2cacd8f2de4564d941c} 
+\#define QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+4~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00053}{53}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_ab5d413547d213171abd0636efb06ce18}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1CON\_INTDIV\_1\_64@{QEI1CON\_INTDIV\_1\_64}}
+\index{QEI1CON\_INTDIV\_1\_64@{QEI1CON\_INTDIV\_1\_64}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1CON\_INTDIV\_1\_64}{QEI1CON\_INTDIV\_1\_64}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_ab5d413547d213171abd0636efb06ce18} 
+\#define QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+64~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(6) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00057}{57}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_ae3fb02fb8afc2b1704d7c60117210937}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1CON\_INTDIV\_1\_8@{QEI1CON\_INTDIV\_1\_8}}
+\index{QEI1CON\_INTDIV\_1\_8@{QEI1CON\_INTDIV\_1\_8}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1CON\_INTDIV\_1\_8}{QEI1CON\_INTDIV\_1\_8}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_ae3fb02fb8afc2b1704d7c60117210937} 
+\#define QEI1\+CON\+\_\+\+INTDIV\+\_\+1\+\_\+8~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+INTDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00054}{54}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_ae20b1213f848184784f2e483235fdbb6}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1CON\_PIMOD\_FREE\_RUNNING@{QEI1CON\_PIMOD\_FREE\_RUNNING}}
+\index{QEI1CON\_PIMOD\_FREE\_RUNNING@{QEI1CON\_PIMOD\_FREE\_RUNNING}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1CON\_PIMOD\_FREE\_RUNNING}{QEI1CON\_PIMOD\_FREE\_RUNNING}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_ae20b1213f848184784f2e483235fdbb6} 
+\#define QEI1\+CON\+\_\+\+PIMOD\+\_\+\+FREE\+\_\+\+RUNNING~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+PIMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+PIMOD\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00071}{71}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_ab3db50a52346e91133f48a86ba85a4e1}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1CON\_PIMOD\_MODULO@{QEI1CON\_PIMOD\_MODULO}}
+\index{QEI1CON\_PIMOD\_MODULO@{QEI1CON\_PIMOD\_MODULO}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1CON\_PIMOD\_MODULO}{QEI1CON\_PIMOD\_MODULO}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_ab3db50a52346e91133f48a86ba85a4e1} 
+\#define QEI1\+CON\+\_\+\+PIMOD\+\_\+\+MODULO~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+PIMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(6) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+PIMOD\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00073}{73}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_af7ad93fac700b04a1e97892c27c5894b}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1CON\_PIMOD\_RESET@{QEI1CON\_PIMOD\_RESET}}
+\index{QEI1CON\_PIMOD\_RESET@{QEI1CON\_PIMOD\_RESET}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1CON\_PIMOD\_RESET}{QEI1CON\_PIMOD\_RESET}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_af7ad93fac700b04a1e97892c27c5894b} 
+\#define QEI1\+CON\+\_\+\+PIMOD\+\_\+\+RESET~((uint32\+\_\+t)(\+\_\+\+QEI1\+CON\+\_\+\+PIMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$\+\_\+\+QEI1\+CON\+\_\+\+PIMOD\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00072}{72}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_a00b3e9ef3d609d80883a1d0f4b2fc9a9}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1IOC\_QFDIV\_1\_1@{QEI1IOC\_QFDIV\_1\_1}}
+\index{QEI1IOC\_QFDIV\_1\_1@{QEI1IOC\_QFDIV\_1\_1}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1IOC\_QFDIV\_1\_1}{QEI1IOC\_QFDIV\_1\_1}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_a00b3e9ef3d609d80883a1d0f4b2fc9a9} 
+\#define QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+1~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00061}{61}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_a9534744dae946424ccf2fc208a111aa1}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1IOC\_QFDIV\_1\_128@{QEI1IOC\_QFDIV\_1\_128}}
+\index{QEI1IOC\_QFDIV\_1\_128@{QEI1IOC\_QFDIV\_1\_128}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1IOC\_QFDIV\_1\_128}{QEI1IOC\_QFDIV\_1\_128}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_a9534744dae946424ccf2fc208a111aa1} 
+\#define QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+128~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(7) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00068}{68}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_af94a2021660a6f0f2d484bcd23fc6b60}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1IOC\_QFDIV\_1\_16@{QEI1IOC\_QFDIV\_1\_16}}
+\index{QEI1IOC\_QFDIV\_1\_16@{QEI1IOC\_QFDIV\_1\_16}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1IOC\_QFDIV\_1\_16}{QEI1IOC\_QFDIV\_1\_16}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_af94a2021660a6f0f2d484bcd23fc6b60} 
+\#define QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+16~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(4) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00065}{65}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_a5bf9c18456d9ba4ab103f241e1f636ef}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1IOC\_QFDIV\_1\_2@{QEI1IOC\_QFDIV\_1\_2}}
+\index{QEI1IOC\_QFDIV\_1\_2@{QEI1IOC\_QFDIV\_1\_2}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1IOC\_QFDIV\_1\_2}{QEI1IOC\_QFDIV\_1\_2}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_a5bf9c18456d9ba4ab103f241e1f636ef} 
+\#define QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+2~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00062}{62}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_a37b39ab41e27428c4af912bce2348949}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1IOC\_QFDIV\_1\_32@{QEI1IOC\_QFDIV\_1\_32}}
+\index{QEI1IOC\_QFDIV\_1\_32@{QEI1IOC\_QFDIV\_1\_32}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1IOC\_QFDIV\_1\_32}{QEI1IOC\_QFDIV\_1\_32}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_a37b39ab41e27428c4af912bce2348949} 
+\#define QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+32~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(5) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00066}{66}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_a549630adaf2a266f2bb81f200b64406b}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1IOC\_QFDIV\_1\_4@{QEI1IOC\_QFDIV\_1\_4}}
+\index{QEI1IOC\_QFDIV\_1\_4@{QEI1IOC\_QFDIV\_1\_4}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1IOC\_QFDIV\_1\_4}{QEI1IOC\_QFDIV\_1\_4}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_a549630adaf2a266f2bb81f200b64406b} 
+\#define QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+4~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00063}{63}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_a1b16dc8e26761529a2a8e1c4f2865bcd}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1IOC\_QFDIV\_1\_64@{QEI1IOC\_QFDIV\_1\_64}}
+\index{QEI1IOC\_QFDIV\_1\_64@{QEI1IOC\_QFDIV\_1\_64}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1IOC\_QFDIV\_1\_64}{QEI1IOC\_QFDIV\_1\_64}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_a1b16dc8e26761529a2a8e1c4f2865bcd} 
+\#define QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+64~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(6) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00067}{67}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_af9fd68cc49c5267570d0f17c319f32b9}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1IOC\_QFDIV\_1\_8@{QEI1IOC\_QFDIV\_1\_8}}
+\index{QEI1IOC\_QFDIV\_1\_8@{QEI1IOC\_QFDIV\_1\_8}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1IOC\_QFDIV\_1\_8}{QEI1IOC\_QFDIV\_1\_8}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_af9fd68cc49c5267570d0f17c319f32b9} 
+\#define QEI1\+IOC\+\_\+\+QFDIV\+\_\+1\+\_\+8~((uint32\+\_\+t)(\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$\+\_\+\+QEI1\+IOC\+\_\+\+QFDIV\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00064}{64}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{plib__qei1_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__qei1_8c_a8bd28c7989f9e7d1da0e6d5828e8242f}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1\_Deinitialize@{QEI1\_Deinitialize}}
+\index{QEI1\_Deinitialize@{QEI1\_Deinitialize}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1\_Deinitialize()}{QEI1\_Deinitialize()}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_a8bd28c7989f9e7d1da0e6d5828e8242f} 
+void QEI1\+\_\+\+Deinitialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00107}{107}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+
+\Hypertarget{plib__qei1_8c_acf0bb5afe66543bb04f40d61e01afb8f}\index{plib\_qei1.c@{plib\_qei1.c}!QEI1\_Initialize@{QEI1\_Initialize}}
+\index{QEI1\_Initialize@{QEI1\_Initialize}!plib\_qei1.c@{plib\_qei1.c}}
+\doxysubsubsection{\texorpdfstring{QEI1\_Initialize()}{QEI1\_Initialize()}}
+{\footnotesize\ttfamily \label{plib__qei1_8c_acf0bb5afe66543bb04f40d61e01afb8f} 
+void QEI1\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__qei1_8c_source_l00077}{77}} of file \mbox{\hyperlink{plib__qei1_8c_source}{plib\+\_\+qei1.\+c}}.
+

@@ -1,0 +1,353 @@
+\doxysection{src/lcd\+\_\+drv/\+Oled\+Driver.h File Reference}
+\hypertarget{OledDriver_8h}{}\label{OledDriver_8h}\index{src/lcd\_drv/OledDriver.h@{src/lcd\_drv/OledDriver.h}}
+{\ttfamily \#include "{}lcd\+\_\+drv.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{OledDriver_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cb\+Oled\+Disp\+Max}}~3840
+\item 
+\#define \mbox{\hyperlink{OledDriver_8h_af52b1d0ac806928e79a71fc098e89955}{cb\+Oled\+Disp\+Max32}}~\mbox{\hyperlink{OledDriver_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cb\+Oled\+Disp\+Max}}/4
+\item 
+\#define \mbox{\hyperlink{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}{ccol\+Oled\+Max}}~240
+\item 
+\#define \mbox{\hyperlink{OledDriver_8h_aef3f6635387d347d272bbe5772b96da1}{crow\+Oled\+Max}}~128
+\item 
+\#define \mbox{\hyperlink{OledDriver_8h_a55eaa351fe43dc769f8ff2f890792ea5}{cpag\+Oled\+Max}}~16
+\item 
+\#define \mbox{\hyperlink{OledDriver_8h_ad6e15065c0a342050a71942658732756}{STR\+\_\+\+BUF\+\_\+\+SIZE}}~160
+\item 
+\#define \mbox{\hyperlink{OledDriver_8h_af3ef2e5232000ef40cc5adc7ceb66a6e}{max\+\_\+strlen}}~\mbox{\hyperlink{OledDriver_8h_ad6e15065c0a342050a71942658732756}{STR\+\_\+\+BUF\+\_\+\+SIZE}}-\/1
+\item 
+\#define \mbox{\hyperlink{OledDriver_8h_aff992d945652fb2ff64d48b785431c3a}{cb\+Oled\+Char}}~8
+\item 
+\#define \mbox{\hyperlink{OledDriver_8h_a9e324336da0d4ad14b0672c5a167ffc1}{ch\+Oled\+User\+Max}}~0x20
+\item 
+\#define \mbox{\hyperlink{OledDriver_8h_a0050b54c2a43adee0e768e229ed369c1}{cb\+Oled\+Font\+User}}~(\mbox{\hyperlink{OledDriver_8h_a9e324336da0d4ad14b0672c5a167ffc1}{ch\+Oled\+User\+Max}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{OledDriver_8h_aff992d945652fb2ff64d48b785431c3a}{cb\+Oled\+Char}})
+\item 
+\#define \mbox{\hyperlink{OledDriver_8h_a9128c67fb83b328b70fbb230caf303be}{mod\+Oled\+Set}}~0
+\item 
+\#define \mbox{\hyperlink{OledDriver_8h_addc67f4a2ffdc0fb7be6c78334ab9c0a}{mod\+Oled\+Or}}~1
+\item 
+\#define \mbox{\hyperlink{OledDriver_8h_a4e018ab2a983107f4afab9a30aa19f37}{mod\+Oled\+And}}~2
+\item 
+\#define \mbox{\hyperlink{OledDriver_8h_a9bd1a17559010159535109b2c1de5fa8}{mod\+Oled\+Xor}}~3
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70}{DMA\+\_\+\+RUN\+\_\+\+STATE}} \{ \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70ad72486ccb9975ab81be92be3221b4119}{D\+\_\+init}}
+, \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70a576c5788a8a2e04a2ba9fcba05a4fadd}{D\+\_\+page}}
+, \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70a3e16f2aaa1311c0d5f53f3f7d6007f1e}{D\+\_\+buffer}}
+, \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70af6bbc96e60d52154781538058b8b2c24}{D\+\_\+idle}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{OledDriver_8h_a11720eb1002774b7a17f14b56ff44af8}{Oled\+Init}} (void)
+\item 
+void \mbox{\hyperlink{OledDriver_8h_a791149d7264a4fb69761c91b96bcf71b}{Oled\+Term}} (void)
+\item 
+void \mbox{\hyperlink{OledDriver_8h_aa6948206248a6fc7672d9272afb31200}{Oled\+Display\+On}} (void)
+\item 
+void \mbox{\hyperlink{OledDriver_8h_aad39f47a4a67e81eb4682bc2dc77f7f0}{Oled\+Display\+Off}} (void)
+\item 
+void \mbox{\hyperlink{OledDriver_8h_ac33652401561bede6a56b8ff6f9cc16f}{Oled\+Clear}} (void)
+\item 
+void \mbox{\hyperlink{OledDriver_8h_a5e6f21d563c9ea1ace995d76b872105e}{Oled\+Clear\+Buffer}} (void)
+\item 
+void \mbox{\hyperlink{OledDriver_8h_a32ce948207504099331c3911b0fd743b}{Oled\+Update}} (void)
+\item 
+void \mbox{\hyperlink{OledDriver_8h_ad1c508e21d80c901ee119631b8d06349}{wait\+\_\+lcd\+\_\+done}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{OledDriver_8h_ac29b53e8ae123191742819736b1c7558}{xch\+Oled\+Max}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{OledDriver_8h_ae8ce138befa5ab1f93d4f0bca13520f3}{ych\+Oled\+Max}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{OledDriver_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{OledDriver_8h_aff992d945652fb2ff64d48b785431c3a}\index{OledDriver.h@{OledDriver.h}!cbOledChar@{cbOledChar}}
+\index{cbOledChar@{cbOledChar}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{cbOledChar}{cbOledChar}}
+{\footnotesize\ttfamily \label{OledDriver_8h_aff992d945652fb2ff64d48b785431c3a} 
+\#define cb\+Oled\+Char~8}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8h_source_l00071}{71}} of file \mbox{\hyperlink{OledDriver_8h_source}{Oled\+Driver.\+h}}.
+
+\Hypertarget{OledDriver_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}\index{OledDriver.h@{OledDriver.h}!cbOledDispMax@{cbOledDispMax}}
+\index{cbOledDispMax@{cbOledDispMax}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{cbOledDispMax}{cbOledDispMax}}
+{\footnotesize\ttfamily \label{OledDriver_8h_a9c3fd42769eeedb1a8eccefa38f9ec66} 
+\#define cb\+Oled\+Disp\+Max~3840}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8h_source_l00053}{53}} of file \mbox{\hyperlink{OledDriver_8h_source}{Oled\+Driver.\+h}}.
+
+\Hypertarget{OledDriver_8h_af52b1d0ac806928e79a71fc098e89955}\index{OledDriver.h@{OledDriver.h}!cbOledDispMax32@{cbOledDispMax32}}
+\index{cbOledDispMax32@{cbOledDispMax32}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{cbOledDispMax32}{cbOledDispMax32}}
+{\footnotesize\ttfamily \label{OledDriver_8h_af52b1d0ac806928e79a71fc098e89955} 
+\#define cb\+Oled\+Disp\+Max32~\mbox{\hyperlink{OledDriver_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cb\+Oled\+Disp\+Max}}/4}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8h_source_l00054}{54}} of file \mbox{\hyperlink{OledDriver_8h_source}{Oled\+Driver.\+h}}.
+
+\Hypertarget{OledDriver_8h_a0050b54c2a43adee0e768e229ed369c1}\index{OledDriver.h@{OledDriver.h}!cbOledFontUser@{cbOledFontUser}}
+\index{cbOledFontUser@{cbOledFontUser}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{cbOledFontUser}{cbOledFontUser}}
+{\footnotesize\ttfamily \label{OledDriver_8h_a0050b54c2a43adee0e768e229ed369c1} 
+\#define cb\+Oled\+Font\+User~(\mbox{\hyperlink{OledDriver_8h_a9e324336da0d4ad14b0672c5a167ffc1}{ch\+Oled\+User\+Max}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{OledDriver_8h_aff992d945652fb2ff64d48b785431c3a}{cb\+Oled\+Char}})}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8h_source_l00073}{73}} of file \mbox{\hyperlink{OledDriver_8h_source}{Oled\+Driver.\+h}}.
+
+\Hypertarget{OledDriver_8h_a101840709d87141c9bfd27f58febcc41}\index{OledDriver.h@{OledDriver.h}!ccolOledMax@{ccolOledMax}}
+\index{ccolOledMax@{ccolOledMax}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{ccolOledMax}{ccolOledMax}}
+{\footnotesize\ttfamily \label{OledDriver_8h_a101840709d87141c9bfd27f58febcc41} 
+\#define ccol\+Oled\+Max~240}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8h_source_l00055}{55}} of file \mbox{\hyperlink{OledDriver_8h_source}{Oled\+Driver.\+h}}.
+
+\Hypertarget{OledDriver_8h_a9e324336da0d4ad14b0672c5a167ffc1}\index{OledDriver.h@{OledDriver.h}!chOledUserMax@{chOledUserMax}}
+\index{chOledUserMax@{chOledUserMax}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{chOledUserMax}{chOledUserMax}}
+{\footnotesize\ttfamily \label{OledDriver_8h_a9e324336da0d4ad14b0672c5a167ffc1} 
+\#define ch\+Oled\+User\+Max~0x20}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8h_source_l00072}{72}} of file \mbox{\hyperlink{OledDriver_8h_source}{Oled\+Driver.\+h}}.
+
+\Hypertarget{OledDriver_8h_a55eaa351fe43dc769f8ff2f890792ea5}\index{OledDriver.h@{OledDriver.h}!cpagOledMax@{cpagOledMax}}
+\index{cpagOledMax@{cpagOledMax}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{cpagOledMax}{cpagOledMax}}
+{\footnotesize\ttfamily \label{OledDriver_8h_a55eaa351fe43dc769f8ff2f890792ea5} 
+\#define cpag\+Oled\+Max~16}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8h_source_l00057}{57}} of file \mbox{\hyperlink{OledDriver_8h_source}{Oled\+Driver.\+h}}.
+
+\Hypertarget{OledDriver_8h_aef3f6635387d347d272bbe5772b96da1}\index{OledDriver.h@{OledDriver.h}!crowOledMax@{crowOledMax}}
+\index{crowOledMax@{crowOledMax}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{crowOledMax}{crowOledMax}}
+{\footnotesize\ttfamily \label{OledDriver_8h_aef3f6635387d347d272bbe5772b96da1} 
+\#define crow\+Oled\+Max~128}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8h_source_l00056}{56}} of file \mbox{\hyperlink{OledDriver_8h_source}{Oled\+Driver.\+h}}.
+
+\Hypertarget{OledDriver_8h_af3ef2e5232000ef40cc5adc7ceb66a6e}\index{OledDriver.h@{OledDriver.h}!max\_strlen@{max\_strlen}}
+\index{max\_strlen@{max\_strlen}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{max\_strlen}{max\_strlen}}
+{\footnotesize\ttfamily \label{OledDriver_8h_af3ef2e5232000ef40cc5adc7ceb66a6e} 
+\#define max\+\_\+strlen~\mbox{\hyperlink{OledDriver_8h_ad6e15065c0a342050a71942658732756}{STR\+\_\+\+BUF\+\_\+\+SIZE}}-\/1}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8h_source_l00069}{69}} of file \mbox{\hyperlink{OledDriver_8h_source}{Oled\+Driver.\+h}}.
+
+\Hypertarget{OledDriver_8h_a4e018ab2a983107f4afab9a30aa19f37}\index{OledDriver.h@{OledDriver.h}!modOledAnd@{modOledAnd}}
+\index{modOledAnd@{modOledAnd}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{modOledAnd}{modOledAnd}}
+{\footnotesize\ttfamily \label{OledDriver_8h_a4e018ab2a983107f4afab9a30aa19f37} 
+\#define mod\+Oled\+And~2}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8h_source_l00079}{79}} of file \mbox{\hyperlink{OledDriver_8h_source}{Oled\+Driver.\+h}}.
+
+\Hypertarget{OledDriver_8h_addc67f4a2ffdc0fb7be6c78334ab9c0a}\index{OledDriver.h@{OledDriver.h}!modOledOr@{modOledOr}}
+\index{modOledOr@{modOledOr}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{modOledOr}{modOledOr}}
+{\footnotesize\ttfamily \label{OledDriver_8h_addc67f4a2ffdc0fb7be6c78334ab9c0a} 
+\#define mod\+Oled\+Or~1}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8h_source_l00078}{78}} of file \mbox{\hyperlink{OledDriver_8h_source}{Oled\+Driver.\+h}}.
+
+\Hypertarget{OledDriver_8h_a9128c67fb83b328b70fbb230caf303be}\index{OledDriver.h@{OledDriver.h}!modOledSet@{modOledSet}}
+\index{modOledSet@{modOledSet}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{modOledSet}{modOledSet}}
+{\footnotesize\ttfamily \label{OledDriver_8h_a9128c67fb83b328b70fbb230caf303be} 
+\#define mod\+Oled\+Set~0}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8h_source_l00077}{77}} of file \mbox{\hyperlink{OledDriver_8h_source}{Oled\+Driver.\+h}}.
+
+\Hypertarget{OledDriver_8h_a9bd1a17559010159535109b2c1de5fa8}\index{OledDriver.h@{OledDriver.h}!modOledXor@{modOledXor}}
+\index{modOledXor@{modOledXor}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{modOledXor}{modOledXor}}
+{\footnotesize\ttfamily \label{OledDriver_8h_a9bd1a17559010159535109b2c1de5fa8} 
+\#define mod\+Oled\+Xor~3}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8h_source_l00080}{80}} of file \mbox{\hyperlink{OledDriver_8h_source}{Oled\+Driver.\+h}}.
+
+\Hypertarget{OledDriver_8h_ad6e15065c0a342050a71942658732756}\index{OledDriver.h@{OledDriver.h}!STR\_BUF\_SIZE@{STR\_BUF\_SIZE}}
+\index{STR\_BUF\_SIZE@{STR\_BUF\_SIZE}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{STR\_BUF\_SIZE}{STR\_BUF\_SIZE}}
+{\footnotesize\ttfamily \label{OledDriver_8h_ad6e15065c0a342050a71942658732756} 
+\#define STR\+\_\+\+BUF\+\_\+\+SIZE~160}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8h_source_l00058}{58}} of file \mbox{\hyperlink{OledDriver_8h_source}{Oled\+Driver.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{OledDriver_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70}\index{OledDriver.h@{OledDriver.h}!DMA\_RUN\_STATE@{DMA\_RUN\_STATE}}
+\index{DMA\_RUN\_STATE@{DMA\_RUN\_STATE}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_RUN\_STATE}{DMA\_RUN\_STATE}}
+{\footnotesize\ttfamily \label{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70} 
+enum \mbox{\hyperlink{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70}{DMA\+\_\+\+RUN\+\_\+\+STATE}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\_init@{D\_init}!OledDriver.h@{OledDriver.h}}\index{OledDriver.h@{OledDriver.h}!D\_init@{D\_init}}}\Hypertarget{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70ad72486ccb9975ab81be92be3221b4119}\label{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70ad72486ccb9975ab81be92be3221b4119} 
+D\+\_\+init&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\_page@{D\_page}!OledDriver.h@{OledDriver.h}}\index{OledDriver.h@{OledDriver.h}!D\_page@{D\_page}}}\Hypertarget{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70a576c5788a8a2e04a2ba9fcba05a4fadd}\label{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70a576c5788a8a2e04a2ba9fcba05a4fadd} 
+D\+\_\+page&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\_buffer@{D\_buffer}!OledDriver.h@{OledDriver.h}}\index{OledDriver.h@{OledDriver.h}!D\_buffer@{D\_buffer}}}\Hypertarget{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70a3e16f2aaa1311c0d5f53f3f7d6007f1e}\label{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70a3e16f2aaa1311c0d5f53f3f7d6007f1e} 
+D\+\_\+buffer&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\_idle@{D\_idle}!OledDriver.h@{OledDriver.h}}\index{OledDriver.h@{OledDriver.h}!D\_idle@{D\_idle}}}\Hypertarget{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70af6bbc96e60d52154781538058b8b2c24}\label{OledDriver_8h_a8445f54c13f5f7c39262991dc61b1c70af6bbc96e60d52154781538058b8b2c24} 
+D\+\_\+idle&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8h_source_l00107}{107}} of file \mbox{\hyperlink{OledDriver_8h_source}{Oled\+Driver.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{OledDriver_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{OledDriver_8h_ac33652401561bede6a56b8ff6f9cc16f}\index{OledDriver.h@{OledDriver.h}!OledClear@{OledClear}}
+\index{OledClear@{OledClear}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{OledClear()}{OledClear()}}
+{\footnotesize\ttfamily \label{OledDriver_8h_ac33652401561bede6a56b8ff6f9cc16f} 
+void Oled\+Clear (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8c_source_l00442}{442}} of file \mbox{\hyperlink{OledDriver_8c_source}{Oled\+Driver.\+c}}.
+
+\Hypertarget{OledDriver_8h_a5e6f21d563c9ea1ace995d76b872105e}\index{OledDriver.h@{OledDriver.h}!OledClearBuffer@{OledClearBuffer}}
+\index{OledClearBuffer@{OledClearBuffer}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{OledClearBuffer()}{OledClearBuffer()}}
+{\footnotesize\ttfamily \label{OledDriver_8h_a5e6f21d563c9ea1ace995d76b872105e} 
+void Oled\+Clear\+Buffer (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8c_source_l00475}{475}} of file \mbox{\hyperlink{OledDriver_8c_source}{Oled\+Driver.\+c}}.
+
+\Hypertarget{OledDriver_8h_aad39f47a4a67e81eb4682bc2dc77f7f0}\index{OledDriver.h@{OledDriver.h}!OledDisplayOff@{OledDisplayOff}}
+\index{OledDisplayOff@{OledDisplayOff}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{OledDisplayOff()}{OledDisplayOff()}}
+{\footnotesize\ttfamily \label{OledDriver_8h_aad39f47a4a67e81eb4682bc2dc77f7f0} 
+void Oled\+Display\+Off (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8c_source_l00417}{417}} of file \mbox{\hyperlink{OledDriver_8c_source}{Oled\+Driver.\+c}}.
+
+\Hypertarget{OledDriver_8h_aa6948206248a6fc7672d9272afb31200}\index{OledDriver.h@{OledDriver.h}!OledDisplayOn@{OledDisplayOn}}
+\index{OledDisplayOn@{OledDisplayOn}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{OledDisplayOn()}{OledDisplayOn()}}
+{\footnotesize\ttfamily \label{OledDriver_8h_aa6948206248a6fc7672d9272afb31200} 
+void Oled\+Display\+On (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8c_source_l00392}{392}} of file \mbox{\hyperlink{OledDriver_8c_source}{Oled\+Driver.\+c}}.
+
+\Hypertarget{OledDriver_8h_a11720eb1002774b7a17f14b56ff44af8}\index{OledDriver.h@{OledDriver.h}!OledInit@{OledInit}}
+\index{OledInit@{OledInit}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{OledInit()}{OledInit()}}
+{\footnotesize\ttfamily \label{OledDriver_8h_a11720eb1002774b7a17f14b56ff44af8} 
+void Oled\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{OledDriver_8h_a791149d7264a4fb69761c91b96bcf71b}\index{OledDriver.h@{OledDriver.h}!OledTerm@{OledTerm}}
+\index{OledTerm@{OledTerm}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{OledTerm()}{OledTerm()}}
+{\footnotesize\ttfamily \label{OledDriver_8h_a791149d7264a4fb69761c91b96bcf71b} 
+void Oled\+Term (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8c_source_l00215}{215}} of file \mbox{\hyperlink{OledDriver_8c_source}{Oled\+Driver.\+c}}.
+
+\Hypertarget{OledDriver_8h_a32ce948207504099331c3911b0fd743b}\index{OledDriver.h@{OledDriver.h}!OledUpdate@{OledUpdate}}
+\index{OledUpdate@{OledUpdate}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{OledUpdate()}{OledUpdate()}}
+{\footnotesize\ttfamily \label{OledDriver_8h_a32ce948207504099331c3911b0fd743b} 
+void Oled\+Update (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8c_source_l00511}{511}} of file \mbox{\hyperlink{OledDriver_8c_source}{Oled\+Driver.\+c}}.
+
+\Hypertarget{OledDriver_8h_ad1c508e21d80c901ee119631b8d06349}\index{OledDriver.h@{OledDriver.h}!wait\_lcd\_done@{wait\_lcd\_done}}
+\index{wait\_lcd\_done@{wait\_lcd\_done}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{wait\_lcd\_done()}{wait\_lcd\_done()}}
+{\footnotesize\ttfamily \label{OledDriver_8h_ad1c508e21d80c901ee119631b8d06349} 
+void wait\+\_\+lcd\+\_\+done (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{OledDriver_8c_source_l00633}{633}} of file \mbox{\hyperlink{OledDriver_8c_source}{Oled\+Driver.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{OledDriver_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{OledDriver_8h_ac29b53e8ae123191742819736b1c7558}\index{OledDriver.h@{OledDriver.h}!xchOledMax@{xchOledMax}}
+\index{xchOledMax@{xchOledMax}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{xchOledMax}{xchOledMax}}
+{\footnotesize\ttfamily \label{OledDriver_8h_ac29b53e8ae123191742819736b1c7558} 
+int32\+\_\+t xch\+Oled\+Max\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{OledChar_8c_source_l00048}{48}} of file \mbox{\hyperlink{OledChar_8c_source}{Oled\+Char.\+c}}.
+
+\Hypertarget{OledDriver_8h_ae8ce138befa5ab1f93d4f0bca13520f3}\index{OledDriver.h@{OledDriver.h}!ychOledMax@{ychOledMax}}
+\index{ychOledMax@{ychOledMax}!OledDriver.h@{OledDriver.h}}
+\doxysubsubsection{\texorpdfstring{ychOledMax}{ychOledMax}}
+{\footnotesize\ttfamily \label{OledDriver_8h_ae8ce138befa5ab1f93d4f0bca13520f3} 
+int32\+\_\+t ych\+Oled\+Max\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{OledChar_8c_source_l00049}{49}} of file \mbox{\hyperlink{OledChar_8c_source}{Oled\+Char.\+c}}.
+

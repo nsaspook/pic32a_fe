@@ -1,0 +1,990 @@
+\doxysection{src/config/default/peripheral/ptg/plib\+\_\+ptg.h File Reference}
+\hypertarget{plib__ptg_8h}{}\label{plib__ptg_8h}\index{src/config/default/peripheral/ptg/plib\_ptg.h@{src/config/default/peripheral/ptg/plib\_ptg.h}}
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structPTG__EVENTS__CALLBACK__OBJECT}{PTG\+\_\+\+EVENTS\+\_\+\+CALLBACK\+\_\+\+OBJECT}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_af0d571a8c29ce30c181f100975be015b}{PTG\+\_\+\+STEP0}}~PTGQUE0bits.\+STEP0
+\begin{DoxyCompactList}\small\item\em Defines PTG execution steps. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a838e15348d2c293fdf9576abbda717ac}{PTG\+\_\+\+STEP1}}~PTGQUE0bits.\+STEP1
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_ac1e815800cdc658e855b760e7e5d245e}{PTG\+\_\+\+STEP2}}~PTGQUE0bits.\+STEP2
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_aaf1946eb8d2d7996719bc1250d98fa4c}{PTG\+\_\+\+STEP3}}~PTGQUE0bits.\+STEP3
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_afb3b691b543d9eef8335f2bb1879a89a}{PTG\+\_\+\+STEP4}}~PTGQUE1bits.\+STEP4
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_aa68235b91a7a94f31fb518ad3a873116}{PTG\+\_\+\+STEP5}}~PTGQUE1bits.\+STEP5
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_ac36646bf770a79b51ca0d9342a950365}{PTG\+\_\+\+STEP6}}~PTGQUE1bits.\+STEP6
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a7e1a25804f5d92ca72083bdd3cc9dec0}{PTG\+\_\+\+STEP7}}~PTGQUE1bits.\+STEP7
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_aa01c56afd2bf4921efcbb30de85a79e0}{PTG\+\_\+\+STEP8}}~PTGQUE2bits.\+STEP8
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a1d3610b56bec9ab92972515e31f3880e}{PTG\+\_\+\+STEP9}}~PTGQUE2bits.\+STEP9
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a7fd2c31061ae9072ba0ea4e099acdaa4}{PTG\+\_\+\+STEP10}}~PTGQUE2bits.\+STEP10
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_ab6de8cba8e4c5ed976e3d2ca4ef8da66}{PTG\+\_\+\+STEP11}}~PTGQUE2bits.\+STEP11
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a0a9ab5a33f6be82d155af532909ddb5d}{PTG\+\_\+\+STEP12}}~PTGQUE3bits.\+STEP12
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a088f81618397d87ed3ac1e23df37c97c}{PTG\+\_\+\+STEP13}}~PTGQUE3bits.\+STEP13
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_ae716de0026bd94049e2423c1cbda3b7b}{PTG\+\_\+\+STEP14}}~PTGQUE3bits.\+STEP14
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_aa1d8e0904a9635d7e590f85105bf64ac}{PTG\+\_\+\+STEP15}}~PTGQUE3bits.\+STEP15
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a4da076685f46dad973bc7fc43e3410a5}{PTG\+\_\+\+STEP16}}~PTGQUE4bits.\+STEP16
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_ab80b317f27b290fffcadfa0b27c77ba8}{PTG\+\_\+\+STEP17}}~PTGQUE4bits.\+STEP17
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a6129ee845ddf0f6fbe35311014d65dae}{PTG\+\_\+\+STEP18}}~PTGQUE4bits.\+STEP18
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_abdac3b0f428e15329190e3c46ac2094f}{PTG\+\_\+\+STEP19}}~PTGQUE4bits.\+STEP19
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_af0e5d188250d2155b8c4513843326957}{PTG\+\_\+\+STEP20}}~PTGQUE5bits.\+STEP20
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a426db0a8d679d6a9767017530ebbc4bf}{PTG\+\_\+\+STEP21}}~PTGQUE5bits.\+STEP21
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_aa52bdd88966612f1322a6fc585f6a955}{PTG\+\_\+\+STEP22}}~PTGQUE5bits.\+STEP22
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a405636d9172f5a3b682d999aca6219b4}{PTG\+\_\+\+STEP23}}~PTGQUE5bits.\+STEP23
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a9e700983924e00b6df981e854c0c1859}{PTG\+\_\+\+STEP24}}~PTGQUE6bits.\+STEP24
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a269f8f40174ef1ea0326116f7d9f01a8}{PTG\+\_\+\+STEP25}}~PTGQUE6bits.\+STEP25
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a6ea15fec1209637b66d22910d6ef0ab7}{PTG\+\_\+\+STEP26}}~PTGQUE6bits.\+STEP26
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a02766f4577b5484c4214b04c8b0c21ed}{PTG\+\_\+\+STEP27}}~PTGQUE6bits.\+STEP27
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_aaa03363284f5872be3470aa2fe5f0213}{PTG\+\_\+\+STEP28}}~PTGQUE7bits.\+STEP28
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a179bd811d1b5404f38032da9c4a6c500}{PTG\+\_\+\+STEP29}}~PTGQUE7bits.\+STEP29
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a4fdc812a4df287ecdbd06abdc804915e}{PTG\+\_\+\+STEP30}}~PTGQUE7bits.\+STEP30
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_ab4cf115e0d354c15b55471f5c2641ebc}{PTG\+\_\+\+STEP31}}~PTGQUE7bits.\+STEP31
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}{PTGCTRL}}~(0x0u $<$$<$ 4u )
+\begin{DoxyCompactList}\small\item\em PTG command macros. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_ac0c6744cba6492fcb85f3fa5eab7bd9e}{PTGCOPY}}~(0x1u $<$$<$ 4u )
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a0f8f7c887fd00096b0bc24d5f9a92bca}{PTGADD}}~(0x1u $<$$<$ 4u )
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a931c4f4fc102914a5d22c4c42a76269c}{PTGSTRB}}~(0x2u $<$$<$ 4 )
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a667c04e2269e98a314d60b2c376f39d2}{PTGWHI}}~(0x4u $<$$<$ 4u )
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a15121d7ffd8750d5dc01ceaf35665d93}{PTGWLO}}~(0x5u $<$$<$ 4u )
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_ae44a7552cc5f0d0c3499895f9b309181}{PTGIRQ}}~(0x7u $<$$<$ 4u )
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_aeaea3c06389ba3230a519c861f263b58}{PTGTRIG}}~(0x8u $<$$<$ 4u )
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a316c9a76dc53b7340797645edc5ceab1}{PTGJMP}}~(0xau $<$$<$ 4u )
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a61636b2e25db7b67018031b28d1169fa}{PTGJMPC0}}~(0xcu $<$$<$ 4u )
+\item 
+\#define \mbox{\hyperlink{plib__ptg_8h_a551a9224a4b7764efded9a024aba108a}{PTGJMPC1}}~(0xeu $<$$<$ 4u )
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{plib__ptg_8h_aab7dab00df81be7ee08a6028b8545ea9}{PTG\+\_\+\+EVENTS\+\_\+\+CALLBACK}}) (uintptr\+\_\+t context)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520}{PTG\+\_\+\+EVENTS}} \{ \newline
+\mbox{\hyperlink{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520a7245c65f9f203c7c941dd44c5f798901}{TRIGGER0}}
+, \mbox{\hyperlink{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520a018cbc16b87b4fab53fcbbc649e81f93}{TRIGGER1}}
+, \mbox{\hyperlink{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520a29568855875db7b4ca87a981bfec3ef0}{TRIGGER2}}
+, \mbox{\hyperlink{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520a95b51e77cfea52c926e0e8c661d628c4}{TRIGGER3}}
+, \newline
+\mbox{\hyperlink{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520a931d170770975e406c1eddfd7c3f69cb}{WATCHDOGTIMER}}
+ \}
+\begin{DoxyCompactList}\small\item\em Defines the PTG events that are available. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__ptg_8h_af7bff23231eea7446adcf1a84fec8eaf}{PTG\+\_\+\+Initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes PTG module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__ptg_8h_a3fadf36eda7a28884ba18ced6c1b2d4e}{PTG\+\_\+\+Deinitialize}} (void)
+\begin{DoxyCompactList}\small\item\em Deinitializes the PTG peripheral of the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__ptg_8h_a79f9906529b915821ebe7968529ad84a}{PTG\+\_\+\+Enable}} (void)
+\begin{DoxyCompactList}\small\item\em Enables the PTG peripheral of the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__ptg_8h_a62f8a9ffe3604f672de2f00e45be373b}{PTG\+\_\+\+Step\+Sequence\+Start}} (void)
+\begin{DoxyCompactList}\small\item\em Starts the step sequence of the PTG peripheral of the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__ptg_8h_a2e83317bcf25d6e66da39dd89f8708c0}{PTG\+\_\+\+Software\+Trigger\+Set}} (void)
+\begin{DoxyCompactList}\small\item\em Activates the software trigger of the PTG peripheral of the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__ptg_8h_a05ab94c855db5c94f39fdebf6ebdb9e1}{PTG\+\_\+\+Software\+Trigger\+Clear}} (void)
+\begin{DoxyCompactList}\small\item\em Clears the software trigger of the PTG peripheral of the device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__ptg_8h_ad5060e3f7d6c3064b52d4aa686a2ba27}{PTG\+\_\+\+Watchdog\+Timeout\+Status\+Get}} (void)
+\begin{DoxyCompactList}\small\item\em Indicates the status of the watchdog timeout status of the PTG Peripheral of the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__ptg_8h_a7fdecd2f7d360691d1424fdaff7e1630}{PTG\+\_\+\+Step\+Sequence\+Stop}} (void)
+\begin{DoxyCompactList}\small\item\em Stops the step sequence of the PTG peripheral of the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__ptg_8h_a58aa65517d610207ce1d691f55acaa08}{PTG\+\_\+\+Disable}} (void)
+\begin{DoxyCompactList}\small\item\em Disables the PTG peripheral of the device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{plib__ptg_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{plib__ptg_8h_af0d571a8c29ce30c181f100975be015b}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP0@{PTG\_STEP0}}
+\index{PTG\_STEP0@{PTG\_STEP0}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP0}{PTG\_STEP0}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_af0d571a8c29ce30c181f100975be015b} 
+\#define PTG\+\_\+\+STEP0~PTGQUE0bits.\+STEP0}
+
+
+
+Defines PTG execution steps. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00087}{87}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a838e15348d2c293fdf9576abbda717ac}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP1@{PTG\_STEP1}}
+\index{PTG\_STEP1@{PTG\_STEP1}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP1}{PTG\_STEP1}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a838e15348d2c293fdf9576abbda717ac} 
+\#define PTG\+\_\+\+STEP1~PTGQUE0bits.\+STEP1}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00088}{88}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a7fd2c31061ae9072ba0ea4e099acdaa4}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP10@{PTG\_STEP10}}
+\index{PTG\_STEP10@{PTG\_STEP10}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP10}{PTG\_STEP10}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a7fd2c31061ae9072ba0ea4e099acdaa4} 
+\#define PTG\+\_\+\+STEP10~PTGQUE2bits.\+STEP10}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00102}{102}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_ab6de8cba8e4c5ed976e3d2ca4ef8da66}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP11@{PTG\_STEP11}}
+\index{PTG\_STEP11@{PTG\_STEP11}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP11}{PTG\_STEP11}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_ab6de8cba8e4c5ed976e3d2ca4ef8da66} 
+\#define PTG\+\_\+\+STEP11~PTGQUE2bits.\+STEP11}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00103}{103}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a0a9ab5a33f6be82d155af532909ddb5d}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP12@{PTG\_STEP12}}
+\index{PTG\_STEP12@{PTG\_STEP12}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP12}{PTG\_STEP12}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a0a9ab5a33f6be82d155af532909ddb5d} 
+\#define PTG\+\_\+\+STEP12~PTGQUE3bits.\+STEP12}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00105}{105}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a088f81618397d87ed3ac1e23df37c97c}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP13@{PTG\_STEP13}}
+\index{PTG\_STEP13@{PTG\_STEP13}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP13}{PTG\_STEP13}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a088f81618397d87ed3ac1e23df37c97c} 
+\#define PTG\+\_\+\+STEP13~PTGQUE3bits.\+STEP13}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00106}{106}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_ae716de0026bd94049e2423c1cbda3b7b}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP14@{PTG\_STEP14}}
+\index{PTG\_STEP14@{PTG\_STEP14}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP14}{PTG\_STEP14}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_ae716de0026bd94049e2423c1cbda3b7b} 
+\#define PTG\+\_\+\+STEP14~PTGQUE3bits.\+STEP14}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00108}{108}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_aa1d8e0904a9635d7e590f85105bf64ac}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP15@{PTG\_STEP15}}
+\index{PTG\_STEP15@{PTG\_STEP15}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP15}{PTG\_STEP15}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_aa1d8e0904a9635d7e590f85105bf64ac} 
+\#define PTG\+\_\+\+STEP15~PTGQUE3bits.\+STEP15}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00109}{109}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a4da076685f46dad973bc7fc43e3410a5}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP16@{PTG\_STEP16}}
+\index{PTG\_STEP16@{PTG\_STEP16}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP16}{PTG\_STEP16}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a4da076685f46dad973bc7fc43e3410a5} 
+\#define PTG\+\_\+\+STEP16~PTGQUE4bits.\+STEP16}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00111}{111}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_ab80b317f27b290fffcadfa0b27c77ba8}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP17@{PTG\_STEP17}}
+\index{PTG\_STEP17@{PTG\_STEP17}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP17}{PTG\_STEP17}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_ab80b317f27b290fffcadfa0b27c77ba8} 
+\#define PTG\+\_\+\+STEP17~PTGQUE4bits.\+STEP17}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00112}{112}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a6129ee845ddf0f6fbe35311014d65dae}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP18@{PTG\_STEP18}}
+\index{PTG\_STEP18@{PTG\_STEP18}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP18}{PTG\_STEP18}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a6129ee845ddf0f6fbe35311014d65dae} 
+\#define PTG\+\_\+\+STEP18~PTGQUE4bits.\+STEP18}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00114}{114}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_abdac3b0f428e15329190e3c46ac2094f}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP19@{PTG\_STEP19}}
+\index{PTG\_STEP19@{PTG\_STEP19}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP19}{PTG\_STEP19}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_abdac3b0f428e15329190e3c46ac2094f} 
+\#define PTG\+\_\+\+STEP19~PTGQUE4bits.\+STEP19}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00115}{115}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_ac1e815800cdc658e855b760e7e5d245e}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP2@{PTG\_STEP2}}
+\index{PTG\_STEP2@{PTG\_STEP2}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP2}{PTG\_STEP2}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_ac1e815800cdc658e855b760e7e5d245e} 
+\#define PTG\+\_\+\+STEP2~PTGQUE0bits.\+STEP2}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00090}{90}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_af0e5d188250d2155b8c4513843326957}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP20@{PTG\_STEP20}}
+\index{PTG\_STEP20@{PTG\_STEP20}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP20}{PTG\_STEP20}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_af0e5d188250d2155b8c4513843326957} 
+\#define PTG\+\_\+\+STEP20~PTGQUE5bits.\+STEP20}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00117}{117}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a426db0a8d679d6a9767017530ebbc4bf}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP21@{PTG\_STEP21}}
+\index{PTG\_STEP21@{PTG\_STEP21}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP21}{PTG\_STEP21}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a426db0a8d679d6a9767017530ebbc4bf} 
+\#define PTG\+\_\+\+STEP21~PTGQUE5bits.\+STEP21}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00118}{118}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_aa52bdd88966612f1322a6fc585f6a955}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP22@{PTG\_STEP22}}
+\index{PTG\_STEP22@{PTG\_STEP22}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP22}{PTG\_STEP22}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_aa52bdd88966612f1322a6fc585f6a955} 
+\#define PTG\+\_\+\+STEP22~PTGQUE5bits.\+STEP22}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00120}{120}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a405636d9172f5a3b682d999aca6219b4}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP23@{PTG\_STEP23}}
+\index{PTG\_STEP23@{PTG\_STEP23}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP23}{PTG\_STEP23}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a405636d9172f5a3b682d999aca6219b4} 
+\#define PTG\+\_\+\+STEP23~PTGQUE5bits.\+STEP23}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00121}{121}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a9e700983924e00b6df981e854c0c1859}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP24@{PTG\_STEP24}}
+\index{PTG\_STEP24@{PTG\_STEP24}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP24}{PTG\_STEP24}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a9e700983924e00b6df981e854c0c1859} 
+\#define PTG\+\_\+\+STEP24~PTGQUE6bits.\+STEP24}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00123}{123}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a269f8f40174ef1ea0326116f7d9f01a8}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP25@{PTG\_STEP25}}
+\index{PTG\_STEP25@{PTG\_STEP25}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP25}{PTG\_STEP25}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a269f8f40174ef1ea0326116f7d9f01a8} 
+\#define PTG\+\_\+\+STEP25~PTGQUE6bits.\+STEP25}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00124}{124}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a6ea15fec1209637b66d22910d6ef0ab7}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP26@{PTG\_STEP26}}
+\index{PTG\_STEP26@{PTG\_STEP26}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP26}{PTG\_STEP26}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a6ea15fec1209637b66d22910d6ef0ab7} 
+\#define PTG\+\_\+\+STEP26~PTGQUE6bits.\+STEP26}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00126}{126}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a02766f4577b5484c4214b04c8b0c21ed}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP27@{PTG\_STEP27}}
+\index{PTG\_STEP27@{PTG\_STEP27}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP27}{PTG\_STEP27}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a02766f4577b5484c4214b04c8b0c21ed} 
+\#define PTG\+\_\+\+STEP27~PTGQUE6bits.\+STEP27}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00127}{127}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_aaa03363284f5872be3470aa2fe5f0213}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP28@{PTG\_STEP28}}
+\index{PTG\_STEP28@{PTG\_STEP28}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP28}{PTG\_STEP28}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_aaa03363284f5872be3470aa2fe5f0213} 
+\#define PTG\+\_\+\+STEP28~PTGQUE7bits.\+STEP28}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00129}{129}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a179bd811d1b5404f38032da9c4a6c500}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP29@{PTG\_STEP29}}
+\index{PTG\_STEP29@{PTG\_STEP29}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP29}{PTG\_STEP29}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a179bd811d1b5404f38032da9c4a6c500} 
+\#define PTG\+\_\+\+STEP29~PTGQUE7bits.\+STEP29}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00130}{130}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_aaf1946eb8d2d7996719bc1250d98fa4c}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP3@{PTG\_STEP3}}
+\index{PTG\_STEP3@{PTG\_STEP3}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP3}{PTG\_STEP3}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_aaf1946eb8d2d7996719bc1250d98fa4c} 
+\#define PTG\+\_\+\+STEP3~PTGQUE0bits.\+STEP3}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00091}{91}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a4fdc812a4df287ecdbd06abdc804915e}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP30@{PTG\_STEP30}}
+\index{PTG\_STEP30@{PTG\_STEP30}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP30}{PTG\_STEP30}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a4fdc812a4df287ecdbd06abdc804915e} 
+\#define PTG\+\_\+\+STEP30~PTGQUE7bits.\+STEP30}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00132}{132}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_ab4cf115e0d354c15b55471f5c2641ebc}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP31@{PTG\_STEP31}}
+\index{PTG\_STEP31@{PTG\_STEP31}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP31}{PTG\_STEP31}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_ab4cf115e0d354c15b55471f5c2641ebc} 
+\#define PTG\+\_\+\+STEP31~PTGQUE7bits.\+STEP31}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00133}{133}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_afb3b691b543d9eef8335f2bb1879a89a}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP4@{PTG\_STEP4}}
+\index{PTG\_STEP4@{PTG\_STEP4}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP4}{PTG\_STEP4}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_afb3b691b543d9eef8335f2bb1879a89a} 
+\#define PTG\+\_\+\+STEP4~PTGQUE1bits.\+STEP4}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00093}{93}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_aa68235b91a7a94f31fb518ad3a873116}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP5@{PTG\_STEP5}}
+\index{PTG\_STEP5@{PTG\_STEP5}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP5}{PTG\_STEP5}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_aa68235b91a7a94f31fb518ad3a873116} 
+\#define PTG\+\_\+\+STEP5~PTGQUE1bits.\+STEP5}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00094}{94}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_ac36646bf770a79b51ca0d9342a950365}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP6@{PTG\_STEP6}}
+\index{PTG\_STEP6@{PTG\_STEP6}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP6}{PTG\_STEP6}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_ac36646bf770a79b51ca0d9342a950365} 
+\#define PTG\+\_\+\+STEP6~PTGQUE1bits.\+STEP6}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00096}{96}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a7e1a25804f5d92ca72083bdd3cc9dec0}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP7@{PTG\_STEP7}}
+\index{PTG\_STEP7@{PTG\_STEP7}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP7}{PTG\_STEP7}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a7e1a25804f5d92ca72083bdd3cc9dec0} 
+\#define PTG\+\_\+\+STEP7~PTGQUE1bits.\+STEP7}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00097}{97}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_aa01c56afd2bf4921efcbb30de85a79e0}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP8@{PTG\_STEP8}}
+\index{PTG\_STEP8@{PTG\_STEP8}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP8}{PTG\_STEP8}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_aa01c56afd2bf4921efcbb30de85a79e0} 
+\#define PTG\+\_\+\+STEP8~PTGQUE2bits.\+STEP8}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00099}{99}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a1d3610b56bec9ab92972515e31f3880e}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_STEP9@{PTG\_STEP9}}
+\index{PTG\_STEP9@{PTG\_STEP9}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_STEP9}{PTG\_STEP9}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a1d3610b56bec9ab92972515e31f3880e} 
+\#define PTG\+\_\+\+STEP9~PTGQUE2bits.\+STEP9}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00100}{100}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a0f8f7c887fd00096b0bc24d5f9a92bca}\index{plib\_ptg.h@{plib\_ptg.h}!PTGADD@{PTGADD}}
+\index{PTGADD@{PTGADD}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTGADD}{PTGADD}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a0f8f7c887fd00096b0bc24d5f9a92bca} 
+\#define PTGADD~(0x1u $<$$<$ 4u )}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00140}{140}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_ac0c6744cba6492fcb85f3fa5eab7bd9e}\index{plib\_ptg.h@{plib\_ptg.h}!PTGCOPY@{PTGCOPY}}
+\index{PTGCOPY@{PTGCOPY}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTGCOPY}{PTGCOPY}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_ac0c6744cba6492fcb85f3fa5eab7bd9e} 
+\#define PTGCOPY~(0x1u $<$$<$ 4u )}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00139}{139}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f}\index{plib\_ptg.h@{plib\_ptg.h}!PTGCTRL@{PTGCTRL}}
+\index{PTGCTRL@{PTGCTRL}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTGCTRL}{PTGCTRL}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a1c0b44f52c6dc122b5a62711bdb5230f} 
+\#define PTGCTRL~(0x0u $<$$<$ 4u )}
+
+
+
+PTG command macros. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00138}{138}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_ae44a7552cc5f0d0c3499895f9b309181}\index{plib\_ptg.h@{plib\_ptg.h}!PTGIRQ@{PTGIRQ}}
+\index{PTGIRQ@{PTGIRQ}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTGIRQ}{PTGIRQ}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_ae44a7552cc5f0d0c3499895f9b309181} 
+\#define PTGIRQ~(0x7u $<$$<$ 4u )}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00144}{144}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a316c9a76dc53b7340797645edc5ceab1}\index{plib\_ptg.h@{plib\_ptg.h}!PTGJMP@{PTGJMP}}
+\index{PTGJMP@{PTGJMP}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTGJMP}{PTGJMP}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a316c9a76dc53b7340797645edc5ceab1} 
+\#define PTGJMP~(0xau $<$$<$ 4u )}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00146}{146}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a61636b2e25db7b67018031b28d1169fa}\index{plib\_ptg.h@{plib\_ptg.h}!PTGJMPC0@{PTGJMPC0}}
+\index{PTGJMPC0@{PTGJMPC0}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTGJMPC0}{PTGJMPC0}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a61636b2e25db7b67018031b28d1169fa} 
+\#define PTGJMPC0~(0xcu $<$$<$ 4u )}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00147}{147}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a551a9224a4b7764efded9a024aba108a}\index{plib\_ptg.h@{plib\_ptg.h}!PTGJMPC1@{PTGJMPC1}}
+\index{PTGJMPC1@{PTGJMPC1}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTGJMPC1}{PTGJMPC1}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a551a9224a4b7764efded9a024aba108a} 
+\#define PTGJMPC1~(0xeu $<$$<$ 4u )}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00148}{148}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a931c4f4fc102914a5d22c4c42a76269c}\index{plib\_ptg.h@{plib\_ptg.h}!PTGSTRB@{PTGSTRB}}
+\index{PTGSTRB@{PTGSTRB}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTGSTRB}{PTGSTRB}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a931c4f4fc102914a5d22c4c42a76269c} 
+\#define PTGSTRB~(0x2u $<$$<$ 4 )}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00141}{141}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_aeaea3c06389ba3230a519c861f263b58}\index{plib\_ptg.h@{plib\_ptg.h}!PTGTRIG@{PTGTRIG}}
+\index{PTGTRIG@{PTGTRIG}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTGTRIG}{PTGTRIG}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_aeaea3c06389ba3230a519c861f263b58} 
+\#define PTGTRIG~(0x8u $<$$<$ 4u )}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00145}{145}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a667c04e2269e98a314d60b2c376f39d2}\index{plib\_ptg.h@{plib\_ptg.h}!PTGWHI@{PTGWHI}}
+\index{PTGWHI@{PTGWHI}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTGWHI}{PTGWHI}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a667c04e2269e98a314d60b2c376f39d2} 
+\#define PTGWHI~(0x4u $<$$<$ 4u )}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00142}{142}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+\Hypertarget{plib__ptg_8h_a15121d7ffd8750d5dc01ceaf35665d93}\index{plib\_ptg.h@{plib\_ptg.h}!PTGWLO@{PTGWLO}}
+\index{PTGWLO@{PTGWLO}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTGWLO}{PTGWLO}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a15121d7ffd8750d5dc01ceaf35665d93} 
+\#define PTGWLO~(0x5u $<$$<$ 4u )}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00143}{143}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{plib__ptg_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{plib__ptg_8h_aab7dab00df81be7ee08a6028b8545ea9}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_EVENTS\_CALLBACK@{PTG\_EVENTS\_CALLBACK}}
+\index{PTG\_EVENTS\_CALLBACK@{PTG\_EVENTS\_CALLBACK}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_EVENTS\_CALLBACK}{PTG\_EVENTS\_CALLBACK}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_aab7dab00df81be7ee08a6028b8545ea9} 
+typedef void(\texorpdfstring{$\ast$}{*} PTG\+\_\+\+EVENTS\+\_\+\+CALLBACK) (uintptr\+\_\+t context)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00071}{71}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{plib__ptg_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_EVENTS@{PTG\_EVENTS}}
+\index{PTG\_EVENTS@{PTG\_EVENTS}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_EVENTS}{PTG\_EVENTS}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520} 
+enum \mbox{\hyperlink{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520}{PTG\+\_\+\+EVENTS}}}
+
+
+
+Defines the PTG events that are available. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRIGGER0@{TRIGGER0}!plib\_ptg.h@{plib\_ptg.h}}\index{plib\_ptg.h@{plib\_ptg.h}!TRIGGER0@{TRIGGER0}}}\Hypertarget{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520a7245c65f9f203c7c941dd44c5f798901}\label{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520a7245c65f9f203c7c941dd44c5f798901} 
+TRIGGER0&PTG Trigger0 Event \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRIGGER1@{TRIGGER1}!plib\_ptg.h@{plib\_ptg.h}}\index{plib\_ptg.h@{plib\_ptg.h}!TRIGGER1@{TRIGGER1}}}\Hypertarget{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520a018cbc16b87b4fab53fcbbc649e81f93}\label{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520a018cbc16b87b4fab53fcbbc649e81f93} 
+TRIGGER1&PTG Trigger1 Event \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRIGGER2@{TRIGGER2}!plib\_ptg.h@{plib\_ptg.h}}\index{plib\_ptg.h@{plib\_ptg.h}!TRIGGER2@{TRIGGER2}}}\Hypertarget{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520a29568855875db7b4ca87a981bfec3ef0}\label{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520a29568855875db7b4ca87a981bfec3ef0} 
+TRIGGER2&PTG Trigger2 Event \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRIGGER3@{TRIGGER3}!plib\_ptg.h@{plib\_ptg.h}}\index{plib\_ptg.h@{plib\_ptg.h}!TRIGGER3@{TRIGGER3}}}\Hypertarget{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520a95b51e77cfea52c926e0e8c661d628c4}\label{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520a95b51e77cfea52c926e0e8c661d628c4} 
+TRIGGER3&PTG Trigger3 Event \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WATCHDOGTIMER@{WATCHDOGTIMER}!plib\_ptg.h@{plib\_ptg.h}}\index{plib\_ptg.h@{plib\_ptg.h}!WATCHDOGTIMER@{WATCHDOGTIMER}}}\Hypertarget{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520a931d170770975e406c1eddfd7c3f69cb}\label{plib__ptg_8h_ab637a83874aef36b3fc12adb93aea520a931d170770975e406c1eddfd7c3f69cb} 
+WATCHDOGTIMER&PTG Watch\+Dog\+Timer Event \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8h_source_l00062}{62}} of file \mbox{\hyperlink{plib__ptg_8h_source}{plib\+\_\+ptg.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{plib__ptg_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__ptg_8h_a3fadf36eda7a28884ba18ced6c1b2d4e}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_Deinitialize@{PTG\_Deinitialize}}
+\index{PTG\_Deinitialize@{PTG\_Deinitialize}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_Deinitialize()}{PTG\_Deinitialize()}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a3fadf36eda7a28884ba18ced6c1b2d4e} 
+void PTG\+\_\+\+Deinitialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Deinitializes the PTG peripheral of the device. 
+
+This function deinitializes the PTG Peripheral Library (PLIB) of the device, returning the PTG peripheral to its default reset state. After calling this function, the PTG peripheral will no longer be operational, and any subsequent PTG operations will fail until re-\/initialization using the PTG\+\_\+\+Initialize API.
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been initialized using the PTG\+\_\+\+Initialize API.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function should be called when the PTG peripheral is no longer required to release resources and ensure proper reset behavior.
+\end{DoxyNote}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a3fadf36eda7a28884ba18ced6c1b2d4e}{PTG\_Deinitialize}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00157}{157}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8h_a58aa65517d610207ce1d691f55acaa08}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_Disable@{PTG\_Disable}}
+\index{PTG\_Disable@{PTG\_Disable}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_Disable()}{PTG\_Disable()}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a58aa65517d610207ce1d691f55acaa08} 
+void PTG\+\_\+\+Disable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Disables the PTG peripheral of the device. 
+
+This function disables the PTG Peripheral Library (PLIB) of the device, for its desired use
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been initialized using the PTG\+\_\+\+Initialize API. The peripheral should be enabled using the \doxylink{plib__ptg_8h_a79f9906529b915821ebe7968529ad84a}{PTG\+\_\+\+Enable()} API.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function should be called when the PTG peripheral is required to disable
+\end{DoxyNote}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a58aa65517d610207ce1d691f55acaa08}{PTG\_Disable}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00205}{205}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8h_a79f9906529b915821ebe7968529ad84a}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_Enable@{PTG\_Enable}}
+\index{PTG\_Enable@{PTG\_Enable}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_Enable()}{PTG\_Enable()}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a79f9906529b915821ebe7968529ad84a} 
+void PTG\+\_\+\+Enable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Enables the PTG peripheral of the device. 
+
+This function enables the PTG Peripheral Library (PLIB) of the device, for its desired use
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been initialized using the PTG\+\_\+\+Initialize API.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function should be called when the PTG peripheral is required to enable
+\end{DoxyNote}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a79f9906529b915821ebe7968529ad84a}{PTG\_Enable}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00175}{175}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8h_af7bff23231eea7446adcf1a84fec8eaf}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_Initialize@{PTG\_Initialize}}
+\index{PTG\_Initialize@{PTG\_Initialize}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_Initialize()}{PTG\_Initialize()}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_af7bff23231eea7446adcf1a84fec8eaf} 
+void PTG\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes PTG module. 
+
+This function initializes the PTG Peripheral Library (PLIB) of the device with the values configured in the MCC GUI. Once the peripheral is initialized, Step Sequence APIs can be used to start the Step Sequence
+
+\begin{DoxyPrecond}{Precondition}
+MCC GUI should be configured with the correct values.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none ~\newline
+
+\end{DoxyReturn}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{SYSTEM\_Initialize();}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a79f9906529b915821ebe7968529ad84a}{PTG\_Enable}}();}
+\DoxyCodeLine{PTG\_StartStepSequence();}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{while}\ (1)}
+\DoxyCodeLine{\ \ \{\ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{plib__ptg_8c_a2e83317bcf25d6e66da39dd89f8708c0}{PTG\_SoftwareTriggerSet}}();\ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{bool}\ wdtBit\ =\ \mbox{\hyperlink{plib__ptg_8c_ad5060e3f7d6c3064b52d4aa686a2ba27}{PTG\_WatchdogTimeoutStatusGet}}();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(wdtBit)\{\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__ptg_8c_a7fdecd2f7d360691d1424fdaff7e1630}{PTG\_StepSequenceStop}}();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plib__ptg_8c_a58aa65517d610207ce1d691f55acaa08}{PTG\_Disable}}();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+Step Commands
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00100}{100}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8h_a05ab94c855db5c94f39fdebf6ebdb9e1}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_SoftwareTriggerClear@{PTG\_SoftwareTriggerClear}}
+\index{PTG\_SoftwareTriggerClear@{PTG\_SoftwareTriggerClear}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_SoftwareTriggerClear()}{PTG\_SoftwareTriggerClear()}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a05ab94c855db5c94f39fdebf6ebdb9e1} 
+void PTG\+\_\+\+Software\+Trigger\+Clear (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Clears the software trigger of the PTG peripheral of the device. 
+
+This function clears the software trigger bit PTGSWT of the PTGCON register
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been enabled using the PTG\+\_\+\+Enable API. The Step Sequence configurations should be carefully made in the MCC GUI
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+@\+Note This API is added to resolve the Errata issue. After executing the wait for software trigger step command followed by the same command, the PTGSWT bit is not cleared by hardware.
+
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a05ab94c855db5c94f39fdebf6ebdb9e1}{PTG\_SoftwareTriggerClear}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00190}{190}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8h_a2e83317bcf25d6e66da39dd89f8708c0}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_SoftwareTriggerSet@{PTG\_SoftwareTriggerSet}}
+\index{PTG\_SoftwareTriggerSet@{PTG\_SoftwareTriggerSet}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_SoftwareTriggerSet()}{PTG\_SoftwareTriggerSet()}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a2e83317bcf25d6e66da39dd89f8708c0} 
+void PTG\+\_\+\+Software\+Trigger\+Set (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Activates the software trigger of the PTG peripheral of the device. 
+
+This function initiates the step sequence for the PTG peripheral of the device This process begins the programmed sequence of operations. Ensures the device performs Step Commands in the correct order.
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been enabled using the PTG\+\_\+\+Enable API. The Step Sequence configurations should be carefully made in the MCC GUI
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function should be called when the PTG peripheral is required to set the software trigger
+\end{DoxyNote}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a2e83317bcf25d6e66da39dd89f8708c0}{PTG\_SoftwareTriggerSet}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00185}{185}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8h_a62f8a9ffe3604f672de2f00e45be373b}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_StepSequenceStart@{PTG\_StepSequenceStart}}
+\index{PTG\_StepSequenceStart@{PTG\_StepSequenceStart}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_StepSequenceStart()}{PTG\_StepSequenceStart()}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a62f8a9ffe3604f672de2f00e45be373b} 
+void PTG\+\_\+\+Step\+Sequence\+Start (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Starts the step sequence of the PTG peripheral of the device. 
+
+This function initiates the step sequence for the PTG peripheral of the device This process begins the programmed sequence of operations. Ensures the device performs Step Commands in the correct order.
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been enabled using the PTG\+\_\+\+Enable API. The Step Sequence configurations should be carefully made in the MCC GUI
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function should be called when the PTG peripheral is required to start the step sequence
+\end{DoxyNote}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a62f8a9ffe3604f672de2f00e45be373b}{PTG\_StepSequenceStart}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00180}{180}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8h_a7fdecd2f7d360691d1424fdaff7e1630}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_StepSequenceStop@{PTG\_StepSequenceStop}}
+\index{PTG\_StepSequenceStop@{PTG\_StepSequenceStop}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_StepSequenceStop()}{PTG\_StepSequenceStop()}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_a7fdecd2f7d360691d1424fdaff7e1630} 
+void PTG\+\_\+\+Step\+Sequence\+Stop (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Stops the step sequence of the PTG peripheral of the device. 
+
+Halts the ongoing step sequence of the PTG peripheral in the device. This action interrupts the programmed series of operations. Ensures the device ceases its current step commands immediately
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been enabled using the PTG\+\_\+\+Enable API. The Step Sequence configurations should be carefully made in the MCC GUI and step sequence should be started with the PTG\+\_\+\+Step\+Sequence\+Start API.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function should be called when the PTG peripheral is required to stop the step sequence
+\end{DoxyNote}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_a7fdecd2f7d360691d1424fdaff7e1630}{PTG\_StepSequenceStop}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00200}{200}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+
+\Hypertarget{plib__ptg_8h_ad5060e3f7d6c3064b52d4aa686a2ba27}\index{plib\_ptg.h@{plib\_ptg.h}!PTG\_WatchdogTimeoutStatusGet@{PTG\_WatchdogTimeoutStatusGet}}
+\index{PTG\_WatchdogTimeoutStatusGet@{PTG\_WatchdogTimeoutStatusGet}!plib\_ptg.h@{plib\_ptg.h}}
+\doxysubsubsection{\texorpdfstring{PTG\_WatchdogTimeoutStatusGet()}{PTG\_WatchdogTimeoutStatusGet()}}
+{\footnotesize\ttfamily \label{plib__ptg_8h_ad5060e3f7d6c3064b52d4aa686a2ba27} 
+bool PTG\+\_\+\+Watchdog\+Timeout\+Status\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Indicates the status of the watchdog timeout status of the PTG Peripheral of the device. 
+
+This function displays the current status of the watchdog timeout for the PTG peripheral of the device. This information helps monitor whether the watchdog timer has expired. Ensures timely detection and response to potential system issues.
+
+\begin{DoxyPrecond}{Precondition}
+The PTG peripheral must have been enabled using the PTG\+\_\+\+Enable API. The Step Sequence configurations should be carefully made in the MCC GUI
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+true -\/ PTG watchdog timeout occurred 
+
+false -\/ PTG watchdog timeout not occurred ~\newline
+
+\end{DoxyReturn}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__ptg_8c_ad5060e3f7d6c3064b52d4aa686a2ba27}{PTG\_WatchdogTimeoutStatusGet}}();}
+
+\end{DoxyCode}
+ \begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__ptg_8c_source_l00195}{195}} of file \mbox{\hyperlink{plib__ptg_8c_source}{plib\+\_\+ptg.\+c}}.
+

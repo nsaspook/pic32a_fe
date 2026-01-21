@@ -1,0 +1,163 @@
+\doxysection{src/gfx.c File Reference}
+\hypertarget{gfx_8c}{}\label{gfx_8c}\index{src/gfx.c@{src/gfx.c}}
+{\ttfamily \#include "{}gfx.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{gfx_8c_a97ea932fe8c86d4d5ed117c81aad7649}{line\+\_\+rot}} (uint32\+\_\+t x1, uint32\+\_\+t y1, uint32\+\_\+t x2, uint32\+\_\+t y2)
+\item 
+void \mbox{\hyperlink{gfx_8c_a77bdf130b18e5f8eb59969bc8f5a230e}{vector\+\_\+graph}} (void)
+\item 
+void \mbox{\hyperlink{gfx_8c_aa2080426b652542e9259302e1675ff99}{vector\+\_\+graph\+\_\+fs}} (void)
+\item 
+void \mbox{\hyperlink{gfx_8c_aaa225045188399d71625dcdcb0d6b143}{LA\+\_\+gfx}} (bool reset, bool redraw, uint32\+\_\+t turns)
+\item 
+void \mbox{\hyperlink{gfx_8c_ac7dc2996521cf8b754ff34e6616e084f}{fft\+\_\+draw}} (uint8\+\_\+t freq, uint8\+\_\+t bin)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{gfx_8c_a8195a9951cb249d0edaa287b10e736b4}{xa}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{gfx_8c_a488101b14665bda8f3a47a6713838373}{ya}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{gfx_8c_afca86ebf04474546477f157527736886}{za}}
+\item 
+volatile double \mbox{\hyperlink{gfx_8c_a4c2fcff5d114d09cf77b133e198555e6}{q0}} = 1.\+0
+\item 
+volatile double \mbox{\hyperlink{gfx_8c_ae7d1cbce8e6278e6be3b7182c32cba06}{q1}} = 0.\+0
+\item 
+volatile double \mbox{\hyperlink{gfx_8c_a38fdb098df9deba94b3b76b1293aeb33}{q2}} = 0.\+0
+\item 
+volatile double \mbox{\hyperlink{gfx_8c_ab87c3d0fa96c71129280d2ce63618a02}{q3}} = 0.\+0
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{gfx_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{gfx_8c_ac7dc2996521cf8b754ff34e6616e084f}\index{gfx.c@{gfx.c}!fft\_draw@{fft\_draw}}
+\index{fft\_draw@{fft\_draw}!gfx.c@{gfx.c}}
+\doxysubsubsection{\texorpdfstring{fft\_draw()}{fft\_draw()}}
+{\footnotesize\ttfamily \label{gfx_8c_ac7dc2996521cf8b754ff34e6616e084f} 
+void fft\+\_\+draw (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{freq}{, }\item[{uint8\+\_\+t}]{bin}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gfx_8c_source_l00249}{249}} of file \mbox{\hyperlink{gfx_8c_source}{gfx.\+c}}.
+
+\Hypertarget{gfx_8c_aaa225045188399d71625dcdcb0d6b143}\index{gfx.c@{gfx.c}!LA\_gfx@{LA\_gfx}}
+\index{LA\_gfx@{LA\_gfx}!gfx.c@{gfx.c}}
+\doxysubsubsection{\texorpdfstring{LA\_gfx()}{LA\_gfx()}}
+{\footnotesize\ttfamily \label{gfx_8c_aaa225045188399d71625dcdcb0d6b143} 
+void LA\+\_\+gfx (\begin{DoxyParamCaption}\item[{bool}]{reset}{, }\item[{bool}]{redraw}{, }\item[{uint32\+\_\+t}]{turns}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gfx_8c_source_l00196}{196}} of file \mbox{\hyperlink{gfx_8c_source}{gfx.\+c}}.
+
+\Hypertarget{gfx_8c_a97ea932fe8c86d4d5ed117c81aad7649}\index{gfx.c@{gfx.c}!line\_rot@{line\_rot}}
+\index{line\_rot@{line\_rot}!gfx.c@{gfx.c}}
+\doxysubsubsection{\texorpdfstring{line\_rot()}{line\_rot()}}
+{\footnotesize\ttfamily \label{gfx_8c_a97ea932fe8c86d4d5ed117c81aad7649} 
+void line\+\_\+rot (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{x1}{, }\item[{uint32\+\_\+t}]{y1}{, }\item[{uint32\+\_\+t}]{x2}{, }\item[{uint32\+\_\+t}]{y2}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gfx_8c_source_l00006}{6}} of file \mbox{\hyperlink{gfx_8c_source}{gfx.\+c}}.
+
+\Hypertarget{gfx_8c_a77bdf130b18e5f8eb59969bc8f5a230e}\index{gfx.c@{gfx.c}!vector\_graph@{vector\_graph}}
+\index{vector\_graph@{vector\_graph}!gfx.c@{gfx.c}}
+\doxysubsubsection{\texorpdfstring{vector\_graph()}{vector\_graph()}}
+{\footnotesize\ttfamily \label{gfx_8c_a77bdf130b18e5f8eb59969bc8f5a230e} 
+void vector\+\_\+graph (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gfx_8c_source_l00012}{12}} of file \mbox{\hyperlink{gfx_8c_source}{gfx.\+c}}.
+
+\Hypertarget{gfx_8c_aa2080426b652542e9259302e1675ff99}\index{gfx.c@{gfx.c}!vector\_graph\_fs@{vector\_graph\_fs}}
+\index{vector\_graph\_fs@{vector\_graph\_fs}!gfx.c@{gfx.c}}
+\doxysubsubsection{\texorpdfstring{vector\_graph\_fs()}{vector\_graph\_fs()}}
+{\footnotesize\ttfamily \label{gfx_8c_aa2080426b652542e9259302e1675ff99} 
+void vector\+\_\+graph\+\_\+fs (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gfx_8c_source_l00081}{81}} of file \mbox{\hyperlink{gfx_8c_source}{gfx.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{gfx_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{gfx_8c_a4c2fcff5d114d09cf77b133e198555e6}\index{gfx.c@{gfx.c}!q0@{q0}}
+\index{q0@{q0}!gfx.c@{gfx.c}}
+\doxysubsubsection{\texorpdfstring{q0}{q0}}
+{\footnotesize\ttfamily \label{gfx_8c_a4c2fcff5d114d09cf77b133e198555e6} 
+volatile double q0 = 1.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{gfx_8c_source_l00004}{4}} of file \mbox{\hyperlink{gfx_8c_source}{gfx.\+c}}.
+
+\Hypertarget{gfx_8c_ae7d1cbce8e6278e6be3b7182c32cba06}\index{gfx.c@{gfx.c}!q1@{q1}}
+\index{q1@{q1}!gfx.c@{gfx.c}}
+\doxysubsubsection{\texorpdfstring{q1}{q1}}
+{\footnotesize\ttfamily \label{gfx_8c_ae7d1cbce8e6278e6be3b7182c32cba06} 
+volatile double q1 = 0.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{gfx_8c_source_l00004}{4}} of file \mbox{\hyperlink{gfx_8c_source}{gfx.\+c}}.
+
+\Hypertarget{gfx_8c_a38fdb098df9deba94b3b76b1293aeb33}\index{gfx.c@{gfx.c}!q2@{q2}}
+\index{q2@{q2}!gfx.c@{gfx.c}}
+\doxysubsubsection{\texorpdfstring{q2}{q2}}
+{\footnotesize\ttfamily \label{gfx_8c_a38fdb098df9deba94b3b76b1293aeb33} 
+volatile double q2 = 0.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{gfx_8c_source_l00004}{4}} of file \mbox{\hyperlink{gfx_8c_source}{gfx.\+c}}.
+
+\Hypertarget{gfx_8c_ab87c3d0fa96c71129280d2ce63618a02}\index{gfx.c@{gfx.c}!q3@{q3}}
+\index{q3@{q3}!gfx.c@{gfx.c}}
+\doxysubsubsection{\texorpdfstring{q3}{q3}}
+{\footnotesize\ttfamily \label{gfx_8c_ab87c3d0fa96c71129280d2ce63618a02} 
+volatile double q3 = 0.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{gfx_8c_source_l00004}{4}} of file \mbox{\hyperlink{gfx_8c_source}{gfx.\+c}}.
+
+\Hypertarget{gfx_8c_a8195a9951cb249d0edaa287b10e736b4}\index{gfx.c@{gfx.c}!xa@{xa}}
+\index{xa@{xa}!gfx.c@{gfx.c}}
+\doxysubsubsection{\texorpdfstring{xa}{xa}}
+{\footnotesize\ttfamily \label{gfx_8c_a8195a9951cb249d0edaa287b10e736b4} 
+int32\+\_\+t xa}
+
+
+
+Definition at line \mbox{\hyperlink{gfx_8c_source_l00003}{3}} of file \mbox{\hyperlink{gfx_8c_source}{gfx.\+c}}.
+
+\Hypertarget{gfx_8c_a488101b14665bda8f3a47a6713838373}\index{gfx.c@{gfx.c}!ya@{ya}}
+\index{ya@{ya}!gfx.c@{gfx.c}}
+\doxysubsubsection{\texorpdfstring{ya}{ya}}
+{\footnotesize\ttfamily \label{gfx_8c_a488101b14665bda8f3a47a6713838373} 
+int32\+\_\+t ya}
+
+
+
+Definition at line \mbox{\hyperlink{gfx_8c_source_l00003}{3}} of file \mbox{\hyperlink{gfx_8c_source}{gfx.\+c}}.
+
+\Hypertarget{gfx_8c_afca86ebf04474546477f157527736886}\index{gfx.c@{gfx.c}!za@{za}}
+\index{za@{za}!gfx.c@{gfx.c}}
+\doxysubsubsection{\texorpdfstring{za}{za}}
+{\footnotesize\ttfamily \label{gfx_8c_afca86ebf04474546477f157527736886} 
+int32\+\_\+t za}
+
+
+
+Definition at line \mbox{\hyperlink{gfx_8c_source_l00003}{3}} of file \mbox{\hyperlink{gfx_8c_source}{gfx.\+c}}.
+

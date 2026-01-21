@@ -1,0 +1,137 @@
+\doxysection{plib\+\_\+qei1.\+c}
+\hypertarget{plib__qei1_8c_source}{}\label{plib__qei1_8c_source}\index{src/config/default/peripheral/qei/plib\_qei1.c@{src/config/default/peripheral/qei/plib\_qei1.c}}
+\mbox{\hyperlink{plib__qei1_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00002}00002\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00003}00003\ \textcolor{comment}{\ \ qei1\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00004}00004\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00005}00005\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00006}00006\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00007}00007\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00008}00008\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00009}00009\ \textcolor{comment}{\ \ \ \ plib\_qei1.c}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00010}00010\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00011}00011\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00012}00012\ \textcolor{comment}{\ \ \ \ qei1\ PLIB\ Source\ File}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00013}00013\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00014}00014\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00015}00015\ \textcolor{comment}{\ \ \ \ None}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00016}00016\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00017}00017\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00018}00018\ \ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00019}00019\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00020}00020\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00021}00021\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00022}00022\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00023}00023\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00024}00024\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00025}00025\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00026}00026\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00027}00027\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00028}00028\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00029}00029\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00030}00030\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00031}00031\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00032}00032\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00033}00033\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00034}00034\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00035}00035\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00036}00036\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00037}00037\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00038}00038\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00039}00039\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00040}00040\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00042}00042\ \textcolor{comment}{//\ Section:\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00043}00043\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib__qei1_8h}{plib\_qei1.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00044}00044\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00045}00045\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{device_8h}{device.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00048}00048\ \textcolor{comment}{//Section:\ Macro\ Definitions}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00050}00050\ \textcolor{comment}{//Timer\ Input\ Clock\ Division}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00051}\mbox{\hyperlink{plib__qei1_8c_a7b0ff8daa6f1e97b25e978d5e74e2898}{00051}}\ \textcolor{preprocessor}{\#define\ QEI1CON\_INTDIV\_1\_1\ \ \ \ \ \ ((uint32\_t)(\_QEI1CON\_INTDIV\_MASK\ \&\ ((uint32\_t)(0)\ <<\_QEI1CON\_INTDIV\_POSITION)))\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00052}\mbox{\hyperlink{plib__qei1_8c_a9e2f444d1707f58668f1d25cadb88a2d}{00052}}\ \textcolor{preprocessor}{\#define\ QEI1CON\_INTDIV\_1\_2\ \ \ \ \ \ ((uint32\_t)(\_QEI1CON\_INTDIV\_MASK\ \&\ ((uint32\_t)(1)\ <<\_QEI1CON\_INTDIV\_POSITION)))\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00053}\mbox{\hyperlink{plib__qei1_8c_a20310c75be46d2cacd8f2de4564d941c}{00053}}\ \textcolor{preprocessor}{\#define\ QEI1CON\_INTDIV\_1\_4\ \ \ \ \ \ ((uint32\_t)(\_QEI1CON\_INTDIV\_MASK\ \&\ ((uint32\_t)(2)\ <<\_QEI1CON\_INTDIV\_POSITION)))\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00054}\mbox{\hyperlink{plib__qei1_8c_ae3fb02fb8afc2b1704d7c60117210937}{00054}}\ \textcolor{preprocessor}{\#define\ QEI1CON\_INTDIV\_1\_8\ \ \ \ \ \ ((uint32\_t)(\_QEI1CON\_INTDIV\_MASK\ \&\ ((uint32\_t)(3)\ <<\_QEI1CON\_INTDIV\_POSITION)))\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00055}\mbox{\hyperlink{plib__qei1_8c_a38a559bb49c2e4417e0518b9e8481d32}{00055}}\ \textcolor{preprocessor}{\#define\ QEI1CON\_INTDIV\_1\_16\ \ \ \ \ \ ((uint32\_t)(\_QEI1CON\_INTDIV\_MASK\ \&\ ((uint32\_t)(4)\ <<\_QEI1CON\_INTDIV\_POSITION)))\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00056}\mbox{\hyperlink{plib__qei1_8c_a2b81d4ebb72b678967a5bd1b08a663ad}{00056}}\ \textcolor{preprocessor}{\#define\ QEI1CON\_INTDIV\_1\_32\ \ \ \ \ \ ((uint32\_t)(\_QEI1CON\_INTDIV\_MASK\ \&\ ((uint32\_t)(5)\ <<\_QEI1CON\_INTDIV\_POSITION)))\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00057}\mbox{\hyperlink{plib__qei1_8c_ab5d413547d213171abd0636efb06ce18}{00057}}\ \textcolor{preprocessor}{\#define\ QEI1CON\_INTDIV\_1\_64\ \ \ \ \ \ ((uint32\_t)(\_QEI1CON\_INTDIV\_MASK\ \&\ ((uint32\_t)(6)\ <<\_QEI1CON\_INTDIV\_POSITION)))\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00058}\mbox{\hyperlink{plib__qei1_8c_a135a71b3731fc8d2a0b968ee84017571}{00058}}\ \textcolor{preprocessor}{\#define\ QEI1CON\_INTDIV\_1\_128\ \ \ \ \ \ ((uint32\_t)(\_QEI1CON\_INTDIV\_MASK\ \&\ ((uint32\_t)(7)\ <<\_QEI1CON\_INTDIV\_POSITION)))\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00060}00060\ \textcolor{comment}{//Digital\ Input\ Filter\ Clock\ Division}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00061}\mbox{\hyperlink{plib__qei1_8c_a00b3e9ef3d609d80883a1d0f4b2fc9a9}{00061}}\ \textcolor{preprocessor}{\#define\ QEI1IOC\_QFDIV\_1\_1\ \ \ \ \ \ \ \ ((uint32\_t)(\_QEI1IOC\_QFDIV\_MASK\ \&\ ((uint32\_t)(0)\ <<\_QEI1IOC\_QFDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00062}\mbox{\hyperlink{plib__qei1_8c_a5bf9c18456d9ba4ab103f241e1f636ef}{00062}}\ \textcolor{preprocessor}{\#define\ QEI1IOC\_QFDIV\_1\_2\ \ \ \ \ \ \ \ ((uint32\_t)(\_QEI1IOC\_QFDIV\_MASK\ \&\ ((uint32\_t)(1)\ <<\_QEI1IOC\_QFDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00063}\mbox{\hyperlink{plib__qei1_8c_a549630adaf2a266f2bb81f200b64406b}{00063}}\ \textcolor{preprocessor}{\#define\ QEI1IOC\_QFDIV\_1\_4\ \ \ \ \ \ \ \ ((uint32\_t)(\_QEI1IOC\_QFDIV\_MASK\ \&\ ((uint32\_t)(2)\ <<\_QEI1IOC\_QFDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00064}\mbox{\hyperlink{plib__qei1_8c_af9fd68cc49c5267570d0f17c319f32b9}{00064}}\ \textcolor{preprocessor}{\#define\ QEI1IOC\_QFDIV\_1\_8\ \ \ \ \ \ \ \ ((uint32\_t)(\_QEI1IOC\_QFDIV\_MASK\ \&\ ((uint32\_t)(3)\ <<\_QEI1IOC\_QFDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00065}\mbox{\hyperlink{plib__qei1_8c_af94a2021660a6f0f2d484bcd23fc6b60}{00065}}\ \textcolor{preprocessor}{\#define\ QEI1IOC\_QFDIV\_1\_16\ \ \ \ \ \ \ ((uint32\_t)(\_QEI1IOC\_QFDIV\_MASK\ \&\ ((uint32\_t)(4)\ <<\_QEI1IOC\_QFDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00066}\mbox{\hyperlink{plib__qei1_8c_a37b39ab41e27428c4af912bce2348949}{00066}}\ \textcolor{preprocessor}{\#define\ QEI1IOC\_QFDIV\_1\_32\ \ \ \ \ \ \ ((uint32\_t)(\_QEI1IOC\_QFDIV\_MASK\ \&\ ((uint32\_t)(5)\ <<\_QEI1IOC\_QFDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00067}\mbox{\hyperlink{plib__qei1_8c_a1b16dc8e26761529a2a8e1c4f2865bcd}{00067}}\ \textcolor{preprocessor}{\#define\ QEI1IOC\_QFDIV\_1\_64\ \ \ \ \ \ \ ((uint32\_t)(\_QEI1IOC\_QFDIV\_MASK\ \&\ ((uint32\_t)(6)\ <<\_QEI1IOC\_QFDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00068}\mbox{\hyperlink{plib__qei1_8c_a9534744dae946424ccf2fc208a111aa1}{00068}}\ \textcolor{preprocessor}{\#define\ QEI1IOC\_QFDIV\_1\_128\ \ \ \ \ \ ((uint32\_t)(\_QEI1IOC\_QFDIV\_MASK\ \&\ ((uint32\_t)(7)\ <<\_QEI1IOC\_QFDIV\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00070}00070\ \textcolor{comment}{//QEI\ Modes}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00071}\mbox{\hyperlink{plib__qei1_8c_ae20b1213f848184784f2e483235fdbb6}{00071}}\ \textcolor{preprocessor}{\#define\ QEI1CON\_PIMOD\_FREE\_RUNNING\ \ \ \ \ \ ((uint32\_t)(\_QEI1CON\_PIMOD\_MASK\ \&\ ((uint32\_t)(0)\ <<\_QEI1CON\_PIMOD\_POSITION)))\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00072}\mbox{\hyperlink{plib__qei1_8c_af7ad93fac700b04a1e97892c27c5894b}{00072}}\ \textcolor{preprocessor}{\#define\ QEI1CON\_PIMOD\_RESET\ \ \ \ \ \ ((uint32\_t)(\_QEI1CON\_PIMOD\_MASK\ \&\ ((uint32\_t)(1)\ <<\_QEI1CON\_PIMOD\_POSITION)))\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00073}\mbox{\hyperlink{plib__qei1_8c_ab3db50a52346e91133f48a86ba85a4e1}{00073}}\ \textcolor{preprocessor}{\#define\ QEI1CON\_PIMOD\_MODULO\ \ \ \ \ \ ((uint32\_t)(\_QEI1CON\_PIMOD\_MASK\ \&\ ((uint32\_t)(6)\ <<\_QEI1CON\_PIMOD\_POSITION)))\ }}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00075}00075\ \textcolor{comment}{//\ Section:\ QEI1\ PLIB\ Routines}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00077}\mbox{\hyperlink{plib__qei1_8c_acf0bb5afe66543bb04f40d61e01afb8f}{00077}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__qei1_8c_acf0bb5afe66543bb04f40d61e01afb8f}{QEI1\_Initialize}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00078}00078\ \{}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00079}00079\ \ \ \ \ QEI1CON\ =\ (\mbox{\hyperlink{plib__qei1_8c_a7b0ff8daa6f1e97b25e978d5e74e2898}{QEI1CON\_INTDIV\_1\_1}}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__qei1_8c_ae20b1213f848184784f2e483235fdbb6}{QEI1CON\_PIMOD\_FREE\_RUNNING}});}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00082}00082\ \ \ \ \ QEI1IOC\ =\ (\mbox{\hyperlink{plib__qei1_8c_a00b3e9ef3d609d80883a1d0f4b2fc9a9}{QEI1IOC\_QFDIV\_1\_1}});}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00084}00084\ \ \ \ \ QEI1STAT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00085}00085\ \ \ \ \ \textcolor{comment}{/*\ POSCNT\ 0x0;\ */}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00086}00086\ \ \ \ \ POS1CNT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00087}00087\ \ \ \ \ \textcolor{comment}{/*\ POSHLD\ 0x0;\ */}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00088}00088\ \ \ \ \ POS1HLD\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00089}00089\ \ \ \ \ \textcolor{comment}{/*\ VELCNT\ 0x0;\ */}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00090}00090\ \ \ \ \ VEL1CNT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00091}00091\ \ \ \ \ \textcolor{comment}{/*\ VELHLD\ 0x0;\ */}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00092}00092\ \ \ \ \ VEL1HLD\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00093}00093\ \ \ \ \ \textcolor{comment}{/*\ INTTMR\ 0x0;\ */}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00094}00094\ \ \ \ \ INT1TMR\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00095}00095\ \ \ \ \ \textcolor{comment}{/*\ INTHLD\ 0x0;\ */}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00096}00096\ \ \ \ \ INT1HLD\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00097}00097\ \ \ \ \ \textcolor{comment}{/*\ INDXCNT\ 0x0;\ */}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00098}00098\ \ \ \ \ INDX1CNT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00099}00099\ \ \ \ \ \textcolor{comment}{/*\ INDXHLD\ 0x0;\ */}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00100}00100\ \ \ \ \ INDX1HLD\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00101}00101\ \ \ \ \ \textcolor{comment}{/*\ QEI1GEC\ 0;\ */}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00102}00102\ \ \ \ \ QEI1GEC\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00103}00103\ \ \ \ \ \textcolor{comment}{/*\ QEI1LEC\ 0x0;\ */}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00104}00104\ \ \ \ \ QEI1LEC\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00105}00105\ \}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00107}\mbox{\hyperlink{plib__qei1_8c_a8bd28c7989f9e7d1da0e6d5828e8242f}{00107}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__qei1_8c_a8bd28c7989f9e7d1da0e6d5828e8242f}{QEI1\_Deinitialize}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00108}00108\ \{}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00109}00109\ \ \ \ \ \textcolor{comment}{//\ Disable\ QEI}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00110}00110\ \ \ \ \ QEI1\_Disable();}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00112}00112\ \ \ \ \ \textcolor{comment}{//\ De-\/initializing\ registers\ to\ POR\ values}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00113}00113\ \ \ \ \ INDX1CNT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00114}00114\ \ \ \ \ POS1CNT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00115}00115\ \ \ \ \ QEI1STAT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00116}00116\ \ \ \ \ INT1HLD\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00117}00117\ \ \ \ \ POS1HLD\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00118}00118\ \ \ \ \ VEL1CNT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00119}00119\ \ \ \ \ INT1TMR\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00120}00120\ \ \ \ \ VEL1HLD\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00121}00121\ \ \ \ \ QEI1IOC\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00122}00122\ \ \ \ \ QEI1CON\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00123}00123\ \ \ \ \ QEI1GEC\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00124}00124\ \ \ \ \ INDX1HLD\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00125}00125\ \ \ \ \ QEI1LEC\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00127}00127\ \}}
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{plib__qei1_8c_source_l00131}00131\ }
+
+\end{DoxyCode}

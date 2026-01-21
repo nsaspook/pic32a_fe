@@ -1,0 +1,116 @@
+\doxysection{plib\+\_\+opa2.\+h}
+\hypertarget{plib__opa2_8h_source}{}\label{plib__opa2_8h_source}\index{src/config/default/peripheral/opa/plib\_opa2.h@{src/config/default/peripheral/opa/plib\_opa2.h}}
+\mbox{\hyperlink{plib__opa2_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00002}00002\ \textcolor{comment}{\ \ OPA\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00006}00006\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00008}00008\ \textcolor{comment}{\ \ plib\_opa2.h}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ OPA\ PLIB\ Header\ File.}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ defines\ the\ interface\ to\ the\ OPAMP\ peripheral\ library.}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ This\ library\ provides\ access\ to\ and\ control\ of\ the\ associated\ OPAMP.}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00016}00016\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00017}00017\ \textcolor{comment}{\ \ Remarks:}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00018}00018\ \textcolor{comment}{\ \ \ \ None.}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00019}00019\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00020}00020\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00021}00021\ \textcolor{preprocessor}{\#ifndef\ PLIB\_OPA2\_H}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00022}00022\ \textcolor{preprocessor}{\#define\ PLIB\_OPA2\_H}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00024}00024\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00025}00025\ \textcolor{comment}{//\ Section:\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00026}00026\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{device_8h}{device.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib__opa__common_8h}{plib\_opa\_common.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00033}00033\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00034}00034\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00036}00036\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00038}00038\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00039}00039\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00051}00051\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__opa2_8h_add8ac4e3713eb7c16a2a9f20e32c8c0c}{OPA2\_Initialize}}\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00063}00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__opa2_8h_a2db9426616087f05c1618da12b992a0b}{OPA2\_Deinitialize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00075}00075\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ OPA2\_Enable(\ \textcolor{keywordtype}{void}\ )}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00076}00076\ \{}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00077}00077\ \ \ \ \ AMP2CON1bits.AMPEN\ =\ 1U;\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00090}00090\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ OPA2\_Disable(\ \textcolor{keywordtype}{void}\ )}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00091}00091\ \{}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00092}00092\ \ \ \ \ AMP2CON1bits.AMPEN\ =\ 0U;\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00093}00093\ \}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00104}00104\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ OPA2\_UnityGainEnable(\ \textcolor{keywordtype}{bool}\ enable\ )}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00105}00105\ \{}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00106}00106\ \ \ \ \ AMP2CON1bits.UGE\ =\ (uint8\_t)enable;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00107}00107\ \}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00118}00118\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ OPA2\_HighPowerModeEnable(\ \textcolor{keywordtype}{bool}\ enable\ )}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00119}00119\ \{}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00120}00120\ \ \ \ \ AMP2CON1bits.HPEN\ =\ (uint8\_t)enable;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00121}00121\ \}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00133}00133\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ OPA2\_OutputMonitorEnable(\ \textcolor{keywordtype}{bool}\ enable\ )}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00134}00134\ \{}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00135}00135\ \ \ \ \ AMP2CON1bits.OMONEN\ =\ (uint8\_t)enable;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00136}00136\ \}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00147}00147\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ OPA2\_DifferentialInputModeSet(\mbox{\hyperlink{plib__opa__common_8h_aa4e07283bb33548147a294685f439b05}{OPA\_DIFFERENTIAL\_INPUT\_MODE}}\ input)}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00148}00148\ \{}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00149}00149\ \ \ \ \ AMP2CON1bits.DIFFCON\ =\ (uint8\_t)input;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00150}00150\ \}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00159}00159\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ OPA2\_OffsetCorrection(\mbox{\hyperlink{plib__opa__common_8h_a7af28aa468fa4f8e1f0bacd99fd45ba3}{OPA\_OFFSET\_INPUT\_TYPE}}\ inputType,\ \mbox{\hyperlink{plib__opa__common_8h_a7623d27578f888c1adfd7736a984cbf8}{OPA\_OUTPUT\_VOLTAGE\_OFFSET\_CORRECTION}}\ unitVoltage)}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00160}00160\ \{}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00161}00161\ \ \ \ \ \ \textcolor{keywordflow}{switch}(inputType)}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00162}00162\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00163}00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__opa__common_8h_a7af28aa468fa4f8e1f0bacd99fd45ba3ad8a6a7a29b2072378be6d8b58c50f48d}{OPA\_PMOS\_OFFSET\_IN\_HIGH\_POWER\_MODE}}:}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ AMP2CON2bits.POFFSETHP\ =\ (uint8\_t)unitVoltage;}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00167}00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__opa__common_8h_a7af28aa468fa4f8e1f0bacd99fd45ba3a98c6c892371afa9802d16b61cc951e01}{OPA\_NMOS\_OFFSET\_IN\_HIGH\_POWER\_MODE}}:}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ AMP2CON2bits.NOFFSETLP\ =\ (uint8\_t)unitVoltage;}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00171}00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__opa__common_8h_a7af28aa468fa4f8e1f0bacd99fd45ba3ab27e98ad4df54e5ddbf2ed8211c37021}{OPA\_PMOS\_OFFSET\_IN\_LOW\_POWER\_MODE}}:}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ AMP2CON2bits.POFFSETHP\ \ =\ (uint8\_t)unitVoltage;}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00175}00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__opa__common_8h_a7af28aa468fa4f8e1f0bacd99fd45ba3ac1038cf7a00b93d9fdb575869fbec7f2}{OPA\_NMOS\_OFFSET\_IN\_LOW\_POWER\_MODE}}:}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ AMP2CON2bits.NOFFSETLP\ \ =\ (uint8\_t)unitVoltage;}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00179}00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Do\ Nothing*/}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00182}00182\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00183}00183\ \}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00186}00186\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00187}00187\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00189}00189\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00191}00191\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00192}00192\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__opa2_8h_source_l00193}00193\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+
+\end{DoxyCode}

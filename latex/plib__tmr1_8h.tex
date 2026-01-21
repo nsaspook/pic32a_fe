@@ -1,0 +1,502 @@
+\doxysection{src/config/default/peripheral/tmr/plib\+\_\+tmr1.h File Reference}
+\hypertarget{plib__tmr1_8h}{}\label{plib__tmr1_8h}\index{src/config/default/peripheral/tmr/plib\_tmr1.h@{src/config/default/peripheral/tmr/plib\_tmr1.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}device.\+h"{}}\newline
+{\ttfamily \#include "{}plib\+\_\+tmr\+\_\+common.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structTMR__TIMEOUT}{TMR\+\_\+\+TIMEOUT}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plib__tmr1_8h_a17c647069d95b6a155be94eb72257241}{TIMER\+\_\+\+CLOCK\+\_\+\+FREQUENCY}}~100000000
+\item 
+\#define \mbox{\hyperlink{plib__tmr1_8h_a9fa0b18cd3454954a2b257f74006229d}{TMR\+\_\+\+INTERRUPT\+\_\+\+PERIOD\+\_\+\+IN\+\_\+\+NS}}~500000
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__tmr1_8h_aeca9435d024c8eeada966c9dffbb8427}{TMR1\+\_\+\+Initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the TMR module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__tmr1_8h_a2841c95f77415643312872bc9e042fd9}{TMR1\+\_\+\+Deinitialize}} (void)
+\begin{DoxyCompactList}\small\item\em De-\/initializes the TMR module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__tmr1_8h_afed3745413684e23104d29539be4f2e5}{TMR1\+\_\+\+Start}} (void)
+\begin{DoxyCompactList}\small\item\em Starts the timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__tmr1_8h_a27bf11425ad1e1d2e8e16a14aebb5a9c}{TMR1\+\_\+\+Stop}} (void)
+\begin{DoxyCompactList}\small\item\em Stops the timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__tmr1_8h_aec8b74fdf82606cd129962d70f9f56c1}{TMR1\+\_\+\+Period\+Set}} (uint32\+\_\+t period)
+\begin{DoxyCompactList}\small\item\em Sets the timer period count value. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{plib__tmr1_8h_aa50908f589e42b6702f72a89e62d14df}{TMR1\+\_\+\+Period\+Get}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the timer period count value. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{plib__tmr1_8h_a0e9e48673a968d4bb88375f54c500b75}{TMR1\+\_\+\+Counter\+Get}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the timer elasped time value. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{plib__tmr1_8h_a8acd5b11bff2d00d3dabda7e9e1cdc03}{TMR1\+\_\+\+Frequency\+Get}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the timer clock frequency. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{plib__tmr1_8h_a9c985cda74eb114a5e0dc32a2432d796}{TMR1\+\_\+\+Get\+Tick\+Counter}} (void)
+\begin{DoxyCompactList}\small\item\em Returns current tick count. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__tmr1_8h_a0bba05773695bdaf4c9bed35cca6ce97}{TMR1\+\_\+\+Start\+Time\+Out}} (\mbox{\hyperlink{structTMR__TIMEOUT}{TMR\+\_\+\+TIMEOUT}} \texorpdfstring{$\ast$}{*}timeout, uint32\+\_\+t delay\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Stores current tick count and delay value in the timeout. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__tmr1_8h_a326aa4b33babf79817957697d2738160}{TMR1\+\_\+\+Reset\+Time\+Out}} (\mbox{\hyperlink{structTMR__TIMEOUT}{TMR\+\_\+\+TIMEOUT}} \texorpdfstring{$\ast$}{*}timeout)
+\begin{DoxyCompactList}\small\item\em Resets current tick count in the timeout. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__tmr1_8h_a142ba55962f7fa14e4dc4a8aa1d625d9}{TMR1\+\_\+\+Is\+Timeout\+Reached}} (\mbox{\hyperlink{structTMR__TIMEOUT}{TMR\+\_\+\+TIMEOUT}} \texorpdfstring{$\ast$}{*}timeout)
+\begin{DoxyCompactList}\small\item\em Checks for timeout. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__tmr1_8h_a59a67e99dfe8d52c9210683fc75c27d5}{TMR1\+\_\+\+Interrupt\+Enable}} (void)
+\begin{DoxyCompactList}\small\item\em Enables the timer interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__tmr1_8h_a025f586b354b2602f2642369351c4c85}{TMR1\+\_\+\+Interrupt\+Disable}} (void)
+\begin{DoxyCompactList}\small\item\em Disables the timer interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__tmr1_8h_a3f00b779f79d3099c522890b23aaa92c}{TMR1\+\_\+\+Callback\+Register}} (\mbox{\hyperlink{plib__tmr__common_8h_a3dfc0732b8dab247e647103a34b03727}{TMR\+\_\+\+CALLBACK}} callback\+\_\+fn, uintptr\+\_\+t context)
+\begin{DoxyCompactList}\small\item\em Registers a callback function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{plib__tmr1_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{plib__tmr1_8h_a17c647069d95b6a155be94eb72257241}\index{plib\_tmr1.h@{plib\_tmr1.h}!TIMER\_CLOCK\_FREQUENCY@{TIMER\_CLOCK\_FREQUENCY}}
+\index{TIMER\_CLOCK\_FREQUENCY@{TIMER\_CLOCK\_FREQUENCY}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_CLOCK\_FREQUENCY}{TIMER\_CLOCK\_FREQUENCY}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_a17c647069d95b6a155be94eb72257241} 
+\#define TIMER\+\_\+\+CLOCK\+\_\+\+FREQUENCY~100000000}
+
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8h_source_l00051}{51}} of file \mbox{\hyperlink{plib__tmr1_8h_source}{plib\+\_\+tmr1.\+h}}.
+
+\Hypertarget{plib__tmr1_8h_a9fa0b18cd3454954a2b257f74006229d}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR\_INTERRUPT\_PERIOD\_IN\_NS@{TMR\_INTERRUPT\_PERIOD\_IN\_NS}}
+\index{TMR\_INTERRUPT\_PERIOD\_IN\_NS@{TMR\_INTERRUPT\_PERIOD\_IN\_NS}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR\_INTERRUPT\_PERIOD\_IN\_NS}{TMR\_INTERRUPT\_PERIOD\_IN\_NS}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_a9fa0b18cd3454954a2b257f74006229d} 
+\#define TMR\+\_\+\+INTERRUPT\+\_\+\+PERIOD\+\_\+\+IN\+\_\+\+NS~500000}
+
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8h_source_l00053}{53}} of file \mbox{\hyperlink{plib__tmr1_8h_source}{plib\+\_\+tmr1.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{plib__tmr1_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__tmr1_8h_a3f00b779f79d3099c522890b23aaa92c}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR1\_CallbackRegister@{TMR1\_CallbackRegister}}
+\index{TMR1\_CallbackRegister@{TMR1\_CallbackRegister}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR1\_CallbackRegister()}{TMR1\_CallbackRegister()}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_a3f00b779f79d3099c522890b23aaa92c} 
+void TMR1\+\_\+\+Callback\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__tmr__common_8h_a3dfc0732b8dab247e647103a34b03727}{TMR\+\_\+\+CALLBACK}}}]{callback\+\_\+fn}{, }\item[{uintptr\+\_\+t}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Registers a callback function. 
+
+This function allows application to register an event handling function for the PLIB to call back when external interrupt occurs. At any point if application wants to stop the callback, it can call this function with "{}callback"{} value as NULL.
+
+\begin{DoxyPrecond}{Precondition}
+Timer should be initialized properly
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em callback} & -\/ Pointer to the event handler function implemented by the user \\
+\hline
+\mbox{\texttt{ in}}  & {\em context} & -\/ The value of parameter will be passed back to the application unchanged, when the event\+Handler function is called. It can be used to identify any application specific value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8c_source_l00183}{183}} of file \mbox{\hyperlink{plib__tmr1_8c_source}{plib\+\_\+tmr1.\+c}}.
+
+\Hypertarget{plib__tmr1_8h_a0e9e48673a968d4bb88375f54c500b75}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR1\_CounterGet@{TMR1\_CounterGet}}
+\index{TMR1\_CounterGet@{TMR1\_CounterGet}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR1\_CounterGet()}{TMR1\_CounterGet()}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_a0e9e48673a968d4bb88375f54c500b75} 
+uint32\+\_\+t TMR1\+\_\+\+Counter\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the timer elasped time value. 
+
+This function returns the timer elasped time value
+
+\begin{DoxyPrecond}{Precondition}
+Timer should be initialized properly
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elapsed count value of the timer 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8c_source_l00118}{118}} of file \mbox{\hyperlink{plib__tmr1_8c_source}{plib\+\_\+tmr1.\+c}}.
+
+\Hypertarget{plib__tmr1_8h_a2841c95f77415643312872bc9e042fd9}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR1\_Deinitialize@{TMR1\_Deinitialize}}
+\index{TMR1\_Deinitialize@{TMR1\_Deinitialize}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR1\_Deinitialize()}{TMR1\_Deinitialize()}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_a2841c95f77415643312872bc9e042fd9} 
+void TMR1\+\_\+\+Deinitialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+De-\/initializes the TMR module. 
+
+This function de-\/initializes the timer registers to POR values
+
+\begin{DoxyPrecond}{Precondition}
+None
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8c_source_l00084}{84}} of file \mbox{\hyperlink{plib__tmr1_8c_source}{plib\+\_\+tmr1.\+c}}.
+
+\Hypertarget{plib__tmr1_8h_a8acd5b11bff2d00d3dabda7e9e1cdc03}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR1\_FrequencyGet@{TMR1\_FrequencyGet}}
+\index{TMR1\_FrequencyGet@{TMR1\_FrequencyGet}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR1\_FrequencyGet()}{TMR1\_FrequencyGet()}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_a8acd5b11bff2d00d3dabda7e9e1cdc03} 
+uint32\+\_\+t TMR1\+\_\+\+Frequency\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the timer clock frequency. 
+
+This function returns the timer clock ffrequency
+
+\begin{DoxyPrecond}{Precondition}
+Timer should be initialized properly
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Timer clock frequency 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8c_source_l00123}{123}} of file \mbox{\hyperlink{plib__tmr1_8c_source}{plib\+\_\+tmr1.\+c}}.
+
+\Hypertarget{plib__tmr1_8h_a9c985cda74eb114a5e0dc32a2432d796}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR1\_GetTickCounter@{TMR1\_GetTickCounter}}
+\index{TMR1\_GetTickCounter@{TMR1\_GetTickCounter}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR1\_GetTickCounter()}{TMR1\_GetTickCounter()}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_a9c985cda74eb114a5e0dc32a2432d796} 
+uint32\+\_\+t TMR1\+\_\+\+Get\+Tick\+Counter (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns current tick count. 
+
+This function returns current tick count
+
+\begin{DoxyPrecond}{Precondition}
+Timer should be initialized properly
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Current tick count
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8c_source_l00128}{128}} of file \mbox{\hyperlink{plib__tmr1_8c_source}{plib\+\_\+tmr1.\+c}}.
+
+\Hypertarget{plib__tmr1_8h_aeca9435d024c8eeada966c9dffbb8427}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR1\_Initialize@{TMR1\_Initialize}}
+\index{TMR1\_Initialize@{TMR1\_Initialize}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR1\_Initialize()}{TMR1\_Initialize()}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_aeca9435d024c8eeada966c9dffbb8427} 
+void TMR1\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the TMR module. 
+
+This function initializes the TMR registers based on the selections made in Configuration Options
+
+\begin{DoxyPrecond}{Precondition}
+None
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8c_source_l00065}{65}} of file \mbox{\hyperlink{plib__tmr1_8c_source}{plib\+\_\+tmr1.\+c}}.
+
+\Hypertarget{plib__tmr1_8h_a025f586b354b2602f2642369351c4c85}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR1\_InterruptDisable@{TMR1\_InterruptDisable}}
+\index{TMR1\_InterruptDisable@{TMR1\_InterruptDisable}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR1\_InterruptDisable()}{TMR1\_InterruptDisable()}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_a025f586b354b2602f2642369351c4c85} 
+void TMR1\+\_\+\+Interrupt\+Disable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Disables the timer interrupt. 
+
+This function disables the timer interrupt
+
+\begin{DoxyPrecond}{Precondition}
+Timer should be initialized properly
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8c_source_l00177}{177}} of file \mbox{\hyperlink{plib__tmr1_8c_source}{plib\+\_\+tmr1.\+c}}.
+
+\Hypertarget{plib__tmr1_8h_a59a67e99dfe8d52c9210683fc75c27d5}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR1\_InterruptEnable@{TMR1\_InterruptEnable}}
+\index{TMR1\_InterruptEnable@{TMR1\_InterruptEnable}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR1\_InterruptEnable()}{TMR1\_InterruptEnable()}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_a59a67e99dfe8d52c9210683fc75c27d5} 
+void TMR1\+\_\+\+Interrupt\+Enable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Enables the timer interrupt. 
+
+This function enables the timer interrupt
+
+\begin{DoxyPrecond}{Precondition}
+Timer should be initialized properly
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8c_source_l00171}{171}} of file \mbox{\hyperlink{plib__tmr1_8c_source}{plib\+\_\+tmr1.\+c}}.
+
+\Hypertarget{plib__tmr1_8h_a142ba55962f7fa14e4dc4a8aa1d625d9}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR1\_IsTimeoutReached@{TMR1\_IsTimeoutReached}}
+\index{TMR1\_IsTimeoutReached@{TMR1\_IsTimeoutReached}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR1\_IsTimeoutReached()}{TMR1\_IsTimeoutReached()}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_a142ba55962f7fa14e4dc4a8aa1d625d9} 
+bool TMR1\+\_\+\+Is\+Timeout\+Reached (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTMR__TIMEOUT}{TMR\+\_\+\+TIMEOUT}} \texorpdfstring{$\ast$}{*}}]{timeout}{}\end{DoxyParamCaption})}
+
+
+
+Checks for timeout. 
+
+This function checks for timeout
+
+\begin{DoxyPrecond}{Precondition}
+Timer should be initialized properly
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em timeout} & -\/ Pointer to timeout structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if timeout occurred otherwise false
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8c_source_l00144}{144}} of file \mbox{\hyperlink{plib__tmr1_8c_source}{plib\+\_\+tmr1.\+c}}.
+
+\Hypertarget{plib__tmr1_8h_aa50908f589e42b6702f72a89e62d14df}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR1\_PeriodGet@{TMR1\_PeriodGet}}
+\index{TMR1\_PeriodGet@{TMR1\_PeriodGet}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR1\_PeriodGet()}{TMR1\_PeriodGet()}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_aa50908f589e42b6702f72a89e62d14df} 
+uint32\+\_\+t TMR1\+\_\+\+Period\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the timer period count value. 
+
+This function returns the period count value
+
+\begin{DoxyPrecond}{Precondition}
+Timer should be initialized properly
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of clock counts 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8c_source_l00112}{112}} of file \mbox{\hyperlink{plib__tmr1_8c_source}{plib\+\_\+tmr1.\+c}}.
+
+\Hypertarget{plib__tmr1_8h_aec8b74fdf82606cd129962d70f9f56c1}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR1\_PeriodSet@{TMR1\_PeriodSet}}
+\index{TMR1\_PeriodSet@{TMR1\_PeriodSet}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR1\_PeriodSet()}{TMR1\_PeriodSet()}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_aec8b74fdf82606cd129962d70f9f56c1} 
+void TMR1\+\_\+\+Period\+Set (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{period}{}\end{DoxyParamCaption})}
+
+
+
+Sets the timer period count value. 
+
+This function sets the timer period count value
+
+\begin{DoxyPrecond}{Precondition}
+Timer should be initialized properly
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em period} & -\/ number of clock counts\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8c_source_l00106}{106}} of file \mbox{\hyperlink{plib__tmr1_8c_source}{plib\+\_\+tmr1.\+c}}.
+
+\Hypertarget{plib__tmr1_8h_a326aa4b33babf79817957697d2738160}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR1\_ResetTimeOut@{TMR1\_ResetTimeOut}}
+\index{TMR1\_ResetTimeOut@{TMR1\_ResetTimeOut}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR1\_ResetTimeOut()}{TMR1\_ResetTimeOut()}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_a326aa4b33babf79817957697d2738160} 
+void TMR1\+\_\+\+Reset\+Time\+Out (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTMR__TIMEOUT}{TMR\+\_\+\+TIMEOUT}} \texorpdfstring{$\ast$}{*}}]{timeout}{}\end{DoxyParamCaption})}
+
+
+
+Resets current tick count in the timeout. 
+
+This function resets current tick count in the timeout
+
+\begin{DoxyPrecond}{Precondition}
+Timer should be initialized properly
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em timeout} & -\/ timeout structure stores current tick count\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8c_source_l00139}{139}} of file \mbox{\hyperlink{plib__tmr1_8c_source}{plib\+\_\+tmr1.\+c}}.
+
+\Hypertarget{plib__tmr1_8h_afed3745413684e23104d29539be4f2e5}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR1\_Start@{TMR1\_Start}}
+\index{TMR1\_Start@{TMR1\_Start}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR1\_Start()}{TMR1\_Start()}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_afed3745413684e23104d29539be4f2e5} 
+void TMR1\+\_\+\+Start (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Starts the timer. 
+
+This function starts the timer
+
+\begin{DoxyPrecond}{Precondition}
+Timer should be initialized properly
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8c_source_l00095}{95}} of file \mbox{\hyperlink{plib__tmr1_8c_source}{plib\+\_\+tmr1.\+c}}.
+
+\Hypertarget{plib__tmr1_8h_a0bba05773695bdaf4c9bed35cca6ce97}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR1\_StartTimeOut@{TMR1\_StartTimeOut}}
+\index{TMR1\_StartTimeOut@{TMR1\_StartTimeOut}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR1\_StartTimeOut()}{TMR1\_StartTimeOut()}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_a0bba05773695bdaf4c9bed35cca6ce97} 
+void TMR1\+\_\+\+Start\+Time\+Out (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTMR__TIMEOUT}{TMR\+\_\+\+TIMEOUT}} \texorpdfstring{$\ast$}{*}}]{timeout}{, }\item[{uint32\+\_\+t}]{delay\+\_\+ms}{}\end{DoxyParamCaption})}
+
+
+
+Stores current tick count and delay value in the timeout. 
+
+This function stores current tick count and delay value in the timeout
+
+\begin{DoxyPrecond}{Precondition}
+Timer should be initialized properly
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em timeout} & -\/ timeout structure stores current tick count and delay value \\
+\hline
+{\em delay\+\_\+ms} & -\/ Delay value in millisecond\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8c_source_l00133}{133}} of file \mbox{\hyperlink{plib__tmr1_8c_source}{plib\+\_\+tmr1.\+c}}.
+
+\Hypertarget{plib__tmr1_8h_a27bf11425ad1e1d2e8e16a14aebb5a9c}\index{plib\_tmr1.h@{plib\_tmr1.h}!TMR1\_Stop@{TMR1\_Stop}}
+\index{TMR1\_Stop@{TMR1\_Stop}!plib\_tmr1.h@{plib\_tmr1.h}}
+\doxysubsubsection{\texorpdfstring{TMR1\_Stop()}{TMR1\_Stop()}}
+{\footnotesize\ttfamily \label{plib__tmr1_8h_a27bf11425ad1e1d2e8e16a14aebb5a9c} 
+void TMR1\+\_\+\+Stop (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Stops the timer. 
+
+This function stops the timer
+
+\begin{DoxyPrecond}{Precondition}
+None
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__tmr1_8c_source_l00100}{100}} of file \mbox{\hyperlink{plib__tmr1_8c_source}{plib\+\_\+tmr1.\+c}}.
+

@@ -1,0 +1,161 @@
+\doxysection{src/main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{src/main.c@{src/main.c}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include "{}definitions.\+h"{}}\newline
+{\ttfamily \#include "{}lcd\+\_\+drv/lcd\+\_\+drv.\+h"{}}\newline
+{\ttfamily \#include "{}timers.\+h"{}}\newline
+{\ttfamily \#include "{}samples.\+h"{}}\newline
+{\ttfamily \#include "{}is66.\+h"{}}\newline
+{\ttfamily \#include "{}sca3300.\+h"{}}\newline
+{\ttfamily \#include "{}imu.\+h"{}}\newline
+{\ttfamily \#include "{}gfx.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \mbox{\hyperlink{main_8c_a4a7ef3ee50b7085a96613533da61e4be}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((address(\mbox{\hyperlink{lcd__drv_8h_a91cf8a3364d72a6a88a32c682d86eb21}{YRAM}})))
+\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\item 
+void \mbox{\hyperlink{main_8c_afadbe86295797c3abbee652d1022ce22}{fe\+\_\+version}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{main_8c_a119095ec252e2213e9f3a9617cd25c86}{SW1\+\_\+\+SET}} = false
+\item 
+bool \mbox{\hyperlink{main_8c_ab70a2d838b1f089ac6964cf3b1a1942c}{SW2\+\_\+\+SET}} = false
+\item 
+volatile uint16\+\_\+t \mbox{\hyperlink{main_8c_ada284e1e4e960e3a4fd5c0b0a93314e1}{tick\+Count}} \mbox{[}\mbox{\hyperlink{timers_8h_ad499250d949643c5a12161767059a3d2abaa7883f9d3702d4c1fba3442fec0595}{TMR\+\_\+\+COUNT}}\mbox{]}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{main_8c_a24ceb984a1f38928a0907263a740fffd}{board\+\_\+serial\+\_\+id}} = 0x35A
+\item 
+double \mbox{\hyperlink{main_8c_af8bcd1db96c6cacf2141f04f9fb28a3d}{adc1\+\_\+scaled}} = 0.\+0f
+\item 
+double \mbox{\hyperlink{main_8c_a7dc1f1c0333aa598042cec53a5acf12d}{adc2\+\_\+scaled}} = 0.\+0f
+\item 
+\mbox{\hyperlink{imu_8h_aca01ad5ca4539cd86c8aac1b490e8fa5}{s\+Sensor\+Data\+\_\+t}} \mbox{\hyperlink{main_8c_a5535498c52fc232645826b1b70daaf4a}{accel}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{main_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a4a7ef3ee50b7085a96613533da61e4be}\index{main.c@{main.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \label{main_8c_a4a7ef3ee50b7085a96613533da61e4be} 
+\mbox{\hyperlink{imu_8h_a465e0161c6a6378a23bf49e0e4178a0c}{imu\+\_\+cmd\+\_\+t}} \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(address(\mbox{\hyperlink{lcd__drv_8h_a91cf8a3364d72a6a88a32c682d86eb21}{YRAM}}))}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00037}{37}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_afadbe86295797c3abbee652d1022ce22}\index{main.c@{main.c}!fe\_version@{fe\_version}}
+\index{fe\_version@{fe\_version}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{fe\_version()}{fe\_version()}}
+{\footnotesize\ttfamily \label{main_8c_afadbe86295797c3abbee652d1022ce22} 
+void fe\+\_\+version (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00234}{234}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00062}{62}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{main_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8c_a5535498c52fc232645826b1b70daaf4a}\index{main.c@{main.c}!accel@{accel}}
+\index{accel@{accel}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{accel}{accel}}
+{\footnotesize\ttfamily \label{main_8c_a5535498c52fc232645826b1b70daaf4a} 
+\mbox{\hyperlink{imu_8h_aca01ad5ca4539cd86c8aac1b490e8fa5}{s\+Sensor\+Data\+\_\+t}} accel}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .id\ =\ 1,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00030}{30}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_af8bcd1db96c6cacf2141f04f9fb28a3d}\index{main.c@{main.c}!adc1\_scaled@{adc1\_scaled}}
+\index{adc1\_scaled@{adc1\_scaled}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{adc1\_scaled}{adc1\_scaled}}
+{\footnotesize\ttfamily \label{main_8c_af8bcd1db96c6cacf2141f04f9fb28a3d} 
+double adc1\+\_\+scaled = 0.\+0f}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00029}{29}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a7dc1f1c0333aa598042cec53a5acf12d}\index{main.c@{main.c}!adc2\_scaled@{adc2\_scaled}}
+\index{adc2\_scaled@{adc2\_scaled}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{adc2\_scaled}{adc2\_scaled}}
+{\footnotesize\ttfamily \label{main_8c_a7dc1f1c0333aa598042cec53a5acf12d} 
+double adc2\+\_\+scaled = 0.\+0f}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00029}{29}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a24ceb984a1f38928a0907263a740fffd}\index{main.c@{main.c}!board\_serial\_id@{board\_serial\_id}}
+\index{board\_serial\_id@{board\_serial\_id}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{board\_serial\_id}{board\_serial\_id}}
+{\footnotesize\ttfamily \label{main_8c_a24ceb984a1f38928a0907263a740fffd} 
+uint32\+\_\+t board\+\_\+serial\+\_\+id = 0x35A}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00028}{28}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a119095ec252e2213e9f3a9617cd25c86}\index{main.c@{main.c}!SW1\_SET@{SW1\_SET}}
+\index{SW1\_SET@{SW1\_SET}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{SW1\_SET}{SW1\_SET}}
+{\footnotesize\ttfamily \label{main_8c_a119095ec252e2213e9f3a9617cd25c86} 
+bool SW1\+\_\+\+SET = false}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00026}{26}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_ab70a2d838b1f089ac6964cf3b1a1942c}\index{main.c@{main.c}!SW2\_SET@{SW2\_SET}}
+\index{SW2\_SET@{SW2\_SET}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{SW2\_SET}{SW2\_SET}}
+{\footnotesize\ttfamily \label{main_8c_ab70a2d838b1f089ac6964cf3b1a1942c} 
+bool SW2\+\_\+\+SET = false}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00026}{26}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_ada284e1e4e960e3a4fd5c0b0a93314e1}\index{main.c@{main.c}!tickCount@{tickCount}}
+\index{tickCount@{tickCount}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{tickCount}{tickCount}}
+{\footnotesize\ttfamily \label{main_8c_ada284e1e4e960e3a4fd5c0b0a93314e1} 
+volatile uint16\+\_\+t tick\+Count\mbox{[}\mbox{\hyperlink{timers_8h_ad499250d949643c5a12161767059a3d2abaa7883f9d3702d4c1fba3442fec0595}{TMR\+\_\+\+COUNT}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00027}{27}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+

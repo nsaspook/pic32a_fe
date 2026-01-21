@@ -1,0 +1,513 @@
+\doxysection{src/config/default/peripheral/adc/plib\+\_\+adc2.c File Reference}
+\hypertarget{plib__adc2_8c}{}\label{plib__adc2_8c}\index{src/config/default/peripheral/adc/plib\_adc2.c@{src/config/default/peripheral/adc/plib\_adc2.c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}device.\+h"{}}\newline
+{\ttfamily \#include "{}interrupts.\+h"{}}\newline
+{\ttfamily \#include "{}plib\+\_\+adc\+\_\+common.\+h"{}}\newline
+{\ttfamily \#include "{}plib\+\_\+adc2.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_ac7854b8eba154034b1ee6ad5a3ef3f95}{AD2\+CON\+\_\+\+MODE\+\_\+\+POWERED\+\_\+\+DOWN}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+AD2\+CON\+\_\+\+MODE\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_a3920c73f69c1c0c18594d85c2ad6a94a}{AD2\+CON\+\_\+\+MODE\+\_\+\+STANDBY}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+AD2\+CON\+\_\+\+MODE\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_a74f7d4ef83ccb967941adb0c3d6ebed7}{AD2\+CON\+\_\+\+MODE\+\_\+\+ON}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+AD2\+CON\+\_\+\+MODE\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_a50f305314b15fd31edc86842e5981bf8}{AD2\+CON\+\_\+\+RPTCNT\+\_\+\+SET}}(value)
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_ad7d289d4db5dca769c3ecb868537a751}{AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+SINGLE\+\_\+\+SAMPLE}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_aa1db3090f504713db80ea9e896cb7c3d}{AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+WINDOW}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_af86957c4677c65ed065449e13c6037e0}{AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+INTEGRATION}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_a901b2b2d8d71fd3d1345c032d162c02d}{AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+OVERSAMPLING}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_abc6091634c311abec9abfe820ce00b51}{AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+4\+\_\+\+SAMPLES}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_ad96ad29c1b5069f8267826d1f73ffcb9}{AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+16\+\_\+\+SAMPLES}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_aaad7821544a9138153fd92cbe8ada458}{AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+64\+\_\+\+SAMPLES}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_a533a87e034638969a3b345e6d2533a55}{AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+256\+\_\+\+SAMPLES}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_af2310026c0bb4bbd49ff492c0e63a721}{AD2\+CH4\+CON\+\_\+\+TRG2\+SRC\+\_\+\+SET}}(value)
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_a5506a1867b5c2f1c2c35811d43c79715}{AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+DISABLED}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_ae6a27b76115f724fca03a58183f2fa6c}{AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+OUT\+\_\+\+OF\+\_\+\+BOUNDS}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_a818ee316342b48d8649e34003856f8d6}{AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+IN\+\_\+\+BOUNDS}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_a0febc308809dcecbedee320abe5eee5d}{AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+GRATER\+\_\+\+THAN}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_a9368f7a40b97cfd3f50b60a0974a512f}{AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+LESS\+\_\+\+THAN\+\_\+\+OR\+\_\+\+EQUAL}}~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(4) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_a61396fa738bc542340752962fb10d4df}{AD2\+CH4\+CON\+\_\+\+PINSEL\+\_\+\+SET}}(value)
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_a094ffec56ff681a41a0d6d4d6de0ed50}{AD2\+CH4\+CON\+\_\+\+NINSEL\+\_\+\+SET}}(value)
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_ace19f80f332748c2341f6136d088e9bd}{AD2\+CH4\+CON\+\_\+\+SAMC\+\_\+\+SET}}(value)
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_aaa4b75c7ac6c92b58ada0ffae9e8a6de}{AD2\+CH4\+CON\+\_\+\+TRG1\+SRC\+\_\+\+SET}}(value)
+\item 
+\#define \mbox{\hyperlink{plib__adc2_8c_a7960ea8489c32d276c9b2033947e33c3}{AD2\+CH4\+CNT\+\_\+\+CNT\+\_\+\+SET}}(value)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705}{ADC2\+\_\+\+PWM\+\_\+\+TRIGGERS}} \{ \newline
+\mbox{\hyperlink{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705a9a66209fd9adce1480888fccdb7af375}{PWM1\+\_\+\+TRIGGER1}} = 4
+, \mbox{\hyperlink{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705aee7b187a37111f007f8b03af10e6b270}{PWM1\+\_\+\+TRIGGER2}} = 5
+, \mbox{\hyperlink{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705a0a414bc10c6731b234ece4526527ad96}{PWM2\+\_\+\+TRIGGER1}} = 6
+, \mbox{\hyperlink{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705a651c944d2212f849890589e19c3a1fdd}{PWM2\+\_\+\+TRIGGER2}} = 7
+, \newline
+\mbox{\hyperlink{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705ab6d61b67cc881b6cf971e30582bd5e54}{PWM3\+\_\+\+TRIGGER1}} = 8
+, \mbox{\hyperlink{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705a16663ef5fc0836958369ed2955448727}{PWM3\+\_\+\+TRIGGER2}} = 9
+, \mbox{\hyperlink{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705ad930f153d0c43ed8ff6669a98691cbc8}{PWM4\+\_\+\+TRIGGER1}} = 10
+, \mbox{\hyperlink{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705ac9ecc21317fb7544279116539d455aa7}{PWM4\+\_\+\+TRIGGER2}} = 11
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__adc2_8c_a987ebcb79cab29ecba0dc2983af54a74}{ADC2\+\_\+\+Initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes ADC2 module, using the given initialization data This function must be called before any other ADC2 function is called. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__adc2_8c_ab43e3265a8ac9ae6135fbbf24ae02dcf}{ADC2\+\_\+\+Deinitialize}} (void)
+\begin{DoxyCompactList}\small\item\em Deinitializes the ADC2 to POR values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__adc2_8c_a06b5fb7fb15947da1d8d63a0ca06b1ab}{ADC2\+\_\+\+PWMTrigger\+Source\+Set}} (\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\+\_\+\+CHANNEL}} channel, \mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23}{ADC2\+\_\+\+PWM\+\_\+\+INSTANCE}} pwm\+Instance, \mbox{\hyperlink{plib__adc__common_8h_a149ac70fba51af61abec9c9625d35e10}{ADC\+\_\+\+PWM\+\_\+\+TRIGGERS}} trigger\+Number)
+\begin{DoxyCompactList}\small\item\em Sets Trigger source as PWM Trigger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__adc2_8c_a865f997d78a4998390e0c057cde2583c}{ADC2\+\_\+\+Channel\+Callback\+Register}} (\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\+\_\+\+CHANNEL}} channel, \mbox{\hyperlink{plib__adc__common_8h_a0ecb5177d11a20d79e3b20305e9d8fa0}{ADC\+\_\+\+CHANNEL\+\_\+\+CALLBACK}} callback, uintptr\+\_\+t context)
+\begin{DoxyCompactList}\small\item\em This function can be used to define custom callback for ADC2 Channel event. Read the conversion result of the corresponding channel in the custom callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{plib__adc2_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{plib__adc2_8c_a7960ea8489c32d276c9b2033947e33c3}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CNT\_CNT\_SET@{AD2CH4CNT\_CNT\_SET}}
+\index{AD2CH4CNT\_CNT\_SET@{AD2CH4CNT\_CNT\_SET}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CNT\_CNT\_SET}{AD2CH4CNT\_CNT\_SET}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a7960ea8489c32d276c9b2033947e33c3} 
+\#define AD2\+CH4\+CNT\+\_\+\+CNT\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_AD2CH4CNT\_CNT\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_AD2CH4CNT\_CNT\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00096}{96}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_ad96ad29c1b5069f8267826d1f73ffcb9}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_ACCNUM\_16\_SAMPLES@{AD2CH4CON\_ACCNUM\_16\_SAMPLES}}
+\index{AD2CH4CON\_ACCNUM\_16\_SAMPLES@{AD2CH4CON\_ACCNUM\_16\_SAMPLES}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_ACCNUM\_16\_SAMPLES}{AD2CH4CON\_ACCNUM\_16\_SAMPLES}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_ad96ad29c1b5069f8267826d1f73ffcb9} 
+\#define AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+16\+\_\+\+SAMPLES~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00069}{69}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_a533a87e034638969a3b345e6d2533a55}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_ACCNUM\_256\_SAMPLES@{AD2CH4CON\_ACCNUM\_256\_SAMPLES}}
+\index{AD2CH4CON\_ACCNUM\_256\_SAMPLES@{AD2CH4CON\_ACCNUM\_256\_SAMPLES}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_ACCNUM\_256\_SAMPLES}{AD2CH4CON\_ACCNUM\_256\_SAMPLES}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a533a87e034638969a3b345e6d2533a55} 
+\#define AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+256\+\_\+\+SAMPLES~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00071}{71}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_abc6091634c311abec9abfe820ce00b51}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_ACCNUM\_4\_SAMPLES@{AD2CH4CON\_ACCNUM\_4\_SAMPLES}}
+\index{AD2CH4CON\_ACCNUM\_4\_SAMPLES@{AD2CH4CON\_ACCNUM\_4\_SAMPLES}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_ACCNUM\_4\_SAMPLES}{AD2CH4CON\_ACCNUM\_4\_SAMPLES}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_abc6091634c311abec9abfe820ce00b51} 
+\#define AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+4\+\_\+\+SAMPLES~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00068}{68}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_aaad7821544a9138153fd92cbe8ada458}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_ACCNUM\_64\_SAMPLES@{AD2CH4CON\_ACCNUM\_64\_SAMPLES}}
+\index{AD2CH4CON\_ACCNUM\_64\_SAMPLES@{AD2CH4CON\_ACCNUM\_64\_SAMPLES}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_ACCNUM\_64\_SAMPLES}{AD2CH4CON\_ACCNUM\_64\_SAMPLES}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_aaad7821544a9138153fd92cbe8ada458} 
+\#define AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+64\+\_\+\+SAMPLES~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+ACCNUM\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00070}{70}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_a5506a1867b5c2f1c2c35811d43c79715}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_CMPMOD\_DISABLED@{AD2CH4CON\_CMPMOD\_DISABLED}}
+\index{AD2CH4CON\_CMPMOD\_DISABLED@{AD2CH4CON\_CMPMOD\_DISABLED}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_CMPMOD\_DISABLED}{AD2CH4CON\_CMPMOD\_DISABLED}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a5506a1867b5c2f1c2c35811d43c79715} 
+\#define AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+DISABLED~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00077}{77}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_a0febc308809dcecbedee320abe5eee5d}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_CMPMOD\_GRATER\_THAN@{AD2CH4CON\_CMPMOD\_GRATER\_THAN}}
+\index{AD2CH4CON\_CMPMOD\_GRATER\_THAN@{AD2CH4CON\_CMPMOD\_GRATER\_THAN}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_CMPMOD\_GRATER\_THAN}{AD2CH4CON\_CMPMOD\_GRATER\_THAN}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a0febc308809dcecbedee320abe5eee5d} 
+\#define AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+GRATER\+\_\+\+THAN~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00080}{80}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_a818ee316342b48d8649e34003856f8d6}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_CMPMOD\_IN\_BOUNDS@{AD2CH4CON\_CMPMOD\_IN\_BOUNDS}}
+\index{AD2CH4CON\_CMPMOD\_IN\_BOUNDS@{AD2CH4CON\_CMPMOD\_IN\_BOUNDS}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_CMPMOD\_IN\_BOUNDS}{AD2CH4CON\_CMPMOD\_IN\_BOUNDS}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a818ee316342b48d8649e34003856f8d6} 
+\#define AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+IN\+\_\+\+BOUNDS~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00079}{79}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_a9368f7a40b97cfd3f50b60a0974a512f}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_CMPMOD\_LESS\_THAN\_OR\_EQUAL@{AD2CH4CON\_CMPMOD\_LESS\_THAN\_OR\_EQUAL}}
+\index{AD2CH4CON\_CMPMOD\_LESS\_THAN\_OR\_EQUAL@{AD2CH4CON\_CMPMOD\_LESS\_THAN\_OR\_EQUAL}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_CMPMOD\_LESS\_THAN\_OR\_EQUAL}{AD2CH4CON\_CMPMOD\_LESS\_THAN\_OR\_EQUAL}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a9368f7a40b97cfd3f50b60a0974a512f} 
+\#define AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+LESS\+\_\+\+THAN\+\_\+\+OR\+\_\+\+EQUAL~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(4) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00081}{81}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_ae6a27b76115f724fca03a58183f2fa6c}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_CMPMOD\_OUT\_OF\_BOUNDS@{AD2CH4CON\_CMPMOD\_OUT\_OF\_BOUNDS}}
+\index{AD2CH4CON\_CMPMOD\_OUT\_OF\_BOUNDS@{AD2CH4CON\_CMPMOD\_OUT\_OF\_BOUNDS}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_CMPMOD\_OUT\_OF\_BOUNDS}{AD2CH4CON\_CMPMOD\_OUT\_OF\_BOUNDS}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_ae6a27b76115f724fca03a58183f2fa6c} 
+\#define AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+OUT\+\_\+\+OF\+\_\+\+BOUNDS~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+CMPMOD\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00078}{78}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_af86957c4677c65ed065449e13c6037e0}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_MODE\_INTEGRATION@{AD2CH4CON\_MODE\_INTEGRATION}}
+\index{AD2CH4CON\_MODE\_INTEGRATION@{AD2CH4CON\_MODE\_INTEGRATION}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_MODE\_INTEGRATION}{AD2CH4CON\_MODE\_INTEGRATION}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_af86957c4677c65ed065449e13c6037e0} 
+\#define AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+INTEGRATION~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00064}{64}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_a901b2b2d8d71fd3d1345c032d162c02d}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_MODE\_OVERSAMPLING@{AD2CH4CON\_MODE\_OVERSAMPLING}}
+\index{AD2CH4CON\_MODE\_OVERSAMPLING@{AD2CH4CON\_MODE\_OVERSAMPLING}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_MODE\_OVERSAMPLING}{AD2CH4CON\_MODE\_OVERSAMPLING}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a901b2b2d8d71fd3d1345c032d162c02d} 
+\#define AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+OVERSAMPLING~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00065}{65}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_ad7d289d4db5dca769c3ecb868537a751}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_MODE\_SINGLE\_SAMPLE@{AD2CH4CON\_MODE\_SINGLE\_SAMPLE}}
+\index{AD2CH4CON\_MODE\_SINGLE\_SAMPLE@{AD2CH4CON\_MODE\_SINGLE\_SAMPLE}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_MODE\_SINGLE\_SAMPLE}{AD2CH4CON\_MODE\_SINGLE\_SAMPLE}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_ad7d289d4db5dca769c3ecb868537a751} 
+\#define AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+SINGLE\+\_\+\+SAMPLE~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00062}{62}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_aa1db3090f504713db80ea9e896cb7c3d}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_MODE\_WINDOW@{AD2CH4CON\_MODE\_WINDOW}}
+\index{AD2CH4CON\_MODE\_WINDOW@{AD2CH4CON\_MODE\_WINDOW}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_MODE\_WINDOW}{AD2CH4CON\_MODE\_WINDOW}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_aa1db3090f504713db80ea9e896cb7c3d} 
+\#define AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+WINDOW~((uint32\+\_\+t)(\+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+AD2\+CH4\+CON\+\_\+\+MODE\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00063}{63}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_a094ffec56ff681a41a0d6d4d6de0ed50}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_NINSEL\_SET@{AD2CH4CON\_NINSEL\_SET}}
+\index{AD2CH4CON\_NINSEL\_SET@{AD2CH4CON\_NINSEL\_SET}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_NINSEL\_SET}{AD2CH4CON\_NINSEL\_SET}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a094ffec56ff681a41a0d6d4d6de0ed50} 
+\#define AD2\+CH4\+CON\+\_\+\+NINSEL\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_AD2CH4CON\_NINSEL\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_AD2CH4CON\_NINSEL\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00087}{87}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_a61396fa738bc542340752962fb10d4df}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_PINSEL\_SET@{AD2CH4CON\_PINSEL\_SET}}
+\index{AD2CH4CON\_PINSEL\_SET@{AD2CH4CON\_PINSEL\_SET}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_PINSEL\_SET}{AD2CH4CON\_PINSEL\_SET}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a61396fa738bc542340752962fb10d4df} 
+\#define AD2\+CH4\+CON\+\_\+\+PINSEL\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_AD2CH4CON\_PINSEL\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_AD2CH4CON\_PINSEL\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00084}{84}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_ace19f80f332748c2341f6136d088e9bd}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_SAMC\_SET@{AD2CH4CON\_SAMC\_SET}}
+\index{AD2CH4CON\_SAMC\_SET@{AD2CH4CON\_SAMC\_SET}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_SAMC\_SET}{AD2CH4CON\_SAMC\_SET}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_ace19f80f332748c2341f6136d088e9bd} 
+\#define AD2\+CH4\+CON\+\_\+\+SAMC\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_AD2CH4CON\_SAMC\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_AD2CH4CON\_SAMC\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00090}{90}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_aaa4b75c7ac6c92b58ada0ffae9e8a6de}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_TRG1SRC\_SET@{AD2CH4CON\_TRG1SRC\_SET}}
+\index{AD2CH4CON\_TRG1SRC\_SET@{AD2CH4CON\_TRG1SRC\_SET}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_TRG1SRC\_SET}{AD2CH4CON\_TRG1SRC\_SET}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_aaa4b75c7ac6c92b58ada0ffae9e8a6de} 
+\#define AD2\+CH4\+CON\+\_\+\+TRG1\+SRC\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_AD2CH4CON\_TRG1SRC\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_AD2CH4CON\_TRG1SRC\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00093}{93}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_af2310026c0bb4bbd49ff492c0e63a721}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CH4CON\_TRG2SRC\_SET@{AD2CH4CON\_TRG2SRC\_SET}}
+\index{AD2CH4CON\_TRG2SRC\_SET@{AD2CH4CON\_TRG2SRC\_SET}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CH4CON\_TRG2SRC\_SET}{AD2CH4CON\_TRG2SRC\_SET}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_af2310026c0bb4bbd49ff492c0e63a721} 
+\#define AD2\+CH4\+CON\+\_\+\+TRG2\+SRC\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_AD2CH4CON\_TRG2SRC\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_AD2CH4CON\_TRG2SRC\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00074}{74}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_a74f7d4ef83ccb967941adb0c3d6ebed7}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CON\_MODE\_ON@{AD2CON\_MODE\_ON}}
+\index{AD2CON\_MODE\_ON@{AD2CON\_MODE\_ON}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CON\_MODE\_ON}{AD2CON\_MODE\_ON}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a74f7d4ef83ccb967941adb0c3d6ebed7} 
+\#define AD2\+CON\+\_\+\+MODE\+\_\+\+ON~((uint32\+\_\+t)(\+\_\+\+AD2\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+AD2\+CON\+\_\+\+MODE\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00056}{56}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_ac7854b8eba154034b1ee6ad5a3ef3f95}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CON\_MODE\_POWERED\_DOWN@{AD2CON\_MODE\_POWERED\_DOWN}}
+\index{AD2CON\_MODE\_POWERED\_DOWN@{AD2CON\_MODE\_POWERED\_DOWN}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CON\_MODE\_POWERED\_DOWN}{AD2CON\_MODE\_POWERED\_DOWN}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_ac7854b8eba154034b1ee6ad5a3ef3f95} 
+\#define AD2\+CON\+\_\+\+MODE\+\_\+\+POWERED\+\_\+\+DOWN~((uint32\+\_\+t)(\+\_\+\+AD2\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+AD2\+CON\+\_\+\+MODE\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00054}{54}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_a3920c73f69c1c0c18594d85c2ad6a94a}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CON\_MODE\_STANDBY@{AD2CON\_MODE\_STANDBY}}
+\index{AD2CON\_MODE\_STANDBY@{AD2CON\_MODE\_STANDBY}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CON\_MODE\_STANDBY}{AD2CON\_MODE\_STANDBY}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a3920c73f69c1c0c18594d85c2ad6a94a} 
+\#define AD2\+CON\+\_\+\+MODE\+\_\+\+STANDBY~((uint32\+\_\+t)(\+\_\+\+AD2\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+AD2\+CON\+\_\+\+MODE\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00055}{55}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_a50f305314b15fd31edc86842e5981bf8}\index{plib\_adc2.c@{plib\_adc2.c}!AD2CON\_RPTCNT\_SET@{AD2CON\_RPTCNT\_SET}}
+\index{AD2CON\_RPTCNT\_SET@{AD2CON\_RPTCNT\_SET}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{AD2CON\_RPTCNT\_SET}{AD2CON\_RPTCNT\_SET}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a50f305314b15fd31edc86842e5981bf8} 
+\#define AD2\+CON\+\_\+\+RPTCNT\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((uint32\_t)(\_AD2CON\_RPTCNT\_MASK\ \&\ ((uint32\_t)(value)\ <<\ \_AD2CON\_RPTCNT\_POSITION)))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00059}{59}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{plib__adc2_8c_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705}\index{plib\_adc2.c@{plib\_adc2.c}!ADC2\_PWM\_TRIGGERS@{ADC2\_PWM\_TRIGGERS}}
+\index{ADC2\_PWM\_TRIGGERS@{ADC2\_PWM\_TRIGGERS}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{ADC2\_PWM\_TRIGGERS}{ADC2\_PWM\_TRIGGERS}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705} 
+enum \mbox{\hyperlink{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705}{ADC2\+\_\+\+PWM\+\_\+\+TRIGGERS}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM1\_TRIGGER1@{PWM1\_TRIGGER1}!plib\_adc2.c@{plib\_adc2.c}}\index{plib\_adc2.c@{plib\_adc2.c}!PWM1\_TRIGGER1@{PWM1\_TRIGGER1}}}\Hypertarget{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705a9a66209fd9adce1480888fccdb7af375}\label{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705a9a66209fd9adce1480888fccdb7af375} 
+PWM1\+\_\+\+TRIGGER1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM1\_TRIGGER2@{PWM1\_TRIGGER2}!plib\_adc2.c@{plib\_adc2.c}}\index{plib\_adc2.c@{plib\_adc2.c}!PWM1\_TRIGGER2@{PWM1\_TRIGGER2}}}\Hypertarget{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705aee7b187a37111f007f8b03af10e6b270}\label{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705aee7b187a37111f007f8b03af10e6b270} 
+PWM1\+\_\+\+TRIGGER2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM2\_TRIGGER1@{PWM2\_TRIGGER1}!plib\_adc2.c@{plib\_adc2.c}}\index{plib\_adc2.c@{plib\_adc2.c}!PWM2\_TRIGGER1@{PWM2\_TRIGGER1}}}\Hypertarget{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705a0a414bc10c6731b234ece4526527ad96}\label{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705a0a414bc10c6731b234ece4526527ad96} 
+PWM2\+\_\+\+TRIGGER1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM2\_TRIGGER2@{PWM2\_TRIGGER2}!plib\_adc2.c@{plib\_adc2.c}}\index{plib\_adc2.c@{plib\_adc2.c}!PWM2\_TRIGGER2@{PWM2\_TRIGGER2}}}\Hypertarget{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705a651c944d2212f849890589e19c3a1fdd}\label{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705a651c944d2212f849890589e19c3a1fdd} 
+PWM2\+\_\+\+TRIGGER2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM3\_TRIGGER1@{PWM3\_TRIGGER1}!plib\_adc2.c@{plib\_adc2.c}}\index{plib\_adc2.c@{plib\_adc2.c}!PWM3\_TRIGGER1@{PWM3\_TRIGGER1}}}\Hypertarget{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705ab6d61b67cc881b6cf971e30582bd5e54}\label{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705ab6d61b67cc881b6cf971e30582bd5e54} 
+PWM3\+\_\+\+TRIGGER1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM3\_TRIGGER2@{PWM3\_TRIGGER2}!plib\_adc2.c@{plib\_adc2.c}}\index{plib\_adc2.c@{plib\_adc2.c}!PWM3\_TRIGGER2@{PWM3\_TRIGGER2}}}\Hypertarget{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705a16663ef5fc0836958369ed2955448727}\label{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705a16663ef5fc0836958369ed2955448727} 
+PWM3\+\_\+\+TRIGGER2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM4\_TRIGGER1@{PWM4\_TRIGGER1}!plib\_adc2.c@{plib\_adc2.c}}\index{plib\_adc2.c@{plib\_adc2.c}!PWM4\_TRIGGER1@{PWM4\_TRIGGER1}}}\Hypertarget{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705ad930f153d0c43ed8ff6669a98691cbc8}\label{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705ad930f153d0c43ed8ff6669a98691cbc8} 
+PWM4\+\_\+\+TRIGGER1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM4\_TRIGGER2@{PWM4\_TRIGGER2}!plib\_adc2.c@{plib\_adc2.c}}\index{plib\_adc2.c@{plib\_adc2.c}!PWM4\_TRIGGER2@{PWM4\_TRIGGER2}}}\Hypertarget{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705ac9ecc21317fb7544279116539d455aa7}\label{plib__adc2_8c_a124c7972cd825594e0f51aa08bfff705ac9ecc21317fb7544279116539d455aa7} 
+PWM4\+\_\+\+TRIGGER2&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00105}{105}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{plib__adc2_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__adc2_8c_a865f997d78a4998390e0c057cde2583c}\index{plib\_adc2.c@{plib\_adc2.c}!ADC2\_ChannelCallbackRegister@{ADC2\_ChannelCallbackRegister}}
+\index{ADC2\_ChannelCallbackRegister@{ADC2\_ChannelCallbackRegister}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{ADC2\_ChannelCallbackRegister()}{ADC2\_ChannelCallbackRegister()}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a865f997d78a4998390e0c057cde2583c} 
+void ADC2\+\_\+\+Channel\+Callback\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\+\_\+\+CHANNEL}}}]{channel}{, }\item[{\mbox{\hyperlink{plib__adc__common_8h_a0ecb5177d11a20d79e3b20305e9d8fa0}{ADC\+\_\+\+CHANNEL\+\_\+\+CALLBACK}}}]{callback}{, }\item[{uintptr\+\_\+t}]{context}{}\end{DoxyParamCaption})}
+
+
+
+This function can be used to define custom callback for ADC2 Channel event. Read the conversion result of the corresponding channel in the custom callback. 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & -\/ Selected channel. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em callback} & -\/ Address of the channel callback function. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em context} & -\/ A value (usually a pointer) passed (unused) into the function identified by the callback parameter. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00209}{209}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_ab43e3265a8ac9ae6135fbbf24ae02dcf}\index{plib\_adc2.c@{plib\_adc2.c}!ADC2\_Deinitialize@{ADC2\_Deinitialize}}
+\index{ADC2\_Deinitialize@{ADC2\_Deinitialize}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{ADC2\_Deinitialize()}{ADC2\_Deinitialize()}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_ab43e3265a8ac9ae6135fbbf24ae02dcf} 
+void ADC2\+\_\+\+Deinitialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Deinitializes the ADC2 to POR values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00144}{144}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_a987ebcb79cab29ecba0dc2983af54a74}\index{plib\_adc2.c@{plib\_adc2.c}!ADC2\_Initialize@{ADC2\_Initialize}}
+\index{ADC2\_Initialize@{ADC2\_Initialize}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{ADC2\_Initialize()}{ADC2\_Initialize()}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a987ebcb79cab29ecba0dc2983af54a74} 
+void ADC2\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes ADC2 module, using the given initialization data This function must be called before any other ADC2 function is called. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00120}{120}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+
+\Hypertarget{plib__adc2_8c_a06b5fb7fb15947da1d8d63a0ca06b1ab}\index{plib\_adc2.c@{plib\_adc2.c}!ADC2\_PWMTriggerSourceSet@{ADC2\_PWMTriggerSourceSet}}
+\index{ADC2\_PWMTriggerSourceSet@{ADC2\_PWMTriggerSourceSet}!plib\_adc2.c@{plib\_adc2.c}}
+\doxysubsubsection{\texorpdfstring{ADC2\_PWMTriggerSourceSet()}{ADC2\_PWMTriggerSourceSet()}}
+{\footnotesize\ttfamily \label{plib__adc2_8c_a06b5fb7fb15947da1d8d63a0ca06b1ab} 
+void ADC2\+\_\+\+PWMTrigger\+Source\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__adc2_8h_af5833f91a3a1b05c7e07f4c8fc99c773}{ADC2\+\_\+\+CHANNEL}}}]{channel}{, }\item[{\mbox{\hyperlink{plib__adc2_8h_a952b53a9537fd05e64b524b1ad47ae23}{ADC2\+\_\+\+PWM\+\_\+\+INSTANCE}}}]{pwm\+Instance}{, }\item[{\mbox{\hyperlink{plib__adc__common_8h_a149ac70fba51af61abec9c9625d35e10}{ADC\+\_\+\+PWM\+\_\+\+TRIGGERS}}}]{trigger\+Number}{}\end{DoxyParamCaption})}
+
+
+
+Sets Trigger source as PWM Trigger. 
+
+\begin{DoxyPrecond}{Precondition}
+PWM must be enabled and configured 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & -\/ Selected channel. \\
+\hline
+\mbox{\texttt{ in}}  & {\em pwm\+Instance} & -\/ Instance of PWM. Refer Datasheet for available PWMs as trigger source \\
+\hline
+\mbox{\texttt{ in}}  & {\em trigger\+Number} & -\/ Selection between Trigger 1 or Trigger 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__adc2_8c_source_l00194}{194}} of file \mbox{\hyperlink{plib__adc2_8c_source}{plib\+\_\+adc2.\+c}}.
+

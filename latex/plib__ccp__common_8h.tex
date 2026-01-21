@@ -1,0 +1,56 @@
+\doxysection{src/config/default/peripheral/ccp/plib\+\_\+ccp\+\_\+common.h File Reference}
+\hypertarget{plib__ccp__common_8h}{}\label{plib__ccp__common_8h}\index{src/config/default/peripheral/ccp/plib\_ccp\_common.h@{src/config/default/peripheral/ccp/plib\_ccp\_common.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCCP__TIMER__OBJECT}{CCP\+\_\+\+TIMER\+\_\+\+OBJECT}}
+\item 
+struct \mbox{\hyperlink{structCCP__CAPTURE__OBJECT}{CCP\+\_\+\+CAPTURE\+\_\+\+OBJECT}}
+\item 
+struct \mbox{\hyperlink{structCCP__COMPARE__OBJECT}{CCP\+\_\+\+COMPARE\+\_\+\+OBJECT}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{plib__ccp__common_8h_a996299eba3ea5d5f581691356a40e4fb}{CCP\+\_\+\+TIMER\+\_\+\+CALLBACK}}) (uint32\+\_\+t status, uintptr\+\_\+t context)
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{plib__ccp__common_8h_ac990934c8e00f71ce8bc042fe59fc3b1}{CCP\+\_\+\+CAPTURE\+\_\+\+CALLBACK}}) (uintptr\+\_\+t context)
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{plib__ccp__common_8h_a3e8e30def2e9069b45906e3afe10340f}{CCP\+\_\+\+COMPARE\+\_\+\+CALLBACK}}) (uintptr\+\_\+t context)
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{plib__ccp__common_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{plib__ccp__common_8h_ac990934c8e00f71ce8bc042fe59fc3b1}\index{plib\_ccp\_common.h@{plib\_ccp\_common.h}!CCP\_CAPTURE\_CALLBACK@{CCP\_CAPTURE\_CALLBACK}}
+\index{CCP\_CAPTURE\_CALLBACK@{CCP\_CAPTURE\_CALLBACK}!plib\_ccp\_common.h@{plib\_ccp\_common.h}}
+\doxysubsubsection{\texorpdfstring{CCP\_CAPTURE\_CALLBACK}{CCP\_CAPTURE\_CALLBACK}}
+{\footnotesize\ttfamily \label{plib__ccp__common_8h_ac990934c8e00f71ce8bc042fe59fc3b1} 
+typedef void(\texorpdfstring{$\ast$}{*} CCP\+\_\+\+CAPTURE\+\_\+\+CALLBACK) (uintptr\+\_\+t context)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ccp__common_8h_source_l00124}{124}} of file \mbox{\hyperlink{plib__ccp__common_8h_source}{plib\+\_\+ccp\+\_\+common.\+h}}.
+
+\Hypertarget{plib__ccp__common_8h_a3e8e30def2e9069b45906e3afe10340f}\index{plib\_ccp\_common.h@{plib\_ccp\_common.h}!CCP\_COMPARE\_CALLBACK@{CCP\_COMPARE\_CALLBACK}}
+\index{CCP\_COMPARE\_CALLBACK@{CCP\_COMPARE\_CALLBACK}!plib\_ccp\_common.h@{plib\_ccp\_common.h}}
+\doxysubsubsection{\texorpdfstring{CCP\_COMPARE\_CALLBACK}{CCP\_COMPARE\_CALLBACK}}
+{\footnotesize\ttfamily \label{plib__ccp__common_8h_a3e8e30def2e9069b45906e3afe10340f} 
+typedef void(\texorpdfstring{$\ast$}{*} CCP\+\_\+\+COMPARE\+\_\+\+CALLBACK) (uintptr\+\_\+t context)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ccp__common_8h_source_l00153}{153}} of file \mbox{\hyperlink{plib__ccp__common_8h_source}{plib\+\_\+ccp\+\_\+common.\+h}}.
+
+\Hypertarget{plib__ccp__common_8h_a996299eba3ea5d5f581691356a40e4fb}\index{plib\_ccp\_common.h@{plib\_ccp\_common.h}!CCP\_TIMER\_CALLBACK@{CCP\_TIMER\_CALLBACK}}
+\index{CCP\_TIMER\_CALLBACK@{CCP\_TIMER\_CALLBACK}!plib\_ccp\_common.h@{plib\_ccp\_common.h}}
+\doxysubsubsection{\texorpdfstring{CCP\_TIMER\_CALLBACK}{CCP\_TIMER\_CALLBACK}}
+{\footnotesize\ttfamily \label{plib__ccp__common_8h_a996299eba3ea5d5f581691356a40e4fb} 
+typedef void(\texorpdfstring{$\ast$}{*} CCP\+\_\+\+TIMER\+\_\+\+CALLBACK) (uint32\+\_\+t status, uintptr\+\_\+t context)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__ccp__common_8h_source_l00095}{95}} of file \mbox{\hyperlink{plib__ccp__common_8h_source}{plib\+\_\+ccp\+\_\+common.\+h}}.
+

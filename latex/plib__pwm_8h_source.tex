@@ -1,0 +1,880 @@
+\doxysection{plib\+\_\+pwm.\+h}
+\hypertarget{plib__pwm_8h_source}{}\label{plib__pwm_8h_source}\index{src/config/default/peripheral/pwm/plib\_pwm.h@{src/config/default/peripheral/pwm/plib\_pwm.h}}
+\mbox{\hyperlink{plib__pwm_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00002}00002\ \textcolor{comment}{\ \ PWM\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00006}00006\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_pwm.h}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ PWM\ PLIB\ Header\ File}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ has\ prototype\ of\ all\ the\ interfaces\ provided\ for\ particular}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ PWM\ peripheral.}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00016}00016\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00017}00017\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00019}00019\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00020}00020\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00021}00021\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00022}00022\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00023}00023\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00024}00024\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00025}00025\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00026}00026\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00027}00027\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00028}00028\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00029}00029\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00030}00030\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00031}00031\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00032}00032\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00033}00033\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00034}00034\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00035}00035\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00036}00036\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00037}00037\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00038}00038\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00039}00039\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00040}00040\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifndef\ PWM\_H}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ PWM\_H}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00045}00045\ \textcolor{comment}{//\ Section:\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00047}00047\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{device_8h}{device.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00048}00048\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00049}00049\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00050}00050\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00052}00052\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00053}00053\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00054}00054\ \textcolor{comment}{//\ Section:\ Enum\ Declarations}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00055}00055\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00056}00056\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00068}\mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{00068}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_GENERATOR\_1\ \ \ \ \ \ 1U\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00069}\mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{00069}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_GENERATOR\_2\ \ \ \ \ \ 2U\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00070}\mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{00070}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_GENERATOR\_3\ \ \ \ \ \ 3U\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00072}\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{00072}}\ \textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00078}\mbox{\hyperlink{plib__pwm_8h_a75a65f20939b4726aa7ce375aaa3ab83}{00078}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_GENERATOR\_INTERRUPT\_FAULT\ \ \ \ \ \ \ \ \ \ \ 1U\ \ \ \ \ \ }\textcolor{preprocessor}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00079}\mbox{\hyperlink{plib__pwm_8h_aba0e6d94cc28427d8cf8c0df60451b3b}{00079}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_GENERATOR\_INTERRUPT\_CURRENT\_LIMIT\ \ \ 2U\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00080}\mbox{\hyperlink{plib__pwm_8h_a75812988c2c36eb5d3c6a7f0c8c2bc2d}{00080}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_GENERATOR\_INTERRUPT\_FEED\_FORWARD\ \ \ \ 3U\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00081}\mbox{\hyperlink{plib__pwm_8h_a4785981dbf087146ae49b46653852721}{00081}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_GENERATOR\_INTERRUPT\_SYNC\ \ \ \ \ \ \ \ \ \ \ \ 4U\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00083}\mbox{\hyperlink{plib__pwm_8h_acca3ac42dd63b438bd2fae8166f299ed}{00083}}\ \textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__pwm_8h_acca3ac42dd63b438bd2fae8166f299ed}{PWM\_GENERATOR\_INTERRUPT}};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00092}\mbox{\hyperlink{plib__pwm_8h_ae678abf6d234b9c0288df031d48ba4b8}{00092}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_TRIGGER\_COMPARE\_A\ \ \ \ 1U\ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00093}\mbox{\hyperlink{plib__pwm_8h_a8f3093b01969a1669a411f4c5cc84f7d}{00093}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_TRIGGER\_COMPARE\_B\ \ \ \ 2U\ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00094}\mbox{\hyperlink{plib__pwm_8h_ab32670b1b8fc7f15176f3d3e33ac4ffb}{00094}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_TRIGGER\_COMPARE\_C\ \ \ \ 3U\ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00096}\mbox{\hyperlink{plib__pwm_8h_a1735661bd1b7e7f67a43372f06106343}{00096}}\ \textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__pwm_8h_a1735661bd1b7e7f67a43372f06106343}{PWM\_TRIGGER\_COMPARE}};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00107}\mbox{\hyperlink{plib__pwm_8h_a87ddbfdf3a4de67c9eedf2e0c09fde3c}{00107}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_MODE\_INDEPENDENT\_EDGE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0U\ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00108}\mbox{\hyperlink{plib__pwm_8h_a823d6aa095c2249470d3bd44100f1f3d}{00108}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_MODE\_VARIABLE\_PHASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x1U\ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00109}\mbox{\hyperlink{plib__pwm_8h_a05de56f7deb4d1bbde86fc08c1298626}{00109}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_MODE\_INDEPENDENT\_EDGE\_DUAL\_OUTPUT\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x2U\ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00110}\mbox{\hyperlink{plib__pwm_8h_a6fc5de9474c95fe5e4bd7b0d074e87f4}{00110}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_MODE\_CENTER\_ALIGNED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x4U\ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00111}\mbox{\hyperlink{plib__pwm_8h_afc55d43b54a96b8c8d9758220880d296}{00111}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_MODE\_DOUBLE\_UPDATE\_CENTER\_ALIGNED\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x5U\ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00112}\mbox{\hyperlink{plib__pwm_8h_a6a4889ce05d6d67e9bf6727ad5791899}{00112}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_MODE\_DUALEDGE\_CTR\_ALIGNED\_ONE\_UPDATE\_CYCLE\ \ \ \ \ 0x6U\ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00113}\mbox{\hyperlink{plib__pwm_8h_ac0c48914d60aafe534ffda2732e60d97}{00113}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_MODE\_DUALEDGE\_CTR\_ALIGNED\_TWO\_UPDATES\_CYCLE\ \ \ \ 0x7U\ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00115}\mbox{\hyperlink{plib__pwm_8h_aa440e695cf0ed6aa083bd6e9e2062a07}{00115}}\ \textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__pwm_8h_aa440e695cf0ed6aa083bd6e9e2062a07}{PWM\_MODES}};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00124}\mbox{\hyperlink{plib__pwm_8h_abec45d2a88f7f79ae720b4434044ddec}{00124}}\ \textcolor{preprocessor}{\#define\ \ \ \ COMPLEMENTARY\_OUTPUT\_MODE\ \ \ 0x0U\ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00125}\mbox{\hyperlink{plib__pwm_8h_ab9c4955b3fbfce167abb9227253d10e5}{00125}}\ \textcolor{preprocessor}{\#define\ \ \ \ INDEPENDENT\_OUTPUT\_MODE\ \ \ \ \ 0x1U\ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00126}\mbox{\hyperlink{plib__pwm_8h_aecbf9a70f3f976d58e4c156b8aa45f48}{00126}}\ \textcolor{preprocessor}{\#define\ \ \ \ PUSH\_PULL\_OUTPUT\_MODE\ \ \ \ \ \ \ 0x2U\ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00128}\mbox{\hyperlink{plib__pwm_8h_a61d1fbf248f2f194a7ab5fd8b296ea20}{00128}}\ \textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__pwm_8h_a61d1fbf248f2f194a7ab5fd8b296ea20}{PWM\_OUTPUT\_MODES}};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00134}\mbox{\hyperlink{plib__pwm_8h_acf2a25632af070ec725edecbbbfe013d}{00134}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_SOURCE\_SELECT\_INDEPENDENT\ \ \ 0U\ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00135}\mbox{\hyperlink{plib__pwm_8h_a64c4462c32e9453a89a26d2228ca607e}{00135}}\ \textcolor{preprocessor}{\#define\ \ \ \ PWM\_SOURCE\_SELECT\_MASTER\ \ \ \ \ \ \ \ 1U\ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00137}\mbox{\hyperlink{plib__pwm_8h_a2ceae2adc6cab214be0100461c6a1380}{00137}}\ \textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__pwm_8h_a2ceae2adc6cab214be0100461c6a1380}{PWM\_SOURCE\_SELECT}};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00162}\mbox{\hyperlink{plib__pwm_8h_a4eff41a2253f515e62a9c989aa7b221f}{00162}}\ \textcolor{keyword}{typedef}\ \ void\ (*\mbox{\hyperlink{plib__pwm_8h_a4eff41a2253f515e62a9c989aa7b221f}{PWM\_GEN\_EOC\_EVENT\_CALLBACK}})\ (\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,\ uintptr\_t\ context);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00169}\mbox{\hyperlink{structPWM__GEN__EOC__EVENT__CALLBACK__OBJ}{00169}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00170}00170\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00171}\mbox{\hyperlink{structPWM__GEN__EOC__EVENT__CALLBACK__OBJ_a483c074527b049befcd39280e98806f0}{00171}}\ \ \ \ \ \mbox{\hyperlink{plib__pwm_8h_a4eff41a2253f515e62a9c989aa7b221f}{PWM\_GEN\_EOC\_EVENT\_CALLBACK}}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structPWM__GEN__EOC__EVENT__CALLBACK__OBJ_a483c074527b049befcd39280e98806f0}{callback}};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00172}00172\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00173}\mbox{\hyperlink{structPWM__GEN__EOC__EVENT__CALLBACK__OBJ_afb301b46bf1bb94237366e0db5c62810}{00173}}\ \ \ \ \ uintptr\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structPWM__GEN__EOC__EVENT__CALLBACK__OBJ_afb301b46bf1bb94237366e0db5c62810}{context}};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00174}00174\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00175}00175\ \}\mbox{\hyperlink{structPWM__GEN__EOC__EVENT__CALLBACK__OBJ}{PWM\_GEN\_EOC\_EVENT\_CALLBACK\_OBJ}};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00177}00177\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00178}00178\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00179}00179\ \textcolor{comment}{//\ Section:\ PWM\ Peripheral\ APIs}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00180}00180\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00181}00181\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00190}00190\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__pwm_8h_a2cdee1aefacc04ad6ed59618550226d0}{PWM\_Initialize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00200}00200\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__pwm_8h_a3ec1e3d2d4ba199e07f31f46e5f58a02}{PWM\_Deinitialize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00210}00210\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_GeneratorEnable(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00211}00211\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00212}00212\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00213}00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1CONbits.ON\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00216}00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2CONbits.ON\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00219}00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3CONbits.ON\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00222}00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00225}00225\ \ \ \ \ \}\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00226}00226\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00235}00235\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_GeneratorDisable(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00236}00236\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00237}00237\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00238}00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1CONbits.ON\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00241}00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2CONbits.ON\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00244}00244\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3CONbits.ON\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00247}00247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00250}00250\ \ \ \ \ \}\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00251}00251\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00262}00262\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_ModeSet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,\ \mbox{\hyperlink{plib__pwm_8h_aa440e695cf0ed6aa083bd6e9e2062a07}{PWM\_MODES}}\ mode)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00263}00263\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00264}00264\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00265}00265\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1CONbits.MODSEL\ =\ (uint8\_t)mode;\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00268}00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2CONbits.MODSEL\ =\ (uint8\_t)mode;\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00271}00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3CONbits.MODSEL\ =\ (uint8\_t)mode;\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00274}00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00277}00277\ \ \ \ \ \}\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00278}00278\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00289}00289\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_OutputModeSet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,\ \mbox{\hyperlink{plib__pwm_8h_a61d1fbf248f2f194a7ab5fd8b296ea20}{PWM\_OUTPUT\_MODES}}\ outputMode)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00290}00290\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00291}00291\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00292}00292\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1IOCONbits.PMOD\ =\ (uint8\_t)outputMode;\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00295}00295\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2IOCONbits.PMOD\ =\ (uint8\_t)outputMode;\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00298}00298\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3IOCONbits.PMOD\ =\ (uint8\_t)outputMode;\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00301}00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00304}00304\ \ \ \ \ \}\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00305}00305\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00306}00306\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00315}00315\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_Enable(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00316}00316\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00317}00317\ \ \ \ \ PG1CONbits.ON\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00318}00318\ \ \ \ \ PG2CONbits.ON\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00319}00319\ \ \ \ \ PG3CONbits.ON\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00320}00320\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00330}00330\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_Disable(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00331}00331\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00332}00332\ \ \ \ \ PG1CONbits.ON\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00333}00333\ \ \ \ \ PG2CONbits.ON\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00334}00334\ \ \ \ \ PG3CONbits.ON\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00335}00335\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00336}00336\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00346}00346\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_MasterPeriodSet(uint32\_t\ masterPeriod)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00347}00347\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00348}00348\ \ \ \ \ MPER\ =\ masterPeriod\ \&\ 0x000FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00349}00349\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00360}00360\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_MasterDutyCycleSet(uint32\_t\ masterDutyCycle)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00361}00361\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00362}00362\ \ \ \ \ MDC\ =\ masterDutyCycle\ \&\ 0x000FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00363}00363\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00364}00364\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00374}00374\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_MasterPhaseSet(uint32\_t\ masterPhase)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00375}00375\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00376}00376\ \ \ \ \ MPHASE\ =\ masterPhase\ \&\ 0x000FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00377}00377\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00378}00378\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00389}00389\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_PeriodSet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,uint32\_t\ period)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00390}00390\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00391}00391\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00392}00392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00393}00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1PER\ =\ period\ \&\ 0x000FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00395}00395\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2PER\ =\ period\ \&\ 0x000FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00398}00398\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00399}00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3PER\ =\ period\ \&\ 0x000FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00401}00401\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00404}00404\ \ \ \ \ \}\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00405}00405\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00406}00406\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00417}00417\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_DutyCycleSet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,uint32\_t\ dutyCycle)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00418}00418\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00419}00419\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00420}00420\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00421}00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1DC\ =\ dutyCycle\ \&\ 0x000FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00422}00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00423}00423\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00424}00424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2DC\ =\ dutyCycle\ \&\ 0x000FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00425}00425\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00426}00426\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00427}00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3DC\ =\ dutyCycle\ \&\ 0x000FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00428}00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00429}00429\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00430}00430\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00431}00431\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00432}00432\ \ \ \ \ \}\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00433}00433\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00434}00434\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00444}00444\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_PhaseSelect(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,\mbox{\hyperlink{plib__pwm_8h_a2ceae2adc6cab214be0100461c6a1380}{PWM\_SOURCE\_SELECT}}\ source)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00445}00445\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00446}00446\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00447}00447\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00448}00448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1CONbits.MPHSEL\ =\ (uint8\_t)source;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00449}00449\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00450}00450\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00451}00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2CONbits.MPHSEL\ =\ (uint8\_t)source;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00452}00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00453}00453\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00454}00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3CONbits.MPHSEL\ =\ (uint8\_t)source;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00455}00455\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00456}00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00457}00457\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00458}00458\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00459}00459\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00460}00460\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00461}00461\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00472}00472\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_PhaseSet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,uint32\_t\ phase)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00473}00473\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00474}00474\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00475}00475\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00476}00476\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1PHASE\ =\ phase\ \&\ 0x000FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00477}00477\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00478}00478\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00479}00479\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2PHASE\ =\ phase\ \&\ 0x000FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00480}00480\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00481}00481\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00482}00482\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3PHASE\ =\ phase\ \&\ 0x000FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00483}00483\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00484}00484\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00485}00485\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00486}00486\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00487}00487\ \ \ \ \ \}\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00488}00488\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00489}00489\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00500}00500\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_OverrideDataSet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,uint16\_t\ overrideData)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00501}00501\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00502}00502\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00503}00503\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00504}00504\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1IOCONbits.OVRDAT\ =\ (uint8\_t)overrideData;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00505}00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00506}00506\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00507}00507\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2IOCONbits.OVRDAT\ =\ (uint8\_t)overrideData;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00508}00508\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00509}00509\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00510}00510\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3IOCONbits.OVRDAT\ =\ (uint8\_t)overrideData;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00511}00511\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00512}00512\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00513}00513\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00514}00514\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00515}00515\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00516}00516\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00517}00517\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00527}00527\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_OverrideDataHighSet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,\textcolor{keywordtype}{bool}\ overrideDataHigh)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00528}00528\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00529}00529\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00530}00530\ \ \ \ \ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00531}00531\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00532}00532\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1IOCONbits.OVRDAT\ =\ (uint8\_t)((PG1IOCONbits.OVRDAT\ \&\ 0x1U)\ |\ ((uint8\_t)overrideDataHigh\ <<\ 0x1U));}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00533}00533\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00534}00534\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00535}00535\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2IOCONbits.OVRDAT\ =\ (uint8\_t)((PG2IOCONbits.OVRDAT\ \&\ 0x1U)\ |\ ((uint8\_t)overrideDataHigh\ <<\ 0x1U));}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00536}00536\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00537}00537\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00538}00538\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3IOCONbits.OVRDAT\ =\ (uint8\_t)((PG3IOCONbits.OVRDAT\ \&\ 0x1U)\ |\ ((uint8\_t)overrideDataHigh\ <<\ 0x1U));}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00539}00539\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00540}00540\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00541}00541\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00542}00542\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00543}00543\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00544}00544\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00545}00545\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00555}00555\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_OverrideDataLowSet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,\textcolor{keywordtype}{bool}\ overrideDataLow)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00556}00556\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00557}00557\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00558}00558\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00559}00559\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1IOCONbits.OVRDAT\ =\ (uint8\_t)((PG1IOCONbits.OVRDAT\ \&\ 0x2U)\ |\ overrideDataLow);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00560}00560\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00561}00561\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00562}00562\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2IOCONbits.OVRDAT\ =\ (uint8\_t)((PG2IOCONbits.OVRDAT\ \&\ 0x2U)\ |\ overrideDataLow);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00563}00563\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00564}00564\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00565}00565\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3IOCONbits.OVRDAT\ =\ (uint8\_t)((PG3IOCONbits.OVRDAT\ \&\ 0x2U)\ |\ overrideDataLow);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00566}00566\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00567}00567\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00568}00568\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00569}00569\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00570}00570\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00571}00571\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00572}00572\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00583}00583\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint16\_t\ PWM\_OverrideDataGet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00584}00584\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00585}00585\ \ \ \ \ uint16\_t\ overrideData\ =\ 0x0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00586}00586\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00587}00587\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00588}00588\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ overrideData\ =\ PG1IOCONbits.OVRDAT;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00589}00589\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00590}00590\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00591}00591\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ overrideData\ =\ PG2IOCONbits.OVRDAT;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00592}00592\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00593}00593\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00594}00594\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ overrideData\ =\ PG3IOCONbits.OVRDAT;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00595}00595\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00596}00596\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00597}00597\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00598}00598\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00599}00599\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00600}00600\ \ \ \ \ \textcolor{keywordflow}{return}\ overrideData;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00601}00601\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00602}00602\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00611}00611\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_OverrideHighEnable(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00612}00612\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00613}00613\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00614}00614\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00615}00615\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1IOCONbits.OVRENH\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00616}00616\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00617}00617\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00618}00618\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2IOCONbits.OVRENH\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00619}00619\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00620}00620\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00621}00621\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3IOCONbits.OVRENH\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00622}00622\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00623}00623\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00624}00624\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00625}00625\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00626}00626\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00627}00627\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00628}00628\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00637}00637\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_OverrideLowEnable(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00638}00638\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00639}00639\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00640}00640\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00641}00641\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1IOCONbits.OVRENL\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00642}00642\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00643}00643\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00644}00644\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2IOCONbits.OVRENL\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00645}00645\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00646}00646\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00647}00647\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3IOCONbits.OVRENL\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00648}00648\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00649}00649\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00650}00650\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00651}00651\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00652}00652\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00653}00653\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00654}00654\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00663}00663\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_OverrideHighDisable(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00664}00664\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00665}00665\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00666}00666\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00667}00667\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1IOCONbits.OVRENH\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00668}00668\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00669}00669\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00670}00670\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2IOCONbits.OVRENH\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00671}00671\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00672}00672\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00673}00673\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3IOCONbits.OVRENH\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00674}00674\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00675}00675\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00676}00676\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00677}00677\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00678}00678\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00679}00679\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00680}00680\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00689}00689\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_OverrideLowDisable(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00690}00690\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00691}00691\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00692}00692\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00693}00693\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1IOCONbits.OVRENL\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00694}00694\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00695}00695\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00696}00696\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2IOCONbits.OVRENL\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00697}00697\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00698}00698\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00699}00699\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3IOCONbits.OVRENL\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00700}00700\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00701}00701\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00702}00702\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00703}00703\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00704}00704\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00705}00705\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00706}00706\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00717}00717\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_DeadTimeLowSet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,uint16\_t\ deadtimeLow)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00718}00718\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00719}00719\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00720}00720\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00721}00721\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1DT\ =\ (PG1DT\ \&\ 0xFFFF0000UL)\ |\ (deadtimeLow\ \&\ (uint16\_t)0x7FFF);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00722}00722\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00723}00723\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00724}00724\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2DT\ =\ (PG2DT\ \&\ 0xFFFF0000UL)\ |\ (deadtimeLow\ \&\ (uint16\_t)0x7FFF);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00725}00725\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00726}00726\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00727}00727\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3DT\ =\ (PG3DT\ \&\ 0xFFFF0000UL)\ |\ (deadtimeLow\ \&\ (uint16\_t)0x7FFF);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00728}00728\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00729}00729\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00730}00730\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00731}00731\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00732}00732\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00733}00733\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00734}00734\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00745}00745\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_DeadTimeHighSet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,uint16\_t\ deadtimeHigh)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00746}00746\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00747}00747\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00748}00748\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00749}00749\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1DT\ =\ (((uint32\_t)deadtimeHigh\ \&\ (uint16\_t)0x7FFF)\ <<\ 16)\ |\ (uint16\_t)PG1DT;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00750}00750\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00751}00751\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00752}00752\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2DT\ =\ (((uint32\_t)deadtimeHigh\ \&\ (uint16\_t)0x7FFF)\ <<\ 16)\ |\ (uint16\_t)PG2DT;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00753}00753\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00754}00754\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00755}00755\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3DT\ =\ (((uint32\_t)deadtimeHigh\ \&\ (uint16\_t)0x7FFF)\ <<\ 16)\ |\ (uint16\_t)PG3DT;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00756}00756\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00757}00757\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00758}00758\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00759}00759\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00760}00760\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00761}00761\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00762}00762\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00773}00773\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_DeadTimeSet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,uint16\_t\ deadtime)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00774}00774\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00775}00775\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00776}00776\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00777}00777\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1DT\ =\ (((uint32\_t)deadtime\ \&\ (uint16\_t)0x7FFF)\ <<\ 16)\ |\ ((uint32\_t)deadtime\ \&\ (uint16\_t)0x7FFF);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00778}00778\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00779}00779\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00780}00780\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2DT\ =\ (((uint32\_t)deadtime\ \&\ (uint16\_t)0x7FFF)\ <<\ 16)\ |\ ((uint32\_t)deadtime\ \&\ (uint16\_t)0x7FFF);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00781}00781\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00782}00782\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00783}00783\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3DT\ =\ (((uint32\_t)deadtime\ \&\ (uint16\_t)0x7FFF)\ <<\ 16)\ |\ ((uint32\_t)deadtime\ \&\ (uint16\_t)0x7FFF);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00784}00784\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00785}00785\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00786}00786\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00787}00787\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00788}00788\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00789}00789\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00790}00790\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00802}00802\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_TriggerCompareValueSet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,uint32\_t\ trigCompValue)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00803}00803\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00804}00804\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00805}00805\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00806}00806\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1TRIGA\ =\ trigCompValue\ \&\ 0x000FFFF0UL;\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00807}00807\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00808}00808\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00809}00809\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2TRIGA\ =\ trigCompValue\ \&\ 0x000FFFF0UL;\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00810}00810\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00811}00811\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00812}00812\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3TRIGA\ =\ trigCompValue\ \&\ 0x000FFFF0UL;\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00813}00813\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00814}00814\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00815}00815\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00816}00816\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00817}00817\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00818}00818\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00819}00819\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00827}00827\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_GeneratorInterruptEnable(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,\ \mbox{\hyperlink{plib__pwm_8h_acca3ac42dd63b438bd2fae8166f299ed}{PWM\_GENERATOR\_INTERRUPT}}\ interrupt)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00828}00828\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00829}00829\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00830}00830\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00831}00831\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(interrupt)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00832}00832\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75a65f20939b4726aa7ce375aaa3ab83}{PWM\_GENERATOR\_INTERRUPT\_FAULT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00833}00833\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1EVTbits.FLTIEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00834}00834\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00835}00835\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_aba0e6d94cc28427d8cf8c0df60451b3b}{PWM\_GENERATOR\_INTERRUPT\_CURRENT\_LIMIT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00836}00836\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1EVTbits.CLIEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00837}00837\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00838}00838\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75812988c2c36eb5d3c6a7f0c8c2bc2d}{PWM\_GENERATOR\_INTERRUPT\_FEED\_FORWARD}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00839}00839\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1EVTbits.FFIEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00840}00840\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00841}00841\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a4785981dbf087146ae49b46653852721}{PWM\_GENERATOR\_INTERRUPT\_SYNC}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00842}00842\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1EVTbits.SIEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00843}00843\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00844}00844\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00845}00845\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ Interrupt\ type,\ do\ nothing\ */}\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00846}00846\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00847}00847\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00848}00848\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00849}00849\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00850}00850\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(interrupt)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00851}00851\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75a65f20939b4726aa7ce375aaa3ab83}{PWM\_GENERATOR\_INTERRUPT\_FAULT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00852}00852\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2EVTbits.FLTIEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00853}00853\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00854}00854\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_aba0e6d94cc28427d8cf8c0df60451b3b}{PWM\_GENERATOR\_INTERRUPT\_CURRENT\_LIMIT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00855}00855\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2EVTbits.CLIEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00856}00856\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00857}00857\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75812988c2c36eb5d3c6a7f0c8c2bc2d}{PWM\_GENERATOR\_INTERRUPT\_FEED\_FORWARD}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00858}00858\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2EVTbits.FFIEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00859}00859\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00860}00860\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a4785981dbf087146ae49b46653852721}{PWM\_GENERATOR\_INTERRUPT\_SYNC}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00861}00861\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2EVTbits.SIEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00862}00862\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00863}00863\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00864}00864\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ Interrupt\ type,\ do\ nothing\ */}\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00865}00865\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00866}00866\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00867}00867\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00868}00868\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00869}00869\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(interrupt)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00870}00870\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75a65f20939b4726aa7ce375aaa3ab83}{PWM\_GENERATOR\_INTERRUPT\_FAULT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00871}00871\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3EVTbits.FLTIEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00872}00872\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00873}00873\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_aba0e6d94cc28427d8cf8c0df60451b3b}{PWM\_GENERATOR\_INTERRUPT\_CURRENT\_LIMIT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00874}00874\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3EVTbits.CLIEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00875}00875\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00876}00876\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75812988c2c36eb5d3c6a7f0c8c2bc2d}{PWM\_GENERATOR\_INTERRUPT\_FEED\_FORWARD}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00877}00877\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3EVTbits.FFIEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00878}00878\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00879}00879\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a4785981dbf087146ae49b46653852721}{PWM\_GENERATOR\_INTERRUPT\_SYNC}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00880}00880\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3EVTbits.SIEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00881}00881\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00882}00882\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00883}00883\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ Interrupt\ type,\ do\ nothing\ */}\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00884}00884\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00885}00885\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00886}00886\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00887}00887\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00888}00888\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00889}00889\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00890}00890\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00891}00891\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00892}00892\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00900}00900\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_GeneratorInterruptDisable(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,\ \mbox{\hyperlink{plib__pwm_8h_acca3ac42dd63b438bd2fae8166f299ed}{PWM\_GENERATOR\_INTERRUPT}}\ interrupt)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00901}00901\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00902}00902\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00903}00903\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00904}00904\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(interrupt)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00905}00905\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75a65f20939b4726aa7ce375aaa3ab83}{PWM\_GENERATOR\_INTERRUPT\_FAULT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00906}00906\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1EVTbits.FLTIEN\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00907}00907\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00908}00908\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_aba0e6d94cc28427d8cf8c0df60451b3b}{PWM\_GENERATOR\_INTERRUPT\_CURRENT\_LIMIT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00909}00909\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1EVTbits.CLIEN\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00910}00910\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00911}00911\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75812988c2c36eb5d3c6a7f0c8c2bc2d}{PWM\_GENERATOR\_INTERRUPT\_FEED\_FORWARD}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00912}00912\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1EVTbits.FFIEN\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00913}00913\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00914}00914\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a4785981dbf087146ae49b46653852721}{PWM\_GENERATOR\_INTERRUPT\_SYNC}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00915}00915\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1EVTbits.SIEN\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00916}00916\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00917}00917\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00918}00918\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ Interrupt\ type,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00919}00919\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00920}00920\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00921}00921\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00922}00922\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00923}00923\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(interrupt)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00924}00924\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75a65f20939b4726aa7ce375aaa3ab83}{PWM\_GENERATOR\_INTERRUPT\_FAULT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00925}00925\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2EVTbits.FLTIEN\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00926}00926\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00927}00927\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_aba0e6d94cc28427d8cf8c0df60451b3b}{PWM\_GENERATOR\_INTERRUPT\_CURRENT\_LIMIT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00928}00928\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2EVTbits.CLIEN\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00929}00929\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00930}00930\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75812988c2c36eb5d3c6a7f0c8c2bc2d}{PWM\_GENERATOR\_INTERRUPT\_FEED\_FORWARD}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00931}00931\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2EVTbits.FFIEN\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00932}00932\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00933}00933\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a4785981dbf087146ae49b46653852721}{PWM\_GENERATOR\_INTERRUPT\_SYNC}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00934}00934\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2EVTbits.SIEN\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00935}00935\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00936}00936\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00937}00937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ Interrupt\ type,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00938}00938\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00939}00939\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00940}00940\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00941}00941\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00942}00942\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(interrupt)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00943}00943\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75a65f20939b4726aa7ce375aaa3ab83}{PWM\_GENERATOR\_INTERRUPT\_FAULT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00944}00944\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3EVTbits.FLTIEN\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00945}00945\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00946}00946\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_aba0e6d94cc28427d8cf8c0df60451b3b}{PWM\_GENERATOR\_INTERRUPT\_CURRENT\_LIMIT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00947}00947\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3EVTbits.CLIEN\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00948}00948\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00949}00949\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75812988c2c36eb5d3c6a7f0c8c2bc2d}{PWM\_GENERATOR\_INTERRUPT\_FEED\_FORWARD}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00950}00950\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3EVTbits.FFIEN\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00951}00951\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00952}00952\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a4785981dbf087146ae49b46653852721}{PWM\_GENERATOR\_INTERRUPT\_SYNC}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00953}00953\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3EVTbits.SIEN\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00954}00954\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00955}00955\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00956}00956\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ Interrupt\ type,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00957}00957\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00958}00958\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00959}00959\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00960}00960\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00961}00961\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00962}00962\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00963}00963\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00964}00964\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00965}00965\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00973}00973\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_GeneratorEventStatusClear(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,\ \mbox{\hyperlink{plib__pwm_8h_acca3ac42dd63b438bd2fae8166f299ed}{PWM\_GENERATOR\_INTERRUPT}}\ interrupt)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00974}00974\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00975}00975\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00976}00976\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00977}00977\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(interrupt)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00978}00978\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75a65f20939b4726aa7ce375aaa3ab83}{PWM\_GENERATOR\_INTERRUPT\_FAULT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00979}00979\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1STATbits.FLTEVT\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00980}00980\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00981}00981\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_aba0e6d94cc28427d8cf8c0df60451b3b}{PWM\_GENERATOR\_INTERRUPT\_CURRENT\_LIMIT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00982}00982\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1STATbits.CLEVT\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00983}00983\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00984}00984\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75812988c2c36eb5d3c6a7f0c8c2bc2d}{PWM\_GENERATOR\_INTERRUPT\_FEED\_FORWARD}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00985}00985\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1STATbits.FFEVT\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00986}00986\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00987}00987\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a4785981dbf087146ae49b46653852721}{PWM\_GENERATOR\_INTERRUPT\_SYNC}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00988}00988\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1STATbits.SEVT\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00989}00989\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00990}00990\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00991}00991\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ Interrupt\ type,\ do\ nothing\ */}\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00992}00992\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00993}00993\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00994}00994\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00995}00995\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00996}00996\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(interrupt)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00997}00997\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75a65f20939b4726aa7ce375aaa3ab83}{PWM\_GENERATOR\_INTERRUPT\_FAULT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00998}00998\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2STATbits.FLTEVT\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l00999}00999\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01000}01000\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_aba0e6d94cc28427d8cf8c0df60451b3b}{PWM\_GENERATOR\_INTERRUPT\_CURRENT\_LIMIT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01001}01001\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2STATbits.CLEVT\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01002}01002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01003}01003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75812988c2c36eb5d3c6a7f0c8c2bc2d}{PWM\_GENERATOR\_INTERRUPT\_FEED\_FORWARD}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01004}01004\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2STATbits.FFEVT\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01005}01005\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01006}01006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a4785981dbf087146ae49b46653852721}{PWM\_GENERATOR\_INTERRUPT\_SYNC}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01007}01007\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2STATbits.SEVT\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01008}01008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01009}01009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01010}01010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ Interrupt\ type,\ do\ nothing\ */}\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01011}01011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01012}01012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01013}01013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01014}01014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01015}01015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(interrupt)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01016}01016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75a65f20939b4726aa7ce375aaa3ab83}{PWM\_GENERATOR\_INTERRUPT\_FAULT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01017}01017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3STATbits.FLTEVT\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01018}01018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01019}01019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_aba0e6d94cc28427d8cf8c0df60451b3b}{PWM\_GENERATOR\_INTERRUPT\_CURRENT\_LIMIT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01020}01020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3STATbits.CLEVT\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01021}01021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01022}01022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75812988c2c36eb5d3c6a7f0c8c2bc2d}{PWM\_GENERATOR\_INTERRUPT\_FEED\_FORWARD}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01023}01023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3STATbits.FFEVT\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01024}01024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01025}01025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a4785981dbf087146ae49b46653852721}{PWM\_GENERATOR\_INTERRUPT\_SYNC}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01026}01026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3STATbits.SEVT\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01027}01027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01028}01028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01029}01029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ Interrupt\ type,\ do\ nothing\ */}\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01030}01030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01031}01031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01032}01032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01033}01033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01034}01034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01035}01035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01036}01036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01037}01037\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01038}01038\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01047}01047\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ PWM\_GeneratorEventStatusGet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,\ \mbox{\hyperlink{plib__pwm_8h_acca3ac42dd63b438bd2fae8166f299ed}{PWM\_GENERATOR\_INTERRUPT}}\ interrupt)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01048}01048\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01049}01049\ \ \ \ \ \textcolor{keywordtype}{bool}\ status\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01050}01050\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01051}01051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01052}01052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(interrupt)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01053}01053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75a65f20939b4726aa7ce375aaa3ab83}{PWM\_GENERATOR\_INTERRUPT\_FAULT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01054}01054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ (PG1STATbits.FLTEVT\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01055}01055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01056}01056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_aba0e6d94cc28427d8cf8c0df60451b3b}{PWM\_GENERATOR\_INTERRUPT\_CURRENT\_LIMIT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01057}01057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ (PG1STATbits.CLEVT\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01058}01058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01059}01059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75812988c2c36eb5d3c6a7f0c8c2bc2d}{PWM\_GENERATOR\_INTERRUPT\_FEED\_FORWARD}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01060}01060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ (PG1STATbits.FFEVT\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01061}01061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01062}01062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a4785981dbf087146ae49b46653852721}{PWM\_GENERATOR\_INTERRUPT\_SYNC}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01063}01063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ (PG1STATbits.SEVT\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01064}01064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01065}01065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01066}01066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ Interrupt\ type,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01067}01067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01068}01068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01069}01069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01070}01070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01071}01071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(interrupt)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01072}01072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75a65f20939b4726aa7ce375aaa3ab83}{PWM\_GENERATOR\_INTERRUPT\_FAULT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01073}01073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ (PG2STATbits.FLTEVT\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01074}01074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01075}01075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_aba0e6d94cc28427d8cf8c0df60451b3b}{PWM\_GENERATOR\_INTERRUPT\_CURRENT\_LIMIT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01076}01076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ (PG2STATbits.CLEVT\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01077}01077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01078}01078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75812988c2c36eb5d3c6a7f0c8c2bc2d}{PWM\_GENERATOR\_INTERRUPT\_FEED\_FORWARD}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01079}01079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ (PG2STATbits.FFEVT\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01080}01080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01081}01081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a4785981dbf087146ae49b46653852721}{PWM\_GENERATOR\_INTERRUPT\_SYNC}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01082}01082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ (PG2STATbits.SEVT\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01083}01083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01084}01084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01085}01085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ Interrupt\ type,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01086}01086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01087}01087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01088}01088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01089}01089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01090}01090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(interrupt)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01091}01091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75a65f20939b4726aa7ce375aaa3ab83}{PWM\_GENERATOR\_INTERRUPT\_FAULT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01092}01092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ (PG3STATbits.FLTEVT\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01093}01093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01094}01094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_aba0e6d94cc28427d8cf8c0df60451b3b}{PWM\_GENERATOR\_INTERRUPT\_CURRENT\_LIMIT}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01095}01095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ (PG3STATbits.CLEVT\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01096}01096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01097}01097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a75812988c2c36eb5d3c6a7f0c8c2bc2d}{PWM\_GENERATOR\_INTERRUPT\_FEED\_FORWARD}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01098}01098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ (PG3STATbits.FFEVT\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01099}01099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01100}01100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a4785981dbf087146ae49b46653852721}{PWM\_GENERATOR\_INTERRUPT\_SYNC}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01101}01101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ (PG3STATbits.SEVT\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01102}01102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01103}01103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01104}01104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ Interrupt\ type,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01105}01105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01106}01106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01107}01107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01108}01108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01109}01109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01110}01110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01111}01111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01112}01112\ \ \ \ \ \textcolor{keywordflow}{return}\ status;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01113}01113\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01114}01114\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01126}01126\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_SoftwareUpdateRequest(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01127}01127\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01128}01128\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01129}01129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01130}01130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1STATbits.UPDREQ\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01131}01131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01132}01132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01133}01133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2STATbits.UPDREQ\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01134}01134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01135}01135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01136}01136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3STATbits.UPDREQ\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01137}01137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01138}01138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01139}01139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01140}01140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01141}01141\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01142}01142\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01143}01143\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01144}01144\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01156}01156\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ PWM\_SoftwareUpdatePending(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01157}01157\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01158}01158\ \ \ \ \ \textcolor{keywordtype}{bool}\ status\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01159}01159\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01160}01160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01161}01161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ (PG1STATbits.UPDREQ\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01162}01162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01163}01163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01164}01164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ (PG2STATbits.UPDREQ\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01165}01165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01166}01166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01167}01167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ (PG3STATbits.UPDREQ\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01168}01168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01169}01169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01170}01170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01171}01171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01172}01172\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01173}01173\ \ \ \ \ \textcolor{keywordflow}{return}\ status;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01174}01174\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01175}01175\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01187}01187\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_TriggerACompareValueSet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,uint32\_t\ trigA)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01188}01188\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01189}01189\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01190}01190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01191}01191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1TRIGA\ =\ trigA\ \&\ 0x800FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01192}01192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01193}01193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01194}01194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2TRIGA\ =\ trigA\ \&\ 0x800FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01195}01195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01196}01196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01197}01197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3TRIGA\ =\ trigA\ \&\ 0x800FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01198}01198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01199}01199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01200}01200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01201}01201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01202}01202\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01203}01203\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01204}01204\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01205}01205\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01217}01217\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_TriggerBCompareValueSet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,uint32\_t\ trigB)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01218}01218\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01219}01219\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01220}01220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01221}01221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1TRIGB\ =\ trigB\ \&\ 0x800FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01222}01222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01223}01223\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01224}01224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2TRIGB\ =\ trigB\ \&\ 0x800FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01225}01225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01226}01226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01227}01227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3TRIGB\ =\ trigB\ \&\ 0x800FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01228}01228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01229}01229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01230}01230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01231}01231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01232}01232\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01233}01233\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01234}01234\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01235}01235\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01247}01247\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PWM\_TriggerCCompareValueSet(\mbox{\hyperlink{plib__pwm_8h_a1d7f6916ed302faef44cd48101f13cde}{PWM\_GENERATOR}}\ genNum,uint32\_t\ trigC)}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01248}01248\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01249}01249\ \ \ \ \ \textcolor{keywordflow}{switch}(genNum)\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01250}01250\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3bb0f8a2f1bc8087d4226a94818038db}{PWM\_GENERATOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01251}01251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG1TRIGC\ =\ trigC\ \&\ 0x800FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01252}01252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01253}01253\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a3224c570c8f586b994a36315c28b9c2f}{PWM\_GENERATOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01254}01254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG2TRIGC\ =\ trigC\ \&\ 0x800FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01255}01255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01256}01256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__pwm_8h_a6d0218884415194a39c74ca8eb06d92c}{PWM\_GENERATOR\_3}}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01257}01257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PG3TRIGC\ =\ trigC\ \&\ 0x800FFFF0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01258}01258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01259}01259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01260}01260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ PWM\ Generator,\ do\ nothing\ */}\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01261}01261\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01262}01262\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01263}01263\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01264}01264\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01265}01265\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01266}01266\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01267}01267\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PWM\_H}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8h_source_l01268}01268\ }
+
+\end{DoxyCode}

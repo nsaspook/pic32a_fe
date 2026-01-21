@@ -1,0 +1,177 @@
+\doxysection{plib\+\_\+uart\+\_\+common.\+h}
+\hypertarget{plib__uart__common_8h_source}{}\label{plib__uart__common_8h_source}\index{src/config/default/peripheral/uart/plib\_uart\_common.h@{src/config/default/peripheral/uart/plib\_uart\_common.h}}
+\mbox{\hyperlink{plib__uart__common_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00002}00002\ \textcolor{comment}{\ \ \$\{moduleName?lower\_case\}\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00003}00003\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00006}00006\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_\$\{moduleName?lower\_case\}\_common.h}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00009}00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ UART\ Common\ Header\ File}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00012}00012\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ has\ prototype\ of\ all\ the\ interfaces\ which\ are\ common\ for\ all\ the}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ UART\ peripherals.}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00016}00016\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00017}00017\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00018}00018\ \ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00019}00019\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00020}00020\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00021}00021\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00022}00022\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00023}00023\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00024}00024\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00025}00025\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00026}00026\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00027}00027\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00028}00028\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00029}00029\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00030}00030\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00031}00031\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00032}00032\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00033}00033\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00034}00034\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00035}00035\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00036}00036\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00037}00037\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00038}00038\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00039}00039\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00040}00040\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifndef\ PLIB\_UART\_COMMON\_H}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00043}00043\ \textcolor{preprocessor}{\#define\ PLIB\_UART\_COMMON\_H}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00045}00045\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00046}00046\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00047}00047\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00049}00049\ \textcolor{comment}{//\ /cond\ IGNORE\_THIS}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00050}00050\ \textcolor{comment}{/*\ Provide\ C++\ Compatibility\ */}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00051}00051\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00055}00055\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00056}00056\ \textcolor{comment}{//\ /endcond}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00058}00058\ \textcolor{comment}{//\ Section:\ Common\ Definitions}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00063}\mbox{\hyperlink{plib__uart__common_8h_a0a2ba392fa6938bd06e077c5efd91fc9}{00063}}\ \textcolor{preprocessor}{\#define\ UART\_RXFIFO\_DEPTH\ \ \ \ \ \ \ (9U)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00068}\mbox{\hyperlink{plib__uart__common_8h_a270dea6e1a92dd83fe58802450bdd60c}{00068}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_PARITY\_NONE\ \ \ \ (0x00U)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00069}\mbox{\hyperlink{plib__uart__common_8h_a063b14ac42ef9e8f4246c17a586b14eb}{00069}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_PARITY\_EVEN\ \ \ \ (0x03U)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00070}\mbox{\hyperlink{plib__uart__common_8h_a229615e64964f68f7a856ea6ffea359e}{00070}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_PARITY\_ODD\ \ \ \ \ (0x02U)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00071}00071\ \textcolor{comment}{/*\ Force\ the\ compiler\ to\ reserve\ 32-\/bit\ space\ for\ each\ enum\ */}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00072}\mbox{\hyperlink{plib__uart__common_8h_afcc3d101a230336089e07c8f4d6e085d}{00072}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_PARITY\_INVALID\ (0xFFFFFFFFU)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00073}\mbox{\hyperlink{plib__uart__common_8h_a4d84d0cdcb87c4d2b3b40de1588d45a9}{00073}}\ \textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__uart__common_8h_a4d84d0cdcb87c4d2b3b40de1588d45a9}{UART\_PARITY}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00078}\mbox{\hyperlink{plib__uart__common_8h_a028e1d42a009017aee20c234e39f0b26}{00078}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_DATA\_8\_BIT\ \ \ (0x00U)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00079}\mbox{\hyperlink{plib__uart__common_8h_a5027026c3183741ea3a8b6519ba7c7bc}{00079}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_DATA\_7\_BIT\ \ \ (0x01U)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00080}00080\ \textcolor{comment}{/*\ Force\ the\ compiler\ to\ reserve\ 32-\/bit\ memory\ for\ each\ enum\ */}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00081}\mbox{\hyperlink{plib__uart__common_8h_a58fc2c298d7869e3b2c80d94e7c93a6d}{00081}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_DATA\_INVALID\ (0xFFFFFFFFU)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00082}\mbox{\hyperlink{plib__uart__common_8h_a775003e27511ec4870502579ccc00f37}{00082}}\ \textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__uart__common_8h_a775003e27511ec4870502579ccc00f37}{UART\_DATA}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00087}\mbox{\hyperlink{plib__uart__common_8h_a1ecb5096890519c0e75bffc593fd1fda}{00087}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_STOP\_2\_SENT\_1\_CHECKED\ \ \ (0x03U)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00088}\mbox{\hyperlink{plib__uart__common_8h_aa1af4cccd100a709762da922a13367f2}{00088}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_STOP\_2\_SENT\_2\_CHECKED\ \ \ (0x02U)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00089}\mbox{\hyperlink{plib__uart__common_8h_a3759668464ac74317d509527dfc16351}{00089}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_STOP\_1\_5\_SENT\_1\_5\_CHECKED\ \ \ (0x01U)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00090}\mbox{\hyperlink{plib__uart__common_8h_ae84462d333bf43673fbc1808cad54198}{00090}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_STOP\_1\_SENT\_1\_CHECKED\ \ \ (0x00U)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00091}00091\ \textcolor{comment}{/*\ Force\ the\ compiler\ to\ reserve\ 32-\/bit\ memory\ for\ each\ enum\ */}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00092}\mbox{\hyperlink{plib__uart__common_8h_a5a92a4a399f4c62362d67c19daf32e1b}{00092}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_STOP\_INVALID\ \ (0xFFFFFFFFU)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00093}\mbox{\hyperlink{plib__uart__common_8h_a0fb892330da9cee0d5acc8b5276d0efb}{00093}}\ \textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__uart__common_8h_a0fb892330da9cee0d5acc8b5276d0efb}{UART\_STOP}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00098}\mbox{\hyperlink{structUART__SERIAL__SETUP}{00098}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00099}00099\ \{}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00100}\mbox{\hyperlink{structUART__SERIAL__SETUP_ab38a80feace530cdca66134f6e3801aa}{00100}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structUART__SERIAL__SETUP_ab38a80feace530cdca66134f6e3801aa}{baudRate}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00101}\mbox{\hyperlink{structUART__SERIAL__SETUP_a964cf3db85e71e38547ea28c50202921}{00101}}\ \ \ \ \ \mbox{\hyperlink{plib__uart__common_8h_a4d84d0cdcb87c4d2b3b40de1588d45a9}{UART\_PARITY}}\ \mbox{\hyperlink{structUART__SERIAL__SETUP_a964cf3db85e71e38547ea28c50202921}{parity}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00102}\mbox{\hyperlink{structUART__SERIAL__SETUP_a4dac2b37fc24be06d898b82a8bd90201}{00102}}\ \ \ \ \ \mbox{\hyperlink{plib__uart__common_8h_a775003e27511ec4870502579ccc00f37}{UART\_DATA}}\ \mbox{\hyperlink{structUART__SERIAL__SETUP_a4dac2b37fc24be06d898b82a8bd90201}{dataWidth}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00103}\mbox{\hyperlink{structUART__SERIAL__SETUP_aba32f12829e72d2978b24241d156a48c}{00103}}\ \ \ \ \ \mbox{\hyperlink{plib__uart__common_8h_a0fb892330da9cee0d5acc8b5276d0efb}{UART\_STOP}}\ \mbox{\hyperlink{structUART__SERIAL__SETUP_aba32f12829e72d2978b24241d156a48c}{stopBits}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00104}00104\ \}\ \mbox{\hyperlink{structUART__SERIAL__SETUP}{UART\_SERIAL\_SETUP}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00109}\mbox{\hyperlink{plib__uart__common_8h_a470ebdeeed817517c63fd9b173522fe6}{00109}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_ERROR\_NONE\ \ \ \ \ \ (0U)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00110}\mbox{\hyperlink{plib__uart__common_8h_a7b0e17571b0d3f6380b7eed39bd41c56}{00110}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_ERROR\_OVERRUN\ \ \ (0x02U)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00111}\mbox{\hyperlink{plib__uart__common_8h_a336c98ad1ad61f68b5b1b0bb1a1745cb}{00111}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_ERROR\_FRAMING\ \ \ (0x08U)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00112}\mbox{\hyperlink{plib__uart__common_8h_a2670f803413d1a03c2eb4250b8ba7be0}{00112}}\ \textcolor{preprocessor}{\#define\ \ \ \ UART\_ERROR\_PARITY\ \ \ \ (0x40U)}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00114}\mbox{\hyperlink{plib__uart__common_8h_a14e474ed24d2c0a0b109513d4b0e551f}{00114}}\ \textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__uart__common_8h_a14e474ed24d2c0a0b109513d4b0e551f}{UART\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00119}\mbox{\hyperlink{plib__uart__common_8h_aea0ac6d8a847b35f9a9f3207af5c7bdd}{00119}}\ \textcolor{keyword}{typedef}\ void\ (*\ \mbox{\hyperlink{plib__uart__common_8h_aea0ac6d8a847b35f9a9f3207af5c7bdd}{UART\_CALLBACK}})(\ uintptr\_t\ context\ );}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00121}00121\ \textcolor{comment}{//\ /cond\ IGNORE\_THIS}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00122}00122\ \textcolor{comment}{//\ Section:\ Local\ Objects\ ****\ Do\ Not\ Use\ ****}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00124}\mbox{\hyperlink{structUART__OBJECT}{00124}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00125}00125\ \{}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00126}\mbox{\hyperlink{structUART__OBJECT_a10308de7aa4420b45413eb72318d9c6b}{00126}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__OBJECT_a10308de7aa4420b45413eb72318d9c6b}{txBuffer}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00127}\mbox{\hyperlink{structUART__OBJECT_a5a1941b6a9c9ad4604f75317b82787fc}{00127}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__OBJECT_a5a1941b6a9c9ad4604f75317b82787fc}{txSize}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00128}\mbox{\hyperlink{structUART__OBJECT_a39e38d22968a270ddf45437a458b1ba6}{00128}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__OBJECT_a39e38d22968a270ddf45437a458b1ba6}{txProcessedSize}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00129}\mbox{\hyperlink{structUART__OBJECT_a2258d040b0836a443e0fa3dd22d12756}{00129}}\ \ \ \ \ \mbox{\hyperlink{plib__uart__common_8h_aea0ac6d8a847b35f9a9f3207af5c7bdd}{UART\_CALLBACK}}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__OBJECT_a2258d040b0836a443e0fa3dd22d12756}{txCallback}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00130}\mbox{\hyperlink{structUART__OBJECT_a94b96085a3539f3117e4e8dc9b4279e5}{00130}}\ \ \ \ \ uintptr\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__OBJECT_a94b96085a3539f3117e4e8dc9b4279e5}{txContext}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00131}\mbox{\hyperlink{structUART__OBJECT_a6c37283e9606dc548967b6ee507e717f}{00131}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__OBJECT_a6c37283e9606dc548967b6ee507e717f}{txBusyStatus}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00132}\mbox{\hyperlink{structUART__OBJECT_a29a45ad2696e9bd1e8e21216ea9fb0a3}{00132}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__OBJECT_a29a45ad2696e9bd1e8e21216ea9fb0a3}{rxBuffer}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00133}\mbox{\hyperlink{structUART__OBJECT_a391007772689bec1d2ca7911cf7e7f11}{00133}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__OBJECT_a391007772689bec1d2ca7911cf7e7f11}{rxSize}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00134}\mbox{\hyperlink{structUART__OBJECT_a17249e1b437142c496b419f0227dd4cd}{00134}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__OBJECT_a17249e1b437142c496b419f0227dd4cd}{rxProcessedSize}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00135}\mbox{\hyperlink{structUART__OBJECT_ab64ec03c935560a138eaa2773e67ad40}{00135}}\ \ \ \ \ \mbox{\hyperlink{plib__uart__common_8h_aea0ac6d8a847b35f9a9f3207af5c7bdd}{UART\_CALLBACK}}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__OBJECT_ab64ec03c935560a138eaa2773e67ad40}{rxCallback}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00136}\mbox{\hyperlink{structUART__OBJECT_ad04d03996bb6ecae9da5b76ec24b9583}{00136}}\ \ \ \ \ uintptr\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__OBJECT_ad04d03996bb6ecae9da5b76ec24b9583}{rxContext}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00137}\mbox{\hyperlink{structUART__OBJECT_a05115e75d27b05e046c9658985d9b403}{00137}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__OBJECT_a05115e75d27b05e046c9658985d9b403}{rxBusyStatus}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00138}\mbox{\hyperlink{structUART__OBJECT_a7f267273c0e00894e3d2bad830f47b90}{00138}}\ \ \ \ \ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{plib__uart__common_8h_a14e474ed24d2c0a0b109513d4b0e551f}{UART\_ERROR}}\ \ \ \ \ \mbox{\hyperlink{structUART__OBJECT_a7f267273c0e00894e3d2bad830f47b90}{errors}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00140}00140\ \}\ \mbox{\hyperlink{structUART__OBJECT}{UART\_OBJECT}}\ ;}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00142}\mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9b}{00142}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00143}00143\ \{}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00144}00144\ \ \ \ \ \textcolor{comment}{/*\ Threshold\ number\ of\ bytes\ are\ available\ in\ the\ receive\ ring\ buffer\ */}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00145}\mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9ba5ef697c25399a9bea1e22bc9ed5782e9}{00145}}\ \ \ \ \ \mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9ba5ef697c25399a9bea1e22bc9ed5782e9}{UART\_EVENT\_READ\_THRESHOLD\_REACHED}}\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00146}00146\ \ \ \ \ \textcolor{comment}{/*\ Receive\ ring\ buffer\ is\ full.\ Application\ must\ read\ the\ data\ out\ to\ avoid\ missing\ data\ on\ the\ next\ RX\ interrupt.\ */}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00147}\mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9ba0017a5e25c828aae9db2048ac5217733}{00147}}\ \ \ \ \ \mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9ba0017a5e25c828aae9db2048ac5217733}{UART\_EVENT\_READ\_BUFFER\_FULL}},}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00148}00148\ \ \ \ \ \textcolor{comment}{/*\ USART\ error.\ Application\ must\ call\ the\ UARTx\_ErrorGet\ API\ to\ get\ the\ type\ of\ error\ and\ clear\ the\ error.\ */}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00149}\mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9bae9b75b596e30e078de0662aeced4a8f7}{00149}}\ \ \ \ \ \mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9bae9b75b596e30e078de0662aeced4a8f7}{UART\_EVENT\_READ\_ERROR}},}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00150}00150\ \ \ \ \ \textcolor{comment}{/*\ Threshold\ number\ of\ free\ space\ is\ available\ in\ the\ transmit\ ring\ buffer\ */}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00151}\mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9ba87b727d1d42c5083962672049299c4c9}{00151}}\ \ \ \ \ \mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9ba87b727d1d42c5083962672049299c4c9}{UART\_EVENT\_WRITE\_THRESHOLD\_REACHED}},}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00152}00152\ \}\ \mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9b}{UART\_EVENT}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00154}\mbox{\hyperlink{plib__uart__common_8h_aae28c7cc68ccc6d314404f2e4add56c0}{00154}}\ \textcolor{keyword}{typedef}\ void\ (*\ \mbox{\hyperlink{plib__uart__common_8h_aae28c7cc68ccc6d314404f2e4add56c0}{UART\_RING\_BUFFER\_CALLBACK}})(\mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9b}{UART\_EVENT}}\ event,\ uintptr\_t\ context\ );}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00156}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT}{00156}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00157}00157\ \{}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00158}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_abf8b3a8937d170859304c5daf31c9914}{00158}}\ \ \ \ \ \mbox{\hyperlink{plib__uart__common_8h_aae28c7cc68ccc6d314404f2e4add56c0}{UART\_RING\_BUFFER\_CALLBACK}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_abf8b3a8937d170859304c5daf31c9914}{wrCallback}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00159}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a73be7c99d4b5ecb517729ca8a903ab52}{00159}}\ \ \ \ \ uintptr\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a73be7c99d4b5ecb517729ca8a903ab52}{wrContext}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00160}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_aa30ba10184fea3520b5b20d1080d5160}{00160}}\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_aa30ba10184fea3520b5b20d1080d5160}{wrInIndex}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00161}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_ae57561b5609812fb335e0e9917a57021}{00161}}\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_ae57561b5609812fb335e0e9917a57021}{wrOutIndex}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00162}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a0ea4c218207c65891a4dc46f922b9f5f}{00162}}\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a0ea4c218207c65891a4dc46f922b9f5f}{wrThreshold}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00163}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_ae1e76927b6b50e0c76596b8561d3abf6}{00163}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_ae1e76927b6b50e0c76596b8561d3abf6}{isWrNotificationEnabled}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00164}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a2d8c7964fd60b8956fbd1b3c9a715054}{00164}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a2d8c7964fd60b8956fbd1b3c9a715054}{isWrNotifyPersistently}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00165}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a823a5393d561ccab546215ead1569114}{00165}}\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a823a5393d561ccab546215ead1569114}{wrBufferSize}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00166}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_ad9b9e173d174457b99588edd84437dfa}{00166}}\ \ \ \ \ \mbox{\hyperlink{plib__uart__common_8h_aae28c7cc68ccc6d314404f2e4add56c0}{UART\_RING\_BUFFER\_CALLBACK}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_ad9b9e173d174457b99588edd84437dfa}{rdCallback}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00167}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a3c21f49c9c445794d24a5efffcd560f3}{00167}}\ \ \ \ \ uintptr\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a3c21f49c9c445794d24a5efffcd560f3}{rdContext}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00168}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a8da11f8e5541979b3781b676097be489}{00168}}\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a8da11f8e5541979b3781b676097be489}{rdInIndex}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00169}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a7c0f28b7b94f3d07c0c77a476ee8de01}{00169}}\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a7c0f28b7b94f3d07c0c77a476ee8de01}{rdOutIndex}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00170}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a53b2ac02aef4e007b9474e28a99740e9}{00170}}\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a53b2ac02aef4e007b9474e28a99740e9}{rdBufferSize}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00171}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a181d5f40449bd7c889bebc8684369945}{00171}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_a181d5f40449bd7c889bebc8684369945}{isRdNotificationEnabled}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00172}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_ac063223c270eca6ab791eac918b897a5}{00172}}\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_ac063223c270eca6ab791eac918b897a5}{rdThreshold}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00173}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_abc43192168bf53f069e8a964f672ee9a}{00173}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_abc43192168bf53f069e8a964f672ee9a}{isRdNotifyPersistently}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00174}\mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_adc8bc38e1a9084c38df3868de320abe3}{00174}}\ \ \ \ \ \mbox{\hyperlink{plib__uart__common_8h_a14e474ed24d2c0a0b109513d4b0e551f}{UART\_ERROR}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT_adc8bc38e1a9084c38df3868de320abe3}{errors}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00175}00175\ \}\ \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT}{UART\_RING\_BUFFER\_OBJECT}};}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00177}00177\ \textcolor{comment}{//\ /endcond}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00179}00179\ \textcolor{comment}{//\ /cond\ IGNORE\_THIS}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00180}00180\ \textcolor{comment}{/*\ Provide\ C++\ Compatibility\ */}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00181}00181\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00183}00183\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00185}00185\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00186}00186\ \textcolor{comment}{//\ /endcond}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00188}00188\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLIB\_UART\_COMMON\_H}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00190}00190\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00191}00191\ \textcolor{comment}{\ End\ of\ File}}
+\DoxyCodeLine{\Hypertarget{plib__uart__common_8h_source_l00192}00192\ \textcolor{comment}{*/}}
+
+\end{DoxyCode}

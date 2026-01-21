@@ -1,0 +1,126 @@
+\doxysection{samples.\+h}
+\hypertarget{samples_8h_source}{}\label{samples_8h_source}\index{src/samples.h@{src/samples.h}}
+\mbox{\hyperlink{samples_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00002}00002\ \textcolor{comment}{\ *\ File:\ \ \ samples.h}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00003}00003\ \textcolor{comment}{\ *\ Author:\ root}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Created\ on\ November\ 10,\ 2025,\ 12:16\ PM}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00006}00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ SAMPLES\_H}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ SAMPLES\_H}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00011}00011\ \textcolor{preprocessor}{\#ifdef\ \ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00012}00012\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00013}00013\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <xc.h>}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <stddef.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Defines\ NULL}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <stdbool.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Defines\ true}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <stdlib.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Defines\ EXIT\_FAILURE}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <ctype.h>}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{definitions_8h}{definitions.h}}"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ SYS\ function\ prototypes}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00023}\mbox{\hyperlink{samples_8h_ada0b114f23c80b8974c88a07a2ab95b2}{00023}}\ \textcolor{preprocessor}{\#define\ FE\_DRIVER\ "{}V1.06"{}}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00024}\mbox{\hyperlink{samples_8h_a5ad7985c1093115fe85cc849285008a8}{00024}}\ \textcolor{preprocessor}{\#define\ FE\_ALIAS\ "{}PIC32AK\ FE"{}}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//\#define\ ISS\_DMA\_READ}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00028}\mbox{\hyperlink{samples_8h_a893757c91e4b9276cbe4a437ed46539f}{00028}}\ \textcolor{preprocessor}{\#define\ SCA3300}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00029}\mbox{\hyperlink{samples_8h_a4dbf7ce504cd560dfba86f65cc82b37d}{00029}}\ \textcolor{preprocessor}{\#define\ IMU\_ID\ \ \ \ \ \ 3}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00031}\mbox{\hyperlink{samples_8h_a2c38bbaa576e38355809f6fc0364a596}{00031}}\ \textcolor{preprocessor}{\#define\ IMU\_BUF\ \ \ \ \ 256}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00032}\mbox{\hyperlink{samples_8h_aea160c487952f2544b535ecb96030b47}{00032}}\ \textcolor{preprocessor}{\#define\ FFT\_BUF\ \ \ \ \ 64}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00033}\mbox{\hyperlink{samples_8h_a82d2f0afaf6d4d819b53d23baa815fff}{00033}}\ \textcolor{preprocessor}{\#define\ SAMPLE\_BUF\ \ 32}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00034}\mbox{\hyperlink{samples_8h_a4ee91f572e738d8a878f236b33a0f2e0}{00034}}\ \textcolor{preprocessor}{\#define\ SAMPLE\_TIMEOUT\ \ 2}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00036}\mbox{\hyperlink{samples_8h_a1b4858e54d0834ad487441021a68ee4a}{00036}}\ \textcolor{preprocessor}{\#define\ NUM\_ADC\ 2}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00037}\mbox{\hyperlink{samples_8h_a1fec1b19567570d10d7fdd9badbfe27b}{00037}}\ \textcolor{preprocessor}{\#define\ ADC1\_D\ \ 0}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00038}\mbox{\hyperlink{samples_8h_a05137a89502e7d09114c89f9e1ed958e}{00038}}\ \textcolor{preprocessor}{\#define\ ADC2\_D\ \ 1}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00039}\mbox{\hyperlink{samples_8h_aede749afd9d20b01b07c86dfdf548682}{00039}}\ \textcolor{preprocessor}{\#define\ ADC\_SAMC\ \ \ \ 7}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00041}\mbox{\hyperlink{samples_8h_a86652dd8d8b8dbb140c3eb9f436b9f72}{00041}}\ \textcolor{preprocessor}{\#define\ ADC1\_SCALE\ \ 0.000403900f}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00042}\mbox{\hyperlink{samples_8h_a6e1e03bf557a8a75d81ec160dc9453ad}{00042}}\ \textcolor{preprocessor}{\#define\ ADC2\_SCALE\ \ 0.000402000f}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00044}\mbox{\hyperlink{samples_8h_af027cb63984e20bccf24386ca6789ef0}{00044}}\ \textcolor{preprocessor}{\#define\ DAC1\_CAL\ \ \ \ 1256}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00046}\mbox{\hyperlink{samples_8h_add75d488f9ccb48881198f8b0bf02a00}{00046}}\ \textcolor{preprocessor}{\#define\ DIS\_TICKS\ \ \ 100}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00047}\mbox{\hyperlink{samples_8h_a0610177f03758f5adbaac3b9730c026a}{00047}}\ \textcolor{preprocessor}{\#define\ IMU\_TICKS\ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00048}\mbox{\hyperlink{samples_8h_ae07270d3243ddd4cf4a0fa5ae378c27d}{00048}}\ \textcolor{preprocessor}{\#define\ GFX\_TICKS\ \ \ 30000}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00050}00050\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00051}00051\ \textcolor{comment}{\ \ \ \ \ *\ isolated\ DIO\ pins}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00052}00052\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00053}\mbox{\hyperlink{samples_8h_a72b4bdc5ef8f31563e58847df9ce2d4b}{00053}}\ \textcolor{preprocessor}{\#define\ ISOO3\_PORT\_G\ \ \ \ \ \ \ \ ISO3\_O\_Get()}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00054}\mbox{\hyperlink{samples_8h_a75012d38d9723eec222a7c9812d0b3f2}{00054}}\ \textcolor{preprocessor}{\#define\ ISOO4\_PORT\_G\ \ \ \ \ \ \ \ ISO4\_O\_Get()}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00056}\mbox{\hyperlink{samples_8h_aa61c51cbc9c806e5aa14f10a0beee95f}{00056}}\ \textcolor{preprocessor}{\#define\ ISOI1\_LAT\_S\ \ \ \ \ ISO1\_S\_Set()}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00057}\mbox{\hyperlink{samples_8h_a0f230ba4e8be206619fc2f2bf167d5b5}{00057}}\ \textcolor{preprocessor}{\#define\ ISOI1\_LAT\_C\ \ \ \ \ ISO1\_S\_Clear()}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00058}\mbox{\hyperlink{samples_8h_a052158b7096379da65599401b451bb4f}{00058}}\ \textcolor{preprocessor}{\#define\ ISOI1\_LAT\_L\ \ \ \ \ ISO1\_S\_Get()}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00060}\mbox{\hyperlink{samples_8h_a70d117cae3af0a11ef92caad5b151cfd}{00060}}\ \textcolor{preprocessor}{\#define\ ISOI2\_LAT\_S\ \ \ \ \ ISO2\_S\_Set()}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00061}\mbox{\hyperlink{samples_8h_ad53438bfdc9b5266c6f12c5326e809a3}{00061}}\ \textcolor{preprocessor}{\#define\ ISOI2\_LAT\_C\ \ \ \ \ ISO2\_S\_Clear()}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00062}\mbox{\hyperlink{samples_8h_a6d4036aeb1dcf8bb86cc57a171acc6bb}{00062}}\ \textcolor{preprocessor}{\#define\ ISOI2\_LAT\_L\ \ \ \ \ ISO2\_S\_Get()}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00064}\mbox{\hyperlink{samples_8h_a076094be689417c1efe87726300545b2}{00064}}\ \textcolor{preprocessor}{\#define\ RETRIGGER\_TIME\ \ 200}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00066}00066\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ MAX\_ISS66\_SAMPLES\ =\ 256;\ \textcolor{comment}{//\ sram\ ADC\ samples\ to\ write,\ X4\ bytes}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00067}00067\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ MAX\_ISS66\_PAGES\_8MBIT\ =\ 512;\ \textcolor{comment}{//\ sram\ pages\ to\ write}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00068}00068\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ MAX\_ISS66\_PAGES\_16MBIT\ =\ 512;}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00069}00069\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ MAX\_ISS66\_PAGES\_32MBIT\ =\ 512;}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00070}00070\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ ISS66\_PAGE\_SIZE\ =\ 1024;}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00071}00071\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ SRAM\_READ\_SAMPLES\ =\ 25;}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00072}00072\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ ISS\_FAST\_CMD\_SIZE\ =\ 5;}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00073}00073\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ ISS\_WRITE\_CMD\_SIZE\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00074}00074\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ ADC\_SAMPLES\_SIZE\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00075}00075\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ ADC\_SAMPLES\_START\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00076}00076\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00077}00077\ \textcolor{comment}{\ \ \ \ \ *\ unconfigured\ pins\ RA6,\ RC6,\ RC7,\ RD2,\ RB1}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00078}00078\ \textcolor{comment}{\ \ \ \ \ *\ RA11\ =\ TP1}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00079}00079\ \textcolor{comment}{\ \ \ \ \ *\ RB1\ BISS1\ MA,\ OUTPUT}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00080}00080\ \textcolor{comment}{\ \ \ \ \ *\ RD2\ BISS1\ SL,\ INPUT}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00081}00081\ \textcolor{comment}{\ \ \ \ \ *\ RA6\ BISS1\ MO,\ OUTPUT}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00082}00082\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00084}\mbox{\hyperlink{samples_8h_ab70a2d838b1f089ac6964cf3b1a1942c}{00084}}\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{main_8c_a119095ec252e2213e9f3a9617cd25c86}{SW1\_SET}},\ \mbox{\hyperlink{main_8c_ab70a2d838b1f089ac6964cf3b1a1942c}{SW2\_SET}};}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00085}\mbox{\hyperlink{samples_8h_a7dc1f1c0333aa598042cec53a5acf12d}{00085}}\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{main_8c_af8bcd1db96c6cacf2141f04f9fb28a3d}{adc1\_scaled}},\ \mbox{\hyperlink{main_8c_a7dc1f1c0333aa598042cec53a5acf12d}{adc2\_scaled}};}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00087}\mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebd}{00087}}\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebd}{iss\_sample\_type}}\ \{}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00088}\mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda9d584d43c8ee431ca56e50152179493b}{00088}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda9d584d43c8ee431ca56e50152179493b}{ISS\_INIT}}\ =\ 0,\ \textcolor{comment}{//\ ISS\ FSM\ states}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00089}\mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda398ef0fa84d47f7903f4ad140ef0794e}{00089}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda398ef0fa84d47f7903f4ad140ef0794e}{ISS\_PAGE}},}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00090}\mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebdad705d3dd7ff526a9ba3136da14152bea}{00090}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebdad705d3dd7ff526a9ba3136da14152bea}{ISS\_STORE}},}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00091}\mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda97832b15a1c9ce0e4bcc669b5ae1652a}{00091}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebda97832b15a1c9ce0e4bcc669b5ae1652a}{ISS\_NULL}},}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00092}\mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebdad563266716629cd2103576e3d6e8446a}{00092}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{samples_8h_aa7980b0bda3b34fd0b2b7d51bbb7eebdad563266716629cd2103576e3d6e8446a}{ISS\_LAST}},}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00093}00093\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00095}\mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ced}{00095}}\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ced}{iss\_chip\_type}}\ \{}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00096}\mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda9da2b4f092fb3b9b5935043763790289}{00096}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda9da2b4f092fb3b9b5935043763790289}{ISS\_ISS\_UNK}}\ =\ 0,\ \textcolor{comment}{//\ ISS\ chip\ models,\ UNK\ means\ chip\ read\ error}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00097}\mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736cedad7890a5361d2eae2645f9c3af6e134cb}{00097}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736cedad7890a5361d2eae2645f9c3af6e134cb}{ISS\_ISS\_8Mb}},}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00098}\mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda6e4011928a7f4b6cb7f23536145bfdda}{00098}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda6e4011928a7f4b6cb7f23536145bfdda}{ISS\_ISS\_16Mb}},}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00099}\mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736cedafb71264dbca82960f0036d69986bd683}{00099}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736cedafb71264dbca82960f0036d69986bd683}{ISS\_ISS\_32Mb}},}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00100}\mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda960ca9c980b660f9f6111f83ee7b348f}{00100}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda960ca9c980b660f9f6111f83ee7b348f}{ISS\_ISS\_BAD}},\ \textcolor{comment}{//\ unknown\ id}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00101}\mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda140ba0540ab5c2bc12ddc3280855a92d}{00101}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ceda140ba0540ab5c2bc12ddc3280855a92d}{ISS\_ISS\_LAST}},}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00102}00102\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00104}00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{samples_8h_afadbe86295797c3abbee652d1022ce22}{fe\_version}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00105}00105\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00106}00106\ \textcolor{comment}{\ \ \ \ \ *\ PIC32AK\ FE\ board\ firmware}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00107}00107\ \textcolor{comment}{\ \ \ \ \ *\ V1.00\ \ \ \ Alpha\ testing\ versions}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00108}00108\ \textcolor{comment}{\ \ \ \ \ *\ V1.01\ \ \ \ add\ iso\ DIO,\ set\ SPI2\ speeds\ to\ max}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00109}00109\ \textcolor{comment}{\ \ \ \ \ *\ V1.02\ \ \ \ code\ cleanups}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00110}00110\ \textcolor{comment}{\ \ \ \ \ *\ V1.03\ \ \ \ SRAM\ chip\ ID\ setups}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00111}00111\ \textcolor{comment}{\ \ \ \ \ *\ V1.04\ \ \ \ DISABLE\ JTAG\ so\ pins\ D[1-\/-\/3],\ RB1\ will\ work}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00112}00112\ \textcolor{comment}{\ \ \ \ \ *\ V1.05\ \ \ \ SRAM\ chip\ error\ detection\ fixes}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00113}00113\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00115}00115\ \textcolor{preprocessor}{\#ifdef\ \ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00116}00116\ \}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00117}00117\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00119}00119\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ SAMPLES\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{samples_8h_source_l00120}00120\ }
+
+\end{DoxyCode}

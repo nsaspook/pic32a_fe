@@ -1,0 +1,519 @@
+\doxysection{plib\+\_\+spi2\+\_\+host.\+c}
+\hypertarget{plib__spi2__host_8c_source}{}\label{plib__spi2__host_8c_source}\index{src/config/default/peripheral/spi/spi\_host/plib\_spi2\_host.c@{src/config/default/peripheral/spi/spi\_host/plib\_spi2\_host.c}}
+\mbox{\hyperlink{plib__spi2__host_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00002}00002\ \textcolor{comment}{\ \ SPI\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00006}00006\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_spi2\_host.c}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00011}00011\ \textcolor{comment}{\ \ \ \ SPI2\ Host\ Source\ File}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ has\ implementation\ of\ all\ the\ interfaces\ provided\ for\ particular}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00015}00015\ \textcolor{comment}{\ \ \ \ SPI\ peripheral.}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00016}00016\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00017}00017\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00019}00019\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00020}00020\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00021}00021\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00022}00022\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00023}00023\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00024}00024\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00025}00025\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00026}00026\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00027}00027\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00028}00028\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00029}00029\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00030}00030\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00031}00031\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00032}00032\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00033}00033\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00034}00034\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00035}00035\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00036}00036\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00037}00037\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00038}00038\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00039}00039\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00040}00040\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00042}00042\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib__spi2__host_8h}{plib\_spi2\_host.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00043}00043\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{interrupts_8h}{interrupts.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00045}00045\ \textcolor{comment}{/*\ Global\ object\ to\ save\ SPI\ Exchange\ related\ data\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00046}00046\ \textcolor{keyword}{static}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{structSPI__OBJECT}{SPI\_OBJECT}}\ spi2Obj;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00048}00048\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00049}00049\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00050}00050\ \textcolor{comment}{//\ Section:\ Macro\ Definitions}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00051}00051\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00052}00052\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00054}00054\ \textcolor{comment}{//SPI\ SPIxCON1\ MODE\ options}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00055}\mbox{\hyperlink{plib__spi2__host_8c_a4d1fe34e3295ce8dc66afbc8b64dce57}{00055}}\ \textcolor{preprocessor}{\#define\ SPI2CON1\_MSTEN\_CLIENT\_MODE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_SPI2CON1\_MSTEN\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_SPI2CON1\_MSTEN\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00056}\mbox{\hyperlink{plib__spi2__host_8c_a00353a2018c13e92f000c1d5818f3531}{00056}}\ \textcolor{preprocessor}{\#define\ SPI2CON1\_MSTEN\_HOST\_MODE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_SPI2CON1\_MSTEN\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_SPI2CON1\_MSTEN\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00058}00058\ \textcolor{comment}{//SPI\ SPIxCON1\ Clock\ Polarity\ options}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00059}\mbox{\hyperlink{plib__spi2__host_8c_a9acf32d590f8839de707d7fb6e76e58a}{00059}}\ \textcolor{preprocessor}{\#define\ SPI2CON1\_CKP\_IDLE\_LOW\_ACTIVE\_HIGH\ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_SPI2CON1\_CKP\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_SPI2CON1\_CKP\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00060}\mbox{\hyperlink{plib__spi2__host_8c_a8f73fbcbaa98d09d117e914009fff36c}{00060}}\ \textcolor{preprocessor}{\#define\ SPI2CON1\_CKP\_IDLE\_HIGH\_ACTIVE\_LOW\ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_SPI2CON1\_CKP\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_SPI2CON1\_CKP\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00062}00062\ \textcolor{comment}{//SPI\ SPIxCON1\ Clock\ Edge\ options}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00063}\mbox{\hyperlink{plib__spi2__host_8c_a5b2d3ac108feded875d330ff030140c9}{00063}}\ \textcolor{preprocessor}{\#define\ SPI2CON1\_CKE\_IDLE\_TO\_ACTIVE\ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_SPI2CON1\_CKE\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_SPI2CON1\_CKE\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00064}\mbox{\hyperlink{plib__spi2__host_8c_a1a381b1c09c4b21803d87d02df897412}{00064}}\ \textcolor{preprocessor}{\#define\ SPI2CON1\_CKE\_ACTIVE\_TO\_IDLE\ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_SPI2CON1\_CKE\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_SPI2CON1\_CKE\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00066}00066\ \textcolor{comment}{//SPI\ SPIxCON1\ Clock\ select\ options}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00067}\mbox{\hyperlink{plib__spi2__host_8c_a8a993b4a4e68ce7ac85d12ed479c2f0d}{00067}}\ \textcolor{preprocessor}{\#define\ SPI2CON1\_MCLKEN\_UPB\_CLOCK\ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_SPI2CON1\_MCLKEN\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_SPI2CON1\_MCLKEN\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00068}\mbox{\hyperlink{plib__spi2__host_8c_aed482aabbafaa5e392f60a3fc7409ba1}{00068}}\ \textcolor{preprocessor}{\#define\ SPI2CON1\_MCLKEN\_CLOCK\_GEN\_9\ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_SPI2CON1\_MCLKEN\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_SPI2CON1\_MCLKEN\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00073}\mbox{\hyperlink{plib__spi2__host_8c_a07d64d61dae518bda4d212513ea5fc48}{00073}}\ \textcolor{preprocessor}{\#define\ SPI2\_FIFO\_SIZE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4U}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00078}\mbox{\hyperlink{plib__spi2__host_8c_accc37c1010f152839fac6fa7dacc2c2c}{00078}}\ \textcolor{preprocessor}{\#define\ SPI2\_DUMMY\_DATA\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0xffUL}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00081}00081\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00082}00082\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00083}00083\ \textcolor{comment}{//\ Section:\ SPI2\ Implementation}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00084}00084\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00085}00085\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00087}\mbox{\hyperlink{plib__spi2__host_8c_afd35ebaed0d19b1e14cf69a46b863eb8}{00087}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__spi2__host_8c_afd35ebaed0d19b1e14cf69a46b863eb8}{SPI2\_Initialize}}\ (\ \textcolor{keywordtype}{void}\ )}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00088}00088\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00089}00089\ \ \ \ \ \textcolor{comment}{/*\ Disable\ SPI2\ Interrupts\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00090}00090\ \ \ \ \ IEC2bits.SPI2EIE\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00091}00091\ \ \ \ \ IEC2bits.SPI2RXIE\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00092}00092\ \ \ \ \ IEC2bits.SPI2TXIE\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00094}00094\ \ \ \ \ \textcolor{comment}{/*\ STOP\ and\ Reset\ the\ SPI\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00095}00095\ \ \ \ \ SPI2CON1\ =\ 0x00UL;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00097}00097\ \ \ \ \ \textcolor{comment}{/*\ Clear\ SPI2\ Interrupt\ flags\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00098}00098\ \ \ \ \ IFS2bits.SPI2EIF\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00099}00099\ \ \ \ \ IFS2bits.SPI2RXIF\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00100}00100\ \ \ \ \ IFS2bits.SPI2TXIF\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00102}00102\ \ \ \ \ \textcolor{comment}{/*\ BAUD\ Rate\ register\ Setup\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00103}00103\ \ \ \ \ SPI2BRG\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00105}00105\ \ \ \ \ SPI2CON1\ =\ (\mbox{\hyperlink{plib__spi2__host_8c_a00353a2018c13e92f000c1d5818f3531}{SPI2CON1\_MSTEN\_HOST\_MODE}}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__spi2__host_8c_a9acf32d590f8839de707d7fb6e76e58a}{SPI2CON1\_CKP\_IDLE\_LOW\_ACTIVE\_HIGH}}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__spi2__host_8c_a1a381b1c09c4b21803d87d02df897412}{SPI2CON1\_CKE\_ACTIVE\_TO\_IDLE}}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__spi2__host_8c_aed482aabbafaa5e392f60a3fc7409ba1}{SPI2CON1\_MCLKEN\_CLOCK\_GEN\_9}}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ |\_SPI2CON1\_SMP\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ |\_SPI2CON1\_ENHBUF\_MASK);}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00112}00112\ \ \ \ \ \textcolor{comment}{/*\ Initialize\ global\ variables\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00113}00113\ \ \ \ \ spi2Obj.\mbox{\hyperlink{structSPI__OBJECT_a2dd222063ed85b26f3bee50b653bdea2}{transferIsBusy}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00114}00114\ \ \ \ \ spi2Obj.callback\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00116}00116\ \ \ \ \ \textcolor{comment}{/*\ Enable\ SPI2\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00117}00117\ \ \ \ \ SPI2CON1bits.ON\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00118}00118\ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00120}\mbox{\hyperlink{plib__spi2__host_8c_a815ad2f7fc385ad93d1d3c982dd69249}{00120}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__spi2__host_8c_a815ad2f7fc385ad93d1d3c982dd69249}{SPI2\_Deinitialize}}\ (\ \textcolor{keywordtype}{void}\ )}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00121}00121\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00122}00122\ \ \ \ \ \textcolor{comment}{/*\ Disable\ SPI2\ Interrupts\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00123}00123\ \ \ \ \ IEC2bits.SPI2EIE\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00124}00124\ \ \ \ \ IEC2bits.SPI2RXIE\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00125}00125\ \ \ \ \ IEC2bits.SPI2TXIE\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00126}00126\ \ \ \ \ \textcolor{comment}{/*\ STOP\ the\ SPI\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00127}00127\ \ \ \ \ SPI2CON1bits.ON\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00129}00129\ \ \ \ \ \textcolor{comment}{/*\ Clear\ SPI2\ Interrupt\ flags\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00130}00130\ \ \ \ \ IFS2bits.SPI2EIF\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00131}00131\ \ \ \ \ IFS2bits.SPI2RXIF\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00132}00132\ \ \ \ \ IFS2bits.SPI2TXIF\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00135}00135\ \ \ \ \ SPI2CON1\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00136}00136\ \ \ \ \ SPI2CON2\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00137}00137\ \ \ \ \ SPI2BRG\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00138}00138\ \ \ \ \ SPI2IMSK\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00139}00139\ \ \ \ \ SPI2STAT\ =\ 0x28UL;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00143}00143\ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00145}\mbox{\hyperlink{plib__spi2__host_8c_af412aaf7a65d53eb946a0f566695a0ea}{00145}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__spi2__host_8c_af412aaf7a65d53eb946a0f566695a0ea}{SPI2\_TransferSetup}}\ (\mbox{\hyperlink{structSPI__TRANSFER__SETUP}{SPI\_TRANSFER\_SETUP}}*\ setup,\ uint32\_t\ spiSourceClock\ )}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00146}00146\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00147}00147\ \ \ \ \ uint32\_t\ t\_brg;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00148}00148\ \ \ \ \ uint32\_t\ baudHigh;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00149}00149\ \ \ \ \ uint32\_t\ baudLow;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00150}00150\ \ \ \ \ uint32\_t\ errorHigh;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00151}00151\ \ \ \ \ uint32\_t\ errorLow;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00153}00153\ \ \ \ \ \textcolor{keywordflow}{if}\ ((setup\ ==\ NULL)\ ||\ (setup-\/>\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a13a57d4f9f72129d847edfebbdc7e71f}{clockFrequency}}\ ==\ 0U)\ ||\ (setup-\/>\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a61358360a114db42544587290a58ec93}{dataBits}}\ !=\ \mbox{\hyperlink{plib__spi__host__common_8h_ad4f4485c3d777c62a6a242c8b5e8ca85a69055b82a537b36b688e59260fa4df54}{SPI\_DATA\_BITS\_8}}))}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00154}00154\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00156}00156\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00158}00158\ \ \ \ \ spiSourceClock\ =\ \ \mbox{\hyperlink{plib__spi2__host_8h_a062ee9dfb4b18530a19b2f86abb1115a}{SPI2\_FrequencyGet}}();}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00160}00160\ \ \ \ \ t\_brg\ =\ (((spiSourceClock\ /\ (setup-\/>\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a13a57d4f9f72129d847edfebbdc7e71f}{clockFrequency}}))\ /\ 2u)\ -\/\ 1u);}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00161}00161\ \ \ \ \ baudHigh\ =\ spiSourceClock\ /\ (2u\ *\ (t\_brg\ +\ 1u));}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00162}00162\ \ \ \ \ baudLow\ =\ spiSourceClock\ /\ (2u\ *\ (t\_brg\ +\ 2u));}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00163}00163\ \ \ \ \ errorHigh\ =\ baudHigh\ -\/\ setup-\/>\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a13a57d4f9f72129d847edfebbdc7e71f}{clockFrequency}};}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00164}00164\ \ \ \ \ errorLow\ =\ setup-\/>\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a13a57d4f9f72129d847edfebbdc7e71f}{clockFrequency}}\ -\/\ baudLow;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00166}00166\ \ \ \ \ \textcolor{keywordflow}{if}\ (errorHigh\ >\ errorLow)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00167}00167\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ t\_brg++;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00169}00169\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00171}00171\ \ \ \ \ \textcolor{keywordflow}{if}(t\_brg\ >\ 0x1fffUL)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00172}00172\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00174}00174\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00176}00176\ \ \ \ \ \textcolor{comment}{/*\ STOP\ and\ Reset\ the\ SPI\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00177}00177\ \ \ \ \ SPI2CON1bits.ON\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00179}00179\ \ \ \ \ SPI2BRG\ =\ t\_brg;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00181}00181\ \ \ \ \ SPI2CON1\ =\ (SPI2CON1\ \&\ (\string~(\_SPI2CON1\_MODE16\_MASK\ |\ \_SPI2CON1\_MODE32\_MASK\ |\ \_SPI2CON1\_CKP\_MASK\ |\ \_SPI2CON1\_CKE\_MASK)))\ |}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)setup-\/>\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a39c28f6753b48f7ded7e5d5cf114c82c}{clockPolarity}}\ |\ (uint32\_t)setup-\/>\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a1babbde781da3e40f2da32ef06faedde}{clockPhase}}\ |\ (uint32\_t)setup-\/>\mbox{\hyperlink{structSPI__TRANSFER__SETUP_a61358360a114db42544587290a58ec93}{dataBits}});}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00184}00184\ \ \ \ \ SPI2CON1bits.ON\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00186}00186\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00187}00187\ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00189}\mbox{\hyperlink{plib__spi2__host_8c_a20a2e095db40cbdc75231572e642bead}{00189}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__spi2__host_8c_a20a2e095db40cbdc75231572e642bead}{SPI2\_Write}}(\textcolor{keywordtype}{void}*\ pTransmitData,\ \textcolor{keywordtype}{size\_t}\ txSize)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00190}00190\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00191}00191\ \ \ \ \ \textcolor{keywordflow}{return}(\mbox{\hyperlink{plib__spi2__host_8c_a093b235d103b5acf68454865c304834a}{SPI2\_WriteRead}}(pTransmitData,\ txSize,\ NULL,\ 0));}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00192}00192\ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00194}\mbox{\hyperlink{plib__spi2__host_8c_a18f193152e981d2aa22d20e6c36991cb}{00194}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__spi2__host_8c_a18f193152e981d2aa22d20e6c36991cb}{SPI2\_Read}}(\textcolor{keywordtype}{void}*\ pReceiveData,\ \textcolor{keywordtype}{size\_t}\ rxSize)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00195}00195\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00196}00196\ \ \ \ \ \textcolor{keywordflow}{return}(\mbox{\hyperlink{plib__spi2__host_8c_a093b235d103b5acf68454865c304834a}{SPI2\_WriteRead}}(NULL,\ 0,\ pReceiveData,\ rxSize));}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00197}00197\ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00199}\mbox{\hyperlink{plib__spi2__host_8c_aaaada0b426cd9b39e1d5b284372a7f87}{00199}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__spi2__host_8c_aaaada0b426cd9b39e1d5b284372a7f87}{SPI2\_IsTransmitterBusy}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00200}00200\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00201}00201\ \ \ \ \ \textcolor{keywordflow}{return}\ ((SPI2STAT\ \&\ \_SPI2STAT\_SRMT\_MASK)\ ==\ 0U)?\ true\ :\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00202}00202\ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00205}\mbox{\hyperlink{plib__spi2__host_8c_af4abb1b153cbfce63643463aeb851fab}{00205}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__spi2__host_8c_af4abb1b153cbfce63643463aeb851fab}{SPI2\_IsBusy}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00206}00206\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00207}00207\ \ \ \ \ uint32\_t\ StatRead\ =\ SPI2STAT;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00208}00208\ \ \ \ \ \textcolor{keywordflow}{return}\ (((spi2Obj.transferIsBusy)\ !=\ \textcolor{keyword}{false})\ ||\ ((\ StatRead\ \&\ \_SPI2STAT\_SRMT\_MASK)\ ==\ 0U));}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00209}00209\ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00211}\mbox{\hyperlink{plib__spi2__host_8c_a06f4ba24ef3547bb59d5900755556e90}{00211}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__spi2__host_8c_a06f4ba24ef3547bb59d5900755556e90}{SPI2\_CallbackRegister}}\ (\mbox{\hyperlink{plib__spi__host__common_8h_ae09d5880ae883eee1b2ef101e157e996}{SPI\_CALLBACK}}\ callback,\ uintptr\_t\ context)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00212}00212\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00213}00213\ \ \ \ \ spi2Obj.callback\ =\ callback;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00215}00215\ \ \ \ \ spi2Obj.context\ =\ context;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00216}00216\ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00218}00218\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ SPI\_FIFO\_Fill(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00219}00219\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00220}00220\ \ \ \ \ uint8\_t\ nDataCopiedToFIFO\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00222}00222\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ txCount\ =\ spi2Obj.txCount;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00224}00224\ \ \ \ \ \textcolor{keywordflow}{while}\ (nDataCopiedToFIFO\ <\ \mbox{\hyperlink{plib__spi2__host_8c_a07d64d61dae518bda4d212513ea5fc48}{SPI2\_FIFO\_SIZE}})}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00225}00225\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00226}00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(SPI2STATbits.SPITBF\ !=\ 0U)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \textcolor{comment}{/*\ Exit\ loop\ if\ buffer\ is\ full\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00230}00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txCount\ <\ spi2Obj.txSize)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00231}00231\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ SPI2BUF\ =\ ((uint8\_t*)spi2Obj.txBuffer)[txCount];}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ txCount++;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (spi2Obj.dummySize\ >\ 0U)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00236}00236\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ SPI2BUF\ =\ \mbox{\hyperlink{plib__spi2__host_8c_accc37c1010f152839fac6fa7dacc2c2c}{SPI2\_DUMMY\_DATA}};}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ spi2Obj.dummySize-\/-\/;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00239}00239\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00244}00244\ \ \ \ \ \ \ \ \ nDataCopiedToFIFO++;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00245}00245\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00246}00246\ \ \ \ \ spi2Obj.txCount\ =\ txCount;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00247}00247\ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00249}\mbox{\hyperlink{plib__spi2__host_8c_a093b235d103b5acf68454865c304834a}{00249}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{plib__spi2__host_8c_a093b235d103b5acf68454865c304834a}{SPI2\_WriteRead}}\ (\textcolor{keywordtype}{void}*\ pTransmitData,\ \textcolor{keywordtype}{size\_t}\ txSize,\ \textcolor{keywordtype}{void}*\ pReceiveData,\ \textcolor{keywordtype}{size\_t}\ rxSize)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00250}00250\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00251}00251\ \ \ \ \ \textcolor{keywordtype}{bool}\ isRequestAccepted\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00253}00253\ \ \ \ \ \textcolor{comment}{/*\ Verify\ the\ request\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00254}00254\ \ \ \ \ \textcolor{keywordflow}{if}((spi2Obj.transferIsBusy\ ==\ \textcolor{keyword}{false})\ \&\&\ (((txSize\ >\ 0U)\ \&\&\ (pTransmitData\ !=\ NULL))\ ||\ ((rxSize\ >\ 0U)\ \&\&\ (pReceiveData\ !=\ NULL))))}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00255}00255\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00256}00256\ \ \ \ \ \ \ \ \ isRequestAccepted\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00257}00257\ \ \ \ \ \ \ \ \ spi2Obj.txBuffer\ =\ pTransmitData;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00258}00258\ \ \ \ \ \ \ \ \ spi2Obj.rxBuffer\ =\ pReceiveData;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ spi2Obj.rxCount\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00260}00260\ \ \ \ \ \ \ \ \ spi2Obj.txCount\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00261}00261\ \ \ \ \ \ \ \ \ spi2Obj.dummySize\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00263}00263\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pTransmitData\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00264}00264\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ spi2Obj.txSize\ =\ txSize;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00266}00266\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00267}00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00268}00268\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ spi2Obj.txSize\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00270}00270\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00272}00272\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pReceiveData\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00273}00273\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ spi2Obj.rxSize\ =\ rxSize;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00275}00275\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00276}00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00277}00277\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ spi2Obj.rxSize\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00281}00281\ \ \ \ \ \ \ \ \ spi2Obj.transferIsBusy\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00283}00283\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ txSz\ =\ spi2Obj.txSize;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00284}00284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (spi2Obj.rxSize\ >\ txSz)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00285}00285\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ spi2Obj.dummySize\ =\ spi2Obj.rxSize\ -\/\ txSz;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00287}00287\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00288}00288\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00289}00289\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ the\ receive\ overflow\ error\ if\ any\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00290}00290\ \ \ \ \ \ \ \ \ SPI2STATbits.SPIROV\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00291}00291\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00292}00292\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Make\ sure\ there\ is\ no\ data\ pending\ in\ the\ RX\ FIFO\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00294}00294\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((SPI2STAT\ \&\ \_SPI2STAT\_SPIRBE\_MASK)\ ==\ 0U)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00295}00295\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ (void)SPI2BUF;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00297}00297\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00298}00298\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Configure\ SPI\ to\ generate\ receive\ interrupt\ when\ receive\ buffer\ is\ empty\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00299}00299\ \ \ \ \ \ \ \ \ SPI2IMSKbits.RXMSK\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00300}00300\ \ \ \ \ \ \ \ \ SPI2IMSKbits.RXWIEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00301}00301\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00302}00302\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Configure\ SPI\ to\ generate\ transmit\ interrupt\ when\ the\ transmit\ buffer\ is\ empty*/}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00303}00303\ \ \ \ \ \ \ \ \ SPI2IMSKbits.SPITBEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00305}00305\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ the\ receive\ interrupt\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00306}00306\ \ \ \ \ \ \ \ \ IEC2bits.SPI2RXIE\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00308}00308\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ the\ transmit\ interrupt\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00309}00309\ \ \ \ \ \ \ \ \ IEC2bits.SPI2TXIE\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00311}00311\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ the\ error\ interrupt\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00312}00312\ \ \ \ \ \ \ \ \ IEC2bits.SPI2EIE\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00314}00314\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ the\ receive\ interrupt\ flag\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00315}00315\ \ \ \ \ \ \ \ \ IFS2bits.SPI2RXIF\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00316}00316\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00317}00317\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ the\ transmit\ interrupt\ flag\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00318}00318\ \ \ \ \ \ \ \ \ IFS2bits.SPI2TXIF\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00320}00320\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ the\ error\ interrupt\ flag\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00321}00321\ \ \ \ \ \ \ \ \ IFS2bits.SPI2EIF\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00322}00322\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00323}00323\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Start\ the\ first\ write\ here\ itself,\ rest\ will\ happen\ in\ ISR\ context\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00324}00324\ \ \ \ \ \ \ \ \ SPI\_FIFO\_Fill();}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00326}00326\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rxSize\ >\ 0U)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00327}00327\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(rxSize\ <\ \mbox{\hyperlink{plib__spi2__host_8c_a07d64d61dae518bda4d212513ea5fc48}{SPI2\_FIFO\_SIZE}})}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SPI2IMSKbits.RXMSK\ =\ (uint8\_t)rxSize;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SPI2IMSKbits.RXMSK\ =\ \mbox{\hyperlink{plib__spi2__host_8c_a07d64d61dae518bda4d212513ea5fc48}{SPI2\_FIFO\_SIZE}};}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ receive\ interrupt\ to\ complete\ the\ transfer\ in\ ISR\ context.}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00337}00337\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ *\ Keep\ the\ transmit\ interrupt\ disabled.\ Transmit\ interrupt\ will\ be}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00338}00338\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ *\ enabled\ later\ if\ txCount\ <\ txSize,\ when\ rxCount\ =\ rxSize.}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00339}00339\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ IEC2bits.SPI2RXIE\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00341}00341\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00342}00342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00343}00343\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00344}00344\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (spi2Obj.txCount\ !=\ txSz)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Configure\ SPI\ to\ generate\ interrupt\ when\ transmit\ buffer\ is\ completely\ empty\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SPI2IMSKbits.SPITBEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00348}00348\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ignore\ receive\ overflow\ for\ transmit\ only\ operation*/}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SPI2CON1bits.IGNROV\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00351}00351\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ transmit\ interrupt\ to\ complete\ the\ transfer\ in\ ISR\ context\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00353}00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IEC2bits.SPI2TXIE\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00355}00355\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00356}00356\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00357}00357\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00358}00358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ error\ interrupt\ for\ SRMT(last\ byte\ transfer\ in\ shift\ register)*/}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00359}00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SPI2IMSKbits.SRMTEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IEC2bits.SPI2EIE\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00361}00361\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00362}00362\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00363}00363\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00364}00364\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00365}00365\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00366}00366\ \ \ \ \ \textcolor{keywordflow}{return}\ isRequestAccepted;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00367}00367\ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00368}00368\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00369}\mbox{\hyperlink{plib__spi2__host_8c_a065104e40a00c6733ccffd0203a0283d}{00369}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__spi2__host_8c_a065104e40a00c6733ccffd0203a0283d}{\_\_attribute\_\_}}((used))\ \mbox{\hyperlink{interrupts_8h_a9958b1b5a12bad2b63afe41a062112c1}{SPI2RX\_InterruptHandler}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00370}00370\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00371}00371\ \ \ \ \ uint32\_t\ nRxPending\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00372}00372\ \ \ \ \ uint32\_t\ receivedData\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00373}00373\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00374}00374\ \ \ \ \ \textcolor{comment}{/*\ Check\ Receive\ Buffer\ Element\ Count\ for\ watermark\ interrupt\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00375}00375\ \ \ \ \ \textcolor{keywordflow}{if}\ ((SPI2STAT\ \&\ \_SPI2STAT\_RXELM\_MASK)\ !=\ 0U)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00376}00376\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00377}00377\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ txCount\ =\ spi2Obj.txCount;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00378}00378\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ rxCount\ =\ spi2Obj.rxCount;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00379}00379\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(SPI2STATbits.SPIRBE\ ==\ \textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00380}00380\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rxCount\ <\ spi2Obj.rxSize)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00382}00382\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00383}00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Receive\ buffer\ is\ not\ empty.\ Read\ the\ received\ data.\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00384}00384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ receivedData\ =\ SPI2BUF;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00385}00385\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00386}00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t*)spi2Obj.rxBuffer)[rxCount]\ =\ (uint8\_t)receivedData;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00387}00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rxCount++;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00388}00388\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00389}00389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spi2Obj.rxCount\ =\ rxCount;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00391}00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rxCount\ ==\ spi2Obj.rxSize)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00392}00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00393}00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txCount\ <\ spi2Obj.txSize)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00395}00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Reception\ of\ all\ bytes\ is\ complete.\ However,\ there\ are\ few\ more}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00396}00396\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ bytes\ to\ be\ transmitted\ as\ txCount\ !=\ txSize.\ Finish\ the}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00397}00397\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ transmission\ of\ the\ remaining\ bytes\ from\ the\ transmit\ interrupt.\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00398}00398\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00399}00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ the\ receive\ interrupt\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IEC2bits.SPI2RXIE\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00401}00401\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Generate\ TX\ interrupt\ when\ buffer\ is\ completely\ empty\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SPI2IMSKbits.SPITBEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00404}00404\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ the\ transmit\ interrupt.\ Callback\ will\ be\ given\ from\ the}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00406}00406\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ transmit\ interrupt,\ when\ all\ bytes\ are\ shifted\ out.\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00407}00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IEC2bits.SPI2TXIE\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00408}00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00409}00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00410}00410\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00411}00411\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00412}00412\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rxCount\ <\ spi2Obj.rxSize)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00413}00413\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00414}00414\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ More\ bytes\ pending\ to\ be\ received\ ..\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00415}00415\ \ \ \ \ \ \ \ \ \ \ \ \ SPI\_FIFO\_Fill();}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00416}00416\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00417}00417\ \ \ \ \ \ \ \ \ \ \ \ \ nRxPending\ =\ spi2Obj.rxSize\ -\/\ rxCount;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00418}00418\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00419}00419\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(nRxPending\ <=\ \mbox{\hyperlink{plib__spi2__host_8c_a07d64d61dae518bda4d212513ea5fc48}{SPI2\_FIFO\_SIZE}})}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00420}00420\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00421}00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SPI2IMSKbits.RXMSK\ =\ (uint8\_t)nRxPending;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00422}00422\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00423}00423\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00424}00424\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00425}00425\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SPI2IMSKbits.RXMSK\ =\ \mbox{\hyperlink{plib__spi2__host_8c_a07d64d61dae518bda4d212513ea5fc48}{SPI2\_FIFO\_SIZE}};}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00426}00426\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00427}00427\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00428}00428\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00429}00429\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00430}00430\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(rxCount\ ==\ spi2Obj.rxSize)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00431}00431\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00432}00432\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txCount\ ==\ spi2Obj.txSize)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00433}00433\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00434}00434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ receiver\ overflow\ error\ if\ any\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00435}00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SPI2STATbits.SPIROV\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00436}00436\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00437}00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ receive\ interrupt\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00438}00438\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IEC2bits.SPI2RXIE\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00439}00439\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00440}00440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Transfer\ complete.\ Give\ a\ callback\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00441}00441\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spi2Obj.transferIsBusy\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00442}00442\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00443}00443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(spi2Obj.callback\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00444}00444\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00445}00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uintptr\_t\ context\ =\ spi2Obj.context;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00446}00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spi2Obj.callback(context);}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00447}00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00448}00448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00449}00449\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00450}00450\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00451}00451\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00452}00452\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00453}00453\ \ \ \ \ \textcolor{comment}{/*\ Clear\ SPI2\ RX\ Interrupt\ flag\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00454}00454\ \ \ \ \ \textcolor{comment}{/*\ This\ flag\ should\ cleared\ only\ after\ reading\ buffer\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00455}00455\ \ \ \ \ IFS2bits.SPI2RXIF\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00456}00456\ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00457}00457\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00458}00458\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__spi2__host_8c_a065104e40a00c6733ccffd0203a0283d}{\_\_attribute\_\_}}((used))\ SPI2E\_InterruptHandler(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00459}00459\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00460}00460\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ txCount\ =\ spi2Obj.txCount;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00461}00461\ \ \ \ \ \textcolor{keywordflow}{if}\ (txCount\ ==\ spi2Obj.txSize)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00462}00462\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00463}00463\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((SPI2STAT\ \&\ \_SPI2STAT\_SRMT\_MASK)\ !=\ 0U)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00464}00464\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00465}00465\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ receiver\ overflow\ error\ if\ any\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00466}00466\ \ \ \ \ \ \ \ \ \ \ \ \ SPI2STATbits.SPIROV\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00467}00467\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00468}00468\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ transmit\ interrupt\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00469}00469\ \ \ \ \ \ \ \ \ \ \ \ \ IEC2bits.SPI2TXIE\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00470}00470\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00471}00471\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Transfer\ complete.\ Give\ a\ callback\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00472}00472\ \ \ \ \ \ \ \ \ \ \ \ \ spi2Obj.transferIsBusy\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00473}00473\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00474}00474\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(spi2Obj.callback\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00475}00475\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00476}00476\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uintptr\_t\ context\ =\ spi2Obj.context;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00477}00477\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spi2Obj.callback(context);}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00478}00478\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00479}00479\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00480}00480\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00481}00481\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00482}00482\ \ \ \ \ IFS2bits.SPI2EIF\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00483}00483\ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00484}00484\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00485}00485\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__spi2__host_8c_a065104e40a00c6733ccffd0203a0283d}{\_\_attribute\_\_}}((used))\ \mbox{\hyperlink{interrupts_8h_ac886f4835c1bf288e6fb678bc55c54f4}{SPI2TX\_InterruptHandler}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00486}00486\ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00487}00487\ \ \ \ \ \textcolor{comment}{/*\ If\ there\ are\ more\ words\ to\ be\ transmitted,\ then\ transmit\ them\ here\ and\ keep\ track\ of\ the\ count\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00488}00488\ \ \ \ \ \textcolor{keywordflow}{if}((SPI2STAT\ \&\ \_SPI2STAT\_SPITBE\_MASK)\ ==\ \_SPI2STAT\_SPITBE\_MASK)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00489}00489\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00490}00490\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ txCount\ =\ spi2Obj.txCount;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00491}00491\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00492}00492\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (txCount\ <\ spi2Obj.txSize)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00493}00493\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00494}00494\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(SPI2STATbits.SPITBF\ !=\ 0U)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00495}00495\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00496}00496\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \ \ \ \textcolor{comment}{/*\ Exit\ loop\ if\ buffer\ is\ full\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00497}00497\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00498}00498\ \ \ \ \ \ \ \ \ \ \ \ \ SPI2BUF\ =\ ((uint8\_t*)spi2Obj.txBuffer)[txCount];}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00499}00499\ \ \ \ \ \ \ \ \ \ \ \ \ txCount++;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00500}00500\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00501}00501\ \ \ \ \ \ \ \ \ \ \ \ \ spi2Obj.txCount\ =\ txCount;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00502}00502\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (txCount\ ==\ spi2Obj.txSize)}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00503}00503\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00504}00504\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ All\ bytes\ are\ submitted\ to\ the\ SPI\ module.\ Now,\ enable\ transmit}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00505}00505\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ interrupt\ for\ the\ shift\ register\ to\ empty\ \ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00506}00506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SPI2IMSKbits.SPITBEN\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00507}00507\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SPI2IMSKbits.SRMTEN\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00508}00508\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00509}00509\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ the\ error\ interrupt\ and\ disable\ the\ transmit\ interrupt*/}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00510}00510\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IEC2bits.SPI2EIE\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00511}00511\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IEC2bits.SPI2TXIE\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00512}00512\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00513}00513\ }
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00514}00514\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00515}00515\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00516}00516\ \ \ \ \ \textcolor{comment}{/*\ Clear\ the\ transmit\ interrupt\ flag\ */}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00517}00517\ \ \ \ \ IFS2bits.SPI2TXIF\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00518}00518\ \}}
+\DoxyCodeLine{\Hypertarget{plib__spi2__host_8c_source_l00519}00519\ }
+
+\end{DoxyCode}

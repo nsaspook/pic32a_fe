@@ -1,0 +1,675 @@
+\doxysection{plib\+\_\+pwm.\+c}
+\hypertarget{plib__pwm_8c_source}{}\label{plib__pwm_8c_source}\index{src/config/default/peripheral/pwm/plib\_pwm.c@{src/config/default/peripheral/pwm/plib\_pwm.c}}
+\mbox{\hyperlink{plib__pwm_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00002}00002\ \textcolor{comment}{\ \ PWM\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00006}00006\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_pwm.c}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00011}00011\ \textcolor{comment}{\ \ \ \ PWM\ PLIB\ Source\ File}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00014}00014\ \textcolor{comment}{\ \ \ \ None}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00015}00015\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00016}00016\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00018}00018\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00019}00019\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00020}00020\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00021}00021\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00022}00022\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00023}00023\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00024}00024\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00025}00025\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00026}00026\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00027}00027\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00028}00028\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00029}00029\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00030}00030\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00031}00031\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00032}00032\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00033}00033\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00034}00034\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00035}00035\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00036}00036\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00037}00037\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00038}00038\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00039}00039\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00041}00041\ \textcolor{comment}{//\ Section:\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00044}00044\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plib__pwm_8h}{plib\_pwm.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00045}00045\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{interrupts_8h}{interrupts.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00047}00047\ \textcolor{comment}{//PWM\ Generator\ x\ PCI\ Termination\ Polarity\ options}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00048}\mbox{\hyperlink{plib__pwm_8c_a7e7d1a896f79ef841d2ff7f535aa71c7}{00048}}\ \textcolor{preprocessor}{\#define\ PG1FPCI\_PPS\_NON\_INVERTED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1FPCI\_PPS\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1FPCI\_PPS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00049}\mbox{\hyperlink{plib__pwm_8c_a961a52672db8401f4231091dce9b6641}{00049}}\ \textcolor{preprocessor}{\#define\ PG1FPCI\_PPS\_INVERTED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1FPCI\_PPS\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1FPCI\_PPS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00051}00051\ \textcolor{comment}{//PGxCON\ MDCSEL\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00052}\mbox{\hyperlink{plib__pwm_8c_a3ef8015d2028f971779fa507702f0cd7}{00052}}\ \textcolor{preprocessor}{\#define\ PG1CON\_MDCSEL\_PGxDC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_MDCSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1CON\_MDCSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00053}\mbox{\hyperlink{plib__pwm_8c_a0d9d715f586d6d7ef6a03e75e0eed9aa}{00053}}\ \textcolor{preprocessor}{\#define\ PG1CON\_MDCSEL\_MDC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_MDCSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1CON\_MDCSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00055}00055\ \textcolor{comment}{//PGxCON\ MPERSEL\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00056}\mbox{\hyperlink{plib__pwm_8c_a54a4578fd7143ac0b749043f6c41014d}{00056}}\ \textcolor{preprocessor}{\#define\ PG1CON\_MPERSEL\_PGxPER\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_MPERSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1CON\_MPERSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00057}\mbox{\hyperlink{plib__pwm_8c_ab95165e0446b825f3c4bd2fbb4038671}{00057}}\ \textcolor{preprocessor}{\#define\ PG1CON\_MPERSEL\_MPER\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_MPERSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1CON\_MPERSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00059}00059\ \textcolor{comment}{//PGxCON\ MPHSEL\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00060}\mbox{\hyperlink{plib__pwm_8c_a51d481ea5bd427b4a2f092a83ce9e580}{00060}}\ \textcolor{preprocessor}{\#define\ PG1CON\_MPHSEL\_PGxPHASE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_MPHSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1CON\_MPHSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00061}\mbox{\hyperlink{plib__pwm_8c_a4c2f91dc0948b496ddf70d8904003d0e}{00061}}\ \textcolor{preprocessor}{\#define\ PG1CON\_MPHSEL\_MPHASE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_MPHSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1CON\_MPHSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00063}00063\ \textcolor{comment}{//PGxCON\ MSTEN\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00064}\mbox{\hyperlink{plib__pwm_8c_adde8f75ff7aaf278c16904c771b27f68}{00064}}\ \textcolor{preprocessor}{\#define\ PG1CON\_MSTEN\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_MSTEN\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1CON\_MSTEN\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00065}\mbox{\hyperlink{plib__pwm_8c_a0fd796e90fc89f4cd776b514e32e90d1}{00065}}\ \textcolor{preprocessor}{\#define\ PG1CON\_MSTEN\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_MSTEN\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1CON\_MSTEN\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00067}00067\ \textcolor{comment}{//PWM\ Generator\ x\ Trigger\ Mode\ Selection\ options}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00068}\mbox{\hyperlink{plib__pwm_8c_a88464b921ffc03189f679a2f480d48ac}{00068}}\ \textcolor{preprocessor}{\#define\ PG1CON\_TRGMOD\_SINGLE\_TRIGGER\_MODE\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_TRGMOD\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1CON\_TRGMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00069}\mbox{\hyperlink{plib__pwm_8c_a0a77a02e089aae3aabc18764a3576bc8}{00069}}\ \textcolor{preprocessor}{\#define\ PG1CON\_TRGMOD\_RETRIGGRERABLE\_MODE\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_TRGMOD\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1CON\_TRGMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00071}00071\ \textcolor{comment}{//PWM\ Generator\ x\ Data\ Register\ Update\ Modes}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00072}\mbox{\hyperlink{plib__pwm_8c_a45f7e5109c2139d0ef87decacdba7cc6}{00072}}\ \textcolor{preprocessor}{\#define\ PG1CON\_UPDMOD\_SOC\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_UPDMOD\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1CON\_UPDMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00073}\mbox{\hyperlink{plib__pwm_8c_a1d0e3f42e755121d2a95e00fb5b9f7dc}{00073}}\ \textcolor{preprocessor}{\#define\ PG1CON\_UPDMOD\_IMMEDIATE\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_UPDMOD\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1CON\_UPDMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00074}\mbox{\hyperlink{plib__pwm_8c_ad73fdbaad76a799ee8a0d01c18afd444}{00074}}\ \textcolor{preprocessor}{\#define\ PG1CON\_UPDMOD\_CLIENT\_SOC\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_UPDMOD\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG1CON\_UPDMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00075}\mbox{\hyperlink{plib__pwm_8c_a342cec3f2ee055b6d8d350ed82a8b965}{00075}}\ \textcolor{preprocessor}{\#define\ PG1CON\_UPDMOD\_CLIENT\_IMMEDIATE\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_UPDMOD\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG1CON\_UPDMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00077}00077\ \textcolor{comment}{//PWM\ Generator\ x\ Start-\/of-\/Cycle\ Selection\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00078}\mbox{\hyperlink{plib__pwm_8c_a662beff9b4c7ae49443d54e41f773c00}{00078}}\ \textcolor{preprocessor}{\#define\ PG1CON\_SOCS\_LOCAL\_EOC\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_SOCS\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00079}\mbox{\hyperlink{plib__pwm_8c_adaf40319abe5708bdc35f2dd5b0960a0}{00079}}\ \textcolor{preprocessor}{\#define\ PG1CON\_SOCS\_TRIG\_OP\_BY\_PG1\_OR\_PG5\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_SOCS\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00080}\mbox{\hyperlink{plib__pwm_8c_a20664a4d69f8781ad88bec7f3297168a}{00080}}\ \textcolor{preprocessor}{\#define\ PG1CON\_SOCS\_TRIG\_OP\_BY\_PG2\_OR\_PG6\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_SOCS\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG1CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00081}\mbox{\hyperlink{plib__pwm_8c_afe5f0dfb9a032c7e367da6df73ce9b70}{00081}}\ \textcolor{preprocessor}{\#define\ PG1CON\_SOCS\_TRIG\_OP\_BY\_PG3\_OR\_PG7\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_SOCS\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG1CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00082}\mbox{\hyperlink{plib__pwm_8c_a6e50f6f36198abb881dc2a0d575b0cf2}{00082}}\ \textcolor{preprocessor}{\#define\ PG1CON\_SOCS\_TRIG\_OP\_BY\_PG4\_OR\_PG8\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_SOCS\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_PG1CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00083}\mbox{\hyperlink{plib__pwm_8c_a8071b5c19a2dc153c2b118c1467f9e29}{00083}}\ \textcolor{preprocessor}{\#define\ PG1CON\_SOCS\_TRIG\_BIT\_OR\_PCI\_SYNC\_FN\_ONLY\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_SOCS\_MASK\ \&\ ((uint32\_t)(15)\ <<\ \_PG1CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00085}00085\ \textcolor{comment}{//PWM\ Generator\ x\ CLKSEL\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00086}\mbox{\hyperlink{plib__pwm_8c_a0ca6beac75674a88085f75c68dd741ef}{00086}}\ \textcolor{preprocessor}{\#define\ PG1CON\_CLKSEL\_NO\_CLOCK\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_CLKSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1CON\_CLKSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00087}\mbox{\hyperlink{plib__pwm_8c_a9fb9c475930d1efde42751762fe0c86d}{00087}}\ \textcolor{preprocessor}{\#define\ PG1CON\_CLKSEL\_MASTER\_CLOCK\_BY\_MCLKSEL\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_CLKSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1CON\_CLKSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00088}\mbox{\hyperlink{plib__pwm_8c_a0ac98c061a8b00e0774807baf4efa437}{00088}}\ \textcolor{preprocessor}{\#define\ PG1CON\_CLKSEL\_MASTER\_CLOCK\_DIVIDER\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_CLKSEL\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG1CON\_CLKSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00089}\mbox{\hyperlink{plib__pwm_8c_ad45dc908104b9b69ab49ba9961a5af14}{00089}}\ \textcolor{preprocessor}{\#define\ PG1CON\_CLKSEL\_MASTER\_CLOCK\_FREQ\_SCALING\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_CLKSEL\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG1CON\_CLKSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00091}\mbox{\hyperlink{plib__pwm_8c_a294c532277b8f02aae998a657547cfae}{00091}}\ \textcolor{preprocessor}{\#define\ PG1CON\_MODSEL\_INDEPENDENT\_EDGE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00092}\mbox{\hyperlink{plib__pwm_8c_a7504829d7f950d0592131e3ecf8d6e4d}{00092}}\ \textcolor{preprocessor}{\#define\ PG1CON\_MODSEL\_VARIABLE\_PHASE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00093}\mbox{\hyperlink{plib__pwm_8c_a23a952d5b7e1f5782f8d544c3260413b}{00093}}\ \textcolor{preprocessor}{\#define\ PG1CON\_MODSEL\_INDEPENDENT\_EDGE\_DUAL\_OUTPUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG1CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00094}\mbox{\hyperlink{plib__pwm_8c_a4b667934e15f238bb38515a256960f26}{00094}}\ \textcolor{preprocessor}{\#define\ PG1CON\_MODSEL\_CENTER\_ALIGNED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_PG1CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00095}\mbox{\hyperlink{plib__pwm_8c_a2c7ddd07373d5c80e456addfb6a34ce4}{00095}}\ \textcolor{preprocessor}{\#define\ PG1CON\_MODSEL\_DOUBLE\_UPDATE\_CENTER\_ALIGNED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_PG1CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00096}\mbox{\hyperlink{plib__pwm_8c_af6132df39991a7180812c466ca277762}{00096}}\ \textcolor{preprocessor}{\#define\ PG1CON\_MODSEL\_DUALEDGE\_CA\_ONE\_UPDATE\_CYCLE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_PG1CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00097}\mbox{\hyperlink{plib__pwm_8c_a7e4ecfd4e25b1f77d2e3afe7a8ad74ed}{00097}}\ \textcolor{preprocessor}{\#define\ PG1CON\_MODSEL\_DUALEDGE\_CA\_TWO\_UPDATE\_CYCLE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_PG1CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00099}00099\ \textcolor{comment}{//PWM\ Generator\ x\ PMOD\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00100}\mbox{\hyperlink{plib__pwm_8c_a6ed09c65ba2484c2b8c0acd1bc34e67b}{00100}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_PMOD\_COMPLEMENTARY\_MODE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_PMOD\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1IOCON\_PMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00101}\mbox{\hyperlink{plib__pwm_8c_a485af6b388d14b3a72708be9cbc67248}{00101}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_PMOD\_INDEPENDENT\_MODE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_PMOD\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1IOCON\_PMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00102}\mbox{\hyperlink{plib__pwm_8c_a398827e44d73a39e5747d750c28f1aba}{00102}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_PMOD\_PUSH\_PULL\_MODE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_PMOD\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG1IOCON\_PMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00103}\mbox{\hyperlink{plib__pwm_8c_a42fd7c3f60f04d772033cf6675b6bd0b}{00103}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_PMOD\_RESERVED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_PMOD\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG1IOCON\_PMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00105}00105\ \textcolor{comment}{//PWM\ Generator\ x\ POLH\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00106}\mbox{\hyperlink{plib__pwm_8c_a3c13548fd39ebf6a2d46dc5765de80bd}{00106}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_POLH\_ACTIVE\_HIGH\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_POLH\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1IOCON\_POLH\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00107}\mbox{\hyperlink{plib__pwm_8c_a1fe142dbb4cfacfd2a8e7ef48d9a03fd}{00107}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_POLH\_ACTIVE\_LOW\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_POLH\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1IOCON\_POLH\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00109}00109\ \textcolor{comment}{//PWM\ Generator\ x\ POLL\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00110}\mbox{\hyperlink{plib__pwm_8c_ae21effba9b757a23178fe93655570049}{00110}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_POLL\_ACTIVE\_HIGH\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_POLL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1IOCON\_POLL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00111}\mbox{\hyperlink{plib__pwm_8c_a182f9546a92f71abff62c7ec65490f73}{00111}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_POLL\_ACTIVE\_LOW\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_POLL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1IOCON\_POLL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00113}00113\ \textcolor{comment}{//PWM\ Generator\ x\ SWAP\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00114}\mbox{\hyperlink{plib__pwm_8c_a1de98ccf4f5081aee124e00cbf2f8d28}{00114}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_SWAP\_NORMAL\_MAPPING\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_SWAP\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1IOCON\_SWAP\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00115}\mbox{\hyperlink{plib__pwm_8c_a14994c0df37f8a344bb269129a14daf7}{00115}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_SWAP\_SWAPPED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_SWAP\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1IOCON\_SWAP\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00117}\mbox{\hyperlink{plib__pwm_8c_a5caebecbe228c8759ffd9f6f5778c845}{00117}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_OVRENH\_PWM\_GENERATOR\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_OVRENH\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1IOCON\_OVRENH\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00118}\mbox{\hyperlink{plib__pwm_8c_af3be4b1ee0afda953ec451b81fa27859}{00118}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_OVRENH\_OVRDAT\_1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_OVRENH\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1IOCON\_OVRENH\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00120}00120\ \textcolor{comment}{//PWM\ Generator\ x\ OVRENL\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00121}\mbox{\hyperlink{plib__pwm_8c_af809cd1e572cafc853a1058684313983}{00121}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_OVRENL\_PWM\_GENERATOR\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_OVRENL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1IOCON\_OVRENL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00122}\mbox{\hyperlink{plib__pwm_8c_aaf6125a42bfe41dd19e9f2a7ad94cb72}{00122}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_OVRENL\_OVRDAT\_0\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_OVRENL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1IOCON\_OVRENL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00124}00124\ \textcolor{comment}{//PWM\ Generator\ x\ OSYNC[1:0]\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00125}\mbox{\hyperlink{plib__pwm_8c_afa0ec69cd7315568f23e4a066131e605}{00125}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_OSYNC\_SYNC\_TO\_LOCAL\_PWM\_TIMEBASE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_OSYNC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1IOCON\_OSYNC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00126}\mbox{\hyperlink{plib__pwm_8c_a36ce560815dad3da8e70374ae9475d3e}{00126}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_OSYNC\_SYNC\_IMMEDIATE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_OSYNC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1IOCON\_OSYNC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00127}\mbox{\hyperlink{plib__pwm_8c_a7bb1984f7c7dae032b31091bba2db665}{00127}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_OSYNC\_SYNC\_TO\_UPDMOD\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_OSYNC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG1IOCON\_OSYNC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00128}\mbox{\hyperlink{plib__pwm_8c_ae334edf777364fba366a7ca191e12ae8}{00128}}\ \textcolor{preprocessor}{\#define\ PG1IOCON\_OSYNC\_SYNC\_TO\_DATA\_BUFFER\_UPDATE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1IOCON\_OSYNC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG1IOCON\_OSYNC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00130}00130\ \textcolor{comment}{//PGxEVT\ ADTR2EN3\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00131}\mbox{\hyperlink{plib__pwm_8c_aaeee5a679a6bcab3dc4c57b939a02652}{00131}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_ADTR2EN3\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_ADTR2EN3\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1EVT\_ADTR2EN3\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00132}\mbox{\hyperlink{plib__pwm_8c_ae8dc4720c83c8473f9588b72bb25755d}{00132}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_ADTR2EN3\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_ADTR2EN3\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1EVT\_ADTR2EN3\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00134}00134\ \textcolor{comment}{//PGxEVT\ ADTR2EN2\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00135}\mbox{\hyperlink{plib__pwm_8c_a157d0032f534112fe9f7b13af151cd63}{00135}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_ADTR2EN2\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_ADTR2EN2\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1EVT\_ADTR2EN2\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00136}\mbox{\hyperlink{plib__pwm_8c_a6d22e2c42dd8007befb1238945cd0d9f}{00136}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_ADTR2EN2\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_ADTR2EN2\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1EVT\_ADTR2EN2\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00138}00138\ \textcolor{comment}{//PGxEVT\ ADTR2EN1\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00139}\mbox{\hyperlink{plib__pwm_8c_af4d885caccd94fb2e5b92a0dc154e382}{00139}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_ADTR2EN1\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_ADTR2EN1\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1EVT\_ADTR2EN1\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00140}\mbox{\hyperlink{plib__pwm_8c_a2d68bd7cd7a4d09e3e244bdbffc12dd6}{00140}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_ADTR2EN1\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_ADTR2EN1\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1EVT\_ADTR2EN1\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00142}00142\ \textcolor{comment}{//PGxEVT\ ADTR1EN3\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00143}\mbox{\hyperlink{plib__pwm_8c_a99cfbfbd5eb413d0a0353e7bb1ebf15b}{00143}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_ADTR1EN3\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_ADTR1EN3\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1EVT\_ADTR1EN3\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00144}\mbox{\hyperlink{plib__pwm_8c_a04499d0e6a7549d5b26acbf8b268d749}{00144}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_ADTR1EN3\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_ADTR1EN3\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1EVT\_ADTR1EN3\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00146}00146\ \textcolor{comment}{//PGxEVT\ ADTR1EN2\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00147}\mbox{\hyperlink{plib__pwm_8c_a67c3f37c0dbcdfde0e0309b97e62c29e}{00147}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_ADTR1EN2\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_ADTR1EN2\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1EVT\_ADTR1EN2\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00148}\mbox{\hyperlink{plib__pwm_8c_a9b3513fefbf90cc3e113e6cd981ec87d}{00148}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_ADTR1EN2\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_ADTR1EN2\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1EVT\_ADTR1EN2\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00150}00150\ \textcolor{comment}{//PGxEVT\ ADTR1EN1\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00151}\mbox{\hyperlink{plib__pwm_8c_a322289fe23a62cc6e955ee89813a986c}{00151}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_ADTR1EN1\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_ADTR1EN1\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1EVT\_ADTR1EN1\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00152}\mbox{\hyperlink{plib__pwm_8c_ae71e18e0333fa1f3508ef04a1216acb5}{00152}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_ADTR1EN1\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_ADTR1EN1\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1EVT\_ADTR1EN1\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00154}00154\ \textcolor{comment}{//PGxEVT\ PWMPCI[2:0]\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00155}\mbox{\hyperlink{plib__pwm_8c_aee4fabffb273dd8c7566c1371fda79c8}{00155}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_PWMPCI\_PWM\_GENERATOR\_1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_PWMPCI\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1EVT\_PWMPCI\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00156}\mbox{\hyperlink{plib__pwm_8c_a5f243f872fc57c0083bdc17920d00431}{00156}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_PWMPCI\_PWM\_GENERATOR\_2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_PWMPCI\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1EVT\_PWMPCI\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00157}\mbox{\hyperlink{plib__pwm_8c_a0d87d6ca4e640c8fc9aca2b3cd90def5}{00157}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_PWMPCI\_PWM\_GENERATOR\_3\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_PWMPCI\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG1EVT\_PWMPCI\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00158}\mbox{\hyperlink{plib__pwm_8c_a770c65b33795b4240cb54a0d63fee03a}{00158}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_PWMPCI\_PWM\_GENERATOR\_4\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_PWMPCI\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG1EVT\_PWMPCI\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00160}00160\ \textcolor{comment}{//PGxEVT\ UPDTRG[1:0]\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00161}\mbox{\hyperlink{plib__pwm_8c_a31c7264ad4afdaa5ca2b613e34344557}{00161}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_UPDTRG\_MANUAL\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_UPDTRG\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1EVT\_UPDTRG\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00162}\mbox{\hyperlink{plib__pwm_8c_a43c00ec6dcfb0fe54fe31a8f18e5a4a8}{00162}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_UPDTRG\_PGxDC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_UPDTRG\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1EVT\_UPDTRG\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00163}\mbox{\hyperlink{plib__pwm_8c_a13eb4f69f82c8ea4ec39e1c32a1d430e}{00163}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_UPDTRG\_PGxPHASE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_UPDTRG\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG1EVT\_UPDTRG\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00164}\mbox{\hyperlink{plib__pwm_8c_a292ac2c2fefc2bd785a427b87b3b1c3e}{00164}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_UPDTRG\_PGxTRIGA\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_UPDTRG\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG1EVT\_UPDTRG\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00166}00166\ \textcolor{comment}{//PGxEVT\ PGTRGSEL[2:0]\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00167}\mbox{\hyperlink{plib__pwm_8c_a39e5e67c2297f32eeef3f0d5ddf9fce1}{00167}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_PGTRGSEL\_EOC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_PGTRGSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG1EVT\_PGTRGSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00168}\mbox{\hyperlink{plib__pwm_8c_aa55d37ca7486268be75a8b5013ff31c2}{00168}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_PGTRGSEL\_TRIGA\_COMPARE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_PGTRGSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG1EVT\_PGTRGSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00169}\mbox{\hyperlink{plib__pwm_8c_ad6368f3bf3d77e9f87990921188cbf4c}{00169}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_PGTRGSEL\_TRIGB\_COMPARE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_PGTRGSEL\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG1EVT\_PGTRGSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00170}\mbox{\hyperlink{plib__pwm_8c_aa3b4912be3f421080a5434b8d19899f7}{00170}}\ \textcolor{preprocessor}{\#define\ PG1EVT\_PGTRGSEL\_TRIGC\_COMPARE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG1EVT\_PGTRGSEL\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG1EVT\_PGTRGSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00172}00172\ \textcolor{comment}{//PWM\ Generator\ x\ PCI\ Termination\ Polarity\ options}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00173}\mbox{\hyperlink{plib__pwm_8c_af4f551825e4a9df3d349b6ccf60bf743}{00173}}\ \textcolor{preprocessor}{\#define\ PG2FPCI\_PPS\_NON\_INVERTED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2FPCI\_PPS\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2FPCI\_PPS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00174}\mbox{\hyperlink{plib__pwm_8c_add7e7308e5ebf6155231034aeeebee18}{00174}}\ \textcolor{preprocessor}{\#define\ PG2FPCI\_PPS\_INVERTED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2FPCI\_PPS\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2FPCI\_PPS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00176}00176\ \textcolor{comment}{//PGxCON\ MDCSEL\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00177}\mbox{\hyperlink{plib__pwm_8c_a8623aec92467f6f9a97800e903a6ffcb}{00177}}\ \textcolor{preprocessor}{\#define\ PG2CON\_MDCSEL\_PGxDC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_MDCSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2CON\_MDCSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00178}\mbox{\hyperlink{plib__pwm_8c_acc2a4cd17ea3fcb95b51368ea5c51814}{00178}}\ \textcolor{preprocessor}{\#define\ PG2CON\_MDCSEL\_MDC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_MDCSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2CON\_MDCSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00180}00180\ \textcolor{comment}{//PGxCON\ MPERSEL\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00181}\mbox{\hyperlink{plib__pwm_8c_acb9e0042674b208e232a838ca517b583}{00181}}\ \textcolor{preprocessor}{\#define\ PG2CON\_MPERSEL\_PGxPER\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_MPERSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2CON\_MPERSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00182}\mbox{\hyperlink{plib__pwm_8c_a3c0af0cf5172d3675862b2b4f2f8c28a}{00182}}\ \textcolor{preprocessor}{\#define\ PG2CON\_MPERSEL\_MPER\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_MPERSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2CON\_MPERSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00184}00184\ \textcolor{comment}{//PGxCON\ MPHSEL\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00185}\mbox{\hyperlink{plib__pwm_8c_a4947c9464ff38669ffe16954d76932dc}{00185}}\ \textcolor{preprocessor}{\#define\ PG2CON\_MPHSEL\_PGxPHASE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_MPHSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2CON\_MPHSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00186}\mbox{\hyperlink{plib__pwm_8c_a9621b8b544a5bb4d00fe3088eaae9413}{00186}}\ \textcolor{preprocessor}{\#define\ PG2CON\_MPHSEL\_MPHASE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_MPHSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2CON\_MPHSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00188}00188\ \textcolor{comment}{//PGxCON\ MSTEN\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00189}\mbox{\hyperlink{plib__pwm_8c_ae9e3e004346922f965c4c9bfedd0a601}{00189}}\ \textcolor{preprocessor}{\#define\ PG2CON\_MSTEN\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_MSTEN\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2CON\_MSTEN\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00190}\mbox{\hyperlink{plib__pwm_8c_ab61cd77d43988b9df1a6240cc8fe97bc}{00190}}\ \textcolor{preprocessor}{\#define\ PG2CON\_MSTEN\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_MSTEN\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2CON\_MSTEN\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00192}00192\ \textcolor{comment}{//PWM\ Generator\ x\ Trigger\ Mode\ Selection\ options}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00193}\mbox{\hyperlink{plib__pwm_8c_ad0b6941cbd51e3be504d0304854773e9}{00193}}\ \textcolor{preprocessor}{\#define\ PG2CON\_TRGMOD\_SINGLE\_TRIGGER\_MODE\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_TRGMOD\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2CON\_TRGMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00194}\mbox{\hyperlink{plib__pwm_8c_abc71084bb11023ba02b16d4ff0337fd4}{00194}}\ \textcolor{preprocessor}{\#define\ PG2CON\_TRGMOD\_RETRIGGRERABLE\_MODE\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_TRGMOD\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2CON\_TRGMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00196}00196\ \textcolor{comment}{//PWM\ Generator\ x\ Data\ Register\ Update\ Modes}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00197}\mbox{\hyperlink{plib__pwm_8c_a0a3e56414545b0cd3ae8cbd0a05d2a93}{00197}}\ \textcolor{preprocessor}{\#define\ PG2CON\_UPDMOD\_SOC\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_UPDMOD\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2CON\_UPDMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00198}\mbox{\hyperlink{plib__pwm_8c_a813eb8b2991d81de6c3c66e44f87d540}{00198}}\ \textcolor{preprocessor}{\#define\ PG2CON\_UPDMOD\_IMMEDIATE\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_UPDMOD\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2CON\_UPDMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00199}\mbox{\hyperlink{plib__pwm_8c_a7b2ad67567c2f281a3415407f9d45fff}{00199}}\ \textcolor{preprocessor}{\#define\ PG2CON\_UPDMOD\_CLIENT\_SOC\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_UPDMOD\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG2CON\_UPDMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00200}\mbox{\hyperlink{plib__pwm_8c_a0d3a54fe43f784bacd4f7badb910b23b}{00200}}\ \textcolor{preprocessor}{\#define\ PG2CON\_UPDMOD\_CLIENT\_IMMEDIATE\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_UPDMOD\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG2CON\_UPDMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00202}00202\ \textcolor{comment}{//PWM\ Generator\ x\ Start-\/of-\/Cycle\ Selection\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00203}\mbox{\hyperlink{plib__pwm_8c_a22e98612af8a018471e476634a6a2a41}{00203}}\ \textcolor{preprocessor}{\#define\ PG2CON\_SOCS\_LOCAL\_EOC\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_SOCS\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00204}\mbox{\hyperlink{plib__pwm_8c_a4db2f557815e4c08af23c08472de5163}{00204}}\ \textcolor{preprocessor}{\#define\ PG2CON\_SOCS\_TRIG\_OP\_BY\_PG1\_OR\_PG5\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_SOCS\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00205}\mbox{\hyperlink{plib__pwm_8c_abdb1ca9459f4696fb565e211c7c8ae97}{00205}}\ \textcolor{preprocessor}{\#define\ PG2CON\_SOCS\_TRIG\_OP\_BY\_PG2\_OR\_PG6\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_SOCS\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG2CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00206}\mbox{\hyperlink{plib__pwm_8c_af98c9890df5a3412b59d10b5f197a04a}{00206}}\ \textcolor{preprocessor}{\#define\ PG2CON\_SOCS\_TRIG\_OP\_BY\_PG3\_OR\_PG7\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_SOCS\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG2CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00207}\mbox{\hyperlink{plib__pwm_8c_a738a5a29f41067e748f15c8f3dcae517}{00207}}\ \textcolor{preprocessor}{\#define\ PG2CON\_SOCS\_TRIG\_OP\_BY\_PG4\_OR\_PG8\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_SOCS\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_PG2CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00208}\mbox{\hyperlink{plib__pwm_8c_a5ef448693b91953305bc0f50a7fd5e62}{00208}}\ \textcolor{preprocessor}{\#define\ PG2CON\_SOCS\_TRIG\_BIT\_OR\_PCI\_SYNC\_FN\_ONLY\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_SOCS\_MASK\ \&\ ((uint32\_t)(15)\ <<\ \_PG2CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00210}00210\ \textcolor{comment}{//PWM\ Generator\ x\ CLKSEL\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00211}\mbox{\hyperlink{plib__pwm_8c_aaa1223dfc53ad690be3253c5ec9b1f3f}{00211}}\ \textcolor{preprocessor}{\#define\ PG2CON\_CLKSEL\_NO\_CLOCK\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_CLKSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2CON\_CLKSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00212}\mbox{\hyperlink{plib__pwm_8c_af097f3c7dc732b5086a190df25131d3c}{00212}}\ \textcolor{preprocessor}{\#define\ PG2CON\_CLKSEL\_MASTER\_CLOCK\_BY\_MCLKSEL\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_CLKSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2CON\_CLKSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00213}\mbox{\hyperlink{plib__pwm_8c_ac8fd52124c01a43fe0d6e11859fba6bd}{00213}}\ \textcolor{preprocessor}{\#define\ PG2CON\_CLKSEL\_MASTER\_CLOCK\_DIVIDER\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_CLKSEL\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG2CON\_CLKSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00214}\mbox{\hyperlink{plib__pwm_8c_a050255c4b3f25a52eb4b324a203382fd}{00214}}\ \textcolor{preprocessor}{\#define\ PG2CON\_CLKSEL\_MASTER\_CLOCK\_FREQ\_SCALING\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_CLKSEL\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG2CON\_CLKSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00216}\mbox{\hyperlink{plib__pwm_8c_a5b671e60bfb0bb985b81bf8698d2a693}{00216}}\ \textcolor{preprocessor}{\#define\ PG2CON\_MODSEL\_INDEPENDENT\_EDGE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00217}\mbox{\hyperlink{plib__pwm_8c_a71759805f8f9c971475e69d9286c00f4}{00217}}\ \textcolor{preprocessor}{\#define\ PG2CON\_MODSEL\_VARIABLE\_PHASE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00218}\mbox{\hyperlink{plib__pwm_8c_a3be85e12f98cbe57f1897a384d149c9e}{00218}}\ \textcolor{preprocessor}{\#define\ PG2CON\_MODSEL\_INDEPENDENT\_EDGE\_DUAL\_OUTPUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG2CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00219}\mbox{\hyperlink{plib__pwm_8c_adf17beb8faf663d201235fcb624c7fd3}{00219}}\ \textcolor{preprocessor}{\#define\ PG2CON\_MODSEL\_CENTER\_ALIGNED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_PG2CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00220}\mbox{\hyperlink{plib__pwm_8c_a1443e056dd02ae11c052738400390214}{00220}}\ \textcolor{preprocessor}{\#define\ PG2CON\_MODSEL\_DOUBLE\_UPDATE\_CENTER\_ALIGNED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_PG2CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00221}\mbox{\hyperlink{plib__pwm_8c_a60721b743a584104aac5cebbc017909e}{00221}}\ \textcolor{preprocessor}{\#define\ PG2CON\_MODSEL\_DUALEDGE\_CA\_ONE\_UPDATE\_CYCLE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_PG2CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00222}\mbox{\hyperlink{plib__pwm_8c_adb7c29f4621113cf55ce1d16a12e8123}{00222}}\ \textcolor{preprocessor}{\#define\ PG2CON\_MODSEL\_DUALEDGE\_CA\_TWO\_UPDATE\_CYCLE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_PG2CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00224}00224\ \textcolor{comment}{//PWM\ Generator\ x\ PMOD\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00225}\mbox{\hyperlink{plib__pwm_8c_a31999ced2cd91e3382ba022df5687950}{00225}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_PMOD\_COMPLEMENTARY\_MODE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_PMOD\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2IOCON\_PMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00226}\mbox{\hyperlink{plib__pwm_8c_ae3cf646a099aaa6f046e7fc70b1d9832}{00226}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_PMOD\_INDEPENDENT\_MODE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_PMOD\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2IOCON\_PMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00227}\mbox{\hyperlink{plib__pwm_8c_a1e88a569fb09dcb000746266ffa6a731}{00227}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_PMOD\_PUSH\_PULL\_MODE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_PMOD\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG2IOCON\_PMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00228}\mbox{\hyperlink{plib__pwm_8c_aa2bad2eb54e2f67554f421b698db8226}{00228}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_PMOD\_RESERVED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_PMOD\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG2IOCON\_PMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00230}00230\ \textcolor{comment}{//PWM\ Generator\ x\ POLH\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00231}\mbox{\hyperlink{plib__pwm_8c_a261c2c0f75385e9fe7b3f2591ab2c4f4}{00231}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_POLH\_ACTIVE\_HIGH\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_POLH\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2IOCON\_POLH\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00232}\mbox{\hyperlink{plib__pwm_8c_a6d08e1314a61b2338357f7caf8624530}{00232}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_POLH\_ACTIVE\_LOW\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_POLH\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2IOCON\_POLH\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00234}00234\ \textcolor{comment}{//PWM\ Generator\ x\ POLL\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00235}\mbox{\hyperlink{plib__pwm_8c_aa1bce3ef2f4819111696d5a4fabe2831}{00235}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_POLL\_ACTIVE\_HIGH\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_POLL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2IOCON\_POLL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00236}\mbox{\hyperlink{plib__pwm_8c_a5ef669f306ca4ee77ab8900bf70aba50}{00236}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_POLL\_ACTIVE\_LOW\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_POLL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2IOCON\_POLL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00238}00238\ \textcolor{comment}{//PWM\ Generator\ x\ SWAP\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00239}\mbox{\hyperlink{plib__pwm_8c_adc1cc23595f2bd87d40b018b8b12221d}{00239}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_SWAP\_NORMAL\_MAPPING\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_SWAP\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2IOCON\_SWAP\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00240}\mbox{\hyperlink{plib__pwm_8c_ad2c0abdbef1594ca883ee1e1fe0ce2f5}{00240}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_SWAP\_SWAPPED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_SWAP\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2IOCON\_SWAP\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00242}\mbox{\hyperlink{plib__pwm_8c_ac204a889c03aa541c4e7bb7c3445ee96}{00242}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_OVRENH\_PWM\_GENERATOR\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_OVRENH\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2IOCON\_OVRENH\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00243}\mbox{\hyperlink{plib__pwm_8c_a893d514fd64ae4d003c0f982841a829d}{00243}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_OVRENH\_OVRDAT\_1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_OVRENH\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2IOCON\_OVRENH\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00245}00245\ \textcolor{comment}{//PWM\ Generator\ x\ OVRENL\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00246}\mbox{\hyperlink{plib__pwm_8c_a518bd2e174f512517dc05ef34e7c97b6}{00246}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_OVRENL\_PWM\_GENERATOR\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_OVRENL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2IOCON\_OVRENL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00247}\mbox{\hyperlink{plib__pwm_8c_a9988c30277c812d358a3d446747426d9}{00247}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_OVRENL\_OVRDAT\_0\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_OVRENL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2IOCON\_OVRENL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00249}00249\ \textcolor{comment}{//PWM\ Generator\ x\ OSYNC[1:0]\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00250}\mbox{\hyperlink{plib__pwm_8c_a31dd1e89fa8b1a81f4030ea67382967b}{00250}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_OSYNC\_SYNC\_TO\_LOCAL\_PWM\_TIMEBASE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_OSYNC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2IOCON\_OSYNC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00251}\mbox{\hyperlink{plib__pwm_8c_af572ee970b50ff61d60f30cdd9e2dd98}{00251}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_OSYNC\_SYNC\_IMMEDIATE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_OSYNC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2IOCON\_OSYNC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00252}\mbox{\hyperlink{plib__pwm_8c_ab7fc30ea676592cd4b3a3f103db28c11}{00252}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_OSYNC\_SYNC\_TO\_UPDMOD\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_OSYNC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG2IOCON\_OSYNC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00253}\mbox{\hyperlink{plib__pwm_8c_a75b9a0fcc7f76d70dca376ca3d559dc0}{00253}}\ \textcolor{preprocessor}{\#define\ PG2IOCON\_OSYNC\_SYNC\_TO\_DATA\_BUFFER\_UPDATE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2IOCON\_OSYNC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG2IOCON\_OSYNC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00255}00255\ \textcolor{comment}{//PGxEVT\ ADTR2EN3\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00256}\mbox{\hyperlink{plib__pwm_8c_a7edd53587bc427feb56a18f09d1e6b3d}{00256}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_ADTR2EN3\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_ADTR2EN3\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2EVT\_ADTR2EN3\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00257}\mbox{\hyperlink{plib__pwm_8c_a31a18b1bca6da805eb8f2dcc5fe53270}{00257}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_ADTR2EN3\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_ADTR2EN3\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2EVT\_ADTR2EN3\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00259}00259\ \textcolor{comment}{//PGxEVT\ ADTR2EN2\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00260}\mbox{\hyperlink{plib__pwm_8c_ad842e235a1cf717a616d6a65b8b0de98}{00260}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_ADTR2EN2\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_ADTR2EN2\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2EVT\_ADTR2EN2\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00261}\mbox{\hyperlink{plib__pwm_8c_ae7771ff20dcf3917cc0aebfc7a056296}{00261}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_ADTR2EN2\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_ADTR2EN2\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2EVT\_ADTR2EN2\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00263}00263\ \textcolor{comment}{//PGxEVT\ ADTR2EN1\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00264}\mbox{\hyperlink{plib__pwm_8c_afbc156f8e17e78a4b0c15cdcb6e0f307}{00264}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_ADTR2EN1\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_ADTR2EN1\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2EVT\_ADTR2EN1\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00265}\mbox{\hyperlink{plib__pwm_8c_ab5a3bc913d93bb0c0a811e5f92b3c044}{00265}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_ADTR2EN1\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_ADTR2EN1\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2EVT\_ADTR2EN1\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00267}00267\ \textcolor{comment}{//PGxEVT\ ADTR1EN3\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00268}\mbox{\hyperlink{plib__pwm_8c_a3c264f3adea0e33e9f8ccd425cc3f69e}{00268}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_ADTR1EN3\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_ADTR1EN3\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2EVT\_ADTR1EN3\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00269}\mbox{\hyperlink{plib__pwm_8c_aa9ae09b2a5a5f46f96260384824f5090}{00269}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_ADTR1EN3\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_ADTR1EN3\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2EVT\_ADTR1EN3\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00270}00270\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00271}00271\ \textcolor{comment}{//PGxEVT\ ADTR1EN2\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00272}\mbox{\hyperlink{plib__pwm_8c_aeaca7c79b2be041f1cf905af68d16481}{00272}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_ADTR1EN2\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_ADTR1EN2\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2EVT\_ADTR1EN2\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00273}\mbox{\hyperlink{plib__pwm_8c_a56be98d68142e6e4abfd8278199f1b02}{00273}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_ADTR1EN2\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_ADTR1EN2\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2EVT\_ADTR1EN2\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00275}00275\ \textcolor{comment}{//PGxEVT\ ADTR1EN1\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00276}\mbox{\hyperlink{plib__pwm_8c_ac88e827263dae0ac3ad2549a7f200d5f}{00276}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_ADTR1EN1\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_ADTR1EN1\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2EVT\_ADTR1EN1\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00277}\mbox{\hyperlink{plib__pwm_8c_a85d7752c81ef3bcf333c6283e2b97ab2}{00277}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_ADTR1EN1\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_ADTR1EN1\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2EVT\_ADTR1EN1\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00278}00278\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00279}00279\ \textcolor{comment}{//PGxEVT\ PWMPCI[2:0]\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00280}\mbox{\hyperlink{plib__pwm_8c_aad9becefd62a78926fe44f3c43d9803c}{00280}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_PWMPCI\_PWM\_GENERATOR\_1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_PWMPCI\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2EVT\_PWMPCI\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00281}\mbox{\hyperlink{plib__pwm_8c_aff0e663ea1030ae9e0bf08635da2bce9}{00281}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_PWMPCI\_PWM\_GENERATOR\_2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_PWMPCI\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2EVT\_PWMPCI\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00282}\mbox{\hyperlink{plib__pwm_8c_a27f335df04e8533f2418e7c7fdfd811c}{00282}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_PWMPCI\_PWM\_GENERATOR\_3\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_PWMPCI\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG2EVT\_PWMPCI\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00283}\mbox{\hyperlink{plib__pwm_8c_a3a4b9d477b2f75b2016e55efad768f4f}{00283}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_PWMPCI\_PWM\_GENERATOR\_4\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_PWMPCI\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG2EVT\_PWMPCI\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00285}00285\ \textcolor{comment}{//PGxEVT\ UPDTRG[1:0]\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00286}\mbox{\hyperlink{plib__pwm_8c_ac665cf64e220e3927a9c8dd522f7fe94}{00286}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_UPDTRG\_MANUAL\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_UPDTRG\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2EVT\_UPDTRG\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00287}\mbox{\hyperlink{plib__pwm_8c_ad3babb9c8df7a588a47a6ff183a10c0b}{00287}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_UPDTRG\_PGxDC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_UPDTRG\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2EVT\_UPDTRG\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00288}\mbox{\hyperlink{plib__pwm_8c_aeb0890bd2b9bf7bc2fa16dbc5364a6a8}{00288}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_UPDTRG\_PGxPHASE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_UPDTRG\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG2EVT\_UPDTRG\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00289}\mbox{\hyperlink{plib__pwm_8c_ac4f8752bcb89908b0c075f459d20ac86}{00289}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_UPDTRG\_PGxTRIGA\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_UPDTRG\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG2EVT\_UPDTRG\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00291}00291\ \textcolor{comment}{//PGxEVT\ PGTRGSEL[2:0]\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00292}\mbox{\hyperlink{plib__pwm_8c_a49dae64924dd2925232f5267d07de7ba}{00292}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_PGTRGSEL\_EOC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_PGTRGSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG2EVT\_PGTRGSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00293}\mbox{\hyperlink{plib__pwm_8c_a31332128ae16729ed5b829095977b97b}{00293}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_PGTRGSEL\_TRIGA\_COMPARE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_PGTRGSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG2EVT\_PGTRGSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00294}\mbox{\hyperlink{plib__pwm_8c_aba93534957c3bda13ce176a487c63be3}{00294}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_PGTRGSEL\_TRIGB\_COMPARE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_PGTRGSEL\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG2EVT\_PGTRGSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00295}\mbox{\hyperlink{plib__pwm_8c_a71fe1d69a491096495be0e946b282a3d}{00295}}\ \textcolor{preprocessor}{\#define\ PG2EVT\_PGTRGSEL\_TRIGC\_COMPARE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG2EVT\_PGTRGSEL\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG2EVT\_PGTRGSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00297}00297\ \textcolor{comment}{//PWM\ Generator\ x\ PCI\ Termination\ Polarity\ options}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00298}\mbox{\hyperlink{plib__pwm_8c_a29a49a4e0aef10399c24ac63a13fbc79}{00298}}\ \textcolor{preprocessor}{\#define\ PG3FPCI\_PPS\_NON\_INVERTED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3FPCI\_PPS\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3FPCI\_PPS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00299}\mbox{\hyperlink{plib__pwm_8c_a37fd6990c7fc5a5da9c164594cbd47ee}{00299}}\ \textcolor{preprocessor}{\#define\ PG3FPCI\_PPS\_INVERTED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3FPCI\_PPS\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3FPCI\_PPS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00301}00301\ \textcolor{comment}{//PGxCON\ MDCSEL\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00302}\mbox{\hyperlink{plib__pwm_8c_a9724a47a9eecf8ee25e2d360d844f01b}{00302}}\ \textcolor{preprocessor}{\#define\ PG3CON\_MDCSEL\_PGxDC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_MDCSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3CON\_MDCSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00303}\mbox{\hyperlink{plib__pwm_8c_ae7f97f7e63aa79ed4a831cda405f2f12}{00303}}\ \textcolor{preprocessor}{\#define\ PG3CON\_MDCSEL\_MDC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_MDCSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3CON\_MDCSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00305}00305\ \textcolor{comment}{//PGxCON\ MPERSEL\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00306}\mbox{\hyperlink{plib__pwm_8c_ac9ac20cc20b45766bca81b114efcf336}{00306}}\ \textcolor{preprocessor}{\#define\ PG3CON\_MPERSEL\_PGxPER\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_MPERSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3CON\_MPERSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00307}\mbox{\hyperlink{plib__pwm_8c_ab78c8ab379f30a61e6e8a1f623f6a0f3}{00307}}\ \textcolor{preprocessor}{\#define\ PG3CON\_MPERSEL\_MPER\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_MPERSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3CON\_MPERSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00308}00308\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00309}00309\ \textcolor{comment}{//PGxCON\ MPHSEL\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00310}\mbox{\hyperlink{plib__pwm_8c_aa58f82fc478083e22580f02278b457cf}{00310}}\ \textcolor{preprocessor}{\#define\ PG3CON\_MPHSEL\_PGxPHASE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_MPHSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3CON\_MPHSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00311}\mbox{\hyperlink{plib__pwm_8c_a809eac9205896dfd3c651b5ce74a4f36}{00311}}\ \textcolor{preprocessor}{\#define\ PG3CON\_MPHSEL\_MPHASE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_MPHSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3CON\_MPHSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00313}00313\ \textcolor{comment}{//PGxCON\ MSTEN\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00314}\mbox{\hyperlink{plib__pwm_8c_a8b7a1e9b3bbcf9b5bcec26d7c0ae4e88}{00314}}\ \textcolor{preprocessor}{\#define\ PG3CON\_MSTEN\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_MSTEN\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3CON\_MSTEN\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00315}\mbox{\hyperlink{plib__pwm_8c_a967bbdb547e9a8a5120d8142940cfd0d}{00315}}\ \textcolor{preprocessor}{\#define\ PG3CON\_MSTEN\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_MSTEN\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3CON\_MSTEN\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00316}00316\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00317}00317\ \textcolor{comment}{//PWM\ Generator\ x\ Trigger\ Mode\ Selection\ options}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00318}\mbox{\hyperlink{plib__pwm_8c_a00b10fcbf089137a91972883726aea11}{00318}}\ \textcolor{preprocessor}{\#define\ PG3CON\_TRGMOD\_SINGLE\_TRIGGER\_MODE\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_TRGMOD\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3CON\_TRGMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00319}\mbox{\hyperlink{plib__pwm_8c_a13b29cdb34e797b0970cd151c5f23a12}{00319}}\ \textcolor{preprocessor}{\#define\ PG3CON\_TRGMOD\_RETRIGGRERABLE\_MODE\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_TRGMOD\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3CON\_TRGMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00320}00320\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00321}00321\ \textcolor{comment}{//PWM\ Generator\ x\ Data\ Register\ Update\ Modes}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00322}\mbox{\hyperlink{plib__pwm_8c_a4e30fc6e5902dc6aecdd3f0f445721d0}{00322}}\ \textcolor{preprocessor}{\#define\ PG3CON\_UPDMOD\_SOC\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_UPDMOD\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3CON\_UPDMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00323}\mbox{\hyperlink{plib__pwm_8c_a89b3f983c8315a4df4e5a98396beea69}{00323}}\ \textcolor{preprocessor}{\#define\ PG3CON\_UPDMOD\_IMMEDIATE\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_UPDMOD\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3CON\_UPDMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00324}\mbox{\hyperlink{plib__pwm_8c_a4da24aacb2b9d871766f69702ea50209}{00324}}\ \textcolor{preprocessor}{\#define\ PG3CON\_UPDMOD\_CLIENT\_SOC\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_UPDMOD\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG3CON\_UPDMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00325}\mbox{\hyperlink{plib__pwm_8c_a19b056c3700eb2a26136c333b62e807e}{00325}}\ \textcolor{preprocessor}{\#define\ PG3CON\_UPDMOD\_CLIENT\_IMMEDIATE\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_UPDMOD\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG3CON\_UPDMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00327}00327\ \textcolor{comment}{//PWM\ Generator\ x\ Start-\/of-\/Cycle\ Selection\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00328}\mbox{\hyperlink{plib__pwm_8c_aea364bde01e0aeb2d68d1af63f9f4b39}{00328}}\ \textcolor{preprocessor}{\#define\ PG3CON\_SOCS\_LOCAL\_EOC\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_SOCS\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00329}\mbox{\hyperlink{plib__pwm_8c_a2293739366db64e271a57bcd78869c36}{00329}}\ \textcolor{preprocessor}{\#define\ PG3CON\_SOCS\_TRIG\_OP\_BY\_PG1\_OR\_PG5\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_SOCS\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00330}\mbox{\hyperlink{plib__pwm_8c_aa35037f8f1d314560a37ca01acf57237}{00330}}\ \textcolor{preprocessor}{\#define\ PG3CON\_SOCS\_TRIG\_OP\_BY\_PG2\_OR\_PG6\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_SOCS\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG3CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00331}\mbox{\hyperlink{plib__pwm_8c_ac6ed96b7b3674efb066e965188afe992}{00331}}\ \textcolor{preprocessor}{\#define\ PG3CON\_SOCS\_TRIG\_OP\_BY\_PG3\_OR\_PG7\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_SOCS\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG3CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00332}\mbox{\hyperlink{plib__pwm_8c_a577bbbca76f76ca541b4e4e8292ffb6d}{00332}}\ \textcolor{preprocessor}{\#define\ PG3CON\_SOCS\_TRIG\_OP\_BY\_PG4\_OR\_PG8\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_SOCS\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_PG3CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00333}\mbox{\hyperlink{plib__pwm_8c_a813360758943a9466c762703fecd25f7}{00333}}\ \textcolor{preprocessor}{\#define\ PG3CON\_SOCS\_TRIG\_BIT\_OR\_PCI\_SYNC\_FN\_ONLY\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_SOCS\_MASK\ \&\ ((uint32\_t)(15)\ <<\ \_PG3CON\_SOCS\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00335}00335\ \textcolor{comment}{//PWM\ Generator\ x\ CLKSEL\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00336}\mbox{\hyperlink{plib__pwm_8c_a86a6af978abd46a5c91e908352dd9483}{00336}}\ \textcolor{preprocessor}{\#define\ PG3CON\_CLKSEL\_NO\_CLOCK\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_CLKSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3CON\_CLKSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00337}\mbox{\hyperlink{plib__pwm_8c_ade94738d3e137e6d175a58d3f66eea04}{00337}}\ \textcolor{preprocessor}{\#define\ PG3CON\_CLKSEL\_MASTER\_CLOCK\_BY\_MCLKSEL\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_CLKSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3CON\_CLKSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00338}\mbox{\hyperlink{plib__pwm_8c_ab1aa6b768904f24b30e680716c9faccc}{00338}}\ \textcolor{preprocessor}{\#define\ PG3CON\_CLKSEL\_MASTER\_CLOCK\_DIVIDER\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_CLKSEL\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG3CON\_CLKSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00339}\mbox{\hyperlink{plib__pwm_8c_aba34edb5c1f353c7cfd25e059b53b7bf}{00339}}\ \textcolor{preprocessor}{\#define\ PG3CON\_CLKSEL\_MASTER\_CLOCK\_FREQ\_SCALING\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_CLKSEL\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG3CON\_CLKSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00340}00340\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00341}\mbox{\hyperlink{plib__pwm_8c_af54739ddb0e7363bf292e9a6e7192fdd}{00341}}\ \textcolor{preprocessor}{\#define\ PG3CON\_MODSEL\_INDEPENDENT\_EDGE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00342}\mbox{\hyperlink{plib__pwm_8c_a5d40860a190023f052fb70583974d0f4}{00342}}\ \textcolor{preprocessor}{\#define\ PG3CON\_MODSEL\_VARIABLE\_PHASE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00343}\mbox{\hyperlink{plib__pwm_8c_a48fdc13138c730d104aa1b619aa3eb47}{00343}}\ \textcolor{preprocessor}{\#define\ PG3CON\_MODSEL\_INDEPENDENT\_EDGE\_DUAL\_OUTPUT\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG3CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00344}\mbox{\hyperlink{plib__pwm_8c_ac27f389da28aaad2fae5d20e65010237}{00344}}\ \textcolor{preprocessor}{\#define\ PG3CON\_MODSEL\_CENTER\_ALIGNED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(4)\ <<\ \_PG3CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00345}\mbox{\hyperlink{plib__pwm_8c_acec9362bd69bda212be28a2be3bf1b6b}{00345}}\ \textcolor{preprocessor}{\#define\ PG3CON\_MODSEL\_DOUBLE\_UPDATE\_CENTER\_ALIGNED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(5)\ <<\ \_PG3CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00346}\mbox{\hyperlink{plib__pwm_8c_acfe0ad2d55c808941c9f6be5b7f0ee54}{00346}}\ \textcolor{preprocessor}{\#define\ PG3CON\_MODSEL\_DUALEDGE\_CA\_ONE\_UPDATE\_CYCLE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(6)\ <<\ \_PG3CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00347}\mbox{\hyperlink{plib__pwm_8c_a9531d8627cefaca3652428a3605e2736}{00347}}\ \textcolor{preprocessor}{\#define\ PG3CON\_MODSEL\_DUALEDGE\_CA\_TWO\_UPDATE\_CYCLE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3CON\_MODSEL\_MASK\ \&\ ((uint32\_t)(7)\ <<\ \_PG3CON\_MODSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00348}00348\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00349}00349\ \textcolor{comment}{//PWM\ Generator\ x\ PMOD\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00350}\mbox{\hyperlink{plib__pwm_8c_ad59d2c4cf3f1f9040d8c6fcccd9772e5}{00350}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_PMOD\_COMPLEMENTARY\_MODE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_PMOD\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3IOCON\_PMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00351}\mbox{\hyperlink{plib__pwm_8c_a2a67d03dba71384983964482821834e6}{00351}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_PMOD\_INDEPENDENT\_MODE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_PMOD\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3IOCON\_PMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00352}\mbox{\hyperlink{plib__pwm_8c_a77f891e8a65ec6e7be90a769f4db6a1d}{00352}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_PMOD\_PUSH\_PULL\_MODE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_PMOD\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG3IOCON\_PMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00353}\mbox{\hyperlink{plib__pwm_8c_a9523b840ecabb9a557ddfa5972d23377}{00353}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_PMOD\_RESERVED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_PMOD\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG3IOCON\_PMOD\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00355}00355\ \textcolor{comment}{//PWM\ Generator\ x\ POLH\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00356}\mbox{\hyperlink{plib__pwm_8c_a115e6b00220e9ea53ab469f91c6d9280}{00356}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_POLH\_ACTIVE\_HIGH\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_POLH\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3IOCON\_POLH\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00357}\mbox{\hyperlink{plib__pwm_8c_a076b67b41be796d03de8a8fb537ee776}{00357}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_POLH\_ACTIVE\_LOW\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_POLH\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3IOCON\_POLH\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00359}00359\ \textcolor{comment}{//PWM\ Generator\ x\ POLL\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00360}\mbox{\hyperlink{plib__pwm_8c_a324323134a86aaea4f60a6c1a10aa3b3}{00360}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_POLL\_ACTIVE\_HIGH\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_POLL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3IOCON\_POLL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00361}\mbox{\hyperlink{plib__pwm_8c_a2173bf56e33db139df9eb99612f95996}{00361}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_POLL\_ACTIVE\_LOW\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_POLL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3IOCON\_POLL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00362}00362\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00363}00363\ \textcolor{comment}{//PWM\ Generator\ x\ SWAP\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00364}\mbox{\hyperlink{plib__pwm_8c_abc4c820f32aad91eb506688e63dd47fc}{00364}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_SWAP\_NORMAL\_MAPPING\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_SWAP\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3IOCON\_SWAP\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00365}\mbox{\hyperlink{plib__pwm_8c_a91714bb94c46f4a4fd9fa47993c1d9ff}{00365}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_SWAP\_SWAPPED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_SWAP\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3IOCON\_SWAP\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00366}00366\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00367}\mbox{\hyperlink{plib__pwm_8c_a7bd037f929ee391e5d8ef3e837223bf7}{00367}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_OVRENH\_PWM\_GENERATOR\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_OVRENH\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3IOCON\_OVRENH\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00368}\mbox{\hyperlink{plib__pwm_8c_a7bf363c1f4d8fc90bb2c36ba5d72904a}{00368}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_OVRENH\_OVRDAT\_1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_OVRENH\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3IOCON\_OVRENH\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00370}00370\ \textcolor{comment}{//PWM\ Generator\ x\ OVRENL\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00371}\mbox{\hyperlink{plib__pwm_8c_ab39ece0c0b79fe976ccaca8bb9c4f114}{00371}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_OVRENL\_PWM\_GENERATOR\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_OVRENL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3IOCON\_OVRENL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00372}\mbox{\hyperlink{plib__pwm_8c_a4892ba2d57c1dbc8c8d38941e326af22}{00372}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_OVRENL\_OVRDAT\_0\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_OVRENL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3IOCON\_OVRENL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00373}00373\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00374}00374\ \textcolor{comment}{//PWM\ Generator\ x\ OSYNC[1:0]\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00375}\mbox{\hyperlink{plib__pwm_8c_a91954ea38060f1cef251bfa678135770}{00375}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_OSYNC\_SYNC\_TO\_LOCAL\_PWM\_TIMEBASE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_OSYNC\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3IOCON\_OSYNC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00376}\mbox{\hyperlink{plib__pwm_8c_a90b37a4c9199262387b914da3f7037e2}{00376}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_OSYNC\_SYNC\_IMMEDIATE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_OSYNC\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3IOCON\_OSYNC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00377}\mbox{\hyperlink{plib__pwm_8c_a192fa9901d2de0b8800e0ddb6a4d199e}{00377}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_OSYNC\_SYNC\_TO\_UPDMOD\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_OSYNC\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG3IOCON\_OSYNC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00378}\mbox{\hyperlink{plib__pwm_8c_a05031139fb450fc2932d34fa50bc4ab1}{00378}}\ \textcolor{preprocessor}{\#define\ PG3IOCON\_OSYNC\_SYNC\_TO\_DATA\_BUFFER\_UPDATE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3IOCON\_OSYNC\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG3IOCON\_OSYNC\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00379}00379\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00380}00380\ \textcolor{comment}{//PGxEVT\ ADTR2EN3\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00381}\mbox{\hyperlink{plib__pwm_8c_a4f0d73e9539e3d1f85b438f24239f37c}{00381}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_ADTR2EN3\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_ADTR2EN3\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3EVT\_ADTR2EN3\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00382}\mbox{\hyperlink{plib__pwm_8c_abc7f59a473f8218b67e35b914ad4fbd8}{00382}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_ADTR2EN3\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_ADTR2EN3\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3EVT\_ADTR2EN3\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00383}00383\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00384}00384\ \textcolor{comment}{//PGxEVT\ ADTR2EN2\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00385}\mbox{\hyperlink{plib__pwm_8c_a30f95f7465f0ff6cab9227398bc1fe66}{00385}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_ADTR2EN2\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_ADTR2EN2\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3EVT\_ADTR2EN2\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00386}\mbox{\hyperlink{plib__pwm_8c_aa3a77fecca9e3778776a90f7fdb7afb7}{00386}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_ADTR2EN2\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_ADTR2EN2\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3EVT\_ADTR2EN2\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00387}00387\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00388}00388\ \textcolor{comment}{//PGxEVT\ ADTR2EN1\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00389}\mbox{\hyperlink{plib__pwm_8c_a55ee7e9475d56b5ecb22fbe0a6924f6c}{00389}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_ADTR2EN1\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_ADTR2EN1\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3EVT\_ADTR2EN1\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00390}\mbox{\hyperlink{plib__pwm_8c_a616f6f611bc229849032a101933398e0}{00390}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_ADTR2EN1\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_ADTR2EN1\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3EVT\_ADTR2EN1\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00391}00391\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00392}00392\ \textcolor{comment}{//PGxEVT\ ADTR1EN3\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00393}\mbox{\hyperlink{plib__pwm_8c_ad6a8ebc48228b9f63079cd7b6ca82ec6}{00393}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_ADTR1EN3\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_ADTR1EN3\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3EVT\_ADTR1EN3\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00394}\mbox{\hyperlink{plib__pwm_8c_a879de4e0203c2cec9d5af524204c2475}{00394}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_ADTR1EN3\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_ADTR1EN3\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3EVT\_ADTR1EN3\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00395}00395\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00396}00396\ \textcolor{comment}{//PGxEVT\ ADTR1EN2\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00397}\mbox{\hyperlink{plib__pwm_8c_ad6d87bd6b990692c945e3b187a48e239}{00397}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_ADTR1EN2\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_ADTR1EN2\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3EVT\_ADTR1EN2\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00398}\mbox{\hyperlink{plib__pwm_8c_a40c754c3b7e56d38a5e7c7246b398c87}{00398}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_ADTR1EN2\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_ADTR1EN2\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3EVT\_ADTR1EN2\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00399}00399\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00400}00400\ \textcolor{comment}{//PGxEVT\ ADTR1EN1\ bit}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00401}\mbox{\hyperlink{plib__pwm_8c_a029fc6877769503bccdfe3b1bf111be8}{00401}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_ADTR1EN1\_DISABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_ADTR1EN1\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3EVT\_ADTR1EN1\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00402}\mbox{\hyperlink{plib__pwm_8c_a6b86daff14c383cf192261190b6f5dd8}{00402}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_ADTR1EN1\_ENABLED\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_ADTR1EN1\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3EVT\_ADTR1EN1\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00403}00403\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00404}00404\ \textcolor{comment}{//PGxEVT\ PWMPCI[2:0]\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00405}\mbox{\hyperlink{plib__pwm_8c_a048952f64969761686c9eef8399d046e}{00405}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_PWMPCI\_PWM\_GENERATOR\_1\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_PWMPCI\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3EVT\_PWMPCI\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00406}\mbox{\hyperlink{plib__pwm_8c_aec4aa3be2e2d8df5cc0bce21b4255ab6}{00406}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_PWMPCI\_PWM\_GENERATOR\_2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_PWMPCI\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3EVT\_PWMPCI\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00407}\mbox{\hyperlink{plib__pwm_8c_a86c1bf53afc14c68bd3c75b0f7d1d3d3}{00407}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_PWMPCI\_PWM\_GENERATOR\_3\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_PWMPCI\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG3EVT\_PWMPCI\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00408}\mbox{\hyperlink{plib__pwm_8c_a68abc35db47ad5781273f40bcb613114}{00408}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_PWMPCI\_PWM\_GENERATOR\_4\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_PWMPCI\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG3EVT\_PWMPCI\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00409}00409\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00410}00410\ \textcolor{comment}{//PGxEVT\ UPDTRG[1:0]\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00411}\mbox{\hyperlink{plib__pwm_8c_a3507352d4a5ebe44e7420448f5bfad6e}{00411}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_UPDTRG\_MANUAL\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_UPDTRG\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3EVT\_UPDTRG\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00412}\mbox{\hyperlink{plib__pwm_8c_aa51705b8183cddd67ff24f8b86b6fe65}{00412}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_UPDTRG\_PGxDC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_UPDTRG\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3EVT\_UPDTRG\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00413}\mbox{\hyperlink{plib__pwm_8c_a9bf8ab3888fab27048b12744ed95849d}{00413}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_UPDTRG\_PGxPHASE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_UPDTRG\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG3EVT\_UPDTRG\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00414}\mbox{\hyperlink{plib__pwm_8c_ac69d43de21d1def8a2539d6eb383cd7c}{00414}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_UPDTRG\_PGxTRIGA\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_UPDTRG\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG3EVT\_UPDTRG\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00415}00415\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00416}00416\ \textcolor{comment}{//PGxEVT\ PGTRGSEL[2:0]\ bits}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00417}\mbox{\hyperlink{plib__pwm_8c_a57f81b80159d0da0eb529d4e38be49bd}{00417}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_PGTRGSEL\_EOC\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_PGTRGSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PG3EVT\_PGTRGSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00418}\mbox{\hyperlink{plib__pwm_8c_ab9df89de0c665f5dd4031ad7f98be3b2}{00418}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_PGTRGSEL\_TRIGA\_COMPARE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_PGTRGSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PG3EVT\_PGTRGSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00419}\mbox{\hyperlink{plib__pwm_8c_aaacfb5197d14506b5222d3385f33ed73}{00419}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_PGTRGSEL\_TRIGB\_COMPARE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_PGTRGSEL\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PG3EVT\_PGTRGSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00420}\mbox{\hyperlink{plib__pwm_8c_af08118eeea2afc0ae35a0adbcc8c682e}{00420}}\ \textcolor{preprocessor}{\#define\ PG3EVT\_PGTRGSEL\_TRIGC\_COMPARE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PG3EVT\_PGTRGSEL\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PG3EVT\_PGTRGSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00421}00421\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00422}00422\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00423}00423\ \textcolor{comment}{//PWM\ Clock\ Divider\ Selection\ options}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00424}\mbox{\hyperlink{plib__pwm_8c_a05e0634e42941081a5f772f7996879ca}{00424}}\ \textcolor{preprocessor}{\#define\ PCLKCON\_DIVSEL\_1\_2\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PCLKCON\_DIVSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PCLKCON\_DIVSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00425}\mbox{\hyperlink{plib__pwm_8c_afa4eb0c52076877d8723caffa4bc89bf}{00425}}\ \textcolor{preprocessor}{\#define\ PCLKCON\_DIVSEL\_1\_4\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PCLKCON\_DIVSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PCLKCON\_DIVSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00426}\mbox{\hyperlink{plib__pwm_8c_a30fd9f0300a1867f9dd9d5be14c2928e}{00426}}\ \textcolor{preprocessor}{\#define\ PCLKCON\_DIVSEL\_1\_8\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PCLKCON\_DIVSEL\_MASK\ \&\ ((uint32\_t)(2)\ <<\ \_PCLKCON\_DIVSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00427}\mbox{\hyperlink{plib__pwm_8c_afc0764906a4325a86f7c7ae7e8cdaaf3}{00427}}\ \textcolor{preprocessor}{\#define\ PCLKCON\_DIVSEL\_1\_16\ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PCLKCON\_DIVSEL\_MASK\ \&\ ((uint32\_t)(3)\ <<\ \_PCLKCON\_DIVSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00428}00428\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00429}00429\ \textcolor{comment}{//PWM\ Master\ Clock\ Selection\ options}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00430}\mbox{\hyperlink{plib__pwm_8c_a88dbdaa3828883119bf27b7ce1a07146}{00430}}\ \textcolor{preprocessor}{\#define\ PCLKCON\_MCLKSEL\_UPB\_CLOCK\ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PCLKCON\_MCLKSEL\_MASK\ \&\ ((uint32\_t)(0)\ <<\ \_PCLKCON\_MCLKSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00431}\mbox{\hyperlink{plib__pwm_8c_a5a005d97f0bc3b19582b22a16ac33d2c}{00431}}\ \textcolor{preprocessor}{\#define\ PCLKCON\_MCLKSEL\_CLOCK\_GEN\_5\ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\_PCLKCON\_MCLKSEL\_MASK\ \&\ ((uint32\_t)(1)\ <<\ \_PCLKCON\_MCLKSEL\_POSITION)))}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00432}00432\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00433}00433\ \textcolor{comment}{//\ Section:\ File\ specific\ functions}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00434}00434\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00435}00435\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00436}00436\ \textcolor{comment}{//\ Section:\ PWM\ Module\ APIs}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00437}00437\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00438}\mbox{\hyperlink{plib__pwm_8c_a2cdee1aefacc04ad6ed59618550226d0}{00438}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__pwm_8c_a2cdee1aefacc04ad6ed59618550226d0}{PWM\_Initialize}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00439}00439\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00440}00440\ \ \ \ \ PG1CON\ =\ (\mbox{\hyperlink{plib__pwm_8c_a3ef8015d2028f971779fa507702f0cd7}{PG1CON\_MDCSEL\_PGxDC}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00441}00441\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a54a4578fd7143ac0b749043f6c41014d}{PG1CON\_MPERSEL\_PGxPER}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00442}00442\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a51d481ea5bd427b4a2f092a83ce9e580}{PG1CON\_MPHSEL\_PGxPHASE}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00443}00443\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_adde8f75ff7aaf278c16904c771b27f68}{PG1CON\_MSTEN\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00444}00444\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a45f7e5109c2139d0ef87decacdba7cc6}{PG1CON\_UPDMOD\_SOC}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00445}00445\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a88464b921ffc03189f679a2f480d48ac}{PG1CON\_TRGMOD\_SINGLE\_TRIGGER\_MODE}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00446}00446\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a662beff9b4c7ae49443d54e41f773c00}{PG1CON\_SOCS\_LOCAL\_EOC}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00447}00447\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a9fb9c475930d1efde42751762fe0c86d}{PG1CON\_CLKSEL\_MASTER\_CLOCK\_BY\_MCLKSEL}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00448}00448\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a4b667934e15f238bb38515a256960f26}{PG1CON\_MODSEL\_CENTER\_ALIGNED}});}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00449}00449\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00450}00450\ \ \ \ \ PG1IOCON\ =\ (\mbox{\hyperlink{plib__pwm_8c_a6ed09c65ba2484c2b8c0acd1bc34e67b}{PG1IOCON\_PMOD\_COMPLEMENTARY\_MODE}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00451}00451\ \ \ \ \ \ \ \ \ \ \ \ \ |\_PG1IOCON\_PPSEN\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00452}00452\ \ \ \ \ \ \ \ \ \ \ \ \ |\_PG1IOCON\_PENH\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00453}00453\ \ \ \ \ \ \ \ \ \ \ \ \ |\_PG1IOCON\_PENL\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00454}00454\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a3c13548fd39ebf6a2d46dc5765de80bd}{PG1IOCON\_POLH\_ACTIVE\_HIGH}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00455}00455\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_ae21effba9b757a23178fe93655570049}{PG1IOCON\_POLL\_ACTIVE\_HIGH}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00456}00456\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a1de98ccf4f5081aee124e00cbf2f8d28}{PG1IOCON\_SWAP\_NORMAL\_MAPPING}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00457}00457\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a5caebecbe228c8759ffd9f6f5778c845}{PG1IOCON\_OVRENH\_PWM\_GENERATOR}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00458}00458\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_af809cd1e572cafc853a1058684313983}{PG1IOCON\_OVRENL\_PWM\_GENERATOR}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00459}00459\ \ \ \ \ \ \ \ \ \ \ \ \ |(uint32\_t)0x0\ <<\ \_PG1IOCON\_OVRDAT\_POSITION}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00460}00460\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_afa0ec69cd7315568f23e4a066131e605}{PG1IOCON\_OSYNC\_SYNC\_TO\_LOCAL\_PWM\_TIMEBASE}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00461}00461\ \ \ \ \ \ \ \ \ \ \ \ \ |(uint32\_t)0x0\ <<\ \_PG1IOCON\_FLTDAT\_POSITION);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00462}00462\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00463}00463\ \ \ \ \ PG1EVT\ =\ (\mbox{\hyperlink{plib__pwm_8c_aaeee5a679a6bcab3dc4c57b939a02652}{PG1EVT\_ADTR2EN3\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00464}00464\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a157d0032f534112fe9f7b13af151cd63}{PG1EVT\_ADTR2EN2\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00465}00465\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_af4d885caccd94fb2e5b92a0dc154e382}{PG1EVT\_ADTR2EN1\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00466}00466\ \ \ \ \ \ \ \ \ \ \ \ \ |(uint32\_t)0x0\ <<\ \_PG1EVT\_ADTR1OFS\_POSITION}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00467}00467\ \ \ \ \ \ \ \ \ \ \ \ \ |(uint32\_t)0x0\ <<\ \_PG1EVT\_ADTR1PS\_POSITION}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00468}00468\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a99cfbfbd5eb413d0a0353e7bb1ebf15b}{PG1EVT\_ADTR1EN3\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00469}00469\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a67c3f37c0dbcdfde0e0309b97e62c29e}{PG1EVT\_ADTR1EN2\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00470}00470\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a322289fe23a62cc6e955ee89813a986c}{PG1EVT\_ADTR1EN1\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00471}00471\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_aee4fabffb273dd8c7566c1371fda79c8}{PG1EVT\_PWMPCI\_PWM\_GENERATOR\_1}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00472}00472\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a31c7264ad4afdaa5ca2b613e34344557}{PG1EVT\_UPDTRG\_MANUAL}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00473}00473\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a39e5e67c2297f32eeef3f0d5ddf9fce1}{PG1EVT\_PGTRGSEL\_EOC}});}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00474}00474\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00475}00475\ \ \ \ \ PG1DC\ =\ 0x40098UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00476}00476\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00477}00477\ \ \ \ \ PG1PER\ =\ 0x80120UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00478}00478\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00479}00479\ \ \ \ \ PG1PHASE\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00480}00480\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00481}00481\ \ \ \ \ PG1DT\ =\ 0xa000a0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00482}00482\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00483}00483\ \ \ \ \ PG1FPCI\ =\ \mbox{\hyperlink{plib__pwm_8c_a7e7d1a896f79ef841d2ff7f535aa71c7}{PG1FPCI\_PPS\_NON\_INVERTED}}\ |\ (uint32\_t)0x0\ <<\ \_PG1FPCI\_PSS\_POSITION;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00484}00484\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00485}00485\ \ \ \ \ PG1TRIGA\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00486}00486\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00487}00487\ \ \ \ \ PG1TRIGB\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00488}00488\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00489}00489\ \ \ \ \ PG1TRIGC\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00490}00490\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00491}00491\ \ \ \ \ PG2CON\ =\ (\mbox{\hyperlink{plib__pwm_8c_a8623aec92467f6f9a97800e903a6ffcb}{PG2CON\_MDCSEL\_PGxDC}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00492}00492\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_acb9e0042674b208e232a838ca517b583}{PG2CON\_MPERSEL\_PGxPER}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00493}00493\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a4947c9464ff38669ffe16954d76932dc}{PG2CON\_MPHSEL\_PGxPHASE}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00494}00494\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_ae9e3e004346922f965c4c9bfedd0a601}{PG2CON\_MSTEN\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00495}00495\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a0a3e56414545b0cd3ae8cbd0a05d2a93}{PG2CON\_UPDMOD\_SOC}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00496}00496\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_ad0b6941cbd51e3be504d0304854773e9}{PG2CON\_TRGMOD\_SINGLE\_TRIGGER\_MODE}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00497}00497\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a22e98612af8a018471e476634a6a2a41}{PG2CON\_SOCS\_LOCAL\_EOC}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00498}00498\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_af097f3c7dc732b5086a190df25131d3c}{PG2CON\_CLKSEL\_MASTER\_CLOCK\_BY\_MCLKSEL}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00499}00499\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_adf17beb8faf663d201235fcb624c7fd3}{PG2CON\_MODSEL\_CENTER\_ALIGNED}});}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00500}00500\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00501}00501\ \ \ \ \ PG2IOCON\ =\ (\mbox{\hyperlink{plib__pwm_8c_a31999ced2cd91e3382ba022df5687950}{PG2IOCON\_PMOD\_COMPLEMENTARY\_MODE}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00502}00502\ \ \ \ \ \ \ \ \ \ \ \ \ |\_PG2IOCON\_PPSEN\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00503}00503\ \ \ \ \ \ \ \ \ \ \ \ \ |\_PG2IOCON\_PENH\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00504}00504\ \ \ \ \ \ \ \ \ \ \ \ \ |\_PG2IOCON\_PENL\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00505}00505\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a261c2c0f75385e9fe7b3f2591ab2c4f4}{PG2IOCON\_POLH\_ACTIVE\_HIGH}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00506}00506\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_aa1bce3ef2f4819111696d5a4fabe2831}{PG2IOCON\_POLL\_ACTIVE\_HIGH}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00507}00507\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_adc1cc23595f2bd87d40b018b8b12221d}{PG2IOCON\_SWAP\_NORMAL\_MAPPING}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00508}00508\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_ac204a889c03aa541c4e7bb7c3445ee96}{PG2IOCON\_OVRENH\_PWM\_GENERATOR}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00509}00509\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a518bd2e174f512517dc05ef34e7c97b6}{PG2IOCON\_OVRENL\_PWM\_GENERATOR}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00510}00510\ \ \ \ \ \ \ \ \ \ \ \ \ |(uint32\_t)0x0\ <<\ \_PG2IOCON\_OVRDAT\_POSITION}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00511}00511\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a31dd1e89fa8b1a81f4030ea67382967b}{PG2IOCON\_OSYNC\_SYNC\_TO\_LOCAL\_PWM\_TIMEBASE}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00512}00512\ \ \ \ \ \ \ \ \ \ \ \ \ |(uint32\_t)0x0\ <<\ \_PG2IOCON\_FLTDAT\_POSITION);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00513}00513\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00514}00514\ \ \ \ \ PG2EVT\ =\ (\mbox{\hyperlink{plib__pwm_8c_a7edd53587bc427feb56a18f09d1e6b3d}{PG2EVT\_ADTR2EN3\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00515}00515\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_ad842e235a1cf717a616d6a65b8b0de98}{PG2EVT\_ADTR2EN2\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00516}00516\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_afbc156f8e17e78a4b0c15cdcb6e0f307}{PG2EVT\_ADTR2EN1\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00517}00517\ \ \ \ \ \ \ \ \ \ \ \ \ |(uint32\_t)0x0\ <<\ \_PG2EVT\_ADTR1OFS\_POSITION}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00518}00518\ \ \ \ \ \ \ \ \ \ \ \ \ |(uint32\_t)0x0\ <<\ \_PG2EVT\_ADTR1PS\_POSITION}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00519}00519\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a3c264f3adea0e33e9f8ccd425cc3f69e}{PG2EVT\_ADTR1EN3\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00520}00520\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_aeaca7c79b2be041f1cf905af68d16481}{PG2EVT\_ADTR1EN2\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00521}00521\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_ac88e827263dae0ac3ad2549a7f200d5f}{PG2EVT\_ADTR1EN1\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00522}00522\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_aad9becefd62a78926fe44f3c43d9803c}{PG2EVT\_PWMPCI\_PWM\_GENERATOR\_1}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00523}00523\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_ac665cf64e220e3927a9c8dd522f7fe94}{PG2EVT\_UPDTRG\_MANUAL}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00524}00524\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a49dae64924dd2925232f5267d07de7ba}{PG2EVT\_PGTRGSEL\_EOC}});}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00525}00525\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00526}00526\ \ \ \ \ PG2DC\ =\ 0x4708UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00527}00527\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00528}00528\ \ \ \ \ PG2PER\ =\ 0x8e00UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00529}00529\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00530}00530\ \ \ \ \ PG2PHASE\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00531}00531\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00532}00532\ \ \ \ \ PG2DT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00533}00533\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00534}00534\ \ \ \ \ PG2FPCI\ =\ \mbox{\hyperlink{plib__pwm_8c_af4f551825e4a9df3d349b6ccf60bf743}{PG2FPCI\_PPS\_NON\_INVERTED}}\ |\ (uint32\_t)0x0\ <<\ \_PG2FPCI\_PSS\_POSITION;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00535}00535\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00536}00536\ \ \ \ \ PG2TRIGA\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00537}00537\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00538}00538\ \ \ \ \ PG2TRIGB\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00539}00539\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00540}00540\ \ \ \ \ PG2TRIGC\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00541}00541\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00542}00542\ \ \ \ \ PG3CON\ =\ (\mbox{\hyperlink{plib__pwm_8c_a9724a47a9eecf8ee25e2d360d844f01b}{PG3CON\_MDCSEL\_PGxDC}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00543}00543\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_ac9ac20cc20b45766bca81b114efcf336}{PG3CON\_MPERSEL\_PGxPER}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00544}00544\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_aa58f82fc478083e22580f02278b457cf}{PG3CON\_MPHSEL\_PGxPHASE}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00545}00545\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a8b7a1e9b3bbcf9b5bcec26d7c0ae4e88}{PG3CON\_MSTEN\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00546}00546\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a89b3f983c8315a4df4e5a98396beea69}{PG3CON\_UPDMOD\_IMMEDIATE}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00547}00547\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a00b10fcbf089137a91972883726aea11}{PG3CON\_TRGMOD\_SINGLE\_TRIGGER\_MODE}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00548}00548\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_aea364bde01e0aeb2d68d1af63f9f4b39}{PG3CON\_SOCS\_LOCAL\_EOC}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00549}00549\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_ade94738d3e137e6d175a58d3f66eea04}{PG3CON\_CLKSEL\_MASTER\_CLOCK\_BY\_MCLKSEL}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00550}00550\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_af54739ddb0e7363bf292e9a6e7192fdd}{PG3CON\_MODSEL\_INDEPENDENT\_EDGE}});}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00551}00551\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00552}00552\ \ \ \ \ PG3IOCON\ =\ (\mbox{\hyperlink{plib__pwm_8c_ad59d2c4cf3f1f9040d8c6fcccd9772e5}{PG3IOCON\_PMOD\_COMPLEMENTARY\_MODE}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00553}00553\ \ \ \ \ \ \ \ \ \ \ \ \ |\_PG3IOCON\_PPSEN\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00554}00554\ \ \ \ \ \ \ \ \ \ \ \ \ |\_PG3IOCON\_PENH\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00555}00555\ \ \ \ \ \ \ \ \ \ \ \ \ |\_PG3IOCON\_PENL\_MASK}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00556}00556\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a115e6b00220e9ea53ab469f91c6d9280}{PG3IOCON\_POLH\_ACTIVE\_HIGH}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00557}00557\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a324323134a86aaea4f60a6c1a10aa3b3}{PG3IOCON\_POLL\_ACTIVE\_HIGH}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00558}00558\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_abc4c820f32aad91eb506688e63dd47fc}{PG3IOCON\_SWAP\_NORMAL\_MAPPING}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00559}00559\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a7bd037f929ee391e5d8ef3e837223bf7}{PG3IOCON\_OVRENH\_PWM\_GENERATOR}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00560}00560\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_ab39ece0c0b79fe976ccaca8bb9c4f114}{PG3IOCON\_OVRENL\_PWM\_GENERATOR}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00561}00561\ \ \ \ \ \ \ \ \ \ \ \ \ |(uint32\_t)0x0\ <<\ \_PG3IOCON\_OVRDAT\_POSITION}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00562}00562\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a91954ea38060f1cef251bfa678135770}{PG3IOCON\_OSYNC\_SYNC\_TO\_LOCAL\_PWM\_TIMEBASE}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00563}00563\ \ \ \ \ \ \ \ \ \ \ \ \ |(uint32\_t)0x0\ <<\ \_PG3IOCON\_FLTDAT\_POSITION);}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00564}00564\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00565}00565\ \ \ \ \ PG3EVT\ =\ (\mbox{\hyperlink{plib__pwm_8c_a4f0d73e9539e3d1f85b438f24239f37c}{PG3EVT\_ADTR2EN3\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00566}00566\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a30f95f7465f0ff6cab9227398bc1fe66}{PG3EVT\_ADTR2EN2\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a55ee7e9475d56b5ecb22fbe0a6924f6c}{PG3EVT\_ADTR2EN1\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00568}00568\ \ \ \ \ \ \ \ \ \ \ \ \ |(uint32\_t)0x0\ <<\ \_PG3EVT\_ADTR1OFS\_POSITION}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00569}00569\ \ \ \ \ \ \ \ \ \ \ \ \ |(uint32\_t)0x0\ <<\ \_PG3EVT\_ADTR1PS\_POSITION}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00570}00570\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_ad6a8ebc48228b9f63079cd7b6ca82ec6}{PG3EVT\_ADTR1EN3\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00571}00571\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_ad6d87bd6b990692c945e3b187a48e239}{PG3EVT\_ADTR1EN2\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00572}00572\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a029fc6877769503bccdfe3b1bf111be8}{PG3EVT\_ADTR1EN1\_DISABLED}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00573}00573\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a048952f64969761686c9eef8399d046e}{PG3EVT\_PWMPCI\_PWM\_GENERATOR\_1}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00574}00574\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_aa51705b8183cddd67ff24f8b86b6fe65}{PG3EVT\_UPDTRG\_PGxDC}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00575}00575\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a57f81b80159d0da0eb529d4e38be49bd}{PG3EVT\_PGTRGSEL\_EOC}});}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00576}00576\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00577}00577\ \ \ \ \ PG3DC\ =\ 0x7d00UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00578}00578\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00579}00579\ \ \ \ \ PG3PER\ =\ 0xf9f0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00580}00580\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00581}00581\ \ \ \ \ PG3PHASE\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00582}00582\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00583}00583\ \ \ \ \ PG3DT\ =\ 0x6400000UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00584}00584\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00585}00585\ \ \ \ \ PG3FPCI\ =\ \mbox{\hyperlink{plib__pwm_8c_a29a49a4e0aef10399c24ac63a13fbc79}{PG3FPCI\_PPS\_NON\_INVERTED}}\ |\ (uint32\_t)0x0\ <<\ \_PG3FPCI\_PSS\_POSITION;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00586}00586\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00587}00587\ \ \ \ \ PG3TRIGA\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00588}00588\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00589}00589\ \ \ \ \ PG3TRIGB\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00590}00590\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00591}00591\ \ \ \ \ PG3TRIGC\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00592}00592\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00593}00593\ \ \ \ \ MDC\ =\ 0x7d00UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00594}00594\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00595}00595\ \ \ \ \ MPER\ =\ 0xf9f0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00596}00596\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00597}00597\ \ \ \ \ MPHASE\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00598}00598\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00599}00599\ \ \ \ \ PCLKCON\ =\ (\mbox{\hyperlink{plib__pwm_8c_a05e0634e42941081a5f772f7996879ca}{PCLKCON\_DIVSEL\_1\_2}}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00600}00600\ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{plib__pwm_8c_a88dbdaa3828883119bf27b7ce1a07146}{PCLKCON\_MCLKSEL\_UPB\_CLOCK}});}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00601}00601\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00602}00602\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00603}00603\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00604}00604\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00605}00605\ \ \ \ \ \ \ \ \ PG1CONbits.ON\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00606}00606\ \ \ \ \ \ \ \ \ PG2CONbits.ON\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00607}00607\ \ \ \ \ \ \ \ \ PG3CONbits.ON\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00608}00608\ \ \ \ \ \ \ \ \ PG4CONbits.ON\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00609}00609\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00610}00610\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00611}\mbox{\hyperlink{plib__pwm_8c_a3ec1e3d2d4ba199e07f31f46e5f58a02}{00611}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__pwm_8c_a3ec1e3d2d4ba199e07f31f46e5f58a02}{PWM\_Deinitialize}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00612}00612\ \{}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00613}00613\ \ \ \ \ PG1CONbits.ON\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00614}00614\ \ \ \ \ PG2CONbits.ON\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00615}00615\ \ \ \ \ PG3CONbits.ON\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00616}00616\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00617}00617\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00618}00618\ \ \ \ \ MDC\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00619}00619\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00620}00620\ \ \ \ \ MPER\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00621}00621\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00622}00622\ \ \ \ \ MPHASE\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00623}00623\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00624}00624\ \ \ \ \ PCLKCON\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00625}00625\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00626}00626\ \ \ \ \ PG1CON\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00627}00627\ \ \ \ \ PG1IOCON\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00628}00628\ \ \ \ \ PG1STAT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00629}00629\ \ \ \ \ PG1EVT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00630}00630\ \ \ \ \ PG1DC\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00631}00631\ \ \ \ \ PG1PER\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00632}00632\ \ \ \ \ PG1PHASE\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00633}00633\ \ \ \ \ PG1DT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00634}00634\ \ \ \ \ PG1FPCI\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00635}00635\ \ \ \ \ PG1TRIGA\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00636}00636\ \ \ \ \ PG1TRIGB\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00637}00637\ \ \ \ \ PG1TRIGC\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00638}00638\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00639}00639\ \ \ \ \ PG2CON\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00640}00640\ \ \ \ \ PG2IOCON\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00641}00641\ \ \ \ \ PG2STAT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00642}00642\ \ \ \ \ PG2EVT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00643}00643\ \ \ \ \ PG2DC\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00644}00644\ \ \ \ \ PG2PER\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00645}00645\ \ \ \ \ PG2PHASE\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00646}00646\ \ \ \ \ PG2DT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00647}00647\ \ \ \ \ PG2FPCI\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00648}00648\ \ \ \ \ PG2TRIGA\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00649}00649\ \ \ \ \ PG2TRIGB\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00650}00650\ \ \ \ \ PG2TRIGC\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00651}00651\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00652}00652\ \ \ \ \ PG3CON\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00653}00653\ \ \ \ \ PG3IOCON\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00654}00654\ \ \ \ \ PG3STAT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00655}00655\ \ \ \ \ PG3EVT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00656}00656\ \ \ \ \ PG3DC\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00657}00657\ \ \ \ \ PG3PER\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00658}00658\ \ \ \ \ PG3PHASE\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00659}00659\ \ \ \ \ PG3DT\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00660}00660\ \ \ \ \ PG3FPCI\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00661}00661\ \ \ \ \ PG3TRIGA\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00662}00662\ \ \ \ \ PG3TRIGB\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00663}00663\ \ \ \ \ PG3TRIGC\ =\ 0x0UL;}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00664}00664\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00665}00665\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00666}00666\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00667}00667\ \}}
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00668}00668\ }
+\DoxyCodeLine{\Hypertarget{plib__pwm_8c_source_l00669}00669\ }
+
+\end{DoxyCode}

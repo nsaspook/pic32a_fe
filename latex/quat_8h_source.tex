@@ -1,0 +1,91 @@
+\doxysection{quat.\+h}
+\hypertarget{quat_8h_source}{}\label{quat_8h_source}\index{src/quat.h@{src/quat.h}}
+\mbox{\hyperlink{quat_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00001}00001\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00002}00002\ \textcolor{comment}{\ *\ File:\ \ \ quat.h}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00003}00003\ \textcolor{comment}{\ *\ Author:\ root}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Created\ on\ April\ 28,\ 2023,\ 6:54\ PM}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00006}00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ QUAT\_H}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ QUAT\_H}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00011}00011\ \textcolor{preprocessor}{\#ifdef\ \ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00012}00012\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00013}00013\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00015}00015\ \textcolor{comment}{//\ Copyright\ (C)\ 2019\ Martin\ Weigel\ <mail@MartinWeigel.com>}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00016}00016\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00017}00017\ \textcolor{comment}{//\ https://github.com/MartinWeigel/Quaternion}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00018}00018\ \textcolor{comment}{//\ Permission\ to\ use,\ copy,\ modify,\ and/or\ distribute\ this\ software\ for\ any}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00019}00019\ \textcolor{comment}{//\ purpose\ with\ or\ without\ fee\ is\ hereby\ granted,\ provided\ that\ the\ above}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00020}00020\ \textcolor{comment}{//\ copyright\ notice\ and\ this\ permission\ notice\ appear\ in\ all\ copies.}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00021}00021\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00022}00022\ \textcolor{comment}{//\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{}\ AND\ THE\ AUTHOR\ DISCLAIMS\ ALL\ WARRANTIES}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00023}00023\ \textcolor{comment}{//\ WITH\ REGARD\ TO\ THIS\ SOFTWARE\ INCLUDING\ ALL\ IMPLIED\ WARRANTIES\ OF}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00024}00024\ \textcolor{comment}{//\ MERCHANTABILITY\ AND\ FITNESS.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHOR\ BE\ LIABLE\ FOR}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00025}00025\ \textcolor{comment}{//\ ANY\ SPECIAL,\ DIRECT,\ INDIRECT,\ OR\ CONSEQUENTIAL\ DAMAGES\ OR\ ANY\ DAMAGES}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00026}00026\ \textcolor{comment}{//\ WHATSOEVER\ RESULTING\ FROM\ LOSS\ OF\ USE,\ DATA\ OR\ PROFITS,\ WHETHER\ IN\ AN}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00027}00027\ \textcolor{comment}{//\ ACTION\ OF\ CONTRACT,\ NEGLIGENCE\ OR\ OTHER\ TORTIOUS\ ACTION,\ ARISING\ OUT\ OF}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00028}00028\ \textcolor{comment}{//\ OR\ IN\ CONNECTION\ WITH\ THE\ USE\ OR\ PERFORMANCE\ OF\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00035}00035\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00036}00036\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00037}00037\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00038}00038\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00039}00039\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00044}\mbox{\hyperlink{quat_8h_acca8fd883dd0c3dd0928766643905c74}{00044}}\ \textcolor{preprocessor}{\#define\ QUATERNION\_EPS\ (1e-\/4)}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00049}\mbox{\hyperlink{structQuaternion}{00049}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structQuaternion}{Quaternion}}\ \{}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00050}\mbox{\hyperlink{structQuaternion_afb3248bab1c7ee0ad97e9d4c275b4c67}{00050}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structQuaternion_afb3248bab1c7ee0ad97e9d4c275b4c67}{w}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00051}\mbox{\hyperlink{structQuaternion_ad8b2664bf7d7db7f9685845624616041}{00051}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structQuaternion_ad8b2664bf7d7db7f9685845624616041}{v}}[3];\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00052}\mbox{\hyperlink{quat_8h_a8b8ae6480df2117ee6e3edd97c4309a0}{00052}}\ \}\ \mbox{\hyperlink{structQuaternion}{Quaternion}};}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00057}00057\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quat_8h_a1b0e1fcb269b45176e68d2ea0ce882d0}{Quaternion\_set}}(\textcolor{keywordtype}{double}\ w,\ \textcolor{keywordtype}{double}\ v1,\ \textcolor{keywordtype}{double}\ v2,\ \textcolor{keywordtype}{double}\ v3,\ \mbox{\hyperlink{structQuaternion}{Quaternion}}*\ output);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00062}00062\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quat_8h_abdf288d98555fc3e893ca9fbc6ef967c}{Quaternion\_setIdentity}}(\mbox{\hyperlink{structQuaternion}{Quaternion}}*\ q);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00067}00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quat_8h_af3e1f7c8e8bb723e883ced9ca219bb93}{Quaternion\_copy}}(\mbox{\hyperlink{structQuaternion}{Quaternion}}*\ q,\ \mbox{\hyperlink{structQuaternion}{Quaternion}}*\ output);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00072}00072\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{quat_8h_adc51e048c03dc6d98519a69ca19f364c}{Quaternion\_equal}}(\mbox{\hyperlink{structQuaternion}{Quaternion}}*\ \mbox{\hyperlink{gfx_8c_ae7d1cbce8e6278e6be3b7182c32cba06}{q1}},\ \mbox{\hyperlink{structQuaternion}{Quaternion}}*\ \mbox{\hyperlink{gfx_8c_a38fdb098df9deba94b3b76b1293aeb33}{q2}});}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00077}00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quat_8h_a56e781233afb30cb47f60411a39d00fe}{Quaternion\_fprint}}(FILE*\ file,\ \mbox{\hyperlink{structQuaternion}{Quaternion}}*\ q);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00086}00086\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quat_8h_a9b5bfabd49e4ae08830af7ccb9316a80}{Quaternion\_fromAxisAngle}}(\textcolor{keywordtype}{double}\ axis[3],\ \textcolor{keywordtype}{double}\ angle,\ \mbox{\hyperlink{structQuaternion}{Quaternion}}*\ output);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00095}00095\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{quat_8h_a6240e62a0012906fb3ee2d5625f6497e}{Quaternion\_toAxisAngle}}(\mbox{\hyperlink{structQuaternion}{Quaternion}}*\ q,\ \textcolor{keywordtype}{double}\ output[3]);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00102}00102\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quat_8h_a69829b54472200921e5b52d032bc0d5b}{Quaternion\_fromEulerZYX}}(\textcolor{keywordtype}{double}\ eulerZYX[3],\ \mbox{\hyperlink{structQuaternion}{Quaternion}}*\ output);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00109}00109\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quat_8h_ab76a77abdf76ae393b506fb797128a66}{Quaternion\_toEulerZYX}}(\mbox{\hyperlink{structQuaternion}{Quaternion}}*\ q,\ \textcolor{keywordtype}{double}\ output[3]);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00116}00116\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quat_8h_aaec25fe97f2ae666118d274967c3a40c}{Quaternion\_fromXRotation}}(\textcolor{keywordtype}{double}\ angle,\ \mbox{\hyperlink{structQuaternion}{Quaternion}}*\ output);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00123}00123\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quat_8h_a1fe87ce051fa9d8704731030c2f9ebc6}{Quaternion\_fromYRotation}}(\textcolor{keywordtype}{double}\ angle,\ \mbox{\hyperlink{structQuaternion}{Quaternion}}*\ output);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00130}00130\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quat_8h_a395478a47330a1bf968f8131231d885d}{Quaternion\_fromZRotation}}(\textcolor{keywordtype}{double}\ angle,\ \mbox{\hyperlink{structQuaternion}{Quaternion}}*\ output);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00136}00136\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{quat_8h_a064535252142bf442c426308b3eaebcc}{Quaternion\_norm}}(\mbox{\hyperlink{structQuaternion}{Quaternion}}*\ q);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00141}00141\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quat_8h_ae638c8f31b364f73f4407f1b809afcbd}{Quaternion\_normalize}}(\mbox{\hyperlink{structQuaternion}{Quaternion}}*\ q,\ \mbox{\hyperlink{structQuaternion}{Quaternion}}*\ output);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00146}00146\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quat_8h_ae13c13e3ab9b512f7c17240274514e6d}{Quaternion\_conjugate}}(\mbox{\hyperlink{structQuaternion}{Quaternion}}*\ q,\ \mbox{\hyperlink{structQuaternion}{Quaternion}}*\ output);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00155}00155\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quat_8h_a52180e0cd2c11d553124c21f71c34af5}{Quaternion\_multiply}}(\mbox{\hyperlink{structQuaternion}{Quaternion}}*\ \mbox{\hyperlink{gfx_8c_ae7d1cbce8e6278e6be3b7182c32cba06}{q1}},\ \mbox{\hyperlink{structQuaternion}{Quaternion}}*\ \mbox{\hyperlink{gfx_8c_a38fdb098df9deba94b3b76b1293aeb33}{q2}},\ \mbox{\hyperlink{structQuaternion}{Quaternion}}*\ output);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00160}00160\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quat_8h_a07a987098b85251e8d3d710f15e09f79}{Quaternion\_rotate}}(\mbox{\hyperlink{structQuaternion}{Quaternion}}*\ q,\ \textcolor{keywordtype}{double}\ v[3],\ \textcolor{keywordtype}{double}\ output[3]);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00168}00168\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quat_8h_a0349aecbad63518cada7f83e4599f8a5}{Quaternion\_slerp}}(\mbox{\hyperlink{structQuaternion}{Quaternion}}*\ \mbox{\hyperlink{gfx_8c_ae7d1cbce8e6278e6be3b7182c32cba06}{q1}},\ \mbox{\hyperlink{structQuaternion}{Quaternion}}*\ \mbox{\hyperlink{gfx_8c_a38fdb098df9deba94b3b76b1293aeb33}{q2}},\ \textcolor{keywordtype}{double}\ t,\ \mbox{\hyperlink{structQuaternion}{Quaternion}}*\ output);}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00171}00171\ \textcolor{preprocessor}{\#ifdef\ \ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00172}00172\ \}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00173}00173\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00175}00175\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ QUAT\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{quat_8h_source_l00176}00176\ }
+
+\end{DoxyCode}

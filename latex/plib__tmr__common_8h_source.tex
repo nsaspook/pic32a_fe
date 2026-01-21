@@ -1,0 +1,125 @@
+\doxysection{plib\+\_\+tmr\+\_\+common.\+h}
+\hypertarget{plib__tmr__common_8h_source}{}\label{plib__tmr__common_8h_source}\index{src/config/default/peripheral/tmr/plib\_tmr\_common.h@{src/config/default/peripheral/tmr/plib\_tmr\_common.h}}
+\mbox{\hyperlink{plib__tmr__common_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00002}00002\ \textcolor{comment}{\ \ TMR\ Peripheral\ Library\ Interface\ Header\ File}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00003}00003\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00006}00006\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_tmr\_common.h}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00009}00009\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ TMR\ peripheral\ library\ interface.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00012}00012\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ defines\ the\ interface\ to\ the\ TC\ peripheral\ library.\ \ This}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ library\ provides\ access\ to\ and\ control\ of\ the\ associated\ peripheral}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00016}00016\ \textcolor{comment}{\ \ \ \ instance.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00017}00017\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00018}00018\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00020}00020\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00021}00021\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00022}00022\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00023}00023\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00024}00024\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00025}00025\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00026}00026\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00027}00027\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00028}00028\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00029}00029\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00030}00030\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00031}00031\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00032}00032\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00033}00033\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00034}00034\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00035}00035\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00036}00036\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00037}00037\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00038}00038\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00039}00039\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00040}00040\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00041}00041\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00042}00042\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00043}00043\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00045}00045\ \textcolor{preprocessor}{\#ifndef\ PLIB\_TMR\_COMMON\_H\ \ \ \ }\textcolor{comment}{//\ Guards\ against\ multiple\ inclusion}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00046}00046\ \textcolor{preprocessor}{\#define\ PLIB\_TMR\_COMMON\_H}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00049}00049\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00050}00050\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00051}00051\ \textcolor{comment}{//\ Section:\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00052}00052\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00053}00053\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00055}00055\ \textcolor{comment}{/*\ \ This\ section\ lists\ the\ other\ files\ that\ are\ included\ in\ this\ file.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00056}00056\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00057}00057\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00059}00059\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00060}00060\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00062}00062\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00064}00064\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00066}00066\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00068}00068\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00069}00069\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00070}00070\ \textcolor{comment}{//\ Section:\ Data\ Types}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00071}00071\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00072}00072\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00073}00073\ \textcolor{comment}{/*\ \ The\ following\ data\ type\ definitions\ are\ used\ by\ the\ functions\ in\ this}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00074}00074\ \textcolor{comment}{\ \ \ \ interface\ and\ should\ be\ considered\ part\ of\ it.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00075}00075\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00078}00078\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00079}00079\ \textcolor{comment}{/*\ TMR\_CALLBACK}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00080}00080\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00081}00081\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00082}00082\ \textcolor{comment}{\ \ \ \ Use\ to\ register\ a\ callback\ with\ the\ TMR.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00083}00083\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00084}00084\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00085}00085\ \textcolor{comment}{\ \ \ \ When\ a\ match\ is\ asserted,\ a\ callback\ can\ be\ activated.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00086}00086\ \textcolor{comment}{\ \ \ \ Use\ TMR\_CALLBACK\ as\ the\ function\ pointer\ to\ register\ the\ callback}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00087}00087\ \textcolor{comment}{\ \ \ \ with\ the\ match.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00088}00088\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00089}00089\ \textcolor{comment}{\ \ Remarks:}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00090}00090\ \textcolor{comment}{\ \ \ \ The\ callback\ should\ look\ like:}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00091}00091\ \textcolor{comment}{\ \ \ \ \ \ void\ callback(handle,\ context);}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00092}00092\ \textcolor{comment}{\ \ \ \ Make\ sure\ the\ return\ value\ and\ parameters\ of\ the\ callback\ are\ correct.}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00093}00093\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00095}\mbox{\hyperlink{plib__tmr__common_8h_a3dfc0732b8dab247e647103a34b03727}{00095}}\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{plib__tmr__common_8h_a3dfc0732b8dab247e647103a34b03727}{TMR\_CALLBACK}})(uint32\_t\ status,\ uintptr\_t\ context);}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00097}00097\ \textcolor{comment}{//\ *****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00099}\mbox{\hyperlink{structTIMER__OBJECT}{00099}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00100}00100\ \{}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00101}00101\ \ \ \ \ \textcolor{comment}{/*TMR\ callback\ function\ happens\ on\ Period\ match*/}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00102}\mbox{\hyperlink{structTIMER__OBJECT_aea161b77f99b1b2d80c013317f6dc1a7}{00102}}\ \ \ \ \ \mbox{\hyperlink{plib__tmr__common_8h_a3dfc0732b8dab247e647103a34b03727}{TMR\_CALLBACK}}\ \mbox{\hyperlink{structTIMER__OBJECT_aea161b77f99b1b2d80c013317f6dc1a7}{callback\_fn}};}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00103}00103\ \ \ \ \ \textcolor{comment}{/*\ -\/\ Client\ data\ (Event\ Context)\ that\ will\ be\ passed\ to\ callback\ */}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00104}\mbox{\hyperlink{structTIMER__OBJECT_afb301b46bf1bb94237366e0db5c62810}{00104}}\ \ \ \ \ uintptr\_t\ \mbox{\hyperlink{structTIMER__OBJECT_afb301b46bf1bb94237366e0db5c62810}{context}};}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00105}00105\ \ \ \ \ \textcolor{comment}{/*\ Tick\ counter\ increments\ at\ every\ timer\ interrupt\ */}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00106}\mbox{\hyperlink{structTIMER__OBJECT_a4a33c787ab0dc06857e3645d701fb464}{00106}}\ \ \ \ \ uint32\_t\ \ \mbox{\hyperlink{structTIMER__OBJECT_a4a33c787ab0dc06857e3645d701fb464}{tickCounter}};}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00108}00108\ \}\mbox{\hyperlink{structTIMER__OBJECT}{TIMER\_OBJECT}};}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00110}00110\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00111}00111\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00113}00113\ \}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00115}00115\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00116}00116\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00118}00118\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\_PLIB\_TMR\_COMMON\_H}}
+\DoxyCodeLine{\Hypertarget{plib__tmr__common_8h_source_l00119}00119\ }
+
+\end{DoxyCode}

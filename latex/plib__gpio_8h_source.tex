@@ -1,0 +1,366 @@
+\doxysection{plib\+\_\+gpio.\+h}
+\hypertarget{plib__gpio_8h_source}{}\label{plib__gpio_8h_source}\index{src/config/default/peripheral/gpio/plib\_gpio.h@{src/config/default/peripheral/gpio/plib\_gpio.h}}
+\mbox{\hyperlink{plib__gpio_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00001}00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00002}00002\ \textcolor{comment}{\ \ GPIO\ PLIB}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00003}00003\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00004}00004\ \textcolor{comment}{\ \ Company:}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ Microchip\ Technology\ Inc.}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00006}00006\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00007}00007\ \textcolor{comment}{\ \ File\ Name:}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00008}00008\ \textcolor{comment}{\ \ \ \ plib\_gpio.h}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00009}00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00010}00010\ \textcolor{comment}{\ \ Summary:}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00011}00011\ \textcolor{comment}{\ \ \ \ gpio\ PLIB\ Header\ File}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00012}00012\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00013}00013\ \textcolor{comment}{\ \ Description:}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00014}00014\ \textcolor{comment}{\ \ \ \ This\ file\ has\ prototype\ of\ all\ the\ interfaces\ provided\ for\ particular}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00015}00015\ \textcolor{comment}{\ \ \ \ gpio\ peripheral.}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00016}00016\ \textcolor{comment}{\ }}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00017}00017\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00018}00018\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00019}00019\ \textcolor{comment}{*\ Copyright\ (C)\ 2025\ Microchip\ Technology\ Inc.\ and\ its\ subsidiaries.}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00020}00020\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00021}00021\ \textcolor{comment}{*\ Subject\ to\ your\ compliance\ with\ these\ terms,\ you\ may\ use\ Microchip\ software}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00022}00022\ \textcolor{comment}{*\ and\ any\ derivatives\ exclusively\ with\ Microchip\ products.\ It\ is\ your}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00023}00023\ \textcolor{comment}{*\ responsibility\ to\ comply\ with\ third\ party\ license\ terms\ applicable\ to\ your}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00024}00024\ \textcolor{comment}{*\ use\ of\ third\ party\ software\ (including\ open\ source\ software)\ that\ may}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00025}00025\ \textcolor{comment}{*\ accompany\ Microchip\ software.}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00026}00026\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00027}00027\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ SUPPLIED\ BY\ MICROCHIP\ "{}AS\ IS"{}.\ NO\ WARRANTIES,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00028}00028\ \textcolor{comment}{*\ EXPRESS,\ IMPLIED\ OR\ STATUTORY,\ APPLY\ TO\ THIS\ SOFTWARE,\ INCLUDING\ ANY\ IMPLIED}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00029}00029\ \textcolor{comment}{*\ WARRANTIES\ OF\ NON-\/INFRINGEMENT,\ MERCHANTABILITY,\ AND\ FITNESS\ FOR\ A}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00030}00030\ \textcolor{comment}{*\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00031}00031\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00032}00032\ \textcolor{comment}{*\ IN\ NO\ EVENT\ WILL\ MICROCHIP\ BE\ LIABLE\ FOR\ ANY\ INDIRECT,\ SPECIAL,\ PUNITIVE,}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00033}00033\ \textcolor{comment}{*\ INCIDENTAL\ OR\ CONSEQUENTIAL\ LOSS,\ DAMAGE,\ COST\ OR\ EXPENSE\ OF\ ANY\ KIND}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00034}00034\ \textcolor{comment}{*\ WHATSOEVER\ RELATED\ TO\ THE\ SOFTWARE,\ HOWEVER\ CAUSED,\ EVEN\ IF\ MICROCHIP\ HAS}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00035}00035\ \textcolor{comment}{*\ BEEN\ ADVISED\ OF\ THE\ POSSIBILITY\ OR\ THE\ DAMAGES\ ARE\ FORESEEABLE.\ TO\ THE}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00036}00036\ \textcolor{comment}{*\ FULLEST\ EXTENT\ ALLOWED\ BY\ LAW,\ MICROCHIP'S\ TOTAL\ LIABILITY\ ON\ ALL\ CLAIMS\ IN}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00037}00037\ \textcolor{comment}{*\ ANY\ WAY\ RELATED\ TO\ THIS\ SOFTWARE\ WILL\ NOT\ EXCEED\ THE\ AMOUNT\ OF\ FEES,\ IF\ ANY,}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00038}00038\ \textcolor{comment}{*\ THAT\ YOU\ HAVE\ PAID\ DIRECTLY\ TO\ MICROCHIP\ FOR\ THIS\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00039}00039\ \textcolor{comment}{*******************************************************************************/}\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00041}00041\ \textcolor{preprocessor}{\#ifndef\ PLIB\_GPIO\_H}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00042}00042\ \textcolor{preprocessor}{\#define\ PLIB\_GPIO\_H}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00043}00043\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{device_8h}{device.h}}>}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00044}00044\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00045}00045\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00046}00046\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00048}00048\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00049}00049\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00053}00053\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00054}00054\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00056}00056\ \textcolor{comment}{//\ Section:\ Data\ types\ and\ constants}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00059}00059\ \textcolor{comment}{/***\ Macros\ for\ TEST\_TP1\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00060}\mbox{\hyperlink{plib__gpio_8h_aa24c4203645538050045a3c9f4da4202}{00060}}\ \textcolor{preprocessor}{\#define\ TEST\_TP1\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATA11\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00061}\mbox{\hyperlink{plib__gpio_8h_af4a105b3d8af02457e6eebca49314833}{00061}}\ \textcolor{preprocessor}{\#define\ TEST\_TP1\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATA11\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00062}\mbox{\hyperlink{plib__gpio_8h_acb57fa1adaf4a9adf4990aea5fd1428c}{00062}}\ \textcolor{preprocessor}{\#define\ TEST\_TP1\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATA11\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00063}\mbox{\hyperlink{plib__gpio_8h_a031c1ab65452515fce8389d18e104264}{00063}}\ \textcolor{preprocessor}{\#define\ TEST\_TP1\_OutputEnable()\ \ \ \ \ \ (\_TRISA11\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00064}\mbox{\hyperlink{plib__gpio_8h_a663e6bcfacd76f7ee067d55f43914ba4}{00064}}\ \textcolor{preprocessor}{\#define\ TEST\_TP1\_InputEnable()\ \ \ \ \ \ \ (\_TRISA11\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00065}\mbox{\hyperlink{plib__gpio_8h_aac3491c8594a4ce1c48c4904c9d65bd4}{00065}}\ \textcolor{preprocessor}{\#define\ TEST\_TP1\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTA\ >>\ 11)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00066}\mbox{\hyperlink{plib__gpio_8h_a605abe9e47338efc2bf02fd6efa955f5}{00066}}\ \textcolor{preprocessor}{\#define\ TEST\_TP1\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RA11}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00068}00068\ \textcolor{comment}{/***\ Macros\ for\ DLED\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00069}\mbox{\hyperlink{plib__gpio_8h_a384cbd4989d2572c61b5127d30b0f48c}{00069}}\ \textcolor{preprocessor}{\#define\ DLED\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATB5\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00070}\mbox{\hyperlink{plib__gpio_8h_af1c921b14fb84be3da64975a011240e7}{00070}}\ \textcolor{preprocessor}{\#define\ DLED\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATB5\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00071}\mbox{\hyperlink{plib__gpio_8h_ad040dbb305ef56309fd3abb6065752bf}{00071}}\ \textcolor{preprocessor}{\#define\ DLED\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATB5\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00072}\mbox{\hyperlink{plib__gpio_8h_a02218421d838193a2de44a916fa62fca}{00072}}\ \textcolor{preprocessor}{\#define\ DLED\_OutputEnable()\ \ \ \ \ \ (\_TRISB5\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00073}\mbox{\hyperlink{plib__gpio_8h_a4da18fde111505ffbe28ce4b5572eb52}{00073}}\ \textcolor{preprocessor}{\#define\ DLED\_InputEnable()\ \ \ \ \ \ \ (\_TRISB5\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00074}\mbox{\hyperlink{plib__gpio_8h_a60a331932803a5be48ef214498603ee8}{00074}}\ \textcolor{preprocessor}{\#define\ DLED\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTB\ >>\ 5)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00075}\mbox{\hyperlink{plib__gpio_8h_abddaeb205a4610e8d39b1bd63a8d54cb}{00075}}\ \textcolor{preprocessor}{\#define\ DLED\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RB5}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00077}00077\ \textcolor{comment}{/***\ Macros\ for\ IMU\_CS\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00078}\mbox{\hyperlink{plib__gpio_8h_a00f34603c5b3d9ef510d6a4c23aec9a5}{00078}}\ \textcolor{preprocessor}{\#define\ IMU\_CS\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATB3\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00079}\mbox{\hyperlink{plib__gpio_8h_aefa376b3de4b5b08fd0079c258f9158c}{00079}}\ \textcolor{preprocessor}{\#define\ IMU\_CS\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATB3\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00080}\mbox{\hyperlink{plib__gpio_8h_a29140d09785c75a3cc789015ccdc57fa}{00080}}\ \textcolor{preprocessor}{\#define\ IMU\_CS\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATB3\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00081}\mbox{\hyperlink{plib__gpio_8h_a5e0361f997c7a48cff245e887c3db3a7}{00081}}\ \textcolor{preprocessor}{\#define\ IMU\_CS\_OutputEnable()\ \ \ \ \ \ (\_TRISB3\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00082}\mbox{\hyperlink{plib__gpio_8h_a8656edb256085e751e43ed7e2f906317}{00082}}\ \textcolor{preprocessor}{\#define\ IMU\_CS\_InputEnable()\ \ \ \ \ \ \ (\_TRISB3\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00083}\mbox{\hyperlink{plib__gpio_8h_a6f951d325513304cec5c0bd82d605db6}{00083}}\ \textcolor{preprocessor}{\#define\ IMU\_CS\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTB\ >>\ 3)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00084}\mbox{\hyperlink{plib__gpio_8h_a6ed7e9a3c7803af585f72df5c159526e}{00084}}\ \textcolor{preprocessor}{\#define\ IMU\_CS\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RB3}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00086}00086\ \textcolor{comment}{/***\ Macros\ for\ SRAM\_CS\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00087}\mbox{\hyperlink{plib__gpio_8h_a99a6893c3c6aea94ea8b4c312b001c3d}{00087}}\ \textcolor{preprocessor}{\#define\ SRAM\_CS\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATB4\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00088}\mbox{\hyperlink{plib__gpio_8h_a57975cb926a9d71776203b087bf33c88}{00088}}\ \textcolor{preprocessor}{\#define\ SRAM\_CS\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATB4\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00089}\mbox{\hyperlink{plib__gpio_8h_a7312f4d21fa686ccf75e62e5369c39bd}{00089}}\ \textcolor{preprocessor}{\#define\ SRAM\_CS\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATB4\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00090}\mbox{\hyperlink{plib__gpio_8h_a84579d97db1307d68a1111abd3a6d2b9}{00090}}\ \textcolor{preprocessor}{\#define\ SRAM\_CS\_OutputEnable()\ \ \ \ \ \ (\_TRISB4\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00091}\mbox{\hyperlink{plib__gpio_8h_aa3a1ef659404609deb886ac956ec16e3}{00091}}\ \textcolor{preprocessor}{\#define\ SRAM\_CS\_InputEnable()\ \ \ \ \ \ \ (\_TRISB4\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00092}\mbox{\hyperlink{plib__gpio_8h_afdf58a8060a34b7ed6177e0103dee6ba}{00092}}\ \textcolor{preprocessor}{\#define\ SRAM\_CS\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTB\ >>\ 4)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00093}\mbox{\hyperlink{plib__gpio_8h_abf7a18be6eb52119469730c9f6f6b3bb}{00093}}\ \textcolor{preprocessor}{\#define\ SRAM\_CS\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RB4}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00095}00095\ \textcolor{comment}{/***\ Macros\ for\ GPIO\_RC6\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00096}\mbox{\hyperlink{plib__gpio_8h_a73074625bed9f4b1a159c0ac135bb58e}{00096}}\ \textcolor{preprocessor}{\#define\ GPIO\_RC6\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATC6\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00097}\mbox{\hyperlink{plib__gpio_8h_afacd9c4523b408c34ffc0faa0235e409}{00097}}\ \textcolor{preprocessor}{\#define\ GPIO\_RC6\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATC6\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00098}\mbox{\hyperlink{plib__gpio_8h_a5db3ee7a59e678155b44eec4443746cf}{00098}}\ \textcolor{preprocessor}{\#define\ GPIO\_RC6\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATC6\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00099}\mbox{\hyperlink{plib__gpio_8h_a4e3e5f404457360d97093f0723352d53}{00099}}\ \textcolor{preprocessor}{\#define\ GPIO\_RC6\_OutputEnable()\ \ \ \ \ \ (\_TRISC6\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00100}\mbox{\hyperlink{plib__gpio_8h_a9362fbf88a13e94b7ab4a2a7ee2d80d0}{00100}}\ \textcolor{preprocessor}{\#define\ GPIO\_RC6\_InputEnable()\ \ \ \ \ \ \ (\_TRISC6\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00101}\mbox{\hyperlink{plib__gpio_8h_a9499f1cc97d029828a58f443e41b5b19}{00101}}\ \textcolor{preprocessor}{\#define\ GPIO\_RC6\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTC\ >>\ 6)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00102}\mbox{\hyperlink{plib__gpio_8h_a9a35e1886f1b3000eaf737aecfc140cd}{00102}}\ \textcolor{preprocessor}{\#define\ GPIO\_RC6\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RC6}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00104}00104\ \textcolor{comment}{/***\ Macros\ for\ GPIO\_RC7\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00105}\mbox{\hyperlink{plib__gpio_8h_a5711c3138cdec4642533ae00e069e23c}{00105}}\ \textcolor{preprocessor}{\#define\ GPIO\_RC7\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATC7\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00106}\mbox{\hyperlink{plib__gpio_8h_a3263569c5834c347bb2f0298e1170ead}{00106}}\ \textcolor{preprocessor}{\#define\ GPIO\_RC7\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATC7\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00107}\mbox{\hyperlink{plib__gpio_8h_ac04f0aa18440afefd798789f9d843795}{00107}}\ \textcolor{preprocessor}{\#define\ GPIO\_RC7\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATC7\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00108}\mbox{\hyperlink{plib__gpio_8h_a308cbff102ba07ac4222d906ca3fd9b4}{00108}}\ \textcolor{preprocessor}{\#define\ GPIO\_RC7\_OutputEnable()\ \ \ \ \ \ (\_TRISC7\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00109}\mbox{\hyperlink{plib__gpio_8h_af9cca2bd59fb9eee078547fbe556e850}{00109}}\ \textcolor{preprocessor}{\#define\ GPIO\_RC7\_InputEnable()\ \ \ \ \ \ \ (\_TRISC7\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00110}\mbox{\hyperlink{plib__gpio_8h_a191c8cb4a86fa35fb57d4ffb87dc6ed1}{00110}}\ \textcolor{preprocessor}{\#define\ GPIO\_RC7\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTC\ >>\ 7)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00111}\mbox{\hyperlink{plib__gpio_8h_ab7a3210c17483d1f24e6637280beef15}{00111}}\ \textcolor{preprocessor}{\#define\ GPIO\_RC7\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RC7}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00113}00113\ \textcolor{comment}{/***\ Macros\ for\ DIS\_RESET\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00114}\mbox{\hyperlink{plib__gpio_8h_a20a7b0d7549344abf75e8f40de7a71f6}{00114}}\ \textcolor{preprocessor}{\#define\ DIS\_RESET\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATC0\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00115}\mbox{\hyperlink{plib__gpio_8h_aa7e9cc3b199d399b94daa8cb848f8775}{00115}}\ \textcolor{preprocessor}{\#define\ DIS\_RESET\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATC0\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00116}\mbox{\hyperlink{plib__gpio_8h_a18ca530e982228c152ecd3427dee3f72}{00116}}\ \textcolor{preprocessor}{\#define\ DIS\_RESET\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATC0\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00117}\mbox{\hyperlink{plib__gpio_8h_acc7430c381e120d5d2eb218d8cb6a253}{00117}}\ \textcolor{preprocessor}{\#define\ DIS\_RESET\_OutputEnable()\ \ \ \ \ \ (\_TRISC0\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00118}\mbox{\hyperlink{plib__gpio_8h_ab4b3c2e8fcfb076b474f6956ed7421f4}{00118}}\ \textcolor{preprocessor}{\#define\ DIS\_RESET\_InputEnable()\ \ \ \ \ \ \ (\_TRISC0\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00119}\mbox{\hyperlink{plib__gpio_8h_a90a754e3ae46f4ba52763bb9d053d932}{00119}}\ \textcolor{preprocessor}{\#define\ DIS\_RESET\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTC\ >>\ 0)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00120}\mbox{\hyperlink{plib__gpio_8h_aa49abf21c9a97b4df21cc8ed30c60ef1}{00120}}\ \textcolor{preprocessor}{\#define\ DIS\_RESET\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RC0}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00122}00122\ \textcolor{comment}{/***\ Macros\ for\ DIS\_MODE\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00123}\mbox{\hyperlink{plib__gpio_8h_a5c83c63156c3785ba38f32e663478aef}{00123}}\ \textcolor{preprocessor}{\#define\ DIS\_MODE\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATC2\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00124}\mbox{\hyperlink{plib__gpio_8h_a661e6e6aa14d62c183915cf80fa31b90}{00124}}\ \textcolor{preprocessor}{\#define\ DIS\_MODE\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATC2\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00125}\mbox{\hyperlink{plib__gpio_8h_a8ac7a7298a922765f2776e494bdc141d}{00125}}\ \textcolor{preprocessor}{\#define\ DIS\_MODE\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATC2\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00126}\mbox{\hyperlink{plib__gpio_8h_ae9258f2b32a4563159b29b69c57946e3}{00126}}\ \textcolor{preprocessor}{\#define\ DIS\_MODE\_OutputEnable()\ \ \ \ \ \ (\_TRISC2\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00127}\mbox{\hyperlink{plib__gpio_8h_a2b2da5dc6f7797f238eec6c29da207b3}{00127}}\ \textcolor{preprocessor}{\#define\ DIS\_MODE\_InputEnable()\ \ \ \ \ \ \ (\_TRISC2\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00128}\mbox{\hyperlink{plib__gpio_8h_ac15ce0e8dd566324662ff27ea4ac1d64}{00128}}\ \textcolor{preprocessor}{\#define\ DIS\_MODE\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTC\ >>\ 2)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00129}\mbox{\hyperlink{plib__gpio_8h_afa343c8cc145aa12522f3e7793aa25bd}{00129}}\ \textcolor{preprocessor}{\#define\ DIS\_MODE\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RC2}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00131}00131\ \textcolor{comment}{/***\ Macros\ for\ TXDE\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00132}\mbox{\hyperlink{plib__gpio_8h_a7f3d056f6d6359820b4a2a136ef23248}{00132}}\ \textcolor{preprocessor}{\#define\ TXDE\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATC5\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00133}\mbox{\hyperlink{plib__gpio_8h_aeff5200cfbf495fb084d3eefcd1a48b5}{00133}}\ \textcolor{preprocessor}{\#define\ TXDE\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATC5\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00134}\mbox{\hyperlink{plib__gpio_8h_a46649f945a397d6e372ac6aba8cf0fad}{00134}}\ \textcolor{preprocessor}{\#define\ TXDE\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATC5\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00135}\mbox{\hyperlink{plib__gpio_8h_ae74510398d1e18dc886a6261e6d508f0}{00135}}\ \textcolor{preprocessor}{\#define\ TXDE\_OutputEnable()\ \ \ \ \ \ (\_TRISC5\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00136}\mbox{\hyperlink{plib__gpio_8h_aee4fbc0a5bab53147e5fae17c77de0f3}{00136}}\ \textcolor{preprocessor}{\#define\ TXDE\_InputEnable()\ \ \ \ \ \ \ (\_TRISC5\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00137}\mbox{\hyperlink{plib__gpio_8h_a289f3c10686140a60a83828d5283201c}{00137}}\ \textcolor{preprocessor}{\#define\ TXDE\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTC\ >>\ 5)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00138}\mbox{\hyperlink{plib__gpio_8h_a931e99de40f428c9b0bd503a2cc0c152}{00138}}\ \textcolor{preprocessor}{\#define\ TXDE\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RC5}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00140}00140\ \textcolor{comment}{/***\ Macros\ for\ TEST\_TP0\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00141}\mbox{\hyperlink{plib__gpio_8h_a23c33f241bda6bf3b92a8bad59d2618d}{00141}}\ \textcolor{preprocessor}{\#define\ TEST\_TP0\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD9\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00142}\mbox{\hyperlink{plib__gpio_8h_a7965b1072ce55e0b8941572c4000fa94}{00142}}\ \textcolor{preprocessor}{\#define\ TEST\_TP0\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD9\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00143}\mbox{\hyperlink{plib__gpio_8h_a918f3058b546a42ec55f33ea4075cca4}{00143}}\ \textcolor{preprocessor}{\#define\ TEST\_TP0\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATD9\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00144}\mbox{\hyperlink{plib__gpio_8h_a35d352df559c25d5c11e209d63c408b6}{00144}}\ \textcolor{preprocessor}{\#define\ TEST\_TP0\_OutputEnable()\ \ \ \ \ \ (\_TRISD9\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00145}\mbox{\hyperlink{plib__gpio_8h_a4a5a1ec2fca0438bca2fabef3702baf1}{00145}}\ \textcolor{preprocessor}{\#define\ TEST\_TP0\_InputEnable()\ \ \ \ \ \ \ (\_TRISD9\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00146}\mbox{\hyperlink{plib__gpio_8h_a8a033801730cd5646655b5e6e541d562}{00146}}\ \textcolor{preprocessor}{\#define\ TEST\_TP0\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTD\ >>\ 9)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00147}\mbox{\hyperlink{plib__gpio_8h_a8dae69813c2e3de14c9472adf4e387b7}{00147}}\ \textcolor{preprocessor}{\#define\ TEST\_TP0\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RD9}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00149}00149\ \textcolor{comment}{/***\ Macros\ for\ RLED\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00150}\mbox{\hyperlink{plib__gpio_8h_a3c0fdc4b76b0246d060b04d6677189b4}{00150}}\ \textcolor{preprocessor}{\#define\ RLED\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD0\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00151}\mbox{\hyperlink{plib__gpio_8h_aa34d2dad1908ecb090c0da70b40f8557}{00151}}\ \textcolor{preprocessor}{\#define\ RLED\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD0\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00152}\mbox{\hyperlink{plib__gpio_8h_a81d6509483dd585db7e0ec297e911ff4}{00152}}\ \textcolor{preprocessor}{\#define\ RLED\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATD0\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00153}\mbox{\hyperlink{plib__gpio_8h_a0f025f3cd81beb9b8754d836b014ab47}{00153}}\ \textcolor{preprocessor}{\#define\ RLED\_OutputEnable()\ \ \ \ \ \ (\_TRISD0\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00154}\mbox{\hyperlink{plib__gpio_8h_a77fa83e167673c6add8254e35a869d29}{00154}}\ \textcolor{preprocessor}{\#define\ RLED\_InputEnable()\ \ \ \ \ \ \ (\_TRISD0\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00155}\mbox{\hyperlink{plib__gpio_8h_a092e4a3246c30e1c8094750a98d50d3f}{00155}}\ \textcolor{preprocessor}{\#define\ RLED\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTD\ >>\ 0)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00156}\mbox{\hyperlink{plib__gpio_8h_acaf3fd542c08bd1450c7af6dede94876}{00156}}\ \textcolor{preprocessor}{\#define\ RLED\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RD0}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00158}00158\ \textcolor{comment}{/***\ Macros\ for\ ISO1\_S\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00159}\mbox{\hyperlink{plib__gpio_8h_a7875f58407d8515c78579efa22ff8e2a}{00159}}\ \textcolor{preprocessor}{\#define\ ISO1\_S\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD1\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00160}\mbox{\hyperlink{plib__gpio_8h_abfdce8ed683a0896d5fb2bd8f4121b7e}{00160}}\ \textcolor{preprocessor}{\#define\ ISO1\_S\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD1\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00161}\mbox{\hyperlink{plib__gpio_8h_a26133cd5a94fa7e661086a2ea56fca5c}{00161}}\ \textcolor{preprocessor}{\#define\ ISO1\_S\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATD1\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00162}\mbox{\hyperlink{plib__gpio_8h_a131b047c9c1bf8a44d0c5954c130a275}{00162}}\ \textcolor{preprocessor}{\#define\ ISO1\_S\_OutputEnable()\ \ \ \ \ \ (\_TRISD1\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00163}\mbox{\hyperlink{plib__gpio_8h_ae741863de53266f4d7a0b6a1c3b25b90}{00163}}\ \textcolor{preprocessor}{\#define\ ISO1\_S\_InputEnable()\ \ \ \ \ \ \ (\_TRISD1\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00164}\mbox{\hyperlink{plib__gpio_8h_aee0c75f15b45cbd35390d5b950b1607c}{00164}}\ \textcolor{preprocessor}{\#define\ ISO1\_S\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTD\ >>\ 1)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00165}\mbox{\hyperlink{plib__gpio_8h_ac134119c6929763638b11fc1ef83ced2}{00165}}\ \textcolor{preprocessor}{\#define\ ISO1\_S\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RD1}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00167}00167\ \textcolor{comment}{/***\ Macros\ for\ ISO3\_O\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00168}\mbox{\hyperlink{plib__gpio_8h_a64ec766fc0d3441a098cb21c1f54141f}{00168}}\ \textcolor{preprocessor}{\#define\ ISO3\_O\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD3\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00169}\mbox{\hyperlink{plib__gpio_8h_a2220ffe1bcce2f3e10e21a14b9df37c3}{00169}}\ \textcolor{preprocessor}{\#define\ ISO3\_O\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD3\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00170}\mbox{\hyperlink{plib__gpio_8h_a79425182f67dd4e22b3ce3de7d800f2d}{00170}}\ \textcolor{preprocessor}{\#define\ ISO3\_O\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATD3\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00171}\mbox{\hyperlink{plib__gpio_8h_a3acbaf85ea9d527f3f69c594b8e41734}{00171}}\ \textcolor{preprocessor}{\#define\ ISO3\_O\_OutputEnable()\ \ \ \ \ \ (\_TRISD3\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00172}\mbox{\hyperlink{plib__gpio_8h_afa696b19b2788fccad140dbf049cd5fd}{00172}}\ \textcolor{preprocessor}{\#define\ ISO3\_O\_InputEnable()\ \ \ \ \ \ \ (\_TRISD3\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00173}\mbox{\hyperlink{plib__gpio_8h_af199b2c491f8d5d7b8e1ee2b0268dca8}{00173}}\ \textcolor{preprocessor}{\#define\ ISO3\_O\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTD\ >>\ 3)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00174}\mbox{\hyperlink{plib__gpio_8h_a288d1db0a4f9dc0c0a8f02e01f2b74fc}{00174}}\ \textcolor{preprocessor}{\#define\ ISO3\_O\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RD3}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00176}00176\ \textcolor{comment}{/***\ Macros\ for\ ISO2\_S\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00177}\mbox{\hyperlink{plib__gpio_8h_ad46d0bb8b7bcb5dc2ce5b32084ca5cc2}{00177}}\ \textcolor{preprocessor}{\#define\ ISO2\_S\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD5\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00178}\mbox{\hyperlink{plib__gpio_8h_ae4172be591e4ebeec6a80d92baf863e9}{00178}}\ \textcolor{preprocessor}{\#define\ ISO2\_S\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD5\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00179}\mbox{\hyperlink{plib__gpio_8h_a7fc50a8ddbf9da1f601a21186272e396}{00179}}\ \textcolor{preprocessor}{\#define\ ISO2\_S\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATD5\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00180}\mbox{\hyperlink{plib__gpio_8h_ac62f246293bca5937390f06b7269f27e}{00180}}\ \textcolor{preprocessor}{\#define\ ISO2\_S\_OutputEnable()\ \ \ \ \ \ (\_TRISD5\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00181}\mbox{\hyperlink{plib__gpio_8h_a5fce78ae61f1101fef59d102d38524eb}{00181}}\ \textcolor{preprocessor}{\#define\ ISO2\_S\_InputEnable()\ \ \ \ \ \ \ (\_TRISD5\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00182}\mbox{\hyperlink{plib__gpio_8h_a5b189c26636eaef32c0e9164f87a14ea}{00182}}\ \textcolor{preprocessor}{\#define\ ISO2\_S\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTD\ >>\ 5)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00183}\mbox{\hyperlink{plib__gpio_8h_af412cabfed0163100b2a6b1b133568bc}{00183}}\ \textcolor{preprocessor}{\#define\ ISO2\_S\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RD5}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00185}00185\ \textcolor{comment}{/***\ Macros\ for\ SW1\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00186}\mbox{\hyperlink{plib__gpio_8h_aab592eefa405b6d76ac7ea960273d0d0}{00186}}\ \textcolor{preprocessor}{\#define\ SW1\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD6\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00187}\mbox{\hyperlink{plib__gpio_8h_a1d3fe396eaf18b1c521b885d0284e33a}{00187}}\ \textcolor{preprocessor}{\#define\ SW1\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD6\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00188}\mbox{\hyperlink{plib__gpio_8h_ac00bfa21e8ef3419618050a122e8a710}{00188}}\ \textcolor{preprocessor}{\#define\ SW1\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATD6\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00189}\mbox{\hyperlink{plib__gpio_8h_a6794c2fbb3d572fb0c6aec3e22eb3374}{00189}}\ \textcolor{preprocessor}{\#define\ SW1\_OutputEnable()\ \ \ \ \ \ (\_TRISD6\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00190}\mbox{\hyperlink{plib__gpio_8h_a739f0171692e84e45b83ab034709a1ba}{00190}}\ \textcolor{preprocessor}{\#define\ SW1\_InputEnable()\ \ \ \ \ \ \ (\_TRISD6\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00191}\mbox{\hyperlink{plib__gpio_8h_a90767174fd7eaecd5b74ea7edc31d84f}{00191}}\ \textcolor{preprocessor}{\#define\ SW1\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTD\ >>\ 6)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00192}\mbox{\hyperlink{plib__gpio_8h_a3b206753e7f7b2e482816b53c6b8600c}{00192}}\ \textcolor{preprocessor}{\#define\ SW1\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RD6}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00194}00194\ \textcolor{comment}{/***\ Macros\ for\ SW2\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00195}\mbox{\hyperlink{plib__gpio_8h_ad0b358b77cbd247784e1160e4384b15c}{00195}}\ \textcolor{preprocessor}{\#define\ SW2\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD7\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00196}\mbox{\hyperlink{plib__gpio_8h_aef66e045a8d3d82fd578de0f3f057c90}{00196}}\ \textcolor{preprocessor}{\#define\ SW2\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD7\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00197}\mbox{\hyperlink{plib__gpio_8h_abb461a49480cf6d1b33b805bc7e3985a}{00197}}\ \textcolor{preprocessor}{\#define\ SW2\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATD7\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00198}\mbox{\hyperlink{plib__gpio_8h_a4323cb99224d2fcd13edca60951088e3}{00198}}\ \textcolor{preprocessor}{\#define\ SW2\_OutputEnable()\ \ \ \ \ \ (\_TRISD7\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00199}\mbox{\hyperlink{plib__gpio_8h_a83e8404c0c967caa9e07993392299a4b}{00199}}\ \textcolor{preprocessor}{\#define\ SW2\_InputEnable()\ \ \ \ \ \ \ (\_TRISD7\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00200}\mbox{\hyperlink{plib__gpio_8h_ae5b3a0ad1694c3ac55c2b1488c6acf0d}{00200}}\ \textcolor{preprocessor}{\#define\ SW2\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTD\ >>\ 7)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00201}\mbox{\hyperlink{plib__gpio_8h_a5324908892138177958451638abfd1cc}{00201}}\ \textcolor{preprocessor}{\#define\ SW2\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RD7}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00203}00203\ \textcolor{comment}{/***\ Macros\ for\ ISO4\_O\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00204}\mbox{\hyperlink{plib__gpio_8h_ad0ae69ee0a1001fcdcf1c537959ec246}{00204}}\ \textcolor{preprocessor}{\#define\ ISO4\_O\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD4\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00205}\mbox{\hyperlink{plib__gpio_8h_aa76326c9a0601dd7a8008cfc81a28f89}{00205}}\ \textcolor{preprocessor}{\#define\ ISO4\_O\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD4\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00206}\mbox{\hyperlink{plib__gpio_8h_a85e5b0b5a0f7ea5d0ff25c5db0922943}{00206}}\ \textcolor{preprocessor}{\#define\ ISO4\_O\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATD4\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00207}\mbox{\hyperlink{plib__gpio_8h_a986177e915f7786444bfa85c036e88ed}{00207}}\ \textcolor{preprocessor}{\#define\ ISO4\_O\_OutputEnable()\ \ \ \ \ \ (\_TRISD4\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00208}\mbox{\hyperlink{plib__gpio_8h_a03312b8bef15f3293bf897319f7525ae}{00208}}\ \textcolor{preprocessor}{\#define\ ISO4\_O\_InputEnable()\ \ \ \ \ \ \ (\_TRISD4\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00209}\mbox{\hyperlink{plib__gpio_8h_ac683580b1c7b18dcf75250b0223dd543}{00209}}\ \textcolor{preprocessor}{\#define\ ISO4\_O\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTD\ >>\ 4)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00210}\mbox{\hyperlink{plib__gpio_8h_a5186acb4004262eac90db8d151ee67d4}{00210}}\ \textcolor{preprocessor}{\#define\ ISO4\_O\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RD4}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00212}00212\ \textcolor{comment}{/***\ Macros\ for\ DIS\_CS\ pin\ ***/}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00213}\mbox{\hyperlink{plib__gpio_8h_a54e072b1ce1c11062fe3a1a57752ce14}{00213}}\ \textcolor{preprocessor}{\#define\ DIS\_CS\_Set()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD11\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00214}\mbox{\hyperlink{plib__gpio_8h_a693f282ce14ec84436a208c45af407c4}{00214}}\ \textcolor{preprocessor}{\#define\ DIS\_CS\_Clear()\ \ \ \ \ \ \ \ \ \ \ \ \ (\_LATD11\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00215}\mbox{\hyperlink{plib__gpio_8h_a87567570316ef742df404d117d0b7445}{00215}}\ \textcolor{preprocessor}{\#define\ DIS\_CS\_Toggle()\ \ \ \ \ \ \ \ \ \ \ \ (\_LATD11\ \string^=\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00216}\mbox{\hyperlink{plib__gpio_8h_af50894ffab73c67f1a895f5c90024469}{00216}}\ \textcolor{preprocessor}{\#define\ DIS\_CS\_OutputEnable()\ \ \ \ \ \ (\_TRISD11\ =\ 0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00217}\mbox{\hyperlink{plib__gpio_8h_a900ebec78464f6a1b3e0c15d1e0c4ad7}{00217}}\ \textcolor{preprocessor}{\#define\ DIS\_CS\_InputEnable()\ \ \ \ \ \ \ (\_TRISD11\ =\ 1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00218}\mbox{\hyperlink{plib__gpio_8h_a9834ed8ee19e30f970a977582c745a04}{00218}}\ \textcolor{preprocessor}{\#define\ DIS\_CS\_Get()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((PORTD\ >>\ 11)\ \&\ 0x1)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00219}\mbox{\hyperlink{plib__gpio_8h_a6dfed9144516401107440c140346a282}{00219}}\ \textcolor{preprocessor}{\#define\ DIS\_CS\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_RD11}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00220}00220\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00221}\mbox{\hyperlink{plib__gpio_8h_a26c950f1ed9bbc330c8a1a778cbb30ac}{00221}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PORT\_A\ (0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00222}\mbox{\hyperlink{plib__gpio_8h_a915dfdc360dea14ac6c91824d46de9be}{00222}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PORT\_B\ (1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00223}\mbox{\hyperlink{plib__gpio_8h_a0b31f0cde4a9709b9e8467bcf01f0927}{00223}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PORT\_C\ (2U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00224}\mbox{\hyperlink{plib__gpio_8h_a9ecbfed3887b781b1f2bc77a36655372}{00224}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PORT\_D\ (3U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00230}\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{00230}}\ \textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}};}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00236}\mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090}{00236}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00237}00237\ \{}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00238}\mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090aa4740f15873966505ad0f8e341b6fa9b}{00238}}\ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090aa4740f15873966505ad0f8e341b6fa9b}{GPIO\_INTERRUPT\_ON\_MISMATCH}},}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00239}\mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090ab164b5f93df82b84374a8c7f44193b44}{00239}}\ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090ab164b5f93df82b84374a8c7f44193b44}{GPIO\_INTERRUPT\_ON\_POSITIVE\_EDGE}},}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00240}\mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090ade80f659147d5232e23acc4cdb22a448}{00240}}\ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090ade80f659147d5232e23acc4cdb22a448}{GPIO\_INTERRUPT\_ON\_NEGATIVE\_EDGE}},}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00241}\mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090a86672c92ccfeb9134057eafbf651b9cf}{00241}}\ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090a86672c92ccfeb9134057eafbf651b9cf}{GPIO\_INTERRUPT\_ON\_ANY\_EDGES}},}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00242}00242\ \}\mbox{\hyperlink{plib__gpio_8h_a74da64436f101076ae747b5319311090}{GPIO\_INTERRUPT\_STYLE}};}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00244}\mbox{\hyperlink{plib__gpio_8h_a4274c3e5bb41771594548a86536e9ba6}{00244}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RA0\ \ (0U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00245}\mbox{\hyperlink{plib__gpio_8h_ae78bbd06813189119a2ac80f1137d430}{00245}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RA1\ \ (1U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00246}\mbox{\hyperlink{plib__gpio_8h_a173e06a2ef5406ebe632d21b425f2ba1}{00246}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RA2\ \ (2U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00247}\mbox{\hyperlink{plib__gpio_8h_af015bdae1d377e178ee95f272f58f29d}{00247}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RA3\ \ (3U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00248}\mbox{\hyperlink{plib__gpio_8h_a96cad76a1191e7951edbee8bc10b1e76}{00248}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RA4\ \ (4U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00249}\mbox{\hyperlink{plib__gpio_8h_a24b52389a07c475b3757d26a579a758a}{00249}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RA5\ \ (5U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00250}\mbox{\hyperlink{plib__gpio_8h_a23f46f8d39cb0e7a5ae825f2f3e546d0}{00250}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RA6\ \ (6U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00251}\mbox{\hyperlink{plib__gpio_8h_a18afb08f30723628eab86ffd71eb5644}{00251}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RA7\ \ (7U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00252}\mbox{\hyperlink{plib__gpio_8h_a36a9efe30b393d7b4648d3bb701ee369}{00252}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RA8\ \ (8U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00253}\mbox{\hyperlink{plib__gpio_8h_aaade2121aaa6d2ede13df7215b6f6b9a}{00253}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RA9\ \ (9U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00254}\mbox{\hyperlink{plib__gpio_8h_a20543f5d7447edbe7a870fae6674a476}{00254}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RA10\ \ (10U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00255}\mbox{\hyperlink{plib__gpio_8h_a16a70372ce8e0a51e7978aba12fbdd02}{00255}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RA11\ \ (11U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00256}\mbox{\hyperlink{plib__gpio_8h_a8a3259392ca2f8b19bf2ea06468a65d8}{00256}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RB0\ \ (16U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00257}\mbox{\hyperlink{plib__gpio_8h_a4a1d3bfdd342002087660c868e89e7fd}{00257}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RB1\ \ (17U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00258}\mbox{\hyperlink{plib__gpio_8h_a176884a7c54d0a6290c73d1e3f69aab8}{00258}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RB2\ \ (18U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00259}\mbox{\hyperlink{plib__gpio_8h_ab9af5d210c8fdc88b8b4c57cb37f0ed0}{00259}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RB3\ \ (19U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00260}\mbox{\hyperlink{plib__gpio_8h_a41a9e4ab6cf653bdace521b30f722e72}{00260}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RB4\ \ (20U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00261}\mbox{\hyperlink{plib__gpio_8h_ac8103be411695795e3e0498b345698ca}{00261}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RB5\ \ (21U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00262}\mbox{\hyperlink{plib__gpio_8h_ae08a9737e0c2467beac8de240a28a94a}{00262}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RB6\ \ (22U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00263}\mbox{\hyperlink{plib__gpio_8h_a442fb3c1f9f90a1aa4265a8129acd15d}{00263}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RB7\ \ (23U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00264}\mbox{\hyperlink{plib__gpio_8h_a7cbf52b665026cec994980219d5c1ec4}{00264}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RB8\ \ (24U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00265}\mbox{\hyperlink{plib__gpio_8h_aa7029b29bf2a8260c8df36d87b34784f}{00265}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RB9\ \ (25U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00266}\mbox{\hyperlink{plib__gpio_8h_a01de710b5426a29b00f04e90bb350609}{00266}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RB10\ \ (26U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00267}\mbox{\hyperlink{plib__gpio_8h_aa86b17e0ad68a7c5abf4750a17859d23}{00267}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RB11\ \ (27U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00268}\mbox{\hyperlink{plib__gpio_8h_aea934f9bb4ba1e927848dfeefa5de184}{00268}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RC0\ \ (32U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00269}\mbox{\hyperlink{plib__gpio_8h_a16ed2b56ba97dacc424a50f0cdde1edd}{00269}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RC1\ \ (33U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00270}\mbox{\hyperlink{plib__gpio_8h_a19e36c140f7f6a9908b4162a533545e2}{00270}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RC2\ \ (34U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00271}\mbox{\hyperlink{plib__gpio_8h_aeddf85f130e2a1ff49375dca79c86736}{00271}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RC3\ \ (35U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00272}\mbox{\hyperlink{plib__gpio_8h_a02281584e5ed6bab5de1420c81cd1c06}{00272}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RC4\ \ (36U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00273}\mbox{\hyperlink{plib__gpio_8h_aa01144bb13149a6c1b50d1ab234fdab0}{00273}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RC5\ \ (37U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00274}\mbox{\hyperlink{plib__gpio_8h_a927dca7c345f880574bc0ac910fa14ec}{00274}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RC6\ \ (38U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00275}\mbox{\hyperlink{plib__gpio_8h_ae9f600eacea91ce99c570db3ec12041f}{00275}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RC7\ \ (39U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00276}\mbox{\hyperlink{plib__gpio_8h_ad8bffc4a68d91b99425b38f4438dc0ee}{00276}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RC8\ \ (40U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00277}\mbox{\hyperlink{plib__gpio_8h_a5fa123376fceaf886d09b87295891fde}{00277}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RC9\ \ (41U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00278}\mbox{\hyperlink{plib__gpio_8h_acaef77eda15f59c8e69b38c26a532cfb}{00278}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RC10\ \ (42U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00279}\mbox{\hyperlink{plib__gpio_8h_a54a931f78fa4e4d0de139b52cd1b86c5}{00279}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RC11\ \ (43U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00280}\mbox{\hyperlink{plib__gpio_8h_a147f3de9ea62e447f4fa1f3a7a956659}{00280}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RD0\ \ (48U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00281}\mbox{\hyperlink{plib__gpio_8h_af58423031606493702ab0040bf0d0ae4}{00281}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RD1\ \ (49U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00282}\mbox{\hyperlink{plib__gpio_8h_ab847e3338fa5083b1afc92c006ca8663}{00282}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RD2\ \ (50U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00283}\mbox{\hyperlink{plib__gpio_8h_a29192aa01633ecbcce937fe468e13598}{00283}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RD3\ \ (51U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00284}\mbox{\hyperlink{plib__gpio_8h_ad6aa52a9f0eedd87551e348885c01ee1}{00284}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RD4\ \ (52U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00285}\mbox{\hyperlink{plib__gpio_8h_a2c5e8ea4e9a8ddc3a952103cef43cb1a}{00285}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RD5\ \ (53U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00286}\mbox{\hyperlink{plib__gpio_8h_a9e17a0f43d10cd70261ef85799dd82c7}{00286}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RD6\ \ (54U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00287}\mbox{\hyperlink{plib__gpio_8h_a2fb9180b244dcbb50c304817a6c10bb3}{00287}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RD7\ \ (55U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00288}\mbox{\hyperlink{plib__gpio_8h_ac92cacdfd5f406f9e3ef12b58861515d}{00288}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RD8\ \ (56U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00289}\mbox{\hyperlink{plib__gpio_8h_a9aada190c0b19b77e298205c078c2e7d}{00289}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RD9\ \ (57U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00290}\mbox{\hyperlink{plib__gpio_8h_a8caea3e464ab36bb1e0f46f212939005}{00290}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RD10\ \ (58U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00291}\mbox{\hyperlink{plib__gpio_8h_ab64cd0e35afb245b9b821803e5426106}{00291}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RD11\ \ (59U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00292}\mbox{\hyperlink{plib__gpio_8h_a9650623590156934db12aa770972879a}{00292}}\ \textcolor{preprocessor}{\#define\ \ \ GPIO\_PIN\_RD12\ \ (60U)}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00297}\mbox{\hyperlink{plib__gpio_8h_a9c1920877b928a79c8cf48436b66f8f5}{00297}}\ \textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{plib__gpio_8h_a9c1920877b928a79c8cf48436b66f8f5}{GPIO\_PIN}};}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00314}00314\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__gpio_8h_af2c14d08f5cd6da2843b09b5329c5731}{GPIO\_Initialize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00316}00316\ \textcolor{comment}{//\ Section:\ GPIO\ Functions\ which\ operates\ on\ multiple\ pins\ of\ a\ port}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00333}00333\ uint32\_t\ \mbox{\hyperlink{plib__gpio_8h_abd65922a839af32d84c5651f6e5cf309}{GPIO\_PortRead}}(\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}}\ port);}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00353}00353\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__gpio_8h_a7ba503984e354ffb977e967fb20c4513}{GPIO\_PortWrite}}(\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}}\ port,\ uint32\_t\ mask,\ uint32\_t\ value);}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00369}00369\ uint32\_t\ \mbox{\hyperlink{plib__gpio_8h_a7aed251f9d02f9670ced5851b917b86f}{GPIO\_PortLatchRead}}\ (\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}}\ port\ );}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00370}00370\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00386}00386\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__gpio_8h_a467714d6c56b0e5ad2c3ac2a654ac10e}{GPIO\_PortSet}}(\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}}\ port,\ uint32\_t\ mask);}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00387}00387\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00403}00403\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__gpio_8h_ac9e7c55ddfb33e03fe5ec101cf2ad591}{GPIO\_PortClear}}(\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}}\ port,\ uint32\_t\ mask);}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00404}00404\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00420}00420\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__gpio_8h_a05cadea9630046fc07bc15a96e334e57}{GPIO\_PortToggle}}(\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}}\ port,\ uint32\_t\ mask);}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00421}00421\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00437}00437\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__gpio_8h_a8f5c3509c88c4ece894bdb2c74027726}{GPIO\_PortInputEnable}}(\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}}\ port,\ uint32\_t\ mask);}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00454}00454\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{plib__gpio_8h_a9c7963889c02bf785a27eced1c4cf159}{GPIO\_PortOutputEnable}}(\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}}\ port,\ uint32\_t\ mask);}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00455}00455\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00456}00456\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00457}00457\ \textcolor{comment}{//\ Section:\ GPIO\ Functions\ which\ operates\ on\ one\ pin\ at\ a\ time}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00458}00458\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00473}00473\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ GPIO\_PinWrite(\mbox{\hyperlink{plib__gpio_8h_a9c1920877b928a79c8cf48436b66f8f5}{GPIO\_PIN}}\ pin,\ \textcolor{keywordtype}{bool}\ value)}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00474}00474\ \{}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00475}00475\ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a7ba503984e354ffb977e967fb20c4513}{GPIO\_PortWrite}}((\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}})(pin>>4),\ (uint32\_t)(0x1)\ <<\ (pin\ \&\ 0xFU),\ (uint32\_t)(value)\ <<\ (pin\ \&\ 0xFU));}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00476}00476\ \}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00477}00477\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00494}00494\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ GPIO\_PinRead(\mbox{\hyperlink{plib__gpio_8h_a9c1920877b928a79c8cf48436b66f8f5}{GPIO\_PIN}}\ pin)}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00495}00495\ \{}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00496}00496\ \ \ \ \ \textcolor{keywordflow}{return}\ ((((\mbox{\hyperlink{plib__gpio_8h_abd65922a839af32d84c5651f6e5cf309}{GPIO\_PortRead}}((\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}})(pin>>4)))\ >>\ (pin\ \&\ 0xFU))\ \&\ 0x1U)\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00497}00497\ \}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00498}00498\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00515}00515\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ GPIO\_PinLatchRead(\mbox{\hyperlink{plib__gpio_8h_a9c1920877b928a79c8cf48436b66f8f5}{GPIO\_PIN}}\ pin)}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00516}00516\ \{}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00517}00517\ \ \ \ \ \textcolor{keywordflow}{return}\ (((\mbox{\hyperlink{plib__gpio_8h_a7aed251f9d02f9670ced5851b917b86f}{GPIO\_PortLatchRead}}((\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}})(pin>>4))\ >>\ (pin\ \&\ 0xFU))\ \&\ 0x1U)\ !=\ 0U);}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00518}00518\ \}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00519}00519\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00533}00533\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ GPIO\_PinToggle(\mbox{\hyperlink{plib__gpio_8h_a9c1920877b928a79c8cf48436b66f8f5}{GPIO\_PIN}}\ pin)}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00534}00534\ \{}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00535}00535\ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a05cadea9630046fc07bc15a96e334e57}{GPIO\_PortToggle}}((\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}})(pin>>4),\ 0x1UL\ <<\ (pin\ \&\ 0xFU));}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00536}00536\ \}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00537}00537\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00551}00551\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ GPIO\_PinSet(\mbox{\hyperlink{plib__gpio_8h_a9c1920877b928a79c8cf48436b66f8f5}{GPIO\_PIN}}\ pin)}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00552}00552\ \{}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00553}00553\ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a467714d6c56b0e5ad2c3ac2a654ac10e}{GPIO\_PortSet}}((\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}})(pin>>4),\ 0x1UL\ <<\ (pin\ \&\ 0xFU));}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00554}00554\ \}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00555}00555\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00569}00569\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ GPIO\_PinClear(\mbox{\hyperlink{plib__gpio_8h_a9c1920877b928a79c8cf48436b66f8f5}{GPIO\_PIN}}\ pin)}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00570}00570\ \{}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00571}00571\ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_ac9e7c55ddfb33e03fe5ec101cf2ad591}{GPIO\_PortClear}}((\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}})(pin>>4),\ 0x1UL\ <<\ (pin\ \&\ 0xFU));}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00572}00572\ \}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00573}00573\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00587}00587\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ GPIO\_PinInputEnable(\mbox{\hyperlink{plib__gpio_8h_a9c1920877b928a79c8cf48436b66f8f5}{GPIO\_PIN}}\ pin)}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00588}00588\ \{}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00589}00589\ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a8f5c3509c88c4ece894bdb2c74027726}{GPIO\_PortInputEnable}}((\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}})(pin>>4),\ 0x1UL\ <<\ (pin\ \&\ 0xFU));}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00590}00590\ \}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00591}00591\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00605}00605\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ GPIO\_PinOutputEnable(\mbox{\hyperlink{plib__gpio_8h_a9c1920877b928a79c8cf48436b66f8f5}{GPIO\_PIN}}\ pin)}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00606}00606\ \{}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00607}00607\ \ \ \ \ \mbox{\hyperlink{plib__gpio_8h_a9c7963889c02bf785a27eced1c4cf159}{GPIO\_PortOutputEnable}}((\mbox{\hyperlink{plib__gpio_8h_ac972eed8427f05ccc5004d1ccf55be18}{GPIO\_PORT}})(pin>>4),\ 0x1UL\ <<\ (pin\ \&\ 0xFU));}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00608}00608\ \}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00609}00609\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00610}00610\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00611}00611\ \textcolor{comment}{//\ DOM-\/IGNORE-\/BEGIN}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00612}00612\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00613}00613\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00614}00614\ \ \ \ \}\ \ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00615}00615\ }
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00616}00616\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00617}00617\ \textcolor{comment}{//\ DOM-\/IGNORE-\/END}}
+\DoxyCodeLine{\Hypertarget{plib__gpio_8h_source_l00618}00618\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLIB\_GPIO\_H}}
+
+\end{DoxyCode}

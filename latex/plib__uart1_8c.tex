@@ -1,0 +1,806 @@
+\doxysection{src/config/default/peripheral/uart/plib\+\_\+uart1.c File Reference}
+\hypertarget{plib__uart1_8c}{}\label{plib__uart1_8c}\index{src/config/default/peripheral/uart/plib\_uart1.c@{src/config/default/peripheral/uart/plib\_uart1.c}}
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}device.\+h"{}}\newline
+{\ttfamily \#include "{}interrupts.\+h"{}}\newline
+{\ttfamily \#include "{}plib\+\_\+uart1.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plib__uart1_8c_ab41ea7520d858aec8e9a6516a678c233}{U1\+CON\+\_\+\+MODE\+\_\+8\+\_\+\+BIT\+\_\+\+NONE}}~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__uart1_8c_a2bad2ae6996b1ac7363902098e5db122}{U1\+CON\+\_\+\+MODE\+\_\+7\+\_\+\+BIT}}~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__uart1_8c_a07cce8a1d5a99c48df71632acf90fcee}{U1\+CON\+\_\+\+MODE\+\_\+8\+\_\+\+BIT\+\_\+\+ODD}}~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__uart1_8c_a9925e057f1b90d0c249c516790b9acc9}{U1\+CON\+\_\+\+MODE\+\_\+8\+\_\+\+BIT\+\_\+\+EVEN}}~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__uart1_8c_a18c0f58f1274666766c994c575becc5f}{U1\+CON\+\_\+\+STP\+\_\+1\+\_\+\+SENT\+\_\+1\+\_\+\+RECEIVE}}~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__uart1_8c_a1990f6e46108a2429eeb8cc51ae82e65}{U1\+CON\+\_\+\+STP\+\_\+1\+\_\+5\+\_\+\+SENT\+\_\+1\+\_\+5\+\_\+\+RECEIVE}}~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__uart1_8c_a974e92bcaa0dfbc593de985c6bfe33b9}{U1\+CON\+\_\+\+STP\+\_\+2\+\_\+\+SENT\+\_\+2\+\_\+\+RECEIVE}}~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__uart1_8c_af6196368e3028d817b68735a1a2c1f14}{U1\+CON\+\_\+\+STP\+\_\+2\+\_\+\+SENT\+\_\+1\+\_\+\+RECEIVE}}~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__uart1_8c_ae078e7c6333ea259461831814e045397}{U1\+CON\+\_\+\+CLKSEL\+\_\+\+UPB\+\_\+\+CLOCK}}~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+CLKSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+CLKSEL\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__uart1_8c_a1da5ed53ba74155f32d9d89d08d86a65}{U1\+CON\+\_\+\+CLKSEL\+\_\+\+CLOCK\+\_\+\+GEN\+\_\+8}}~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+CLKSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+CLKSEL\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__uart1_8c_a879aa469664627d8566585d2d822af49}{U1\+CON\+\_\+\+FLO\+\_\+\+NONE}}~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+FLO\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+FLO\+\_\+\+POSITION)))
+\item 
+\#define \mbox{\hyperlink{plib__uart1_8c_aa0394fc6f4ab8e23d754833bff3a0c72}{UART\+\_\+\+MAX\+\_\+\+BAUD}}~0x\+FFFFFUL
+\item 
+\#define \mbox{\hyperlink{plib__uart1_8c_af1026fb8a2261410fff7700fbcd1ffe6}{UART\+\_\+\+MIN\+\_\+\+FRACTIONAL\+\_\+\+BAUD}}~16U
+\item 
+\#define \mbox{\hyperlink{plib__uart1_8c_a4f265ab08bf252b5a1a170c3f2eeb80c}{UART1\+\_\+\+READ\+\_\+\+BUFFER\+\_\+\+SIZE}}~(256U + 1U)
+\item 
+\#define \mbox{\hyperlink{plib__uart1_8c_a4909ea6b74f56cc31ab4766a223b17e3}{UART1\+\_\+\+WRITE\+\_\+\+BUFFER\+\_\+\+SIZE}}~(256U + 1U)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__uart1_8c_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes given instance of the UART peripheral. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__uart1_8c_adb6423121017fcfbc15a3cc50a775102}{UART1\+\_\+\+Serial\+Setup}} (\mbox{\hyperlink{structUART__SERIAL__SETUP}{UART\+\_\+\+SERIAL\+\_\+\+SETUP}} \texorpdfstring{$\ast$}{*}setup, uint32\+\_\+t src\+Clk\+Freq)
+\begin{DoxyCompactList}\small\item\em Writes data to the given UART peripheral instance. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{plib__uart1_8c_aebec603e982ff0f9546900cd364bf6b4}{UART1\+\_\+\+Read}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Rd\+Buffer, const size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Submits a read buffer to the given UART peripheral to process. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{plib__uart1_8c_abc058d6bf61d59cd4354d6041d580d1e}{UART1\+\_\+\+Read\+Count\+Get}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the number of bytes available in the internal receive buffer of the PLIB. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{plib__uart1_8c_a9ea65a9f61c86bd1e743e12e36cb8894}{UART1\+\_\+\+Read\+Free\+Buffer\+Count\+Get}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the number of bytes of free space available in the internal receive buffer. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{plib__uart1_8c_aa506d8220f20205e61e0c8ee903a28ea}{UART1\+\_\+\+Read\+Buffer\+Size\+Get}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the size of the receive ring buffer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__uart1_8c_a85cfe41f63e7f0af0076f6dfa67aeeb3}{UART1\+\_\+\+Read\+Notification\+Enable}} (bool is\+Enabled, bool is\+Persistent)
+\begin{DoxyCompactList}\small\item\em This API lets the application turn the receive notifications on/off. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__uart1_8c_a69d283979b3ef92fc76c4decc9469227}{UART1\+\_\+\+Read\+Threshold\+Set}} (uint32\+\_\+t n\+Bytes\+Threshold)
+\begin{DoxyCompactList}\small\item\em This API allows the application to set a threshold level on the number of bytes of data available in the receive buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__uart1_8c_ac64bc874ecc41004ff9c6437f0c7477a}{UART1\+\_\+\+Read\+Callback\+Register}} (\mbox{\hyperlink{plib__uart__common_8h_aae28c7cc68ccc6d314404f2e4add56c0}{UART\+\_\+\+RING\+\_\+\+BUFFER\+\_\+\+CALLBACK}} callback, uintptr\+\_\+t context)
+\begin{DoxyCompactList}\small\item\em Sets the pointer to the function and it\textquotesingle{}s context to be called when the read events occur. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{plib__uart1_8c_a57a63bb6a0faf784c0e4941fa46e0919}{UART1\+\_\+\+Write\+Count\+Get}} (void)
+\begin{DoxyCompactList}\small\item\em Returns number of data bytes written from the transmit buffer to the transmit register. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{plib__uart1_8c_a9334af8b98a6509062772a72b5bd8eb3}{UART1\+\_\+\+Write}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Wr\+Buffer, const size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Submits a write buffer to the given UART peripheral to transfer. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{plib__uart1_8c_a2799bdbbde5f0647ad35cbc817df1163}{UART1\+\_\+\+Write\+Free\+Buffer\+Count\+Get}} (void)
+\begin{DoxyCompactList}\small\item\em This function returns the number of bytes of free space available in the transmit buffer. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{plib__uart1_8c_a05a151542bce9d2330cf1c658fc74bed}{UART1\+\_\+\+Write\+Buffer\+Size\+Get}} (void)
+\begin{DoxyCompactList}\small\item\em This function returns the size of the transmit ring buffer, which is same as the size of the transmit ring buffer configured in user interface. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__uart1_8c_a95c248b5ca1d91e6e7d6d15f01c31d3e}{UART1\+\_\+\+Transmit\+Complete}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if no current transmission is in progress. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__uart1_8c_addf25c246ac7d086b83fc03522899e26}{UART1\+\_\+\+Write\+Notification\+Enable}} (bool is\+Enabled, bool is\+Persistent)
+\begin{DoxyCompactList}\small\item\em This API allows the application to enable or disable transmit notifications. Further the application can choose to get notified persistently until the threshold condition is true. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__uart1_8c_aec5452fe5b40fc70cd55045e0844543d}{UART1\+\_\+\+Write\+Threshold\+Set}} (uint32\+\_\+t n\+Bytes\+Threshold)
+\begin{DoxyCompactList}\small\item\em This API allows the application to set a threshold level on the number of free space available in the transmit buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__uart1_8c_ae58c6f79679aab7ee93b5a3c845775c5}{UART1\+\_\+\+Write\+Callback\+Register}} (\mbox{\hyperlink{plib__uart__common_8h_aae28c7cc68ccc6d314404f2e4add56c0}{UART\+\_\+\+RING\+\_\+\+BUFFER\+\_\+\+CALLBACK}} callback, uintptr\+\_\+t context)
+\begin{DoxyCompactList}\small\item\em Sets the pointer to the function and it\textquotesingle{}s context to be called when the write events occur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{plib__uart__common_8h_a14e474ed24d2c0a0b109513d4b0e551f}{UART\+\_\+\+ERROR}} \mbox{\hyperlink{plib__uart1_8c_ae7062139830814c7e877f7c321586d01}{UART1\+\_\+\+Error\+Get}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the error of the given UART peripheral instance. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__uart1_8c_ac3b02f60d9474f7b7f1cdda3e3cb005a}{UART1\+\_\+\+Auto\+Baud\+Query}} (void)
+\begin{DoxyCompactList}\small\item\em Auto-\/baud once enabled, this API will retun the status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__uart1_8c_a3144eac41c391b44a5e75d9ec37dd989}{UART1\+\_\+\+Auto\+Baud\+Set}} (bool enable)
+\begin{DoxyCompactList}\small\item\em Sets the auto-\/baud detect mode. The auto-\/baud mode stays enabled until reception of sync field (0x55) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__uart1_8c_a6db928c7913419f794fa3245e37c14e3}{U1\+E\+\_\+\+Interrupt\+Handler}} (void)
+\item 
+void \mbox{\hyperlink{plib__uart1_8c_aeb8d69ca7df36c27ab0f45414a1d6a69}{U1\+RX\+\_\+\+Interrupt\+Handler}} (void)
+\item 
+void \mbox{\hyperlink{plib__uart1_8c_a2a139b270fc9a4a8da1f57d43b2f7dd7}{U1\+TX\+\_\+\+Interrupt\+Handler}} (void)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{plib__uart1_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{plib__uart1_8c_a1da5ed53ba74155f32d9d89d08d86a65}\index{plib\_uart1.c@{plib\_uart1.c}!U1CON\_CLKSEL\_CLOCK\_GEN\_8@{U1CON\_CLKSEL\_CLOCK\_GEN\_8}}
+\index{U1CON\_CLKSEL\_CLOCK\_GEN\_8@{U1CON\_CLKSEL\_CLOCK\_GEN\_8}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{U1CON\_CLKSEL\_CLOCK\_GEN\_8}{U1CON\_CLKSEL\_CLOCK\_GEN\_8}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a1da5ed53ba74155f32d9d89d08d86a65} 
+\#define U1\+CON\+\_\+\+CLKSEL\+\_\+\+CLOCK\+\_\+\+GEN\+\_\+8~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+CLKSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+CLKSEL\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00071}{71}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_ae078e7c6333ea259461831814e045397}\index{plib\_uart1.c@{plib\_uart1.c}!U1CON\_CLKSEL\_UPB\_CLOCK@{U1CON\_CLKSEL\_UPB\_CLOCK}}
+\index{U1CON\_CLKSEL\_UPB\_CLOCK@{U1CON\_CLKSEL\_UPB\_CLOCK}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{U1CON\_CLKSEL\_UPB\_CLOCK}{U1CON\_CLKSEL\_UPB\_CLOCK}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_ae078e7c6333ea259461831814e045397} 
+\#define U1\+CON\+\_\+\+CLKSEL\+\_\+\+UPB\+\_\+\+CLOCK~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+CLKSEL\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+CLKSEL\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00070}{70}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a879aa469664627d8566585d2d822af49}\index{plib\_uart1.c@{plib\_uart1.c}!U1CON\_FLO\_NONE@{U1CON\_FLO\_NONE}}
+\index{U1CON\_FLO\_NONE@{U1CON\_FLO\_NONE}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{U1CON\_FLO\_NONE}{U1CON\_FLO\_NONE}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a879aa469664627d8566585d2d822af49} 
+\#define U1\+CON\+\_\+\+FLO\+\_\+\+NONE~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+FLO\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+FLO\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00074}{74}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a2bad2ae6996b1ac7363902098e5db122}\index{plib\_uart1.c@{plib\_uart1.c}!U1CON\_MODE\_7\_BIT@{U1CON\_MODE\_7\_BIT}}
+\index{U1CON\_MODE\_7\_BIT@{U1CON\_MODE\_7\_BIT}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{U1CON\_MODE\_7\_BIT}{U1CON\_MODE\_7\_BIT}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a2bad2ae6996b1ac7363902098e5db122} 
+\#define U1\+CON\+\_\+\+MODE\+\_\+7\+\_\+\+BIT~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00059}{59}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a9925e057f1b90d0c249c516790b9acc9}\index{plib\_uart1.c@{plib\_uart1.c}!U1CON\_MODE\_8\_BIT\_EVEN@{U1CON\_MODE\_8\_BIT\_EVEN}}
+\index{U1CON\_MODE\_8\_BIT\_EVEN@{U1CON\_MODE\_8\_BIT\_EVEN}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{U1CON\_MODE\_8\_BIT\_EVEN}{U1CON\_MODE\_8\_BIT\_EVEN}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a9925e057f1b90d0c249c516790b9acc9} 
+\#define U1\+CON\+\_\+\+MODE\+\_\+8\+\_\+\+BIT\+\_\+\+EVEN~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00061}{61}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_ab41ea7520d858aec8e9a6516a678c233}\index{plib\_uart1.c@{plib\_uart1.c}!U1CON\_MODE\_8\_BIT\_NONE@{U1CON\_MODE\_8\_BIT\_NONE}}
+\index{U1CON\_MODE\_8\_BIT\_NONE@{U1CON\_MODE\_8\_BIT\_NONE}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{U1CON\_MODE\_8\_BIT\_NONE}{U1CON\_MODE\_8\_BIT\_NONE}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_ab41ea7520d858aec8e9a6516a678c233} 
+\#define U1\+CON\+\_\+\+MODE\+\_\+8\+\_\+\+BIT\+\_\+\+NONE~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00058}{58}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a07cce8a1d5a99c48df71632acf90fcee}\index{plib\_uart1.c@{plib\_uart1.c}!U1CON\_MODE\_8\_BIT\_ODD@{U1CON\_MODE\_8\_BIT\_ODD}}
+\index{U1CON\_MODE\_8\_BIT\_ODD@{U1CON\_MODE\_8\_BIT\_ODD}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{U1CON\_MODE\_8\_BIT\_ODD}{U1CON\_MODE\_8\_BIT\_ODD}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a07cce8a1d5a99c48df71632acf90fcee} 
+\#define U1\+CON\+\_\+\+MODE\+\_\+8\+\_\+\+BIT\+\_\+\+ODD~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+MODE\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00060}{60}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a1990f6e46108a2429eeb8cc51ae82e65}\index{plib\_uart1.c@{plib\_uart1.c}!U1CON\_STP\_1\_5\_SENT\_1\_5\_RECEIVE@{U1CON\_STP\_1\_5\_SENT\_1\_5\_RECEIVE}}
+\index{U1CON\_STP\_1\_5\_SENT\_1\_5\_RECEIVE@{U1CON\_STP\_1\_5\_SENT\_1\_5\_RECEIVE}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{U1CON\_STP\_1\_5\_SENT\_1\_5\_RECEIVE}{U1CON\_STP\_1\_5\_SENT\_1\_5\_RECEIVE}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a1990f6e46108a2429eeb8cc51ae82e65} 
+\#define U1\+CON\+\_\+\+STP\+\_\+1\+\_\+5\+\_\+\+SENT\+\_\+1\+\_\+5\+\_\+\+RECEIVE~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+MASK \& ((uint32\+\_\+t)(1) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00065}{65}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a18c0f58f1274666766c994c575becc5f}\index{plib\_uart1.c@{plib\_uart1.c}!U1CON\_STP\_1\_SENT\_1\_RECEIVE@{U1CON\_STP\_1\_SENT\_1\_RECEIVE}}
+\index{U1CON\_STP\_1\_SENT\_1\_RECEIVE@{U1CON\_STP\_1\_SENT\_1\_RECEIVE}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{U1CON\_STP\_1\_SENT\_1\_RECEIVE}{U1CON\_STP\_1\_SENT\_1\_RECEIVE}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a18c0f58f1274666766c994c575becc5f} 
+\#define U1\+CON\+\_\+\+STP\+\_\+1\+\_\+\+SENT\+\_\+1\+\_\+\+RECEIVE~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+MASK \& ((uint32\+\_\+t)(0) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00064}{64}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_af6196368e3028d817b68735a1a2c1f14}\index{plib\_uart1.c@{plib\_uart1.c}!U1CON\_STP\_2\_SENT\_1\_RECEIVE@{U1CON\_STP\_2\_SENT\_1\_RECEIVE}}
+\index{U1CON\_STP\_2\_SENT\_1\_RECEIVE@{U1CON\_STP\_2\_SENT\_1\_RECEIVE}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{U1CON\_STP\_2\_SENT\_1\_RECEIVE}{U1CON\_STP\_2\_SENT\_1\_RECEIVE}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_af6196368e3028d817b68735a1a2c1f14} 
+\#define U1\+CON\+\_\+\+STP\+\_\+2\+\_\+\+SENT\+\_\+1\+\_\+\+RECEIVE~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+MASK \& ((uint32\+\_\+t)(3) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00067}{67}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a974e92bcaa0dfbc593de985c6bfe33b9}\index{plib\_uart1.c@{plib\_uart1.c}!U1CON\_STP\_2\_SENT\_2\_RECEIVE@{U1CON\_STP\_2\_SENT\_2\_RECEIVE}}
+\index{U1CON\_STP\_2\_SENT\_2\_RECEIVE@{U1CON\_STP\_2\_SENT\_2\_RECEIVE}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{U1CON\_STP\_2\_SENT\_2\_RECEIVE}{U1CON\_STP\_2\_SENT\_2\_RECEIVE}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a974e92bcaa0dfbc593de985c6bfe33b9} 
+\#define U1\+CON\+\_\+\+STP\+\_\+2\+\_\+\+SENT\+\_\+2\+\_\+\+RECEIVE~((uint32\+\_\+t)(\+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+MASK \& ((uint32\+\_\+t)(2) $<$$<$ \+\_\+\+U1\+CON\+\_\+\+STP\+\_\+\+POSITION)))}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00066}{66}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a4f265ab08bf252b5a1a170c3f2eeb80c}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_READ\_BUFFER\_SIZE@{UART1\_READ\_BUFFER\_SIZE}}
+\index{UART1\_READ\_BUFFER\_SIZE@{UART1\_READ\_BUFFER\_SIZE}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_READ\_BUFFER\_SIZE}{UART1\_READ\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a4f265ab08bf252b5a1a170c3f2eeb80c} 
+\#define UART1\+\_\+\+READ\+\_\+\+BUFFER\+\_\+\+SIZE~(256U + 1U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00079}{79}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a4909ea6b74f56cc31ab4766a223b17e3}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_WRITE\_BUFFER\_SIZE@{UART1\_WRITE\_BUFFER\_SIZE}}
+\index{UART1\_WRITE\_BUFFER\_SIZE@{UART1\_WRITE\_BUFFER\_SIZE}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_WRITE\_BUFFER\_SIZE}{UART1\_WRITE\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a4909ea6b74f56cc31ab4766a223b17e3} 
+\#define UART1\+\_\+\+WRITE\+\_\+\+BUFFER\+\_\+\+SIZE~(256U + 1U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00082}{82}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_aa0394fc6f4ab8e23d754833bff3a0c72}\index{plib\_uart1.c@{plib\_uart1.c}!UART\_MAX\_BAUD@{UART\_MAX\_BAUD}}
+\index{UART\_MAX\_BAUD@{UART\_MAX\_BAUD}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART\_MAX\_BAUD}{UART\_MAX\_BAUD}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_aa0394fc6f4ab8e23d754833bff3a0c72} 
+\#define UART\+\_\+\+MAX\+\_\+\+BAUD~0x\+FFFFFUL}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00076}{76}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_af1026fb8a2261410fff7700fbcd1ffe6}\index{plib\_uart1.c@{plib\_uart1.c}!UART\_MIN\_FRACTIONAL\_BAUD@{UART\_MIN\_FRACTIONAL\_BAUD}}
+\index{UART\_MIN\_FRACTIONAL\_BAUD@{UART\_MIN\_FRACTIONAL\_BAUD}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART\_MIN\_FRACTIONAL\_BAUD}{UART\_MIN\_FRACTIONAL\_BAUD}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_af1026fb8a2261410fff7700fbcd1ffe6} 
+\#define UART\+\_\+\+MIN\+\_\+\+FRACTIONAL\+\_\+\+BAUD~16U}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00077}{77}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{plib__uart1_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__uart1_8c_a6db928c7913419f794fa3245e37c14e3}\index{plib\_uart1.c@{plib\_uart1.c}!U1E\_InterruptHandler@{U1E\_InterruptHandler}}
+\index{U1E\_InterruptHandler@{U1E\_InterruptHandler}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{U1E\_InterruptHandler()}{U1E\_InterruptHandler()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a6db928c7913419f794fa3245e37c14e3} 
+void U1\+E\+\_\+\+Interrupt\+Handler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00662}{662}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_aeb8d69ca7df36c27ab0f45414a1d6a69}\index{plib\_uart1.c@{plib\_uart1.c}!U1RX\_InterruptHandler@{U1RX\_InterruptHandler}}
+\index{U1RX\_InterruptHandler@{U1RX\_InterruptHandler}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{U1RX\_InterruptHandler()}{U1RX\_InterruptHandler()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_aeb8d69ca7df36c27ab0f45414a1d6a69} 
+void U1\+RX\+\_\+\+Interrupt\+Handler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00685}{685}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a2a139b270fc9a4a8da1f57d43b2f7dd7}\index{plib\_uart1.c@{plib\_uart1.c}!U1TX\_InterruptHandler@{U1TX\_InterruptHandler}}
+\index{U1TX\_InterruptHandler@{U1TX\_InterruptHandler}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{U1TX\_InterruptHandler()}{U1TX\_InterruptHandler()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a2a139b270fc9a4a8da1f57d43b2f7dd7} 
+void U1\+TX\+\_\+\+Interrupt\+Handler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00704}{704}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_ac3b02f60d9474f7b7f1cdda3e3cb005a}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_AutoBaudQuery@{UART1\_AutoBaudQuery}}
+\index{UART1\_AutoBaudQuery@{UART1\_AutoBaudQuery}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_AutoBaudQuery()}{UART1\_AutoBaudQuery()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_ac3b02f60d9474f7b7f1cdda3e3cb005a} 
+bool UART1\+\_\+\+Auto\+Baud\+Query (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Auto-\/baud once enabled, this API will retun the status. 
+
+\begin{DoxyPrecond}{Precondition}
+\doxylink{plib__uart1_8c_a3144eac41c391b44a5e75d9ec37dd989}{UART1\+\_\+\+Auto\+Baud\+Set} has to be called before calling this function 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true -\/ if auto-\/baud is in-\/progress 
+
+false -\/ if auto-\/baud is not in-\/progress or complete 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00638}{638}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a3144eac41c391b44a5e75d9ec37dd989}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_AutoBaudSet@{UART1\_AutoBaudSet}}
+\index{UART1\_AutoBaudSet@{UART1\_AutoBaudSet}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_AutoBaudSet()}{UART1\_AutoBaudSet()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a3144eac41c391b44a5e75d9ec37dd989} 
+void UART1\+\_\+\+Auto\+Baud\+Set (\begin{DoxyParamCaption}\item[{bool}]{enable}{}\end{DoxyParamCaption})}
+
+
+
+Sets the auto-\/baud detect mode. The auto-\/baud mode stays enabled until reception of sync field (0x55) 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em enable} & -\/ Pass true to enable the auto-\/baud detect mode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00651}{651}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_ae7062139830814c7e877f7c321586d01}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_ErrorGet@{UART1\_ErrorGet}}
+\index{UART1\_ErrorGet@{UART1\_ErrorGet}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_ErrorGet()}{UART1\_ErrorGet()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_ae7062139830814c7e877f7c321586d01} 
+\mbox{\hyperlink{plib__uart__common_8h_a14e474ed24d2c0a0b109513d4b0e551f}{UART\+\_\+\+ERROR}} UART1\+\_\+\+Error\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the error of the given UART peripheral instance. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Errors occurred as listed in \doxylink{plib__uart__common_8h_a14e474ed24d2c0a0b109513d4b0e551f}{UART\+\_\+\+ERROR}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00628}{628}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a10757505060dc7bf0fe148c5363eae08}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_Initialize@{UART1\_Initialize}}
+\index{UART1\_Initialize@{UART1\_Initialize}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_Initialize()}{UART1\_Initialize()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a10757505060dc7bf0fe148c5363eae08} 
+void UART1\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes given instance of the UART peripheral. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00119}{119}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_aebec603e982ff0f9546900cd364bf6b4}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_Read@{UART1\_Read}}
+\index{UART1\_Read@{UART1\_Read}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_Read()}{UART1\_Read()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_aebec603e982ff0f9546900cd364bf6b4} 
+size\+\_\+t UART1\+\_\+\+Read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+Rd\+Buffer}{, }\item[{const size\+\_\+t}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Submits a read buffer to the given UART peripheral to process. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & -\/ Pointer to the user buffer where received data will be placed. \\
+\hline
+{\em size} & -\/ Number of bytes to be received. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes read and loaded into software buffer 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00343}{343}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_aa506d8220f20205e61e0c8ee903a28ea}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_ReadBufferSizeGet@{UART1\_ReadBufferSizeGet}}
+\index{UART1\_ReadBufferSizeGet@{UART1\_ReadBufferSizeGet}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_ReadBufferSizeGet()}{UART1\_ReadBufferSizeGet()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_aa506d8220f20205e61e0c8ee903a28ea} 
+size\+\_\+t UART1\+\_\+\+Read\+Buffer\+Size\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the size of the receive ring buffer. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The API returns the size of the receive ring buffer 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00405}{405}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_ac64bc874ecc41004ff9c6437f0c7477a}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_ReadCallbackRegister@{UART1\_ReadCallbackRegister}}
+\index{UART1\_ReadCallbackRegister@{UART1\_ReadCallbackRegister}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_ReadCallbackRegister()}{UART1\_ReadCallbackRegister()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_ac64bc874ecc41004ff9c6437f0c7477a} 
+void UART1\+\_\+\+Read\+Callback\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__uart__common_8h_aae28c7cc68ccc6d314404f2e4add56c0}{UART\+\_\+\+RING\+\_\+\+BUFFER\+\_\+\+CALLBACK}}}]{callback}{, }\item[{uintptr\+\_\+t}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Sets the pointer to the function and it\textquotesingle{}s context to be called when the read events occur. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & -\/ Pointer to the function that will be called when a read request has completed. Setting this to NULL will disable the callback feature. \\
+\hline
+{\em context} & -\/ A value (usually a pointer) passed (unused) into the function identified by the callback parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00429}{429}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_abc058d6bf61d59cd4354d6041d580d1e}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_ReadCountGet@{UART1\_ReadCountGet}}
+\index{UART1\_ReadCountGet@{UART1\_ReadCountGet}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_ReadCountGet()}{UART1\_ReadCountGet()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_abc058d6bf61d59cd4354d6041d580d1e} 
+size\+\_\+t UART1\+\_\+\+Read\+Count\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the number of bytes available in the internal receive buffer of the PLIB. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The API returns the number of bytes pending to be read out from the receive buffer 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00378}{378}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a9ea65a9f61c86bd1e743e12e36cb8894}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_ReadFreeBufferCountGet@{UART1\_ReadFreeBufferCountGet}}
+\index{UART1\_ReadFreeBufferCountGet@{UART1\_ReadFreeBufferCountGet}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_ReadFreeBufferCountGet()}{UART1\_ReadFreeBufferCountGet()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a9ea65a9f61c86bd1e743e12e36cb8894} 
+size\+\_\+t UART1\+\_\+\+Read\+Free\+Buffer\+Count\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the number of bytes of free space available in the internal receive buffer. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The API returns the number of bytes of free space in the receive buffer 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00400}{400}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a85cfe41f63e7f0af0076f6dfa67aeeb3}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_ReadNotificationEnable@{UART1\_ReadNotificationEnable}}
+\index{UART1\_ReadNotificationEnable@{UART1\_ReadNotificationEnable}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_ReadNotificationEnable()}{UART1\_ReadNotificationEnable()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a85cfe41f63e7f0af0076f6dfa67aeeb3} 
+bool UART1\+\_\+\+Read\+Notification\+Enable (\begin{DoxyParamCaption}\item[{bool}]{is\+Enabled}{, }\item[{bool}]{is\+Persistent}{}\end{DoxyParamCaption})}
+
+
+
+This API lets the application turn the receive notifications on/off. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Enable} & -\/ A true value turns on notification, false value turns off notification \\
+\hline
+{\em is\+Persistent} & -\/ A true value turns on persistent notifications A false value disables persistent notifications \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true -\/ indicates notifications were previously enabled 
+
+false -\/ indicates notifications were prerviously disabled 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00410}{410}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a69d283979b3ef92fc76c4decc9469227}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_ReadThresholdSet@{UART1\_ReadThresholdSet}}
+\index{UART1\_ReadThresholdSet@{UART1\_ReadThresholdSet}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_ReadThresholdSet()}{UART1\_ReadThresholdSet()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a69d283979b3ef92fc76c4decc9469227} 
+void UART1\+\_\+\+Read\+Threshold\+Set (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{n\+Bytes\+Threshold}{}\end{DoxyParamCaption})}
+
+
+
+This API allows the application to set a threshold level on the number of bytes of data available in the receive buffer. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em n\+Bytes\+Threshold} & -\/ Threshold value for number of bytes available in the receive buffer after which a notification must be given \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00421}{421}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_adb6423121017fcfbc15a3cc50a775102}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_SerialSetup@{UART1\_SerialSetup}}
+\index{UART1\_SerialSetup@{UART1\_SerialSetup}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_SerialSetup()}{UART1\_SerialSetup()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_adb6423121017fcfbc15a3cc50a775102} 
+bool UART1\+\_\+\+Serial\+Setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structUART__SERIAL__SETUP}{UART\+\_\+\+SERIAL\+\_\+\+SETUP}} \texorpdfstring{$\ast$}{*}}]{setup}{, }\item[{uint32\+\_\+t}]{src\+Clk\+Freq}{}\end{DoxyParamCaption})}
+
+
+
+Writes data to the given UART peripheral instance. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em serial\+Setup} & -\/ Pointer to serial configuration data structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em clk\+Frequency} & -\/ Input clock frequency to the Baud Rate Generator. If configured to zero, the PLIB takes the UARTx clock frequency \doxylink{plib__uart1_8h_a762000a479b5a4768f3b94c4242f19e9}{UART1\+\_\+\+Frequency\+Get} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true -\/ Serial configuration was successful 
+
+false -\/ The specified serial configuration could not be supported. This, for example, could happen if the requested baud is not supported. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00174}{174}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a95c248b5ca1d91e6e7d6d15f01c31d3e}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_TransmitComplete@{UART1\_TransmitComplete}}
+\index{UART1\_TransmitComplete@{UART1\_TransmitComplete}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_TransmitComplete()}{UART1\_TransmitComplete()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a95c248b5ca1d91e6e7d6d15f01c31d3e} 
+bool UART1\+\_\+\+Transmit\+Complete (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if no current transmission is in progress. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true -\/ Transmit is not in progress or complete 
+
+false -\/ Transmit is in progress 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00591}{591}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a9334af8b98a6509062772a72b5bd8eb3}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_Write@{UART1\_Write}}
+\index{UART1\_Write@{UART1\_Write}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_Write()}{UART1\_Write()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a9334af8b98a6509062772a72b5bd8eb3} 
+size\+\_\+t UART1\+\_\+\+Write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+Wr\+Buffer}{, }\item[{const size\+\_\+t}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Submits a write buffer to the given UART peripheral to transfer. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & -\/ Pointer to the user buffer. This contains the data to be transferred. \\
+\hline
+{\em size} & -\/ Number of bytes to be transferred. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The API returns the number of bytes actually copied. Depending on the space available in the transmit buffer, the number of bytes copied may be less than or equal to the requested size. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00552}{552}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a05a151542bce9d2330cf1c658fc74bed}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_WriteBufferSizeGet@{UART1\_WriteBufferSizeGet}}
+\index{UART1\_WriteBufferSizeGet@{UART1\_WriteBufferSizeGet}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_WriteBufferSizeGet()}{UART1\_WriteBufferSizeGet()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a05a151542bce9d2330cf1c658fc74bed} 
+size\+\_\+t UART1\+\_\+\+Write\+Buffer\+Size\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+This function returns the size of the transmit ring buffer, which is same as the size of the transmit ring buffer configured in user interface. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The API returns the size of the transmit ring buffer 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00586}{586}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_ae58c6f79679aab7ee93b5a3c845775c5}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_WriteCallbackRegister@{UART1\_WriteCallbackRegister}}
+\index{UART1\_WriteCallbackRegister@{UART1\_WriteCallbackRegister}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_WriteCallbackRegister()}{UART1\_WriteCallbackRegister()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_ae58c6f79679aab7ee93b5a3c845775c5} 
+void UART1\+\_\+\+Write\+Callback\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__uart__common_8h_aae28c7cc68ccc6d314404f2e4add56c0}{UART\+\_\+\+RING\+\_\+\+BUFFER\+\_\+\+CALLBACK}}}]{callback}{, }\item[{uintptr\+\_\+t}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Sets the pointer to the function and it\textquotesingle{}s context to be called when the write events occur. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & -\/ Pointer to the function to be called when the write transfer has completed. Setting this to NULL will disable the callback feature. ~\newline
+ \\
+\hline
+{\em context} & -\/ A value (usually a pointer) passed (unused) into the function identified by the callback parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00621}{621}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a57a63bb6a0faf784c0e4941fa46e0919}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_WriteCountGet@{UART1\_WriteCountGet}}
+\index{UART1\_WriteCountGet@{UART1\_WriteCountGet}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_WriteCountGet()}{UART1\_WriteCountGet()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a57a63bb6a0faf784c0e4941fa46e0919} 
+size\+\_\+t UART1\+\_\+\+Write\+Count\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns number of data bytes written from the transmit buffer to the transmit register. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of data bytes written from the software buffer to transmit register 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00543}{543}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_a2799bdbbde5f0647ad35cbc817df1163}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_WriteFreeBufferCountGet@{UART1\_WriteFreeBufferCountGet}}
+\index{UART1\_WriteFreeBufferCountGet@{UART1\_WriteFreeBufferCountGet}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_WriteFreeBufferCountGet()}{UART1\_WriteFreeBufferCountGet()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_a2799bdbbde5f0647ad35cbc817df1163} 
+size\+\_\+t UART1\+\_\+\+Write\+Free\+Buffer\+Count\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+This function returns the number of bytes of free space available in the transmit buffer. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The API returns the number of bytes of free space in the transmit buffer 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00581}{581}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_addf25c246ac7d086b83fc03522899e26}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_WriteNotificationEnable@{UART1\_WriteNotificationEnable}}
+\index{UART1\_WriteNotificationEnable@{UART1\_WriteNotificationEnable}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_WriteNotificationEnable()}{UART1\_WriteNotificationEnable()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_addf25c246ac7d086b83fc03522899e26} 
+bool UART1\+\_\+\+Write\+Notification\+Enable (\begin{DoxyParamCaption}\item[{bool}]{is\+Enabled}{, }\item[{bool}]{is\+Persistent}{}\end{DoxyParamCaption})}
+
+
+
+This API allows the application to enable or disable transmit notifications. Further the application can choose to get notified persistently until the threshold condition is true. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Enabled} & -\/ A true value turns on notification, false value turns off notification \\
+\hline
+{\em is\+Persistent} & -\/ A true value turns on persistent notification. A false value disables persistent notifications \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true -\/ indicates notifications were previously enabled 
+
+false -\/ indicates notifications were previously disabled 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00602}{602}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+
+\Hypertarget{plib__uart1_8c_aec5452fe5b40fc70cd55045e0844543d}\index{plib\_uart1.c@{plib\_uart1.c}!UART1\_WriteThresholdSet@{UART1\_WriteThresholdSet}}
+\index{UART1\_WriteThresholdSet@{UART1\_WriteThresholdSet}!plib\_uart1.c@{plib\_uart1.c}}
+\doxysubsubsection{\texorpdfstring{UART1\_WriteThresholdSet()}{UART1\_WriteThresholdSet()}}
+{\footnotesize\ttfamily \label{plib__uart1_8c_aec5452fe5b40fc70cd55045e0844543d} 
+void UART1\+\_\+\+Write\+Threshold\+Set (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{n\+Bytes\+Threshold}{}\end{DoxyParamCaption})}
+
+
+
+This API allows the application to set a threshold level on the number of free space available in the transmit buffer. 
+
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em n\+Bytes\+Threshold} & -\/ Threshold value for free space in the transmit buffer afterwhich a notification must be given \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__uart1_8c_source_l00613}{613}} of file \mbox{\hyperlink{plib__uart1_8c_source}{plib\+\_\+uart1.\+c}}.
+

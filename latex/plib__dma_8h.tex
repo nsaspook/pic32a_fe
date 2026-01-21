@@ -1,0 +1,710 @@
+\doxysection{src/config/default/peripheral/dma/plib\+\_\+dma.h File Reference}
+\hypertarget{plib__dma_8h}{}\label{plib__dma_8h}\index{src/config/default/peripheral/dma/plib\_dma.h@{src/config/default/peripheral/dma/plib\_dma.h}}
+{\ttfamily \#include $<$device.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDMA__CHANNEL__OBJECT}{DMA\+\_\+\+CHANNEL\+\_\+\+OBJECT}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\+\_\+\+CHANNEL\+\_\+0}}~(0x0U)
+\item 
+\#define \mbox{\hyperlink{plib__dma_8h_a283364370e9876af6406b9fa70e2944f}{DMA\+\_\+\+CHANNEL\+\_\+1}}~(0x1U)
+\item 
+\#define \mbox{\hyperlink{plib__dma_8h_a51b51f5b39e23b28ad99520ad5be596f}{DMA\+\_\+\+CHANNEL\+\_\+4}}~(0x4U)
+\item 
+\#define \mbox{\hyperlink{plib__dma_8h_afbaa82f3cff89858e50363c04ed0cca0}{DMA\+\_\+\+CHANNEL\+\_\+5}}~(0x5U)
+\item 
+\#define \mbox{\hyperlink{plib__dma_8h_ad2fb834bcaba6a4f0b3a4bd7e13abf3f}{DMA\+\_\+\+NUMBER\+\_\+\+OF\+\_\+\+CHANNELS}}~(0x6U)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{plib__dma_8h_ae4864a6166f77736d3a0dc75d3a0ce07}{DMA\+\_\+\+CHANNEL\+\_\+\+CALLBACK}}) (\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\+\_\+\+TRANSFER\+\_\+\+EVENT}} status, uintptr\+\_\+t context\+Handle)
+\item 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}}
+\item 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__dma_8h_a81f51f2bf80f7431b5808fb2de932a4c}{DMA\+\_\+\+CHANNEL\+\_\+\+CONFIG}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\+\_\+\+TRANSFER\+\_\+\+EVENT}} \{ \newline
+\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7a218399970d5d2dd06a83c974efff55}{DMA\+\_\+\+TRANSFER\+\_\+\+EVENT\+\_\+\+NONE}} = 0
+, \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7dc5a006aeed94643a591f8fb093f446}{DMA\+\_\+\+TRANSFER\+\_\+\+EVENT\+\_\+\+COMPLETE}} = 1
+, \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa906bc18398e3dcc1893265a088638bca}{DMA\+\_\+\+TRANSFER\+\_\+\+EVENT\+\_\+\+HALF\+\_\+\+COMPLETE}} = 2
+, \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa99c363861124843589b3271b54a54e85}{DMA\+\_\+\+OVERRUN\+\_\+\+ERROR}} = 3
+, \newline
+\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaafe7698d91d97c347b0d26162b21d1486}{DMA\+\_\+\+PATTERN\+\_\+\+MATCH}} = 4
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{plib__dma_8h_a3950883876bea54b441aaf14ff17d47e}{DMA\+\_\+\+Initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the DMA controller of the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__dma_8h_a8fee79f4a211106481e6b1d021c6dab9}{DMA\+\_\+\+Deinitialize}} (void)
+\begin{DoxyCompactList}\small\item\em De-\/initializes the DMA controller of the device to POR Values. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__dma_8h_a7ca594a7f34b0fa562f1e8fcce2b0279}{DMA\+\_\+\+Channel\+Transfer}} (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}} channel, const void \texorpdfstring{$\ast$}{*}src\+Addr, const void \texorpdfstring{$\ast$}{*}dest\+Addr, uint32\+\_\+t block\+Size)
+\item 
+void \mbox{\hyperlink{plib__dma_8h_ab817fbfc1e326643d2be11e19e9d3ecf}{DMA\+\_\+\+Channel\+Pattern\+Match\+Setup}} (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}} channel, uint32\+\_\+t pattern\+Match\+Mask, uint32\+\_\+t pattern\+Match\+Data)
+\item 
+void \mbox{\hyperlink{plib__dma_8h_a594085216d6e1b258cf28e5aeddf5720}{DMA\+\_\+\+Channel\+Enable}} (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}} channel)
+\begin{DoxyCompactList}\small\item\em Enables the specified DMA channel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__dma_8h_abba26334d232e9aff34af1b259bb90e5}{DMA\+\_\+\+Channel\+Disable}} (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}} channel)
+\begin{DoxyCompactList}\small\item\em Disables the specified DMA channel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__dma_8h_ad318df9071a043bf1bdcdb9db45fb236}{DMA\+\_\+\+Channel\+Pattern\+Match\+Enable}} (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}} channel)
+\begin{DoxyCompactList}\small\item\em Enable DMA channel pattern matching. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__dma_8h_aee360bd6301f75d99e0245d9694951ce}{DMA\+\_\+\+Channel\+Pattern\+Match\+Disable}} (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}} channel)
+\begin{DoxyCompactList}\small\item\em Disable DMA channel pattern matching. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__dma_8h_af4a0fbb7b688934515327b83fe376803}{DMA\+\_\+\+Is\+Software\+Request\+Pending}} (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}} channel)
+\begin{DoxyCompactList}\small\item\em This function returns the status of the software request of the DMA channel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__dma_8h_a5bfc37cb3f3c004d66d8c2a3aab0c13b}{DMA\+\_\+\+Channel\+Software\+Trigger\+Enable}} (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}} channel)
+\begin{DoxyCompactList}\small\item\em This function sets the software trigger of the DMA channel. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__dma_8h_af34816ed03c5a669f4bc4361f7a38e58}{DMA\+\_\+\+Channel\+Is\+Busy}} (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}} channel)
+\begin{DoxyCompactList}\small\item\em Returns the busy status of the channel. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{plib__dma_8h_a7223ed9d516ab40e057e88b668409739}{DMA\+\_\+\+Channel\+Get\+Transferred\+Count}} (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}} channel)
+\begin{DoxyCompactList}\small\item\em Returns transfer count of the ongoing DMA transfer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{plib__dma_8h_a81f51f2bf80f7431b5808fb2de932a4c}{DMA\+\_\+\+CHANNEL\+\_\+\+CONFIG}} \mbox{\hyperlink{plib__dma_8h_a277d25aec993e50ac797415ba8a1d732}{DMA\+\_\+\+Channel\+Settings\+Get}} (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}} channel)
+\begin{DoxyCompactList}\small\item\em Returns the current channel settings for the specified DMA Channel. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{plib__dma_8h_aa3690fa60cd12eb817c922975bb42c25}{DMA\+\_\+\+Channel\+Settings\+Set}} (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}} channel, \mbox{\hyperlink{plib__dma_8h_a81f51f2bf80f7431b5808fb2de932a4c}{DMA\+\_\+\+CHANNEL\+\_\+\+CONFIG}} setting)
+\begin{DoxyCompactList}\small\item\em This function changes the current settings of the specified DMA channel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plib__dma_8h_a14ca97886207fe4b4ed2a0d41ab6213e}{DMA\+\_\+\+Channel\+Callback\+Register}} (\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}} channel, const \mbox{\hyperlink{plib__dma_8h_ae4864a6166f77736d3a0dc75d3a0ce07}{DMA\+\_\+\+CHANNEL\+\_\+\+CALLBACK}} event\+Handler, const uintptr\+\_\+t context\+Handle)
+\begin{DoxyCompactList}\small\item\em Allows a DMA PLIB client to set an event handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{plib__dma_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}\index{plib\_dma.h@{plib\_dma.h}!DMA\_CHANNEL\_0@{DMA\_CHANNEL\_0}}
+\index{DMA\_CHANNEL\_0@{DMA\_CHANNEL\_0}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_CHANNEL\_0}{DMA\_CHANNEL\_0}}
+{\footnotesize\ttfamily \label{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe} 
+\#define DMA\+\_\+\+CHANNEL\+\_\+0~(0x0U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8h_source_l00129}{129}} of file \mbox{\hyperlink{plib__dma_8h_source}{plib\+\_\+dma.\+h}}.
+
+\Hypertarget{plib__dma_8h_a283364370e9876af6406b9fa70e2944f}\index{plib\_dma.h@{plib\_dma.h}!DMA\_CHANNEL\_1@{DMA\_CHANNEL\_1}}
+\index{DMA\_CHANNEL\_1@{DMA\_CHANNEL\_1}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_CHANNEL\_1}{DMA\_CHANNEL\_1}}
+{\footnotesize\ttfamily \label{plib__dma_8h_a283364370e9876af6406b9fa70e2944f} 
+\#define DMA\+\_\+\+CHANNEL\+\_\+1~(0x1U)}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2ldrv_2pic32a_fe_2src_2config_2default_2peripheral_2dma_2plib_dma_8h-example}{/ldrv/pic32a\+\_\+fe/src/config/default/peripheral/dma/plib\+\_\+dma.\+h}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8h_source_l00130}{130}} of file \mbox{\hyperlink{plib__dma_8h_source}{plib\+\_\+dma.\+h}}.
+
+\Hypertarget{plib__dma_8h_a51b51f5b39e23b28ad99520ad5be596f}\index{plib\_dma.h@{plib\_dma.h}!DMA\_CHANNEL\_4@{DMA\_CHANNEL\_4}}
+\index{DMA\_CHANNEL\_4@{DMA\_CHANNEL\_4}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_CHANNEL\_4}{DMA\_CHANNEL\_4}}
+{\footnotesize\ttfamily \label{plib__dma_8h_a51b51f5b39e23b28ad99520ad5be596f} 
+\#define DMA\+\_\+\+CHANNEL\+\_\+4~(0x4U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8h_source_l00131}{131}} of file \mbox{\hyperlink{plib__dma_8h_source}{plib\+\_\+dma.\+h}}.
+
+\Hypertarget{plib__dma_8h_afbaa82f3cff89858e50363c04ed0cca0}\index{plib\_dma.h@{plib\_dma.h}!DMA\_CHANNEL\_5@{DMA\_CHANNEL\_5}}
+\index{DMA\_CHANNEL\_5@{DMA\_CHANNEL\_5}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_CHANNEL\_5}{DMA\_CHANNEL\_5}}
+{\footnotesize\ttfamily \label{plib__dma_8h_afbaa82f3cff89858e50363c04ed0cca0} 
+\#define DMA\+\_\+\+CHANNEL\+\_\+5~(0x5U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8h_source_l00132}{132}} of file \mbox{\hyperlink{plib__dma_8h_source}{plib\+\_\+dma.\+h}}.
+
+\Hypertarget{plib__dma_8h_ad2fb834bcaba6a4f0b3a4bd7e13abf3f}\index{plib\_dma.h@{plib\_dma.h}!DMA\_NUMBER\_OF\_CHANNELS@{DMA\_NUMBER\_OF\_CHANNELS}}
+\index{DMA\_NUMBER\_OF\_CHANNELS@{DMA\_NUMBER\_OF\_CHANNELS}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_NUMBER\_OF\_CHANNELS}{DMA\_NUMBER\_OF\_CHANNELS}}
+{\footnotesize\ttfamily \label{plib__dma_8h_ad2fb834bcaba6a4f0b3a4bd7e13abf3f} 
+\#define DMA\+\_\+\+NUMBER\+\_\+\+OF\+\_\+\+CHANNELS~(0x6U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8h_source_l00134}{134}} of file \mbox{\hyperlink{plib__dma_8h_source}{plib\+\_\+dma.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{plib__dma_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}\index{plib\_dma.h@{plib\_dma.h}!DMA\_CHANNEL@{DMA\_CHANNEL}}
+\index{DMA\_CHANNEL@{DMA\_CHANNEL}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_CHANNEL}{DMA\_CHANNEL}}
+{\footnotesize\ttfamily \label{plib__dma_8h_a515faa3054d081e243bf97f3672c048a} 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}}}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2ldrv_2pic32a_fe_2src_2config_2default_2peripheral_2dma_2plib_dma_8h-example}{/ldrv/pic32a\+\_\+fe/src/config/default/peripheral/dma/plib\+\_\+dma.\+h}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8h_source_l00136}{136}} of file \mbox{\hyperlink{plib__dma_8h_source}{plib\+\_\+dma.\+h}}.
+
+\Hypertarget{plib__dma_8h_ae4864a6166f77736d3a0dc75d3a0ce07}\index{plib\_dma.h@{plib\_dma.h}!DMA\_CHANNEL\_CALLBACK@{DMA\_CHANNEL\_CALLBACK}}
+\index{DMA\_CHANNEL\_CALLBACK@{DMA\_CHANNEL\_CALLBACK}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_CHANNEL\_CALLBACK}{DMA\_CHANNEL\_CALLBACK}}
+{\footnotesize\ttfamily \label{plib__dma_8h_ae4864a6166f77736d3a0dc75d3a0ce07} 
+typedef void(\texorpdfstring{$\ast$}{*} DMA\+\_\+\+CHANNEL\+\_\+\+CALLBACK) (\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\+\_\+\+TRANSFER\+\_\+\+EVENT}} status, uintptr\+\_\+t context\+Handle)}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2ldrv_2pic32a_fe_2src_2config_2default_2peripheral_2dma_2plib_dma_8h-example}{/ldrv/pic32a\+\_\+fe/src/config/default/peripheral/dma/plib\+\_\+dma.\+h}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8h_source_l00101}{101}} of file \mbox{\hyperlink{plib__dma_8h_source}{plib\+\_\+dma.\+h}}.
+
+\Hypertarget{plib__dma_8h_a81f51f2bf80f7431b5808fb2de932a4c}\index{plib\_dma.h@{plib\_dma.h}!DMA\_CHANNEL\_CONFIG@{DMA\_CHANNEL\_CONFIG}}
+\index{DMA\_CHANNEL\_CONFIG@{DMA\_CHANNEL\_CONFIG}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_CHANNEL\_CONFIG}{DMA\_CHANNEL\_CONFIG}}
+{\footnotesize\ttfamily \label{plib__dma_8h_a81f51f2bf80f7431b5808fb2de932a4c} 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__dma_8h_a81f51f2bf80f7431b5808fb2de932a4c}{DMA\+\_\+\+CHANNEL\+\_\+\+CONFIG}}}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2ldrv_2pic32a_fe_2src_2config_2default_2peripheral_2dma_2plib_dma_8h-example}{/ldrv/pic32a\+\_\+fe/src/config/default/peripheral/dma/plib\+\_\+dma.\+h}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8h_source_l00138}{138}} of file \mbox{\hyperlink{plib__dma_8h_source}{plib\+\_\+dma.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{plib__dma_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}\index{plib\_dma.h@{plib\_dma.h}!DMA\_TRANSFER\_EVENT@{DMA\_TRANSFER\_EVENT}}
+\index{DMA\_TRANSFER\_EVENT@{DMA\_TRANSFER\_EVENT}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_TRANSFER\_EVENT}{DMA\_TRANSFER\_EVENT}}
+{\footnotesize\ttfamily \label{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa} 
+enum \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\+\_\+\+TRANSFER\+\_\+\+EVENT}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMA\_TRANSFER\_EVENT\_NONE@{DMA\_TRANSFER\_EVENT\_NONE}!plib\_dma.h@{plib\_dma.h}}\index{plib\_dma.h@{plib\_dma.h}!DMA\_TRANSFER\_EVENT\_NONE@{DMA\_TRANSFER\_EVENT\_NONE}}}\Hypertarget{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7a218399970d5d2dd06a83c974efff55}\label{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7a218399970d5d2dd06a83c974efff55} 
+DMA\+\_\+\+TRANSFER\+\_\+\+EVENT\+\_\+\+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMA\_TRANSFER\_EVENT\_COMPLETE@{DMA\_TRANSFER\_EVENT\_COMPLETE}!plib\_dma.h@{plib\_dma.h}}\index{plib\_dma.h@{plib\_dma.h}!DMA\_TRANSFER\_EVENT\_COMPLETE@{DMA\_TRANSFER\_EVENT\_COMPLETE}}}\Hypertarget{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7dc5a006aeed94643a591f8fb093f446}\label{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7dc5a006aeed94643a591f8fb093f446} 
+DMA\+\_\+\+TRANSFER\+\_\+\+EVENT\+\_\+\+COMPLETE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMA\_TRANSFER\_EVENT\_HALF\_COMPLETE@{DMA\_TRANSFER\_EVENT\_HALF\_COMPLETE}!plib\_dma.h@{plib\_dma.h}}\index{plib\_dma.h@{plib\_dma.h}!DMA\_TRANSFER\_EVENT\_HALF\_COMPLETE@{DMA\_TRANSFER\_EVENT\_HALF\_COMPLETE}}}\Hypertarget{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa906bc18398e3dcc1893265a088638bca}\label{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa906bc18398e3dcc1893265a088638bca} 
+DMA\+\_\+\+TRANSFER\+\_\+\+EVENT\+\_\+\+HALF\+\_\+\+COMPLETE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMA\_OVERRUN\_ERROR@{DMA\_OVERRUN\_ERROR}!plib\_dma.h@{plib\_dma.h}}\index{plib\_dma.h@{plib\_dma.h}!DMA\_OVERRUN\_ERROR@{DMA\_OVERRUN\_ERROR}}}\Hypertarget{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa99c363861124843589b3271b54a54e85}\label{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa99c363861124843589b3271b54a54e85} 
+DMA\+\_\+\+OVERRUN\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMA\_PATTERN\_MATCH@{DMA\_PATTERN\_MATCH}!plib\_dma.h@{plib\_dma.h}}\index{plib\_dma.h@{plib\_dma.h}!DMA\_PATTERN\_MATCH@{DMA\_PATTERN\_MATCH}}}\Hypertarget{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaafe7698d91d97c347b0d26162b21d1486}\label{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaafe7698d91d97c347b0d26162b21d1486} 
+DMA\+\_\+\+PATTERN\+\_\+\+MATCH&\\
+\hline
+
+\end{DoxyEnumFields}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2ldrv_2pic32a_fe_2src_2config_2default_2peripheral_2dma_2plib_dma_8h-example}{/ldrv/pic32a\+\_\+fe/src/config/default/peripheral/dma/plib\+\_\+dma.\+h}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8h_source_l00081}{81}} of file \mbox{\hyperlink{plib__dma_8h_source}{plib\+\_\+dma.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{plib__dma_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{plib__dma_8h_a14ca97886207fe4b4ed2a0d41ab6213e}\index{plib\_dma.h@{plib\_dma.h}!DMA\_ChannelCallbackRegister@{DMA\_ChannelCallbackRegister}}
+\index{DMA\_ChannelCallbackRegister@{DMA\_ChannelCallbackRegister}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_ChannelCallbackRegister()}{DMA\_ChannelCallbackRegister()}}
+{\footnotesize\ttfamily \label{plib__dma_8h_a14ca97886207fe4b4ed2a0d41ab6213e} 
+void DMA\+\_\+\+Channel\+Callback\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}}}]{channel}{, }\item[{const \mbox{\hyperlink{plib__dma_8h_ae4864a6166f77736d3a0dc75d3a0ce07}{DMA\+\_\+\+CHANNEL\+\_\+\+CALLBACK}}}]{event\+Handler}{, }\item[{const uintptr\+\_\+t}]{context\+Handle}{}\end{DoxyParamCaption})}
+
+
+
+Allows a DMA PLIB client to set an event handler. 
+
+This function allows a client to set an event handler. The client may want to receive transfer related events in cases when it submits a DMA PLIB transfer request. The event handler should be set before the client intends to perform operations that could generate events. In case of linked transfer descriptors, the callback function will be called for every transfer in the transfer descriptor chain. The application must implement its own logic to link the callback to the transfer descriptor being completed. This function accepts a context parameter. This parameter could be set by the client to contain (or point to) any client specific data object that should be associated with this DMA channel. \begin{DoxyPrecond}{Precondition}
+DMA should have been initialized by calling DMA\+\_\+\+Initialize. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & A specific DMA channel from which the events are expected. \\
+\hline
+\mbox{\texttt{ in}}  & {\em callback} & Pointer to the event handler function. \\
+\hline
+\mbox{\texttt{ in}}  & {\em context} & Value identifying the context of the application/driver/middleware that registered the event handling function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{MY\_APP\_OBJ\ myAppObj;}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ APP\_DMATransferEventHandler(\mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aa}{DMA\_TRANSFER\_EVENT}}\ event,\ uintptr\_t\ contextHandle)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{switch}(event)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa7dc5a006aeed94643a591f8fb093f446}{DMA\_TRANSFER\_EVENT\_COMPLETE}}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{plib__dma_8h_a04f59cd8eca217e27e23d7d45a1609aaa99c363861124843589b3271b54a54e85}{DMA\_OVERRUN\_ERROR}}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\mbox{\hyperlink{plib__dma_8c_a14ca97886207fe4b4ed2a0d41ab6213e}{DMA\_ChannelCallbackRegister}}(\mbox{\hyperlink{plib__dma_8h_a283364370e9876af6406b9fa70e2944f}{DMA\_CHANNEL\_1}},\ APP\_DMATransferEventHandler,\ (uintptr\_t)\&myAppObj);}
+
+\end{DoxyCode}
+ 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8c_source_l00719}{719}} of file \mbox{\hyperlink{plib__dma_8c_source}{plib\+\_\+dma.\+c}}.
+
+\Hypertarget{plib__dma_8h_abba26334d232e9aff34af1b259bb90e5}\index{plib\_dma.h@{plib\_dma.h}!DMA\_ChannelDisable@{DMA\_ChannelDisable}}
+\index{DMA\_ChannelDisable@{DMA\_ChannelDisable}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_ChannelDisable()}{DMA\_ChannelDisable()}}
+{\footnotesize\ttfamily \label{plib__dma_8h_abba26334d232e9aff34af1b259bb90e5} 
+void DMA\+\_\+\+Channel\+Disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}}}]{channel}{}\end{DoxyParamCaption})}
+
+
+
+Disables the specified DMA channel. 
+
+The function disables the specified DMA channel. Once disabled, the channel will ignore triggers and will not transfer data until the next time a DMA\+\_\+\+Channel\+Transfer function is called. If there is a transfer already in progress, this will be suspended. \begin{DoxyPrecond}{Precondition}
+DMA should have been initialized by calling DMA\+\_\+\+Initialize. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & The DMA channel that needs to be disabled.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None.
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__dma_8c_abba26334d232e9aff34af1b259bb90e5}{DMA\_ChannelDisable}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}});}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8c_source_l00442}{442}} of file \mbox{\hyperlink{plib__dma_8c_source}{plib\+\_\+dma.\+c}}.
+
+\Hypertarget{plib__dma_8h_a594085216d6e1b258cf28e5aeddf5720}\index{plib\_dma.h@{plib\_dma.h}!DMA\_ChannelEnable@{DMA\_ChannelEnable}}
+\index{DMA\_ChannelEnable@{DMA\_ChannelEnable}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_ChannelEnable()}{DMA\_ChannelEnable()}}
+{\footnotesize\ttfamily \label{plib__dma_8h_a594085216d6e1b258cf28e5aeddf5720} 
+void DMA\+\_\+\+Channel\+Enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}}}]{channel}{}\end{DoxyParamCaption})}
+
+
+
+Enables the specified DMA channel. 
+
+The function enables the specified DMA channel. Once enabled, DMA will initiate a block transfer when the selected trigger is received. \begin{DoxyPrecond}{Precondition}
+DMA should have been initialized by calling DMA\+\_\+\+Initialize. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & The DMA channel that needs to be enabled. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__dma_8c_a594085216d6e1b258cf28e5aeddf5720}{DMA\_ChannelEnable}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}});}
+
+\end{DoxyCode}
+
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8c_source_l00412}{412}} of file \mbox{\hyperlink{plib__dma_8c_source}{plib\+\_\+dma.\+c}}.
+
+\Hypertarget{plib__dma_8h_a7223ed9d516ab40e057e88b668409739}\index{plib\_dma.h@{plib\_dma.h}!DMA\_ChannelGetTransferredCount@{DMA\_ChannelGetTransferredCount}}
+\index{DMA\_ChannelGetTransferredCount@{DMA\_ChannelGetTransferredCount}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_ChannelGetTransferredCount()}{DMA\_ChannelGetTransferredCount()}}
+{\footnotesize\ttfamily \label{plib__dma_8h_a7223ed9d516ab40e057e88b668409739} 
+uint32\+\_\+t DMA\+\_\+\+Channel\+Get\+Transferred\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}}}]{channel}{}\end{DoxyParamCaption})}
+
+
+
+Returns transfer count of the ongoing DMA transfer. 
+
+Returns transfer count of the ongoing DMA transfer. \begin{DoxyPrecond}{Precondition}
+DMA should have been initialized by calling DMA\+\_\+\+Initialize. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & DMA channel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uint32\_t\ transfer\_cnt;}
+\DoxyCodeLine{transfer\_cnt\ =\ \mbox{\hyperlink{plib__dma_8c_a7223ed9d516ab40e057e88b668409739}{DMA\_ChannelGetTransferredCount}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}});}
+
+\end{DoxyCode}
+ 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8c_source_l00578}{578}} of file \mbox{\hyperlink{plib__dma_8c_source}{plib\+\_\+dma.\+c}}.
+
+\Hypertarget{plib__dma_8h_af34816ed03c5a669f4bc4361f7a38e58}\index{plib\_dma.h@{plib\_dma.h}!DMA\_ChannelIsBusy@{DMA\_ChannelIsBusy}}
+\index{DMA\_ChannelIsBusy@{DMA\_ChannelIsBusy}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_ChannelIsBusy()}{DMA\_ChannelIsBusy()}}
+{\footnotesize\ttfamily \label{plib__dma_8h_af34816ed03c5a669f4bc4361f7a38e58} 
+bool DMA\+\_\+\+Channel\+Is\+Busy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}}}]{channel}{}\end{DoxyParamCaption})}
+
+
+
+Returns the busy status of the channel. 
+
+The function returns true if the specified channel is busy with a transfer. This function can be used to poll for the completion of transfer that was started by calling the \doxylink{plib__dma_8h_a7ca594a7f34b0fa562f1e8fcce2b0279}{DMA\+\_\+\+Channel\+Transfer()} function. This function can be used as a polling alternative to setting a callback function and receiving an asynchronous notification for transfer notification. \begin{DoxyPrecond}{Precondition}
+DMA should have been initialized by calling DMA\+\_\+\+Initialize. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & The DMA channel whose status needs to be checked. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True -\/ The channel is busy with an on-\/going transfer. 
+
+False -\/ The channel is not busy and is available for a transfer. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{while}(\mbox{\hyperlink{plib__dma_8c_af34816ed03c5a669f4bc4361f7a38e58}{DMA\_ChannelIsBusy}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}}));}
+
+\end{DoxyCode}
+ 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8c_source_l00606}{606}} of file \mbox{\hyperlink{plib__dma_8c_source}{plib\+\_\+dma.\+c}}.
+
+\Hypertarget{plib__dma_8h_aee360bd6301f75d99e0245d9694951ce}\index{plib\_dma.h@{plib\_dma.h}!DMA\_ChannelPatternMatchDisable@{DMA\_ChannelPatternMatchDisable}}
+\index{DMA\_ChannelPatternMatchDisable@{DMA\_ChannelPatternMatchDisable}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_ChannelPatternMatchDisable()}{DMA\_ChannelPatternMatchDisable()}}
+{\footnotesize\ttfamily \label{plib__dma_8h_aee360bd6301f75d99e0245d9694951ce} 
+void DMA\+\_\+\+Channel\+Pattern\+Match\+Disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}}}]{channel}{}\end{DoxyParamCaption})}
+
+
+
+Disable DMA channel pattern matching. 
+
+This API is used to disable DMA pattern matching. \begin{DoxyPrecond}{Precondition}
+DMA should have been initialized by calling DMA\+\_\+\+Initialize. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & DMA channel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none {\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__dma_8c_aee360bd6301f75d99e0245d9694951ce}{DMA\_ChannelPatternMatchDisable}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}});}
+
+\end{DoxyCode}
+ 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+none. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8c_source_l00498}{498}} of file \mbox{\hyperlink{plib__dma_8c_source}{plib\+\_\+dma.\+c}}.
+
+\Hypertarget{plib__dma_8h_ad318df9071a043bf1bdcdb9db45fb236}\index{plib\_dma.h@{plib\_dma.h}!DMA\_ChannelPatternMatchEnable@{DMA\_ChannelPatternMatchEnable}}
+\index{DMA\_ChannelPatternMatchEnable@{DMA\_ChannelPatternMatchEnable}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_ChannelPatternMatchEnable()}{DMA\_ChannelPatternMatchEnable()}}
+{\footnotesize\ttfamily \label{plib__dma_8h_ad318df9071a043bf1bdcdb9db45fb236} 
+void DMA\+\_\+\+Channel\+Pattern\+Match\+Enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}}}]{channel}{}\end{DoxyParamCaption})}
+
+
+
+Enable DMA channel pattern matching. 
+
+This API is used to enable DMA pattern matching. \begin{DoxyPrecond}{Precondition}
+DMA should have been initialized by calling DMA\+\_\+\+Initialize. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & DMA channel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none {\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__dma_8c_ad318df9071a043bf1bdcdb9db45fb236}{DMA\_ChannelPatternMatchEnable}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}});}
+
+\end{DoxyCode}
+ 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+none. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8c_source_l00472}{472}} of file \mbox{\hyperlink{plib__dma_8c_source}{plib\+\_\+dma.\+c}}.
+
+\Hypertarget{plib__dma_8h_ab817fbfc1e326643d2be11e19e9d3ecf}\index{plib\_dma.h@{plib\_dma.h}!DMA\_ChannelPatternMatchSetup@{DMA\_ChannelPatternMatchSetup}}
+\index{DMA\_ChannelPatternMatchSetup@{DMA\_ChannelPatternMatchSetup}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_ChannelPatternMatchSetup()}{DMA\_ChannelPatternMatchSetup()}}
+{\footnotesize\ttfamily \label{plib__dma_8h_ab817fbfc1e326643d2be11e19e9d3ecf} 
+void DMA\+\_\+\+Channel\+Pattern\+Match\+Setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}}}]{channel}{, }\item[{uint32\+\_\+t}]{pattern\+Match\+Mask}{, }\item[{uint32\+\_\+t}]{pattern\+Match\+Data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8c_source_l00370}{370}} of file \mbox{\hyperlink{plib__dma_8c_source}{plib\+\_\+dma.\+c}}.
+
+\Hypertarget{plib__dma_8h_a277d25aec993e50ac797415ba8a1d732}\index{plib\_dma.h@{plib\_dma.h}!DMA\_ChannelSettingsGet@{DMA\_ChannelSettingsGet}}
+\index{DMA\_ChannelSettingsGet@{DMA\_ChannelSettingsGet}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_ChannelSettingsGet()}{DMA\_ChannelSettingsGet()}}
+{\footnotesize\ttfamily \label{plib__dma_8h_a277d25aec993e50ac797415ba8a1d732} 
+\mbox{\hyperlink{plib__dma_8h_a81f51f2bf80f7431b5808fb2de932a4c}{DMA\+\_\+\+CHANNEL\+\_\+\+CONFIG}} DMA\+\_\+\+Channel\+Settings\+Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}}}]{channel}{}\end{DoxyParamCaption})}
+
+
+
+Returns the current channel settings for the specified DMA Channel. 
+
+Returns the current channel settings for the specified DMA Channel. \begin{DoxyPrecond}{Precondition}
+DMA should have been initialized by calling DMA\+\_\+\+Initialize. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & DMA channel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Current channel settings for the specified DMA Channel. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uint32\_t\ setting;}
+\DoxyCodeLine{setting\ =\ \mbox{\hyperlink{plib__dma_8c_a277d25aec993e50ac797415ba8a1d732}{DMA\_ChannelSettingsGet}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}});}
+
+\end{DoxyCode}
+ 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8c_source_l00658}{658}} of file \mbox{\hyperlink{plib__dma_8c_source}{plib\+\_\+dma.\+c}}.
+
+\Hypertarget{plib__dma_8h_aa3690fa60cd12eb817c922975bb42c25}\index{plib\_dma.h@{plib\_dma.h}!DMA\_ChannelSettingsSet@{DMA\_ChannelSettingsSet}}
+\index{DMA\_ChannelSettingsSet@{DMA\_ChannelSettingsSet}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_ChannelSettingsSet()}{DMA\_ChannelSettingsSet()}}
+{\footnotesize\ttfamily \label{plib__dma_8h_aa3690fa60cd12eb817c922975bb42c25} 
+bool DMA\+\_\+\+Channel\+Settings\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}}}]{channel}{, }\item[{\mbox{\hyperlink{plib__dma_8h_a81f51f2bf80f7431b5808fb2de932a4c}{DMA\+\_\+\+CHANNEL\+\_\+\+CONFIG}}}]{setting}{}\end{DoxyParamCaption})}
+
+
+
+This function changes the current settings of the specified DMA channel. 
+
+This function changes the current settings of the specified DMA channel. \begin{DoxyPrecond}{Precondition}
+DMA should have been initialized by calling DMA\+\_\+\+Initialize. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & DMA channel. \\
+\hline
+{\em setting} & Value to be set in the specified DMA Channel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True -\/ Settings updated successfully for the specified DMA channel. 
+
+False -\/ Failed to update the settings for the specified DMA channel. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uint32\_t\ setting;}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ status;}
+\DoxyCodeLine{setting\ =\ \mbox{\hyperlink{plib__dma_8c_a277d25aec993e50ac797415ba8a1d732}{DMA\_ChannelSettingsGet}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}});}
+\DoxyCodeLine{setting\ |=\ \_DMA0CH\_CHEN\_MASK;}
+\DoxyCodeLine{status\ =\ \mbox{\hyperlink{plib__dma_8c_aa3690fa60cd12eb817c922975bb42c25}{DMA\_ChannelSettingsSet}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}},\ setting);}
+
+\end{DoxyCode}
+ 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+None. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8c_source_l00686}{686}} of file \mbox{\hyperlink{plib__dma_8c_source}{plib\+\_\+dma.\+c}}.
+
+\Hypertarget{plib__dma_8h_a5bfc37cb3f3c004d66d8c2a3aab0c13b}\index{plib\_dma.h@{plib\_dma.h}!DMA\_ChannelSoftwareTriggerEnable@{DMA\_ChannelSoftwareTriggerEnable}}
+\index{DMA\_ChannelSoftwareTriggerEnable@{DMA\_ChannelSoftwareTriggerEnable}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_ChannelSoftwareTriggerEnable()}{DMA\_ChannelSoftwareTriggerEnable()}}
+{\footnotesize\ttfamily \label{plib__dma_8h_a5bfc37cb3f3c004d66d8c2a3aab0c13b} 
+void DMA\+\_\+\+Channel\+Software\+Trigger\+Enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}}}]{channel}{}\end{DoxyParamCaption})}
+
+
+
+This function sets the software trigger of the DMA channel. 
+
+This function enables the software trigger for the specified DMA channel, initiating a DMA transfer. \begin{DoxyPrecond}{Precondition}
+DMA\+\_\+\+Initialize must be called. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & -\/ DMA channel number. {\bfseries{Example\+:}} 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\mbox{\hyperlink{plib__dma_8c_a5bfc37cb3f3c004d66d8c2a3aab0c13b}{DMA\_ChannelSoftwareTriggerEnable}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}});}
+
+\end{DoxyCode}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8c_source_l00552}{552}} of file \mbox{\hyperlink{plib__dma_8c_source}{plib\+\_\+dma.\+c}}.
+
+\Hypertarget{plib__dma_8h_a7ca594a7f34b0fa562f1e8fcce2b0279}\index{plib\_dma.h@{plib\_dma.h}!DMA\_ChannelTransfer@{DMA\_ChannelTransfer}}
+\index{DMA\_ChannelTransfer@{DMA\_ChannelTransfer}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_ChannelTransfer()}{DMA\_ChannelTransfer()}}
+{\footnotesize\ttfamily \label{plib__dma_8h_a7ca594a7f34b0fa562f1e8fcce2b0279} 
+bool DMA\+\_\+\+Channel\+Transfer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}}}]{channel}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{src\+Addr}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{dest\+Addr}{, }\item[{uint32\+\_\+t}]{block\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8c_source_l00305}{305}} of file \mbox{\hyperlink{plib__dma_8c_source}{plib\+\_\+dma.\+c}}.
+
+\Hypertarget{plib__dma_8h_a8fee79f4a211106481e6b1d021c6dab9}\index{plib\_dma.h@{plib\_dma.h}!DMA\_Deinitialize@{DMA\_Deinitialize}}
+\index{DMA\_Deinitialize@{DMA\_Deinitialize}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_Deinitialize()}{DMA\_Deinitialize()}}
+{\footnotesize\ttfamily \label{plib__dma_8h_a8fee79f4a211106481e6b1d021c6dab9} 
+void DMA\+\_\+\+Deinitialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+De-\/initializes the DMA controller of the device to POR Values. 
+
+This function de-\/initializes the DMA controller control and status registers to it\textquotesingle{}s POR state.
+
+\begin{DoxyPrecond}{Precondition}
+The DMA module clock requirements should have been configured in the MHC Clock Manager utility.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__dma_8c_a8fee79f4a211106481e6b1d021c6dab9}{DMA\_Deinitialize}}();}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+none. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8c_source_l00227}{227}} of file \mbox{\hyperlink{plib__dma_8c_source}{plib\+\_\+dma.\+c}}.
+
+\Hypertarget{plib__dma_8h_a3950883876bea54b441aaf14ff17d47e}\index{plib\_dma.h@{plib\_dma.h}!DMA\_Initialize@{DMA\_Initialize}}
+\index{DMA\_Initialize@{DMA\_Initialize}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_Initialize()}{DMA\_Initialize()}}
+{\footnotesize\ttfamily \label{plib__dma_8h_a3950883876bea54b441aaf14ff17d47e} 
+void DMA\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the DMA controller of the device. 
+
+This function initializes the DMA controller of the device as configured by the user from within the DMA manager of MHC.
+
+\begin{DoxyPrecond}{Precondition}
+The DMA module clock requirements should have been configured in the MHC Clock Manager utility.
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{plib__dma_8c_a3950883876bea54b441aaf14ff17d47e}{DMA\_Initialize}}();}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+none. 
+\end{DoxyRemark}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8c_source_l00141}{141}} of file \mbox{\hyperlink{plib__dma_8c_source}{plib\+\_\+dma.\+c}}.
+
+\Hypertarget{plib__dma_8h_af4a0fbb7b688934515327b83fe376803}\index{plib\_dma.h@{plib\_dma.h}!DMA\_IsSoftwareRequestPending@{DMA\_IsSoftwareRequestPending}}
+\index{DMA\_IsSoftwareRequestPending@{DMA\_IsSoftwareRequestPending}!plib\_dma.h@{plib\_dma.h}}
+\doxysubsubsection{\texorpdfstring{DMA\_IsSoftwareRequestPending()}{DMA\_IsSoftwareRequestPending()}}
+{\footnotesize\ttfamily \label{plib__dma_8h_af4a0fbb7b688934515327b83fe376803} 
+bool DMA\+\_\+\+Is\+Software\+Request\+Pending (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plib__dma_8h_a515faa3054d081e243bf97f3672c048a}{DMA\+\_\+\+CHANNEL}}}]{channel}{}\end{DoxyParamCaption})}
+
+
+
+This function returns the status of the software request of the DMA channel. 
+
+This function checks if there is a pending software request for the specified DMA channel. \begin{DoxyPrecond}{Precondition}
+DMA\+\_\+\+Initialize must be called. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & -\/ DMA channel number. {\bfseries{Example\+:}} 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\mbox{\hyperlink{plib__dma_8c_af4a0fbb7b688934515327b83fe376803}{DMA\_IsSoftwareRequestPending}}(\mbox{\hyperlink{plib__dma_8h_abd7de138931e93a90fc6c4eab5916bbe}{DMA\_CHANNEL\_0}});}
+
+\end{DoxyCode}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true -\/ DMA request is pending. 
+
+false -\/ DMA request is not pending. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plib__dma_8c_source_l00524}{524}} of file \mbox{\hyperlink{plib__dma_8c_source}{plib\+\_\+dma.\+c}}.
+

@@ -1,0 +1,372 @@
+\doxysection{src/config/default/peripheral/uart/plib\+\_\+uart\+\_\+common.h File Reference}
+\hypertarget{plib__uart__common_8h}{}\label{plib__uart__common_8h}\index{src/config/default/peripheral/uart/plib\_uart\_common.h@{src/config/default/peripheral/uart/plib\_uart\_common.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structUART__SERIAL__SETUP}{UART\+\_\+\+SERIAL\+\_\+\+SETUP}}
+\begin{DoxyCompactList}\small\item\em Data type containing the serial settings used by UARTx\+\_\+\+Serial\+Setup API. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structUART__OBJECT}{UART\+\_\+\+OBJECT}}
+\item 
+struct \mbox{\hyperlink{structUART__RING__BUFFER__OBJECT}{UART\+\_\+\+RING\+\_\+\+BUFFER\+\_\+\+OBJECT}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_a0a2ba392fa6938bd06e077c5efd91fc9}{UART\+\_\+\+RXFIFO\+\_\+\+DEPTH}}~(9U)
+\begin{DoxyCompactList}\small\item\em This macro defines the hardware receive FIFO depth. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_a270dea6e1a92dd83fe58802450bdd60c}{UART\+\_\+\+PARITY\+\_\+\+NONE}}~(0x00U)
+\begin{DoxyCompactList}\small\item\em These macro defines the parity types supported. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_a063b14ac42ef9e8f4246c17a586b14eb}{UART\+\_\+\+PARITY\+\_\+\+EVEN}}~(0x03U)
+\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_a229615e64964f68f7a856ea6ffea359e}{UART\+\_\+\+PARITY\+\_\+\+ODD}}~(0x02U)
+\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_afcc3d101a230336089e07c8f4d6e085d}{UART\+\_\+\+PARITY\+\_\+\+INVALID}}~(0x\+FFFFFFFFU)
+\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_a028e1d42a009017aee20c234e39f0b26}{UART\+\_\+\+DATA\+\_\+8\+\_\+\+BIT}}~(0x00U)
+\begin{DoxyCompactList}\small\item\em These macro defines the data width types supported. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_a5027026c3183741ea3a8b6519ba7c7bc}{UART\+\_\+\+DATA\+\_\+7\+\_\+\+BIT}}~(0x01U)
+\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_a58fc2c298d7869e3b2c80d94e7c93a6d}{UART\+\_\+\+DATA\+\_\+\+INVALID}}~(0x\+FFFFFFFFU)
+\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_a1ecb5096890519c0e75bffc593fd1fda}{UART\+\_\+\+STOP\+\_\+2\+\_\+\+SENT\+\_\+1\+\_\+\+CHECKED}}~(0x03U)
+\begin{DoxyCompactList}\small\item\em These macro defines the stop bit settings supported in the PLIB. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_aa1af4cccd100a709762da922a13367f2}{UART\+\_\+\+STOP\+\_\+2\+\_\+\+SENT\+\_\+2\+\_\+\+CHECKED}}~(0x02U)
+\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_a3759668464ac74317d509527dfc16351}{UART\+\_\+\+STOP\+\_\+1\+\_\+5\+\_\+\+SENT\+\_\+1\+\_\+5\+\_\+\+CHECKED}}~(0x01U)
+\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_ae84462d333bf43673fbc1808cad54198}{UART\+\_\+\+STOP\+\_\+1\+\_\+\+SENT\+\_\+1\+\_\+\+CHECKED}}~(0x00U)
+\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_a5a92a4a399f4c62362d67c19daf32e1b}{UART\+\_\+\+STOP\+\_\+\+INVALID}}~(0x\+FFFFFFFFU)
+\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_a470ebdeeed817517c63fd9b173522fe6}{UART\+\_\+\+ERROR\+\_\+\+NONE}}~(0U)
+\begin{DoxyCompactList}\small\item\em These macro defines UART errors supported by PLIB. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_a7b0e17571b0d3f6380b7eed39bd41c56}{UART\+\_\+\+ERROR\+\_\+\+OVERRUN}}~(0x02U)
+\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_a336c98ad1ad61f68b5b1b0bb1a1745cb}{UART\+\_\+\+ERROR\+\_\+\+FRAMING}}~(0x08U)
+\item 
+\#define \mbox{\hyperlink{plib__uart__common_8h_a2670f803413d1a03c2eb4250b8ba7be0}{UART\+\_\+\+ERROR\+\_\+\+PARITY}}~(0x40U)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__uart__common_8h_a4d84d0cdcb87c4d2b3b40de1588d45a9}{UART\+\_\+\+PARITY}}
+\item 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__uart__common_8h_a775003e27511ec4870502579ccc00f37}{UART\+\_\+\+DATA}}
+\item 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__uart__common_8h_a0fb892330da9cee0d5acc8b5276d0efb}{UART\+\_\+\+STOP}}
+\item 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__uart__common_8h_a14e474ed24d2c0a0b109513d4b0e551f}{UART\+\_\+\+ERROR}}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{plib__uart__common_8h_aea0ac6d8a847b35f9a9f3207af5c7bdd}{UART\+\_\+\+CALLBACK}}) (uintptr\+\_\+t context)
+\begin{DoxyCompactList}\small\item\em Callback function prototype. \end{DoxyCompactList}\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{plib__uart__common_8h_aae28c7cc68ccc6d314404f2e4add56c0}{UART\+\_\+\+RING\+\_\+\+BUFFER\+\_\+\+CALLBACK}}) (\mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9b}{UART\+\_\+\+EVENT}} event, uintptr\+\_\+t context)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9b}{UART\+\_\+\+EVENT}} \{ \mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9ba5ef697c25399a9bea1e22bc9ed5782e9}{UART\+\_\+\+EVENT\+\_\+\+READ\+\_\+\+THRESHOLD\+\_\+\+REACHED}} = 0
+, \mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9ba0017a5e25c828aae9db2048ac5217733}{UART\+\_\+\+EVENT\+\_\+\+READ\+\_\+\+BUFFER\+\_\+\+FULL}}
+, \mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9bae9b75b596e30e078de0662aeced4a8f7}{UART\+\_\+\+EVENT\+\_\+\+READ\+\_\+\+ERROR}}
+, \mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9ba87b727d1d42c5083962672049299c4c9}{UART\+\_\+\+EVENT\+\_\+\+WRITE\+\_\+\+THRESHOLD\+\_\+\+REACHED}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{plib__uart__common_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{plib__uart__common_8h_a5027026c3183741ea3a8b6519ba7c7bc}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_DATA\_7\_BIT@{UART\_DATA\_7\_BIT}}
+\index{UART\_DATA\_7\_BIT@{UART\_DATA\_7\_BIT}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_DATA\_7\_BIT}{UART\_DATA\_7\_BIT}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a5027026c3183741ea3a8b6519ba7c7bc} 
+\#define UART\+\_\+\+DATA\+\_\+7\+\_\+\+BIT~(0x01U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00079}{79}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a028e1d42a009017aee20c234e39f0b26}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_DATA\_8\_BIT@{UART\_DATA\_8\_BIT}}
+\index{UART\_DATA\_8\_BIT@{UART\_DATA\_8\_BIT}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_DATA\_8\_BIT}{UART\_DATA\_8\_BIT}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a028e1d42a009017aee20c234e39f0b26} 
+\#define UART\+\_\+\+DATA\+\_\+8\+\_\+\+BIT~(0x00U)}
+
+
+
+These macro defines the data width types supported. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00078}{78}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a58fc2c298d7869e3b2c80d94e7c93a6d}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_DATA\_INVALID@{UART\_DATA\_INVALID}}
+\index{UART\_DATA\_INVALID@{UART\_DATA\_INVALID}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_DATA\_INVALID}{UART\_DATA\_INVALID}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a58fc2c298d7869e3b2c80d94e7c93a6d} 
+\#define UART\+\_\+\+DATA\+\_\+\+INVALID~(0x\+FFFFFFFFU)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00081}{81}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a336c98ad1ad61f68b5b1b0bb1a1745cb}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_ERROR\_FRAMING@{UART\_ERROR\_FRAMING}}
+\index{UART\_ERROR\_FRAMING@{UART\_ERROR\_FRAMING}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_ERROR\_FRAMING}{UART\_ERROR\_FRAMING}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a336c98ad1ad61f68b5b1b0bb1a1745cb} 
+\#define UART\+\_\+\+ERROR\+\_\+\+FRAMING~(0x08U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00111}{111}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a470ebdeeed817517c63fd9b173522fe6}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_ERROR\_NONE@{UART\_ERROR\_NONE}}
+\index{UART\_ERROR\_NONE@{UART\_ERROR\_NONE}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_ERROR\_NONE}{UART\_ERROR\_NONE}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a470ebdeeed817517c63fd9b173522fe6} 
+\#define UART\+\_\+\+ERROR\+\_\+\+NONE~(0U)}
+
+
+
+These macro defines UART errors supported by PLIB. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00109}{109}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a7b0e17571b0d3f6380b7eed39bd41c56}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_ERROR\_OVERRUN@{UART\_ERROR\_OVERRUN}}
+\index{UART\_ERROR\_OVERRUN@{UART\_ERROR\_OVERRUN}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_ERROR\_OVERRUN}{UART\_ERROR\_OVERRUN}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a7b0e17571b0d3f6380b7eed39bd41c56} 
+\#define UART\+\_\+\+ERROR\+\_\+\+OVERRUN~(0x02U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00110}{110}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a2670f803413d1a03c2eb4250b8ba7be0}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_ERROR\_PARITY@{UART\_ERROR\_PARITY}}
+\index{UART\_ERROR\_PARITY@{UART\_ERROR\_PARITY}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_ERROR\_PARITY}{UART\_ERROR\_PARITY}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a2670f803413d1a03c2eb4250b8ba7be0} 
+\#define UART\+\_\+\+ERROR\+\_\+\+PARITY~(0x40U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00112}{112}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a063b14ac42ef9e8f4246c17a586b14eb}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_PARITY\_EVEN@{UART\_PARITY\_EVEN}}
+\index{UART\_PARITY\_EVEN@{UART\_PARITY\_EVEN}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_PARITY\_EVEN}{UART\_PARITY\_EVEN}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a063b14ac42ef9e8f4246c17a586b14eb} 
+\#define UART\+\_\+\+PARITY\+\_\+\+EVEN~(0x03U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00069}{69}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_afcc3d101a230336089e07c8f4d6e085d}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_PARITY\_INVALID@{UART\_PARITY\_INVALID}}
+\index{UART\_PARITY\_INVALID@{UART\_PARITY\_INVALID}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_PARITY\_INVALID}{UART\_PARITY\_INVALID}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_afcc3d101a230336089e07c8f4d6e085d} 
+\#define UART\+\_\+\+PARITY\+\_\+\+INVALID~(0x\+FFFFFFFFU)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00072}{72}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a270dea6e1a92dd83fe58802450bdd60c}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_PARITY\_NONE@{UART\_PARITY\_NONE}}
+\index{UART\_PARITY\_NONE@{UART\_PARITY\_NONE}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_PARITY\_NONE}{UART\_PARITY\_NONE}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a270dea6e1a92dd83fe58802450bdd60c} 
+\#define UART\+\_\+\+PARITY\+\_\+\+NONE~(0x00U)}
+
+
+
+These macro defines the parity types supported. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00068}{68}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a229615e64964f68f7a856ea6ffea359e}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_PARITY\_ODD@{UART\_PARITY\_ODD}}
+\index{UART\_PARITY\_ODD@{UART\_PARITY\_ODD}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_PARITY\_ODD}{UART\_PARITY\_ODD}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a229615e64964f68f7a856ea6ffea359e} 
+\#define UART\+\_\+\+PARITY\+\_\+\+ODD~(0x02U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00070}{70}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a0a2ba392fa6938bd06e077c5efd91fc9}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_RXFIFO\_DEPTH@{UART\_RXFIFO\_DEPTH}}
+\index{UART\_RXFIFO\_DEPTH@{UART\_RXFIFO\_DEPTH}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_RXFIFO\_DEPTH}{UART\_RXFIFO\_DEPTH}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a0a2ba392fa6938bd06e077c5efd91fc9} 
+\#define UART\+\_\+\+RXFIFO\+\_\+\+DEPTH~(9U)}
+
+
+
+This macro defines the hardware receive FIFO depth. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00063}{63}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a3759668464ac74317d509527dfc16351}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_STOP\_1\_5\_SENT\_1\_5\_CHECKED@{UART\_STOP\_1\_5\_SENT\_1\_5\_CHECKED}}
+\index{UART\_STOP\_1\_5\_SENT\_1\_5\_CHECKED@{UART\_STOP\_1\_5\_SENT\_1\_5\_CHECKED}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_STOP\_1\_5\_SENT\_1\_5\_CHECKED}{UART\_STOP\_1\_5\_SENT\_1\_5\_CHECKED}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a3759668464ac74317d509527dfc16351} 
+\#define UART\+\_\+\+STOP\+\_\+1\+\_\+5\+\_\+\+SENT\+\_\+1\+\_\+5\+\_\+\+CHECKED~(0x01U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00089}{89}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_ae84462d333bf43673fbc1808cad54198}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_STOP\_1\_SENT\_1\_CHECKED@{UART\_STOP\_1\_SENT\_1\_CHECKED}}
+\index{UART\_STOP\_1\_SENT\_1\_CHECKED@{UART\_STOP\_1\_SENT\_1\_CHECKED}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_STOP\_1\_SENT\_1\_CHECKED}{UART\_STOP\_1\_SENT\_1\_CHECKED}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_ae84462d333bf43673fbc1808cad54198} 
+\#define UART\+\_\+\+STOP\+\_\+1\+\_\+\+SENT\+\_\+1\+\_\+\+CHECKED~(0x00U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00090}{90}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a1ecb5096890519c0e75bffc593fd1fda}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_STOP\_2\_SENT\_1\_CHECKED@{UART\_STOP\_2\_SENT\_1\_CHECKED}}
+\index{UART\_STOP\_2\_SENT\_1\_CHECKED@{UART\_STOP\_2\_SENT\_1\_CHECKED}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_STOP\_2\_SENT\_1\_CHECKED}{UART\_STOP\_2\_SENT\_1\_CHECKED}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a1ecb5096890519c0e75bffc593fd1fda} 
+\#define UART\+\_\+\+STOP\+\_\+2\+\_\+\+SENT\+\_\+1\+\_\+\+CHECKED~(0x03U)}
+
+
+
+These macro defines the stop bit settings supported in the PLIB. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00087}{87}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_aa1af4cccd100a709762da922a13367f2}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_STOP\_2\_SENT\_2\_CHECKED@{UART\_STOP\_2\_SENT\_2\_CHECKED}}
+\index{UART\_STOP\_2\_SENT\_2\_CHECKED@{UART\_STOP\_2\_SENT\_2\_CHECKED}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_STOP\_2\_SENT\_2\_CHECKED}{UART\_STOP\_2\_SENT\_2\_CHECKED}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_aa1af4cccd100a709762da922a13367f2} 
+\#define UART\+\_\+\+STOP\+\_\+2\+\_\+\+SENT\+\_\+2\+\_\+\+CHECKED~(0x02U)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00088}{88}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a5a92a4a399f4c62362d67c19daf32e1b}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_STOP\_INVALID@{UART\_STOP\_INVALID}}
+\index{UART\_STOP\_INVALID@{UART\_STOP\_INVALID}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_STOP\_INVALID}{UART\_STOP\_INVALID}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a5a92a4a399f4c62362d67c19daf32e1b} 
+\#define UART\+\_\+\+STOP\+\_\+\+INVALID~(0x\+FFFFFFFFU)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00092}{92}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{plib__uart__common_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{plib__uart__common_8h_aea0ac6d8a847b35f9a9f3207af5c7bdd}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_CALLBACK@{UART\_CALLBACK}}
+\index{UART\_CALLBACK@{UART\_CALLBACK}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_CALLBACK}{UART\_CALLBACK}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_aea0ac6d8a847b35f9a9f3207af5c7bdd} 
+typedef void(\texorpdfstring{$\ast$}{*} UART\+\_\+\+CALLBACK) (uintptr\+\_\+t context)}
+
+
+
+Callback function prototype. 
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00119}{119}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a775003e27511ec4870502579ccc00f37}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_DATA@{UART\_DATA}}
+\index{UART\_DATA@{UART\_DATA}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_DATA}{UART\_DATA}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a775003e27511ec4870502579ccc00f37} 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__uart__common_8h_a775003e27511ec4870502579ccc00f37}{UART\+\_\+\+DATA}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00082}{82}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a14e474ed24d2c0a0b109513d4b0e551f}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_ERROR@{UART\_ERROR}}
+\index{UART\_ERROR@{UART\_ERROR}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_ERROR}{UART\_ERROR}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a14e474ed24d2c0a0b109513d4b0e551f} 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__uart__common_8h_a14e474ed24d2c0a0b109513d4b0e551f}{UART\+\_\+\+ERROR}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00114}{114}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a4d84d0cdcb87c4d2b3b40de1588d45a9}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_PARITY@{UART\_PARITY}}
+\index{UART\_PARITY@{UART\_PARITY}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_PARITY}{UART\_PARITY}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a4d84d0cdcb87c4d2b3b40de1588d45a9} 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__uart__common_8h_a4d84d0cdcb87c4d2b3b40de1588d45a9}{UART\+\_\+\+PARITY}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00073}{73}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_aae28c7cc68ccc6d314404f2e4add56c0}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_RING\_BUFFER\_CALLBACK@{UART\_RING\_BUFFER\_CALLBACK}}
+\index{UART\_RING\_BUFFER\_CALLBACK@{UART\_RING\_BUFFER\_CALLBACK}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_RING\_BUFFER\_CALLBACK}{UART\_RING\_BUFFER\_CALLBACK}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_aae28c7cc68ccc6d314404f2e4add56c0} 
+typedef void(\texorpdfstring{$\ast$}{*} UART\+\_\+\+RING\+\_\+\+BUFFER\+\_\+\+CALLBACK) (\mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9b}{UART\+\_\+\+EVENT}} event, uintptr\+\_\+t context)}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00154}{154}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+\Hypertarget{plib__uart__common_8h_a0fb892330da9cee0d5acc8b5276d0efb}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_STOP@{UART\_STOP}}
+\index{UART\_STOP@{UART\_STOP}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_STOP}{UART\_STOP}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_a0fb892330da9cee0d5acc8b5276d0efb} 
+typedef uint32\+\_\+t \mbox{\hyperlink{plib__uart__common_8h_a0fb892330da9cee0d5acc8b5276d0efb}{UART\+\_\+\+STOP}}}
+
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00093}{93}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{plib__uart__common_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9b}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_EVENT@{UART\_EVENT}}
+\index{UART\_EVENT@{UART\_EVENT}!plib\_uart\_common.h@{plib\_uart\_common.h}}
+\doxysubsubsection{\texorpdfstring{UART\_EVENT}{UART\_EVENT}}
+{\footnotesize\ttfamily \label{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9b} 
+enum \mbox{\hyperlink{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9b}{UART\+\_\+\+EVENT}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_EVENT\_READ\_THRESHOLD\_REACHED@{UART\_EVENT\_READ\_THRESHOLD\_REACHED}!plib\_uart\_common.h@{plib\_uart\_common.h}}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_EVENT\_READ\_THRESHOLD\_REACHED@{UART\_EVENT\_READ\_THRESHOLD\_REACHED}}}\Hypertarget{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9ba5ef697c25399a9bea1e22bc9ed5782e9}\label{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9ba5ef697c25399a9bea1e22bc9ed5782e9} 
+UART\+\_\+\+EVENT\+\_\+\+READ\+\_\+\+THRESHOLD\+\_\+\+REACHED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_EVENT\_READ\_BUFFER\_FULL@{UART\_EVENT\_READ\_BUFFER\_FULL}!plib\_uart\_common.h@{plib\_uart\_common.h}}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_EVENT\_READ\_BUFFER\_FULL@{UART\_EVENT\_READ\_BUFFER\_FULL}}}\Hypertarget{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9ba0017a5e25c828aae9db2048ac5217733}\label{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9ba0017a5e25c828aae9db2048ac5217733} 
+UART\+\_\+\+EVENT\+\_\+\+READ\+\_\+\+BUFFER\+\_\+\+FULL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_EVENT\_READ\_ERROR@{UART\_EVENT\_READ\_ERROR}!plib\_uart\_common.h@{plib\_uart\_common.h}}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_EVENT\_READ\_ERROR@{UART\_EVENT\_READ\_ERROR}}}\Hypertarget{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9bae9b75b596e30e078de0662aeced4a8f7}\label{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9bae9b75b596e30e078de0662aeced4a8f7} 
+UART\+\_\+\+EVENT\+\_\+\+READ\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_EVENT\_WRITE\_THRESHOLD\_REACHED@{UART\_EVENT\_WRITE\_THRESHOLD\_REACHED}!plib\_uart\_common.h@{plib\_uart\_common.h}}\index{plib\_uart\_common.h@{plib\_uart\_common.h}!UART\_EVENT\_WRITE\_THRESHOLD\_REACHED@{UART\_EVENT\_WRITE\_THRESHOLD\_REACHED}}}\Hypertarget{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9ba87b727d1d42c5083962672049299c4c9}\label{plib__uart__common_8h_ad1baf1c5cbed5d0a5baab88515ae0f9ba87b727d1d42c5083962672049299c4c9} 
+UART\+\_\+\+EVENT\+\_\+\+WRITE\+\_\+\+THRESHOLD\+\_\+\+REACHED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{plib__uart__common_8h_source_l00142}{142}} of file \mbox{\hyperlink{plib__uart__common_8h_source}{plib\+\_\+uart\+\_\+common.\+h}}.
+

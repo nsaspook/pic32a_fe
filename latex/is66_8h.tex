@@ -1,0 +1,144 @@
+\doxysection{src/is66.h File Reference}
+\hypertarget{is66_8h}{}\label{is66_8h}\index{src/is66.h@{src/is66.h}}
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}definitions.\+h"{}}\newline
+{\ttfamily \#include "{}samples.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ced}{iss\+\_\+chip\+\_\+type}} \mbox{\hyperlink{is66_8h_a70e4bb1fa8c55b914f00a037cd6e911e}{ISS\+\_\+read\+\_\+id}} (void)
+\item 
+void \mbox{\hyperlink{is66_8h_a412852a239ccc537da518353047ff351}{ADC\+\_\+\+DMA\+\_\+write}} (void)
+\item 
+void \mbox{\hyperlink{is66_8h_ab27a70787cea807938240b8882a2c69c}{ADC\+\_\+\+DMA\+\_\+read}} (void)
+\item 
+void \mbox{\hyperlink{is66_8h_ab25243c319bcf989de811bf5a7194c53}{ADC\+\_\+\+DMA\+\_\+init}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{is66_8h_a3476ce07c4de0bfa9429135883c46457}{iss\+\_\+read\+\_\+id\+\_\+buffer}} \mbox{[}$\,$\mbox{]}
+\item 
+volatile uint32\+\_\+t \mbox{\hyperlink{is66_8h_a312605fd6d3fd9505d1a1d426f17aa98}{total\+\_\+sample\+\_\+triggers}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{is66_8h_aa213c71150abaa58c49561d049a3cd20}{total\+\_\+iss\+\_\+triggers}}
+\item 
+volatile uint16\+\_\+t \mbox{\hyperlink{is66_8h_afd0eec15093e18fb127f349f7de0fd69}{adc\+\_\+result}} \mbox{[}$\,$\mbox{]}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{is66_8h_ad744d77ebe86c4f7d9b0d7bfcdeb6299}{adc\+\_\+iss\+\_\+result}} \mbox{[}$\,$\mbox{]}
+\item 
+enum \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ced}{iss\+\_\+chip\+\_\+type}} \mbox{\hyperlink{is66_8h_a3d36bb7b12bb16e58b1d2d48ff844ea2}{iss\+\_\+chip}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{is66_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{is66_8h_ab25243c319bcf989de811bf5a7194c53}\index{is66.h@{is66.h}!ADC\_DMA\_init@{ADC\_DMA\_init}}
+\index{ADC\_DMA\_init@{ADC\_DMA\_init}!is66.h@{is66.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_DMA\_init()}{ADC\_DMA\_init()}}
+{\footnotesize\ttfamily \label{is66_8h_ab25243c319bcf989de811bf5a7194c53} 
+void ADC\+\_\+\+DMA\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{is66_8c_source_l00169}{169}} of file \mbox{\hyperlink{is66_8c_source}{is66.\+c}}.
+
+\Hypertarget{is66_8h_ab27a70787cea807938240b8882a2c69c}\index{is66.h@{is66.h}!ADC\_DMA\_read@{ADC\_DMA\_read}}
+\index{ADC\_DMA\_read@{ADC\_DMA\_read}!is66.h@{is66.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_DMA\_read()}{ADC\_DMA\_read()}}
+{\footnotesize\ttfamily \label{is66_8h_ab27a70787cea807938240b8882a2c69c} 
+void ADC\+\_\+\+DMA\+\_\+read (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{is66_8c_source_l00121}{121}} of file \mbox{\hyperlink{is66_8c_source}{is66.\+c}}.
+
+\Hypertarget{is66_8h_a412852a239ccc537da518353047ff351}\index{is66.h@{is66.h}!ADC\_DMA\_write@{ADC\_DMA\_write}}
+\index{ADC\_DMA\_write@{ADC\_DMA\_write}!is66.h@{is66.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_DMA\_write()}{ADC\_DMA\_write()}}
+{\footnotesize\ttfamily \label{is66_8h_a412852a239ccc537da518353047ff351} 
+void ADC\+\_\+\+DMA\+\_\+write (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{is66_8c_source_l00054}{54}} of file \mbox{\hyperlink{is66_8c_source}{is66.\+c}}.
+
+\Hypertarget{is66_8h_a70e4bb1fa8c55b914f00a037cd6e911e}\index{is66.h@{is66.h}!ISS\_read\_id@{ISS\_read\_id}}
+\index{ISS\_read\_id@{ISS\_read\_id}!is66.h@{is66.h}}
+\doxysubsubsection{\texorpdfstring{ISS\_read\_id()}{ISS\_read\_id()}}
+{\footnotesize\ttfamily \label{is66_8h_a70e4bb1fa8c55b914f00a037cd6e911e} 
+enum \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ced}{iss\+\_\+chip\+\_\+type}} ISS\+\_\+read\+\_\+id (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{is66_8c_source_l00230}{230}} of file \mbox{\hyperlink{is66_8c_source}{is66.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{is66_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{is66_8h_ad744d77ebe86c4f7d9b0d7bfcdeb6299}\index{is66.h@{is66.h}!adc\_iss\_result@{adc\_iss\_result}}
+\index{adc\_iss\_result@{adc\_iss\_result}!is66.h@{is66.h}}
+\doxysubsubsection{\texorpdfstring{adc\_iss\_result}{adc\_iss\_result}}
+{\footnotesize\ttfamily \label{is66_8h_ad744d77ebe86c4f7d9b0d7bfcdeb6299} 
+uint16\+\_\+t adc\+\_\+iss\+\_\+result\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{is66_8c_source_l00025}{25}} of file \mbox{\hyperlink{is66_8c_source}{is66.\+c}}.
+
+\Hypertarget{is66_8h_afd0eec15093e18fb127f349f7de0fd69}\index{is66.h@{is66.h}!adc\_result@{adc\_result}}
+\index{adc\_result@{adc\_result}!is66.h@{is66.h}}
+\doxysubsubsection{\texorpdfstring{adc\_result}{adc\_result}}
+{\footnotesize\ttfamily \label{is66_8h_afd0eec15093e18fb127f349f7de0fd69} 
+volatile uint16\+\_\+t adc\+\_\+result\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{is66_8c_source_l00029}{29}} of file \mbox{\hyperlink{is66_8c_source}{is66.\+c}}.
+
+\Hypertarget{is66_8h_a3d36bb7b12bb16e58b1d2d48ff844ea2}\index{is66.h@{is66.h}!iss\_chip@{iss\_chip}}
+\index{iss\_chip@{iss\_chip}!is66.h@{is66.h}}
+\doxysubsubsection{\texorpdfstring{iss\_chip}{iss\_chip}}
+{\footnotesize\ttfamily \label{is66_8h_a3d36bb7b12bb16e58b1d2d48ff844ea2} 
+enum \mbox{\hyperlink{samples_8h_a4f75b37d979be10bf97f422eb6736ced}{iss\+\_\+chip\+\_\+type}} iss\+\_\+chip\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{is66_8c_source_l00032}{32}} of file \mbox{\hyperlink{is66_8c_source}{is66.\+c}}.
+
+\Hypertarget{is66_8h_a3476ce07c4de0bfa9429135883c46457}\index{is66.h@{is66.h}!iss\_read\_id\_buffer@{iss\_read\_id\_buffer}}
+\index{iss\_read\_id\_buffer@{iss\_read\_id\_buffer}!is66.h@{is66.h}}
+\doxysubsubsection{\texorpdfstring{iss\_read\_id\_buffer}{iss\_read\_id\_buffer}}
+{\footnotesize\ttfamily \label{is66_8h_a3476ce07c4de0bfa9429135883c46457} 
+uint8\+\_\+t iss\+\_\+read\+\_\+id\+\_\+buffer\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{is66_8c_source_l00022}{22}} of file \mbox{\hyperlink{is66_8c_source}{is66.\+c}}.
+
+\Hypertarget{is66_8h_aa213c71150abaa58c49561d049a3cd20}\index{is66.h@{is66.h}!total\_iss\_triggers@{total\_iss\_triggers}}
+\index{total\_iss\_triggers@{total\_iss\_triggers}!is66.h@{is66.h}}
+\doxysubsubsection{\texorpdfstring{total\_iss\_triggers}{total\_iss\_triggers}}
+{\footnotesize\ttfamily \label{is66_8h_aa213c71150abaa58c49561d049a3cd20} 
+uint32\+\_\+t total\+\_\+iss\+\_\+triggers\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{is66_8c_source_l00028}{28}} of file \mbox{\hyperlink{is66_8c_source}{is66.\+c}}.
+
+\Hypertarget{is66_8h_a312605fd6d3fd9505d1a1d426f17aa98}\index{is66.h@{is66.h}!total\_sample\_triggers@{total\_sample\_triggers}}
+\index{total\_sample\_triggers@{total\_sample\_triggers}!is66.h@{is66.h}}
+\doxysubsubsection{\texorpdfstring{total\_sample\_triggers}{total\_sample\_triggers}}
+{\footnotesize\ttfamily \label{is66_8h_a312605fd6d3fd9505d1a1d426f17aa98} 
+volatile uint32\+\_\+t total\+\_\+sample\+\_\+triggers\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{is66_8c_source_l00028}{28}} of file \mbox{\hyperlink{is66_8c_source}{is66.\+c}}.
+
