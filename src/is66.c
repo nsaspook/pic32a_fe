@@ -53,16 +53,16 @@ static inline uint32_t htonl(uint32_t x)
  */
 void ADC_DMA_write(void)
 {
-	TEST_TP1_Set();
+
 	/*
-	 * trigger both ADC's using PTG trigger
+	 * triggering both ADC's using PTG trigger
 	 */
-	while (AD1STATbits.CH6RDY == 0 && AD2STATbits.CH4RDY == 0); // conversions complete on both
+	//	while (AD1STATbits.CH6RDY == 0 && AD2STATbits.CH4RDY == 0); // conversions complete on both
 	adc_result[ADC1_D] = (uint16_t) AD1CH6DATA; // save as uint16_t data
 	adc_result[ADC2_D] = (uint16_t) AD2CH4DATA;
 	memcpy((void *) &iss_adc_write[ADC_SAMPLES_START], (const void *) &adc_result[ADC1_D], ADC_SAMPLES_SIZE);
-	TEST_TP1_Clear();
 
+	TEST_TP1_Set();
 	switch (iss_state) {
 	case ISS_INIT:
 		store_count = 0;
@@ -72,7 +72,6 @@ void ADC_DMA_write(void)
 		iss_page_write_swap = htonl(ISS_PAGE_WRITE_CMD);
 		break;
 	case ISS_PAGE:
-		TEST_TP0_Set();
 		while (SPI2_IsTransmitterBusy() && --cdown != 0); // SPI buffer empty timeout
 		cdown = CDOWN;
 		SRAM_CS_Set();
@@ -94,7 +93,6 @@ void ADC_DMA_write(void)
 			ISS_PAGE_WRITE_CMD += ISS66_PAGE_SIZE; // next full sram page
 			iss_page_write_swap = htonl(ISS_PAGE_WRITE_CMD);
 		}
-		TEST_TP0_Clear();
 		break;
 	case ISS_STORE:
 		while (DMA_ChannelIsBusy(DMA_CHANNEL_5)) {
@@ -112,6 +110,7 @@ void ADC_DMA_write(void)
 		iss_state = ISS_INIT;
 		break;
 	}
+	TEST_TP1_Clear();
 };
 
 /*

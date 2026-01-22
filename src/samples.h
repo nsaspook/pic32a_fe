@@ -61,7 +61,7 @@ extern "C" {
 #define ISOI2_LAT_C		ISO2_S_Clear()
 #define ISOI2_LAT_L		ISO2_S_Get()
 
-#define RETRIGGER_TIME	200
+#define RETRIGGER_TIME	150
 
 	static const uint32_t MAX_ISS66_SAMPLES = 256; // sram ADC samples to write, X4 bytes
 	static const uint32_t MAX_ISS66_PAGES_8MBIT = 512; // sram pages to write
