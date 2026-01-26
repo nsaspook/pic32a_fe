@@ -234,9 +234,9 @@ enum iss_chip_type ISS_read_id(void)
 	while (!TimerDone(TMR_TEST)) {
 	};
 	SRAM_CS_Set();
-	if ((iss_read_id_buffer[4] == 0x9D) && (iss_read_id_buffer[5] == 0x5D)) {
+	if ((iss_read_id_buffer[4] == 0x9D)) {
 		switch (iss_read_id_buffer[6]&0xF0) {
-		case 0x99:
+		case 0x00:
 			iss_chip = ISS_ISS_8Mb;
 			break;
 		case 0x20:
