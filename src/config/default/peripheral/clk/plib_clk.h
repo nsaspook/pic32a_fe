@@ -96,7 +96,7 @@ inline static uint32_t CLOCK_GeneratorFrequencyGet(CLOCK_GENERATOR generator)
                 genFrequency = 8000000UL;
                 break;
         case CLOCK_GENERATOR_9:
-                genFrequency = 140507276UL;
+                genFrequency = 136075167UL;
                 break;
         case CLOCK_GENERATOR_10:
                 genFrequency = 396000000UL;

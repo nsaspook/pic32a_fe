@@ -23,9 +23,9 @@ build/default/production/_ext/1171490990/interrupts.o:  \
  ../src/config/default/peripheral/adc/plib_adc_common.h  \
  ../src/config/default/peripheral/tmr/plib_tmr1.h  \
  ../src/config/default/peripheral/tmr/plib_tmr_common.h  \
+ ../src/config/default/peripheral/spi/spi_host/plib_spi2_host.h  \
  ../src/config/default/peripheral/opa/plib_opa2.h  \
  ../src/config/default/peripheral/opa/plib_opa_common.h  \
- ../src/config/default/peripheral/spi/spi_host/plib_spi2_host.h  \
  ../src/config/default/peripheral/spi/spi_host/plib_spi1_host.h  \
  ../src/config/default/peripheral/ccp/plib_sccp2.h  \
  ../src/config/default/peripheral/ccp/plib_ccp_common.h  \

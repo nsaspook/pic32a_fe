@@ -14625,6 +14625,8 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/sn65c1168e"&gt; Datasheet &lt;/a&g
 </class>
 <class number="1" name="current" width="0.2032" drill="0">
 </class>
+<class number="2" name="high_current" width="0.3048" drill="0">
+</class>
 </classes>
 <parts>
 <part name="U1" library="pic32A" deviceset="PIC32AK1216GC41064-E/PT" device=""/>
@@ -16707,7 +16709,7 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/sn65c1168e"&gt; Datasheet &lt;/a&g
 <pinref part="TEST_P0" gate="G$1" pin="TP"/>
 </segment>
 </net>
-<net name="VIN_PWR" class="1">
+<net name="VIN_PWR" class="2">
 <segment>
 <pinref part="VIN_5+" gate="-2" pin="S"/>
 <wire x1="66.04" y1="-86.36" x2="73.66" y2="-86.36" width="0.1524" layer="91"/>

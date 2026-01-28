@@ -36,12 +36,12 @@ extern "C" {
 #define NUM_ADC	2
 #define ADC1_D	0
 #define ADC2_D	1
-#define ADC_SAMC	7
+#define ADC_SAMC	1
 
-#define ADC1_SCALE	0.000403900f
-#define ADC2_SCALE	0.000402000f
+#define ADC1_SCALE	0.000418000f
+#define ADC2_SCALE	0.000412000f
 
-#define DAC1_CAL	1256
+#define DAC1_CAL	1275
 
 #define DIS_TICKS	100
 #define IMU_TICKS	1

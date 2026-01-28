@@ -58,7 +58,7 @@
 /**
 * @brief  This macro returns SPI clock frequency 
 */
-#define SPI1_FrequencyGet()    (uint32_t)(140507276UL)
+#define SPI1_FrequencyGet()    (uint32_t)(136075167UL)
 
 /****************************** SPI1 Interface *********************************/
 

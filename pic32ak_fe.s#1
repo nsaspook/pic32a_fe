@@ -17604,6 +17604,10 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <part name="VSS53" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
 <part name="D1" library="diode" library_urn="urn:adsk.eagle:library:210" deviceset="DIODE-" device="SMB" package3d_urn="urn:adsk.eagle:package:43404/2" value="5.6V"/>
 <part name="VSS54" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
+<part name="C33" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uf"/>
+<part name="C34" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uf"/>
+<part name="VSS55" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
+<part name="VSS56" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VSS" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -18292,6 +18296,20 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 </instance>
 <instance part="VSS54" gate="G$1" x="106.68" y="-81.28" smashed="yes">
 <attribute name="VALUE" x="104.14" y="-81.28" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="C33" gate="G$1" x="363.22" y="35.56" smashed="yes" rot="MR0">
+<attribute name="NAME" x="362.204" y="36.195" size="1.778" layer="95" rot="MR0"/>
+<attribute name="VALUE" x="362.204" y="31.369" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="C34" gate="G$1" x="363.22" y="20.32" smashed="yes" rot="MR0">
+<attribute name="NAME" x="362.204" y="20.955" size="1.778" layer="95" rot="MR0"/>
+<attribute name="VALUE" x="362.204" y="16.129" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="VSS55" gate="G$1" x="363.22" y="27.94" smashed="yes">
+<attribute name="VALUE" x="365.76" y="25.4" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="VSS56" gate="G$1" x="363.22" y="12.7" smashed="yes">
+<attribute name="VALUE" x="365.76" y="10.16" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -19027,6 +19045,16 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <pinref part="D1" gate="G$1" pin="A"/>
 <pinref part="VSS54" gate="G$1" pin="VSS"/>
 <junction x="106.68" y="-78.74"/>
+</segment>
+<segment>
+<pinref part="C33" gate="G$1" pin="2"/>
+<pinref part="VSS55" gate="G$1" pin="VSS"/>
+<junction x="363.22" y="30.48"/>
+</segment>
+<segment>
+<pinref part="C34" gate="G$1" pin="2"/>
+<pinref part="VSS56" gate="G$1" pin="VSS"/>
+<junction x="363.22" y="15.24"/>
 </segment>
 </net>
 <net name="SDI1" class="0">
@@ -20048,6 +20076,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <junction x="355.6" y="38.1"/>
 <junction x="363.22" y="38.1"/>
 <label x="365.76" y="38.1" size="1.778" layer="95"/>
+<pinref part="C33" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <wire x1="342.9" y1="2.54" x2="350.52" y2="2.54" width="0.1524" layer="91"/>
@@ -20071,6 +20100,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <junction x="355.6" y="22.86"/>
 <junction x="363.22" y="22.86"/>
 <label x="365.76" y="22.86" size="1.778" layer="95"/>
+<pinref part="C34" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <wire x1="358.14" y1="2.54" x2="365.76" y2="2.54" width="0.1524" layer="91"/>

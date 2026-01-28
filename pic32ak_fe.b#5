@@ -2396,6 +2396,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </class>
 <class number="1" name="current" width="0.2032" drill="0">
 </class>
+<class number="2" name="high_current" width="0.3048" drill="0">
+</class>
 </classes>
 <designrules name="default *">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
@@ -4469,7 +4471,7 @@ design rules under a new name.</description>
 <wire x1="52.8828" y1="27.2034" x2="53.34" y2="27.6606" width="0.1524" layer="1"/>
 <wire x1="52.8828" y1="27.2034" x2="53.34" y2="26.67" width="0.1524" layer="1"/>
 </signal>
-<signal name="VIN_PWR" class="1">
+<signal name="VIN_PWR" class="2">
 <contactref element="VIN_5+" pad="2"/>
 <contactref element="FUSE" pad="2"/>
 <contactref element="TP8" pad="TP"/>
