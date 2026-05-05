@@ -1,5 +1,5 @@
 /*
- * PIC32A analog sensor demo design
+ * PIC32AK analog sensor demo design
  * testing code to design a PCB from
  */
 
